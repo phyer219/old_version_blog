@@ -151,7 +151,7 @@ $g\delta^3(\vec{r})$ 不能重复出低能散射的性质.
 
 *** 李黄杨 Pseudopotential
 
-李黄杨 Pseudopotential 将 $g \to g\frac{\partial}{\partial r}r$ ,式子变为
+李黄杨 Pseudopotential 将 $g\delta^3 (\vec{r}) \to g \delta^3 (\vec{r})\frac{\partial}{\partial r}r$ ,式子变为
 \begin{align}
     \frac{\hbar^2}{2\mu}\cdot 4 \pi \cdot \sin \delta_k + g k\cos \delta_k = 0
 \end{align}

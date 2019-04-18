@@ -7,7 +7,20 @@
 
 * 基本命令
 
+** 本地
 
+初始化 repository
+#+BEGIN_SRC shell
+git init
+#+END_SRC
+添加变动到 stage
+#+BEGIN_SRC shell
+git add <filename>
+#+END_SRC
+提交变动
+#+BEGIN_SRC shell
+git commit -m "some comment ..."
+#+END_SRC
 
 * 实践一: 博客备份
 
@@ -51,7 +64,15 @@ git remote add origin git@github.com:phyer219/phyer219.github.io.git
 #+BEGIN_SRC shell
 git push origin backup
 #+END_SRC
-备份完成
+备份完成!
+
+以后每次备份都直接
+#+BEGIN_SRC shell
+git add .
+git commit -m "new blog ..."
+git push origin backup
+#+END_SRC
+即可完成备份!
 
 ** 恢复
 
@@ -68,3 +89,12 @@ npm install
 #+BEGIN_SRC shell
 hexo s
 #+END_SRC
+以后每次从 back up 中更新直接
+#+BEGIN_SRC shell
+git pull
+#+END_SRC
+即可!
+
+* Reference
+
+[[https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000]]
