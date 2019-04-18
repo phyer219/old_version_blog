@@ -1,0 +1,108 @@
+#+TITLE: Hello org-mode
+#+DATE: <2018-10-18>
+#+CATEGORIES: 软件使用
+#+TAGS: emacs, org-mode
+#+HTML: <!-- toc -->
+#+HTML: <!-- more -->
+* 符号说明
+- M: Mate 键
+- S: Shift 键
+* 视图优化
+- 使列表有缩进: =M-x org-indent-mode=
+
+
+* 插入代码
+** 行间代码
+在空白行输入
+#+BEGIN_SRC org-mode
+< s TAB
+#+END_SRC
+或者
+#+BEGIN_SRC org-mode
+< e TAB
+#+END_SRC
+** 行内代码
+将代码夹在两个 "=" 之间
+* $\LaTeX$ 公式
+** cdlatex 插件以简化输入
+插入 "'" 或者 "`" , 可以先按 =C-q= 之后再输入
+** 特殊的行内公式语法
+只有在下列情况下,美元符号 "$" 才被认为是行内公式的标志:
+- 是封闭的. 也就是开关的结尾各有一个美元符号.
+- 行内公式不能出现两个以上的断行.
+- 行内公式的美元符号要和正文之间有空格, 或者是英文标点.
+
+
+
+* 链接
+
+都采用两个方括号. 对于 Hexo, 只有放在与文章文件名同名的文件夹下才可以正常访问.
+
+** 网页链接示例
+#+BEGIN_SRC shell
+[[https://phyer219.github.io/]]
+#+END_SRC
+效果为
+
+https://phyer219.github.io/
+
+** 图片示例
+
+#+BEGIN_SRC shell
+[[file:./2018-10-18-软件使用-Hello org-mode/cpho.jpeg]]
+#+END_SRC
+效果为
+
+[[file:./2018-10-18-软件使用-Hello org-mode/cpho.jpeg]]
+
+** 文件示例
+
+*** pdf文件
+
+#+BEGIN_SRC shell
+[[file:./2018-10-18-软件使用-Hello org-mode/Friedel Oscillations1.pdf]]
+#+END_SRC
+效果为
+
+[[file:./2018-10-18-软件使用-Hello org-mode/Friedel Oscillations1.pdf]]
+
+*** python程序
+
+#+BEGIN_SRC shell
+[[file:./2018-10-18-软件使用-Hello org-mode/plot.py]]
+#+END_SRC
+效果为
+
+[[file:./2018-10-18-软件使用-Hello org-mode/plot.py]]
+
+* 表格
+
+- 将内容移到下一行: M-down
+- 在光标上面插入一行: M-S-up
+
+* 内容示例
+** python 代码块示例
+#+BEGIN_SRC python :results output
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(-2,2,1000)
+f = np.e**(-(1/(1-x**2)))
+y = np.piecewise(x,[x<=-1,x>-1],[0,1])*np.piecewise(x,[x<=1,x>1],[1,0])*f
+plt.plot(x,y)
+plt.show()
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC python :results output
+import matplotlib.pyplot as plt
+import numpy as np
+
+c = 2
+d = 3
+x = np.linspace(c-1,d+1,1000)
+f = np.e**(-((1/(x-c))+(1/(d-x))))
+y = np.piecewise(x,[x<=c,x>c],[0,1])*np.piecewise(x,[x<=d,x>d],[1,0])*f
+plt.plot(x,y)
+plt.show()
+#+END_SRC
