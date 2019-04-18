@@ -1,0 +1,70 @@
+#+TITLE: Git 使用备忘
+#+DATE: <2019-04-18>
+#+CATEGORIES: 软件使用
+#+TAGS: hexo, git
+#+HTML: <!-- toc -->
+#+HTML: <!-- more -->
+
+* 基本命令
+
+
+
+* 实践一: 博客备份
+
+** 本地操作
+
+进入到博客的根目录, 一定要记得先删除主题文件夹下的 .git/ 文件夹, 不然就会产生 submodules ,
+从而导致无法 commit 主题. 比如要备件 next 主题
+#+BEGIN_SRC shell
+rm -r themes/next/.git/
+#+END_SRC
+这时就可以初始化 git了
+#+BEGIN_SRC shell
+git init
+#+END_SRC
+然后添加所有的文件到 stage
+#+BEGIN_SRC shell
+git add .
+#+END_SRC
+检察有没有问题
+#+BEGIN_SRC shell
+git status
+#+END_SRC
+结果一片绿就没有问题了!
+
+接下来提交备份
+#+BEGIN_SRC shell
+git commit -m "first backup"
+#+END_SRC
+想备份到和 githubpages 一个 repository , 所以要另外建一个分支, 名为 backup
+#+BEGIN_SRC shell
+git checkout -b backup
+#+END_SRC
+
+** 备份到 github
+
+与 github 关联
+#+BEGIN_SRC shell
+git remote add origin git@github.com:phyer219/phyer219.github.io.git
+#+END_SRC
+将本地的 backup 分支推到 github
+#+BEGIN_SRC shell
+git push origin backup
+#+END_SRC
+备份完成
+
+** 恢复
+
+备份好以后, 如果在另一台设备上(已经安装好 hexo)恢复, 首先到一个要恢复的文件夹, 然后
+clone 下来 backup 分支
+#+BEGIN_SRC shell
+git clone -b backup git@github.com:phyer219/phyer219.github.io.git
+#+END_SRC
+执行
+#+BEGIN_SRC shell
+npm install
+#+END_SRC
+然后本地测试是否备份成功
+#+BEGIN_SRC shell
+hexo s
+#+END_SRC
