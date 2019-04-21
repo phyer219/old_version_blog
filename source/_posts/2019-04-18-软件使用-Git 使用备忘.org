@@ -9,6 +9,10 @@
 
 ** 本地
 
+*** 必备操作
+
+**** 基本
+
 初始化 repository
 #+BEGIN_SRC shell
 git init
@@ -20,6 +24,133 @@ git add <filename>
 提交变动
 #+BEGIN_SRC shell
 git commit -m "some comment ..."
+#+END_SRC
+
+**** 分支
+
+查看分支
+#+BEGIN_SRC shell
+git branch
+#+END_SRC
+创建分支
+#+BEGIN_SRC shell
+git branch <name>
+#+END_SRC
+切换分支
+#+BEGIN_SRC shell
+git checkout <name>
+#+END_SRC
+创建+切换分支
+#+BEGIN_SRC shell
+git checkout -b <name>
+#+END_SRC
+合并某分支到当前分支
+#+BEGIN_SRC shell
+git merge <name>
+#+END_SRC
+删除分支
+#+BEGIN_SRC shell
+git branch -d <name>
+#+END_SRC
+
+
+*** 辅助操作
+
+查看当前仓库的状态
+#+BEGIN_SRC shell
+git status
+#+END_SRC
+查看文件的不同
+#+BEGIN_SRC 
+git diff <filename>
+#+END_SRC
+回到哪个版本
+#+BEGIN_SRC shell
+git reset --hard commit_id
+#+END_SRC
+查看提交历史(图形化), 以便确定退回到哪个版本
+#+BEGIN_SRC shell
+git log --graph
+#+END_SRC
+重返未来
+#+BEGIN_SRC shell
+git reflog
+#+END_SRC
+把文件在工作区的修改全部撤销
+#+BEGIN_SRC shell
+git checkout -- <filename>
+#+END_SRC
+git reset HEAD <filename>
+删除
+#+BEGIN_SRC shell
+git rm
+#+END_SRC
+
+*** 高级操作
+
+工作现场
+#+BEGIN_SRC shell
+git stash
+#+END_SRC
+#+BEGIN_SRC shell
+git stash pop
+#+END_SRC
+分叉的历史整理成直线
+#+BEGIN_SRC shell
+git rebase
+#+END_SRC
+
+*** 标签操作
+
+**** 基本操作
+
+新建一个标签, 默认为 <HEAD> , 也可以指定一个 commit ID
+#+BEGIN_SRC shell
+git tag <tagename>
+#+END_SRC
+tag 时指定标签名, 指定描述
+#+BEGIN_SRC shell
+git tag -a <tagname> -m "describ ..."
+#+END_SRC
+查看所有标签
+#+BEGIN_SRC shell
+git tag
+#+END_SRC
+
+**** 高级操作
+
+推送一个本地标签
+#+BEGIN_SRC shell
+git push origin <tagname>
+#+END_SRC
+推送全部未推送过的本地标签
+#+BEGIN_SRC shell
+git push origin --tags
+#+END_SRC
+删除一个本地标签
+#+BEGIN_SRC shell
+git tag -d <tagname>
+#+END_SRC
+删除一个远程标签
+#+BEGIN_SRC shell
+git push origin :refs/tags/<tagname>
+#+END_SRC
+
+** 远程操作
+
+关联一个远程库
+#+BEGIN_SRC shell
+git remote add origin git$server-name:path/repo-name.git
+#+END_SRC
+推送 (我们第一次推送master分支时，加上了-u参数，Git不但会把本地的
+master分支内容推送的远程新的 master 分支，还会把本地的 master 分支和远
+程的 master 分支关联起来，在以后的推送或者拉取时就可以简化命令)
+#+BEGIN_SRC shell
+git push -u origin master
+#+END_SRC
+克隆
+#+BEGIN_SRC shell
+git clone
 #+END_SRC
 
 * 实践一: 博客备份
