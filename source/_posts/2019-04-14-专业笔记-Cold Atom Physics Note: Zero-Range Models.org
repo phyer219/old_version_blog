@@ -449,7 +449,7 @@ $E_n = E_i$ 的 T-matrix 称为是 on-shell 的, 因为如果是在 $\vec{k}$ �
 \end{align}
 如果把 $U$ 换成是 $U_D$ , 结果是一样的, 即
 \begin{align}
-  |\langle b | U_D(t,t_0) | a \rangle|^2 = \left| e^{\mathrm{i}(E_nt-E_it_0)}
+  |\langle b | U_D(t,t_0) | a \rangle|^2 = \left| e^{\mathrm{i}(E_bt-E_at_0)/\hbar}
   \langle b| U(t,t_0)|a\rangle \right|^2 =   |\langle b | U(t,t_0) | a \rangle|^2
 \end{align}
 所以 Transition Amplitude 的模方就是: 一个系统在 $t_0$ 时处于某个本征
@@ -496,15 +496,21 @@ $\mathrm{d}\Omega$ 内的粒子数, 除以, 单位时间单位面积
 **** Number of particles scattered into $\mathrm{d}\Omega$ /sec
 
 接下来考虑 $\vec{k}$ 空间的情形. 三维自由粒子的能量简并的, 同一能量本
-征值 $E_n$ 可以对应多个 $|\vec{k}\rangle$ . 所以从能量本征态 $|i\rangle$ 入射, 由
-能量本征态 $|n\rangle$ 出射的 Transition Rate 应该等于对所有能量 $E_n =
-\frac{\hbar^2k^2}{2m}$ 的 $|\vec{k}\rangle$ 求和. 即
+征值 $E_n$ 可以对应多个 $|\vec{k}\rangle$ .
+
+现在求从 $\vec{k}$ 到
+$\vec{k}'$ 的 Transition Rate , 其中 $\vec{k}'$ 的方向限制在了某个立体
+角 $\mathrm{d}\Omega$ 内, 即
 \begin{align*}
-  \omega(\vec{k}\to \vec{k}') =& \frac{2\pi}{\hbar}\sum_{\vec{k}'} |T_{E_{\vec{k}},E_{\vec{k}'}}|^2
+  \sum_{\vec{k}'\in \mathrm{d}\Omega}\omega(\vec{k}\to \vec{k}')
+   =& \frac{2\pi}{\hbar}\sum_{\vec{k}'\in \mathrm{d}\Omega}
+   |T_{E_{\vec{k}},E_{\vec{k}'}}|^2
   \delta(E_{\vec{k}'}-E_{\vec{k}}) \\
-  =&\frac{2\pi}{\hbar} |T(E)|^2 \sum_{\vec{k}'}\delta(E_{\vec{k}'}-E_{\vec{k}})
+  =&\frac{2\pi}{\hbar} |T(E)|^2 \sum_{\vec{k}'\in \mathrm{d}\Omega}
+   \delta(E_{\vec{k}'}-E_{\vec{k}})
 \end{align*}
-求和号中即为 Density of States .
+其中 $E = \frac{\hbar^2k^2}{2m} = \frac{\hbar^2k'}{2m}$ . 求和如果取遍
+所有的 $\vec{k}$ , 那么它就是 Density of States 了.
 
 自由粒子的态密度 $\sum_{\vec{k}'}\delta(E_{\vec{k}'}-E_{\vec{k}})$ 可以如下
 计算. 其物理意义为在 $\vec{k}$ 空间中能量为 $E + \mathrm{d} E$ 的态的
@@ -523,7 +529,7 @@ $\mathrm{d}\Omega$ 内的粒子数, 除以, 单位时间单位面积
 \begin{align*}
   &\mathrm{number \,\,of\, \,particles\, \,scattered\, \,into\,\, d}\Omega 
    /\mathrm{sec} \\
-  =& \omega(\vec{k}\to \vec{k}')\cdot \frac{\mathrm{d}\Omega}{4\pi} \\
+  =& \sum_{\vec{k}'\in \mathrm{d}\Omega}\omega(\vec{k}\to \vec{k}') \\
   =& \frac{2\pi}{\hbar} |T(E)|^2\cdot\left(\frac{L}{2\pi}\right)^3 \frac{mk}{\hbar^2}
    \cdot \mathrm{d}\Omega  
 \end{align*}
