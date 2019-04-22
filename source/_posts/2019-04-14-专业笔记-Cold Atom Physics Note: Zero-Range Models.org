@@ -659,6 +659,70 @@ $E_m$ 是 $H_0$ 对应本征态 $|m\rangle$ 的本征值, 所以
 上式已经将右边的 $|i\rangle$ 省略. 这样就得到了 T-matrix 的一个简单明了的迭
 代方程.
 
+** The Scattering Amplitude
+
+将　Lippmann-Schwinger Equation 投影到坐标表象. 考虑到 $H_0$ 在能量的
+本征表象对角, $V$ 是 local 的, 所以插入两组能量表象的完备基和一组坐标
+表象完备基, 就变成
+\begin{align}
+  \langle \vec{r}_1|\psi^+ \rangle = \langle \vec{r}_1 |i\rangle + 
+   \int \mathrm{d}^3 \vec{r}_2 \sum_{\vec{q}_1 \vec{q}_2}\langle \vec{r}_1 
+   |\vec{q}_1 \rangle \langle \vec{q}_1 |
+   \frac{1} {E_i-H_0 + \mathrm{i}0^+} |\vec{q}_2\rangle \langle \vec{q}_2 |
+   \vec{r}_2\rangle \langle \vec{r}_2 | V  |\psi^+ \rangle 
+\end{align}
+能量的本征波函数 $\langle \vec{r} |\vec{k}\rangle =
+\psi_{\vec{k}}(\vec{r}) = e^{\mathrm{i}\vec{k}\cdot \vec{r}}$ 代入上式
+得
+\begin{align}
+  \langle \vec{r}_1|\psi^+ \rangle = \langle \vec{r}_1 |i\rangle + 
+   \frac{2m}{\hbar^2} \int \mathrm{d}^3 \vec{r}_2 \sum_{\vec{q}}
+   \frac{e^{\mathrm{i}\vec{q}\cdot(\vec{r}_1-\vec{r}_2)}}{k^2-q_2 +
+   \mathrm{i} 0^+} \cdot \langle \vec{r}_2 | V  |\psi^+ \rangle
+\end{align}
+求和的部分即为 Green's Function , 可以由留数定理得出
+\begin{align}
+  G_+(\vec{r}_1, \vec{r}_2) = \sum_{\vec{q}}
+   \frac{e^{\mathrm{i}\vec{q}\cdot(\vec{r}_1-\vec{r}_2)}}{k^2-q_2 +
+   \mathrm{i} 0^+}
+  =   -\frac{1}{4\pi} \frac{e^{\mathrm{i}q r_{12}}}{r_{12}}
+\end{align}
+其中 $r_{12} = |\vec{r}_1- \vec{r}_2|$ . 代回前一式
+\begin{align}
+  \langle \vec{r}_1|\psi^+ \rangle = \langle \vec{r}_1 |i\rangle - 
+   \frac{1}{4\pi} \frac{2m}{\hbar^2} \int \mathrm{d}^3 \vec{r}_2 
+   \frac{e^{\mathrm{i}q r_{12}}}{r_{12}}
+   \cdot V(\vec{r}_2) \langle \vec{r}_2 |\psi^+ \rangle
+\end{align}
+在离散射中心很远的地方, 即 $|\vec{r}_1| \gg |\vec{r}_2|$ 时, 可做小量
+近似
+\begin{align}
+  r_{12} = \sqrt{ r_1^2 +r_2^2 -2 \vec{r}_1\cdot \vec{r}_2 }
+  \approx r_1 - \frac{\vec{r}_1 \cdot \vec{r}_2}{r_1}
+\end{align}
+所以
+\begin{align}
+  e^{\mathrm{i}q r_{12}} \sim e^{\mathrm{i}q r_1} \cdot
+  e^{-\mathrm{i}\vec{q}\cdot \vec{r}_2}
+\end{align}
+其中 $\vec{q}$ 的方向与 $\vec{r}_2$ 方向相同.
+
+所以
+\begin{align}
+  \langle \vec{r}_1|\psi^+ \rangle \sim & \langle \vec{r}_1 |i\rangle - 
+   \frac{1}{4\pi} \frac{2m}{\hbar^2} \int \mathrm{d}^3 \vec{r}_2 
+   \frac{e^{\mathrm{i}q r_{1}}}{r_{12}}\cdot e^{-\mathrm{i}\vec{q}\cdot \vec{r}_2}
+   \cdot V(\vec{r}_2) \langle \vec{r}_2 |\psi^+ \rangle \\
+   =& \frac{1}{L^{3/2}} \left[ 
+    e^{\mathrm{i} \vec{k} \vec{r}_1} +  \frac{e^{\mathrm{i}q r_{1}}}{r_{12}}
+   \cdot f(\vec{q},\vec{k}) \right]
+\end{align}
+其中
+\begin{align}
+  f(\vec{q}, \vec{k}) = -\frac{1}{4\pi}\frac{2m}{\hbar^2} L^3 \langle \vec{q}
+  | V | \psi ^+ \rangle
+\end{align}
+
 * Reference
 
 所有内容基于 Ran Qi 老师上课的笔记
@@ -672,6 +736,7 @@ J. J Sakurai, Jim Napolitano, Modern Quantum Mechanics 2ed:
 
 R. Shankar, Principles of Quantum Mechanics 2ed:
 - Chap 19.2 Recapitulation of One-Dimensional Scattering and Overview
+- Chap 19.4 Born Again (The Time-Independent Description)
 
 * 前置技能
 
