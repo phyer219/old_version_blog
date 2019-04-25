@@ -357,7 +357,7 @@ Pseudopotential 一节中就已经得出过结论, 一个简单的 $g\delta^3(\v
 \end{align}
 式其中代入了 $\mu =m/2$. 所以若令
 \begin{align}
-  \frac{m}{4\pi \hbar^2 a_s} = \frac{1}{g} = \frac{1}{v}\sum_{\vec{k}}
+  \frac{m}{4\pi \hbar^2 a_s} = \frac{1}{g} + \frac{1}{v}\sum_{\vec{k}}
   \frac{1}{\hbar^2k^2/m}
 \end{align}
 那么通过一个 $g\delta^3(\vec{r})$ 形式的势, 就能够给出低能 s 波散射的微分截
@@ -727,6 +727,18 @@ $E_m$ 是 $H_0$ 对应本征态 $|m\rangle$ 的本征值, 所以
 \begin{align}
   f(\vec{q}, \vec{k}) = -\frac{1}{4\pi}\frac{2m}{\hbar^2} L^3 \langle \vec{q}
   | V | \psi ^+ \rangle
+\end{align}
+而
+\begin{align*}
+  \frac{\mathrm{d}\sigma(\theta,\phi)}{\mathrm{d}\Omega} 
+  =& \left( \frac{mL^3}{2\pi \hbar^2} \right)^2 |T(E)|^2\\
+  =& \left( \frac{mL^3}{2\pi \hbar^2} \right)^2
+    |\langle n | V| \psi^+ \rangle|^2
+\end{align*}
+对比以上两式可得
+\begin{align}
+    \frac{\mathrm{d}\sigma}{\mathrm{d}\Omega} =
+    |f(\vec{q},\vec{k})|^2
 \end{align}
 
 * Reference
