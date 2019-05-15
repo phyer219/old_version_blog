@@ -1,0 +1,78 @@
+#+TITLE: PRA 99
+#+DATE: <2019-05-15>
+#+CATEGORIES: 专业笔记
+#+TAGS: 物理, Cold Atoms, 散射
+#+HTML: <!-- toc -->
+#+HTML: <!-- more -->
+* 
+
+effective field theory , Hubbard-Stratonovich transformation
+\begin{align}
+  e^{-k^2/\bar{\Lambda}_s^2}
+\end{align}
+??
+\begin{align}
+  T_s(k \hat{k},k \hat{k}', E = \frac{k^2}{M}) 
+  = - \frac{4 e^{-2k^2/ \bar{\Lambda}_s^2}}{V} D_s(\vec{q}=0 , E = \frac{k^2}{M})
+\end{align}
+$D_s$ 的系数是把相互作用摘出来?
+
+[[file:./2019-05-15-专业笔记-PAR99/fig1.png]]
+
+\begin{align}
+  D = D_0 + D_0 \Sigma D
+\end{align}
+
+\begin{align}
+  \frac{1}{D} = \frac{1}{D_0} - \Sigma
+\end{align}
+
+\begin{align}
+  \frac{1}{D_0(\vec{q},E=\frac{k^2}{M})}
+  = E - E_{\vec{q}} = \frac{k^2}{M} - \frac{1}{\bar{g}_s}
+\end{align}
+
+$\Sigma$ 先算零温, 再做解析延拓
+\begin{align}
+  \Sigma (\vec{q}, \mathrm{i}\Omega_m )
+  =& \frac{1}{\beta}\sum_{n,\vec{k}}\frac{1}{\mathrm{i}\omega_n - E_{\frac{\vec{q}}{2}-\vec{k}}}
+   \frac{1}{\mathrm{i}\Omega_m - \mathrm{i}\omega_n - E_{\frac{\vec{q}}{2}+\vec{k}}}\\
+  =& \sum_{\vec{k}}
+     \frac{1 +f(\frac{\vec{q}}{2} +\vec{k}) -f(\frac{\vec{q}}{2}-\vec{k})}
+     {\mathrm{i}\Omega_m - E_{\frac{\vec{q}}{2}-\vec{k}} - E_{\frac{\vec{q}}{2} +\vec{k}} } \\
+\end{align}
+解析延拓
+\begin{align}
+  \Sigma (\vec{q}, E)
+  =& \sum_{\vec{k}}
+     \frac{1 +f(\frac{\vec{q}}{2} +\vec{k}) -f(\frac{\vec{q}}{2}-\vec{k})}
+     {E - E_{\frac{\vec{q}}{2}-\vec{k}} - E_{\frac{\vec{q}}{2} +\vec{k}} +\mathrm{i}0^ +} \\
+  =& \sum_{\vec{k}}
+     \frac{1 +f(\frac{\vec{q}}{2} +\vec{k}) -f(\frac{\vec{q}}{2}-\vec{k})}
+     {E - \frac{q^2}{4M}-\frac{k^2}{M} + \mathrm{i}0^ +} \\
+\end{align}
+若令 $f(\frac{\vec{q}}{2} +\vec{k}) =f(\frac{\vec{q}}{2}-\vec{k})=0$ ,
+并且记 $\Omega = E -\frac{q^2}{4M}$ , 则
+\begin{align}
+  \Sigma (\vec{q}, \Omega) =& \sum_{\vec{k}}
+     \frac{1}{\Omega-\frac{k^2}{M} + \mathrm{i}0^ +} \\
+  =& -\mathrm{i}\frac{V}{4\pi}M\sqrt{M\Omega} -\sum_{\vec{k}}\frac{1}{k^2/M}
+\end{align}
+代回原式
+\begin{align}
+  \frac{1}{T_s(k \hat{k},k \hat{k}', E = \frac{k^2}{M})} 
+  = - \frac{V}{4 e^{-2k^2/ \bar{\Lambda}_s^2}}
+   \left[ \frac{k^2}{M} -\frac{1}{\bar{g}_s}
+   +\mathrm{i}\frac{V}{4\pi}M\sqrt{ME} +\sum_{\vec{k}}\frac{M}{k^2} \right]
+\end{align}
+$s$ -wave phase shift (zeroth order of $k$)
+\begin{align}
+  \frac{1}{T_s(k \hat{k},k \hat{k}', E = \frac{k^2}{M})}
+  =& -\frac{VM}{8\pi}\left(-\frac{1}{a_s} - \mathrm{i}k \right) \\
+  =& \frac{VM}{8\pi}\frac{1}{a_s} + \mathrm{i}k\frac{VM}{8\pi}
+\end{align}
+
+
+* Reference 
+
+PRA 99, 012701(2019)
