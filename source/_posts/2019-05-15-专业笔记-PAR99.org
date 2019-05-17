@@ -29,41 +29,50 @@ $D_s$ 的系数是把相互作用摘出来?
 
 \begin{align}
   \frac{1}{D_0(\vec{q},E=\frac{k^2}{M})}
-  = E - E_{\vec{q}} = \frac{k^2}{M} - \frac{1}{\bar{g}_s}
+  = \frac{1}{\bar{g}_s}
 \end{align}
 
 $\Sigma$ 先算零温, 再做解析延拓
 \begin{align}
   \Sigma (\vec{q}, \mathrm{i}\Omega_m )
   =& \frac{1}{\beta}\sum_{n,\vec{k}}\frac{1}{\mathrm{i}\omega_n - E_{\frac{\vec{q}}{2}-\vec{k}}}
-   \frac{1}{\mathrm{i}\Omega_m - \mathrm{i}\omega_n - E_{\frac{\vec{q}}{2}+\vec{k}}}\\
+   \frac{1}{\mathrm{i}\Omega_m - \mathrm{i}\omega_n - E_{\frac{\vec{q}}{2}+\vec{k}}}
+   \cdot \frac{e^{-8k^2 / \bar{\Lambda}_s^2}}{V}\\
   =& \sum_{\vec{k}}
      \frac{1 +f(\frac{\vec{q}}{2} +\vec{k}) -f(\frac{\vec{q}}{2}-\vec{k})}
-     {\mathrm{i}\Omega_m - E_{\frac{\vec{q}}{2}-\vec{k}} - E_{\frac{\vec{q}}{2} +\vec{k}} } \\
+     {\mathrm{i}\Omega_m - E_{\frac{\vec{q}}{2}-\vec{k}} - E_{\frac{\vec{q}}{2} +\vec{k}} }
+    \cdot \frac{e^{-8k^2 / \bar{\Lambda}_s^2}}{V} \\
 \end{align}
 解析延拓
 \begin{align}
   \Sigma (\vec{q}, E)
   =& \sum_{\vec{k}}
      \frac{1 +f(\frac{\vec{q}}{2} +\vec{k}) -f(\frac{\vec{q}}{2}-\vec{k})}
-     {E - E_{\frac{\vec{q}}{2}-\vec{k}} - E_{\frac{\vec{q}}{2} +\vec{k}} +\mathrm{i}0^ +} \\
+     {E - E_{\frac{\vec{q}}{2}-\vec{k}} - E_{\frac{\vec{q}}{2} +\vec{k}} +\mathrm{i}0^ +}
+    \cdot \frac{e^{-8k^2 / \bar{\Lambda}_s^2}}{V} \\
   =& \sum_{\vec{k}}
      \frac{1 +f(\frac{\vec{q}}{2} +\vec{k}) -f(\frac{\vec{q}}{2}-\vec{k})}
-     {E - \frac{q^2}{4M}-\frac{k^2}{M} + \mathrm{i}0^ +} \\
+     {E - \frac{q^2}{4M}-\frac{k^2}{M} + \mathrm{i}0^ +}
+    \cdot \frac{e^{-8k^2 / \bar{\Lambda}_s^2}}{V}\\
 \end{align}
-若令 $f(\frac{\vec{q}}{2} +\vec{k}) =f(\frac{\vec{q}}{2}-\vec{k})=0$ ,
+令 $f(\frac{\vec{q}}{2} +\vec{k}) =f(\frac{\vec{q}}{2}-\vec{k})=0$ ,
 并且记 $\Omega = E -\frac{q^2}{4M}$ , 则
 \begin{align}
   \Sigma (\vec{q}, \Omega) =& \sum_{\vec{k}}
-     \frac{1}{\Omega-\frac{k^2}{M} + \mathrm{i}0^ +} \\
-  =& -\mathrm{i}\frac{V}{4\pi}M\sqrt{M\Omega} -\sum_{\vec{k}}\frac{1}{k^2/M}
+     \frac{1}{\Omega-\frac{k^2}{M} + \mathrm{i}0^ +} 
+    \cdot \frac{e^{-8k^2 / \bar{\Lambda}_s^2}}{V}\\
+  =& \frac{1}{2\pi}\int_0^{\infty}\left[\mathcal{P}\frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
+     {\Omega-\frac{k^2}{M} } + k^2e^{-8k^2 / \bar{\Lambda}_s^2}\delta(\Omega -\frac{k^2}{M})
+     \right] \\
+  =& \frac{1}{2\pi}\int_0^{\infty}\mathcal{P}\frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
+     {\Omega-\frac{k^2}{M} } + \frac{1}{4\pi}M\sqrt{M\Omega}e^{-8M\Omega / \bar{\Lambda}_s^2}
 \end{align}
 代回原式
 \begin{align}
   \frac{1}{T_s(k \hat{k},k \hat{k}', E = \frac{k^2}{M})} 
   = - \frac{V}{4 e^{-2k^2/ \bar{\Lambda}_s^2}}
-   \left[ \frac{k^2}{M} -\frac{1}{\bar{g}_s}
-   +\mathrm{i}\frac{V}{4\pi}M\sqrt{ME} +\sum_{\vec{k}}\frac{M}{k^2} \right]
+   \left[\frac{1}{\bar{g}_s}
+   + \right]
 \end{align}
 $s$ -wave phase shift (zeroth order of $k$)
 \begin{align}
@@ -72,6 +81,10 @@ $s$ -wave phase shift (zeroth order of $k$)
   =& \frac{VM}{8\pi}\frac{1}{a_s} + \mathrm{i}k\frac{VM}{8\pi}
 \end{align}
 
+
+[[file:./2019-05-15-专业笔记-PAR99/int.png]]
+
+[[file:./2019-05-15-专业笔记-PAR99/erfc.png]]
 
 * Reference 
 
