@@ -4,7 +4,7 @@
 #+TAGS: 物理, Cold Atoms, 散射
 #+HTML: <!-- toc -->
 #+HTML: <!-- more -->
-* 
+* s-wave T matrix
 
 effective field theory , Hubbard-Stratonovich transformation
 \begin{align}
@@ -15,7 +15,6 @@ effective field theory , Hubbard-Stratonovich transformation
   T_s(k \hat{k},k \hat{k}', E = \frac{k^2}{M}) 
   = - \frac{4 e^{-2k^2/ \bar{\Lambda}_s^2}}{V} D_s(\vec{q}=0 , E = \frac{k^2}{M})
 \end{align}
-$D_s$ 的系数是把相互作用摘出来?
 
 [[file:./2019-05-15-专业笔记-PAR99/fig1.png]]
 
@@ -61,18 +60,29 @@ $\Sigma$ 先算零温, 再做解析延拓
   \Sigma (\vec{q}, \Omega) =& \sum_{\vec{k}}
      \frac{1}{\Omega-\frac{k^2}{M} + \mathrm{i}0^ +} 
     \cdot \frac{e^{-8k^2 / \bar{\Lambda}_s^2}}{V}\\
-  =& \frac{1}{2\pi}\int_0^{\infty}\left[\mathcal{P}\frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
-     {\Omega-\frac{k^2}{M} } + k^2e^{-8k^2 / \bar{\Lambda}_s^2}\delta(\Omega -\frac{k^2}{M})
-     \right] \\
-  =& \frac{1}{2\pi}\int_0^{\infty}\mathcal{P}\frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
-     {\Omega-\frac{k^2}{M} } + \frac{1}{4\pi}M\sqrt{M\Omega}e^{-8M\Omega / \bar{\Lambda}_s^2}
+  =& \frac{1}{2\pi^2}\int_0^{\infty}\left[\mathcal{P}\frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
+     {\Omega-\frac{k^2}{M} } -\mathrm{i}\pi k^2e^{-8k^2 / \bar{\Lambda}_s^2}\delta(\Omega -\frac{k^2}{M})
+     \right]\mathrm{d}k \\
+  =& \frac{1}{2\pi^2}\int_0^{\infty}\mathcal{P}\frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
+     {\Omega-\frac{k^2}{M} } \mathrm{d}k -\mathrm{i} \frac{1}{4\pi}M\sqrt{M\Omega}e^{-8M\Omega / \bar{\Lambda}_s^2}
+\end{align}
+其中
+\begin{align}
+  \frac{1}{2\pi^2}\int_0^{\infty}\mathcal{P}\frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
+     {\Omega-\frac{k^2}{M} } \mathrm{d}k
+  = -\frac{M \bar{\Lambda}_s}{8\pi\sqrt{2\pi}} +\frac{M\sqrt{-M\Omega}}{4\pi}
+    e^{-M\Omega \frac{8}{ \bar{\Lambda}_s^2}}
+    \mathrm{Erfc}\left(\frac{\sqrt{-8M\Omega}}{\bar{\Lambda}_s^2}\right)
 \end{align}
 代回原式
 \begin{align}
-  \frac{1}{T_s(k \hat{k},k \hat{k}', E = \frac{k^2}{M})} 
-  = - \frac{V}{4 e^{-2k^2/ \bar{\Lambda}_s^2}}
+  &\frac{1}{T_s(k \hat{k},k \hat{k}', E = \frac{k^2}{M})} \\
+  =& - \frac{V}{4 e^{-2k^2/ \bar{\Lambda}_s^2}}
    \left[\frac{1}{\bar{g}_s}
-   + \right]
+    +\frac{M \bar{\Lambda}_s}{8\pi\sqrt{2\pi}} -\frac{M\sqrt{-M\Omega}}{4\pi}
+    e^{-M\Omega \frac{8}{ \bar{\Lambda}_s^2}}
+    \mathrm{Erfc}\left(\frac{\sqrt{-8M\Omega}}{\bar{\Lambda}_s^2}\right) 
+   + \frac{\mathrm{i}}{4\pi}M\sqrt{M\Omega}e^{-8M\Omega / \bar{\Lambda}_s^2}\right]
 \end{align}
 $s$ -wave phase shift (zeroth order of $k$)
 \begin{align}
@@ -81,10 +91,96 @@ $s$ -wave phase shift (zeroth order of $k$)
   =& \frac{VM}{8\pi}\frac{1}{a_s} + \mathrm{i}k\frac{VM}{8\pi}
 \end{align}
 
+* Supplementary 
+
+推导下面的积分 $\Omega < 0$
+
+\begin{align}
+  \frac{1}{2\pi^2}\int_0^{\infty}\frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
+     {\Omega-\frac{k^2}{M} } \mathrm{d}k
+  = -\frac{M \bar{\Lambda}_s}{8\pi\sqrt{2\pi}} +\frac{M\sqrt{-M\Omega}}{4\pi}
+    e^{-M\Omega \frac{8}{ \bar{\Lambda}_s^2}}
+    \mathrm{Erfc}\left(\frac{\sqrt{-8M\Omega}}{\bar{\Lambda}_s^2}\right)
+\end{align}
+
+** 去掉分子
+
+利用
+\begin{align}
+  \frac{ k^2 }
+     {\Omega-\frac{k^2}{M} } = -M(1-\frac{\Omega}{\Omega - \frac{k^2}{M}})
+\end{align}
+第一项高斯积分可以积出
+\begin{align}
+    &\frac{1}{2\pi^2}\int_0^{\infty}\mathcal{P}\frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
+     {\Omega-\frac{k^2}{M} } \mathrm{d}k \\
+    = & -\frac{M \bar{\Lambda}_s}{8\pi\sqrt{2\pi}} +\frac{M\Omega}{4\pi^2}
+     \int_{-\infty}^{ +\infty} \mathrm{d}k\cdot \frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
+     {\Omega-\frac{k^2}{M} }
+\end{align}
+
+** 第二项
+
+第二项利用
+\begin{align}
+  \frac{1}{\Omega - \frac{k^2}{M}}
+  = - \int_0^{\infty}e^{(\Omega - k^2/M)t}\mathrm{d}t
+\end{align}
+之后关于 $k$ 的积分是高斯积分, 可以积掉, 所以原积分第二项化为
+\begin{align}
+  -\frac{M\Omega}{4\pi^2}\int_0^{\infty} \mathrm{d}t\cdot
+  \frac{\sqrt{\pi}}{\sqrt{ \frac{8}{ \bar{\Lambda}_s^2}  +\frac{t}{M}}}e^{\Omega t}
+\end{align}
+
+** 化为 Error Function
+
+第二项做换元
+\begin{align}
+  u = \sqrt{-M\Omega} \sqrt{\frac{8}{ \bar{\Lambda}_s^2} +\frac{t}{M}}
+\end{align}
+
+第二项积分化为
+\begin{align}
+  \frac{M\sqrt{-M\Omega}}{2\pi\sqrt{\pi}} e^{-M\Omega \frac{8}{\bar{\Lambda}_s^2}}
+   \int_{\sqrt{-\frac{8M\Omega}{\bar{\Lambda}_s^2} }}^{\infty} e^{-t^2}\cdot\mathrm{d}t
+\end{align}
+
+** Error Function
+
+利用 Error Function 的定义, 原积分化为
+
+\begin{align}
+  \frac{1}{2\pi^2}\int_0^{\infty}\frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
+     {\Omega-\frac{k^2}{M} } \mathrm{d}k
+  = -\frac{M \bar{\Lambda}_s}{8\pi\sqrt{2\pi}} +\frac{M\sqrt{-M\Omega}}{4\pi}
+    e^{-M\Omega \frac{8}{ \bar{\Lambda}_s^2}}
+    \mathrm{Erfc}\left(\frac{\sqrt{-8M\Omega}}{\bar{\Lambda}_s^2}\right)
+\end{align}
+其中
+\begin{align}
+  \mathrm{Erfc}(x) = 1 - \mathrm{Erf}(x) = \frac{2}{\sqrt{\pi}}
+  \int_x^{\infty} e^{-t^2}\mathrm{d}t
+\end{align}
+
+** 与 Mathematica 的结果一致
 
 [[file:./2019-05-15-专业笔记-PAR99/int.png]]
+其中
+\begin{align}
+  \mathrm{Erfc}(x) = 1 - \mathrm{Erf}(x) = \frac{2}{\sqrt{\pi}}
+  \int_x^{\infty} e^{-t^2}\mathrm{d}t
+\end{align}
+\begin{align}
+  \mathrm{Erfi}(z) = -\mathrm{i}\cdot\mathrm{Erf}(\mathrm{i}z)
+\end{align}
 
-[[file:./2019-05-15-专业笔记-PAR99/erfc.png]]
+
+
+* Acknowledge 
+
+StackExchange:
+
+[[https://math.stackexchange.com/questions/3231991/an-integration-about-error-function]]
 
 * Reference 
 
