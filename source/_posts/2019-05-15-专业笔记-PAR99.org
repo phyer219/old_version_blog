@@ -36,11 +36,11 @@ $\Sigma$ 先算零温, 再做解析延拓
   \Sigma (\vec{q}, \mathrm{i}\Omega_m )
   =& \frac{1}{\beta}\sum_{n,\vec{k}}\frac{1}{\mathrm{i}\omega_n - E_{\frac{\vec{q}}{2}-\vec{k}}}
    \frac{1}{\mathrm{i}\Omega_m - \mathrm{i}\omega_n - E_{\frac{\vec{q}}{2}+\vec{k}}}
-   \cdot \frac{e^{-8k^2 / \bar{\Lambda}_s^2}}{V}\\
+   \cdot \frac{e^{-2k^2 / \bar{\Lambda}_s^2}}{V}\\
   =& \sum_{\vec{k}}
      \frac{1 +f(\frac{\vec{q}}{2} +\vec{k}) -f(\frac{\vec{q}}{2}-\vec{k})}
      {\mathrm{i}\Omega_m - E_{\frac{\vec{q}}{2}-\vec{k}} - E_{\frac{\vec{q}}{2} +\vec{k}} }
-    \cdot \frac{e^{-8k^2 / \bar{\Lambda}_s^2}}{V} \\
+    \cdot \frac{e^{-2k^2 / \bar{\Lambda}_s^2}}{V} \\
 \end{align}
 解析延拓
 \begin{align}
@@ -48,42 +48,59 @@ $\Sigma$ 先算零温, 再做解析延拓
   =& \sum_{\vec{k}}
      \frac{1 +f(\frac{\vec{q}}{2} +\vec{k}) -f(\frac{\vec{q}}{2}-\vec{k})}
      {E - E_{\frac{\vec{q}}{2}-\vec{k}} - E_{\frac{\vec{q}}{2} +\vec{k}} +\mathrm{i}0^ +}
-    \cdot \frac{e^{-8k^2 / \bar{\Lambda}_s^2}}{V} \\
+    \cdot \frac{e^{-2k^2 / \bar{\Lambda}_s^2}}{V} \\
   =& \sum_{\vec{k}}
      \frac{1 +f(\frac{\vec{q}}{2} +\vec{k}) -f(\frac{\vec{q}}{2}-\vec{k})}
      {E - \frac{q^2}{4M}-\frac{k^2}{M} + \mathrm{i}0^ +}
-    \cdot \frac{e^{-8k^2 / \bar{\Lambda}_s^2}}{V}\\
+    \cdot \frac{e^{-2k^2 / \bar{\Lambda}_s^2}}{V}\\
 \end{align}
 令 $f(\frac{\vec{q}}{2} +\vec{k}) =f(\frac{\vec{q}}{2}-\vec{k})=0$ ,
 并且记 $\Omega = E -\frac{q^2}{4M}$ , 则
 \begin{align}
   \Sigma (\vec{q}, \Omega) =& \sum_{\vec{k}}
      \frac{1}{\Omega-\frac{k^2}{M} + \mathrm{i}0^ +} 
-    \cdot \frac{e^{-8k^2 / \bar{\Lambda}_s^2}}{V}\\
+    \cdot \frac{e^{-2k^2 / \bar{\Lambda}_s^2}}{V}\\
   =& \frac{1}{2\pi^2}\int_0^{\infty}\left[\mathcal{P}\frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
      {\Omega-\frac{k^2}{M} } -\mathrm{i}\pi k^2e^{-8k^2 / \bar{\Lambda}_s^2}\delta(\Omega -\frac{k^2}{M})
      \right]\mathrm{d}k \\
-  =& \frac{1}{2\pi^2}\int_0^{\infty}\mathcal{P}\frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
-     {\Omega-\frac{k^2}{M} } \mathrm{d}k -\mathrm{i} \frac{1}{4\pi}M\sqrt{M\Omega}e^{-8M\Omega / \bar{\Lambda}_s^2}
+  =& \frac{1}{2\pi^2}\int_0^{\infty}\mathcal{P}\frac{ k^2e^{-2k^2 / \bar{\Lambda}_s^2} }
+     {\Omega-\frac{k^2}{M} } \mathrm{d}k -\mathrm{i} \frac{1}{4\pi}M\sqrt{M\Omega}e^{-2M\Omega / \bar{\Lambda}_s^2}
 \end{align}
 其中
 \begin{align}
-  \frac{1}{2\pi^2}\int_0^{\infty}\mathcal{P}\frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
+  \frac{1}{2\pi^2}\int_0^{\infty}\mathcal{P}\frac{ k^2e^{-2k^2 / \bar{\Lambda}_s^2} }
      {\Omega-\frac{k^2}{M} } \mathrm{d}k
-  = -\frac{M \bar{\Lambda}_s}{8\pi\sqrt{2\pi}} +\frac{M\sqrt{-M\Omega}}{4\pi}
-    e^{-M\Omega \frac{8}{ \bar{\Lambda}_s^2}}
-    \mathrm{Erfc}\left(\frac{\sqrt{-8M\Omega}}{\bar{\Lambda}_s^2}\right)
+  = -\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}} +\frac{M\sqrt{M\Omega}}{4\pi}
+    e^{-M\Omega \frac{2}{ \bar{\Lambda}_s^2}}
+    \mathrm{Erfi}\left(\frac{\sqrt{2M\Omega}}{\bar{\Lambda}_s}\right)
 \end{align}
 代回原式
 \begin{align}
   &\frac{1}{T_s(k \hat{k},k \hat{k}', E = \frac{k^2}{M})} \\
   =& - \frac{V}{4 e^{-2k^2/ \bar{\Lambda}_s^2}}
    \left[\frac{1}{\bar{g}_s}
-    +\frac{M \bar{\Lambda}_s}{8\pi\sqrt{2\pi}} -\frac{M\sqrt{-M\Omega}}{4\pi}
-    e^{-M\Omega \frac{8}{ \bar{\Lambda}_s^2}}
-    \mathrm{Erfc}\left(\frac{\sqrt{-8M\Omega}}{\bar{\Lambda}_s^2}\right) 
-   + \frac{\mathrm{i}}{4\pi}M\sqrt{M\Omega}e^{-8M\Omega / \bar{\Lambda}_s^2}\right]
+    +\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}} -\frac{M\sqrt{M\Omega}}{4\pi}
+    e^{-M\Omega \frac{2}{ \bar{\Lambda}_s^2}}
+    \mathrm{Erfi}\left(\frac{\sqrt{2M\Omega}}{\bar{\Lambda}_s}\right) 
+   + \frac{\mathrm{i}}{4\pi}M\sqrt{M\Omega}e^{-2M\Omega / \bar{\Lambda}_s^2}\right]
 \end{align}
+令 $\vec{q}=0=$ , 则 $\Omega = E - 0 = \frac{k^2}{M}$ , 上式化为
+\begin{align}
+  &\frac{1}{T_s(k \hat{k},k \hat{k}', E = \frac{k^2}{M})} \\
+  =& - \frac{V}{4 e^{-2k^2/ \bar{\Lambda}_s^2}}
+   \left[\frac{1}{\bar{g}_s}
+    +\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}} -\frac{M\sqrt{M\Omega}}{4\pi}
+    e^{-k^2 \frac{2}{ \bar{\Lambda}_s^2}}
+    \mathrm{Erfi}\left(\frac{\sqrt{2M\Omega}}{\bar{\Lambda}_s}\right) 
+   + \frac{\mathrm{i}}{4\pi}M\sqrt{M\Omega}e^{-2Mk^2 / \bar{\Lambda}_s^2}\right] \\
+  =&- \frac{V}{4 e^{-2k^2/ \bar{\Lambda}_s^2}}
+   \cdot \left[ \frac{1}{\bar{g}_s}
+    +\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}}\right] +\frac{MVk}{16\pi}
+    \mathrm{Erfi}\left(\frac{\sqrt{2}k}{\bar{\Lambda}_s}\right) 
+   - \mathrm{i}k\frac{MV}{16\pi}
+\end{align}
+
+
 $s$ -wave phase shift (zeroth order of $k$)
 \begin{align}
   \frac{1}{T_s(k \hat{k},k \hat{k}', E = \frac{k^2}{M})}
@@ -91,16 +108,41 @@ $s$ -wave phase shift (zeroth order of $k$)
   =& \frac{VM}{8\pi}\frac{1}{a_s} + \mathrm{i}k\frac{VM}{8\pi}
 \end{align}
 
+对比以上两式, 虚部差一因子 $-2$ , 手动添上, 得到重整化关系
+\begin{align}
+  \frac{1}{\bar{g}_s}
+  =&\frac{Mk}{4\pi} \mathrm{Erfi}\left(
+   \frac{\sqrt{2}k}{\bar{\Lambda}_s}\right)e^{-\frac{2k^2}{\bar{\Lambda}_s^2}}
+  -\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}}
+  +\frac{M}{2\pi\cdot (2 a_s)}e^{-\frac{2k^2}{\bar{\Lambda}_s^2}}
+\end{align}
+将重整化关系代回 $D_s^{-1}$ 的表达式
+\begin{align}
+  &\frac{1}{D_s(\vec{q},E = \Omega +\frac{q^2}{4M})}\\
+  =&\frac{1}{\bar{g}_s}
+    +\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}} -\frac{M\sqrt{M\Omega}}{4\pi}
+    e^{-M\Omega \frac{2}{ \bar{\Lambda}_s^2}}
+    \mathrm{Erfi}\left(\frac{\sqrt{2M\Omega}}{\bar{\Lambda}_s}\right) 
+   + \frac{\mathrm{i}}{4\pi}M\sqrt{M\Omega}e^{-2M\Omega / \bar{\Lambda}_s^2} \\
+  =&\frac{Mk}{4\pi} \mathrm{Erfi}\left(
+   \frac{\sqrt{2}k}{\bar{\Lambda}_s}\right)e^{-\frac{2k^2}{\bar{\Lambda}_s^2}}
+  +\frac{M}{2\pi\cdot (2 a_s)}e^{-\frac{2k^2}{\bar{\Lambda}_s^2}}
+  -\frac{M\sqrt{M\Omega}}{4\pi}
+    e^{-M\Omega \frac{2}{ \bar{\Lambda}_s^2}}
+    \mathrm{Erfi}\left(\frac{\sqrt{2M\Omega}}{\bar{\Lambda}_s}\right) 
+   + \frac{\mathrm{i}}{4\pi}M\sqrt{M\Omega}e^{-2M\Omega / \bar{\Lambda}_s^2} \\
+\end{align}
+
 * Supplementary 
 
-推导下面的积分 $\Omega < 0$
+推导下面的积分 ( $\Omega < 0$ )
 
 \begin{align}
-  \frac{1}{2\pi^2}\int_0^{\infty}\frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
+  \frac{1}{2\pi^2}\int_0^{\infty}\frac{ k^2e^{-2k^2 / \bar{\Lambda}_s^2} }
      {\Omega-\frac{k^2}{M} } \mathrm{d}k
-  = -\frac{M \bar{\Lambda}_s}{8\pi\sqrt{2\pi}} +\frac{M\sqrt{-M\Omega}}{4\pi}
-    e^{-M\Omega \frac{8}{ \bar{\Lambda}_s^2}}
-    \mathrm{Erfc}\left(\frac{\sqrt{-8M\Omega}}{\bar{\Lambda}_s^2}\right)
+  = -\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}} +\frac{M\sqrt{-M\Omega}}{4\pi}
+    e^{-M\Omega \frac{2}{ \bar{\Lambda}_s^2}}
+    \mathrm{Erfc}\left(\frac{\sqrt{-2M\Omega}}{\bar{\Lambda}_s}\right)
 \end{align}
 
 ** 去掉分子
@@ -112,10 +154,10 @@ $s$ -wave phase shift (zeroth order of $k$)
 \end{align}
 第一项高斯积分可以积出
 \begin{align}
-    &\frac{1}{2\pi^2}\int_0^{\infty}\mathcal{P}\frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
+    &\frac{1}{2\pi^2}\int_0^{\infty}\mathcal{P}\frac{ k^2e^{-2k^2 / \bar{\Lambda}_s^2} }
      {\Omega-\frac{k^2}{M} } \mathrm{d}k \\
-    = & -\frac{M \bar{\Lambda}_s}{8\pi\sqrt{2\pi}} +\frac{M\Omega}{4\pi^2}
-     \int_{-\infty}^{ +\infty} \mathrm{d}k\cdot \frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
+    = & -\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}} +\frac{M\Omega}{4\pi^2}
+     \int_{-\infty}^{ +\infty} \mathrm{d}k\cdot \frac{ k^2e^{-2k^2 / \bar{\Lambda}_s^2} }
      {\Omega-\frac{k^2}{M} }
 \end{align}
 
@@ -129,20 +171,20 @@ $s$ -wave phase shift (zeroth order of $k$)
 之后关于 $k$ 的积分是高斯积分, 可以积掉, 所以原积分第二项化为
 \begin{align}
   -\frac{M\Omega}{4\pi^2}\int_0^{\infty} \mathrm{d}t\cdot
-  \frac{\sqrt{\pi}}{\sqrt{ \frac{8}{ \bar{\Lambda}_s^2}  +\frac{t}{M}}}e^{\Omega t}
+  \frac{\sqrt{\pi}}{\sqrt{ \frac{2}{ \bar{\Lambda}_s^2}  +\frac{t}{M}}}e^{\Omega t}
 \end{align}
 
 ** 化为 Error Function
 
 第二项做换元
 \begin{align}
-  u = \sqrt{-M\Omega} \sqrt{\frac{8}{ \bar{\Lambda}_s^2} +\frac{t}{M}}
+  u = \sqrt{-M\Omega} \sqrt{\frac{2}{ \bar{\Lambda}_s^2} +\frac{t}{M}}
 \end{align}
 
 第二项积分化为
 \begin{align}
-  \frac{M\sqrt{-M\Omega}}{2\pi\sqrt{\pi}} e^{-M\Omega \frac{8}{\bar{\Lambda}_s^2}}
-   \int_{\sqrt{-\frac{8M\Omega}{\bar{\Lambda}_s^2} }}^{\infty} e^{-t^2}\cdot\mathrm{d}t
+  \frac{M\sqrt{-M\Omega}}{2\pi\sqrt{\pi}} e^{-M\Omega \frac{2}{\bar{\Lambda}_s^2}}
+   \int_{\sqrt{-\frac{2M\Omega}{\bar{\Lambda}_s^2} }}^{\infty} e^{-t^2}\cdot\mathrm{d}t
 \end{align}
 
 ** Error Function
@@ -150,11 +192,11 @@ $s$ -wave phase shift (zeroth order of $k$)
 利用 Error Function 的定义, 原积分化为
 
 \begin{align}
-  \frac{1}{2\pi^2}\int_0^{\infty}\frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
+  \frac{1}{2\pi^2}\int_0^{\infty}\frac{ k^2e^{-2k^2 / \bar{\Lambda}_s^2} }
      {\Omega-\frac{k^2}{M} } \mathrm{d}k
-  = -\frac{M \bar{\Lambda}_s}{8\pi\sqrt{2\pi}} +\frac{M\sqrt{-M\Omega}}{4\pi}
-    e^{-M\Omega \frac{8}{ \bar{\Lambda}_s^2}}
-    \mathrm{Erfc}\left(\frac{\sqrt{-8M\Omega}}{\bar{\Lambda}_s^2}\right)
+  = -\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}} +\frac{M\sqrt{-M\Omega}}{4\pi}
+    e^{-M\Omega \frac{2}{ \bar{\Lambda}_s^2}}
+    \mathrm{Erfc}\left(\frac{\sqrt{-2M\Omega}}{\bar{\Lambda}_s^2}\right)
 \end{align}
 其中
 \begin{align}
