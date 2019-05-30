@@ -4,13 +4,29 @@
 #+TAGS: 物理, Cold Atoms, 散射
 #+HTML: <!-- toc -->
 #+HTML: <!-- more -->
+
+* Model
+
+Lagrangian
+\begin{align}
+  \mathcal{L} =&\sum_{\vec{k}}\psi_{\vec{k}}^{\dagger}
+       \left( \mathrm{i}\partial_t - \frac{k^2}{2M} \right)
+       \psi_{\vec{k}}
+           + \sum_{\vec{q}}\frac{\bar{\nu}}{\bar{g}_d^2}
+        d_{\vec{q}}^{\dagger}d_{\vec{q}}
+           + \sum_{\vec{q}}\frac{1}{\bar{g}_s}\phi_{\vec{q}}^{\dagger}
+        \phi_{\vec{q}} \\
+         & -\sum_{\vec{k},\vec{q}} \left[ \frac{\sqrt{2\pi}k^2Y_{20}(\hat{k})
+           e^{-k^2/ \bar{\Lambda}_d^2}}{\sqrt{V}} d^{\dagger}_{2\vec{q}}
+          \psi_{\vec{q}/2+ \vec{k}} \psi_{\vec{q}/2- \vec{k}} + \mathrm{H.c.}\right]\\
+        & - \sum_{\vec{k},\vec{q}}\left[  \frac{e^{-k^2/ \bar{\Lambda}_s^2}}{\sqrt{V}}
+          \phi^{\dagger}_{2\vec{q}} \psi_{\vec{q}/2 +\vec{k}}\psi_{\vec{q}/2-\vec{k}}
+           + \mathrm{H.c.} \right]
+\end{align} 
+
 * s-wave T matrix
 
-effective field theory , Hubbard-Stratonovich transformation
-\begin{align}
-  e^{-k^2/\bar{\Lambda}_s^2}
-\end{align}
-??
+首先计算最后一项的 s 波相互作用 T-matrix , T-matrix 与格林函数有如下联系
 \begin{align}
   T_s(k \hat{k},k \hat{k}', E = \frac{k^2}{M}) 
   = - \frac{4 e^{-2k^2/ \bar{\Lambda}_s^2}}{V} D_s(\vec{q}=0 , E = \frac{k^2}{M})
@@ -18,20 +34,18 @@ effective field theory , Hubbard-Stratonovich transformation
 
 [[file:./2019-05-15-专业笔记-PAR99/fig1.png]]
 
-\begin{align}
-  D = D_0 + D_0 \Sigma D
-\end{align}
-
+由上面的 Feynman 图对应的 Dyson 方程为 $D = D_0 + D_0 \Sigma D$ , 化
+简为
 \begin{align}
   \frac{1}{D} = \frac{1}{D_0} - \Sigma
 \end{align}
-
+其中 $D_0$ 是自由格林函数, 对于 s 波为
 \begin{align}
   \frac{1}{D_0(\vec{q},E=\frac{k^2}{M})}
   = \frac{1}{\bar{g}_s}
 \end{align}
 
-$\Sigma$ 先算零温, 再做解析延拓
+计算自能 $\Sigma$ . 先算用松原频率求和算非零温情况
 \begin{align}
   \Sigma (\vec{q}, \mathrm{i}\Omega_m )
   =& \frac{1}{\beta}\sum_{n,\vec{k}}\frac{1}{\mathrm{i}\omega_n - E_{\frac{\vec{q}}{2}-\vec{k}}}
@@ -41,67 +55,83 @@ $\Sigma$ 先算零温, 再做解析延拓
      \frac{1 +f(\frac{\vec{q}}{2} +\vec{k}) -f(\frac{\vec{q}}{2}-\vec{k})}
      {\mathrm{i}\Omega_m - E_{\frac{\vec{q}}{2}-\vec{k}} - E_{\frac{\vec{q}}{2} +\vec{k}} }
     \cdot \frac{e^{-2k^2 / \bar{\Lambda}_s^2}}{V} \\
+  =& \sum_{\vec{k}}
+     \frac{1}
+     {\mathrm{i}\Omega_m - E_{\frac{\vec{q}}{2}-\vec{k}} - E_{\frac{\vec{q}}{2} +\vec{k}} }
+    \cdot \frac{e^{-2k^2 / \bar{\Lambda}_s^2}}{V} \\
 \end{align}
-解析延拓
+上式最后一个等号取 令 $f(\frac{\vec{q}}{2} + \vec{k})
+=f(\frac{\vec{q}}{2}-\vec{k})=0$ .  
+
+做解析延拓 $\mathrm{i}\Omega_m\to
+E+\mathrm{i}0^+$ ,得到到零温自能
 \begin{align}
   \Sigma (\vec{q}, E)
   =& \sum_{\vec{k}}
-     \frac{1 +f(\frac{\vec{q}}{2} +\vec{k}) -f(\frac{\vec{q}}{2}-\vec{k})}
+     \frac{1}
      {E - E_{\frac{\vec{q}}{2}-\vec{k}} - E_{\frac{\vec{q}}{2} +\vec{k}} +\mathrm{i}0^ +}
     \cdot \frac{e^{-2k^2 / \bar{\Lambda}_s^2}}{V} \\
   =& \sum_{\vec{k}}
-     \frac{1 +f(\frac{\vec{q}}{2} +\vec{k}) -f(\frac{\vec{q}}{2}-\vec{k})}
+     \frac{1}
      {E - \frac{q^2}{4M}-\frac{k^2}{M} + \mathrm{i}0^ +}
     \cdot \frac{e^{-2k^2 / \bar{\Lambda}_s^2}}{V}\\
+  =& \sum_{\vec{k}}
+     \frac{1}
+     {\Omega-\frac{k^2}{M} + \mathrm{i}0^ +}
+    \cdot \frac{e^{-2k^2 / \bar{\Lambda}_s^2}}{V}
 \end{align}
-令 $f(\frac{\vec{q}}{2} +\vec{k}) =f(\frac{\vec{q}}{2}-\vec{k})=0$ ,
-并且记 $\Omega = E -\frac{q^2}{4M}$ , 则
+上式最后一个第二个等号取 $E_{\frac{\vec{q}}{2}\mp\vec{k}} =
+\frac{1}{2M}\left( \frac{\vec{q}}{2}\mp\vec{k} \right)^2$ .
+第三个等号记 $\Omega = E -\frac{q^2}{4M}$ .
+
+上式求和化积分, 乘上因子 $\frac{V}{(2\pi)^3}$ , 积分对角度积分为
+$4\pi$ , 只剩下对 $k$ 的积分
 \begin{align}
-  \Sigma (\vec{q}, \Omega) =& \sum_{\vec{k}}
-     \frac{1}{\Omega-\frac{k^2}{M} + \mathrm{i}0^ +} 
-    \cdot \frac{e^{-2k^2 / \bar{\Lambda}_s^2}}{V}\\
-  =& \frac{1}{2\pi^2}\int_0^{\infty}\left[\mathcal{P}\frac{ k^2e^{-8k^2 / \bar{\Lambda}_s^2} }
-     {\Omega-\frac{k^2}{M} } -\mathrm{i}\pi k^2e^{-8k^2 / \bar{\Lambda}_s^2}\delta(\Omega -\frac{k^2}{M})
+  \Sigma (\vec{q}, \Omega) 
+  =& \frac{1}{2\pi^2}\int_0^{\infty}\left[\mathcal{P}\frac{ k^2e^{-2k^2 / \bar{\Lambda}_s^2} }
+     {\Omega-\frac{k^2}{M} } - k^2e^{-2k^2 / \bar{\Lambda}_s^2}
+     \cdot \mathrm{i}\pi \delta(\Omega -\frac{k^2}{M})
      \right]\mathrm{d}k \\
-  =& \frac{1}{2\pi^2}\int_0^{\infty}\mathcal{P}\frac{ k^2e^{-2k^2 / \bar{\Lambda}_s^2} }
-     {\Omega-\frac{k^2}{M} } \mathrm{d}k -\mathrm{i} \frac{1}{4\pi}M\sqrt{M\Omega}e^{-2M\Omega / \bar{\Lambda}_s^2}
+  =& \left[\frac{1}{2\pi^2}\int_0^{\infty}\mathcal{P}\frac{ k^2e^{-2k^2 / \bar{\Lambda}_s^2} }
+     {\Omega-\frac{k^2}{M} } \mathrm{d}k\right] -\mathrm{i} \frac{M\sqrt{M\Omega}}{4\pi}e^{-2M\Omega / \bar{\Lambda}_s^2}
 \end{align}
 其中
 \begin{align}
   \frac{1}{2\pi^2}\int_0^{\infty}\mathcal{P}\frac{ k^2e^{-2k^2 / \bar{\Lambda}_s^2} }
      {\Omega-\frac{k^2}{M} } \mathrm{d}k
   = -\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}} +\frac{M\sqrt{M\Omega}}{4\pi}
-    e^{-M\Omega \frac{2}{ \bar{\Lambda}_s^2}}
+    e^{-2M\Omega / \bar{\Lambda}_s^2}
     \mathrm{Erfi}\left(\frac{\sqrt{2M\Omega}}{\bar{\Lambda}_s}\right)
 \end{align}
-代回原式
+
+[[file:./2019-05-15-专业笔记-PAR99/SelfEnergy.png]]
+
+将以上求得的自能 $\Sigma$ 代回到 T-matrix 的表达式
 \begin{align}
   &\frac{1}{T_s(k \hat{k},k \hat{k}', E = \frac{k^2}{M})} \\
   =& - \frac{V}{4 e^{-2k^2/ \bar{\Lambda}_s^2}}
    \left[\frac{1}{\bar{g}_s}
     +\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}} -\frac{M\sqrt{M\Omega}}{4\pi}
-    e^{-M\Omega \frac{2}{ \bar{\Lambda}_s^2}}
+    e^{-2M\Omega  / \bar{\Lambda}_s^2}
     \mathrm{Erfi}\left(\frac{\sqrt{2M\Omega}}{\bar{\Lambda}_s}\right) 
-   + \frac{\mathrm{i}}{4\pi}M\sqrt{M\Omega}e^{-2M\Omega / \bar{\Lambda}_s^2}\right]
+   + \mathrm{i}\frac{M\sqrt{M\Omega}}{4\pi}e^{-2M\Omega / \bar{\Lambda}_s^2}\right]
 \end{align}
-令 $\vec{q}=0=$ , 则 $\Omega = E - 0 = \frac{k^2}{M}$ , 上式化为
+令 $\vec{q}=0$ , 则 $\Omega = E - 0 = \frac{k^2}{M}$ , 上式化为
 \begin{align}
   &\frac{1}{T_s(k \hat{k},k \hat{k}', E = \frac{k^2}{M})} \\
   =& - \frac{V}{4 e^{-2k^2/ \bar{\Lambda}_s^2}}
    \left[\frac{1}{\bar{g}_s}
     +\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}} -\frac{M\sqrt{M\Omega}}{4\pi}
-    e^{-k^2 \frac{2}{ \bar{\Lambda}_s^2}}
+    e^{-2k^2 / \bar{\Lambda}_s^2}
     \mathrm{Erfi}\left(\frac{\sqrt{2M\Omega}}{\bar{\Lambda}_s}\right) 
-   + \frac{\mathrm{i}}{4\pi}M\sqrt{M\Omega}e^{-2Mk^2 / \bar{\Lambda}_s^2}\right] \\
+   + \mathrm{i}\frac{M\sqrt{M\Omega}}{4\pi}e^{-2Mk^2 / \bar{\Lambda}_s^2}\right] \\
   =&- \frac{V}{4 e^{-2k^2/ \bar{\Lambda}_s^2}}
    \cdot \left[ \frac{1}{\bar{g}_s}
     +\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}}\right] +\frac{MVk}{16\pi}
     \mathrm{Erfi}\left(\frac{\sqrt{2}k}{\bar{\Lambda}_s}\right) 
-   - \mathrm{i}k\frac{MV}{16\pi}
+   - \mathrm{i}\frac{MVk}{16\pi}
 \end{align}
-
-
-$s$ -wave phase shift (zeroth order of $k$)
+已知的 s -wave phase shift (取了 $k$ 的零阶近似) 为
 \begin{align}
   \frac{1}{T_s(k \hat{k},k \hat{k}', E = \frac{k^2}{M})}
   =& -\frac{VM}{8\pi}\left(-\frac{1}{a_s} - \mathrm{i}k \right) \\
@@ -116,21 +146,37 @@ $s$ -wave phase shift (zeroth order of $k$)
   -\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}}
   +\frac{M}{2\pi\cdot (2 a_s)}e^{-\frac{2k^2}{\bar{\Lambda}_s^2}}
 \end{align}
-将重整化关系代回 $D_s^{-1}$ 的表达式
+将重整化关系代回 $D_s^{-1}$ 的表达式得
 \begin{align}
   &\frac{1}{D_s(\vec{q},E = \Omega +\frac{q^2}{4M})}\\
   =&\frac{1}{\bar{g}_s}
     +\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}} -\frac{M\sqrt{M\Omega}}{4\pi}
-    e^{-M\Omega \frac{2}{ \bar{\Lambda}_s^2}}
+    e^{-2M\Omega /\bar{\Lambda}_s^2}
     \mathrm{Erfi}\left(\frac{\sqrt{2M\Omega}}{\bar{\Lambda}_s}\right) 
-   + \frac{\mathrm{i}}{4\pi}M\sqrt{M\Omega}e^{-2M\Omega / \bar{\Lambda}_s^2} \\
+   + \mathrm{i}\frac{M\sqrt{M\Omega}}{4\pi}e^{-2M\Omega / \bar{\Lambda}_s^2} \\
   =&\frac{Mk}{4\pi} \mathrm{Erfi}\left(
    \frac{\sqrt{2}k}{\bar{\Lambda}_s}\right)e^{-\frac{2k^2}{\bar{\Lambda}_s^2}}
-  +\frac{M}{2\pi\cdot (2 a_s)}e^{-\frac{2k^2}{\bar{\Lambda}_s^2}}
+  +\frac{M}{4\pi a_s}e^{-\frac{2k^2}{\bar{\Lambda}_s^2}}
   -\frac{M\sqrt{M\Omega}}{4\pi}
-    e^{-M\Omega \frac{2}{ \bar{\Lambda}_s^2}}
+    e^{-2M\Omega  \bar{\Lambda}_s^2}
     \mathrm{Erfi}\left(\frac{\sqrt{2M\Omega}}{\bar{\Lambda}_s}\right) 
-   + \frac{\mathrm{i}}{4\pi}M\sqrt{M\Omega}e^{-2M\Omega / \bar{\Lambda}_s^2} \\
+   + \mathrm{i}\frac{M\sqrt{M\Omega}}{4\pi}e^{-2M\Omega / \bar{\Lambda}_s^2} \\
+  =&\frac{Mk}{4\pi} \mathrm{Erfi}\left(
+   \frac{\sqrt{2}k}{\bar{\Lambda}_s}\right)e^{-\frac{2k^2}{\bar{\Lambda}_s^2}}
+  +\frac{M}{4\pi a_s}e^{-\frac{2k^2}{\bar{\Lambda}_s^2}}
+  +\frac{M\sqrt{-M\Omega}}{4\pi}
+    e^{-2M\Omega  \bar{\Lambda}_s^2}
+    \left(1-\mathrm{Erfc}\left(\frac{\sqrt{2M\Omega}}{\bar{\Lambda}_s}\right) 
+    \right)
+\end{align}
+
+其中
+\begin{align}
+  \mathrm{Erfc}(x) = 1 - \mathrm{Erf}(x) = \frac{2}{\sqrt{\pi}}
+  \int_x^{\infty} e^{-t^2}\mathrm{d}t
+\end{align}
+\begin{align}
+  \mathrm{Erfi}(z) = -\mathrm{i}\cdot\mathrm{Erf}(\mathrm{i}z)
 \end{align}
 
 * Supplementary 
