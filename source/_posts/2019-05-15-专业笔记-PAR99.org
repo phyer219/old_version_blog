@@ -34,7 +34,7 @@ Lagrangian
 
 [[file:./2019-05-15-专业笔记-PAR99/fig1.png]]
 
-由上面的 Feynman 图对应的 Dyson 方程为 $D = D_0 + D_0 \Sigma D$ , 化
+由上面的 Feynman 图对应的 Dyson 方程为 $D = D_0 + D_0 \Sigma D$  , 化
 简为
 \begin{align}
   \frac{1}{D} = \frac{1}{D_0} - \Sigma
