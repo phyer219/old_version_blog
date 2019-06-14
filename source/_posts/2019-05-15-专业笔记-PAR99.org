@@ -131,20 +131,26 @@ $4\pi$ , 只剩下对 $k$ 的积分
     \mathrm{Erfi}\left(\frac{\sqrt{2}k}{\bar{\Lambda}_s}\right) 
    - \mathrm{i}\frac{MVk}{16\pi}
 \end{align}
-已知的 s -wave phase shift (取了 $k$ 的零阶近似) 为
+上式实部取到 $k$ 的零阶项
+\begin{align}
+  &\mathrm{Re}\left[\frac{1}{T_s(k \hat{k},k \hat{k}', E = \frac{k^2}{M})}\right] \\
+  =& -\frac{1}{4\bar{g}_s}
+    -\frac{M V\bar{\Lambda}_s}{16\pi\sqrt{2\pi}}
+\end{align}
+已知的 s -wave phase shift (实部取了 $k$ 的零阶近似) 为
 \begin{align}
   \frac{1}{T_s(k \hat{k},k \hat{k}', E = \frac{k^2}{M})}
   =& -\frac{VM}{8\pi}\left(-\frac{1}{a_s} - \mathrm{i}k \right) \\
   =& \frac{VM}{8\pi}\frac{1}{a_s} + \mathrm{i}k\frac{VM}{8\pi}
 \end{align}
-
-对比以上两式, 虚部差一因子 $-2$ , 手动添上, 得到重整化关系
+对比以上三式, 虚部差一因子 $-2$ , 手动添上, 得到重整化关系
 \begin{align}
   \frac{1}{\bar{g}_s}
-  =&\frac{Mk}{4\pi} \mathrm{Erfi}\left(
-   \frac{\sqrt{2}k}{\bar{\Lambda}_s}\right)e^{-\frac{2k^2}{\bar{\Lambda}_s^2}}
-  -\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}}
-  +\frac{M}{2\pi\cdot (2 a_s)}e^{-\frac{2k^2}{\bar{\Lambda}_s^2}}
+  =& \frac{M}{4\pi a_s}
+    -\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}}
+  = \frac{M}{4\pi a_s}
+    -\frac{M }{2\pi^2} \int_0^{\infty}\mathrm{d}k
+    \cdot e^{-2k^2/ \bar{\Lambda}_s^2}
 \end{align}
 将重整化关系代回 $D_s^{-1}$ 的表达式得
 \begin{align}
@@ -154,15 +160,16 @@ $4\pi$ , 只剩下对 $k$ 的积分
     e^{-2M\Omega /\bar{\Lambda}_s^2}
     \mathrm{Erfi}\left(\frac{\sqrt{2M\Omega}}{\bar{\Lambda}_s}\right) 
    + \mathrm{i}\frac{M\sqrt{M\Omega}}{4\pi}e^{-2M\Omega / \bar{\Lambda}_s^2} \\
-  =&\frac{Mk}{4\pi} \mathrm{Erfi}\left(
-   \frac{\sqrt{2}k}{\bar{\Lambda}_s}\right)e^{-\frac{2k^2}{\bar{\Lambda}_s^2}}
-  +\frac{M}{4\pi a_s}e^{-\frac{2k^2}{\bar{\Lambda}_s^2}}
+  =&  \frac{M}{4\pi a_s}
   -\frac{M\sqrt{M\Omega}}{4\pi}
     e^{-2M\Omega / \bar{\Lambda}_s^2}
     \mathrm{Erfi}\left(\frac{\sqrt{2M\Omega}}{\bar{\Lambda}_s}\right) 
-   + \mathrm{i}\frac{M\sqrt{M\Omega}}{4\pi}e^{-2M\Omega / \bar{\Lambda}_s^2}
+   + \mathrm{i}\frac{M\sqrt{M\Omega}}{4\pi}e^{-2M\Omega / \bar{\Lambda}_s^2}\\
+  =&  \frac{M}{4\pi a_s}
+     + \frac{M\sqrt{-M\Omega}}{4\pi} \left[
+     1 + \mathrm{Erf}\left( \frac{\sqrt{-2M\Omega}}{ \bar{\Lambda}_s} \right) \right]
+     e^{- \frac{2M\Omega }{ \bar{\Lambda}_s^2}}
 \end{align}
-
 其中
 \begin{align}
   \mathrm{Erfc}(x) = 1 - \mathrm{Erf}(x) = \frac{2}{\sqrt{\pi}}
