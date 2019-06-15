@@ -17,14 +17,24 @@ Lagrangian
            + \sum_{\vec{q}}\frac{1}{\bar{g}_s}\phi_{\vec{q}}^{\dagger}
         \phi_{\vec{q}} \\
          & -\sum_{\vec{k},\vec{q}} \left[ \frac{\sqrt{2\pi}k^2Y_{20}(\hat{k})
-           e^{-k^2/ \bar{\Lambda}_d^2}}{\sqrt{V}} d^{\dagger}_{2\vec{q}}
+           e^{-k^2/ \bar{\Lambda}_d^2}}{\sqrt{V}} d^{\dagger}_{\vec{q}}
           \psi_{\vec{q}/2+ \vec{k}} \psi_{\vec{q}/2- \vec{k}} + \mathrm{H.c.}\right]\\
         & - \sum_{\vec{k},\vec{q}}\left[  \frac{e^{-k^2/ \bar{\Lambda}_s^2}}{\sqrt{V}}
-          \phi^{\dagger}_{2\vec{q}} \psi_{\vec{q}/2 +\vec{k}}\psi_{\vec{q}/2-\vec{k}}
+          \phi^{\dagger}_{\vec{q}} \psi_{\vec{q}/2 +\vec{k}}\psi_{\vec{q}/2-\vec{k}}
            + \mathrm{H.c.} \right]
 \end{align} 
 
-* s-wave T matrix
+* s-wave
+
+s 波部分的 Hamiltonian
+\begin{align}
+  H =&\sum_{\vec{k}} \frac{k^2}{2M}\psi_{\vec{k}}^{\dagger}\psi_{\vec{k}}
+          - \sum_{\vec{q}}\frac{1}{\bar{g}_s}\phi_{\vec{q}}^{\dagger}\phi_{\vec{q}}
+          + \sum_{\vec{k},\vec{q}}\left[  \frac{e^{-k^2/ \bar{\Lambda}_s^2}}{\sqrt{V}}
+          \phi^{\dagger}_{\vec{q}} \psi_{\vec{q}/2 +\vec{k}}\psi_{\vec{q}/2-\vec{k}}
+           + \mathrm{H.c.} \right]
+\end{align}
+
 
 首先计算最后一项的 s 波相互作用 T-matrix , T-matrix 与格林函数有如下联系
 \begin{align}
@@ -185,90 +195,113 @@ F(z) = \frac{\sqrt{\pi}}{2}e^{-z^2} \mathrm{Erfi(z)}
 
 file:./2019-05-15-专业笔记-PAR99/dawson.png
 
-* Supplementary 
 
-推导下面的积分 ( $\Omega < 0$ )
+* d-wave
 
+s 波部分的 Hamiltonian
 \begin{align}
-  \frac{1}{2\pi^2}\int_0^{\infty}\frac{ k^2e^{-2k^2 / \bar{\Lambda}_s^2} }
-     {\Omega-\frac{k^2}{M} } \mathrm{d}k
-  = -\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}} +\frac{M\sqrt{-M\Omega}}{4\pi}
-    e^{-M\Omega \frac{2}{ \bar{\Lambda}_s^2}}
-    \mathrm{Erfc}\left(\frac{\sqrt{-2M\Omega}}{\bar{\Lambda}_s}\right)
+  H =&\sum_{\vec{k}}\frac{k^2}{2M}\psi_{\vec{k}}^{\dagger}\psi_{\vec{k}}
+           - \sum_{\vec{q}}\frac{\bar{\nu}}{\bar{g}_d^2}
+        d_{\vec{q}}^{\dagger}d_{\vec{q}}
+          +\sum_{\vec{k},\vec{q}} \left[ \frac{\sqrt{2\pi}k^2Y_{20}(\hat{k})
+           e^{-k^2/ \bar{\Lambda}_d^2}}{\sqrt{V}} d^{\dagger}_{\vec{q}}
+          \psi_{\vec{q}/2+ \vec{k}} \psi_{\vec{q}/2- \vec{k}} + \mathrm{H.c.}\right]
 \end{align}
-
-** 去掉分子
-
-利用
+与 s 波类似
 \begin{align}
-  \frac{ k^2 }
-     {\Omega-\frac{k^2}{M} } = -M(1-\frac{\Omega}{\Omega - \frac{k^2}{M}})
-\end{align}
-第一项高斯积分可以积出
-\begin{align}
-    &\frac{1}{2\pi^2}\int_0^{\infty}\mathcal{P}\frac{ k^2e^{-2k^2 / \bar{\Lambda}_s^2} }
-     {\Omega-\frac{k^2}{M} } \mathrm{d}k \\
-    = & -\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}} +\frac{M\Omega}{4\pi^2}
-     \int_{-\infty}^{ +\infty} \mathrm{d}k\cdot \frac{ k^2e^{-2k^2 / \bar{\Lambda}_s^2} }
-     {\Omega-\frac{k^2}{M} }
-\end{align}
-
-** 第二项
-
-第二项利用
-\begin{align}
-  \frac{1}{\Omega - \frac{k^2}{M}}
-  = - \int_0^{\infty}e^{(\Omega - k^2/M)t}\mathrm{d}t
-\end{align}
-之后关于 $k$ 的积分是高斯积分, 可以积掉, 所以原积分第二项化为
-\begin{align}
-  -\frac{M\Omega}{4\pi^2}\int_0^{\infty} \mathrm{d}t\cdot
-  \frac{\sqrt{\pi}}{\sqrt{ \frac{2}{ \bar{\Lambda}_s^2}  +\frac{t}{M}}}e^{\Omega t}
-\end{align}
-
-** 化为 Error Function
-
-第二项做换元
-\begin{align}
-  u = \sqrt{-M\Omega} \sqrt{\frac{2}{ \bar{\Lambda}_s^2} +\frac{t}{M}}
-\end{align}
-
-第二项积分化为
-\begin{align}
-  \frac{M\sqrt{-M\Omega}}{2\pi\sqrt{\pi}} e^{-M\Omega \frac{2}{\bar{\Lambda}_s^2}}
-   \int_{\sqrt{-\frac{2M\Omega}{\bar{\Lambda}_s^2} }}^{\infty} e^{-t^2}\cdot\mathrm{d}t
-\end{align}
-
-** Error Function
-
-利用 Error Function 的定义, 原积分化为
-
-\begin{align}
-  \frac{1}{2\pi^2}\int_0^{\infty}\frac{ k^2e^{-2k^2 / \bar{\Lambda}_s^2} }
-     {\Omega-\frac{k^2}{M} } \mathrm{d}k
-  = -\frac{M \bar{\Lambda}_s}{4\pi\sqrt{2\pi}} +\frac{M\sqrt{-M\Omega}}{4\pi}
-    e^{-M\Omega \frac{2}{ \bar{\Lambda}_s^2}}
-    \mathrm{Erfc}\left(\frac{\sqrt{-2M\Omega}}{\bar{\Lambda}_s^2}\right)
+  \frac{1}{D} = \frac{1}{D_0} - \Sigma = \frac{\bar{\nu}}{\bar{g}_d^2}- \Sigma
 \end{align}
 其中
 \begin{align}
-  \mathrm{Erfc}(x) = 1 - \mathrm{Erf}(x) = \frac{2}{\sqrt{\pi}}
-  \int_x^{\infty} e^{-t^2}\mathrm{d}t
-\end{align}
+  \Sigma (\vec{q}, E)= &\sum_{\vec{k}}
+     \frac{1}{\Omega-\frac{k^2}{M} + \mathrm{i}0^ +}
+    \cdot \frac{2\pi k^4 [Y_{20}]^2 e^{-2k^2 / \bar{\Lambda}_d^2}}{V}\\
+    =& \frac{5}{8\pi^2}\int_0^{\infty}\mathrm{d}k\cdot
+    \frac{k^6 e^{-2k^2 / \bar{\Lambda}_d^2}}
+    {\Omega-\frac{k^2}{M} + \mathrm{i}0^ +}
+     \cdot\int_{-1}^1 \mathrm{d}x\cdot \left( \frac{3}{2}x^2 -\frac{1}{2} \right)^2 \\
+   =&\frac{1}{2\pi^2}\int_0^{\infty}\mathrm{d}k\cdot
+    \frac{k^6 e^{-2k^2 / \bar{\Lambda}_d^2}}
+    {\Omega-\frac{k^2}{M} + \mathrm{i}0^ +} \\
+  =& -\frac{\sqrt{2\pi}M \bar{\Lambda}_d[ 16(M\Omega)^2 +4M\Omega\bar{\Lambda}_d^2
+        + 3\bar{\Lambda}_d^4 ]}{128\pi^2}
+     + \frac{e^{-\frac{2M\Omega}{\bar{\Lambda}_d^2}} M(M\Omega)^{5/2}
+         \left[ -\mathrm{i}
+        +\mathrm{Erfi}\left( \frac{\sqrt{2M\Omega}}{\bar{\Lambda}_d}\right) \right]}
+             {4\pi}\\
+  =& -\frac{\sqrt{2\pi}M \bar{\Lambda}_d[ 16(M\Omega)^2 +4M\Omega\bar{\Lambda}_d^2
+        + 3\bar{\Lambda}_d^4 ]}{128\pi^2}
+     + \frac{e^{-\frac{2M\Omega}{\bar{\Lambda}_d^2}} M(-M\Omega)^{5/2}
+         \left[ -1-
+        \mathrm{Erf}\left( \frac{\sqrt{-2M\Omega}}{\bar{\Lambda}_d}\right) \right]}
+       {4\pi}
+\end{align}                                                     
+第二个等号取 $Y_{20}(\hat{k}) = \sqrt{\frac{5}{4\pi}}\left(
+ \frac{3}{2}\cos^2\theta -\frac{1}{2} \right)$ .
 
-** 与 Mathematica 的结果一致
+file:./2019-05-15-专业笔记-PAR99/dWaveInt.png
 
-[[file:./2019-05-15-专业笔记-PAR99/int.png]]
-其中
+所以
 \begin{align}
-  \mathrm{Erfc}(x) = 1 - \mathrm{Erf}(x) = \frac{2}{\sqrt{\pi}}
-  \int_x^{\infty} e^{-t^2}\mathrm{d}t
+  \frac{1}{D_d(\vec{q},E)} 
+    =& \frac{\bar{\nu}}{\bar{g}_d^2}
+     +\frac{\sqrt{2\pi}M \bar{\Lambda}_d[ 16(M\Omega)^2 +4M\Omega\bar{\Lambda}_d^2
+        + 3\bar{\Lambda}_d^4 ]}{128\pi^2}
+     - \frac{e^{-\frac{2M\Omega}{\bar{\Lambda}_d^2}} M(M\Omega)^{5/2}
+         \left[ -\mathrm{i}
+        +\mathrm{Erfi}\left( \frac{\sqrt{2M\Omega}}{\bar{\Lambda}_d}\right) \right]}
+             {4\pi}\\
+   =& \frac{\bar{\nu}}{\bar{g}_d^2}
+    +\frac{\sqrt{2\pi}M \bar{\Lambda}_d[ 16(M\Omega)^2 +4M\Omega\bar{\Lambda}_d^2
+        + 3\bar{\Lambda}_d^4 ]}{128\pi^2}
+     - \frac{e^{-\frac{2M\Omega}{\bar{\Lambda}_d^2}} M(-M\Omega)^{5/2}
+         \left[ -1-
+        \mathrm{Erf}\left( \frac{\sqrt{-2M\Omega}}{\bar{\Lambda}_d}\right) \right]}
+       {4\pi}
 \end{align}
+已知的 $T_d$
 \begin{align}
-  \mathrm{Erfi}(z) = -\mathrm{i}\cdot\mathrm{Erf}(\mathrm{i}z)
+  T_d =& -\frac{32\pi^2}{MV}Y_{20}(\hat{k})Y_{20}(\hat{k'})\frac{k^4}
+       {k^5 \cot \delta_d(k) - \mathrm{i}k^5} \\
+     \sim & -\frac{32\pi^2}{MV}Y_{20}(\hat{k})Y_{20}(\hat{k'})\frac{k^4}
+       {-\frac{1}{D} -\frac{k^2}{v} -\frac{k^4}{R} - \mathrm{i}k^5} 
 \end{align}
-
-
+用算得的 $D_d$ 得到的 $T_d$
+\begin{align}
+  T_d =& -\frac{8\pi k^4 Y_{20}(\hat{k})Y_{20} e^{-2k^2/ \bar{\Lambda}_d^2}}{V}D_d
+       (\vec{q}=0, E = \frac{k^2}{M}) \\
+     \sim &-\frac{32\pi^2}{MV}Y_{20}(\hat{k})Y_{20}(\hat{k'})\frac{k^4}
+       { 
+          \left[\frac{4\pi}{M}\frac{\bar{\nu}}{\bar{g}_d^2} +
+           \frac{\bar{\Lambda}_d}{16\sqrt{2\pi}} \left( 16k^4 + 4\bar{\Lambda}_d^2k^2
+              +3 \bar{\Lambda}_d^4 \right)
+          \right] \left[ 
+            1 + \frac{2}{\bar{\Lambda}_d^2}k^2 + \frac{2}{\bar{\Lambda}_d^4}k^4\right]
+        + \mathrm{i}k^5
+       } \\
+     \sim &-\frac{32\pi^2}{MV}Y_{20}(\hat{k})Y_{20}(\hat{k'})\frac{k^4}
+       { 
+          \left[\frac{4\pi}{M}\frac{\bar{\nu}}{\bar{g}_d^2}
+           + \frac{3}{16\sqrt{2\pi}} \bar{\Lambda}_d^5
+             + k^2\left( \frac{8\pi}{M \bar{\Lambda}_d^2}\frac{\bar{\nu}}{\bar{g}_d^2}
+                   + \frac{5}{8\sqrt{2\pi}} \bar{\Lambda}_d^3 
+                  \right)
+             + k^4\left( \frac{8\pi}{M \bar{\Lambda}_d^4}\frac{\bar{\nu}}{\bar{g}_d^2}
+                  + \frac{15}{8\sqrt{2\pi}} \bar{\Lambda}_d
+                  \right)
+           \right]
+        + \mathrm{i}k^5
+       } 
+\end{align}
+对比以上两式可得重整化关系 (差一负号)
+\begin{align}
+  \frac{1}{D} & =\frac{4\pi}{M}\frac{\bar{\nu}}{\bar{g}_d^2}
+           + \frac{3}{16\sqrt{2\pi}} \bar{\Lambda}_d^5 \\
+  \frac{1}{v} & =\frac{8\pi}{M \bar{\Lambda}_d^2}\frac{\bar{\nu}}{\bar{g}_d^2}
+                   + \frac{5}{8\sqrt{2\pi}} \bar{\Lambda}_d^3 \\
+  \frac{1}{R} & =\frac{8\pi}{M \bar{\Lambda}_d^4}\frac{\bar{\nu}}{\bar{g}_d^2}
+                  + \frac{15}{8\sqrt{2\pi}} \bar{\Lambda}_d
+\end{align}
 
 * Acknowledge 
 
