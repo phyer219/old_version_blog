@@ -5,7 +5,7 @@
 #+HTML: <!-- toc -->
 #+HTML: <!-- more -->
 
-* Spherical Potential 
+* Radical Potential 
 
 ** Schrodinger EQ
 
