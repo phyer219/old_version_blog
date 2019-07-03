@@ -1,7 +1,7 @@
 #+TITLE: 费米液体(冷原子作业)
 #+DATE: <2019-07-02>
 #+CATEGORIES: 专业笔记
-#+TAGS: 物理, 量子力学, 二次量子化
+#+TAGS: 物理, 极化子, fermiliquid, polaron, 费米液体
 #+HTML: <!-- toc -->
 #+HTML: <!-- more -->
 
