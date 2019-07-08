@@ -61,12 +61,12 @@ N/V$
 \begin{align}
   \frac{\tilde{\Omega}}{N E_n} =& \frac{1}{N E_n}
     \frac{V}{(2\pi^3)}\int \mathrm{d}^3\vec{q}
-   \cdot \int \frac{\mathrm{d}\omega}{\pi}\cdot n(\omega) \delta^p \\
+   \cdot \int \frac{\mathrm{d}\omega}{\pi}\cdot \frac{1}{e^{\beta\omega}-1} \delta^p \\
    =& 3 \int \mathrm{d}\tilde{q}\cdot \tilde{q}^2
      \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}
-      \cdot n(\tilde{\omega}) \tilde{\delta}^p(\vec{q},z)
+      \cdot \frac{1}{e^{\tilde{\beta}\tilde{\omega}}-1} \tilde{\delta}^p(\vec{q},z)
 \end{align}
-得自由能
+其中 $\tilde{\beta} = \beta E_n$ . 得自由能
 \begin{align}
   \frac{F}{NE_n} = \frac{\tilde{\Omega}}{N E_n} -\frac{\mu}{E_n}
 \end{align}
