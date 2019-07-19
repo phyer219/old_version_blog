@@ -146,6 +146,10 @@ file:./2019-07-03-专业笔记-NSRcal/F_mu=-.5.png
 
 file:./2019-07-03-专业笔记-NSRcal/F_mu=-1.png
 
+file:./2019-07-03-专业笔记-NSRcal/energy.png
+
+file:./2019-07-03-专业笔记-NSRcal/R.png
+
 #+BEGIN_SRC python
 density_ 0 = 0.4511843038068619
 density_ 1 = 0.46464476988195
