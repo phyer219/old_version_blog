@@ -142,106 +142,41 @@ k_{\varepsilon}^3/(6\pi^2)$ , 那么
 
 * result
 
-file:./2019-07-03-专业笔记-NSRcal/F_mu=-.5.png
+file:./2019-07-03-专业笔记-NSRcal/gaussianQuadrature.png
 
-file:./2019-07-03-专业笔记-NSRcal/F_mu=-1.png
+file:./2019-07-03-专业笔记-NSRcal/large.png
 
-file:./2019-07-03-专业笔记-NSRcal/energy.png
+file:./2019-07-03-专业笔记-NSRcal/densityResult.png
 
-file:./2019-07-03-专业笔记-NSRcal/R.png
+file:./2019-07-03-专业笔记-NSRcal/integralResult.png
 
-#+BEGIN_SRC python
-density_ 0 = 0.4511843038068619
-density_ 1 = 0.46464476988195
-density_ 2 = 0.512739788127714
-density_ 3 = 0.5205848044309569
-density_ 4 = 0.5398202496120774
-density_ 5 = 0.5488560439470547
-density_ 6 = 0.5631884264500897
-density_ 7 = 0.582431469720035
-density_ 8 = 0.6042962186203482
-density_ 9 = 0.6415464826048378
-density_ 10 = 0.6969732846417998
-density_ 11 = 0.7208447810880259
-density_ 12 = 0.7542687224804112
-density_ 13 = 0.7566595683350386
-density_ 14 = 0.7635199722466623
-density_ 15 = 0.7869995988230016
-density_ 16 = 0.9036469850176587
-density_ 17 = 0.8960351322029325
-density_ 18 = 0.9468071937579481
-density_ 19 = 1.0046185078271819
-density_ 20 = 1.059138232673007
-density_ 21 = 1.0522590188077885
-density_ 22 = 1.0641192649263331
-density_ 23 = 1.2088744449911815
-density_ 24 = 1.1731400462178243
-density_ 25 = 1.1984336911741167
-density_ 26 = 1.2847819197414623
-density_ 27 = 1.3449764024731081
-density_ 28 = 1.5511697870618235
-density_ 29 = 1.5681899612207673
-density_ 30 = 1.6533548419239708
-density_ 31 = 1.6534808966461867
-density_ 32 = 1.8122197242842475
-density_ 33 = 1.9779679505393943
-density_ 34 = 1.8354318176427853
-density_ 35 = 1.9035665266287083
-density_ 36 = 1.9722456778836772
-density_ 37 = 2.1018017049012627
-density_ 38 = 2.197603315989838
-density_ 39 = 2.2246344988374744
-density_ 40 = 2.224455952770654
-density_ 41 = 2.2893875795126917
-density_ 42 = 2.8156226350439795
-density_ 43 = 2.8870750012899293
-density_ 44 = 2.748934824214899
-density_ 45 = -15.825491228582678
-density_ 46 = 3.6662990199332057
-density_ 47 = 3.6190382912693053
-density_ 48 = 2.1343821154928833
-density_ 49 = -0.07283571523686305
-density_ 50 = -0.06803702046198623
-density_ 51 = -0.06376424943610459
-density_ 52 = -0.06065521418463504
-density_ 53 = -0.058264026936427626
-density_ 54 = -0.055524429498632344
-density_ 55 = -0.05352935872338094
-density_ 56 = -0.05148130810539442
-density_ 57 = -0.04992932733927091
-density_ 58 = -0.04847640067140446
-density_ 59 = -0.04686022680999713
-density_ 60 = -0.04514031370916882
-density_ 61 = -0.04409104192859559
-density_ 62 = -0.04293283506484613
-density_ 63 = -0.04187323821014388
-density_ 64 = -0.04074860449065909
-density_ 65 = -0.039789282979540985
-density_ 66 = -0.03889346622543144
-density_ 67 = -0.03801217118848399
-density_ 68 = -0.037174041622733967
-density_ 69 = -0.03637827816760364
-density_ 70 = -0.035631053663109924
-density_ 71 = -0.03483977550899908
-density_ 72 = -0.03421489758181906
-density_ 73 = -0.03345848043068145
-density_ 74 = 171.72270574405957
-density_ 75 = -0.03228315392789227
-density_ 76 = 22.57320090848225
-density_ 77 = -0.03113740376647911
-density_ 78 = 387.578859672999
-density_ 79 = -0.030095748115854803
-density_ 80 = -0.029612579055537935
-#+END_SRC
+file:./2019-07-03-专业笔记-NSRcal/densityResult2.png
+
+file:./2019-07-03-专业笔记-NSRcal/integralResult2.png
+
+file:./2019-07-03-专业笔记-NSRcal/p-wave.png
+
+file:./2019-07-03-专业笔记-NSRcal/weakCoupling.png
+
+file:./2019-07-03-专业笔记-NSRcal/strongCoupling.png
+
+file:./2019-07-03-专业笔记-NSRcal/Tmatrix.png
 
 * code
+
+计算 $\Delta F$
 
 #+BEGIN_SRC python
 from matplotlib import pyplot as plt
 import numpy as np
 from scipy import integrate
 #from scipy.misc import derivative
+from scipy.integrate import fixed_quad
+import time
 
+start = time.process_time()
+
+nn = 10
 
 beta = 1
 er = 1e-6
@@ -251,7 +186,11 @@ epsabs = 1e-1
 def xi(k, mu):
     return k**2 - mu
 def n(k, mu):
-    return 1 / (np.exp(beta*xi(k, mu)) - 1)
+    x = xi(k,mu)
+#    print(x)
+    n =  1 / (np.exp(beta*x) - 1)
+    return n
+    
 def z(omega, q, mu):
     return omega - q**2/2 + 2*mu
 
@@ -262,20 +201,22 @@ def pi(omega, q, k, mu):
     pi = pi -k**2/2 - z(omega, q, mu)/4
     pi = pi*2 / np.pi**2
     return pi
+
 def PI(omega, q, mu):
     zz = z(omega, q, mu)
     if zz<0:
-        PI, err = integrate.quad(lambda x: pi(omega, q, x, mu), er,
-                                 100, epsabs = epsabs)
+        PI, err = fixed_quad(lambda x: pi(omega, q, x, mu), er, 10,
+                             n=nn) 
     else:
         a = np.sqrt(zz/2)
-        PI1, err = integrate.quad(lambda x: pi(omega, q, x, mu), er,
-                                  a-er, epsabs = epsabs)
-        PI2, err = integrate.quad(lambda x: pi(omega, q, x, mu), a+er,
-                                  100, epsabs = epsabs)
+        PI1, err = fixed_quad(lambda x: pi(omega, q, x, mu), er, a-er,
+                              n=nn) 
+        PI2, err = fixed_quad(lambda x: pi(omega, q, x, mu), a+er,
+                              10, n=nn)
         PI = PI1 + PI2
     PI = PI * R
     return PI
+
 def delta(omega, q, rkv, mu):
     zz = z(omega, q, mu)
     if zz<0:
@@ -295,32 +236,147 @@ def f(omega, q, rkv, mu):
     f = f * delta(omega, q, rkv, mu)
     f = 3 * f /np.pi
     return f
+
 def F(rkv, mu):
     ff = lambda y, x: f(y, x, rkv, mu)
     F, err = integrate.dblquad(ff, er, 3, lambda x:er, lambda x:10, epsabs
                                = epsabs)
     return F
 
-N = 100
-x = np.linspace(-2, 2, N)
-y = np.zeros(N)
+
+M = 1000
+N = 10
+x = np.linspace(0, 2, M)
+y = np.zeros(M*N)
+y.shape = (M, N)
+
+mu = np.linspace(-2.1, -1.2, N)
+
+for j in range(N):
+    for i in range(M):
+        y[i, j] = F(x[i], mu[j])
+        print('mu_', j, 'y_', i, '=', y[i, j])
+
+np.savetxt('y.txt', y)
+print(y)
+
+density = np.zeros(M*(N-2))
+density.shape = (M, N-2)
+dd = mu[1] - mu[0]
+
+for j in range(N-2):
+    for i in range(M):
+        density[i, j] = y[i, j+2] - y[i, j]
+        density[i, j] = - density[i, j] / (2*dd)
+        print('mu_', j, 'density_', i, '=', density[i, j])
+
+np.savetxt('density.txt', density)
+print(density)
+
 for i in range(N):
-    y[i] = F(x[i], -.5)
-    print('y_',i, '=', y[i])
-np.savetxt('F.txt', y)
-plt.plot(x, y)
+    plt.plot(x, y[:, i], label=r'$\mu/\epsilon$=%.2f' %mu[i])
+plt.legend()
+
+end = time.process_time()
+print('time=', end-start, 'seconds')
 plt.show()
 
-'''
+#+END_SRC
+
+计算 $T_{C}$
+
+#+BEGIN_SRC python
 N = 100
-rkv = np.linspace(-2, 2, N)
+rkv = np.linspace(-10, -.1, N)
+
+f0 = np.zeros(N)
+f1 = np.zeros(N)
 density = np.zeros(N)
+
 for i in range(N):
-    density[i] = -derivative(lambda mu:F(rkv[i], mu), -.5, dx = 1e-8)
+    print('rkv_', i, '=', rkv[i])
+    f0[i] = F(rkv[i], -1e-3)
+    print('f0_', i, '=', f0[i])
+    f1[i] = F(rkv[i], -.1)
+    print('f1_', i, '=', f1[i])
+    density[i] = - (f0[i] - f1[i]) / .1
     print('density_', i, '=', density[i])
+    
+np.savetxt('f0.txt', f0)
+np.savetxt('f1.txt', f1)
 np.savetxt('density.txt', density)
-plt.plot(rkv, density)
+
+x = np.zeros(N)
+y = np.zeros(N)
+for i in range(N):
+    x[i] = rkv[i]/(density[i]**(2/3))
+    y[i] = 1/(density[i]**(2/3))
+plt.plot(x, y)
+
+end = time.process_time()
+print('time=', end-start, 'seconds')
+plt.xlabel(r'$2R/(k_n^2 v)$')
+plt.ylabel(r'$k_BT_C/E_n$')
 plt.show()
-'''
+
+#+END_SRC
+
+#+BEGIN_SRC python
+def tm(omega, q, rkv, mu):
+    zz = z(omega, q, mu)
+    rel = PI(omega, q, mu)
+    rel = rel + rkv/(4*np.pi)
+    rel = rel +zz/(4*np.pi)
+    return rel
+N = 1000
+M = 20
+mu = np.linspace(-80, -1e-2, N)
+y = np.zeros(N)
+rkv = np.linspace(2, 100, M)
+muRoot = np.zeros(M)
+for j in range(M):
+    c = 0
+    for i in range(N):
+        y[i] = tm(0, 0, rkv[j], mu[i])
+        if np.abs(y[i])<np.abs(y[c]):
+            c = i
+    print('y_', c, '=', y[c])
+    muRoot[j] = mu[c]
+
+    plt.plot(mu, y, label=r'$2R/(k_{\epsilon}^2v)=%.1f$'%rkv[j])
+plt.legend()
+plt.xlabel(r'$\mu/\epsilon$')
+plt.ylabel(r'$T^{-1}$')
+print(muRoot)
+plt.show()
+
+Tc = np.zeros(M)
+Rn = np.zeros(M)
+
+dens = np.zeros(M)
+for i in range(M):
+    print(i)
+    dd = np.abs(muRoot[i]) * .1
+    print('dd=', dd)
+    f1 = F(rkv[i], muRoot[i]+dd)
+    print('f1=', f1)
+    f2 = F(rkv[i], muRoot[i]-dd)
+    print('f2=', f2)
+    nnn = - (f1 - f2) / (2*dd)
+    print('nnn=', nnn)
+    Tc[i] = 1 / (nnn**2/3)
+    print('Tc=', Tc[i])
+    Rn[i] = rkv[i] / (nnn**2/3)
+    print('Rn=', Rn[i])
+    dens[i] = nnn
+    print('dens=', dens[i])
+end = time.process_time()
+print('time is', end-start, 'secends')
+np.savetxt('density.txt', dens)
+plt.plot(Rn, Tc)
+plt.xlabel(r'$2R/(k_n^2 v)$')
+plt.ylabel(r'$k_BT_C/E_n$')
+
+plt.show()
 
 #+END_SRC
