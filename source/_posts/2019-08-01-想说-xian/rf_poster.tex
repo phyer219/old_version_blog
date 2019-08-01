@@ -1,0 +1,327 @@
+% fancytikzposter.tex, version 2.1
+% Original template created by Elena Botoeva [botoeva@inf.unibz.it], June 2012
+% 
+% This file is distributed under the Creative Commons Attribution-NonCommercial 2.0
+% Generic (CC BY-NC 2.0) license
+% http://creativecommons.org/licenses/by-nc/2.0/ 
+
+
+\documentclass[a0,portrait]{a0poster}
+\usepackage{graphicx}%插入图片支持
+\usepackage{float}%浮动图片
+\DeclareGraphicsExtensions{.eps,.ps,.jpg,.bmp,.png,.svg}%支持图片格式
+\usepackage{fancytikzposter} 
+
+%%%%% --------- Change here if you want ---------- %%%%%
+%% margin for the geometry package, must be changed before using the geometry package
+%% default value is 4cm
+ \setmargin{2.5}
+
+%% the space between the blocks
+%% default value is 2cm
+\setblockspacing{0.6}
+
+%% the height of the title stripe in block nodes, decrease it to save space
+%% default value is 3cm
+% \setblocktitleheight{3}
+
+%% the number of columns in the poster, possible values 2,3
+%% default value is 2
+% \setcolumnnumber{3}
+
+%% the space between two or more groups of authors from different institutions
+%% used in \maketitle
+% \setinstituteshift{10}
+
+%% which template to use
+%% N1 simple, standard look, with a colored background and gray boxes
+%% N2 board with nodes
+%% N3 another standard look
+%% N4 envelope-like look
+%% N5 with a wave-like head, original idea taken from
+%%%% http://fc09.deviantart.net/fs71/f/2010/322/1/1/scientific_poster_by_nabuy-d333ria.jpg
+\usetemplate{2}
+
+%% components of the templates
+%% (the maximal possible numbers are mentioned as the parameters)
+% \usecolortemplate{4}
+% \usebackgroundtemplate{5}
+% \usetitletemplate{5}
+% \useblocknodetemplate{5}
+% \useplainblocktemplate{4}
+% \useinnerblocktemplate{2}
+
+
+%% the height of the head drawing on top 
+%% applicable to templates N3, 4 and 5
+% \setheaddrawingheight{14}
+
+
+%% change the basic colors
+%\definecolor{myblue}{HTML}{008888} 
+%\setfirstcolor{myblue}% default 116699
+%\setsecondcolor{gray!80!}% default CCCCCC
+%\setthirdcolor{red!80!black}% default 991111
+
+%% change the more specific colors
+% \setbackgrounddarkcolor{colorone!70!black}
+% \setbackgroundlightcolor{colorone!70!}
+% \settitletextcolor{textcolor}
+% \settitlefillcolor{white}
+% \settitledrawcolor{colortwo}
+% \setblocktextcolor{textcolor}
+% \setblockfillcolor{white}
+% \setblocktitletextcolor{colorone}
+% \setblocktitlefillcolor{colortwo} %the color of the border
+% \setplainblocktextcolor{textcolor}
+% \setplainblockfillcolor{colorthree!40!}
+% \setplainblocktitletextcolor{textcolor}
+% \setplainblocktitlefillcolor{colorthree!60!}
+% \setinnerblocktextcolor{textcolor}
+% \setinnerblockfillcolor{white}
+% \setinnerblocktitletextcolor{white}
+% \setinnerblocktitlefillcolor{colorthree}
+
+
+
+
+%%% size of the document and the margins
+%% A0
+%\usepackage[margin=\margin cm, paperwidth=118.9cm, paperheight=84.1cm]{geometry} 
+%\usepackage[margin=\margin cm, paperwidth=84.1cm, paperheight=118.9cm]{geometry}
+%% B1
+% \usepackage[margin=\margin cm, paperwidth=70cm, paperheight=100cm]{geometry}
+%\usepackage[margin=\margin cm, paperwidth=118.9cm, paperheight=100.1cm]{geometry} 
+
+
+%% changing the fonts
+\usepackage{cmbright}
+%\usepackage[default]{cantarell}
+%\usepackage{avant}
+%\usepackage[math]{iwona}
+\usepackage[math]{kurier}
+\usepackage[T1]{fontenc}
+
+
+%% add your packages here
+%\usepackage{hyperref}  % % DISABILITATO I VIRTUAL REF
+
+
+% % % DAN ADDED
+\newtheorem{thm3}{Proposition}
+
+% % % END DAN ADDED
+
+\title{RF spectrum of strongly interacting bose gase across d-wave resonance} %Networking-Computing resource allocation for Hard Real-Time Green Cloud applications}
+%\author{Elena Botoeva\\
+%  KRDB Research Centre, Free University of Bozen-Bolzano, Italy\\
+%  \texttt{botoeva@inf.unibz.it}
+%}
+\author{Ran Qi; Zeqing Wang\\ %\vspace{20pt}
+	Department of Physics, Renmin University of China \\
+	}
+
+\begin{document}
+
+%%%%% ---------- the background picture ---------- %%%%%
+%% to change it modify the macro \BackgroundPicture
+\ClearShipoutPicture
+\AddToShipoutPicture{\BackgroundPicture}
+\noindent % to have the picture right in the center
+\begin{tikzpicture}
+  \initializesizeandshifts
+  % \setxshift{15}
+  % \setyshift{2}
+
+
+  %% the title block, #1 - shift, the default value is (0,0), #2 - width, #3 - scale
+  %% the alias of the title block is `title', so we can refer to its boundaries later
+  \ifthenelse{\equal{\template}{1}}{ 
+    \titleblock{47}{1}
+  }{
+    \titleblock{47}{1.5}
+  }
+
+  %% a logo can be added to the title block
+  %% #1 - anchor relative to the title block, #2 - shift, #3 - width, #3 - file name
+   \ifthenelse{\equal{\template}{2}}{ 
+     %\addlogo[south west]{(2,0)}{6cm}{unibz_b.png}
+     \addlogo[south west]{(0,0)}{7cm}{logos/ieee-comsoc.png} 
+        \addlogo[south west]{(68,0)}{3cm}{logos/hhh.png} }{
+     \addlogo[south west]{(0,0.2)}{11cm}{logos/ieee-comsoc.png} 
+   }
+
+  %% a block node, with the specified position (optional), title and the content
+  %% #1 - where (optional), #2 - title, #3 - text
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+
+%  	\normalsize 
+%       \Large
+%       \large
+% 	\normalsize
+  
+  
+  \vspace{80pt}
+%  \blocknode%
+  \blocknodew[($(currenty)-(0, 2)$)]{39}{Introduction} %
+%  {Introduction}%
+  { 
+    \Large
+      	Compared to the general solid state system, the interaction
+        can be easily tuned by Feshbach resonance in cold atom
+        systems. Scattering resonances now enable resonance of
+        different partial waves. For the fermion superfluid, the most
+        studied in the past is the s-wave resonance.
+        \\
+        In recent years, degenerate quantum gases near
+        high-partial have been realized. Degenerate quantum gases
+        near the high-partial wave, of the p-wave and d-wave have been
+        realized. For p-waves, Christopher Luciuk et al.'s experiments
+        were published in Nature Physics [3] in 2016, and Zhenhua Yu
+        [4] et al. also proposed relevant theories. The related work
+        of d-wave has been achieved [5][6]. \\
+        Nowadays, people are paying more and more attention to the
+        quantum gas near the high-partial wave, because the
+        high-partial-wave interaction has many different characteristics
+        compared to the s-wave interaction. For example,
+        high-partial-wave interactions are anisotropic. For d-waves,
+        some topological states can be achieved. \\
+        RF spectrum is very helpful in understanding the
+        interactions in cold atom systems. For example, in 2004, the
+        RF spectrum experimentally strengthened the establishment of
+        the BEC-BCS crossover for the fermion multi-body pairing in
+        the strong interaction Fermi gas. By measuring the RF spectrum
+        of the system at different temperatures, it is found that
+        there is a shift in the RF spectrum at low temperatures, thus
+        establishing the formation of pairing in the system.
+        \quad \\
+        \quad \\
+  }
+
+
+  \blocknode{RF spectrum measurement process}
+  {
+    \Large
+    It is assumed that an atom has three different internal
+    states, which may be hyperfine structures of the
+    same atom. Two of the states have interactions, and the
+    other has no interaction with the two states.  \\
+           There are generally two approaches in experiments. One
+           is the initial state preparation in two interacting states,
+           the initial state may is a superfluid state, and then one
+           of the states is hit to another state that is not
+           interacting, experimentally measured after a period of
+           time. It can be shown by linear response theory that the
+           number of particles on the state that has no 
+           interaction is
+           related to the Green's function. There is also a case where
+           the initial state is prepared in two states that do not
+           interact, and then hit go to another state. \\
+
+           \quad \includegraphics[width=15cm]{./images/RF.eps}
+           \quad\quad\quad
+           \includegraphics[width=15cm]{./images/exp.eps}
+           \\
+           \quad \\
+  }
+  
+   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+   %\blocknodew[($(currenty)-(3.5,0)$)]{30}{Variable Width Block Nodes} %
+ 	
+	\startsecondcolumn
+        %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+         \blocknodew[($(currenty)-(0, 2)$)]{39}{} %
+	 {
+           \Large
+
+
+    
+
+           For example, Regal C A et al. [1] worked for $^{40}K$ in
+           2003. The initial state is prepared in the two hyperfine
+           states of $^{40}K$ $|F=9/2, m_F =-9/2\rangle$ and $|9/2,
+           -7/2\rangle$ , the initial state is not interacting, join
+           after the RF pulse, the atom is moved from the state
+           $|9/2,-7/2\rangle$ to $|9/2,-5/2\rangle$ , due to Feshbach
+           resonance, 
+           $|9/2,-5/2\rangle$ and $|9 /2, -9/2\rangle$ has a strong
+           interaction.
+           \quad \\
+                      \quad \\
+	}
+
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+  %\blocknodew[($(currenty)-(3.5,0)$)]{30}{Variable Width Block
+  %Nodes} %
+
+  \blocknode %
+  {Theoretical Method} %
+  {\Large
+    Theoretically, the calculation of the RF spectrum is based on the 
+    linear response theory. It is concluded that the derivative of the
+    particle number versus time is related to the Green's function. As
+    long as the Green's function is calculated, the corresponding RF
+    spectrum can be obtained [1][2].
+
+
+    
+\begin{align}
+\frac{\mathrm{d}N_3}{\mathrm{d}t}\propto \mathrm{Im} \int G_3(k,
+  -\tau) G_2(k, \tau) e^{-\mathrm{i}(\omega ' + \mathrm{i}0^+)\tau}
+  \mathrm{d} \tau
+\end{align}
+
+\quad \\
+\quad \\
+
+
+           \quad \includegraphics[width=15cm]{./images/dn.eps}
+           \quad \includegraphics[width=15cm]{./images/feynnmanDiagrams.eps}
+
+           \quad \\
+           \quad \\
+
+    For the RF spectrum of the d-wave, no one has yet calculated
+    it. We intend to use the Ladder
+    diagram to calculate the self energy, then calculate the Green's
+    function, and then obtain the corresponding RF spectrum, and then
+    analyze the RF spectrum characteristics under different magnetic
+    field regions near the d-wave resonance. This is the guiding
+    significance of the experiment.
+
+    \quad \\
+    \quad \\
+    
+	}
+
+
+    \plainblock{($(currenty)$)} %-(xshift) + (xshift) -(yshift) %[($(currenty)+(0,10)$)]%
+  {38}{Reference} %
+  {
+    \Large
+    \begin{enumerate}
+    \item Paivi Torma 2016 Phys. Scr. 91 043006 \\
+    \item Junjun Xu, Qiang Gu, and Erich J. Mueller Phys. Rev. A 88,
+    023604 (2013) \\
+    \item Christopher Luciuk, Stefan Trotzky, Scott Smale, Zhenhua Yu,
+    Shizhong Zhang, Joseph H. Thywissen Nature Physics 12, 599–605
+    (2016) \\
+    \item Zhenhua Yu, Joseph H. Thywissen, and Shizhong Zhang
+    Phys. Rev. Lett. 115, 135304\\
+    \item Yue Cui, Chuyang Shen, Min Deng, Shen Dong, Cheng Chen, Rong
+    Lü, Bo Gao, Meng Khoon Tey, and Li You Phys. Rev. Lett. 119,
+    203402 (2017)\\
+    \item Xing-Can Yao, Ran Qi, Xiang-Pei Liu, Xiao-Qiong Wan Yu-Xuan
+    Wang, Yu-Ping Wu, Hao-Ze Chen, Peng Zhang, Hui Zhai, Yu-Ao Chen,
+    and Jian-Wei Pan arXiv:1711.06622
+    \end{enumerate}
+  }
+  
+\end{tikzpicture}
+
+
+\end{document}
+
+
+
+
