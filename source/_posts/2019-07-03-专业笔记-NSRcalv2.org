@@ -1,0 +1,71 @@
+#+TITLE: NSR Calculate II
+#+DATE: <2019-09-08>
+#+CATEGORIES: 专业笔记
+#+TAGS: 物理, NSR Calculate
+#+HTML: <!-- toc -->
+#+HTML: <!-- more -->
+
+* 整体思路
+
+\begin{align}
+  \frac{\Delta F}{NE_n} 
+  =&  \left( \frac{n_{\varepsilon}}{n} \right)^{2/3}
+      \int\mathrm{d}\tilde{q}\cdot \tilde{q}^2
+     \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}
+      \cdot f(\tilde{q}, \tilde{\omega}, \tilde{\mu}, \tilde{\beta})
+     + \tilde{\mu} \left( \frac{n_{\varepsilon}}{n} \right)^{2/3} \\
+\end{align}
+\begin{align}
+  \frac{n}{n_{\varepsilon}} 
+ =& - \frac{\partial}{\partial\tilde{\mu}}\left[
+     \int \mathrm{d}\tilde{q}\cdot \tilde{q}^2
+     \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}
+      \cdot f(\tilde{q}, \tilde{\omega}, \tilde{\mu}, \tilde{\beta})
+    \right]
+\end{align}
+
+\begin{align}
+  f(\tilde{q}, \tilde{\omega}, \tilde{\mu}, \tilde{\beta}) = 
+    \frac{3}{\pi}\cdot \frac{1}{e^{\tilde{\beta}\tilde{\omega}}-1} 
+       \delta^p(\vec{q},z)
+\end{align}
+\begin{align}
+  \delta^p(\vec{q}, z) 
+       =& \mathrm{Arg}\left[
+             \frac{1}{4\pi}\cdot \frac{2R}{k_{\varepsilon}^2 v}
+            + \tilde{z}\cdot\frac{1}{4\pi} 
+           + \frac{2 R}{M k_{\varepsilon}^2}\Pi_r(\vec{q},z + \mathrm{i}0^+) 
+                \right]
+\end{align}
+\begin{align}
+  \frac{2 R}{M k_{\varepsilon}^2}\Pi_r(\vec{q},z) 
+  =& \frac{2}{\pi^2} \cdot k_{\varepsilon}R\cdot \int \mathrm{d}\tilde{k}
+           \left[ 
+\tilde{k}^4\cdot \frac{1+n(\xi_{\vec{k}+\vec{q}/2}) + n(\xi_{-\vec{k}+\vec{q}/2})}
+          {\tilde{\xi}_{\vec{k}+\vec{q}/2} + \tilde{\xi}_{-\vec{k}+\vec{q}/2} - \tilde{\omega}}
+           -\frac{1}{2}\tilde{k}^2
+           - \frac{1}{4}\tilde{z}
+          \right]
+\end{align}
+
+带 tilde 都是以 $\varepsilon$ 或 $k_{\varepsilon}$ 为单位的无量纲量.
+
+最终画的是 $(1)$ 式. $(1)$ 式左边以 $E_n$ 为单位, 右边乘上 $\left(
+\frac{n_{\varepsilon}}{n} \right)^{2/3}$ 进行单位转换.
+
+将 $(2)~(5)$ 式依次代入可得结果
+
+还有一些关系: $\tilde{\xi} = \tilde{k}^2 - \tilde{\mu} ,\quad n(\xi) =
+\frac{1}{e^{\tilde{\beta} \tilde{\xi}}-1}, \quad \tilde{z} =
+\tilde{\omega} - \frac{\tilde{q}^2}{2} + 2 \tilde{\mu}$ 
+
+* $\delta^p(\vec{q}, z)$ 的近似的解析表达式
+
+$\delta^p(\vec{q}, z)$ 的近似的解析表达式为
+\begin{align}
+  -\pi \theta(\omega - a)
+\end{align}
+其中 
+\begin{align}
+  a = \frac{\tilde{q}^2}{2} - 2 \tilde{\mu} - \frac{2R}{k_{\varepsilon}^2 v}
+\end{align}
