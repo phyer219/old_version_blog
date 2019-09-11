@@ -42,13 +42,13 @@
   =& \frac{2}{\pi^2} \cdot k_{\varepsilon}R\cdot \int \mathrm{d}\tilde{k}
            \left[ 
 \tilde{k}^4\cdot \frac{1+n(\xi_{\vec{k}+\vec{q}/2}) + n(\xi_{-\vec{k}+\vec{q}/2})}
-          {\tilde{\xi}_{\vec{k}+\vec{q}/2} + \tilde{\xi}_{-\vec{k}+\vec{q}/2} - \tilde{\omega}}
+          {2\tilde{k}^2 - \tilde{z}}
            -\frac{1}{2}\tilde{k}^2
            - \frac{1}{4}\tilde{z}
           \right]
 \end{align}
 
-带 tilde 都是以 $\varepsilon$ 或 $k_{\varepsilon}$ 为单位的无量纲量.
+带 tilde 的都是以 $\varepsilon$ 或 $k_{\varepsilon}$ 为单位的无量纲量.
 
 最终画的是 $(1)$ 式. $(1)$ 式左边以 $E_n$ 为单位, 右边乘上 $\left(
 \frac{n_{\varepsilon}}{n} \right)^{2/3}$ 进行单位转换.
@@ -69,3 +69,49 @@ $\delta^p(\vec{q}, z)$ 的近似的解析表达式为
 \begin{align}
   a = \frac{\tilde{q}^2}{2} - 2 \tilde{\mu} - \frac{2R}{k_{\varepsilon}^2 v}
 \end{align}
+
+以 $\tilde{q}$ 和 $\tilde{\omega}$ 为变量, 数值上画出的
+$\delta^p(\vec{q}, z)$ 的二维图为
+
+file:./2019-09-08-专业笔记-NSRcalv2/2Dfig.png
+
+是一个阶跃函数. 其边界和近似的解析表达式对比
+
+file:./2019-09-08-专业笔记-NSRcalv2/stepLine.png
+
+* 计算 density
+
+\begin{align}
+  \frac{n}{n_{\varepsilon}} 
+ =& - \frac{\partial}{\partial\tilde{\mu}}\left[
+     \int \mathrm{d}\tilde{q}\cdot \tilde{q}^2
+     \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}
+      \cdot f(\tilde{q}, \tilde{\omega}, \tilde{\mu}, \tilde{\beta})
+    \right]
+\end{align}
+
+density $\frac{n}{n_{\varepsilon}}$  与温度 $\tilde{\beta}$ , $k_{\varepsilon}R$ ,
+$\frac{2R}{k_{\varepsilon}^2 v}$ , 化学势 $\tilde{\mu}$ 有关.
+
+将温度 $\tilde{\beta}=1$ 和 $k_{\varepsilon}R=1/30$ 固定, 以
+$\frac{2R}{k_{\varepsilon}^2 v}$ 为横坐标, 画出不同化学势
+$\tilde{\mu}$ 时积分部分的多条曲线.
+
+取 $\frac{2R}{k_{\varepsilon}^2 v}\in [-2, 2]$ , $\mu \in [-2, -.0.1]$
+
+** 积分
+
+积分的结果为(并与之前的纯数值结果比较)
+
+file:./2019-09-08-专业笔记-NSRcalv2/integralResult.png
+
+file:./2019-09-08-专业笔记-NSRcalv2/integralResultAna.png
+
+file:./2019-09-08-专业笔记-NSRcalv2/integralResult2.png
+
+file:./2019-09-08-专业笔记-NSRcalv2/integralResult2Ana.png
+
+* 最终结果
+
+file:./2019-09-08-专业笔记-NSRcalv2/result.png
+file:./2019-09-08-专业笔记-NSRcalv2/result2.png
