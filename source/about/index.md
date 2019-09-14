@@ -4,9 +4,7 @@ date: 2018-09-07 20:24:29
 ---
 # 关于我
 
-王泽庆
-
-中国人民大学物理系硕士在读
+中国人民大学物理系博士在读
 
 研究课题: RF spectrum of strongly interacting Bose gases across d-wave resonance
 
