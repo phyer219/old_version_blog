@@ -79,7 +79,7 @@ file:./2019-09-08-专业笔记-NSRcalv2/2Dfig.png
 
 file:./2019-09-08-专业笔记-NSRcalv2/stepLine.png
 
-* 计算 density
+* 计算 density I
 
 \begin{align}
   \frac{n}{n_{\varepsilon}} 
@@ -99,284 +99,40 @@ $\tilde{\mu}$ 时积分部分的多条曲线.
 
 取 $\frac{2R}{k_{\varepsilon}^2 v}\in [-2, 2]$ , $\mu \in [-2, -.0.1]$
 
-** 积分
+* 计算 density II
 
-积分的结果为(并与之前的纯数值结果比较)
+用 $\delta^p(\vec{q}, z)$ 的近似的解析表达式求 density 的解析表达式
 
-file:./2019-09-08-专业笔记-NSRcalv2/integralResult.png
-
-file:./2019-09-08-专业笔记-NSRcalv2/integralResultAna.png
-
-file:./2019-09-08-专业笔记-NSRcalv2/integralResult2.png
-
-file:./2019-09-08-专业笔记-NSRcalv2/integralResult2Ana.png
+\begin{align}
+  \frac{n}{n_{\varepsilon}} 
+ =& - \frac{\partial}{\partial\tilde{\mu}}\left[
+     \int \mathrm{d}\tilde{q}\cdot \tilde{q}^2
+     \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}
+      \cdot f(\tilde{q}, \tilde{\omega}, \tilde{\mu}, \tilde{\beta})
+    \right]\\
+ =& - \frac{\partial}{\partial\tilde{\mu}}\left[
+     \int \mathrm{d}\tilde{q}\cdot \tilde{q}^2
+     \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}\cdot
+     \frac{3}{\pi} \cdot \frac{1}{e^{\tilde{\beta}} \tilde{\omega}-1}
+     \cdot (-\pi)\theta(\omega - a)
+    \right]\\
+ =& 3 \int_0^{\infty}\mathrm{d}\tilde{q}\cdot \tilde{q}^2
+    \frac{1}{e^{\tilde{\beta}a}-1}
+\end{align}
 
 * 最终结果
 
-file:./2019-09-08-专业笔记-NSRcalv2/result.png
-file:./2019-09-08-专业笔记-NSRcalv2/result2.png
+将结果与原文中的结果对比
+
+file:./2019-09-08-专业笔记-NSRcalv2/co-result.png
+
+- 蓝线: 原文结果
+- ana1 只把 $\delta^p$ 的边界的边界用数值解代替(analytically calculate $\delta^p$ ).
+- ana2 直到积分的结果都是解析的, 微分是数值微分(analytically calculate the integral F).
+- ana3 对 $\mu$ 的微分也用解析结果(analytically calculate $\mu$ ).
+
 
 * code
 
-** 1-integral
+https://github.com/phyer219/NSRcal
 
-#+BEGIN_SRC python
-from matplotlib import pyplot as plt
-import numpy as np
-from scipy import integrate
-
-from scipy.integrate import fixed_quad
-from mpl_toolkits.mplot3d import Axes3D
-from matplotlib import cm
-
-from scipy.special import roots_legendre as leg
-def gauquad(f,a,b,n = 50):
-    '''
-    定义 Gaussian quadrature 积分
-    函数 f 的积分区间为 [a,b]
-    取 n 个 Legendre 的根
-    def Gaussian quadrature integration
-    integrate function f from a to b
-    take n Legendre roots
-    '''
-    ft = lambda t: f( (b-a)*t/2 +(a+b)/2 ) * (b-a)/2
-    x, w = leg(n)
-    I = 0
-    for i in range(n):
-        I = I + w[i]*ft(x[i])
-    err = 0
-    return I,err
-
-rootNum = 10                    # Gaussian Quadrature 积分时取的根的个
-                                # 数.
-beta = 1                        # 温度的倒数.
-zero = 1e-6                     # 积分从零开始时, 为避免发散, 从一个非
-                                # 常小的数值开始积.
-R = 1/30                        # 参数 k_epsilon R 的取值.
-epsabs = 1e-1                   # 用 integrate.quad 积分时限定的绝对误
-                                # 差 .
-
-#定义用到的函数.
-def xi(k, mu):
-    return k**2 - mu
-def n(k, mu):
-    x = xi(k,mu)
-    n =  1 / (np.exp(beta*x) - 1)
-    return n
-def z(omega, q, mu):
-    return omega - q**2/2 + 2*mu
-def pi(omega, q, k, mu):
-    """没有积分时的 PI"""
-    pi = 1 + n(k+q/2, mu) + n(-k+q/2, mu)
-    pi = pi / (2*k**2 - z(omega, q, mu))
-    pi = pi * k**4
-    pi = pi -k**2/2 - z(omega, q, mu)/4
-    pi = 2*pi / np.pi**2 * R
-    return pi
-def PI(omega, q, mu):
-    """将函数 pi 中的 k 积分掉"""
-    zz = z(omega, q, mu)
-    if zz<0:
-        PI, err = fixed_quad(lambda x: pi(omega, q, x, mu), zero, 10,
-                             n=rootNum)
-        # 积分范围是 [0, inf], 如果 z<0 , 在积分范围内分母没有零点, 直
-        # 接积分即可.
-    else:
-        # 如果在积分范围内出现了零点, 就需要考虑它的主值积分.
-        # 可以求得在积分范围内的零点为:
-        a = np.sqrt(zz/2)
-        # 在零点两侧分别积分, 然后相加.
-        PI1, err = fixed_quad(lambda x: pi(omega, q, x, mu), zero, a-zero,
-                              n=rootNum) 
-        PI2, err = fixed_quad(lambda x: pi(omega, q, x, mu), a+zero,
-                              10, n=rootNum)
-        PI = PI1 + PI2
-    return PI
-def delta(omega, q, rkv, mu):
-    """函数 delta^p"""
-    zz = z(omega, q, mu)
-    if zz<0:
-        # 如果 z<0 , 它是没有虚部的.
-        img = 0
-    else:
-        # 否则, 主值积分后会有一个虚部, 解析表达式为.
-        k = np.sqrt(zz/2)
-        img = 1 + n(k+q/2, mu) + n(-k+q/2, mu)
-        img = img * R/(2*np.pi)
-        img = img * k**3
-    # delta 实部就是 PI 的实部再加上两项.
-    rel = PI(omega, q, mu)
-    rel = rel + rkv/(4*np.pi)
-    rel = rel +zz/(4*np.pi)
-    # delta 取其辐角. 为了使最后的积分收敛, 整体做一个 pi 相位的调整.
-    delta = np.angle(rel + 1j*img) - np.pi
-    return delta
-def anaDelta(omega, q, rkv, mu):
-    a = q**2/2 - 2*mu - rkv
-    if omega<a:
-        anaDelta = 0
-    else:
-        anaDelta = -np.pi
-    return anaDelta
-
-
-Nrkv = 100
-rkv = np.linspace(0, 2, Nrkv)
-np.savetxt('rkv.txt', rkv)
-
-Nmu = 10
-mu = np.linspace(-2.1, -1.2, Nmu)
-
-def f(omega, q, rkv, mu):
-    f = 1 / (np.exp(beta*omega) - 1)
-    f = 3*f / np.pi
-    f = f * delta(omega, q, rkv, mu)
-    return f
-
-def anaf(omega, q, rkv, mu):
-    f = 1 / (np.exp(beta*omega) - 1)
-    f = 3*f / np.pi
-    f = f * anaDelta(omega, q, rkv, mu)
-    return f
-
-
-def FF(q, rkv, mu):
-    """把 omega 积掉."""
-    FF, err = integrate.quad(lambda x:f(x, q, rkv, mu), -1.1, 3, epsabs=epsabs)
-    return FF
-def F(rkv, mu):
-    F, err = integrate.quad(lambda x:FF(x,rkv, mu), zero, 3, epsabs=epsabs)
-    return F
-
-def anaFF(q, rkv, mu):
-    """把 omega 积掉."""
-    FF, err = integrate.quad(lambda x:anaf(x, q, rkv, mu), -1.1, 3, epsabs=epsabs)
-    return FF
-def anaF(rkv, mu):
-    F, err = integrate.quad(lambda x:anaFF(x,rkv, mu), zero, 3, epsabs=epsabs)
-    return F
-
-
-
-#Fn = np.zeros(Nrkv)
-anaFn = np.zeros([Nrkv, Nmu])
-for j in range(Nmu):
-    for i in range(Nrkv):
-#        Fn[i] = F(rkv[i], mu[j])
-        anaFn[i, j] = anaF(rkv[i], mu[j])
-        print('mu_', j, 'rkv_', i)
-#    plt.plot(rkv, Fn)
-    plt.plot(rkv, anaFn[:, j], label=r'$\mu/\varepsilon$=%.1f'%mu[j])
-
-np.savetxt('integral.txt', anaFn)
-np.savetxt('mu.txt', mu)
-    
-plt.xlabel(r'$2R/(k_{\varepsilon}^2v)$')
-plt.ylabel(r'Integral')
-plt.title(r'The results of the integral for $\mu$ is from $-2.1$ to $-1.2$ (analytical)') 
-
-plt.legend()
-plt.show()
-#print(FF(1, 2, -1))
-
-
-'''
-NOO = 100
-OO = np.linspace(-1, 3, NOO)
-ff = np.linspace(-1, 3, NOO)
-anaff = np.linspace(-1, 3, NOO)
-for i in range(NOO):
-    ff[i] = f(OO[i], 2, 2, -1)
-    anaff[i] = anaf(OO[i], 2, 2, -1)
-plt.plot(OO, ff, 'r')
-plt.plot(OO, anaff, 'b')
-plt.show()
-'''
-#+END_SRC
-
-** 2-density
-
-#+BEGIN_SRC python
-from matplotlib import pyplot as plt
-import numpy as np
-from scipy import integrate
-
-from scipy.integrate import fixed_quad
-from mpl_toolkits.mplot3d import Axes3D
-from matplotlib import cm
-
-from scipy.special import roots_legendre as leg
-
-anaFn = np.loadtxt('integral.txt')
-mu = np.loadtxt('mu.txt')
-rkv = np.loadtxt('rkv.txt')
-Nrkv, Nmu = anaFn.shape
-print(anaFn.shape)
-print(mu)
-
-dd = mu[1] - mu[0]
-
-density = np.zeros([Nrkv, Nmu-2])
-for j in range(Nmu-2):
-    for i in range(Nrkv):
-        density[i, j] = anaFn[i, j+2] -anaFn[i, j]
-        density[i, j] = - density[i, j] / (2*dd)
-print(density)
-
-for i in range(Nmu-2):
-    plt.plot(rkv, density[:, i],
-             label=r'$\mu/\varepsilon$=%.1f'%mu[i+1])
-
-plt.xlabel(r'$2R/(k_{\varepsilon}^2v)$')
-plt.ylabel(r'$n/n_{\varepsilon}$')
-plt.title(r'The results of density for $\mu$ is from $-2$ to$-1.3$')
-
-plt.legend()
-np.savetxt('density.txt', density)
-plt.savefig('density.png')
-plt.show()
-#+END_SRC
-
-** 3-energy
-
-#+BEGIN_SRC python
-from matplotlib import pyplot as plt
-import numpy as np
-from scipy import integrate
-
-from scipy.integrate import fixed_quad
-from mpl_toolkits.mplot3d import Axes3D
-from matplotlib import cm
-
-from scipy.special import roots_legendre as leg
-
-density = np.loadtxt('density.txt')
-mu = np.loadtxt('mu.txt')
-anaF = np.loadtxt('integral.txt')
-rkv = np.loadtxt('rkv.txt')
-
-Nrkv, Nmu = density.shape
-Nmu = Nmu+2
-
-cordinate = np.zeros(Nmu-2)
-
-for i in range(Nmu-2):
-    d = np.abs(density[0, i] - 1)
-    for j in range(Nrkv):
-        if np.abs(density[j, i]-1) < d:
-            d = np.abs(density[j, i]-1)
-            cordinate[i] = j
-
-print(cordinate)
-
-energy = np.zeros(Nmu-2)
-x = np.zeros(Nmu-2)
-for i in range(Nmu-2):
-    c = int(cordinate[i])
-    energy[i] = anaF[c, i] + mu[i]
-    print(density[c, i])
-    x[i] = rkv[c]
-
-plt.scatter(x, energy)
-plt.show()
-#+END_SRC
