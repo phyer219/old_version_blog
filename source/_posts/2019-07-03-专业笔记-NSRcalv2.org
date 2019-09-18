@@ -127,10 +127,36 @@ $\tilde{\mu}$ 时积分部分的多条曲线.
 file:./2019-09-08-专业笔记-NSRcalv2/co-result.png
 
 - 蓝线: 原文结果
+- num 数值结果.
 - ana1 只把 $\delta^p$ 的边界的边界用数值解代替(analytically calculate $\delta^p$ ).
 - ana2 直到积分的结果都是解析的, 微分是数值微分(analytically calculate the integral F).
 - ana3 对 $\mu$ 的微分也用解析结果(analytically calculate $\mu$ ).
 
+* 计算 $T_C$
+
+** weak coupling
+
+算出 $\mu = 0$ 时的 density .
+\begin{align}
+  \frac{n}{n_{\varepsilon}} 
+ = 3 \int_0^{\infty}\mathrm{d}\tilde{q}\cdot \tilde{q}^2
+    \frac{1}{e^{\tilde{\beta}a}-1}
+\end{align}
+其中 $a = \frac{\tilde{q}^2}{2} - 2 \tilde{\mu} -
+\frac{2R}{k_{\varepsilon}^2 v}$ .
+
+对应的纵坐标为
+\begin{align}
+  \frac{k_BT_C}{E_n} = \frac{1}{\beta E_n} = \frac{1}{\varepsilon \beta} \frac{\varepsilon}{E_n}
+  = \frac{1}{\tilde{\beta}} \cdot \left(\frac{n_{\varepsilon}}{n}\right)^{2/3}
+\end{align}
+横坐标为
+\begin{align}
+  \frac{2 R_p}{k_n^2v_p} = \frac{2 \tilde{R_p}}{k_{\varepsilon}^2 \tilde{v_p}}\cdot \left(
+   \frac{n_{\varepsilon}}{n}\right)^{2/3}
+\end{align}
+
+file:./2019-09-08-专业笔记-NSRcalv2/Tc.png
 
 * code
 
