@@ -9,25 +9,24 @@
 
 \begin{align}
   \frac{\Delta F}{NE_n} 
-  =&  \left( \frac{n_{\varepsilon}}{n} \right)^{2/3}
-      \int\mathrm{d}\tilde{q}\cdot \tilde{q}^2
-     \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}
-      \cdot f(\tilde{q}, \tilde{\omega}, \tilde{\mu}, \tilde{\beta})
-     + \tilde{\mu} \left( \frac{n_{\varepsilon}}{n} \right)^{2/3} \\
+  = \left[ \tilde{\tilde{\Omega}}_{\mathrm{int}} - \tilde{\Omega}_{0}^{\mathrm{M}} 
+  + \tilde{\mu} \right]\left( \frac{n_{\varepsilon}}{n} \right)^{2/3}
 \end{align}
 \begin{align}
   \frac{n}{n_{\varepsilon}} 
  =& - \frac{\partial}{\partial\tilde{\mu}}\left[
-     \int \mathrm{d}\tilde{q}\cdot \tilde{q}^2
-     \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}
-      \cdot f(\tilde{q}, \tilde{\omega}, \tilde{\mu}, \tilde{\beta})
+       \tilde{\tilde{\Omega}}_{\mathrm{int}} + \tilde{\Omega}_{0}^{\mathrm{B}}
     \right]
 \end{align}
-
 \begin{align}
-  f(\tilde{q}, \tilde{\omega}, \tilde{\mu}, \tilde{\beta}) = 
-    \frac{3}{\pi}\cdot \frac{1}{e^{\tilde{\beta}\tilde{\omega}}-1} 
+  \tilde{\tilde{\Omega}}_{\mathrm{int}} = \int \mathrm{d}\tilde{q}\cdot \tilde{q}^2
+     \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}
+      \cdot \frac{3}{\pi}\cdot \frac{1}{e^{\tilde{\beta}\tilde{\omega}}-1} 
        \delta^p(\vec{q},z)
+\end{align}
+\begin{align}
+  \tilde{\Omega}_0^{\mathrm{B}} = \frac{3}{\tilde{\beta}} \int_0^{\infty} \mathrm{d}
+  \tilde{k} \cdot \tilde{k}^2 \ln \left[1 - e^{- \tilde{\beta} \tilde{\xi}_k}\right]
 \end{align}
 \begin{align}
   \delta^p(\vec{q}, z) 
@@ -80,13 +79,10 @@ file:./2019-09-08-专业笔记-NSRcalv2/2Dfig.png
 file:./2019-09-08-专业笔记-NSRcalv2/stepLine.png
 
 * 计算 density I
-
 \begin{align}
   \frac{n}{n_{\varepsilon}} 
  =& - \frac{\partial}{\partial\tilde{\mu}}\left[
-     \int \mathrm{d}\tilde{q}\cdot \tilde{q}^2
-     \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}
-      \cdot f(\tilde{q}, \tilde{\omega}, \tilde{\mu}, \tilde{\beta})
+       \tilde{\tilde{\Omega}}_{\mathrm{int}} + \tilde{\Omega}_{0}^{\mathrm{B}}
     \right]
 \end{align}
 
@@ -102,22 +98,15 @@ $\tilde{\mu}$ 时积分部分的多条曲线.
 * 计算 density II
 
 用 $\delta^p(\vec{q}, z)$ 的近似的解析表达式求 density 的解析表达式
-
 \begin{align}
   \frac{n}{n_{\varepsilon}} 
  =& - \frac{\partial}{\partial\tilde{\mu}}\left[
-     \int \mathrm{d}\tilde{q}\cdot \tilde{q}^2
-     \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}
-      \cdot f(\tilde{q}, \tilde{\omega}, \tilde{\mu}, \tilde{\beta})
-    \right]\\
- =& - \frac{\partial}{\partial\tilde{\mu}}\left[
-     \int \mathrm{d}\tilde{q}\cdot \tilde{q}^2
-     \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}\cdot
-     \frac{3}{\pi} \cdot \frac{1}{e^{\tilde{\beta}} \tilde{\omega}-1}
-     \cdot (-\pi)\theta(\omega - a)
-    \right]\\
- =& 3 \int_0^{\infty}\mathrm{d}\tilde{q}\cdot \tilde{q}^2
-    \frac{1}{e^{\tilde{\beta}a}-1}
+       \tilde{\tilde{\Omega}}_{\mathrm{int}} + \tilde{\Omega}_{0}^{\mathrm{B}}
+    \right] \\
+ =& \int_0^{\infty}\mathrm{d}\tilde{q}\cdot 3 \tilde{q}^2\left[ 
+    \frac{1}{e^{\tilde{\beta}a}-1} +
+    \frac{1}{e^{\tilde{\beta}(\tilde{q}^2 - \tilde{\mu})}-1}
+  \right]
 \end{align}
 
 * 最终结果
@@ -137,13 +126,6 @@ file:./2019-09-08-专业笔记-NSRcalv2/co-result.png
 ** weak coupling
 
 算出 $\mu = 0$ 时的 density .
-\begin{align}
-  \frac{n}{n_{\varepsilon}} 
- = 3 \int_0^{\infty}\mathrm{d}\tilde{q}\cdot \tilde{q}^2
-    \frac{1}{e^{\tilde{\beta}a}-1}
-\end{align}
-其中 $a = \frac{\tilde{q}^2}{2} - 2 \tilde{\mu} -
-\frac{2R}{k_{\varepsilon}^2 v}$ .
 
 对应的纵坐标为
 \begin{align}
@@ -158,7 +140,6 @@ file:./2019-09-08-专业笔记-NSRcalv2/co-result.png
 
 file:./2019-09-08-专业笔记-NSRcalv2/Tc.png
 
-* code
+file:./2019-09-08-专业笔记-NSRcalv2/TcNum.png
 
-https://github.com/phyer219/NSRcal
 
