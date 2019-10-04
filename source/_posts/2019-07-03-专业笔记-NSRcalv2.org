@@ -39,12 +39,15 @@
 \begin{align}
   \frac{2 R}{M k_{\varepsilon}^2}\Pi_r(\vec{q},z) 
   =& \frac{2}{\pi^2} \cdot k_{\varepsilon}R\cdot \int \mathrm{d}\tilde{k}
-           \left[ 
-\tilde{k}^4\cdot \frac{1+n(\xi_{\vec{k}+\vec{q}/2}) + n(\xi_{-\vec{k}+\vec{q}/2})}
+           \left\{
+       \int_{-1}^1 \mathrm{d}x
+        \cdot x^2\left[
+        1+n(\xi_{\vec{k}+\vec{q}/2}) + n(\xi_{-\vec{k}+\vec{q}/2})
+              \right]\frac{3}{2}\frac{\tilde{k}^4}
           {2\tilde{k}^2 - \tilde{z}}
            -\frac{1}{2}\tilde{k}^2
            - \frac{1}{4}\tilde{z}
-          \right]
+          \right\} 
 \end{align}
 
 带 tilde 的都是以 $\varepsilon$ 或 $k_{\varepsilon}$ 为单位的无量纲量.
