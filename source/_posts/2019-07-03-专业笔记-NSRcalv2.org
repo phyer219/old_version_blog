@@ -107,7 +107,7 @@ $\tilde{\mu}$ 时积分部分的多条曲线.
        \tilde{\tilde{\Omega}}_{\mathrm{int}} + \tilde{\Omega}_{0}^{\mathrm{B}}
     \right] \\
  =& \int_0^{\infty}\mathrm{d}\tilde{q}\cdot 3 \tilde{q}^2\left[ 
-    \frac{1}{e^{\tilde{\beta}a}-1} +
+    \frac{2}{e^{\tilde{\beta}a}-1} +
     \frac{1}{e^{\tilde{\beta}(\tilde{q}^2 - \tilde{\mu})}-1}
   \right]
 \end{align}
