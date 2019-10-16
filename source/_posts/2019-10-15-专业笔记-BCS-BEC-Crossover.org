@@ -1,0 +1,34 @@
+#+TITLE: BCS-BEC Crossover
+#+DATE: <2019-10-15>
+#+CATEGORIES: 专业笔记
+#+TAGS: 物理, BCS-BEC Crossover, BEC, BCS
+#+HTML: <!-- toc -->
+#+HTML: <!-- more -->
+
+* System
+
+Fremion
+
+interaction described by scattering length $a_s$ .
+
+* Physics
+
+** BCS
+
+** BEC
+
+** Unitary 
+
+** Critial Temperature
+
+* Method
+
+** Mean Field
+
+** NSR
+
+* Reference
+
+Stinati
+
+Pitaevskii 
