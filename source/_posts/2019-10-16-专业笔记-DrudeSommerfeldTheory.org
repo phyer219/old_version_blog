@@ -1,11 +1,13 @@
-#+TITLE: Drude Model
+#+TITLE: Drude Model and the Sommerfeld Theory of Metals
 #+DATE: <2019-10-16>
 #+CATEGORIES: 专业笔记
 #+TAGS: 物理, Drude Model
 #+HTML: <!-- toc -->
 #+HTML: <!-- more -->
 
-* 物理图像
+* Drude Model
+
+** 物理图像
 
 金属元素的原子聚在一起形成金属时, 价电子分离出来, 并且在金属中自由的游荡, 而金属
 离子保持完好, 扮演着不动的正电荷粒子的角色. 一个原子总共有 $Z_{\alpha}$ 个电子.
@@ -23,9 +25,9 @@ Drude Model 的几个基本假设:
 3. 电子只通过碰撞来达到与环境的热平衡. 电子在碰撞后, 速度与碰撞前的速度完全无关,
    而时随机地得到一个与碰撞周围的温度相匹配的温度.
 
-* 主要结论
+** 主要结论
 
-** current density $\vec{j}$ 和电场强度 $\vec{E}$ 之间的线性关系
+*** current density $\vec{j}$ 和电场强度 $\vec{E}$ 之间的线性关系
 
 Ohm's 定律 
 \begin{align*}
@@ -66,7 +68,7 @@ $\vec{E}$ 的存在. 因为无电场时, 没有电流, 即 $\vec{v}=0$ .
   \tau = \frac{m}{\rho ne^2}
 \end{align}
 
-** 电子的运动方程
+*** 电子的运动方程
 
 假设电子在 $t$ 时刻的平均动量为 $\vec{p}(t)$ , 外场给电子的力为 $\vec{f}(t)$ .
 
@@ -113,6 +115,12 @@ $\vec{E}$ 的存在. 因为无电场时, 没有电流, 即 $\vec{v}=0$ .
 \begin{align}
   \frac{\mathrm{d}}{\mathrm{d}t} \vec{p}(t) = - \frac{\vec{p}(t)}{\tau} + \vec{f}(t)
 \end{align}
+
+* The Sommerfeld Theory of Metals
+
+与 Drude Model 的主要区别在于将电子作为全同费米子来处理, 考虑 Fermi-Dirac 分布. 
+
+又名 Free Electron Model ,Drude-Sommerfeld Model.
 
 * 总结
 
