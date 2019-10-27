@@ -38,7 +38,6 @@ s- wave scattering amplitude
 
 ** Pseudo Gap
 
-#+BEGIN_QUOTE
 对于无相互作用或者弱排斥的费米子(没有发生配对, 没有超流), 它的色散关系大概是一个
 抛物线型
 \begin{align}
@@ -54,6 +53,11 @@ s- wave scattering amplitude
 \end{align}
 费米面以下的态都是填满的. 
 
+
+如图..
+[[file:./2019-10-15-专业笔记-BCS-BEC-Crossover/gapless.jpg]]
+[[file:./2019-10-15-专业笔记-BCS-BEC-Crossover/gapless.py][picture code]]
+
 激发谱在配对的时候(如果存在超流), 那么它的准粒子激发就是这样
 
 它会打开一个 gap, 这个 gap 就是 $\Delta$ , 因为这个时候它的激发谱变成了
@@ -64,7 +68,9 @@ where $\Delta = \langle \psi_{\downarrow} \psi_{\uparrow}(\vec{r})\rangle$
 这个是 BSC 平均场 Hamiltonian 做 Boguliubov 变换, 应该是求出这样一个单粒子的色散
 关系. 
 
-这个 gap 反应在态密度上.
+这个 gap 反应在态密度上如图
+[[file:./2019-10-15-专业笔记-BCS-BEC-Crossover/gaped.jpg]]
+[[file:./2019-10-15-专业笔记-BCS-BEC-Crossover/gaped.py][picture code]]
 
 pseudo gap 最早的定义是说, 态密度在费米面附近有一个 deep. 这个 deep, 不同的体系,
 产生的原因是不一样的. 如果激发谱在这里存在一个 gap, 它可以在这样导致一个 deep
@@ -80,7 +86,6 @@ $\Delta = 0$ , 另一方面, 这个 deep 同时也消失了, 也就是说在 $T_
 要接近于零, 因为这是超流到正常相的一个判据. 但是激发谱仍然是有 gap 的, 同时呢,
 这里仍然有一个 deep , 但是这个 deep 这个时候通常, 比如说 $T_{C}$ 以上, 它是不会
 掉到零的, 但它还有一个 deep, 这个里面它叫做一个 pseudo gap.
-#+END_QUOTE
 
 ** Paring Gap
 
