@@ -32,4 +32,4 @@
 
 * Reference
 
--  R. Grimm, C. Chin etal, Science 305, 1128 (2004)
+-  R. Grimm, C. Chin et al, Science 305, 1128 (2004)

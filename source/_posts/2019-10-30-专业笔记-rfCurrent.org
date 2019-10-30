@@ -1,0 +1,99 @@
+#+TITLE: RF Current 推导
+#+DATE: <2019-10-30>
+#+CATEGORIES: 专业笔记
+#+TAGS: 物理, RF谱
+#+HTML: <!-- toc -->
+#+HTML: <!-- more -->
+
+* System
+
+考虑 Li-6 最低的三个 hyperfine states. 最低的两个态 $|1\rangle$ , $|2\rangle$ 参与超
+流配对. 态 $|3\rangle$ 是一个有效的自由的激发能级(effectively a free atom
+excitation level) . 
+
+一开始 $|3\rangle$ 态是空的.
+
+RF field, 会 drive 原子从 $|2\rangle$ 态向 $|3\rangle$ 态跃迁. 如图
+[[file:./2019-10-30-专业笔记-rfCurrent/level.jpg]]
+[[file:./2019-10-30-专业笔记-rfCurrent/level.py][picture code]]
+
+* Hamiltonian
+
+考虑巨正则系统, 态 $|3\rangle$ 的 Hamiltonian 为
+\begin{align}
+  H_3 - \mu_3N_3 = \sum_{\vec{k}}(\epsilon_{\vec{k}} 
+  - \mu_3) c_{3,\vec{k}}^{\dagger} c_{3,\vec{k}}
+\end{align}
+态 $|1\rangle$ , $|2\rangle$ 类似, 化学执 $\mu_1=\mu_2=\mu$
+
+由 RF field 产生的的 $|2\rangle$ , $|3\rangle$ 之间的跃迁为
+\begin{align}
+  H_T = \sum_{\vec{k},\vec{p}}T_{\vec{k},\vec{p}} 
+        c_{3,\vec{p}}^{\dagger} c_{2,\vec{k}} + \mathrm{h.c.}
+\end{align}
+
+* RF Current
+
+RF current 定义为
+\begin{align}
+  I = -\langle \dot{N}_2\rangle = -\mathrm{i}
+     \langle [H, N_2] \rangle
+\end{align}
+由线性响应理论得
+\begin{align}
+  I(\nu) = - \frac{1}{\pi}\mathrm{Im}D^R(\nu + \mu -\mu_3)
+\end{align}
+考虑线性响应理论的最低阶近似, $D$ 可以分解为(如图)
+\begin{align}
+  D_0(\mathrm{i}\Omega_{m}, \vec{0}) = \frac{1}{\beta}
+  \sum_{\vec{k}}\sum_{\omega_n} G^{(2)}(\mathrm{i}\omega_n, \vec{k})
+  G^{(3)}(\mathrm{i}\omega_n + \mathrm{i}\Omega_m, \vec{k})
+\end{align}
+[[file:./2019-10-30-专业笔记-rfCurrent/feynmanDiagram.jpg]]
+[[file:./2019-10-30-专业笔记-rfCurrent/feynmanDiagram.py][picture code]]
+
+用下面的式子, 把格林函数用谱函数表示
+\begin{align}
+  G^M(\vec{k}, E_n) = \frac{1}{2\pi}\int \mathrm{d}E' \frac{A(\vec{k}, E')}
+  {\mathrm{i}E_n - E'}
+\end{align}
+得到
+\begin{align}
+  D_0(\mathrm{i}\Omega_{m}, \vec{0}) = \frac{1}{4\pi^2}\sum_{\vec{k}}
+    \int \mathrm{d}E_1 \int \mathrm{d}E_2 \sum_{\omega_n}
+    A^{(2)}(E_1, \vec{k}) A^{(3)}(E_2, \vec{k})
+    \frac{1}{\mathrm{i}\omega_n-E_1} 
+    \frac{1}{\mathrm{i}\omega_n + \mathrm{i}\Omega_m-E_2}
+\end{align}
+频率求和后
+\begin{align}
+  D_0(\mathrm{i}\Omega_{m}, \vec{0}) = \frac{1}{4\pi^2}\sum_{\vec{k}}
+    \int \mathrm{d}E_1 \int \mathrm{d}E_2 
+    A^{(2)}(E_1, \vec{k}) A^{(3)}(E_2, \vec{k})
+    \left[ f(E_1) - f(E_2) \right]
+    \frac{1}{\mathrm{i}\Omega_m-E_2 + E_1}
+\end{align}
+做代换 $\mathrm{i}\Omega_m \to \nu + \mathrm{i}0^+$ , 并取虚部得到 $I_0(\nu)$
+\begin{align}
+  I_0(\nu) =& -\frac{1}{\pi}(-\pi)\frac{1}{4\pi^2} \sum_{\vec{k}}
+    \int \mathrm{d}E_1 \int \mathrm{d}E_2\cdot
+    A^{(2)}(E_1, \vec{k}) A^{(3)}(E_2, \vec{k})
+    \cdot\left[ f(E_1) - f(E_2) \right] \cdot\delta (\nu - E_2 + E_1) \\
+  =&\frac{1}{4\pi^2} \sum_{\vec{k}}
+    \int \mathrm{d}E_1 
+    A^{(2)}(E_1, \vec{k}) A^{(3)}(\nu + E_1, \vec{k})
+    \cdot\left[ f(E_1) - f(\nu + E_1) \right]
+\end{align}
+态 $|3\rangle$ 是自由粒子, 所以它的谱函数为 $A^{(3)}(\nu + E_1, \vec{k}) =
+2\pi\delta (\nu + E_1 - \epsilon_{\vec{k}})$ , 代入上式可得
+\begin{align}
+  I_0(\nu) = \frac{1}{2\pi}\sum_{\vec{k}}
+    A^{(2)}(\epsilon_{\vec{k}} - \nu, \vec{k})
+    \cdot\left[ f(\epsilon_{\vec{k}} - \nu) - f(\epsilon_{\vec{k}}) \right]
+\end{align}
+
+* Reference 
+
+- Qijin Chen et al 2009 Rep. Prog. Phys. 72 122501
+
+
