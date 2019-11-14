@@ -113,8 +113,146 @@ a_i^{\dagger}   = \sum_{\alpha} a_{\alpha}^{\dagger}\ \langle \alpha \mid i \ran
 = \frac{1}{2}  \sum_{\alpha \beta \gamma \delta} \mid\alpha , \beta \rangle \langle \gamma ,\delta\mid\cdot \langle \alpha, \beta\mid \hat{u}\mid\gamma , \delta \rangle
 \end{align*}
 
+* 例: 场算符
+
+** 引言
+
+考虑坐标表象中两体相互作用势为 $u(\vec{r}_1, \vec{r}_2)$ 的多体 Hamiltonian 的二
+次量子化形式为
+\begin{align}
+  \hat{H} = -\frac{\hbar^2}{2m}\int \mathrm{d} \vec{r}\cdot \hat{\psi}^{\dagger}(\vec{r})
+             \nabla^2 \hat{\psi}(\vec{r}) + \frac{1}{2} \int \mathrm{d} \vec{r}_1 \int \mathrm{d} \vec{r}_2
+             \cdot \hat{\psi}^{\dagger}(\vec{r}_1) \hat{\psi}^{\dagger}(\vec{r}_2) u(\vec{r}_1, \vec{r}_2)
+              \hat{\psi}(\vec{r}_2) \hat{\psi}(\vec{r}_1)
+\end{align}
+其中 $\hat{\psi}(\vec{r}), \hat{\psi}^{\dagger}(\vec{r})$ 是场算符, 也就是坐标表
+象下的湮灭算符和产生产生算符. 
+
+第二项很明显就是二体算符在本征表象中的二次量子化形
+式, 本征表象嘛, $u(\vec{r}_1, \vec{r}_2)$ 是一个数, 放在中间或者其它地方都无所谓.
+
+问题在于第一项的动能项. 只有一重求和, 按之前总结的应该是在本征表象中的表示, 但是
+中间夹的不是本征值, 而是一个 $\nabla^2$ 算符. 那它是对谁作用呢? 是对它后面的场算
+符作用吗? 对场算符求梯度? 是什么意义?
+
+** 动能算符 
+
+真相是: 动能的本征表象不是坐标表象, 而是动量表象, 在动量表象下它的本征值是
+$\vec{p}^2/(2m)$ 是一个数. 在坐标表象下, 它不是本征表象! 所以动能 $\hat{T}$
+在坐标表象下的二次量子化形式(也就是用场算符表示动能项)应该是
+\begin{align}
+  \hat{T} = \int \mathrm{d} \vec{r}_3 \int \mathrm{d} \vec{r}_4 \cdot
+            \hat{\psi}^{\dagger}(\vec{r}_3)  \hat{\psi}(\vec{r}_4)
+            \langle \vec{r}_3 | \hat{T} | \vec{r}_4 \rangle 
+\end{align}
+而
+\begin{align}
+  \langle \vec{r}_3 | \hat{T} | \vec{r}_4 \rangle  = -\frac{\hbar^2}{2m} 
+   \nabla^2_{\vec{r}_3} \delta(\vec{r}_3 - \vec{r}_4)
+\end{align}
+所以
+\begin{align}
+  \label{eq:kinOperator}
+  \hat{T} = \int \mathrm{d} \vec{r} \cdot
+            \hat{\psi}^{\dagger}(\vec{r})  \hat{\psi}(\vec{r})
+            \left(-\frac{\hbar^2}{2m} \nabla^2_{\vec{r}} 
+            \right)
+\end{align}
+
+** 用场算符表示波函数
+
+任意一个态用场算符表示为
+\begin{align}
+  | \Phi \rangle = \int \mathrm{d}\vec{r}_1 \cdot |\vec{r}_1\rangle 
+                    \langle \vec{r}_1 | \Phi \rangle
+\end{align}
+而
+\begin{align}
+  \langle \vec{r}_1 | \Phi \rangle = \phi(\vec{r}_{1})
+\end{align}
+就是态 $| \Phi \rangle$ 在坐标表象的表示, 也就是它的波函数. 所以
+\begin{align}
+  | \Phi \rangle =&  \int \mathrm{d}\vec{r}_1 \cdot \phi(\vec{r}_1) 
+                   | \vec{r}_1 \rangle \\
+                 =& \int \mathrm{d}\vec{r}_1 \cdot \phi(\vec{r}_1) 
+                   \cdot \hat{\psi}^{\dagger}(\vec{r}_1)| 0 \rangle
+\end{align}
+物理意义也很明确. 
+
+** 动能算符作用在态上
+
+动能算符在坐标空间中应该有
+\begin{align}
+  \label{eq:kinCoor}
+  \langle \vec{r} | \hat{T} | \Phi \rangle = - \frac{\hbar^2}{2m} 
+         \nabla^2 \langle \vec{r} | \Phi \rangle
+        = - \frac{\hbar^2}{2m} \nabla^2 \phi(\vec{r})
+\end{align}
+
+验证二次量子化的结果, 将 $\hat{T}$ 用二次量子化的形式写出有
+\begin{align}
+  \langle \vec{r}_4 | \hat{T} | \Phi \rangle =& -\frac{\hbar^2}{2m}
+             \langle \vec{r}_4 | \int \mathrm{d} \vec{r} \cdot
+            \hat{\psi}^{\dagger}(\vec{r})  \hat{\psi}(\vec{r})
+             \nabla^2_{\vec{r}} \cdot
+             | \Phi \rangle \\
+\end{align}
+将波函数在坐标空间展开可得 
+\begin{align}
+  \langle \vec{r}_4 | \hat{T} | \Phi \rangle = -\frac{\hbar^2}{2m}
+             \langle \vec{r}_4 | \int \mathrm{d} \vec{r} \cdot
+            \hat{\psi}^{\dagger}(\vec{r})  \hat{\psi}(\vec{r})
+             \nabla^2_{\vec{r}} \cdot
+              \int \mathrm{d}\vec{r}_1 \cdot \phi(\vec{r}_1) 
+                   \cdot | \vec{r}_1 \rangle 
+\end{align}
+其中 $\hat{\psi}^{\dagger}(\vec{r})  \hat{\psi}(\vec{r})$ 是一个粒子数算符, 将它
+向左作用在态 $\langle \vec{r}_4|$ 上, 得到一个 Dirac 函数. 因为 $\langle
+\vec{r}_4|$ 只有在 $\vec{r} = \vec{r}_4$ 时, 它才有一个粒子, 是 $1$ , 在其它的坐
+标上, 粒子数为 $0$ 即
+\begin{align}
+  \langle  \vec{r}_4| \hat{\psi}^{\dagger}(\vec{r})  \hat{\psi}(\vec{r}) 
+  = \langle \vec{r}_4| \delta(\vec{r} - \vec{r}_4)
+\end{align}
+所以代入原式, 并用 Dirac 函数积掉 $\vec{r}$ 后, 得
+\begin{align}
+  \langle \vec{r}_4 | \hat{T} | \Phi \rangle = -\frac{\hbar^2}{2m}
+             \langle \vec{r}_4 |
+             \nabla^2_{\vec{r}_4} \cdot
+              \int \mathrm{d}\vec{r}_1 \cdot \phi(\vec{r}_1) 
+                   \cdot | \vec{r}_1 \rangle 
+\end{align}
+把两边的态矢做内积, 得到 $\langle \vec{r}_4 |\vec{r}_1\rangle =
+\delta(\vec{r}_1-\vec{r}_4)$ 然后把 $\vec{r}_1$ 积掉, 得
+\begin{align}
+  \langle \vec{r}_4 | \hat{T} | \Phi \rangle = -\frac{\hbar^2}{2m}
+               \nabla^2_{\vec{r}_4}  \phi(\vec{r}_4) 
+\end{align}
+与我们期待的 $(\ref{eq:kinCoor})$ 式相同. 说明二次量子化的表达形式是自洽的. 
+
+** 对场算符的小总结(个人观点)
+
+所以, 回到前面提出的问题, 用场算符表示的动能算符中, $\nabla^2$ 到底对谁作用?
+
+它就是对表达式中场算符中的 $\vec{r}$ 作用, 但是在 $(\ref{eq:kinOperator})$ 式中,
+貌似只是形式的写出, 具体真的要作用了, 就把它拿到最前面就好了. 就好像是 Dirac
+Delta 函数一样, 只是形式上的, 对它进行的各种操作, 都要放到具体和积分中, 才能体现
+它的意义. 
+
+类似的, Sakurai 的高量书里的
+\begin{align}
+  \langle x' | p | x'' \rangle = -\mathrm{i}\hbar \frac{\partial}{\partial x'}
+                                 \delta(x' - x'')
+\end{align}
+一样, 看等式左边是一个力学量的均值, 是一个数, 是数的话, 它就可以在一些表达式中随
+便移动. 但等式右边又是一个 Dirac 函数的二阶导数, 所以... 它只是形式上这么写吧!
+如果我们把 Dirac 函数积分掉了, 剩下一个二阶导数, 它好像又不能随便移动了! 
+
+反正这个好奇怪啊! 不过, 还好, 它是自洽的!
+
 * 致谢
 
-感谢 Qiang Han 老师的课件提供的主要思路.
-
-感谢 J. J. Sakurai & Jim Napolitano 的 Modern Quantum Mechanics 一书提供的二体力学量在本征表象的二次量子化化简过程.
+- Qiang Han 老师的课件提供的主要思路.
+- J. J. Sakurai & Jim Napolitano 的 Modern Quantum Mechanics 一书提供的二体力学
+  量在本征表象的二次量子化化简过程.  
+- R. K. Pathria & Paul D. Beale, Statistical Mechanics 3ed, Chap 11.1

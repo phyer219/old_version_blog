@@ -7,6 +7,8 @@
 
 * 结果
 
+** p-wave
+
 \begin{align}
   \frac{\tilde{\Omega}_{\mathrm{int}}}{Nk_{\varepsilon}^2/(2M)}
   = \frac{n_{\varepsilon}}{n}\frac{3}{2\pi}
@@ -28,11 +30,11 @@
   \frac{2R_p}{Mk_{\varepsilon}^2}\Pi_r^p(\vec{q}, z) =
   \frac{2}{\pi^2}k_{\varepsilon}R_p \int_0^{\infty}\mathrm{d}\tilde{k}\left[
     -\frac{1}{2}\tilde{k}^2 - \frac{\tilde{z}}{4} + 
-    \frac{3}{4\pi} \frac{\tilde{k}^{4}}{2\tilde{k}^2 - \tilde{z}}F(k,\theta_q) \right]
+    \frac{3}{4\pi} \frac{\tilde{k}^{4}}{2\tilde{k}^2 - \tilde{z}}F^p(k,\theta_q) \right]
 \end{align}
 $F(k, \theta_q)$ 为 $\vec{k}$ 的角度积分
 \begin{align}
-  F(k, \theta_q) = \int_0^{\pi} \mathrm{d}\theta_k \int_0^{2\pi} \mathrm{d} \phi_k
+  F^p(k, \theta_q) = \int_0^{\pi} \mathrm{d}\theta_k \int_0^{2\pi} \mathrm{d} \phi_k
   \sin \theta_k \cos^2 \theta_k\left[ 1
     + \frac{1}{e^{\tilde{\beta}(\tilde{k}^2+\tilde{q}^2/4 + \tilde{k}\tilde{q}x -2\mu)}-1}
     + \frac{1}{e^{\tilde{\beta}(\tilde{k}^2+\tilde{q}^2/4 - \tilde{k}\tilde{q}x -2\mu)}-1}  \right]
@@ -43,9 +45,37 @@ $x$ 为 $\vec{k}$ 与 $\vec{q}$ 夹角的余弦:
    + \cos \theta_k \cos \theta_q 
 \end{align}
 
+** d-wave
 
+d-wave 与 p-wave 的不同之处在于 $\tilde{\delta}^d_{m=0}(\vec{q}, z)$ 多了一项,
+以及 $\Pi_r^d$ 中 $l = 2$ , 由于 $l$ 不同, 角度积分中的 $Y_l^m$ 也不同.
+
+\begin{align}
+  \tilde{\delta}_{m=0}^d (\vec{q}, z) = \mathrm{Arg}\left[ 
+    \frac{1}{4\pi}\cdot\frac{2v_d}{k_{\varepsilon}^2D_d} 
+    + \frac{1}{4\pi}\cdot \tilde{z} 
+    + \frac{1}{4\pi}\cdot \tilde{z}^2 \frac{k_{\varepsilon}^3v_d}{2\cdot R_d k_{\varepsilon}}
+    + \frac{2v_d}{Mk_{\varepsilon}^2}\Pi_r^d(\vec{q}, z+\mathrm{i}0^+) \right]
+\end{align}
+
+\begin{align}
+  \frac{2v_d}{Mk_{\varepsilon}^2}\Pi_r^d(\vec{q}, z) =
+  \frac{2}{\pi^2}k_{\varepsilon}^3v_d \int_0^{\infty}\mathrm{d}\tilde{k}\left[
+    -\frac{1}{2}\tilde{k}^4 - \frac{\tilde{z}}{4}\tilde{k}^2 - \frac{\tilde{z}^2}{8} + 
+    \frac{5}{16\pi} \frac{\tilde{k}^6}{2\tilde{k}^2 - \tilde{z}}F^d(k,\theta_q) \right]
+\end{align}
+
+\begin{align}
+  F^d(k, \theta_q) = \int_0^{\pi} \mathrm{d}\theta_k \int_0^{2\pi} \mathrm{d} \phi_k
+  \sin \theta_k (3\cos^2 \theta_k - 1)^2\left[ 1
+    + \frac{1}{e^{\tilde{\beta}(\tilde{k}^2+\tilde{q}^2/4 + \tilde{k}\tilde{q}x -2\mu)}-1}
+    + \frac{1}{e^{\tilde{\beta}(\tilde{k}^2+\tilde{q}^2/4 - \tilde{k}\tilde{q}x -2\mu)}-1}  \right]
+\end{align}
 
 * 过程
+
+** p-wave
+
 文章中公式 (12) (换成 p 波):
 \begin{align}
   \tilde{\Omega}_{\mathrm{int}} = \sum_{m, \vec{q}}
@@ -153,3 +183,7 @@ x-\mu$ 以及 $\tilde{z} = \tilde{\omega} - \tilde{q}^2/2 + 2\mu$ 代入上式, 
 
 所以最终要算的是对 $\tilde{\omega}, \tilde{q}, \theta_q, \tilde{k}, \theta_k,
 \phi_k$ 的积分.
+
+** d-wave
+
+与 p-wave 类似.

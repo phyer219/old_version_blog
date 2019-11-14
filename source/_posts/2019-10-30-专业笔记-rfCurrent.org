@@ -24,7 +24,7 @@ RF field, 会 drive 原子从 $|2\rangle$ 态向 $|3\rangle$ 态跃迁. 如图
   H_3 - \mu_3N_3 = \sum_{\vec{k}}(\epsilon_{\vec{k}} 
   - \mu_3) c_{3,\vec{k}}^{\dagger} c_{3,\vec{k}}
 \end{align}
-态 $|1\rangle$ , $|2\rangle$ 类似, 化学执 $\mu_1=\mu_2=\mu$
+态 $|1\rangle$ , $|2\rangle$ 类似, 化学势 $\mu_1=\mu_2=\mu$
 
 由 RF field 产生的的 $|2\rangle$ , $|3\rangle$ 之间的跃迁为
 \begin{align}
@@ -41,9 +41,10 @@ RF current 定义为
 \end{align}
 由线性响应理论得
 \begin{align}
-  I(\nu) = - \frac{1}{\pi}\mathrm{Im}D^R(\nu + \mu -\mu_3)
+  I(\nu) = - \frac{1}{\pi}\mathrm{Im}D^R(\Omega_L + \mu -\mu_3)
 \end{align}
-考虑线性响应理论的最低阶近似, $D$ 可以分解为(如图)
+其中 $\Omega_L$ 是 rf field 的频率. $\nu = \mu - \mu_3 - \Omega_L$ 为
+detuning. 考虑线性响应理论的最低阶近似, $D$ 可以分解为(如图) 
 \begin{align}
   D_0(\mathrm{i}\Omega_{m}, \vec{0}) = \frac{1}{\beta}
   \sum_{\vec{k}}\sum_{\omega_n} G^{(2)}(\mathrm{i}\omega_n, \vec{k})
@@ -85,12 +86,35 @@ RF current 定义为
     \cdot\left[ f(E_1) - f(\nu + E_1) \right]
 \end{align}
 态 $|3\rangle$ 是自由粒子, 所以它的谱函数为 $A^{(3)}(\nu + E_1, \vec{k}) =
-2\pi\delta (\nu + E_1 - \epsilon_{\vec{k}})$ , 代入上式可得
+2\pi\delta (\nu + E_1 - \epsilon_{\vec{k},3} + \mu_3) = 2\pi\delta (\nu + E_1 -
+\xi_{\vec{k}, 3})$ , 代入上式可得
 \begin{align}
   I_0(\nu) = \frac{1}{2\pi}\sum_{\vec{k}}
-    A^{(2)}(\epsilon_{\vec{k}} - \nu, \vec{k})
-    \cdot\left[ f(\epsilon_{\vec{k}} - \nu) - f(\epsilon_{\vec{k}}) \right]
+    A^{(2)}(\xi_{\vec{k}, 3} - \nu, \vec{k})
+    \cdot\left[ f(\xi_{\vec{k},3} - \nu) - f(\xi_{\vec{k},3}) \right]
 \end{align}
+
+在 $|2\rangle$ 态也是自由的时候, $A^{(2)}(\xi_{\vec{k},3}- \nu,
+\vec{k})=A_0^{(2)}(\xi_{\vec{k},3}-\nu, \vec{k})= 2\pi
+\delta(\xi_{\vec{k},3}-\nu-\xi_{\vec{k}, 2}) = 2\pi
+\delta(\mu-\mu_3-\nu)$ , 代回上式
+\begin{align}
+  I_0(\nu) = \sum_{\vec{k}} \delta(\mu-\mu_3-\nu)
+    \cdot\left[ f(\xi_{\vec{k},3} - \nu) - f(\xi_{\vec{k},3}) \right]
+\end{align}
+是一个 $\delta$ 峰. 它满足 sum rule
+\begin{align}
+  \int \mathrm{d}\nu \cdot I_0(\nu) =& \sum_{\vec{k}}
+  \left[f(\xi_{\vec{k},3} - \mu + \mu_3) - 0\right] \\
+  =& \sum_{\vec{k}} f(\xi_{\vec{k},2}) \\
+  =& N_2
+\end{align}
+其中利用了 $|3\rangle$ 空态, 所以 $f(\xi_{\vec{k},3}) = 0$ .
+
+* 总结
+
+常用思想, 除了级数展开, 小量分析外, 将新得到的结果代回的已知结论, 看能否回到原
+来的简单情况, 是否符合实际的物理, 以验证新结论是否可靠, 也是很重要的思想.
 
 * Reference 
 
