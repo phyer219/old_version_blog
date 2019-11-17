@@ -248,7 +248,110 @@ Delta 函数一样, 只是形式上的, 对它进行的各种操作, 都要放�
 便移动. 但等式右边又是一个 Dirac 函数的二阶导数, 所以... 它只是形式上这么写吧!
 如果我们把 Dirac 函数积分掉了, 剩下一个二阶导数, 它好像又不能随便移动了! 
 
-反正这个好奇怪啊! 不过, 还好, 它是自洽的!
+反正这个好奇怪啊! 不过, 还好, 它是自洽的! 
+
+还有, 一般算动能都是在动量表象算!
+
+* 例: 费米子接触势
+
+** 坐标表象
+
+
+
+考虑两分量 $(\uparrow, \downarrow)$ 的费米子接触势, 其在坐标表象的二次量子化形式为
+\begin{align}
+  \hat{H} = \int \mathrm{d} \vec{r}\cdot \left\{\sum_{\sigma} \left[ \hat{\psi}_{\sigma}^{\dagger}(\vec{r})
+             \left( -\frac{\hbar^2}{2m}\nabla^2 - \mu\right) 
+             \hat{\psi}_{\sigma}(\vec{r}) \right]
+              + g\hat{\psi}_{\uparrow}^{\dagger}(\vec{r}) \hat{\psi}_{\downarrow}^{\dagger}(\vec{r})
+              \hat{\psi}_{\downarrow}(\vec{r}) \hat{\psi}_{\uparrow}(\vec{r}) \right\}
+\end{align}
+第一项就是直接用场算符写出, 只不过多了自旋指标, 并且考虑了化学势. 
+
+另外需要注意的是 $\hat{\psi}^{\dagger}(\vec{r}) \hat{\psi}(\vec{r})$ 是有量纲的,
+它的量纲是粒子数密度, 也就是体积的倒数.
+
+考虑第二项, 接触势的意思为
+\begin{align}
+  u(\vec{r}_1, \vec{r}_2)  = g \delta(\vec{r}_1 - \vec{r}_2)
+\end{align}
+$\delta(\vec{r}_1 - \vec{r}_2)$ 的量纲为体积的倒数, 那么 $g$ 的量纲就为
+$[g]=[E]\cdot L^3$ , 为能量与体积的乘积. 将上式代入下式 
+\begin{align}
+   \hat{V} = \frac{1}{2} \int \mathrm{d} \vec{r}_1 \int \mathrm{d} \vec{r}_2
+             \cdot \hat{\psi}^{\dagger}(\vec{r}_1) \hat{\psi}^{\dagger}(\vec{r}_2) u(\vec{r}_1, \vec{r}_2)
+              \hat{\psi}(\vec{r}_2) \hat{\psi}(\vec{r}_1)
+\end{align}
+由于考虑了两种自旋, 所以上式还应有一重对自旋的求和. 由于是接触势, 由 Pauli 不相
+容原理可知, 只有自旋相反的粒子之间才有相互作用, 所以积掉 Dirac Delta 函数后
+\begin{align}
+   \hat{V} = \frac{1}{2} \int \mathrm{d} \vec{r} \cdot
+             \left[
+               g \cdot \hat{\psi}_{\uparrow}^{\dagger}(\vec{r}) \hat{\psi}_{\downarrow}^{\dagger}(\vec{r}) 
+              \hat{\psi}_{\downarrow}(\vec{r}) \hat{\psi}_{\uparrow}(\vec{r}) \right. \\
+              + g \cdot \hat{\psi}_{\downarrow}^{\dagger}(\vec{r}) \hat{\psi}_{\uparrow}^{\dagger}(\vec{r}) 
+              \hat{\psi}_{\uparrow}(\vec{r}) \hat{\psi}_{\downarrow}(\vec{r}) \\
+              + 0 \cdot \hat{\psi}_{\uparrow}^{\dagger}(\vec{r}) \hat{\psi}_{\uparrow}^{\dagger}(\vec{r}) 
+              \hat{\psi}_{\uparrow}(\vec{r}) \hat{\psi}_{\uparrow}(\vec{r}) \\ \left.
+              + 0 \cdot \hat{\psi}_{\downarrow}^{\dagger}(\vec{r}) \hat{\psi}_{\downarrow}^{\dagger}(\vec{r}) 
+              \hat{\psi}_{\downarrow}(\vec{r}) \hat{\psi}_{\downarrow}(\vec{r})
+             \right]          
+\end{align}
+前两项是相等的(差两个对易子, 都是 $-1$ , 相乘为 $1$ ), 所以
+\begin{align}
+  \hat{V}= g\int \mathrm{d} \vec{r} \cdot
+           \hat{\psi}_{\uparrow}^{\dagger}(\vec{r}) \hat{\psi}_{\downarrow}^{\dagger}(\vec{r})
+           \hat{\psi}_{\downarrow}(\vec{r}) \hat{\psi}_{\uparrow}(\vec{r})
+\end{align}
+所以就得到了我们想要的结果.
+
+** 动量表象
+
+动量表象是动能的本征表象, 所以
+\begin{align}
+  \hat{T} = \sum_{\vec{k}, \sigma}(\epsilon_{\vec{k}} - \mu) c_{\vec{k},\sigma}^{\dagger} c_{\vec{k},\sigma}
+\end{align}
+其中 $\epsilon_{\vec{k}} = \frac{\hbar^2 k^2}{2m}$ .
+
+势能在动量表象中为(类似坐标表象中, 将自旋给定, 乘上一个 $2$ )
+\begin{align}
+  \hat{V} = 2 \cdot \frac{1}{2} \sum_{\vec{k}_1, \vec{k}_2, \vec{k}_3, \vec{k}_4} 
+           \langle \vec{k}_4, \vec{k}_3| \hat{u}(\vec{r}_1, \vec{r}_2) 
+           | \vec{k}_2, \vec{k}_1\rangle c^{\dagger}_{\vec{k}_4, \uparrow}c^{\dagger}_{\vec{k}_3, \downarrow}
+            c_{\vec{k}_2, \downarrow}c_{\vec{k}_1, \uparrow}
+\end{align}
+而
+\begin{align}
+  &\langle \vec{k}_4, \vec{k}_3| \hat{u}(\vec{r}_1, \vec{r}_2) | \vec{k}_2, \vec{k}_1\rangle \\
+  =& \int \mathrm{d}\vec{r}_1 \int \mathrm{d} \vec{r}_2
+    \langle \vec{k}_4|\langle \vec{k}_3|\hat{u}(\vec{r}_1, \vec{r}_2) 
+     |\vec{r}_1\rangle \vec{r}_2\rangle\langle \vec{r}_2| \langle \vec{r}_1|
+      \vec{k}_2\rangle| \vec{k}_1\rangle \\
+=& \int \mathrm{d}\vec{r}_1 \int \mathrm{d} \vec{r}_2
+    \langle \vec{k}_4|\langle \vec{k}_3|g \delta(\vec{r}_2 - \vec{r}_2)
+     |\vec{r}_1\rangle \vec{r}_2\rangle\langle \vec{r}_2| \langle \vec{r}_1|
+      \vec{k}_2\rangle| \vec{k}_1\rangle \\
+=& g\int \mathrm{d}\vec{r}_1 \int \mathrm{d} \vec{r}_2  \delta(\vec{r}_2 - \vec{r}_2)
+    \langle \vec{k}_4|\vec{r}_1\rangle \langle \vec{k}_3|\vec{r}_2\rangle
+       \langle \vec{r}_2|\vec{k}_2\rangle  \langle \vec{r}_1| \vec{k}_1\rangle \\
+=& \frac{g}{V^2}\int \mathrm{d}\vec{r}_1 \int \mathrm{d} \vec{r}_2  \delta(\vec{r}_2 - \vec{r}_2)
+    e^{\mathrm{i}(\vec{k}_1\cdot \vec{r}_1 + \vec{k}_2 \vec{r}_2 -\vec{k}_3\cdot \vec{r}_2 - \vec{k}_4\cdot \vec{r}_1)} \\
+=& \frac{g}{V}\delta_{\vec{k}_1 + \vec{k}_2, \vec{k}_3 + \vec{k}_4}
+\end{align}
+最后一个等号后的 Dirac 函数表示动量守恒. 其中利用了
+\begin{align}
+  \int \mathrm{d} \vec{r}\cdot e^{\mathrm{i}(\vec{k}_1 - \vec{k}_2)\vec{r}} =& V \delta_{\vec{k}_1, k_2} \\
+  \langle \vec{r} | \vec{k} \rangle = \frac{1}{\sqrt{V}} e^{\mathrm{i}\vec{k}\cdot \vec{r}}
+\end{align}
+所以最终得到
+\begin{align}
+  \hat{H} = \sum_{\vec{k}, \sigma}(\epsilon_{\vec{k}} - \mu) c_{\vec{k},\sigma}^{\dagger} c_{\vec{k},\sigma}
+           + \frac{g}{V} \sum_{\vec{k}, \vec{k}', \vec{q}} c^{\dagger}_{\vec{k}+\frac{\vec{q}}{2}, \uparrow}
+            c^{\dagger}_{-\vec{k}+\frac{\vec{q}}{2}, \downarrow}
+            c_{-\vec{k}' + \frac{\vec{q}}{2}, \downarrow} c_{\vec{k}'+\frac{\vec{q}}{2}, \uparrow}
+\end{align}
+势能中, 本来是对四个动量求和, 但由于前面得到的动量守恒的条件, 只剩下三个求和. 将
+求和指标换一下, 即为上式.
 
 * 致谢
 

@@ -1,0 +1,138 @@
+#+TITLE: BCS Theory
+#+DATE: <2019-11-14>
+#+CATEGORIES: 专业笔记
+#+TAGS: 物理, BCS
+#+HTML: <!-- toc -->
+#+HTML: <!-- more -->
+
+* Review
+
+有相互作用的费米系统, 前两类比较常见.
+
+** Fermi Liquid
+
+一类非常像无相互作用的费米系统的系统. 它的特征:
+- 费米面, 是系统 gapless 的地方, 所有的低能激发主要集中在费米面附近, 对费米面附
+  近的态, 最主要的描述就是 $Z$ , qusi-particle residual 和 effective mass 这两个
+  参数, 它们都可以通过自能得到. 所以要了解一个 Fermi liquid, 最主要的就是要想办
+  法知道它的自能函数长什么样子, 知道了自能函数, 就知道了这个 Fermi liquid 的低能
+  行为. 这类系统通常有一个费米面. 费米面的定义就是, 粒子数动量分布在动量空间有一
+  个跳变, 这个跳变的位置就是费米面的位置.
+- 它的激发都是费米型的, 而且都是 gapless 的, 也就是说, 在费米面上, 激发是无能隙
+  的.
+
+** Ordered State
+
+- BCS, Fermion 有 pairing 这样的 order, 费米子要配对.
+- Anti-Ferromagnetic 
+- Charged-Density wave
+
+费米子有 order 的 state, 它和 Fermi liquid 不一样, 这些系统通常没有费米面, 没有
+费米面的结构. 这些系统中, 它的激发在很多时候都是 gaped 的, 也就是有能隙的.
+
+** Non-Fermi Liquid
+
+前两者在现有的多体理论框架中是了解的比较清楚的, 而 Non-Fermi Liquid 还了解的不是
+很清楚的. Non-Fermi Liquid 并不是指除了 Fermi liquid 以外的, 比如 上面的 ordered
+state. 一般指除了 Fermi liquid 和 ordered-stated 以外的有相互作用的费米系统的态.
+
+* Introduction
+
+BCS 理论, 是 ordered state 的典型代表. BCS 理论的发现是为了解决超导问题. 超导和
+超流是上世纪低温物理最重要的两个实验发现, 对我们理解多体物理, 起到非常重要的作用. 
+
+He-4 的超流, 可以由有相互作用的 BEC 来理解. Landau 判据, 有相互作用的 Boso 体系
+中, 会出现临界速度.
+
+超导是费米子体系, 它不会发生 BEC. 
+
+BCS 理论的提出, 已经是在超导发现几十年之后了, 所以对超导机理的研究, 是上个世纪上
+半叶的一个物理学中一个很重要的问题. 直到 BCS 理论的提出, 才解决了这个问题.
+
+* Cooper Problem (a 2-Body Problem)
+
+理解一个问题, 通常把一个问题简化到一个简单的问题. 虽然超导是一个复杂的多体问题,
+但是呢, 它最核心的 insight 来自到 Cooper problem 这样一个两体问题. 其实, 虽然我
+们讲, 凝聚态物理, 多体系统, 通常都是一些复杂的多体问题. 但是在这些多体问题中, 有
+很多例子, 它对于多体物理最核心的理解, 是来自于一些简化的少体问题, Cooper problem
+就是一个典型的例子. 还有一个典型的例子, 就是在分数量子 Hall effect 时候, Robert
+Laughlin 提出了对于 fractional quantum Hall effect 的理解, 就是 Laughlin 波函数,
+后来奠定了很多强关联理论的基础. 其实 Laughlin, 如果你去看 Laughlin 当年理解
+fractional quantum Hall effect 的文章, 它的文章最主要的工作是解了一个三体问题,
+解了一个在磁场中有 Coulumb 相互作用电子运动的三体问题, 通过这个三体问题的解, 他
+猜出了 Laughlin 波函数, 这样一个多体波函数. 
+
+Cooper 问题也是这样. Cooper 问题看起来是一个两体问题. 但是从 Cooper 问题的解上面,
+B. C. S. 就提出了 BCS 理论.
+
+首先, 它是 spin-$1/2$ Fermion, 它的 Hamiltonian (这不是 Cooper 在电子系统中讲的
+问题, 但是问题其实是一样的), 考虑两分量的费米气体, 考虑 spin up 和 spin down 之
+间的相互作用
+\begin{align}
+  H = \sum_{\vec{k,\sigma}}(\epsilon_{\vec{k}} - \mu)
+      c^{\dagger}_{\vec{k}\sigma}c_{\vec{k}\sigma} + \frac{g}{V}\sum_{\vec{k}, \vec{k}', \vec{q}}
+      c^{\dagger}_{\vec{k}+\vec{q}/2\uparrow}c^{\dagger}_{-\vec{k}+\vec{q}/2\downarrow}
+      c_{-\vec{k}' + \vec{q}/2\uparrow}c_{\vec{k}'+\vec{q}/2\downarrow}
+\end{align}
+#+BEGIN_QUOTE
+$g$ 的量纲是 $[E\cdot V]$ .
+#+END_QUOTE
+
+** 2-body in vacuum 
+
+首先, 如果我们考虑第一种情况, 如果系统中总共只有两个 particle. 这不是一个多体问
+题, 纯粹是一个两体问题. 这样的体系没有 Fermi surface, 所以它的化学势 $\mu=0$
+. 
+
+
+怎么解呢?
+
+两个粒子, 就写一个两体波波函数. 因为总共只有两个粒子, 所以肯定可以取它的质心坐标
+系, 在质心系里面就把质心的动量设成 $0$ . 这时候, 如果一个粒子的动量是 $\vec{k}$
+, 那么另外一个粒子的动量就一定是 $-\vec{k}$ . 如果一个 spin up 的动量是
+$\vec{k}$ , spin down 的动量呢, 就是 $-\vec{k}$ , 所以, 不失一般性地, 就可以把它
+的波波函数写成(为了简洁起见, 记 $k\equiv (\vec{k}, \uparrow), -k\equiv
+(-\vec{k}, \downarrow)$ 但是要特别注意 $k=-k$ 是永远不会成立的, 因为自旋相反嘛!)
+\begin{align}
+  |\Phi \rangle = \sum_{k} \phi_{k} c_k^{\dagger}c_{-k}^{\dagger}|0\rangle
+\end{align}
+#+BEGIN_QUOTE
+相应地, Hamiltonian 变为
+#+END_QUOTE
+\begin{align}
+  H = \sum_{\vec{k,\sigma}}\epsilon_{\vec{k}}
+      c^{\dagger}_{\vec{k}\sigma}c_{\vec{k}\sigma} + g\sum_{\vec{k}, \vec{k}', \vec{q}}
+      c^{\dagger}_{\vec{k}\uparrow}c^{\dagger}_{-\vec{k}\downarrow}
+      c_{-\vec{k}'\uparrow}c_{\vec{k}'\downarrow}
+\end{align}
+如果用这个波函数去解 Schrodinger 方程, 那么我们会得到系数 $\phi_k$ 所满足的方程
+\begin{align}
+  2 \epsilon_{\vec{k}} \phi_{\vec{k}} + \frac{g}{V}\sum_{\vec{k}'}\phi_{\vec{k}'}
+  = E \phi_{\vec{k}}
+\end{align}
+
+\begin{align}
+   \phi_{\vec{k}} = \frac{\frac{g}{V}\sum_{\vec{k}'}\phi_{\vec{k}'}}{E - 2\epsilon_{\vec{k}}}
+\end{align}
+
+\begin{align}
+   \sum_{\vec{k}}\phi_{\vec{k}} = \sum_{\vec{k}}\frac{\frac{g}{V}\sum_{\vec{k}'}\phi_{\vec{k}'}}{E - 2\epsilon_{\vec{k}}}
+\end{align}
+约掉 $\sum_{\vec{k}}\phi_{\vec{k}}$
+\begin{align}
+   \frac{V}{g} = \sum_{\vec{k}}\frac{1}{E - 2\epsilon_{\vec{k}}}
+\end{align}
+利用重整化关系
+\begin{align}
+  \frac{m}{4\pi\hbar^2a_s} = \frac{1}{g} + \frac{1}{V}\sum_{\vec{k}}\frac{1}{\hbar^2\vec{k}^2/m}
+\end{align}
+得
+\begin{align}
+  \frac{m}{4\pi\hbar^2a_s} = \frac{1}{V}\left( \sum_{\vec{k}}\frac{1}{E - 2\epsilon_{\vec{k}}}
+                                               + \sum_{\vec{k}}\frac{1}{2\epsilon_{\vec{k}}}\right)
+\end{align}
+
+* Acknowledge 
+
+- H. Z.
+
