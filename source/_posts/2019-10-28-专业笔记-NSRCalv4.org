@@ -5,6 +5,12 @@
 #+HTML: <!-- toc -->
 #+HTML: <!-- more -->
 
+[[file:./2019-10-28-专业笔记-NSRCalv4/fig2.jpg]]
+
+[[file:./2019-10-28-专业笔记-NSRCalv4/fig3.jpg]]
+
+[[file:./2019-10-28-专业笔记-NSRCalv4/fig4.jpg]]
+
 * 结果
 
 ** p-wave
@@ -71,6 +77,14 @@ d-wave 与 p-wave 的不同之处在于 $\tilde{\delta}^d_{m=0}(\vec{q}, z)$ 多
     + \frac{1}{e^{\tilde{\beta}(\tilde{k}^2+\tilde{q}^2/4 + \tilde{k}\tilde{q}x -2\mu)}-1}
     + \frac{1}{e^{\tilde{\beta}(\tilde{k}^2+\tilde{q}^2/4 - \tilde{k}\tilde{q}x -2\mu)}-1}  \right]
 \end{align}
+
+** 单位说明
+
+上式中均以总的粒子数定义 $E_F$ , 即 $k_n^3 = 6\pi^2n$ . 文章中也是以总粒子数定义.
+因此直接画图得到的 d-wave 的结果. 
+
+对于 p-wave, 是两分量的, 同样用了总的粒子数定义 $E_F$ , 但是相互作用能减半,
+得到的即是文中的 p-wave 的结果.
 
 * 过程
 
