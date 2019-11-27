@@ -69,6 +69,26 @@ $C$ 是沿无穷远绕了一圈的大圆. 它的积分值为零可由 Jordan's l
 \end{align}
 费米分布函数的 pole , 恰好就是费米子 Matsubara frequency 的取值.
 
+
+* Another View
+
+有的书上以另一种观点来说明这个事情, 但本质是一样的. 首先, 将最原始的求和形式化成
+一个 counter integral , counter 是绕着所有的 $\mathrm{i}\omega_n$ 它们都在虚轴上,
+其它地方一正一负就抵消了. 即 
+\begin{align}
+  \frac{1}{\beta} \sum_{\omega_n} F(\mathrm{i}\omega_n) 
+   = \oint \frac{\mathrm{d}z}{2\pi \mathrm{i}} F(z) \frac{1}{e^{\beta z} + 1}
+\end{align}
+注意这里的回路没有包括 $F(z)$ 的 pole 或者 branch cut , 而且 $F(z)$ 的 pole 或者
+branch cut 都在实轴上. 然后加上 null contours , 这包括无穷远和沿实轴上下及虚轴左
+右的积分, 之后去掉没有贡献的点, 就只剩下 $F(z)$ 的 pole 和 branch cut. 最终结果
+上之前的结果是一样的. 具体可以参考 Reference[1]
+
+还有就是, 这样理解的结果比较便于, 就是把 $F(z)$ 的 pole 和 branch cut 的值代入到
+费米分布函数中求和, 就得到了最终的结果, 当然得再乘上一个 $\beta$ 这是由于费米分
+布函数的 pole 的贡献, 乘到这边就从 $\frac{1}{\beta}$ 变成了 $\beta$ . 负号由于
+contour 的绕向相反也抵消了.
+
 * Supplementary 
 
 ** Intro
@@ -141,7 +161,7 @@ $e^{\mathrm{i}az}$ 是 exponential 的形式趋于 $0$ , 而 $f(z)$ 趋于 $0$ �
 同样的, Jordan's Lemma 中的条件弱, 同样就导致了对它的结果的比较强的限制, 它要在
 整个上半圆上积分, 而 intro 中任意一段弧都可以.
 
-** Supplementary of Countor Integral 
+** Supplementary of Contour Integral 
 
 下面说明
 \begin{align}
@@ -163,3 +183,7 @@ $\frac{1}{|z|}$ 的形式趋于 $0$ . 但第二项在无穷远处只在右半平
 \end{align}
 
 * Reference 
+
+- [1] Chap 8.3 Piers Coleman, Introduction to Many-Body Physics
+- [2] Arfken, Weber, Harris, Mathematical Methods for Physicists 7ed
+- [3] Mahan, Many-Particle Physics 3ed
