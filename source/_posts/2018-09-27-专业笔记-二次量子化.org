@@ -1,4 +1,4 @@
-#+TITLE: 二次量子化笔记
+#+TITLE: 二次量子化笔记 (updata 06/Dec/2019)
 #+DATE: <2018-09-27>
 #+CATEGORIES: 专业笔记
 #+TAGS: 物理, 量子力学, 二次量子化
@@ -148,15 +148,64 @@ $\vec{p}^2/(2m)$ 是一个数. 在坐标表象下, 它不是本征表象! 所以
 而
 \begin{align}
   \langle \vec{r}_3 | \hat{T} | \vec{r}_4 \rangle  = -\frac{\hbar^2}{2m} 
-   \nabla^2_{\vec{r}_3} \delta(\vec{r}_3 - \vec{r}_4)
+   \nabla^2_{\vec{r}_3} \delta(\vec{r}_3 - \vec{r}_4)                  
 \end{align}
 所以
 \begin{align}
-  \label{eq:kinOperator}
-  \hat{T} = \int \mathrm{d} \vec{r} \cdot
-            \hat{\psi}^{\dagger}(\vec{r})  \hat{\psi}(\vec{r})
-            \left(-\frac{\hbar^2}{2m} \nabla^2_{\vec{r}} 
-            \right)
+  \hat{T} = -\frac{\hbar^2}{2m} \int \mathrm{d} \vec{r}_3 \int \mathrm{d} \vec{r}_4 \cdot
+            \hat{\psi}^{\dagger}(\vec{r}_3)  \hat{\psi}(\vec{r}_4)
+               \nabla^2_{\vec{r}_3} \delta(\vec{r}_3 - \vec{r}_4)
+\end{align}
+交换一下顺序有
+\begin{align}
+  \hat{T} = -\frac{\hbar^2}{2m} \int \mathrm{d} \vec{r}_3  \cdot
+            \hat{\psi}^{\dagger}(\vec{r}_3)  \nabla^2_{\vec{r}_3} 
+            \int \mathrm{d} \vec{r}_4 \cdot\hat{\psi}(\vec{r}_4) \delta(\vec{r}_3 - \vec{r}_4)
+\end{align}
+积掉 $\delta$ 函数后
+\begin{align}
+  \hat{T} =  \int \mathrm{d} \vec{r}  \cdot \hat{\psi}^{\dagger}(\vec{r})  
+             \left(-\frac{\hbar^2}{2m}\nabla^2 \right) 
+            \hat{\psi}(\vec{r}) 
+\end{align}
+其中 $\nabla^2$ 是对后面的 $\hat{\psi}(\vec{r})$ 作用. $\nabla^{2}$ 对场算符作用的意义, 把场算符写到动
+量本征基下就很明显了 (因为动量表象是动能的本征表象) (有些书中把这个作为场算符的定义)
+\begin{align}
+  \hat{\psi}(\vec{r}) = \frac{1}{\sqrt{V}} \sum_{\vec{k}} 
+   e^{-\mathrm{i} \vec{k}\cdot \vec{r}} \hat{a}_{\vec{k}}
+\end{align}
+它的意义就是对动量本征波函数作用. 代加后作用的结果就是
+\begin{align}
+  \hat{T} = \sum_{\vec{k}}\frac{\hbar^2k^2}{2m}  \hat{a}^{\dagger}_{\vec{k}} \hat{a}_{\vec{k}}
+\end{align}
+这正是一个算符在它的本征表象下的二次量子化的形式. 其中利用了 (采用了箱归一化条件)
+\begin{align}
+  \delta_{\vec{k}, \vec{k}'} = \frac{1}{V} \int \mathrm{d} \vec{r} \cdot
+  e^{\mathrm{i} (\vec{k} - \vec{k}')\cdot \vec{r}}
+\end{align}
+当遇到 $\nabla^2$ 作用到 $\delta$ 函数上时, 也经常用到
+\begin{align}
+  \delta(\vec{r}_3 - \vec{r}_4) = \frac{1}{V} \sum_{\vec{k}}e^{\mathrm{i} \vec{k}\cdot(\vec{r}_3- \vec{r}_4)}
+\end{align}
+这样的话就可以具体计算 $\nabla^2$ 对 $\delta$ 函数的作用结果. 其本质还是把它变换到了动能的
+本征表象, 也就是动量表象.
+
+** 动能算符的另一种形式
+
+动能算符有时也写为
+\begin{align}
+  \hat{T} = \frac{\hbar^2}{2m}\int \mathrm{d} \vec{r} \cdot \left[ \nabla \hat{\psi}^{\dagger}(\vec{r}) \right]
+            \left[ \nabla \hat{\psi}(\vec{r}) \right]
+\end{align}
+其正确性可以将场算符在动量表象写开
+\begin{align}
+  \hat{\psi}(\vec{r}) = \frac{1}{\sqrt{V}} \sum_{\vec{k}} 
+   e^{-\mathrm{i} \vec{k}\cdot \vec{r}} \hat{a}_{\vec{k}}
+\end{align}
+类似的可以写出 $\hat{\psi}^{\dagger}(\vec{r})$ 的形式. 代回后就变成了动能在它的本征表象
+下的二次量子化形式
+\begin{align}
+  \hat{T} = \sum_{\vec{k}} \frac{\hbar^2k^2}{2m} \hat{a}^{\dagger}_{\vec{k}} \hat{a}_{\vec{k}}
 \end{align}
 
 ** 用场算符表示波函数
@@ -177,10 +226,11 @@ $\vec{p}^2/(2m)$ 是一个数. 在坐标表象下, 它不是本征表象! 所以
                  =& \int \mathrm{d}\vec{r}_1 \cdot \phi(\vec{r}_1) 
                    \cdot \hat{\psi}^{\dagger}(\vec{r}_1)| 0 \rangle
 \end{align}
-物理意义也很明确. 
+物理意义也很明确, 就是不同位置上产生一个粒子, 然后按波函数叠加.
 
-** 动能算符作用在态上
+** +动能算符作用在态上(之前不恰当的理解)+
 
+#+BEGIN_QUOTE
 动能算符在坐标空间中应该有
 \begin{align}
   \label{eq:kinCoor}
@@ -229,28 +279,7 @@ $\vec{p}^2/(2m)$ 是一个数. 在坐标表象下, 它不是本征表象! 所以
                \nabla^2_{\vec{r}_4}  \phi(\vec{r}_4) 
 \end{align}
 与我们期待的 $(\ref{eq:kinCoor})$ 式相同. 说明二次量子化的表达形式是自洽的. 
-
-** 对场算符的小总结(个人观点)
-
-所以, 回到前面提出的问题, 用场算符表示的动能算符中, $\nabla^2$ 到底对谁作用?
-
-它就是对表达式中场算符中的 $\vec{r}$ 作用, 但是在 $(\ref{eq:kinOperator})$ 式中,
-貌似只是形式的写出, 具体真的要作用了, 就把它拿到最前面就好了. 就好像是 Dirac
-Delta 函数一样, 只是形式上的, 对它进行的各种操作, 都要放到具体和积分中, 才能体现
-它的意义. 
-
-类似的, Sakurai 的高量书里的
-\begin{align}
-  \langle x' | p | x'' \rangle = -\mathrm{i}\hbar \frac{\partial}{\partial x'}
-                                 \delta(x' - x'')
-\end{align}
-一样, 看等式左边是一个力学量的均值, 是一个数, 是数的话, 它就可以在一些表达式中随
-便移动. 但等式右边又是一个 Dirac 函数的二阶导数, 所以... 它只是形式上这么写吧!
-如果我们把 Dirac 函数积分掉了, 剩下一个二阶导数, 它好像又不能随便移动了! 
-
-反正这个好奇怪啊! 不过, 还好, 它是自洽的! 
-
-还有, 一般算动能都是在动量表象算!
+#+END_QUOTE
 
 * 例: 费米子接触势
 
@@ -269,7 +298,12 @@ Delta 函数一样, 只是形式上的, 对它进行的各种操作, 都要放�
 第一项就是直接用场算符写出, 只不过多了自旋指标, 并且考虑了化学势. 
 
 另外需要注意的是 $\hat{\psi}^{\dagger}(\vec{r}) \hat{\psi}(\vec{r})$ 是有量纲的,
-它的量纲是粒子数密度, 也就是体积的倒数.
+它的量纲是粒子数密度, 也就是体积的倒数. 这从
+\begin{align}
+  \hat{\psi}(\vec{r}) = \frac{1}{\sqrt{V}} \sum_{\vec{k}} 
+   e^{-\mathrm{i} \vec{k}\cdot \vec{r}} \hat{a}_{\vec{k}}
+\end{align}
+也可以看出.
 
 考虑第二项, 接触势的意思为
 \begin{align}
@@ -359,3 +393,6 @@ $[g]=[E]\cdot L^3$ , 为能量与体积的乘积. 将上式代入下式
 - J. J. Sakurai & Jim Napolitano 的 Modern Quantum Mechanics 一书提供的二体力学
   量在本征表象的二次量子化化简过程.  
 - R. K. Pathria & Paul D. Beale, Statistical Mechanics 3ed, Chap 11.1
+- https://physics.stackexchange.com/questions/223138/kinetic-energy-operator-in-second-quantization-formalism
+- http://www.phys.ens.fr/~mora/lecture-second-quanti.pdf
+  

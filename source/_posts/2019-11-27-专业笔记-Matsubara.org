@@ -69,7 +69,6 @@ $C$ 是沿无穷远绕了一圈的大圆. 它的积分值为零可由 Jordan's l
 \end{align}
 费米分布函数的 pole , 恰好就是费米子 Matsubara frequency 的取值.
 
-
 * Another View
 
 有的书上以另一种观点来说明这个事情, 但本质是一样的. 首先, 将最原始的求和形式化成
