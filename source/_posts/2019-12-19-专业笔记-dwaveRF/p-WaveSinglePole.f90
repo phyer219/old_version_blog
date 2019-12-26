@@ -56,10 +56,10 @@ program pWaveSinglePole
   use param
   implicit none
 
-  integer, parameter :: dim=200 ! 画图取点的个数
+  integer, parameter :: dim=50 ! 画图取点的个数
   integer :: i                  ! 循环变量
   real(kind=rkind) :: x(dim) ,y(dim)    ! 纵坐标
-  real(kind=rkind) :: spectrum_k_thetak ! 画图用到的函数
+  real(kind=rkind) :: sigma, spectrum_k_thetak ! 画图用到的函数
   real(kind=rkind) :: k=2.0, theta_k = pi/2 ! 给定 k 和 theta_k 画图
   real(kind=rkind) :: start, end        ! 用于计时的变量
 
@@ -74,10 +74,11 @@ program pWaveSinglePole
   ! 计时开始
   call cpu_time(start)
   
-  x = linspace(3.5_rkind, 4.5_rkind, dim)
-
+  x = linspace(-20.0_rkind, 10.0_rkind, dim)
+!  x = linspace(0.0_rkind, pi, dim)
   do i = 1, dim
-     y(i) = spectrum_k_thetak(x(i), k, theta_k)
+          y(i) = sigma(x(i), k, theta_k)
+     !     y(i) = spectrum_k_thetak(x(i), k, theta_k)
      print *, 'calculating...', i, 'of', dim
   end do
 
@@ -234,15 +235,16 @@ function sigma_thetaq_phiq(omega, k, theta_k, theta_q, phi_q)
 
   ! 将没有积掉 q 时的自能接口进来
   interface
-     function fx(omega, k, q, theta_k,  theta_q, phi_q)
+     function numerator_of_sigma(omega, k, q, theta_k,  theta_q, phi_q)
        use prec
        implicit none
        real(kind=rkind) :: omega, k, q, theta_k,  theta_q, phi_q
-       real(kind=rkind) :: fx
-     end function fx
+       real(kind=rkind) :: numerator_of_sigma
+     end function numerator_of_sigma
   end interface
   
   x = cos_theta_kq(theta_k, theta_q, phi_k, phi_q)
+!  x=0
   delta = 4*k**2*x**2 - 2*(omega + k**2 +mu + rkv)
   if (delta .gt. 0.0_rkind) then
      r1 = 2*k*x - sqrt(delta)
@@ -260,7 +262,7 @@ contains
     use prec
     implicit none
     real(kind=rkind) :: q, fun
-    fun = fx(omega, k, q, theta_k,  theta_q, phi_q)
+    fun = numerator_of_sigma(omega, k, q, theta_k,  theta_q, phi_q)
   end function fun
 end function sigma_thetaq_phiq
 ! ==============================================================================
@@ -288,6 +290,7 @@ function sigma_q_thetaq_phiq(omega, k, q, theta_k,  theta_q, phi_q)
   real(kind=rkind) :: cos_theta_kq, bose, cos_theta_kprime, sylm10
 
   kp2 = 4*k**2 + q**2 - 4*k*q*cos_theta_kq(theta_k, theta_q, phi_k, phi_q) !k'^2
+
   sigma_q_thetaq_phiq = bose(k**2 + q**2 - 2*cos_theta_kq(theta_k, theta_q, phi_k&
                       &, phi_q) - mu, beta)&
                       & - bose(q**2/2 - 2*mu - rkv, beta)
@@ -304,14 +307,14 @@ end function sigma_q_thetaq_phiq
 
 
 ! ==============================================================================
-! program  : fx
+! program  : numerator_of_sigma
 ! type     : function
-! version  : 05-Dec-2019
+! version  : 24-Dec-2019
 ! purpose  : calculate self energy
 ! comment  : 这里有三个待积变量, q, theta_q, phi_q
 !            function sigma_q_thetaq_phiq 去掉分母, 用于计算虚部
 ! ==============================================================================
-function fx(omega, k, q, theta_k,  theta_q, phi_q)
+function numerator_of_sigma(omega, k, q, theta_k,  theta_q, phi_q)
   use prec
   use param
   implicit none
@@ -319,18 +322,20 @@ function fx(omega, k, q, theta_k,  theta_q, phi_q)
   real(kind=rkind) ::  omega, k, theta_k, q, theta_q, phi_q
 !  real(kind=rkind) :: phi_k=0_rkind
   real(kind=rkind) :: real, imag
-  real(kind=rkind) :: fx
+  real(kind=rkind) :: numerator_of_sigma
   real(kind=rkind) :: kp2       !square of k'
   real(kind=rkind) :: cos_theta_kq, bose, cos_theta_kprime, sylm10
 
-  kp2 = 4*k**2 + q**2 - 4*k*q*cos_theta_kq(theta_k, theta_q, phi_k, phi_q) !k'^2
-  fx = bose(k**2 + q**2 - 2*cos_theta_kq(theta_k, theta_q, phi_k&
+  kp2 = k**2 + q**2/4 - k*q*cos_theta_kq(theta_k, theta_q, phi_k, phi_q) !k'^2
+
+  numerator_of_sigma = bose(k**2 + q**2 - 2*cos_theta_kq(theta_k, theta_q, phi_k&
                       &, phi_q) - mu, beta)&
                       & - bose(q**2/2 - 2*mu - rkv, beta)
-  fx = fx * q**2 * kp2 * sin(theta_q) *&
-       & sylm10(cos_theta_kprime(k, q, cos_theta_kq(theta_k, theta_q, phi_k,&
-       & phi_q))) * rp * 2 / (pi**2)
-end function fx
+
+  numerator_of_sigma = numerator_of_sigma * q**2 * kp2  * sin(theta_q) *&
+        & sylm10(cos_theta_kprime(k, q, cos_theta_kq(theta_k, theta_q, phi_k,&
+        & phi_q))) * rp * 2 / (pi**2)
+end function numerator_of_sigma
 ! ==============================================================================
 
 
