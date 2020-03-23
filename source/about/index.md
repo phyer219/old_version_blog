@@ -4,7 +4,7 @@ date: 2018-09-07 20:24:29
 ---
 # 关于我
 
-中国人民大学物理系博士在读
+AMO PhD student
 
 研究课题: RF spectrum of strongly interacting Bose gases across d-wave resonance
 
@@ -15,8 +15,6 @@ date: 2018-09-07 20:24:29
 喜欢 Linux, 喜欢 Python, 喜欢 Latex, 喜欢折腾.
 
 喜欢上 B 站看鬼畜, 看动漫, 喜欢玩跑跑卡丁车的端游.
-
-讨厌欺骗我的人.
 
 联系请 E-mail: zeqing6688@126.com
 
