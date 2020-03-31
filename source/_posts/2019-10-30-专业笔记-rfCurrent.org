@@ -41,9 +41,10 @@ RF current 定义为
 \end{align}
 由线性响应理论得
 \begin{align}
-  I(\nu) = - \frac{1}{\pi}\mathrm{Im}D^R(\Omega_L + \mu -\mu_3)
+  I(\nu) = - \frac{1}{\pi}\mathrm{Im}D^R(\nu + \mu -\mu_3) 
+  = - \frac{1}{\pi}\mathrm{Im}D^R(\Omega_L)
 \end{align}
-其中 $\Omega_L$ 是 rf field 的频率. $\nu = \mu - \mu_3 - \Omega_L$ 为
+其中 $\Omega_L$ 是 rf field 的频率. $\nu =  \Omega_L - (\epsilon_3-\epsilon_2)= \Omega_L - (\mu-\mu_3)$ 为
 detuning. 考虑线性响应理论的最低阶近似, $D$ 可以分解为(如图) 
 \begin{align}
   D_0(\mathrm{i}\Omega_{m}, \vec{0}) = \frac{1}{\beta}
@@ -60,7 +61,7 @@ detuning. 考虑线性响应理论的最低阶近似, $D$ 可以分解为(如图
 \end{align}
 得到
 \begin{align}
-  D_0(\mathrm{i}\Omega_{m}, \vec{0}) = \frac{1}{4\pi^2}\sum_{\vec{k}}
+  D_0(\mathrm{i}\Omega_{m}, \vec{0}) = \frac{1}{\beta}\frac{1}{4\pi^2}\sum_{\vec{k}}
     \int \mathrm{d}E_1 \int \mathrm{d}E_2 \sum_{\omega_n}
     A^{(2)}(E_1, \vec{k}) A^{(3)}(E_2, \vec{k})
     \frac{1}{\mathrm{i}\omega_n-E_1} 
@@ -74,40 +75,52 @@ detuning. 考虑线性响应理论的最低阶近似, $D$ 可以分解为(如图
     \left[ f(E_1) - f(E_2) \right]
     \frac{1}{\mathrm{i}\Omega_m-E_2 + E_1}
 \end{align}
-做代换 $\mathrm{i}\Omega_m \to \nu + \mathrm{i}0^+$ , 并取虚部得到 $I_0(\nu)$
+做代换 $\mathrm{i}\Omega_m \to \Omega_{L} + \mathrm{i}0^+$ , 并取虚部得到 $I_0(\nu)$
 \begin{align}
   I_0(\nu) =& -\frac{1}{\pi}(-\pi)\frac{1}{4\pi^2} \sum_{\vec{k}}
     \int \mathrm{d}E_1 \int \mathrm{d}E_2\cdot
     A^{(2)}(E_1, \vec{k}) A^{(3)}(E_2, \vec{k})
-    \cdot\left[ f(E_1) - f(E_2) \right] \cdot\delta (\nu - E_2 + E_1) \\
+    \cdot\left[ f(E_1) - f(E_2) \right] \cdot\delta (\Omega_L - E_2 + E_1) \\
   =&\frac{1}{4\pi^2} \sum_{\vec{k}}
     \int \mathrm{d}E_1 
-    A^{(2)}(E_1, \vec{k}) A^{(3)}(\nu + E_1, \vec{k})
-    \cdot\left[ f(E_1) - f(\nu + E_1) \right]
+    A^{(2)}(E_1, \vec{k}) A^{(3)}(\Omega_L + E_1, \vec{k})
+    \cdot\left[ f(E_1) - f(\Omega_L + E_1) \right] \\
+  =& \frac{1}{4\pi^2} \sum_{\vec{k}}
+    \int \mathrm{d}\epsilon \cdot
+    A^{(2)}(\epsilon, \vec{k}) A^{(3)}(\bar{\epsilon}, \vec{k})
+    \cdot\left[ f(\epsilon) - f(\bar{\epsilon}) \right] \\
 \end{align}
-态 $|3\rangle$ 是自由粒子, 所以它的谱函数为 $A^{(3)}(\nu + E_1, \vec{k}) =
-2\pi\delta (\nu + E_1 - \epsilon_{\vec{k},3} + \mu_3) = 2\pi\delta (\nu + E_1 -
-\xi_{\vec{k}, 3})$ , 代入上式可得
+其中 $\bar{\epsilon} = \Omega_L+\epsilon=\epsilon+\nu+\mu-\mu_3$ .
+
+* 态 $|3\rangle$ 上的粒子自由时
+
+态 $|3\rangle$ 是自由粒子, 所以它的谱函数为 $A^{(3)}(\bar{\epsilon}, \vec{k}) =
+2\pi\delta [\bar{\epsilon} - (\epsilon_{\vec{k}} - \mu_3)] = 2\pi\delta (\epsilon + \nu + \mu - \epsilon_{\vec{k}}) 
+= 2\pi\delta(\epsilon-\xi_{\vec{k}}  + \nu)$ , 代入上式可得
 \begin{align}
   I_0(\nu) = \frac{1}{2\pi}\sum_{\vec{k}}
-    A^{(2)}(\xi_{\vec{k}, 3} - \nu, \vec{k})
-    \cdot\left[ f(\xi_{\vec{k},3} - \nu) - f(\xi_{\vec{k},3}) \right]
+    A^{(2)}(\xi_{\vec{k}} - \nu, \vec{k})
+    \cdot\left[ f(\xi_{\vec{k}} - \nu) - f(\xi_{\vec{k},3}) \right]
 \end{align}
+其中 $\epsilon_{\vec{k}} = \frac{\hbar^2k^2}{2m}, \xi_{\vec{k}} = \epsilon_{\vec{k}} - \mu,
+ \xi_{\vec{k},3} = \epsilon_{\vec{k}} - \mu_3$
 
-在 $|2\rangle$ 态也是自由的时候, $A^{(2)}(\xi_{\vec{k},3}- \nu,
-\vec{k})=A_0^{(2)}(\xi_{\vec{k},3}-\nu, \vec{k})= 2\pi
-\delta(\xi_{\vec{k},3}-\nu-\xi_{\vec{k}, 2}) = 2\pi
-\delta(\mu-\mu_3-\nu)$ , 代回上式
+* 态 $|2\rangle$ 上的粒子也自由时
+
+在 $|2\rangle$ 态也是自由的时候, $A^{(2)}(\xi_{\vec{k}}- \nu,
+\vec{k})=A_0^{(2)}(\xi_{\vec{k}}-\nu, \vec{k})= 2\pi
+\delta(\xi_{\vec{k}}-\nu-\xi_{\vec{k}}) = 2\pi
+\delta(\nu)$ , 代回上式
 \begin{align}
-  I_0(\nu) = \sum_{\vec{k}} \delta(\mu-\mu_3-\nu)
-    \cdot\left[ f(\xi_{\vec{k},3} - \nu) - f(\xi_{\vec{k},3}) \right]
+  I_0(\nu) = \sum_{\vec{k}} \delta(\nu)
+    \cdot\left[ f(\xi_{\vec{k}} - \nu) - f(\xi_{\vec{k},3}) \right]
 \end{align}
 是一个 $\delta$ 峰. 它满足 sum rule
 \begin{align}
   \int \mathrm{d}\nu \cdot I_0(\nu) =& \sum_{\vec{k}}
-  \left[f(\xi_{\vec{k},3} - \mu + \mu_3) - 0\right] \\
-  =& \sum_{\vec{k}} f(\xi_{\vec{k},2}) \\
-  =& N_2
+  \left[f(\xi_{\vec{k}}) - 0\right] \\
+  =& \sum_{\vec{k}} f(\xi_{\vec{k}}) \\
+  =& N
 \end{align}
 其中利用了 $|3\rangle$ 空态, 所以 $f(\xi_{\vec{k},3}) = 0$ .
 
@@ -115,6 +128,15 @@ detuning. 考虑线性响应理论的最低阶近似, $D$ 可以分解为(如图
 
 常用思想, 除了级数展开, 小量分析外, 将新得到的结果代回的已知结论, 看能否回到原
 来的简单情况, 是否符合实际的物理, 以验证新结论是否可靠, 也是很重要的思想.
+
+* Supplymentary
+
+费米子的频率求和
+\begin{align}
+  \sum_{\omega_n = \frac{(2n+1)\pi}{\beta}} 
+  \frac{1}{\mathrm{i}\omega_n - \xi_{\vec{k}}}
+  = \beta n_{\mathrm{F}}(\xi_{\vec{k}})
+\end{align}
 
 * Reference 
 
