@@ -1,4 +1,4 @@
-#+TITLE: 二次量子化笔记 (updata 06/Dec/2019)
+#+TITLE: 二次量子化笔记 (update 06/Dec/2019)
 #+DATE: <2018-09-27>
 #+CATEGORIES: 专业笔记
 #+TAGS: 物理, 量子力学, 二次量子化
@@ -172,7 +172,7 @@ $\vec{p}^2/(2m)$ 是一个数. 在坐标表象下, 它不是本征表象! 所以
 量本征基下就很明显了 (因为动量表象是动能的本征表象) (有些书中把这个作为场算符的定义)
 \begin{align}
   \hat{\psi}(\vec{r}) = \frac{1}{\sqrt{V}} \sum_{\vec{k}} 
-   e^{-\mathrm{i} \vec{k}\cdot \vec{r}} \hat{a}_{\vec{k}}
+   e^{\mathrm{i} \vec{k}\cdot \vec{r}} \hat{a}_{\vec{k}}
 \end{align}
 它的意义就是对动量本征波函数作用. 代加后作用的结果就是
 \begin{align}
@@ -395,4 +395,5 @@ $[g]=[E]\cdot L^3$ , 为能量与体积的乘积. 将上式代入下式
 - R. K. Pathria & Paul D. Beale, Statistical Mechanics 3ed, Chap 11.1
 - https://physics.stackexchange.com/questions/223138/kinetic-energy-operator-in-second-quantization-formalism
 - http://www.phys.ens.fr/~mora/lecture-second-quanti.pdf
+- 06/Dec/2019 update 时 F. Y. 的讨论
   
