@@ -1,4 +1,4 @@
-#+TITLE: Rabi's Formula
+#+TITLE: Rabi's Formula (update 15/Apr/2020)
 #+DATE: <2019-03-06>
 #+CATEGORIES: 专业笔记
 #+TAGS: 物理, Rabi's Formula
@@ -49,8 +49,8 @@ $t$ 时刻处于态 $|\psi(t) \rangle_D = c_1(t) |1\rangle +c_2(t)|2\rangle$ ,�
   \langle 1 |V_D \cdot \left(
   |1 \rangle\langle 1| + |2\rangle\langle 2|
   \right)  \cdot |\psi(t)\rangle_D \\
-  =&e^{\frac{1}{\mathrm{i}\hbar}(E_1-E_1)t}V_{11}
-  c_1(t) +e^{\frac{1}{\mathrm{i}\hbar}(E_1-E_2)t}V_{12} c_2(t)
+  =&e^{\frac{\mathrm{i}}{\hbar}(E_1-E_1)t}V_{11}
+  c_1(t) +e^{\frac{\mathrm{i}}{\hbar}(E_1-E_2)t}V_{12} c_2(t)
 \end{align*}
 其中
 \begin{align*}
@@ -140,7 +140,7 @@ $(4)$ 式代入 $(2)$ 式得
 \end{align*}
 取模方有
 \begin{align*}
-  |c_2(t)| = \frac{1}{1+\frac{\hbar^2(\omega-\omega_{21})^2}{4\gamma^2}}\sin^2\left(
+  |c_2(t)|^2 = \frac{1}{1+\frac{\hbar^2(\omega-\omega_{21})^2}{4\gamma^2}}\sin^2\left(
   \Omega t \right)
 \end{align*}
 
@@ -207,6 +207,28 @@ plt.show()
 [[file:./2019-03-06-专业笔记-RabiFormula/fig.gif]]
 
 [[file:./2019-03-06-专业笔记-RabiFormula/fig.mp4]]
+
+* 总结
+
+如果取 $\hbar = 1$ , 记 detuning $\Delta = \omega-\omega_{21}$ , 那么对于一个二能级系统的(含时)
+微扰
+\begin{align}
+  V_{12} = \gamma e^{\mathrm{i}\omega t}
+\end{align}
+在 Dirac 表象(态矢中去除了 $H_0$ 的演化)中
+\begin{align}
+  c_2(t) =& -\frac{\mathrm{i}\gamma}{\Omega} e^{-\frac{\mathrm{i}}{2}\Delta t} \sin(\Omega t)
+\end{align}
+\begin{align}
+  |c_2(t)|^2 = \left(\frac{\gamma}{\Omega}\right)^2\sin^2\left(
+  \Omega t \right)
+\end{align}
+其中 Rabi frequency $\Omega$ ( $|c_2(t)|^2$ 以 $2\Omega$ 为角频率振荡) 为
+\begin{align}
+  2\Omega = \sqrt{\Delta^2+(2\gamma)^2}
+\end{align}
+可以看出, detuning 越大, Rabi frequency 越大, $|c_2(t)|^2$ 振幅越小.这是当然的, 失
+谐大了, 耦合就弱, 因为初态取了 $c_2(0)=0$ .
 
 * Reference
 
