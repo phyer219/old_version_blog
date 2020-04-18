@@ -1,4 +1,4 @@
-#+TITLE: 定态微扰论总结
+#+TITLE: 定态微扰论总结 (update 18/Apr/2020)
 #+DATE: <2018-09-09>
 #+CATEGORIES: 专业笔记
 #+TAGS: 物理, 高等量子力学, 微扰
@@ -304,6 +304,114 @@ $$
 \mid l^{(1)}\rangle=\sum_{n\notin D}\frac{1}{E_D^{(0)}-E_{n}^{(0)}}\mid n^{(0)}\rangle\langle n^{(0)} \mid  V \mid l^{(0)} \rangle
 \\\\+ \sum_{l'^{(0)}}\mid l'^{(0)}\rangle\frac{1}{v_{l'}-v_l}\langle l'^{(0)}\mid V  \sum_{n\notin D} \mid n^{(0)} \rangle \frac{1}{E_D^{(0)}-E_{n}^{(0)}}\langle n^{(0)} \mid  V \mid l^{(0)} \rangle
 $$
+
+* 例子
+
+** 二能级系统
+
+假设一个系统的 Hamiltonian 为
+\begin{align}
+  \hat{H} = \hat{H}_0 + \hat{V} 
+\end{align}
+它在 $H_0$ 的本征表象中
+\begin{align}
+  H = H_0+V = \left( 
+  \begin{array}{cc}
+   E^{(0)}_1 & 0 \\
+   0 & E^{(0)}_2
+  \end{array}
+ \right) + 
+\left( 
+  \begin{array}{cc}
+   0 & V \\
+   V & 0
+  \end{array}
+ \right)
+\end{align}
+如果用微扰论计算, 它的能量一阶修正是零, 因为微扰的对角元为零. 二阶修正为
+\begin{align}
+E_1^{(2)} = \frac{V^2}{E_1-E_2} \\
+E_2^{(2)} = \frac{V^2}{E_2-E_1}
+\end{align}
+同时它可以精确求解
+\begin{align}
+  E^{\pm} = \frac{E_1^{(0)} + E^{(0)}_2}{2}
+  \pm \sqrt{\left( \frac{E^{(0)}_1 - E^{(0)}_2}{2} \right)^2 + V^2} 
+\end{align}
+如果把 $V$ 做为小量, 将精确解展开(假设 $E_1>E_2$ )
+\begin{align}
+  E^{\pm} =& \frac{E_1^{(0)} + E^{(0)}_2}{2} 
+  \pm \sqrt{\left( \frac{E^{(0)}_1 - E^{(0)}_2}{2} \right)^2 + V^2} \\
+  =& \left\{ 
+  \begin{array}{cc}
+  E_1 + \frac{V^2}{E_1 - E_{2}} + \mathcal{O}(V^{4}) ,&+\\
+  E_2 - \frac{V^2}{E_1 - E_{2}} + \mathcal{O}(V^{4}) ,&-
+  \end{array}
+ \right. 
+\end{align}
+正好与微扰论相符.
+
+** 三能级系统
+假设一个系统的 Hamiltonian 为
+\begin{align}
+  \hat{H} = \hat{H}_0 + \hat{V} 
+\end{align}
+它在 $H_0$ 的本征表象中
+\begin{align}
+  H = H_0+V = \left( 
+  \begin{array}{ccc}
+   E^{(0)}_1 & 0 &0\\
+   0 & E^{(0)}_2 & 0 \\
+   0 & 0 & E^{(0)}_e
+  \end{array}
+ \right) + 
+\left( 
+  \begin{array}{ccc}
+   0 & V_{12} & V_{13}\\
+   V_{12} & 0 & V_{23} \\
+   V_{13} & V_{23} & 0
+  \end{array}
+ \right)
+\end{align}
+假设它们具体数值, 并用数值精确求解
+#+BEGIN_SRC python
+import numpy as np
+e1 = 100
+e2 = 300
+e3 = 500
+v12 = 10
+v13 = 20
+v23 = 30
+a = np.array([[e1,   v12,   v13],
+              [v12,   e2,   v23],
+              [v13,  v23,    e3]])
+w, v = np.linalg.eig(a)
+print(w)
+print(v)
+#+END_SRC
+结果为
+#+BEGIN_SRC python
+[ 98.64010314 505.51622055 295.84367631]
+[[-0.99800619  0.0523362  -0.03527831]
+ [ 0.04262872  0.14673809 -0.98825641]
+ [ 0.04654492  0.98778988  0.14867655]]
+#+END_SRC
+用微扰论求解 $E_1$ , 一阶修正是零. 二阶修正为
+\begin{align}
+  E_1^{(2)} =& V_{12}\frac{1}{E_1 - E_2}V_{12} + V_{13}\frac{1}{E_1 - E_3}V_{13} \\ 
+  =& 10\cdot\frac{1}{100-300}\cdot 10 + 20\cdot\frac{1}{100-500}\cdot 20 \\
+  =& -1.5
+\end{align}       
+三阶修正为(如果微扰对角元不为零, 此公式还有一项)
+\begin{align}
+  E_1^{(3)} =& V_{12}\frac{1}{E_1 - E_2}V_{23}\frac{1}{E_1 - E_3}V_{31} \\ 
+  +& V_{13}\frac{1}{E_1 - E_3}V_{32}\frac{1}{E_1 - E_2}V_{21}\\
+  =& 2\times 0.075 = 0.15
+\end{align}       
+所以微扰论给出二阶修正结果为 $100-1.5=98.5$ , 三阶修正给出的结果为 
+$100-1.5+0.15 = 98.65$ , 而数值求解的结果为 $98.64010314$ . $E_{2}, E_3$ 的微扰修正
+可作为练习.
+
 * Appendix
 ** 算符出现在分母上
 
@@ -331,3 +439,9 @@ $$
   \frac{1}{A}| n \rangle = \frac{1}{a_n} |n \rangle
 \end{align*}
 #+END_QUOTE
+
+* Reference
+
+- J. J. Sakurai, Jim Napolitano, Modern Quantum Mechanics 2nd 
+
+- 高阶修正的公式: https://en.wikipedia.org/wiki/Perturbation_theory_(quantum_mechanics)
