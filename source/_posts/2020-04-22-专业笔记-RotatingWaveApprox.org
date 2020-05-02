@@ -122,7 +122,7 @@ E^0_j \cos(\phi_j - \omega t)$
 = &\langle \mathrm{ex}|d_j|\mathrm{g}\rangle 
   E^0_j \frac{1}{2}e^{\mathrm{i}\phi_j}(1 + e^{2\mathrm{i}\omega t}) 
 \end{align}
-如果略去调频项 $e^{2\mathrm{i}\omega t}$ , 并记 $E_j \equiv E_j^0 e^{\mathrm{i}\phi_j}$ 那么
+如果略去高频项 $e^{2\mathrm{i}\omega t}$ , 并记 $E_j \equiv E_j^0 e^{\mathrm{i}\phi_j}$ 那么
 记  
 \begin{align}
    U^{\dagger}H_{\mathrm{d}} U 
@@ -283,7 +283,7 @@ V_\mathrm{p}$ (添加下标 $p$ 代表 perturbation, 以区别于 $V = \langle
   \end{array}   
    \right)
 \end{align}
-就是之前进行用到过的幺正变换. 所以如果我们在这里同样地略掉调频项, 就有
+就是之前进行用到过的幺正变换. 所以如果我们在这里同样地略掉高频项, 就有
 $V_{\mathrm{p}}^D(t) = H_{r}$ 与之前的结果相符.
 
 * Reference 
