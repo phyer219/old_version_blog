@@ -1,0 +1,137 @@
+#+TITLE: 读书笔记: Tensors and Representations of the Rotation Groups SO(N)
+#+DATE: <2020-05-14>
+#+CATEGORIES: 专业笔记
+#+TAGS: 数学
+#+HTML: <!-- toc -->
+#+HTML: <!-- more -->
+
+* 前言
+
+Zee 的这本书看了好久了, 也没整理过笔记. 看到哪里都不记得了... 今天整理一下, 下次
+再看就知道从哪看了(虽然不知道下次什么时候看 (- _ -)  ).
+
+* IV.1 Tensor and Representations of Rotation Groups $SO(N)$
+
+** Representing the rotation groups
+
+$SO(N)$ 群定义为, 满足如下关系的, $N\times N$ 维矩阵 $R$ , 组成的群
+\begin{align}
+  R^TR = I \\
+  \det R = 1
+\end{align}
+
+vector 的定义, 由它在转动下的关系定义
+\begin{align}
+  v^i \to V'^{i} = R^{ij} V^j \quad \quad \mathrm{with} i, j = 1, 2, \cdots,N
+\end{align}
+
+由一个 vector 生成 $SO(N)$ 群的一个 $N$ 维 irreducible representations.
+
+** Several questions and some flying guesses
+
+** Constructing the irreducible representations of $SO(N)$
+
+这里给出了 tensor 的一个例子. 想像一下, 在 $N$ 维空间里, 一个数学的东西, 它长着
+两个指标, 如果它在旋转下按如下方式变换
+\begin{align}
+  T^{ij} \to T'^{ij} = R^{ik} R^{jl} T^{kl}
+\end{align}
+那 $T$ 就像一个 tensor 一样变换, 它就是一个 tensor.
+
+** Fear of tensors
+
+** Representation Theory
+
+tensor $T$ 的每个指标都独立地变换
+\begin{align}
+  T^{ij} \to T'^{ij} = R^{ik} R^{jl} T^{kl}
+\end{align}
+tensor $T$ 生成 $SO(3)$ 群的一个九维表示 $D(R)D(R)$ .
+
+** Reducible or irreducible?
+
+有九个量 $T^{ij}$ 在变换下会变成另外九个. 但是它是否存在一个子集, 能够独立地变换?
+有的.
+
+antisymmetric 的 $A^{ij}\equiv T^{ij} - T^{ji}$ , 具有反对称的性质 $A^{ij} =
+-A^{ji}$ . 它如下变换
+\begin{align}
+  A^{ij} \to A'^{ij} \equiv T'^{ij} - T'^{ji} = R^{ik}R^{jl}T^{kl} - R^{jk}R^{il}T^{kl}
+  = R^{ik}R^{jl}T^{kl} - R^{jl}R^{ik}T^{lk}
+  = R^{ik}R^{jl}(T^{kl} - T^{lk}) = R^{ik}R^{jl} A^{kl}
+\end{align}
+所以 $A^{ji}$ 也是一个 tensor. 反对称的特性在变换下不变. $A^{ji}$ 共有
+$\frac{1}{2}N(N-1)$ 个, 例如此时 $N=3$ 共有 $3$ 个.
+
+还有 symmetric $S^{ij}\equiv T^{ij} + T^{ji}$ , 同样可以证明它是一个 tensor. 然而它
+还可以约化, 它的 trace $S^{ii} = S^{11} + S^{22} + \cdots$ 也是一个 tensor. 
+
+因此 tensor $T^{ij}$ 生成 $SO(3)$ 的一个 $9$ 维表示, 它可以约化为 $3\oplus 5\oplus 1$ , 分
+别是 $\frac{1}{2}N(N-1)$ 维的对称张量 $A^{ij}$ ,  $\frac{1}{2}N(N+1)-1$ 维的无迹
+对称张量 $\tilde{S}^{ij} = S^{ij} - \delta^{ij}\frac{S^{kk}}{N}$ 和 $1$ 维的迹
+$S^{ii}$ .
+
+将 $T^{ij}$ 约化成三个表示, 也就是将 $T^{ij}$ 生成的表示分块对角化的过程.
+
+** An advanced tidbit(花絮)
+
+** Invariant symbols
+
+SO(3) 的 Orthogonal
+\begin{align}
+  R^TR =&  I \\
+  (R^{T})^{ij}R^{jk} =& R^{ji} R^{jk} = \delta^{ik} \\
+ \delta^{ij} R^{ik}R^{jl} =& \delta^{kl}
+\end{align}
+SO(3) 的 Special
+\begin{align}
+  \det R =& 1 \\
+  \varepsilon^{ijk\cdots n}R^{ip}R^{jq}R^{kr}\cdots R^{ns} =& \varepsilon^{pqr\cdots s}
+\end{align}
+
+从上面的式子可以看出, $\delta^{ij}, \varepsilon^{ijk\cdots n}$ 在旋转下是不变的, 是
+invariant symbols. 
+
+** Dual tensors
+
+定义一个新的 tensor $B^{k\cdots n} = \varepsilon^{ijk\cdots n}A^{ij}$ , 它有 $N-2$ 个指标(
+再复习的时候, 可以验证它按张量的方式旋转做练习哦 ). $A$ 和 $B$ 叫做 dual to each
+other. 
+
+对于 $N=3$ 的情况, $B^k=\varepsilon^{ijk}A^{ij}$ , 有一个指标, 就是一个
+vector. 所以我们从 $9$ 维表示中约化出来的 $3$ 维表示就是之前定义 $SO(3)$ 时的
+vector. 
+
+** Constructing larger irreducible representations of $SO(N)$
+
+用这种张量的方法, 可以构造出许多 $SO(N)$ 群的表示.
+
+** Contraction indices
+
+$S^{ii}$ 是 contracted indices 的一种特殊情况, 它只有两个指标, 把它们收缩了之后,
+就按照 $0$ 个指标的张量旋转, 也就是一个 trivial 的表示.
+
+** Why SO(3) is special
+
+** Dimension of the irreducible representations of $SO(3)$
+
+$d=2j+1$ 与量子力学中的角动量有关
+
+** The tensors of $SO(2)$
+
+** Polar decomposition
+
+** Roations in higher-dimensional space
+
+** Self-dual and antiself-dual
+
+** Restriction to a subgroup
+
+** The adjoint representation and the Jacobi identity
+
+** The adjoint of $SO(N)$
+
+* Reference
+
+- A. Zee, Group Theory in a Nutshell for Physicists, 2016, Princeton University Press
+
