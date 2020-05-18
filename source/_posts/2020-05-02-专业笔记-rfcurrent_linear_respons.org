@@ -372,6 +372,88 @@ coupling parameter to be simply a constant.
     + \mathrm{h.c.} \right\}
 \end{align}
 
+* 写成格林函数
+
+#+BEGIN_QUOTE
+The correlators above could in principle be non-zero for $k \neq k'$ and/or $l\neq
+l'$ if the state possesses some non-trivial correlations between different
+momentum states of the same species. However, this is not the case, for
+instance, for the normal state or for the BCS state, and many other typical
+many-body states. So, in our example that aims to treat such states, we
+assume $k=k'$ and $l=l'$ .
+#+END_QUOTE
+
+对于 normal state 和 BCS 态来说,  $k \neq k'$ 的态是不存在的, 所以就有 
+\begin{align}
+  &\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle_{1\mathrm{st}, \mathrm{rwa}} \\
+  =& -\frac{|\Omega|^2}{4}\int_0^{t} \mathrm{d}t' 
+    \sum_{\vec{k}}
+      \left\{e^{ - \mathrm{i}\tilde{\delta}(t - t')}
+    \langle\left[\hat{c}_{ke}^{\dagger}(t)\hat{c}_{kg}(t), \hat{c}_{kg}^{\dagger}(t')\hat{c}_{ke}(t') \right]\rangle 
+    + \mathrm{h.c.} \right\}
+\end{align}
+推迟格林函数的定义
+\begin{align*}
+G_{AB}^{\mathrm{ret}}(t,t') =-\mathrm{i}\theta(t-t')\langle [A(t),B(t')]_{-\varepsilon}\rangle
+\end{align*}
+因此 $|e\rangle,|g\rangle$ 之间的推迟格林函数为
+\begin{align}
+  G_{eg}(k, t - t') = -\mathrm{i}\theta(t-t')\langle\left[\hat{c}_{ke}^{\dagger}(t)\hat{c}_{kg}(t), \hat{c}_{kg}^{\dagger}(t')\hat{c}_{ke}(t')\right]\rangle
+\end{align}
+所以
+\begin{align}
+  &\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle_{1\mathrm{st}, \mathrm{rwa}} \\
+  =& -\frac{|\Omega|^2}{4}\int_0^{+\infty} \mathrm{d}t' 
+    \sum_{\vec{k}}
+      \left\{e^{ - \mathrm{i}\tilde{\delta}(t - t')}
+      \mathrm{i} G_{eg}(k, t - t') 
+    + \mathrm{h.c.} \right\}
+\end{align}
+做变量代换 $t - t' \to t$ , $\mathrm{d}t'\to -\mathrm{d}t$ ,
+ $t'\in[0, +\infty] \to t\in[t, -\infty]$ 有
+\begin{align}
+  &\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle_{1\mathrm{st}, \mathrm{rwa}} \\
+  =& -\frac{|\Omega|^2}{4}\int_{-\infty}^{t} \mathrm{d}t 
+    \sum_{\vec{k}}
+      \left\{e^{ - \mathrm{i}\tilde{\delta}t}
+      \mathrm{i} G_{eg}(k, t) 
+    + \mathrm{h.c.} \right\}
+\end{align}
+而格林函数在能量表象为
+\begin{align}
+  G_{AB}(\omega) = \int_{-\infty}^{+\infty} \mathrm{d}(t - t') G_{AB}(t - t')e^{\mathrm{i}\omega(t - t')}
+\end{align}
+所以, 当取极限时 $t\to\infty$ 时
+\begin{align}
+  &\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle_{1\mathrm{st}, \mathrm{rwa}, t\to\infty} \\
+  =& -\frac{|\Omega|^2}{4}\int_{-\infty}^{+\infty} \mathrm{d}t 
+    \sum_{\vec{k}}
+      \left\{e^{ - \mathrm{i}\tilde{\delta}t}
+      \mathrm{i} G_{eg}(k, t) 
+    + \mathrm{h.c.} \right\} \\
+  =& -\frac{|\Omega|^2}{4}
+    \sum_{\vec{k}}
+      \left\{
+      \mathrm{i} G_{eg}(k, -\tilde{\delta}) 
+    + \mathrm{h.c.} \right\} 
+\end{align}
+而
+\begin{align}
+  \mathrm{i} G_{eg}(k, -\tilde{\delta}) 
+    + \mathrm{h.c.}
+  =&   \mathrm{i} G_{eg}(k, -\tilde{\delta}) 
+    -\mathrm{i} G_{eg}^{*}(k, -\tilde{\delta}) 
+  = \mathrm{i}\left[ 2\mathrm{i} \mathrm{Im}G_{eg}(k, -\tilde{\delta})  \right] \\
+  =& -2\mathrm{Im}G_{eg}(k, -\tilde{\delta})
+\end{align}
+所以
+\begin{align}
+  &\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle_{1\mathrm{st}, \mathrm{rwa}, t\to\infty} \\
+  =& \frac{|\Omega|^2}{2}
+    \sum_{\vec{k}}
+    \mathrm{Im}G_{eg}(k, -\tilde{\delta})
+\end{align}
+
 * 初末两个态没有相互作用
 
 #+BEGIN_QUOTE
@@ -409,6 +491,8 @@ assume $k=k'$ and $l=l'$ .
   \right]
       + \mathrm{h.c.} \right\}
 \end{align}
+
+
 
 * Reference
 
