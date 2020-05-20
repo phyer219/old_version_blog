@@ -18,6 +18,13 @@
 |         |                            |                                           |
 
 
+* $SU(3)$ 群的表示
+
+全对称张量 $\phi^{ijk}$ 生成 $SU(3)$ 的一个 $10$ 维不可约表示.
+\begin{align}
+  \phi^{333},   \phi^{331},   \phi^{332},   \phi^{322},   \phi^{321},   \phi^{311},   \phi^{222},   \phi^{221},   \phi^{111},   \phi^{112}
+\end{align}
+
 * $SU(N)$ 群的下标
 
 从 $SO(N)$ 群的 $O^T O=1$ 到 $SU(N)$ 群的 $U^{\dagger} U = 1$ 就引出了下标
@@ -57,6 +64,18 @@ Exercise:
 
 因为上标和下标按不同的方式变换, 所以它们各自有独立的对称性.
 
+书上说
+#+BEGIN_QUOTE
+Thus, in summary, the irreducible representations of $SU(N)$ are realized by traceless
+tensors with definite symmetry properties under permutation of indices.
+
+Convince yourself that for $SU(N)$ , the dimensions of the representations
+defined by the following tensors $\phi^i$ , $\phi^{ij}$ (antisymmetric), $\phi^{ij}$
+(symmetric), $\phi^i_{\,j}$ , and $\phi^{ij}_k$ (antisymmetric in the upper indices) 
+are, respectively, $N , N (N − 1)/2, N (N + 1)/2, N^2 − 1$ and $\frac{1}{2} N (N −
+2)(N + 1)$. 
+#+END_QUOTE
+
 #+BEGIN_QUOTE
 Example:
 
@@ -72,6 +91,17 @@ Exercise:
 说明 antisymmetric traceless representation $A^{ij}_k = - A^{ji}_k$ 是
 $\frac{1}{2}N(N-1)N - N = \frac{1}{2}N(N+1)(N-2)$ 维的.
 #+END_QUOTE
+
+$SU(N)$ 群的不可约表示是由具有确定对称性的无迹张量生成的. (不知道第二句话的意思
+是否是说所有的 $SU(N)$ 群的不可约表示都只有这几个维度, 这里貌似是不加证明地给出
+了这个结论) .
+
+#+BEGIN_QUOTE
+Example:
+
+$SU(5)$ 有 $5, 10, 15, 24, 45$ 维的不可约表示.
+#+END_QUOTE
+
 
 * 上下标之间的移动
 
