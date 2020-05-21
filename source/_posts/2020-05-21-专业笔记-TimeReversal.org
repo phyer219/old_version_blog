@@ -1,0 +1,46 @@
+#+TITLE: 读书笔记: Time Reversal and Kramer's Degeneracy
+#+DATE: <2020-05-21>
+#+CATEGORIES: 专业笔记
+#+TAGS: 物理, Time Reversal, Kramer's Degeneracy
+#+HTML: <!-- toc -->
+#+HTML: <!-- more -->
+
+
+对于牛顿力学
+\begin{align}
+  m \frac{\mathrm{d}}{\mathrm{d}t} \vec{x}(t) = - \nabla V(\vec{x})
+\end{align}
+$x(-t)$ 也是它的一个解.
+
+但是对于 Schrodinger 方程( $H$ 不含时)
+\begin{align}
+  \mathrm{i} \frac{\partial}{\partial t} \psi(t) = H \psi(t)
+\end{align}
+由于上式中有对时间的一阶导数,  $\psi(- t)$ 不是它的解. 但是 $\psi^{*}(- t)$ 是它的解.
+因为将上式取复共轭 
+\begin{align}
+  -\mathrm{i}\frac{\partial}{\partial t} \psi^{*}(t) =& H \psi^{*}(t) \\
+                         \Downarrow& \\
+  \mathrm{i}\frac{\partial}{\partial t'} \psi^{*}(-t') =& H \psi^{*}(-t')
+\end{align}
+对于一个在平面波态 $\psi(t) = e^{\mathrm{i} (\vec{p}\cdot \vec{x} - Et)}$ spinless 的
+粒子, $\psi^{*}(-t) = e^{-\mathrm{i} (-\vec{p}\cdot \vec{x} - Et)}$ 是反向传播的平面波.
+定义时间反演算符 $T \psi(t) = \psi^{*}(-t)$ 
+
+如果 $[H, T] = 0$ , 也就是说 Hamiltonian 具有时间反演对称性, 那么
+\begin{align}
+  HT\psi = TH\psi = TE\Psi = E T\psi
+\end{align}
+从上式可以看出, 如果 $\psi$ 不具有时间反演对称性, 那么就会有简并.
+
+还不是很理解, 先占个坑吧, 有空再填!
+
+
+
+- A. Zee, Group Theory in a Nutshell for Physicists, 2016, Princeton University
+  Press
+
+- https://en.wikipedia.org/wiki/Kramers_theorem
+
+
+- Jun John Sakurai, Jim Napolitano, Modern Quantum Mechanics, 2017, Cambridge University Press
