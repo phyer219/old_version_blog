@@ -453,6 +453,9 @@ G_{AB}^{\mathrm{ret}}(t,t') =-\mathrm{i}\theta(t-t')\langle [A(t),B(t')]_{-\vare
     \sum_{\vec{k}}
     \mathrm{Im}G_{eg}(k, -\tilde{\delta})
 \end{align}
+这里 $\tilde{\delta} = \delta + \frac{\mu_g  - \mu_e}{\hbar} = \omega_L - \frac{E_e - E_g}{\hbar} +
+\frac{\mu_g  - \mu_e}{\hbar}$ . 如果 $E_e - E_g = \mu_g - \mu_e$ , 那么 $\tilde{\delta} = \omega_L$ .
+
 
 * 初末两个态没有相互作用
 
