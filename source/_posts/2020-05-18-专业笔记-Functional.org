@@ -86,7 +86,6 @@ Example:
  \int_a^b\mathrm{d}y \cdot \frac{\mathrm{d}}{\mathrm{d}x}\left( \frac{\mathrm{d}g }{\mathrm{d}f'} \right)
    \delta(y-x)
 \end{align}
-#+END_QUOTE
 由于原来泛函中的积分区间是 $(a, b)$ , 所以 $y\in(a, b)$ 才有意义, 不然变分恒为零.
 因此 $\delta(a-x) = \delta(b-x) = 0$ . 最终的泛函导数为
 \begin{align}
@@ -95,6 +94,7 @@ Example:
    \delta(y-x) \\
   =& - \frac{\mathrm{d}}{\mathrm{d}x}\left( \frac{\mathrm{d}g }{\mathrm{d}f'} \right)
 \end{align}
+#+END_QUOTE
 
 
 
