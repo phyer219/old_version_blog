@@ -1,4 +1,4 @@
-#+TITLE: Cold  Atom Physics Note: Zero-Range Models
+#+TITLE: Cold  Atom Physics Note: Zero-Range Models (update 4/Aug/2020)
 #+DATE: <2019-04-14>
 #+CATEGORIES: 专业笔记
 #+TAGS: 物理, Cold Atoms, 散射, Zero-Range Models, Pseudopotential, Renomalizable Contact Potential
@@ -260,7 +260,26 @@ $\langle \vec{k} |T |\vec{k}'\rangle$ 的取值只与 $E$ 有关. 所以上式�
   \frac{\hbar^2k^2}{m}+\mathrm{i}0^+}}
 \end{align*}
 
-*** 处理方法二: 通过多体的 Feynman 图方法求解 T-matrix
+*** 处理方法二: 通过 Feynman 图方法求解 T-matrix
+
+[[./2019-04-14-专业笔记-Cold Atom Physics Note: Zero-Range Models/t-matrix.png]]
+
+T-matrix 可以看作是有效相互作用, 上图对应为
+\begin{align}
+-v_{\mathrm{eff}} = -v + (-v) \sum_{\vec{k}} \sum_{\omega'}
+    \left(-G(\frac{\omega}{2}+\omega', \frac{\vec{k}}{2})\right)
+   \left(-G(\frac{\omega}{2}-\omega', -\frac{\vec{k}}{2})\right)
+   \left(-v_{\mathrm{eff}}\right)
+\end{align}
+中间格林函数部分可以求得
+\begin{align}
+&\sum_{\vec{k}}\sum_{\omega'} \frac{1}{\mathrm{i}(\frac{\omega}{2} + \omega') - \frac{k^2}{8m}}
+\frac{1}{\mathrm{i}(\frac{\omega}{2} - \omega') - \frac{k^2}{8m}} \\
+=&\sum_{\vec{k}}\sum_{\omega'} \left[\frac{1}{\mathrm{i}(\frac{\omega}{2} + \omega') - \frac{k^2}{8m}}
+ +\frac{1}{\mathrm{i}(\frac{\omega}{2} - \omega') - \frac{k^2}{8m}}\right] 
+ \frac{1}{\mathrm{i}\omega - \frac{k^2}{4m}}\\
+=& \sum_{\vec{k}} \frac{n(\frac{k^2}{8m}) + n(\frac{k^2}{8m})}{\mathrm{i}\omega - \frac{k^2}{4m}}
+\end{align}
 
 ** Renormalization
 
