@@ -1,4 +1,4 @@
-#+TITLE: 松原频率求和
+#+TITLE: 松原频率求和(update 11/Aug/2020)
 #+CATEGORIES: 专业笔记
 #+TAGS: 数学, 物理, 格林函数
 #+HTML: <!-- toc -->
@@ -87,6 +87,33 @@ branch cut 都在实轴上. 然后加上 null contours , 这包括无穷远和�
 费米分布函数中求和, 就得到了最终的结果, 当然得再乘上一个 $\beta$ 这是由于费米分
 布函数的 pole 的贡献, 乘到这边就从 $\frac{1}{\beta}$ 变成了 $\beta$ . 负号由于
 contour 的绕向相反也抵消了.
+
+* Summary
+
+因此费米子的频率求和
+\begin{align}
+  \sum_{\omega_n = \frac{(2n+1)\pi}{\beta}} 
+  \frac{1}{\mathrm{i}\omega_n - \xi_{\vec{k}}}
+  = \beta n_{\mathrm{F}}(\xi_{\vec{k}})
+\end{align}
+类似地有玻色子的频率求和
+\begin{align}
+  \sum_{\omega_m = \frac{2m\pi}{\beta}} 
+  \frac{1}{\mathrm{i}\omega_m - \xi_{\vec{k}}}
+  = -\beta n_{\mathrm{B}}(\xi_{\vec{k}})
+\end{align}
+以及对于费米子为被减数的求和
+\begin{align}
+   \sum_{\omega_n=\frac{(2n+1)\pi}{\beta}} \frac{1}{\mathrm{i}\Omega_m - \mathrm{i}\omega_n - \xi_{\vec{k}}} 
+  = \beta\left[n_{\mathrm{F}}(\xi_{\vec{k}})-1\right]
+    \quad,\quad \mathrm{where} \quad \Omega_m =\frac{2m\pi}{\beta} 
+\end{align}
+对于玻色子为被减数的求和
+\begin{align}
+   \sum_{\omega_m=\frac{2m\pi}{\beta}} \frac{1}{\mathrm{i}\Omega_n - \mathrm{i}\omega_m - \xi_{\vec{k}}} 
+  = -\beta\left[n_{\mathrm{B}}(\xi_{\vec{k}})+1\right]
+    \quad,\quad \mathrm{where} \quad \Omega_n =\frac{2n\pi}{\beta} 
+\end{align}
 
 * Supplementary 
 

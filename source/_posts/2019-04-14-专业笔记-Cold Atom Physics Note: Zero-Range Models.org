@@ -266,19 +266,26 @@ $\langle \vec{k} |T |\vec{k}'\rangle$ 的取值只与 $E$ 有关. 所以上式�
 
 T-matrix 可以看作是有效相互作用, 上图对应为
 \begin{align}
--v_{\mathrm{eff}} = -v + (-v) \sum_{\vec{k}} \sum_{\omega'}
-    \left(-G(\frac{\omega}{2}+\omega', \frac{\vec{k}}{2})\right)
-   \left(-G(\frac{\omega}{2}-\omega', -\frac{\vec{k}}{2})\right)
+-v_{\mathrm{eff}} = -v + (-v) \frac{1}{\beta}\sum_{\vec{k}} \sum_{\omega'}
+    \left(-G(\omega', \vec{k})\right)
+   \left(-G(\omega-\omega', -\vec{k})\right)
    \left(-v_{\mathrm{eff}}\right)
 \end{align}
 中间格林函数部分可以求得
 \begin{align}
-&\sum_{\vec{k}}\sum_{\omega'} \frac{1}{\mathrm{i}(\frac{\omega}{2} + \omega') - \frac{k^2}{8m}}
-\frac{1}{\mathrm{i}(\frac{\omega}{2} - \omega') - \frac{k^2}{8m}} \\
-=&\sum_{\vec{k}}\sum_{\omega'} \left[\frac{1}{\mathrm{i}(\frac{\omega}{2} + \omega') - \frac{k^2}{8m}}
- +\frac{1}{\mathrm{i}(\frac{\omega}{2} - \omega') - \frac{k^2}{8m}}\right] 
- \frac{1}{\mathrm{i}\omega - \frac{k^2}{4m}}\\
-=& \sum_{\vec{k}} \frac{n(\frac{k^2}{8m}) + n(\frac{k^2}{8m})}{\mathrm{i}\omega - \frac{k^2}{4m}}
+&\sum_{\vec{k}}\sum_{\omega'} \frac{1}{\mathrm{i} \omega' - \frac{k^2}{2m}}
+\frac{1}{\mathrm{i}\omega -\mathrm{i} \omega' - \frac{k^2}{2m}} \\
+=&\sum_{\vec{k}}\sum_{\omega'} \left[\frac{1}{\mathrm{i} \omega' - \frac{k^2}{2m}}
+ +\frac{1}{\mathrm{i}\omega -\mathrm{i} \omega') - \frac{k^2}{2m}}\right] 
+ \frac{1}{\mathrm{i}\omega - \frac{k^2}{m}}\\
+=& \sum_{\vec{k}} \frac{-\beta n(\frac{k^2}{2m}) -\beta\left[ n(\frac{k^2}{2m}) + 1\right]}
+   {\mathrm{i}\omega - \frac{k^2}{m}}
+\end{align}
+当 $T\to 0$ 时, $n(\frac{k^2}{2m}) \to 0$ , 所以就有
+\begin{align}
+v_{\mathrm{eff}} = v + v \sum_{\vec{k}}
+\frac{ 1}{\mathrm{i}\omega - \frac{k^2}{m}}
+   v_{\mathrm{eff}}
 \end{align}
 
 ** Renormalization
