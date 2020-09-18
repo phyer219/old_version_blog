@@ -5,14 +5,15 @@
 #+HTML: <!-- toc -->
 #+HTML: <!-- more -->
 * 符号说明
-- M: Mate 键
-- S: Shift 键
+- =M= : Mate 键
+- =S= : Shift 键
+- =C= : Ctrl 键
 * 视图优化
 - 使列表有缩进: =M-x org-indent-mode=
 
 
 * 插入代码
-** 行间代码
+** 行间代码(org9.2 更新后, 默认以下方法不可行, 新方法 =C-c C-= , 见 [[https://emacs.stackexchange.com/questions/46988/why-do-easy-templates-e-g-s-tab-in-org-9-2-not-work]]) 
 在空白行输入
 #+BEGIN_SRC org-mode
 < s TAB
@@ -25,7 +26,7 @@
 将代码夹在两个 "=" 之间
 * $\LaTeX$ 公式
 ** cdlatex 插件以简化输入
-插入 "'" 或者 "`" , 可以先按 =C-q= 之后再输入
+想要插入 "'" 或者 "`" 时, 可以先按 =C-q= 之后再输入
 ** 特殊的行内公式语法
 只有在下列情况下,美元符号 "$" 才被认为是行内公式的标志:
 - 是封闭的. 也就是开关的结尾各有一个美元符号.
