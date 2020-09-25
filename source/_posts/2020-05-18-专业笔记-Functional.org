@@ -278,4 +278,4 @@ functional of a functional, 存在的是  functions to functional.
 
 - [5]
   https://physics.stackexchange.com/questions/251265/how-to-calculate-the-second-functional-derivative-of-the-action-of-a-one-particl/581476#581476 
-  (我给写的回答 :) )
+  
