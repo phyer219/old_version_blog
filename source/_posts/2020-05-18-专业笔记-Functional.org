@@ -210,7 +210,7 @@ $r(t) = q(t) - q_{\mathrm{cl}}(t)$ , 它的传播子可近似为
 最终得到作用量泛函的二阶导数 $\frac{\delta^2 S[q]}{\delta q(t_1)\delta q(t_2)}$ 为
 \begin{align}
   \frac{\delta^2 S[q]}{\delta q(t_1)\delta q(t_2)} 
-    = -\delta(r_1 - r_2)\frac{1}{2}\left[m\partial_{t_2}^2 + V''q_{\mathrm{cl}}(t_2)\right]
+    = -\delta(r_1 - r_2)\left[m\partial_{t_2}^2 + V''q_{\mathrm{cl}}(t_2)\right]
 \end{align}
 
 * Chain Rule for Functions to Functionals
