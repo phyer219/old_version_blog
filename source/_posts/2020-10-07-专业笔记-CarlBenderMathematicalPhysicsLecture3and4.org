@@ -145,8 +145,8 @@ Some divergent series REALLY sum up to infinity -- this is perfectly OK!
 #+end_quote
 (\ref{eq:zeta1}) 可以对应物理图像, 将质量均匀的砖一块一块地摞, 最多能伸出多远.
 如图 
-[[file:./2020-10-07-专业笔记-CarlBenderMathematicalPhysicsLecture3and4/zeta1.png]]  
-ggb文件: [[https://www.geogebra.org/m/gxzshmzr]]
+file:./2020-10-07-专业笔记-CarlBenderMathematicalPhysicsLecture3and4/zeta1.gif
+Geogebra 在线示意: [[https://www.geogebra.org/m/gxzshmzr]]
 将砖自上而下的放, 每次放砖, 使砖的右侧对准上面所有砖头的重心, 那么伸出的长度就是
 $1 + \frac{1}{2} + \frac{1}{3} + \cdots$ , 而重心始终保持稳定, 不会倒. 因为 $\zeta(1)$
 这个级数是发散的, 那么按照这种摞法, 只要够高, 砖头就会伸出无穷远. 这个非常有意思! 
@@ -265,11 +265,9 @@ Bender 在 Lecture 4 的最后做了精彩的评述, 大意如下:
 种表示, 并不是要我们真的去求和. 我们要做的是用一种方法将答案从求和的表示, 得到它
 真正的值.
 
-
 * Summary
  
 微扰得到的是不收敛的级数, 我们因此发展了用来求不收敛的级数的方法.
 
-* Reference
 
 
