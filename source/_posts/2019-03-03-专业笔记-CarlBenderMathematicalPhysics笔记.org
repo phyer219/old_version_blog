@@ -1,7 +1,7 @@
-#+TITLE: Carl Bender Mathematical Physics 笔记
+#+TITLE: Carl Bender Mathematical Physics Lecture1 Note
 #+DATE: <2019-03-03>
 #+CATEGORIES: 专业笔记
-#+TAGS: 数学物理方法, 数学, 物理, 微扰
+#+TAGS: 数学物理方法, 数学, 物理, 微扰, Carl Bender
 #+HTML: <!-- toc -->
 #+HTML: <!-- more -->
 
