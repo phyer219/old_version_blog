@@ -1,4 +1,4 @@
-#+TITLE: matplotlib.aanimation 制作动图
+#+TITLE: matplotlib.animation 制作动图
 #+DATE: <2020-09-18>
 #+CATEGORIES: 软件使用
 #+TAGS: python
