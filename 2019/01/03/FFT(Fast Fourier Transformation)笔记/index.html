@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="数学,Fourier,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FFT (Fast Fourier Transform) 笔记">
+<meta property="og:url" content="https://zqw.ink/2019/01/03/FFT(Fast Fourier Transformation)笔记/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2019/01/03/FFT(Fast%20Fourier%20Transformation)笔记/sin.png">
+<meta property="og:image" content="https://zqw.ink/2019/01/03/FFT(Fast%20Fourier%20Transformation)笔记/gau.png">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.853Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FFT (Fast Fourier Transform) 笔记">
+<meta name="twitter:image" content="https://zqw.ink/2019/01/03/FFT(Fast%20Fourier%20Transformation)笔记/sin.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2019/01/03/FFT(Fast Fourier Transformation)笔记/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>FFT (Fast Fourier Transform) 笔记 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2019/01/03/FFT(Fast Fourier Transformation)笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">FFT (Fast Fourier Transform) 笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-03 00:00:00" itemprop="dateCreated datePublished" datetime="2019-01-03T00:00:00+08:00">2019-01-03</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/03/FFT(Fast Fourier Transformation)笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/01/03/FFT(Fast Fourier Transformation)笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+<div id="outline-container-orgc46f623" class="outline-2">
+<h2 id="orgc46f623">&#x95EE;&#x9898;</h2>
+<div class="outline-text-2" id="text-orgc46f623">
+<p>
+&#x51FD;&#x6570; \(f(t)\) &#x7684; Fourier Transform &#x4E3A;
+</p>
+\begin{align*}
+  \mathcal{F}(\omega) = \int_{-\infty} ^{\infty} f(t) e^{-\mathrm{i} \omega t} \mathrm{d}t
+\end{align*}
+<p>
+&#x5047;&#x51FD;&#x6570; \(f(t)\) &#x5B83;&#x53EA;&#x5728; \(t \in (0, T)\) &#x4E4B;&#x95F4;&#x6709;&#x53D6;&#x503C;, &#x90A3;&#x4E48;&#x4E0A;&#x5F0F;&#x5C31;&#x53D8;&#x4E3A;
+</p>
+\begin{align*}
+  \mathcal{F}(\omega) = \int_{0} ^{T} f(t) e^{-\mathrm{i} \omega t} \mathrm{d}t
+\end{align*}
+<p>
+&#x5982;&#x6B64;&#x505A; Fourier Transform , &#x9700;&#x8981;&#x7B97;&#x79EF;&#x5206;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org048351c" class="outline-2">
+<h2 id="org048351c">DFT (Discreate Fourier Transform)</h2>
+<div class="outline-text-2" id="text-org048351c">
+<p>
+&#x5982;&#x679C;&#x7528;&#x8BA1;&#x7B97;&#x673A;&#x8FDB;&#x884C;&#x6570;&#x503C;&#x4E0A;&#x7684;&#x8BA1;&#x7B97;, &#x4F1A;&#x5BF9;&#x79EF;&#x5206;&#x8FDB;&#x884C;&#x79BB;&#x6563;&#x5316;, &#x90A3;&#x4E48;&#x5C31;&#x53D8;&#x6210;&#x4E86;&#x79BB;&#x6563;&#x7684; Fourier Transform .
+</p>
+
+<p>
+&#x5047;&#x8BBE;&#x5C06;&#x79EF;&#x5206;&#x5747;&#x5300;&#x5730;&#x5206;&#x6210; \(N\) &#x4EFD;, &#x90A3;&#x4E48;&#x5C31;&#x6709;
+</p>
+\begin{align*}
+  \mathcal{F}(\omega) =&amp; \int_{0} ^{T} f(t) e^{-\mathrm{i} \omega t} \mathrm{d}t \\
+\approx&amp; \sum_{n=0}^{N-1} f\left( \frac{T}{N}n \right) e^{-\mathrm{i}\omega \frac{T}{N}n} \cdot \frac{T}{N} \\
+\end{align*}
+<p>
+&#x5982;&#x679C; \(e\) &#x6307;&#x6570;&#x4E0A;&#x9762;&#x662F; \(\mathrm{i}2\pi\) &#x7684;&#x5F62;&#x5F0F;, &#x8BA1;&#x7B97;&#x5C06;&#x4F1A;&#x53D8;&#x5F97;&#x7B80;&#x5355;. &#x6240;&#x4EE5;&#x5BF9;&#x4E0A;&#x5F0F;&#x8FDB;&#x884C;&#x5982;&#x4E0B;&#x64CD;&#x4F5C; ( &#x8FDB;&#x884C;&#x6C42;&#x548C;&#x8FD1;&#x4F3C;&#x540E; \(\mathcal{F}(\omega)\)
+ &#x8BB0;&#x4E3A; \(F(\omega)\) )
+</p>
+\begin{align*}
+  F(\omega) =&amp; \sum_{n=0}^{N-1} f\left( \frac{T}{N}n \right) e^{-\mathrm{i}\omega \frac{T}{N}n} \cdot \frac{T}{N} \\
+=&amp;\frac{T}{N} \sum_{n=0}^{N-1} f\left( \frac{T}{N}n \right) e^{-\mathrm{i}2\pi \frac{1}{2\pi}\omega \frac{T}{N}n}
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-org0f4a372" class="outline-2">
+<h2 id="org0f4a372">&#x7CBE;&#x9AD3;</h2>
+<div class="outline-text-2" id="text-org0f4a372">
+<p>
+&#x8FDB;&#x884C;&#x6570;&#x503C;&#x8BA1;&#x7B97;&#x65F6;, &#x5BF9;&#x5E94;&#x6BCF;&#x4E00;&#x4E2A; \(\omega\) &#x90FD;&#x8981;&#x7B97;&#x4E00;&#x4E2A;&#x6C42;&#x548C;. &#x6211;&#x4EEC;&#x53EA;&#x80FD;&#x8FDB;&#x884C;&#x6709;&#x9650;&#x6B21;&#x6570;&#x7684;&#x8BA1;&#x7B97;, &#x56E0;&#x6B64;&#x5FC5;&#x987B;&#x8981;&#x9009;&#x53D6;&#x7279;&#x5B9A;&#x7684; \(\omega\) &#x8FDB;&#x884C;&#x8BA1;&#x7B97;, &#x4E5F;&#x5C31;&#x662F;
+&#x540C;&#x6837;&#x8981;&#x5BF9; \(\omega\) &#x8FDB;&#x884C;&#x79BB;&#x6563;&#x5316;.
+</p>
+
+<p>
+FFT &#x5C06; \(\omega\) &#x540C;&#x6837;&#x79BB;&#x6563;&#x5316;&#x6210; \(N\) &#x4E2A; (&#x8FD9;&#x6837;&#x505A;&#x7684;&#x4F18;&#x52BF;&#x4EE5;&#x540E;&#x5C06;&#x4F1A;&#x770B;&#x51FA;) &#x7B49;&#x95F4;&#x8DDD;&#x7684; \(\omega\) . &#x8D77;&#x70B9;&#x662F; \(0\) .&#x7136;&#x800C;&#x8BE5;&#x5982;&#x4F55;&#x9009;&#x53D6;&#x95F4;&#x8DDD;&#x5462;? &#x6216;&#x8005;&#x8BF4;&#x8BE5;&#x5982;&#x4F55;&#x9009;&#x53D6;&#x6700;&#x5927;&#x503C;&#x5462;?
+</p>
+
+<p>
+&#x6211;&#x89C9;&#x5F97;&#x63A5;&#x4E0B;&#x6765;&#x662F; FFT &#x6700;&#x5173;&#x952E;&#x7684;&#x4E00;&#x6B65;. &#x8FD9;&#x4E5F;&#x662F;&#x6211;&#x4E4B;&#x524D;&#x5BF9;&#x4E8E; FFT &#x4E0D;&#x660E;&#x767D;&#x7684;&#x5730;&#x65B9;.
+</p>
+
+<p>
+&#x9996;&#x5148;&#x5047;&#x8BBE; \(\omega\) &#x7684;&#x95F4;&#x8DDD;&#x662F; \(\Delta \omega\) . &#x90A3;&#x4E48;&#x539F;&#x5F0F;&#x5C31;&#x53D8;&#x4E3A;
+</p>
+\begin{align*}
+  F(m \Delta\omega) = \frac{T}{N} \sum_{n=0}^{N-1} f\left( \frac{T}{N}n \right)
+  e^{-\mathrm{i}2\pi \frac{1}{2\pi} m\Delta\omega \frac{T}{N}n}
+\end{align*}
+<p>
+&#x5176;&#x4E2D; \(m = 0, 1, 2, \cdots N-1\) . FFT &#x8BA9;
+</p>
+\begin{align*}
+ \frac{1}{2\pi}  \Delta \omega T =1
+\end{align*}
+<p>
+&#x8FD9;&#x6837;&#x7684;&#x8BDD;, \(\Delta \omega\) &#x5C31;&#x9009;&#x5B9A;&#x4E86;
+</p>
+\begin{align*}
+  \Delta \omega = \frac{2\pi}{T}
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-org99de155" class="outline-2">
+<h2 id="org99de155">&#x7ED3;&#x8BBA;</h2>
+<div class="outline-text-2" id="text-org99de155">
+<p>
+&#x8FD9;&#x6837;&#x9009;&#x53D6; \(\Delta\omega\) &#x7684;&#x7ED3;&#x679C;&#x5C31;&#x4F7F;&#x539F;&#x5F0F;&#x53D8;&#x6210;&#x4E86;
+</p>
+\begin{align*}
+  F(m \Delta\omega) = \frac{T}{N} \sum_{n=0}^{N-1} f\left( \frac{T}{N}n \right)
+  e^{-\mathrm{i}\frac{2\pi}{N} m n}
+\end{align*}
+<p>
+&#x8FD9;&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x53D8;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x77E9;&#x9635;&#x7B97;
+</p>
+\begin{align*}
+  \left(
+  \begin{array}{c}
+    F (0)\\
+    F (\Delta\omega)\\
+    F (2\Delta\omega)\\
+    F (3\Delta\omega)\\
+    \vdots \\
+    F ((N-1)\Delta\omega)\\
+  \end{array}
+ \right)
+   =
+   \frac{T}{N}
+  \left(
+  \begin{array}{cccccc}
+    1 &amp; 1     &amp;    1   &amp;   1  &amp;  \cdots  &amp;  1 \\
+    1    &amp; e^{-\mathrm{i}\frac{2\pi}{N}}     &amp;   e^{-\mathrm{i}\frac{2\pi}{N}\cdot 2}    &amp;   e^{-\mathrm{i}\frac{2\pi}{N}\cdot 3}   &amp;  \cdots  &amp;  e^{-\mathrm{i}\frac{2\pi}{N}\cdot(N-1)}  \\
+    1    &amp; e^{-\mathrm{i}\frac{2\pi}{N}\cdot 2}     &amp;   e^{-\mathrm{i}\frac{2\pi}{N}\cdot 2\times 2}    &amp;   e^{-\mathrm{i}\frac{2\pi}{N}\cdot 2\times 3}   &amp;  \cdots  &amp;  e^{-\mathrm{i}\frac{2\pi}{N}\cdot 2\times(N-1)}  \\
+    1    &amp; e^{-\mathrm{i}\frac{2\pi}{N}\cdot 3}     &amp;   e^{-\mathrm{i}\frac{2\pi}{N}\cdot 3\times 2}    &amp;   e^{-\mathrm{i}\frac{2\pi}{N}\cdot 3\times 3}   &amp;  \cdots  &amp;  e^{-\mathrm{i}\frac{2\pi}{N}\cdot 3\times(N-1)}  \\
+    \vdots    &amp; \vdots     &amp;    \vdots   &amp;   \vdots  &amp;  \ddots  &amp;  \vdots \\
+    1    &amp; e^{\mathrm{-i}\frac{2\pi}{N}\cdot (N-1)}     &amp;   e^{-\mathrm{i}\frac{2\pi}{N}\cdot (N-1)\times 2}    &amp;   e^{-\mathrm{i}\frac{2\pi}{N}\cdot (N-1)\times 3}   &amp;  \cdots  &amp;  e^{-\mathrm{i}\frac{2\pi}{N}\cdot (N-1)\times(N-1)}  \\
+  \end{array}
+ \right)
+  \left(
+  \begin{array}{c}
+    f (0)\\
+    f \left( \frac{T}{N} \right)\\
+    f \left( 2\frac{T}{N} \right)\\
+    f \left( 3\frac{T}{N} \right)\\
+    \vdots \\
+    f \left( (N-1)\frac{T}{N} \right)\\
+  \end{array}
+ \right)
+\end{align*}
+<p>
+&#x53EF;&#x4EE5;&#x53D1;&#x73B0;, &#x5BF9;&#x4E8E;&#x7ED9;&#x5B9A; \(N\) ,&#x4EFB;&#x4F55;&#x51FD;&#x6570;&#x7684; Fourier Transform &#x7684;&#x53D8;&#x6362;&#x77E9;&#x9635;&#x90FD;&#x662F;&#x4E00;&#x6837;&#x7684;. &#x8FD9;&#x4F7F;&#x5F97; Fourier Transform  &#x7684;&#x6570;&#x503C;&#x8BA1;&#x7B97;&#x5927;&#x5927;&#x7B80;&#x5316;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org08f683f" class="outline-2">
+<h2 id="org08f683f">&#x7B80;&#x7684;&#x53EF;&#x4EE5;&#x624B;&#x7B97;&#x7684;&#x4F8B;&#x5B50;</h2>
+<div class="outline-text-2" id="text-org08f683f">
+<p>
+&#x6211;&#x4E4B;&#x6240;&#x4EE5;&#x4F1A;&#x5BF9;&#x8FD9;&#x4E2A;&#x611F;&#x5174;&#x8DA3;, &#x662F;&#x56E0;&#x4E3A;&#x6211;&#x60F3;&#x8981;&#x7528;&#x7535;&#x8111;&#x5BF9;&#x4E00;&#x4E9B;&#x51FD;&#x6570;&#x505A; Fourier Transform ,&#x4E8E;&#x662F;&#x5F97;&#x77E5;&#x6709; FFT &#x8FD9;&#x6837;&#x73B0;&#x6210;&#x7684;&#x7A0B;&#x5E8F;. &#x4F46;&#x662F; FFT &#x7ED9;&#x51FA;&#x7684;&#x7ED3;&#x679C;
+&#x5374;&#x4EE4;&#x6211;&#x96BE;&#x8FC7;. &#x56E0;&#x4E3A;&#x6211;&#x4E0D;&#x77E5;&#x9053;&#x5B83;&#x7ED9;&#x51FA;&#x7684;&#x662F;&#x4E9B;&#x4EC0;&#x4E48;. &#x4E00;&#x5806;&#x590D;&#x6570;, &#x753B;&#x51FA;&#x6765;&#x5F62;&#x72B6;&#x4E5F;&#x5F88;&#x5947;&#x602A;. &#x4E0D;&#x77E5;&#x9053;&#x8F93;&#x51FA;&#x7684;&#x7ED3;&#x679C;&#x5BF9;&#x5E94;&#x7684;&#x6A2A;&#x5750;&#x6807;.
+</p>
+
+<p>
+&#x65E2;&#x7136;&#x8FD9;&#x6837;, &#x53EA;&#x8981;&#x77E5;&#x9053;&#x4E86; FFT &#x7684;&#x539F;&#x7406;, &#x5C31;&#x4E00;&#x5B9A;&#x80FD;&#x591F;&#x5F97;&#x51FA;&#x6211;&#x60F3;&#x8981;&#x7684;&#x7B54;&#x6848;. &#x7B54;&#x6848;&#x5C31;&#x662F;&#x5B83;&#x7684;&#x8F93;&#x51FA;, &#x662F;&#x4E0A;&#x5F0F;&#x7B49;&#x53F7;&#x5DE6;&#x8FB9;&#x90A3;&#x4E00;&#x4E2A;&#x5217;&#x5411;&#x91CF;&#x7684;&#x6570;&#x503C;&#x7136;&#x540E;&#x628A; \(\frac{T}{N}\)
+&#x9664;&#x6389;, &#x4E5F;&#x5C31;&#x662F; \(F(m\Delta\omega)\frac{N}{T}\)
+</p>
+
+<p>
+&#x53C2;&#x8003;&#x4E66;&#x4E0A;&#x7684;&#x4F8B;&#x5B50;, &#x62FF;&#x4E00;&#x4E2A; \(N = 4\) &#x7684;&#x4F8B;&#x5B50;, &#x8FDB;&#x884C;&#x624B;&#x7B97;, &#x7136;&#x540E;&#x4E0E;&#x7A0B;&#x5E8F;&#x7ED9;&#x51FA;&#x7684;&#x7ED3;&#x679C;&#x5BF9;&#x6BD4;, &#x4FBF;&#x80FD;&#x591F;&#x9A8C;&#x8BC1;&#x4E0A;&#x9762;&#x7684;&#x731C;&#x60F3;
+</p>
+
+<p>
+ \(N = 4\) &#x7684;&#x4F8B;&#x5B50;:
+&#x5047;&#x8BBE;&#x51FD;&#x6570; \(f(t)\) &#x79BB;&#x6563;&#x5316;&#x4E4B;&#x540E;&#x7684;&#x56DB;&#x4E2A;&#x6570;&#x503C;&#x4E3A; \(\{1, 1, 0, 0\}\) , &#x4E5F;&#x5C31;&#x662F;&#x8BF4;
+</p>
+\begin{align*}
+  f\left(\frac{0T}{4}\right) = 1 \\
+  f\left(\frac{T}{4}\right) = 1\\
+  f\left(\frac{2T}{4}\right) = 0\\
+  f\left(\frac{3T}{4}\right) = 0
+\end{align*}
+<p>
+&#x90A3;&#x4E48;
+</p>
+\begin{align*}
+  \frac{4}{T}F(0\cdot\Delta\omega) &amp;= 1\cdot f\left(\frac{0T}{4}\right) + 1\cdot f\left(\frac{T}{4}\right) + 1\cdot f\left(\frac{2T}{4}\right) + 1\cdot f\left(\frac{3T}{4}\right) \\
+                  &amp;= 1\cdot 1 + 1\cdot 1 +1 \cdot 0 + 1\cdot 0\\
+                  &amp;= 2\\
+  \frac{4}{T}F(1\cdot\Delta\omega) &amp;= 1\cdot f\left(\frac{0T}{4}\right) + e^{-\mathrm{i}\frac{2\pi}{4}}\cdot f\left(\frac{T}{4}\right)
+                + e^{-\mathrm{i}\frac{2\pi}{4}\cdot 2}\cdot f\left(\frac{2T}{4}\right) + e^{-\mathrm{i}\frac{2\pi}{4}\cdot 3}\cdot f\left(\frac{3T}{4}\right) \\
+                  &amp; =   1\cdot 1 + (-\mathrm{i})\cdot 1 +(-1) \cdot 0 + (\mathrm{i})\cdot 0\\
+                  &amp;= 1 - \mathrm{i}\\
+  \frac{4}{T}F(2\cdot\Delta\omega) &amp;= 1\cdot f\left(\frac{0T}{4}\right) + e^{-\mathrm{i}\frac{2\pi}{4}\cdot 2}\cdot f\left(\frac{T}{4}\right)
+                + e^{-\mathrm{i}\frac{2\pi}{4}\cdot 2\times 2}\cdot f\left(\frac{2T}{4}\right) + e^{-\mathrm{i}\frac{2\pi}{4}\cdot 2\times 3}\cdot f\left(\frac{3T}{4}\right) \\
+                  &amp; =   1\cdot 1 + (-1)\cdot 1 +1 \cdot 0 + (-1)\cdot 0\\
+                  &amp;= 0\\
+  \frac{4}{T}F(3\cdot\Delta\omega) &amp;= 1\cdot f\left(\frac{0T}{4}\right) + e^{-\mathrm{i}\frac{2\pi}{4}\cdot 3}\cdot f\left(\frac{T}{4}\right)
+                + e^{-\mathrm{i}\frac{2\pi}{4}\cdot 3\times 2}\cdot f\left(\frac{2T}{4}\right) + e^{-\mathrm{i}\frac{2\pi}{4}\cdot 3\times 3}\cdot f\left(\frac{3T}{4}\right)\\
+                  &amp; =   1\cdot 1 + (\mathrm{i})\cdot 1 +( - 1) \cdot 0 + (-\mathrm{i})\cdot 0\\
+                  &amp;= 1 + \mathrm{i}
+\end{align*}
+<p>
+&#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align*}
+  \left(
+    \begin{array}{c}
+       2 \\
+       1-i \\
+       0 \\
+       1+i
+    \end{array}
+  \right)
+  =
+  \left(
+  \begin{array}{cccc}
+    1&amp;1&amp;1&amp;1 \\
+    1&amp;-\mathrm{i}&amp;-1&amp;\mathrm{i}\\
+    1&amp;-1&amp;1&amp;-1 \\
+    1&amp;\mathrm{i}&amp;-1&amp;-\mathrm{i}
+  \end{array}
+    \right)
+  \left(
+    \begin{array}{c}
+       1 \\
+       1 \\
+       0 \\
+       0
+    \end{array}
+  \right)\end{align*}
+<p>
+&#x7136;&#x540E;&#x7528; Numpy &#x4E2D;&#x7684; numpy.fft.fft() &#x51FD;&#x6570;&#x8BA1;&#x7B97;
+</p>
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">f = ([<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>])</span><br><span class="line">F = np.fft.fft(f)</span><br><span class="line">print(F)</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A;
+</p>
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">: [<span class="number">2.</span>+<span class="number">0.j</span> <span class="number">1.</span>-<span class="number">1.j</span> <span class="number">0.</span>+<span class="number">0.j</span> <span class="number">1.</span>+<span class="number">1.j</span>]</span><br></pre></td></tr></table></figure>
+</div>
+<p>
+&#x9A8C;&#x8BC1;&#x4E86;&#x524D;&#x9762;&#x5BF9;&#x4E8E; FFT &#x7684;&#x539F;&#x7406;&#x7406;&#x89E3;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org746957a" class="outline-2">
+<h2 id="org746957a">&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x5206;&#x6790;</h2>
+<div class="outline-text-2" id="text-org746957a">
+</div>
+<div id="outline-container-org142cf64" class="outline-3">
+<h3 id="org142cf64">&#x8F93;&#x51FA;&#x7684;&#x5BF9;&#x79F0;&#x6027;</h3>
+<div class="outline-text-3" id="text-org142cf64">
+<p>
+&#x53D8;&#x6362;&#x77E9;&#x9635;&#x4E2D;&#x7684;&#x5143;&#x7D20;
+</p>
+\begin{align*}
+  e^{-\mathrm{i}\frac{2\pi}{N}mn}
+\end{align*}
+<p>
+&#x5F53; \(n\) &#x7ED9;&#x5B9A;&#x7684;&#x65F6;&#x5019;, &#x6709;
+</p>
+\begin{align*}
+  e^{-\mathrm{i}n \frac{2\pi}{N}(N-m)} = e^{-\mathrm{i}n 2\pi}e^{-\mathrm{i}n \frac{2\pi}{N}(-m)} =  e^{\mathrm{i}n \frac{2\pi}{N}m}
+  = \left( e^{-\mathrm{i}n \frac{2\pi}{N}m} \right)^{* }
+\end{align*}
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x540C;&#x4E00;&#x5217;&#x4E2D;, \(m\) &#x7684;&#x5143;&#x7D20;&#x548C; \(N-m\) &#x7684;&#x5143;&#x7D20;&#x662F;&#x4E92;&#x4E3A;&#x590D;&#x5171;&#x8F6D;&#x7684;. &#x90A3;&#x4E48;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x51FA;
+</p>
+\begin{align*}
+  F(m\Delta\omega) = F^{* }\left((N-m)\Delta\omega\right) \\
+  \mid F(m\Delta\omega)\mid = \mid F\left((N-m)\Delta\omega\right)\mid
+\end{align*}
+
+<p>
+&#x5F88;&#x660E;&#x663E;, &#x624B;&#x7B97;&#x7684;&#x4F8B;&#x5B50;&#x7B26;&#x5408;&#x8FD9;&#x4E00;&#x7ED3;&#x8BBA;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc17e6a1" class="outline-3">
+<h3 id="orgc17e6a1">&#x4E09;&#x89D2;&#x51FD;&#x6570;&#x548C; \(e\) &#x6307;&#x6570;&#x5F62;&#x5F0F;&#x7684; Fourier Transform &#x4E4B;&#x95F4;&#x7684;&#x8054;&#x7CFB;</h3>
+<div class="outline-text-3" id="text-orgc17e6a1">
+<p>
+&#x5728;&#x6211;&#x7684;&#x5370;&#x8C61;&#x4E2D;, Fourier Transform &#x7684;&#x7ED3;&#x679C;&#x5E94;&#x8BE5;&#x662F;&#x4E00;&#x4E2A;&#x5B9E;&#x51FD;&#x6570;, &#x6BD4;&#x5982;&#x4E00;&#x4E2A;&#x9AD8;&#x65AF;&#x51FD;&#x6570;&#x7684; Fourier Transform &#x7684;
+&#x7ED3;&#x679C;&#x8FD8;&#x662F;&#x4E00;&#x4E2A;&#x9AD8;&#x65AF;&#x51FD;&#x6570;. &#x4F46;&#x8FD9;&#x91CC;&#x7ED9;&#x51FA;&#x7684;&#x4F8B;&#x5B50;&#x7ED3;&#x679C;&#x662F;&#x590D;&#x7684;.
+</p>
+
+<p>
+&#x6211;&#x53D1;&#x73B0;&#x8FD9;&#x91CC;&#x7684;&#x53D8;&#x6362;&#x6709;&#x6240;&#x4E0D;&#x540C;. &#x6211;&#x5370;&#x8C61;&#x4E2D;&#x7684;&#x53D8;&#x6362;&#x4E00;&#x822C;&#x662F;&#x4E00;&#x4E2A;&#x5728;&#x6B63;&#x8D1F;&#x65E0;&#x7A77;&#x4E4B;&#x95F4;&#x7684;&#x53D8;&#x6362;. &#x800C;&#x8FD9;&#x91CC;&#x662F;&#x5728;&#x7279;&#x5B9A;&#x533A;&#x95F4;&#x4E0A;&#x7684;&#x53D8;&#x6362;. &#x6211;&#x60F3;
+&#x8FD9;&#x5C31;&#x662F;&#x539F;&#x56E0;. &#x6839;&#x672C;&#x539F;&#x56E0;&#x6211;&#x8FD8;&#x6CA1;&#x6709;&#x60F3;&#x6E05;&#x695A;.
+</p>
+
+<p>
+&#x5BF9;&#x4E8E;&#x6EE1;&#x8DB3;&#x5468;&#x671F;&#x4E3A; \(T\) ,&#x5373; \(f(t+T) = f(t)\) &#x7684;&#x51FD;&#x6570; \(f(t)\) ,&#x5C55;&#x5F00;&#x6210;&#x4E09;&#x89D2;&#x51FD;&#x6570;&#x7684;&#x5F62;&#x5F0F;&#x4E3A;
+</p>
+
+\begin{align*}
+  f(t) = \frac{a_0}{2} +\sum_{n=1}^{\infty}\left[ a_n \cos (n\omega t) +b_n \sin(n\omega t) \right]
+\end{align*}
+<p>
+&#x5176;&#x4E2D; \(\omega=\frac{2\pi}{T}\) . &#x7531;&#x4E8E;&#x4E09;&#x89D2;&#x51FD;&#x6570;&#x6B63;&#x4EA4;&#x4E14;&#x5F52;&#x4E00;&#x5230;&#x534A;&#x4E2A;&#x5468;&#x671F;&#x4E0A;, &#x6240;&#x4EE5;&#x5C55;&#x5F00;&#x7CFB;&#x6570;&#x4E3A;
+</p>
+\begin{align*}
+  a_n = \frac{2}{T} \int_{0}^{T} f(t)\cos (n\omega t) \mathrm{d} t \\
+  b_n = \frac{2}{T} \int_{0}^{T} f(t)\sin (n\omega t) \mathrm{d} t
+\end{align*}
+
+<p>
+&#x5982;&#x679C;&#x628A;&#x4E09;&#x89D2;&#x51FD;&#x6570;&#x7528; \(e\) &#x6307;&#x6570;&#x4EE3;&#x6362;
+</p>
+\begin{align*}
+  f(t) =&amp; \frac{a_0}{2} +\sum_{n=1}^{\infty}\left[ a_n \frac{e^{\mathrm{i}n\omega t} + e^{-\mathrm{i}n\omega t}}{2}
+   +b_n \frac{e^{\mathrm{i}n\omega t} - e^{-\mathrm{i}n\omega t}}{2\mathrm{i}}
+   \right] \\
+      =&amp; \frac{a_0}{2} +\sum_{n=1}^{\infty}\left[
+       e^{\mathrm{i}n\omega t} \frac{a_n-\mathrm{i}b_n}{2} +e^{-\mathrm{i}n\omega t} \frac{a_n +\mathrm{i}b_n}{2}
+   \right] \\
+      =&amp; \sum_{n =-\infty}^{\infty}e^{\mathrm{i}n\omega t} \frac{a_n -\mathrm{i}b_n}{2}
+\end{align*}
+<p>
+&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x7B49;&#x53F7;&#x5229;&#x7528;&#x4E86; \(a_n =a_{-n}, b_n = -b_{-n}, b_0 =0\) .
+&#x800C;
+</p>
+\begin{align*}
+  \frac{a_n -\mathrm{i}b_n}{2} =&amp; \frac{2}{T} \int_{0}^{T} f(t)\frac{\cos (n\omega t) - \mathrm{i}\sin(n\omega t)}{2} \mathrm{d} t \\
+                   =&amp; \frac{1}{T} \int_{0}^{T} f(t)e^{-\mathrm{i}n\omega t} \mathrm{d} t
+\end{align*}
+<p>
+&#x82E5;&#x4EE4;
+</p>
+\begin{align*}
+  \frac{a_n - \mathrm{i}b_n}{2}T = \mathcal{F}_n
+\end{align*}
+<p>
+&#x5219;&#x6709;
+</p>
+\begin{align*}
+  \mathcal{F}_n = &amp; \int_{0} ^{T} f(t) e^{-\mathrm{i} n \omega t} \mathrm{d}t \\
+  f(t) = &amp; \frac{1}{T} \sum_{n=-\infty}^{\infty} \mathcal{F}_n e^{\mathrm{i}n\omega t}
+\end{align*}
+<p>
+&#x8FD9;&#x4E5F;&#x548C;&#x4E4B;&#x524D; Fourier Transform &#x603B;&#x7ED3;&#x4E2D;&#x7684;&#x4E00;&#x81F4;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1110f14" class="outline-3">
+<h3 id="org1110f14">&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E2D;&#x6709;&#x4EF7;&#x503C;&#x7684;&#x90E8;&#x5206;</h3>
+<div class="outline-text-3" id="text-org1110f14">
+<p>
+&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x7684;&#x5B9E;&#x90E8;&#x548C;&#x865A;&#x90E8;&#x5BF9;&#x5E94;&#x540C;&#x4E00;&#x9891;&#x7387;&#x7684;&#x632F;&#x5E45;, &#x53EA;&#x4E0D;&#x8FC7;&#x5B9E;&#x90E8;&#x662F;&#x6B63;&#x5F26;&#x90E8;&#x5206;, &#x865A;&#x90E8;&#x662F;&#x4F59;&#x5F26;&#x90E8;&#x5206;. &#x6240;&#x4EE5;&#x7528;&#x5176;&#x6A21;&#x957F;&#x6765;&#x523B;&#x753B; Fourier Transform &#x7684;&#x7ED3;&#x679C;.
+</p>
+
+<p>
+&#x800C;&#x4E14;&#x8F93;&#x51FA;&#x7684;&#x7ED3;&#x679C;&#x5177;&#x6709;&#x5BF9;&#x79F0;&#x6027;, &#x6240;&#x4EE5;&#x53EA;&#x53D6;&#x524D;&#x3000;\(\frac{N}{2}+1\) &#x4E2A;&#x7ED3;&#x679C;&#x5373;&#x53EF;&#x5F97;&#x5230;&#x53D8;&#x6362;&#x7684;&#x5168;&#x90E8;&#x4FE1;&#x606F;.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb34339e" class="outline-2">
+<h2 id="orgb34339e">Python &#x7A0B;&#x5E8F;&#x793A;&#x4F8B;</h2>
+<div class="outline-text-2" id="text-orgb34339e">
+</div>
+<div id="outline-container-org5b6349e" class="outline-3">
+<h3 id="org5b6349e">&#x4E09;&#x89D2;&#x51FD;&#x6570;&#x7684;&#x4F8B;&#x5B50;</h3>
+<div class="outline-text-3" id="text-org5b6349e">
+<p>
+&#x7528; Numpy &#x4E2D;&#x7684; numpy.fft.fft() &#x51FD;&#x6570;&#x8BA1;&#x7B97;&#x4E09;&#x89D2;&#x51FD;&#x6570;
+</p>
+\begin{align*}
+  f(t) = \sin(17t) +3 \sin (57t) + 2 \sin(97t)
+\end{align*}
+<p>
+&#x7684; Fourier Transform
+</p>
+
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">N = <span class="number">1024</span>  <span class="comment">#&#x79BB;&#x6563;&#x5316;&#x6210;N&#x4E2A;&#x70B9;</span></span><br><span class="line">T =<span class="number">8</span>*np.pi <span class="comment">#&#x8F93;&#x5165;T&#x7684;&#x503C;</span></span><br><span class="line">t = np.linspace(<span class="number">0</span>,T,N) <span class="comment">#&#x79BB;&#x6563;&#x5316;t</span></span><br><span class="line">f = np.sin(<span class="number">17</span>*t) + <span class="number">3</span>*np.sin(<span class="number">57</span>*t) + <span class="number">2</span>*np.sin(<span class="number">97</span>*t) <span class="comment">#f(t)&#x7684;&#x8868;&#x8FBE;&#x5F0F;</span></span><br><span class="line">F = np.fft.fft(f) <span class="comment">#&#x8FDB;&#x884C;FFT</span></span><br><span class="line">tf = np.linspace(<span class="number">0</span>,N*np.pi/T,N//<span class="number">2</span> + <span class="number">1</span>) <span class="comment">#&#x8BBE;&#x7F6E; \omega &#x5750;&#x6807;&#x8F74;,</span></span><br><span class="line">plt.plot(tf, np.<span class="built_in">abs</span>(F[:N//<span class="number">2</span>+<span class="number">1</span>])) <span class="comment">#&#x4EE5; \omega &#x4E3A;&#x6A2A;&#x8F74;, &#x4EE5; F &#x4E3A;&#x7EB5;&#x8F74;&#x753B;&#x56FE;. &#x7531;&#x4E8E;&#x5BF9;&#x79F0;&#x6027;&#x53EA;&#x53D6;&#x524D;(N/2+1 &#x4E2A;&#x70B9;)</span></span><br><span class="line">plt.xlabel(<span class="string">&quot;$\omega$&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;$F(\omega)$&quot;</span>)</span><br><span class="line">plt.title(<span class="string">&quot;The Results of FFT&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+</div>
+
+
+<div id="org97a50d4" class="figure">
+<p><img src="/2019/01/03/FFT(Fast Fourier Transformation)笔记/sin.png">
+</p>
+</div>
+
+<p>
+&#x6B63;&#x5982;&#x9884;&#x671F;, &#x5206;&#x522B;&#x5728;&#x9891;&#x7387;&#x4E3A; \(17, 57, 97\) &#x51FA;&#x73B0;&#x5CF0;. \(57\) &#x7684;&#x5CF0;&#x6700;&#x9AD8;, \(97\) &#x6B21;&#x4E4B;, \(17\) &#x6700;&#x4F4E;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4a7dc0f" class="outline-3">
+<h3 id="org4a7dc0f">&#x9AD8;&#x65AF;&#x51FD;&#x6570;&#x7684;&#x4F8B;&#x5B50;</h3>
+<div class="outline-text-3" id="text-org4a7dc0f">
+<p>
+&#x7528; Numpy &#x4E2D;&#x7684; numpy.fft.fft() &#x51FD;&#x6570;&#x9AD8;&#x65AF;&#x51FD;&#x6570;
+</p>
+\begin{align*}
+  f_1(t) = e^{-t^{2}}
+\end{align*}
+<p>
+&#x548C;
+</p>
+\begin{align*}
+  f_2(t) = e^{-10t^{2}}
+\end{align*}
+<p>
+&#x7684; Fourier Transform
+</p>
+
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">N = <span class="number">512</span>  <span class="comment">#&#x79BB;&#x6563;&#x5316;&#x6210;N&#x4E2A;&#x70B9;</span></span><br><span class="line">T =<span class="number">30</span> <span class="comment">#&#x8F93;&#x5165;T&#x7684;&#x503C;</span></span><br><span class="line">t = np.linspace(<span class="number">0</span>,T,N) <span class="comment">#&#x79BB;&#x6563;&#x5316;t</span></span><br><span class="line">f1 = np.exp(-t**<span class="number">2</span>) <span class="comment">#f(t)&#x7684;&#x8868;&#x8FBE;&#x5F0F;</span></span><br><span class="line">f2 = np.exp(-<span class="number">10</span>*t**<span class="number">2</span>)</span><br><span class="line">F1 = np.fft.fft(f1) <span class="comment">#&#x8FDB;&#x884C;FFT</span></span><br><span class="line">F2 = np.fft.fft(f2) <span class="comment">#&#x8FDB;&#x884C;FFT</span></span><br><span class="line">tf = np.linspace(<span class="number">0</span>,N*np.pi/T,N//<span class="number">2</span> + <span class="number">1</span>) <span class="comment">#&#x8BBE;&#x7F6E; \omega &#x5750;&#x6807;&#x8F74;,</span></span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">211</span>) <span class="comment">#&#x4E24;&#x884C;&#x4E00;&#x5217;, &#x7B2C;&#x4E00;&#x4E2A;&#x56FE;</span></span><br><span class="line">plt.plot(tf, np.<span class="built_in">abs</span>(F1[:N//<span class="number">2</span>+<span class="number">1</span>])) <span class="comment">#&#x4EE5; \omega &#x4E3A;&#x6A2A;&#x8F74;, &#x4EE5; F1 &#x4E3A;&#x7EB5;&#x8F74;&#x753B;&#x56FE;. &#x7531;&#x4E8E;&#x5BF9;&#x79F0;&#x6027;&#x53EA;&#x53D6;&#x524D;(N/2+1 &#x4E2A;&#x70B9;)</span></span><br><span class="line">plt.ylabel(<span class="string">&quot;$F_1(\omega)$&quot;</span>)</span><br><span class="line">plt.subplot(<span class="number">212</span>) <span class="comment">#&#x4E24;&#x884C;&#x4E00;&#x5217;, &#x7B2C;&#x4E8C;&#x4E2A;&#x56FE;</span></span><br><span class="line">plt.plot(tf, np.<span class="built_in">abs</span>(F2[:N//<span class="number">2</span>+<span class="number">1</span>])) <span class="comment">#</span></span><br><span class="line">plt.xlabel(<span class="string">&quot;$\omega$&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;$F_2(\omega)$&quot;</span>)</span><br><span class="line">plt.suptitle(<span class="string">&quot;The Results of FFT&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+</div>
+
+
+<div id="org23dd988" class="figure">
+<p><img src="/2019/01/03/FFT(Fast Fourier Transformation)笔记/gau.png">
+</p>
+</div>
+
+<p>
+&#x8FD9;&#x4E5F;&#x7B26;&#x5408;&#x9884;&#x671F;, &#x539F;&#x6765;&#x66F4;&#x5C16;&#x7684;&#x9AD8;&#x65AF;&#x51FD;&#x6570;, &#x53D8;&#x6362;&#x4E4B;&#x540E;&#x53D8;&#x5F97;&#x66F4;&#x5E73;.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org93a59b0" class="outline-2">
+<h2 id="org93a59b0">&#x81F4;&#x8C22;&#x4E0E;&#x53C2;&#x8003;&#x4E66;</h2>
+<div class="outline-text-2" id="text-org93a59b0">
+<p>
+&#x82CF;&#x53D8;&#x840D;, &#x9648;&#x4E1C;&#x7ACB; &#x7F16; &#x590D;&#x53D8;&#x51FD;&#x6570;&#x4E0E;&#x79EF;&#x5206;&#x53D8;&#x6362;(&#x7B2C;&#x4E8C;&#x7248;)
+</p>
+
+<p>
+&#x611F;&#x8C22; Fan Yang &#x5E08;&#x5144;&#x7684;&#x8BA8;&#x8BBA;
+</p>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/Fourier/" rel="tag"># Fourier</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/27/Scale/" rel="next" title="Scale">
+                <i class="fa fa-chevron-left"></i> Scale
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/05/留数定理笔记/" rel="prev" title="留数定理笔记">
+                留数定理笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc46f623"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org048351c"><span class="nav-text">DFT (Discreate Fourier Transform)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org0f4a372"><span class="nav-text">精髓</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org99de155"><span class="nav-text">结论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org08f683f"><span class="nav-text">简的可以手算的例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org746957a"><span class="nav-text">输出结果分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org142cf64"><span class="nav-text">输出的对称性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgc17e6a1"><span class="nav-text">三角函数和 \(e\) 指数形式的 Fourier Transform 之间的联系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org1110f14"><span class="nav-text">输出结果中有价值的部分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgb34339e"><span class="nav-text">Python 程序示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org5b6349e"><span class="nav-text">三角函数的例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org4a7dc0f"><span class="nav-text">高斯函数的例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org93a59b0"><span class="nav-text">致谢与参考书</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="物理,多体物理读书会,虚时演化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多体物理读书会:第六章Matsubara的虚时演化">
+<meta property="og:url" content="https://zqw.ink/2018/12/27/多体物理读书会:第六章Matsubara的虚时演化/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.850Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多体物理读书会:第六章Matsubara的虚时演化">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2018/12/27/多体物理读书会:第六章Matsubara的虚时演化/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>多体物理读书会:第六章Matsubara的虚时演化 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2018/12/27/多体物理读书会:第六章Matsubara的虚时演化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">多体物理读书会:第六章Matsubara的虚时演化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-27 00:00:00" itemprop="dateCreated datePublished" datetime="2018-12-27T00:00:00+08:00">2018-12-27</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/27/多体物理读书会:第六章Matsubara的虚时演化/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/12/27/多体物理读书会:第六章Matsubara的虚时演化/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+<p>
+PDF: <a href="2018-12-27-&#x4E13;&#x4E1A;&#x7B14;&#x8BB0;-&#x591A;&#x4F53;&#x7269;&#x7406;&#x8BFB;&#x4E66;&#x4F1A;:&#x7B2C;&#x516D;&#x7AE0;Matsubara&#x7684;&#x865A;&#x65F6;&#x6F14;&#x5316;.pdf">2018-12-27-&#x4E13;&#x4E1A;&#x7B14;&#x8BB0;-&#x591A;&#x4F53;&#x7269;&#x7406;&#x8BFB;&#x4E66;&#x4F1A;:&#x7B2C;&#x516D;&#x7AE0;Matsubara&#x7684;&#x865A;&#x65F6;&#x6F14;&#x5316;.pdf</a>
+</p>
+
+<div id="outline-container-orgce6d9f2" class="outline-2">
+<h2 id="orgce6d9f2">&#x5F15;&#x5165;</h2>
+<div class="outline-text-2" id="text-orgce6d9f2">
+</div>
+<div id="outline-container-org0b6b211" class="outline-3">
+<h3 id="org0b6b211">&#x5F15;&#x5165;&#x4E00;</h3>
+<div class="outline-text-3" id="text-org0b6b211">
+<p>
+&#x683C;&#x6797;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x4E2D;&#x6709;&#x4E24;&#x9879;, &#x662F;
+</p>
+\begin{align*}
+  \langle A(t) B(t&apos;) \rangle\quad,\quad \langle B(t&apos;) A(t) \rangle
+\end{align*}
+<p>
+&#x4F46;&#x662F;, &#x5982;&#x679C;&#x65F6;&#x95F4;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5B9E;&#x6570;, &#x800C;&#x53EF;&#x4EE5;&#x662F;&#x590D;&#x6570;, &#x5141;&#x8BB8;&#x6709;&#x865A;&#x90E8;&#x7684;&#x8BDD;, &#x90A3;&#x4E48;&#x8FD9;&#x4E24;&#x9879;&#x5C31;&#x4E0D;&#x662F;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x7684;&#x4E86;. &#x56E0;&#x4E3A;
+</p>
+\begin{align*}
+  \Xi \langle A(t) B(0) \rangle =&amp; \mathrm{Tr} \left\{ e^{-\beta H} \cdot
+  e^{-\frac{1}{\mathrm{i}\hbar}Ht} A(0) e^{\frac{1}{\mathrm{i}\hbar}Ht}
+  \cdot B(0)\right\} \\
+  =&amp; \mathrm{Tr} \left\{ e^{-\frac{1}{\mathrm{i}\hbar}H(t+\mathrm{i}\hbar \beta)}
+  A(0) e^{\frac{1}{\mathrm{i}\hbar}H(t+\mathrm{i} \hbar \beta) }\cdot e^{-\beta H}
+  \cdot B(0)\right\} \\
+  =&amp; \mathrm{Tr} \left\{ e^{-\beta H}
+  \cdot B(0) \cdot e^{-\frac{1}{\mathrm{i}\hbar}H(t+\mathrm{i}\hbar \beta)}
+  A(0) e^{\frac{1}{\mathrm{i}\hbar}H(t+\mathrm{i} \hbar \beta) }\right\} \\
+  =&amp; \Xi \langle B(0) A(t+\mathrm{i}\hbar\beta)
+\end{align*}
+<p>
+&#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+  \label{eq:p}
+  \langle A(t)B(0)\rangle = \langle B(0)A(t+\mathrm{i}\hbar\beta)
+\end{align}
+
+<p>
+&#x56E0;&#x6B64;,&#x5F15;&#x5165;&#x590D;&#x6570;&#x65F6;&#x95F4;&#x5C06;&#x4F1A;&#x4F7F;&#x683C;&#x6797;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x66F4;&#x52A0;&#x7CBE;&#x7B80;? &#x8FD9;&#x548C;&#x5176;&#x5468;&#x671F;&#x6027;&#x6709;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;?
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdbd87fd" class="outline-3">
+<h3 id="orgdbd87fd">&#x5F15;&#x5165;&#x4E8C;</h3>
+<div class="outline-text-3" id="text-orgdbd87fd">
+<p>
+&#x65F6;&#x95F4;&#x6F14;&#x5316;&#x7B97;&#x7B26;
+</p>
+\begin{align}
+U(t,0) = e^{\frac{1}{\mathrm{i}\hbar}Ht}
+\end{align}
+<p>
+&#x548C;&#x5DE8;&#x6B63;&#x5219;&#x7CFB;&#x7EFC;&#x7684;&#x5BC6;&#x5EA6;&#x7B97;&#x7B26;
+</p>
+\begin{align*}
+\rho =\frac{1}{\Xi} e^{-\beta H} \\
+\rho \Xi =e^{-\beta H}
+\end{align*}
+<p>
+(&#x5176;&#x4E2D; \(H\) &#x5305;&#x542B;&#x4E86;&#x5316;&#x5B66;&#x52BF;)
+&#x5341;&#x5206;&#x76F8;&#x4F3C;. &#x4E5F;&#x53EF;&#x4EE5;&#x8BF4;&#x5DE8;&#x6B63;&#x5219;&#x7CFB;&#x7EFC;&#x7684;&#x5BC6;&#x5EA6;&#x7B97;&#x7B26;&#x662F;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x65F6;&#x95F4;&#x6F14;&#x5316;&#x7B97;&#x7B26;
+</p>
+\begin{align*}
+U(t,0) &amp;\rightarrow e^{\frac{1}{\mathrm{i}\hbar}Ht}\\
+\rho \Xi &amp;\rightarrow e^{-\beta H} \\
+\Downarrow \\
+\rho \Xi &amp;= U(-i\hbar \beta,0) = e^{-\beta H}
+\end{align*}
+
+<p>
+&#x6240;&#x4EE5;&#x5F97;&#x51FA;&#x7ED3;&#x8BBA;:
+</p>
+
+<p>
+\(\rho \Xi\) &#x662F;&#x65F6;&#x95F4;
+</p>
+\begin{align}
+t=-i\hbar \beta
+\end{align}
+<p>
+&#x7684;&#x65F6;&#x95F4;&#x6F14;&#x5316;&#x7B97;&#x7B26;, &#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x865A;&#x6570;&#x65F6;&#x95F4;.
+&#x5B83;&#x5C06;&#x7CFB;&#x7EDF;&#x4ECE;&#x65E0;&#x7A77;&#x9AD8;&#x7684;&#x6E29;&#x5EA6; \(T\to +\infty\) &#x6F14;&#x5316;&#x5230; \(T = \frac{1}{k \beta}\) .
+</p>
+
+<p>
+&#x8FD9;&#x6700;&#x5148;&#x7531; Kubo &#x5728; 1950s &#x65E9;&#x671F;&#x53D1;&#x73B0;.
+&#x63A5;&#x4E0B;&#x6765;&#x5462;, Matsubara &#x5C31; pick up &#x4E86; Kubo &#x7684;&#x8FD9;&#x4E2A;&#x53D1;&#x73B0;,
+&#x5199;&#x4E0B;&#x4E86;&#x7B2C;&#x4E00;&#x4E2A;&#x6709;&#x9650;&#x6E29;&#x591A;&#x4F53;&#x95EE;&#x9898;&#x7684;&#x865A;&#x65F6;&#x65B9;&#x7A0B;!
+</p>
+
+<p>
+&#x77E5;&#x9053;&#x4E86;&#x914D;&#x5206;&#x51FD;&#x6570;, &#x5C31;&#x77E5;&#x9053;&#x4E86;&#x4E00;&#x5207;.
+&#x800C;&#x914D;&#x5206;&#x51FD;&#x6570;&#x4E0D;&#x8FC7;&#x662F;&#x6F14;&#x5316;&#x7B97;&#x7B26;&#x7684;&#x6C42;&#x8FF9;!
+</p>
+\begin{align}
+\Xi = \mathrm{Tr} [ U(-\mathrm{i}\hbar \beta, 0)]
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org03442b0" class="outline-3">
+<h3 id="org03442b0">&#x5F15;&#x5165;&#x4E09;</h3>
+<div class="outline-text-3" id="text-org03442b0">
+<p>
+&#x5BF9;&#x4E8E;&#x975E;&#x96F6;&#x6E29;&#x7684;&#x60C5;&#x51B5;, &#x5FAE;&#x6270; \(V\) &#x4E0D;&#x4EC5;&#x51FA;&#x73B0;&#x5728;&#x6F14;&#x5316;&#x7B97;&#x7B26;&#x4E2D;, &#x8FD8;&#x51FA;&#x73B0;&#x5728;&#x5BC6;&#x5EA6;&#x7B97;&#x7B26;&#x4E2D;. &#x865A;&#x65F6;
+&#x7684;&#x5F15;&#x5165;, &#x53EF;&#x4EE5;&#x4F7F;&#x5F97;&#x4E24;&#x90E8;&#x5206;&#x5408;&#x5E76;, &#x5728;&#x5BF9; \(V\) &#x8FDB;&#x884C;&#x5C55;&#x5F00;&#x65F6;&#x53EA;&#x8FDB;&#x884C;&#x4E00;&#x6B21;&#x5C55;&#x5F00;&#x5373;&#x53EF;.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org62ae9b9" class="outline-2">
+<h2 id="org62ae9b9">Modified Heisenberg Representation</h2>
+<div class="outline-text-2" id="text-org62ae9b9">
+<p>
+&#x4E00;&#x4E2A;&#x7EAF;&#x865A;&#x7684;&#x65F6;&#x95F4;, &#x5BF9;&#x5E94;&#x4E8E;&#x6E29;&#x5EA6;&#x7684;&#x6F14;&#x5316;, &#x4E0E;&#x771F;&#x5B9E;&#x7684;&#x65F6;&#x95F4;&#x65E0;&#x5173;. &#x5982;&#x679C;&#x65F6;&#x95F4;&#x662F;&#x865A;, &#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;
+</p>
+\begin{align*}
+  \tau = \mathrm{i}t
+\end{align*}
+<p>
+&#x662F;&#x4E00;&#x4E2A;&#x5B9E;&#x6570;.
+</p>
+
+<p>
+&#x7531;&#x865A;&#x65F6;&#x6F14;&#x5316;&#x7684; Heisenberg Representation &#x53EB;&#x505A; Modified Heisenberg Representation ,&#x5728;&#x6B64;
+&#x8868;&#x8C61;&#x4E0B;&#x7684;&#x7B97;&#x7B26;&#x4E3A;
+</p>
+\begin{align*}
+  A(\tau) = e^{\frac{1}{\hbar}H\tau} A(0) e^{-\frac{1}{\hbar}H\tau}
+\end{align*}
+<p>
+&#x6B64;&#x7B97;&#x7B26;&#x5173;&#x4E8E;&#x865A;&#x65F6;&#x95F4;,&#x5B9E;&#x6570; \(\tau\) &#x5BF9;&#x5E94;&#x7684;&#x8FD0;&#x52A8;&#x65B9;&#x7A0B;&#x4E3A;
+</p>
+\begin{align*}
+  \mathrm{i}\hbar \frac{\partial}{\partial t}A(t) =&amp; [A(t),H] \\
+  \Downarrow &amp; \\
+  -\hbar \frac{\partial}{\partial \mathrm{i}t}A(\tau) =&amp; [A(\tau),H] \\
+  \Downarrow &amp;\\
+  -\hbar \frac{\partial}{\partial \tau}A(\tau) =&amp; [A(\tau),H] \\
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-org9a31145" class="outline-2">
+<h2 id="org9a31145">Matsubara function</h2>
+<div class="outline-text-2" id="text-org9a31145">
+</div>
+<div id="outline-container-org540b13e" class="outline-3">
+<h3 id="org540b13e">Defination</h3>
+<div class="outline-text-3" id="text-org540b13e">
+<p>
+&#x4E0E;&#x56E0;&#x679C;&#x683C;&#x6797;&#x51FD;&#x6570;&#x4E00;&#x6837;&#x7684;&#x5B9A;&#x4E49;, &#x53EA;&#x4E0D;&#x8FC7;&#x7531;&#x4E8E;&#x65F6;&#x95F4;&#x662F;&#x865A;&#x7684;, \(\mathrm{i}\) &#x88AB; \(t\) &#x5438;&#x6536;&#x53D8;&#x6210;
+&#x5B9E;&#x6570; \(\tau\) , &#x5B9A;&#x4E49;&#x4E2D;&#x4E0D;&#x518D;&#x6709; \(\mathrm{i}\) &#x51FA;&#x73B0;
+</p>
+\begin{align*}
+  G_{AB}^M(t,t&apos;) = -\langle T_{\varepsilon}(A(\tau)B(\tau))\rangle
+\end{align*}
+
+<p>
+&#x5BF9;&#x5E94;&#x7684;&#x8FD0;&#x52A8;&#x65B9;&#x7A0B;&#x4E3A;
+</p>
+\begin{align*}
+  -\hbar \frac{\partial}{\partial \tau}G_{AB}^M (\tau, \tau&apos;) =
+  \hbar \delta(\tau-\tau&apos;)\langle [A,B]_{-\varepsilon}\rangle
+  +\langle \langle \,[A(\tau),H] \,;\,B(\tau&apos;) \, \rangle\rangle^M
+\end{align*}
+
+<p>
+&#x6709;&#x4E00;&#x7591;&#x95EE;, &#x5B9A;&#x4E49;&#x4E2D;&#x662F;&#x5426;&#x8981;&#x52A0;&#x4E00;&#x9650;&#x5236; \(\tau-\tau&apos;\in [-\hbar\beta,\hbar\beta]\) ?&#x4E3A;&#x4EC0;&#x4E48;&#x52A0;? &#x8FD9;&#x91CC;
+&#x6682;&#x4E14;&#x5047;&#x8BBE;&#x662F;. &#x4E0B;&#x9762;&#x7684;&#x63A8;&#x5BFC;&#x4E5F;&#x8BF4;&#x5F97;&#x901A;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8620659" class="outline-3">
+<h3 id="org8620659">&#x5468;&#x671F;&#x6027;</h3>
+<div class="outline-text-3" id="text-org8620659">
+<p>
+Matsubara function &#x5728;&#x533A;&#x95F4; \([-\hbar\beta,\hbar\beta]\) &#x4E4B;&#x95F4;, &#x5BF9;&#x4E8E; Boson &#x662F;
+&#x5173;&#x4E8E;&#x539F;&#x70B9;&#x5BF9;&#x79F0;&#x7684;, Fermion &#x5173;&#x4E8E;&#x539F;&#x70B9;&#x662F;&#x53CD;&#x5BF9;&#x79F0;&#x7684;. &#x8BC1;&#x660E;&#x5982;&#x4E0B;
+</p>
+\begin{align*}
+  \mathrm{For} \tau &lt; 0 &amp;, \quad \mathrm{then} \quad \tau+\hbar\beta &gt; 0\\
+  \Xi G(\tau+\hbar\beta) =&amp; -\mathrm{Tr} \left\{
+  e^{-\beta H}\cdot e^{\frac{1}{\hbar}H(\tau+\hbar\beta)}A(0)
+   e^{-\frac{1}{\hbar}H(\tau+\hbar\beta)}\cdot B(0) \right\} \\
+  =&amp; -\mathrm{Tr} \left\{
+  e^{\frac{1}{\hbar}H\tau}A(0)
+   e^{-\frac{1}{\hbar}H\tau}\cdot e^{-\beta H}\cdot B(0) \right\} \\
+    =&amp; -\mathrm{Tr} \left\{ e^{-\beta H}\cdot B(0)\cdot
+  e^{\frac{1}{\hbar}H\tau}A(0)
+   e^{-\frac{1}{\hbar}H\tau}  \right\} \\
+    =&amp; -\varepsilon\mathrm{Tr} \left\{ T_{\varepsilon}(A(\tau)  \cdot B(0))\right\} \\
+   =&amp; \varepsilon\Xi G(\tau)
+\end{align*}
+<p>
+&#x4E5F;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x5173;&#x7CFB; \eqref{eq:p} &#x7684;&#x53D8;&#x5F62;
+</p>
+\begin{align*}
+  \langle A(\tau)B(\tau&apos;)\rangle = \langle B(\tau&apos;)A(\tau-\hbar\beta)\rangle
+\end{align*}
+<p>
+&#x5373;
+</p>
+\begin{align*}
+   \mathrm{For} \tau &lt; 0 &amp;, \quad \mathrm{then} \quad \tau+\hbar\beta &gt; 0\\
+   G(\tau+\hbar\beta) =&amp; -\langle A(\tau+\hbar\beta) B(t) \rangle \\
+                      =&amp; -\langle B(0) A(\tau)\rangle \\
+                      =&amp; -\varepsilon \langle T_{\tau} A(\tau)B(0) \rangle \\
+                      =&amp; \varepsilon G(\tau)
+\end{align*}
+<p>
+&#x6240;&#x4EE5;&#x5173;&#x7CFB; \eqref{eq:p} &#x4E0E; Matsubara function &#x7684;&#x5BF9;&#x79F0;&#x4E0E;&#x53CD;&#x5BF9;&#x79F0;&#x6027;&#x662F;&#x76F8;&#x5173;&#x7684;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd23ac2a" class="outline-3">
+<h3 id="orgd23ac2a">Fourier Transform</h3>
+<div class="outline-text-3" id="text-orgd23ac2a">
+<p>
+Matsubara function &#x6309;&#x533A;&#x95F4; \([-\hbar\beta,\hbar\beta]\) &#x5EF6;&#x62D3;&#x6210;&#x5468;&#x671F;&#x4E3A; \(2\hbar\beta\) &#x7684;
+&#x5468;&#x671F;&#x51FD;&#x6570;. &#x5BF9;&#x5468;&#x671F;&#x51FD;&#x6570;&#x7684; Fourier Transform , &#x5176;&#x7ED3;&#x679C;&#x662F;&#x79BB;&#x6563;&#x7684;
+</p>
+\begin{align*}
+  \omega_n = n\frac{2\pi}{2\hbar\beta} = \frac{n\pi}{\hbar\beta}
+\end{align*}
+<p>
+Fourier &#x5C55;&#x5F00;&#x4E3A;
+</p>
+\begin{align*}
+  G(\tau) = \sum_{n=-\infty}^{\infty} C_n
+  e^{-\mathrm{i}\omega_n\tau}
+\end{align*}
+<p>
+where
+</p>
+\begin{align*}
+  C_n =\frac{1}{2\hbar\beta} \int_{-\hbar\beta}^{\hbar\beta}\mathrm{d}\cdot\tau
+  G(\tau) e^{\mathrm{i}\omega_n\tau}
+\end{align*}
+<p>
+&#x8BB0;
+</p>
+\begin{align*}
+  E_n =&amp; \hbar\omega = \frac{n\pi}{\beta} \\
+  G(E_n) =&amp; \hbar\beta C_n
+\end{align*}
+<p>
+&#x5219;&#x5F97;&#x5230;&#x4E66;&#x4E0A;&#x7684;&#x5F62;&#x5F0F;
+</p>
+\begin{align*}
+  G(\tau) =&amp; \frac{1}{\hbar\beta}\sum_{n=-\infty}^{\infty}e^{-\frac{\mathrm{i}}{\hbar}E_n\tau}
+  G(E_n) \\
+  G(E_n) =&amp; \frac{1}{2}\int_{-\hbar\beta}^{\hbar\beta}\mathrm{d}\tau\cdot
+  G(\tau)e^{\frac{\mathrm{i}}{\hbar}E_n\tau}
+\end{align*}
+
+<p>
+&#x5BF9;&#x4E8E; Boson, &#x5176;&#x5468;&#x671F;&#x5B9E;&#x9645;&#x4E3A; \(\hbar\beta\) ,&#x6240;&#x4EE5;&#x5176;&#x53D8;&#x6362;&#x4E3A;
+</p>
+
+\begin{align*}
+  G(\tau) =&amp; \frac{1}{\hbar\beta}\sum_{n=-\infty}^{\infty}e^{-\frac{\mathrm{i}}{\hbar}E_n\tau}
+  G(E_n) \\
+  G(E_n) =&amp; \int_{0}^{\hbar\beta}\mathrm{d}\tau\cdot
+  G(\tau)e^{\frac{\mathrm{i}}{\hbar}E_n\tau} \\
+  E_n =&amp; n\frac{2\pi}{\hbar\beta} = \frac{2n\pi}{\hbar\beta}
+\end{align*}
+
+<p>
+&#x800C;&#x5BF9;&#x4E8E; Fermion
+</p>
+\begin{align*}
+  &amp; \int_{-\hbar\beta}^{0}\mathrm{d}\tau\cdot
+  G(\tau)e^{\frac{\mathrm{i}}{\hbar}E_n\tau} \\
+  =&amp; \int_{0}^{\hbar\beta}\mathrm{d}\tau&apos;\cdot
+  G(\tau+\hbar\beta)e^{\frac{\mathrm{i}}{\hbar}E_n\tau}
+  \cdot e^{\frac{\mathrm{i}}{\hbar}E_n\hbar\beta} \\
+  =&amp; \int_{0}^{\hbar\beta}\mathrm{d}\tau\cdot
+  (-G(\tau))e^{\frac{\mathrm{i}}{\hbar}E_n\tau}
+  \cdot e^{\mathrm{i}\cdot n\pi} \\
+\end{align*}
+<p>
+&#x53EA;&#x6709; \(E_n=(2n+1)\pi/\beta\) &#x65F6; \(G_n\) &#x624D;&#x4E0D;&#x4E3A;&#x96F6;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd4c63cd" class="outline-3">
+<h3 id="orgd4c63cd">Relation to the Green&apos;s Function</h3>
+<div class="outline-text-3" id="text-orgd4c63cd">
+<p>
+&#x5B83;&#x4EEC;&#x7684;&#x5173;&#x7CFB;&#x53EF;&#x4EE5;&#x7531; Spectral function &#x8054;&#x7CFB;.
+</p>
+
+\begin{align*}
+  \langle A(\tau) B(0) \rangle = \frac{1}{\Xi}
+  \sum_{nm} \langle E_n | A |E_m \rangle \langle E_m
+  |B |E_n\rangle e^{\frac{1}{\hbar}(E_n-E_m)\tau}e^{-\beta E_n}
+\end{align*}
+\begin{align*}
+  S_{AB}(E) = \frac{\hbar}{\Xi}
+  \sum_{nm} \langle E_n | A |E_m \rangle \langle E_m
+  |B |E_n\rangle e^{-\beta E_n}(1-\varepsilon e^{-\beta E})
+  \delta[E-(E_m-E_n)]
+\end{align*}
+<p>
+&#x6BD4;&#x8F83;&#x4EE5;&#x4E0A;&#x4E24;&#x5F0F;&#x53EF;&#x5F97;
+</p>
+\begin{align*}
+  \langle A(\tau) B(0) \rangle = \frac{1}{\hbar}\int \mathrm{d}E\cdot
+  \frac{S_{AB}(E)}{1-\varepsilon e^{-\beta E}}e^{-\frac{1}{\hbar}E\tau}
+\end{align*}
+
+<p>
+&#x77E5;&#x9053;&#x4E86; \(\langle A(\tau)B(0)\rangle\) , &#x4FBF;&#x53EF;&#x6C42;&#x5F97; Matsubara function
+</p>
+\begin{align*}
+  G_{AB}(E_n) =&amp; -\int_0^{\hbar\beta}e^{\frac{\mathrm{i}}{\hbar}E_n\tau}
+  \langle A(\tau)B(0)\rangle \cdot\mathrm{d}\tau \\
+  =&amp; \int \mathrm{d}E\cdot \frac{S_{AB}}{\mathrm{i}E_n-E}
+\end{align*}
+<p>
+&#x7B2C;&#x4E00;&#x4E2A;&#x7B49;&#x53F7;&#x662F;&#x56E0;&#x4E3A;&#x79EF;&#x5206;&#x533A;&#x95F4;&#x4E2D; \(\tau &gt; 0\) ,&#x6240;&#x4EE5; \(G(\tau) = -\langle A(\tau)B(0)\rangle\) .
+ &#x4E0E; Grenn&apos;s function &#x76F8;&#x6BD4;, &#x53EA;&#x662F;&#x628A;&#x539F;&#x6765;&#x7684; \(E\pm\mathrm{i}0^+\) &#x6362;&#x6210;&#x4E86;
+ \(\mathrm{i}E_n\) . &#x4ECE;&#x539F;&#x6765;&#x7684;&#x5B9E;&#x8F74;&#x9644;&#x8FD1;&#x53D8;&#x5230;&#x4E86;&#x865A;&#x8F74;. &#x539F;&#x56E0;&#x5927;&#x6982;&#x662F;&#x4E0E;&#x80FD;&#x91CF;&#x5171;&#x8F6D;&#x7684;&#x91CF;
+&#x65F6;&#x95F4;&#x4E5F;&#x4ECE;&#x5B9E;&#x8F74;&#x53D8;&#x5230;&#x4E86;&#x865A;&#x8F74;.
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org391491a" class="outline-2">
+<h2 id="org391491a">Grand Canonical Partition Function</h2>
+<div class="outline-text-2" id="text-org391491a">
+</div>
+<div id="outline-container-orgbfe90dc" class="outline-3">
+<h3 id="orgbfe90dc">Dirac Representation</h3>
+<div class="outline-text-3" id="text-orgbfe90dc">
+<p>
+&#x5BF9;&#x5E94;&#x4E8E;&#x5B9E;&#x65F6;, &#x865A;&#x65F6;&#x4E5F;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49; Dirac Representation .
+</p>
+\begin{align*}
+  A_D(\tau) = e^{\frac{1}{\hbar}H_0\tau} A_S e^{-\frac{1}{\hbar}H_0\tau}
+\end{align*}
+
+<p>
+&#x8FD0;&#x52A8;&#x65B9;&#x7A0B;
+</p>
+\begin{align*}
+  -\hbar \frac{\partial}{\partial t}U_D(\tau,\tau&apos;) = V_D(\tau)U_D(\tau,\tau&apos;)
+\end{align*}
+
+<p>
+&#x4E00;&#x5207;&#x90FD;&#x4E0E;&#x5B9E;&#x65F6;&#x76F8;&#x7C7B;&#x4F3C;. &#x865A;&#x65F6;&#x540C;&#x6837;&#x6709;
+</p>
+\begin{align*}
+  U_D(\tau,\tau&apos;) = T_{\tau}e^{-\frac{1}{\hbar}\int_{\tau&apos;}^{\tau}\mathrm{d}\tau&apos;&apos;
+  \cdot V_D(\tau&apos;&apos;)}
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orgebc6164" class="outline-3">
+<h3 id="orgebc6164">Grand Canonical Partition Function</h3>
+<div class="outline-text-3" id="text-orgebc6164">
+\begin{align*}
+  e^{-\frac{1}{\hbar}H\tau} = e^{-\frac{1}{\hbar}H_0\tau}U_D(\tau,0)
+\end{align*}
+
+<p>
+&#x6240;&#x4EE5; Grand Canonical Partition Function &#x5C31;&#x8868;&#x793A;&#x4E3A; Diarc &#x6F14;&#x5316;&#x7B97;&#x7B26;&#x5728;&#x65E0;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x7CFB;&#x7EDF;&#x4E0B;&#x7684;&#x8FF9;
+</p>
+\begin{align*}
+  \Xi =\mathrm{Tr} e^{-\frac{1}{\hbar}H_0\tau}U_D(\tau,0)
+  = \mathrm{Tr} \left\{ e^{-\beta H_0} U(\hbar \beta,0) \right\}
+\end{align*}
+<p>
+&#x5C55;&#x5F00;&#x540E;&#x5C31;&#x662F;
+</p>
+\begin{align*}
+  \Xi =&amp;  \mathrm{Tr} \left\{ e^{-\beta H_0} U(\hbar \beta,0) \right\} \\
+  =&amp;\sum_{n=0}^{\infty} \frac{1}{n!}\left( -\frac{1}{\hbar} \right)^n
+  \int_0^{\hbar\beta} \cdots \int_0^{\hbar\beta} \mathrm{d}\tau_1\cdots \mathrm{d}\tau_n
+  \mathrm{Tr}\left\{ e^{-\beta H_0} T_{\tau}(V_D(\tau_1)\cdots V_D(\tau_n)) \right\}
+\end{align*}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9169c5c" class="outline-2">
+<h2 id="org9169c5c">Single-Particle Matsubara function</h2>
+<div class="outline-text-2" id="text-org9169c5c">
+</div>
+<div id="outline-container-org2a0acb6" class="outline-3">
+<h3 id="org2a0acb6">Defination</h3>
+<div class="outline-text-3" id="text-org2a0acb6">
+<p>
+Single-Particle Matsubara function &#x5B9A;&#x4E49;&#x4E3A;
+</p>
+\begin{align*}
+  G_k(\tau) = -\langle T_{\tau}(a_k(\tau)a_k^{\dagger}(0))  \rangle
+\end{align*}
+<p>
+&#x5B83;&#x4E5F;&#x6EE1;&#x8DB3; Dyson equation
+</p>
+\begin{align*}
+  G_k(E_n) = \frac{\hbar}{\mathrm{i}E_n -(\varepsilon(\vec{k})-\mu)-\Sigma^M(k,E_n)}
+\end{align*}
+
+<p>
+Equation of Motion
+</p>
+
+<p>
+&#x7C7B;&#x4F3C;&#x5B9E;&#x65F6;, &#x7531; Heisenberg &#x8FD0;&#x52A8;&#x65B9;&#x7A0B;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x4EA7;&#x751F;&#x548C;&#x6D88;&#x706D;&#x7B97;&#x7B26;&#x7684;&#x865A;&#x65F6;&#x6F14;&#x5316;
+</p>
+\begin{align*}
+  a_k(\tau) =&amp;a_k e^{-\frac{1}{\hbar}(\varepsilon(\vec{k})-\mu)\tau}\\
+  a_k^{\dagger}(\tau) =&amp;a_k^{\dagger} e^{\frac{1}{\hbar}(\varepsilon(\vec{k})-\mu)\tau}
+\end{align*}
+<p>
+&#x6CE8;&#x610F;&#x4E8C;&#x8005;&#x5E76;&#x4E0D;&#x4E92;&#x4E3A;&#x5384;&#x7C73;!
+&#x7531;&#x5355;&#x7C92;&#x5B50;&#x7684;&#x8C31;&#x51FD;&#x6570;, &#x53EF;&#x4EE5;&#x5F97;&#x5230; Single-Particle Matsubara function &#x7684;
+&#x5177;&#x4F53;&#x5F62;&#x5F0F;
+</p>
+\begin{align*}
+  G_k^{0,M}(E_n) = \frac{\hbar}{\mathrm{i}E_n-(\varepsilon(\vec{k})-\mu)}
+\end{align*}
+<p>
+&#x5F53;&#x7136;&#x4E5F;&#x53EF;&#x7531; \(G_k^{0,\alpha}(E)\) &#x505A; \(E\pm \mathrm{i}0^+ \rightarrow \mathrm{i}E_n\) &#x7684;
+&#x66FF;&#x6362;&#x5F97;&#x5230;&#x4E0A;&#x8FF0;&#x7ED3;&#x679C;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgde15835" class="outline-3">
+<h3 id="orgde15835">Start Point of Digramatic Perturbation Theory</h3>
+<div class="outline-text-3" id="text-orgde15835">
+<p>
+&#x5FAE;&#x6270; \(V\) &#x5B58;&#x5728;&#x7684;&#x60C5;&#x51B5;&#x4E0B;, Single-Particle Matsubara function &#x4E3A;
+</p>
+\begin{align*}
+  G_k^M (\tau_1,\tau_2) = -\frac{1}{\Xi}\mathrm{Tr}\left\{
+  e^{-\beta H_0} U_D(\hbar\beta,0) T_{\tau}[a_k(\tau_1)
+  a_k^{\dagger}(\tau_2)] \right\}
+\end{align*}
+<p>
+&#x5C06;&#x5176;&#x4ECE; Heisenberg &#x8868;&#x8C61;&#x6362;&#x5230; Dirac &#x8868;&#x8C61;
+</p>
+\begin{align*}
+  T_{\tau}[a_k(\tau_1)a_k^{\dagger}(\tau_2)]=&amp;
+  T_{\tau}[U(0,\tau_1)a_k^D(\tau_1)U(\tau_1,0)U(0,\tau_2)
+  a_k^{\dagger D}(\tau_2)U(\tau_2,0)]\\
+  =&amp;   T_{\tau}[a_k^D(\tau_1)
+  a_k^{\dagger D}(\tau_2)]
+\end{align*}
+\begin{align*}
+  G_k^M (\tau_1,\tau_2) =&amp; -\frac{1}{\Xi}\mathrm{Tr}\left\{
+  e^{-\beta H_0} U_D(\hbar\beta,0) T_{\tau}[a_k^D(\tau_1)
+  a_k^{\dagger D}(\tau_2)] \right\}\\
+  =&amp; -\frac{\mathrm{Tr}\left\{
+  e^{-\beta H_0} T_{\tau}[ U_D(\hbar\beta,0)a_k^D(\tau_1)
+  a_k^{\dagger D}(\tau_2)] \right\}}{\mathrm{Tr}\left\{
+  e^{-\beta H_0} T_{\tau} U_D(\hbar\beta,0)\right\}} \\
+\end{align*}
+<p>
+&#x4E3A;&#x4EC0;&#x4E48;&#x628A; \(U_D(\hbar\beta,0)\) &#x6254;&#x8FDB;&#x4E86;&#x7F16;&#x65F6;&#x91CC;&#x8FB9;? &#x5982;&#x679C;&#x7ED9; \(U_D(\hbar\beta,0)\)
+&#x7F16;&#x65F6;&#x7684;&#x8BDD;, &#x6309; \(0\) &#x7B97;&#x8FD8;&#x662F;&#x6309; \(\tau\) &#x7B97;?
+&#x8FD9;&#x548C;&#x96F6;&#x6E29;&#x7684;&#x60C5;&#x51B5;&#x5F88;&#x7C7B;&#x4F3C;. &#x5982;&#x679C;&#x6C42;&#x8FF9;&#x4E5F;&#x6709; Wick &#x5B9A;&#x7406;, &#x90A3;&#x4E48;&#x5C31;&#x53EF;&#x4EE5;&#x53D1;&#x5C55;&#x975E;&#x96F6;&#x6E29;&#x7684;
+ Digramatic Perturbation Theory .
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbeeb4f2" class="outline-2">
+<h2 id="orgbeeb4f2">&#x81F4;&#x8C22;</h2>
+<div class="outline-text-2" id="text-orgbeeb4f2">
+<p>
+&#x9664;&#x4E86; Wolfgang Nolting &#x7684;&#x4E66;&#x5916;,
+ &#x8FD8;&#x53C2;&#x8003;&#x4E86; Piers Coleman &#x7684; Introduction to Many-Body Physics &#x4E00;&#x4E66;.
+</p>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/多体物理读书会/" rel="tag"># 多体物理读书会</a>
+          
+            <a href="/tags/虚时演化/" rel="tag"># 虚时演化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/26/暗号/" rel="next" title="暗号">
+                <i class="fa fa-chevron-left"></i> 暗号
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/27/Scale/" rel="prev" title="Scale">
+                Scale <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgce6d9f2"><span class="nav-text">引入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org0b6b211"><span class="nav-text">引入一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgdbd87fd"><span class="nav-text">引入二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org03442b0"><span class="nav-text">引入三</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org62ae9b9"><span class="nav-text">Modified Heisenberg Representation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org9a31145"><span class="nav-text">Matsubara function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org540b13e"><span class="nav-text">Defination</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org8620659"><span class="nav-text">周期性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd23ac2a"><span class="nav-text">Fourier Transform</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd4c63cd"><span class="nav-text">Relation to the Green&#39;s Function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org391491a"><span class="nav-text">Grand Canonical Partition Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgbfe90dc"><span class="nav-text">Dirac Representation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgebc6164"><span class="nav-text">Grand Canonical Partition Function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org9169c5c"><span class="nav-text">Single-Particle Matsubara function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org2a0acb6"><span class="nav-text">Defination</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgde15835"><span class="nav-text">Start Point of Digramatic Perturbation Theory</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgbeeb4f2"><span class="nav-text">致谢</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

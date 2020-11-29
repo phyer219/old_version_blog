@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="emacs,org-mode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hello org-mode">
+<meta property="og:url" content="https://zqw.ink/2018/10/18/Hello org-mode/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2018/10/18/Hello%20org-mode/cpho.jpeg">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.850Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hello org-mode">
+<meta name="twitter:image" content="https://zqw.ink/2018/10/18/Hello%20org-mode/cpho.jpeg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2018/10/18/Hello org-mode/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Hello org-mode | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2018/10/18/Hello org-mode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hello org-mode
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-18 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-18T00:00:00+08:00">2018-10-18</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件使用/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/18/Hello org-mode/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/10/18/Hello org-mode/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+<div id="outline-container-org7a64998" class="outline-2">
+<h2 id="org7a64998">&#x7B26;&#x53F7;&#x8BF4;&#x660E;</h2>
+<div class="outline-text-2" id="text-org7a64998">
+<ul class="org-ul">
+<li><code>M</code> : Mate &#x952E;</li>
+<li><code>S</code> : Shift &#x952E;</li>
+<li><code>C</code> : Ctrl &#x952E;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgffc32b2" class="outline-2">
+<h2 id="orgffc32b2">&#x89C6;&#x56FE;&#x4F18;&#x5316;</h2>
+<div class="outline-text-2" id="text-orgffc32b2">
+<ul class="org-ul">
+<li>&#x4F7F;&#x5217;&#x8868;&#x6709;&#x7F29;&#x8FDB;: <code>M-x org-indent-mode</code></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orga48c37f" class="outline-2">
+<h2 id="orga48c37f">&#x63D2;&#x5165;&#x4EE3;&#x7801;</h2>
+<div class="outline-text-2" id="text-orga48c37f">
+</div>
+<div id="outline-container-org6a6f081" class="outline-3">
+<h3 id="org6a6f081">&#x884C;&#x95F4;&#x4EE3;&#x7801;(org9.2 &#x66F4;&#x65B0;&#x540E;, &#x9ED8;&#x8BA4;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#x4E0D;&#x53EF;&#x884C;, &#x65B0;&#x65B9;&#x6CD5; <code>C-c C-</code> , &#x89C1; <a href="https://emacs.stackexchange.com/questions/46988/why-do-easy-templates-e-g-s-tab-in-org-9-2-not-work" target="_blank" rel="noopener">https://emacs.stackexchange.com/questions/46988/why-do-easy-templates-e-g-s-tab-in-org-9-2-not-work</a>)</h3>
+<div class="outline-text-3" id="text-org6a6f081">
+<p>
+&#x5728;&#x7A7A;&#x767D;&#x884C;&#x8F93;&#x5165;
+</p>
+<div class="org-src-container">
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt; s TAB</span><br></pre></td></tr></table></figure>
+</div>
+<p>
+&#x6216;&#x8005;
+</p>
+<div class="org-src-container">
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt; e TAB</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+<div id="outline-container-org649ee02" class="outline-3">
+<h3 id="org649ee02">&#x884C;&#x5185;&#x4EE3;&#x7801;</h3>
+<div class="outline-text-3" id="text-org649ee02">
+<p>
+&#x5C06;&#x4EE3;&#x7801;&#x5939;&#x5728;&#x4E24;&#x4E2A; &quot;=&quot; &#x4E4B;&#x95F4;
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf51ce7d" class="outline-2">
+<h2 id="orgf51ce7d">\(\LaTeX\) &#x516C;&#x5F0F;</h2>
+<div class="outline-text-2" id="text-orgf51ce7d">
+</div>
+<div id="outline-container-org6169ca2" class="outline-3">
+<h3 id="org6169ca2">cdlatex &#x63D2;&#x4EF6;&#x4EE5;&#x7B80;&#x5316;&#x8F93;&#x5165;</h3>
+<div class="outline-text-3" id="text-org6169ca2">
+<p>
+&#x60F3;&#x8981;&#x63D2;&#x5165; &quot;&apos;&quot; &#x6216;&#x8005; &quot;`&quot; &#x65F6;, &#x53EF;&#x4EE5;&#x5148;&#x6309; <code>C-q</code> &#x4E4B;&#x540E;&#x518D;&#x8F93;&#x5165;
+</p>
+</div>
+</div>
+<div id="outline-container-org00d75d8" class="outline-3">
+<h3 id="org00d75d8">&#x7279;&#x6B8A;&#x7684;&#x884C;&#x5185;&#x516C;&#x5F0F;&#x8BED;&#x6CD5;</h3>
+<div class="outline-text-3" id="text-org00d75d8">
+<p>
+&#x53EA;&#x6709;&#x5728;&#x4E0B;&#x5217;&#x60C5;&#x51B5;&#x4E0B;,&#x7F8E;&#x5143;&#x7B26;&#x53F7; &quot;$&quot; &#x624D;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x884C;&#x5185;&#x516C;&#x5F0F;&#x7684;&#x6807;&#x5FD7;:
+</p>
+<ul class="org-ul">
+<li>&#x662F;&#x5C01;&#x95ED;&#x7684;. &#x4E5F;&#x5C31;&#x662F;&#x5F00;&#x5173;&#x7684;&#x7ED3;&#x5C3E;&#x5404;&#x6709;&#x4E00;&#x4E2A;&#x7F8E;&#x5143;&#x7B26;&#x53F7;.</li>
+<li>&#x884C;&#x5185;&#x516C;&#x5F0F;&#x4E0D;&#x80FD;&#x51FA;&#x73B0;&#x4E24;&#x4E2A;&#x4EE5;&#x4E0A;&#x7684;&#x65AD;&#x884C;.</li>
+<li>&#x884C;&#x5185;&#x516C;&#x5F0F;&#x7684;&#x7F8E;&#x5143;&#x7B26;&#x53F7;&#x8981;&#x548C;&#x6B63;&#x6587;&#x4E4B;&#x95F4;&#x6709;&#x7A7A;&#x683C;, &#x6216;&#x8005;&#x662F;&#x82F1;&#x6587;&#x6807;&#x70B9;.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgcc0a077" class="outline-2">
+<h2 id="orgcc0a077">&#x94FE;&#x63A5;</h2>
+<div class="outline-text-2" id="text-orgcc0a077">
+<p>
+&#x90FD;&#x91C7;&#x7528;&#x4E24;&#x4E2A;&#x65B9;&#x62EC;&#x53F7;. &#x5BF9;&#x4E8E; Hexo, &#x53EA;&#x6709;&#x653E;&#x5728;&#x4E0E;&#x6587;&#x7AE0;&#x6587;&#x4EF6;&#x540D;&#x540C;&#x540D;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x624D;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x8BBF;&#x95EE;.
+</p>
+</div>
+
+<div id="outline-container-org788ce04" class="outline-3">
+<h3 id="org788ce04">&#x7F51;&#x9875;&#x94FE;&#x63A5;&#x793A;&#x4F8B;</h3>
+<div class="outline-text-3" id="text-org788ce04">
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[[https://phyer219.github.io/]]</span><br></pre></td></tr></table></figure>
+</div>
+<p>
+&#x6548;&#x679C;&#x4E3A;
+</p>
+
+<p>
+<a href="https://phyer219.github.io/" target="_blank" rel="noopener">https://phyer219.github.io/</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1ca99fd" class="outline-3">
+<h3 id="org1ca99fd">&#x56FE;&#x7247;&#x793A;&#x4F8B;</h3>
+<div class="outline-text-3" id="text-org1ca99fd">
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[[file:./2018-10-18-&#x8F6F;&#x4EF6;&#x4F7F;&#x7528;-Hello org-mode/cpho.jpeg]]</span><br></pre></td></tr></table></figure>
+</div>
+<p>
+&#x6548;&#x679C;&#x4E3A;
+</p>
+
+
+<div id="org11a92d8" class="figure">
+<p><img src="/2018/10/18/Hello org-mode/cpho.jpeg">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org94b0b97" class="outline-3">
+<h3 id="org94b0b97">&#x6587;&#x4EF6;&#x793A;&#x4F8B;</h3>
+<div class="outline-text-3" id="text-org94b0b97">
+</div>
+<div id="outline-container-org3b131bc" class="outline-4">
+<h4 id="org3b131bc">pdf&#x6587;&#x4EF6;</h4>
+<div class="outline-text-4" id="text-org3b131bc">
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[[file:./2018-10-18-&#x8F6F;&#x4EF6;&#x4F7F;&#x7528;-Hello org-mode/Friedel Oscillations1.pdf]]</span><br></pre></td></tr></table></figure>
+</div>
+<p>
+&#x6548;&#x679C;&#x4E3A;
+</p>
+
+<p>
+<a href="Friedel Oscillations1.pdf">Friedel Oscillations1.pdf</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org365c8ee" class="outline-4">
+<h4 id="org365c8ee">python&#x7A0B;&#x5E8F;</h4>
+<div class="outline-text-4" id="text-org365c8ee">
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[[file:./2018-10-18-&#x8F6F;&#x4EF6;&#x4F7F;&#x7528;-Hello org-mode/plot.py]]</span><br></pre></td></tr></table></figure>
+</div>
+<p>
+&#x6548;&#x679C;&#x4E3A;
+</p>
+
+<p>
+<a href="plot.py">plot.py</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org28f801e" class="outline-2">
+<h2 id="org28f801e">&#x8868;&#x683C;</h2>
+<div class="outline-text-2" id="text-org28f801e">
+<ul class="org-ul">
+<li>&#x5C06;&#x5185;&#x5BB9;&#x79FB;&#x5230;&#x4E0B;&#x4E00;&#x884C;: M-down</li>
+<li>&#x5728;&#x5149;&#x6807;&#x4E0A;&#x9762;&#x63D2;&#x5165;&#x4E00;&#x884C;: M-S-up</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6f9395a" class="outline-2">
+<h2 id="org6f9395a">&#x5185;&#x5BB9;&#x793A;&#x4F8B;</h2>
+<div class="outline-text-2" id="text-org6f9395a">
+</div>
+<div id="outline-container-org6834af5" class="outline-3">
+<h3 id="org6834af5">python &#x4EE3;&#x7801;&#x5757;&#x793A;&#x4F8B;</h3>
+<div class="outline-text-3" id="text-org6834af5">
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x = np.linspace(-<span class="number">2</span>,<span class="number">2</span>,<span class="number">1000</span>)</span><br><span class="line">f = np.e**(-(<span class="number">1</span>/(<span class="number">1</span>-x**<span class="number">2</span>)))</span><br><span class="line">y = np.piecewise(x,[x&lt;=-<span class="number">1</span>,x&gt;-<span class="number">1</span>],[<span class="number">0</span>,<span class="number">1</span>])*np.piecewise(x,[x&lt;=<span class="number">1</span>,x&gt;<span class="number">1</span>],[<span class="number">1</span>,<span class="number">0</span>])*f</span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+</div>
+
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">c = <span class="number">2</span></span><br><span class="line">d = <span class="number">3</span></span><br><span class="line">x = np.linspace(c-<span class="number">1</span>,d+<span class="number">1</span>,<span class="number">1000</span>)</span><br><span class="line">f = np.e**(-((<span class="number">1</span>/(x-c))+(<span class="number">1</span>/(d-x))))</span><br><span class="line">y = np.piecewise(x,[x&lt;=c,x&gt;c],[<span class="number">0</span>,<span class="number">1</span>])*np.piecewise(x,[x&lt;=d,x&gt;d],[<span class="number">1</span>,<span class="number">0</span>])*f</span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/emacs/" rel="tag"># emacs</a>
+          
+            <a href="/tags/org-mode/" rel="tag"># org-mode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/27/二次量子化/" rel="next" title="二次量子化笔记 (update 06/Dec/2019)">
+                <i class="fa fa-chevron-left"></i> 二次量子化笔记 (update 06/Dec/2019)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/19/多体物理读书会：3.2节 双时格林函数/" rel="prev" title="多体物理读书会：3.2节 双时格林函数">
+                多体物理读书会：3.2节 双时格林函数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org7a64998"><span class="nav-text">符号说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgffc32b2"><span class="nav-text">视图优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orga48c37f"><span class="nav-text">插入代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org6a6f081"><span class="nav-text">行间代码(org9.2 更新后, 默认以下方法不可行, 新方法 C-c C- , 见 https://emacs.stackexchange.com/questions/46988/why-do-easy-templates-e-g-s-tab-in-org-9-2-not-work)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org649ee02"><span class="nav-text">行内代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgf51ce7d"><span class="nav-text">\(\LaTeX\) 公式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org6169ca2"><span class="nav-text">cdlatex 插件以简化输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org00d75d8"><span class="nav-text">特殊的行内公式语法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgcc0a077"><span class="nav-text">链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org788ce04"><span class="nav-text">网页链接示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org1ca99fd"><span class="nav-text">图片示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org94b0b97"><span class="nav-text">文件示例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org3b131bc"><span class="nav-text">pdf文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org365c8ee"><span class="nav-text">python程序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org28f801e"><span class="nav-text">表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6f9395a"><span class="nav-text">内容示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org6834af5"><span class="nav-text">python 代码块示例</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

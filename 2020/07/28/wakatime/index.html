@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="emacs,wakatime">
+<meta property="og:type" content="article">
+<meta property="og:title" content="坎坷的 wakatime-mode">
+<meta property="og:url" content="https://zqw.ink/2020/07/28/wakatime/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:49.113Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="坎坷的 wakatime-mode">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2020/07/28/wakatime/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>坎坷的 wakatime-mode | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2020/07/28/wakatime/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">坎坷的 wakatime-mode
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-07-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-28T00:00:00+08:00">2020-07-28</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件使用/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/07/28/wakatime/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/07/28/wakatime/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<p>
+(&#x8BB8;&#x4E45;&#x6CA1;&#x6709;&#x66F4;&#x65B0;&#x6298;&#x817E;&#x7C7B;&#x7684;&#x4E86;.)
+</p>
+
+<div id="outline-container-orgf01d431" class="outline-2">
+<h2 id="orgf01d431">ailien invasion</h2>
+<div class="outline-text-2" id="text-orgf01d431">
+<p>
+&#x6700;&#x8FD1;&#x6309;&#x7167; &#x300A;Python&#x7F16;&#x7A0B;&#xFF1A;&#x4ECE;&#x5165;&#x95E8;&#x5230;&#x5B9E;&#x8DF5; - 2016&#x300B; &#x4E00;&#x4E66;&#x91CD;&#x590D;&#x4E86; ailien invasion &#x8FD9;&#x4E00;
+project (&#x89C1; <a href="https://github.com/phyer219/alien_invasion" target="_blank" rel="noopener">https://github.com/phyer219/alien_invasion</a> ) ! &#x672C;&#x8EAB;&#x662F;&#x4E2A;&#x5199;&#x6E38;&#x620F;&#x7684;&#x9879;&#x76EE;.
+&#x4F46;&#x662F;&#x5F88;&#x591A;&#x65B9;&#x6CD5;&#x90FD;&#x53EF;&#x4EE5;&#x501F;&#x9274;&#x5230;&#x5176;&#x5B83;&#x7684; project &#x4E2D;. &#x5BF9;&#x4E8E;&#x6211;&#x8FD9;&#x79CD;&#x6CA1;&#x6709;&#x6B63;&#x7ECF;&#x5730;&#x5B66;&#x8FC7;&#x5199;&#x7A0B;&#x5E8F;&#x7684;&#x4EBA;&#x6765;
+&#x8BF4;(&#x6211;&#x4E0D;&#x60F3;&#x56DE;&#x5FC6;&#x672C;&#x79D1;&#x65F6;&#x4E0A;&#x7684;&#x90A3;&#x95E8;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BFE;&#x2026;), &#x6536;&#x83B7;&#x8FD8;&#x662F;&#x9887;&#x4E30;&#x7684;!
+</p>
+
+<ul class="org-ul">
+<li>&#x5BF9;&#x7C7B;&#x7684;&#x5E94;&#x7528;</li>
+
+<li>&#x8981;&#x7ED9;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x5199; docstring</li>
+
+<li>&#x628A;&#x4E0D;&#x540C;&#x529F;&#x80FD;&#x7684;&#x51FD;&#x6570;&#x653E;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x91CC;</li>
+
+<li>&#x5199;&#x4E00;&#x4E9B;&#x7A0B;&#x5E8F;&#x540E;, &#x8981;&#x8FDB;&#x884C;&#x91CD;&#x6784;(Refactoring), &#x964D;&#x4F4E;&#x4E00;&#x4E9B;&#x51FD;&#x6570;&#x7684;&#x957F;&#x5EA6;. &#x4F7F;&#x7A0B;&#x5E8F;&#x7684;&#x7ED3;&#x6784;&#x6E05;&#x6670;.</li>
+</ul>
+
+<p>
+&#x611F;&#x8C22;&#x8FD9;&#x672C;&#x4E66;&#x7684;&#x4F5C;&#x8005;&#x548C;&#x7FFB;&#x8BD1;&#x8005;. &#x8FD9;&#x6837;&#x5B8C;&#x6574;&#x4E14;&#x6807;&#x51C6;&#x7684;&#x53BB;&#x91CD;&#x590D;&#x8FD9;&#x6837;&#x7684; project &#x7684;&#x673A;&#x4F1A;&#x771F;&#x7684;&#x96BE;&#x5F97;!
+</p>
+
+<p>
+&#x5F97;&#x76CA;&#x4E8E; ailien invasion , &#x53C8;&#x7528;&#x4E86;&#x4E00;&#x5929;&#x7684;&#x65F6;&#x95F4;&#x628A;&#x6B63;&#x5728;&#x505A;&#x7684;&#x8BFE;&#x9898;&#x7528; python &#x91CD;&#x65B0;&#x7B97;&#x4E86;&#x4E00;&#x904D;.
+&#x7ECF;&#x8FC7;&#x4FEE;&#x6539;&#x4E00;&#x4E9B; bug &#x540E;, &#x548C;&#x4E4B;&#x524D;&#x7684; fortran &#x7B26;&#x5408;&#x5F97;&#x5F88;&#x597D;, &#x6211;&#x7EC8;&#x4E8E;&#x80FD;&#x591F;&#x5BF9;&#x81EA;&#x5DF1;&#x5199;&#x7684; fortran
+&#x7A0B;&#x5E8F;&#x7684;&#x6B63;&#x786E;&#x6027;&#x5F88;&#x6709;&#x4FE1;&#x5FC3;&#x4E86;!
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfe91a70" class="outline-2">
+<h2 id="orgfe91a70">VS Code</h2>
+<div class="outline-text-2" id="text-orgfe91a70">
+<p>
+&#x5C31;&#x6211;&#x76EE;&#x524D;&#x6240;&#x5904;&#x7684; emacs &#x5B66;&#x4E60;&#x66F2;&#x7EBF;&#x7684;&#x9636;&#x6BB5;&#x6765;&#x8BF4;, &#x8FD8;&#x662F; VS Code / Atom &#x8FD9;&#x7C7B;&#x7684;&#x7F16;&#x8F91;&#x5668;&#x5199;&#x8FD9;&#x79CD;
+project &#x6BD4;&#x8F83;&#x5408;&#x9002;. &#x5B83;&#x7684;&#x7279;&#x70B9;&#x662F; 
+</p>
+
+<ul class="org-ul">
+<li>&#x7A0B;&#x5E8F;&#x5206;&#x6563;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x91CC;, &#x8981;&#x9891;&#x7E41;&#x6765;&#x56DE;&#x5207;&#x6362;, &#x53CD;&#x590D;&#x4FEE;&#x6539;.</li>
+
+<li>&#x603B;&#x7684;&#x4EE3;&#x7801;&#x91CF;&#x5E76;&#x4E0D;&#x5927;.</li>
+
+<li>&#x8981;&#x65F6;&#x5E38;&#x67E5;&#x770B;&#x51FD;&#x6570;&#x7684; docstring .</li>
+</ul>
+
+<p>
+VS Code &#x65B0;&#x63D2;&#x4EF6; Pylance &#x771F;&#x7684;&#x65B9;&#x4FBF;. (&#x671F;&#x95F4;&#x9047;&#x5230;&#x95EE;&#x9898;, &#x624D;&#x77E5;&#x9053; VS Code &#x6709;&#x597D;&#x591A;&#x5206;&#x652F;, code,
+vscodium &#x2026;)
+</p>
+
+<p>
+&#x4F46;&#x5199; tex , emacs + auctex &#x7684;&#x6548;&#x7387;&#x8FD8;&#x662F;&#x65E0;&#x654C;&#x7684;! 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org40d963d" class="outline-2">
+<h2 id="org40d963d">wakatime-mode</h2>
+<div class="outline-text-2" id="text-org40d963d">
+<p>
+&#x7528;&#x4E86; VS Code, &#x4E0D;&#x514D;&#x8981;&#x770B;&#x770B;&#x6709;&#x54EA;&#x4E9B;&#x597D;&#x73A9;&#x7684;&#x63D2;&#x4EF6;. &#x4E8E;&#x662F;&#x5C31;&#x53D1;&#x73B0;&#x4E86; wakatime. &#x7EDF;&#x8BA1;&#x4F60;&#x5728;&#x4E0D;&#x540C;&#x53BB;
+&#x7684; project, &#x4E0D;&#x540C;&#x7684;&#x65F6;&#x95F4;&#x6BB5;, &#x4E0D;&#x540C;&#x7684;&#x7F16;&#x8F91;&#x5668;&#x4E0A;&#x82B1;&#x8D39;&#x7684;&#x65F6;&#x95F4;&#x7684;&#x63D2;&#x4EF6;. &#x597D;&#x73A9;! &#x597D;&#x73A9;&#x5728;&#x5C55;&#x793A;&#x7EDF;&#x8BA1;&#x7ED3;
+&#x679C;&#x7684;&#x754C;&#x9762;, &#x771F;&#x597D;&#x770B;! &#x6211;&#x6B64;&#x65F6;&#x8BA4;&#x4E3A;&#x7EDF;&#x8BA1;&#x7684;&#x4E3B;&#x8981;&#x9B45;&#x529B;&#x5C31;&#x5728;&#x4E8E;&#x90A3;&#x4E9B;&#x6F02;&#x4EAE;&#x7684;&#x56FE;&#x8868;!
+</p>
+
+<p>
+&#x6628;&#x5929;&#x53D1;&#x73B0; wakatime &#x8FD8;&#x6709; emacs &#x7684;&#x63D2;&#x4EF6;, &#x90A3;&#x5C82;&#x4E0D;&#x7F8E;&#x54C9;! 
+</p>
+
+<p>
+&#x4F46;&#x662F;&#x65E0;&#x8BBA;&#x600E;&#x4E48;&#x641E;, &#x5B83;&#x90FD;&#x4F1A;&#x62A5;&#x9519;
+</p>
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">error <span class="string">&quot;WakaTime Error 104 Invalid API Key. Set your api key with: (custom-set-variables &apos;(wakatime-api-key \&quot;XXXX\&quot;)) </span></span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x51E0;&#x4E2A;&#x5C0F;&#x65F6;&#x6CA1;&#x6709;&#x89E3;&#x51B3;(&#x6298;&#x817E;&#x8FD9;&#x79CD;&#x4E8B;&#x5BB9;&#x6613;&#x4E0A;&#x5934;, &#x8FD9;&#x8FD8;&#x662F;&#x8FD1;&#x51E0;&#x4E2A;&#x6708;&#x6765;&#x5C11;&#x89C1;&#x5730;&#x4E0A;&#x5934;&#x4E86;) . &#x56DE;&#x5934;&#x4E00;&#x770B; VS
+code &#x7ADF;&#x7136;&#x4E5F; Invalid API Key &#x4E86;, &#x5728; atom &#x4E5F;&#x662F; Invalid API Key . &#x7136;&#x540E;&#x6362;&#x4E86;&#x7CFB;&#x7EDF;, &#x6362;
+&#x4E86;&#x8D26;&#x53F7;, &#x90FD;&#x662F; Invalid API Key . &#x800C;&#x5176;&#x5B83;&#x7C7B;&#x4F3C;&#x7684;&#x63D2;&#x4EF6;&#x662F;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x8FDE;&#x63A5;&#x7684;. &#x6B64;&#x65F6;, &#x6211;&#x5DF2;&#x57FA;&#x672C;
+&#x65AD;&#x5B9A;, &#x8FD9;&#x4E2A;&#x62A5;&#x9519;&#x7684;&#x539F;&#x56E0;&#x6781;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x670D;&#x52A1;&#x5668;&#x51FA;&#x4E86;&#x95EE;&#x9898;. &#x4E8E;&#x662F;&#x6CA1;&#x6709;&#x518D;&#x7406;.
+</p>
+
+<p>
+&#x4ECA;&#x5929;&#x65E9;&#x4E0A;&#x4E00;&#x770B;, &#x6628;&#x5929;&#x679C;&#x662F;&#x5B83;&#x4EEC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7684;&#x95EE;&#x9898;, VS Code &#x548C; atom &#x90FD;&#x6B63;&#x5E38;&#x4E86;. emacs &#x4ECD;&#x7136;&#x662F;
+Invalid API Key. &#x6211;&#x6253;&#x5F00; dashboard &#x4E00;&#x770B;, &#x8BA9;&#x6211;&#x9707;&#x60CA;&#x7684;&#x662F; dashboard &#x4E0A;&#x7ADF;&#x7136;&#x663E;&#x793A;&#x4E86;&#x6211;&#x6628;
+&#x5929;&#x5728; atom &#x548C; emacs &#x4E0A;&#x7684;&#x6D3B;&#x52A8;! &#x4E5F;&#x5C31;&#x662F;&#x8BF4;, &#x867D;&#x7136; wakatime-mode &#x62A5;&#x9519; Invalid API Key,
+&#x4F46;&#x662F;&#x5B9E;&#x9645;&#x662F; dashboard &#x5DF2;&#x7ECF;&#x6536;&#x5230;&#x4FE1;&#x53F7;&#x4E86;. &#x8FD9;&#x662F;&#x8C0E;&#x62A5;&#x7684;!
+</p>
+
+<p>
+&#x7ECF;&#x8FC7;&#x4E00;&#x6CE2;&#x6D4B;&#x8BD5;, &#x65AD;&#x5B9A;&#x662F; emacs &#x7684; wakatime-mode &#x63D2;&#x4EF6;&#x7684; bug! &#x4E8E;&#x662F;&#x627E;&#x5230;&#x63D2;&#x4EF6;&#x5BF9;&#x5E94;&#x7684;
+wakatime-mode.elc , &#x5B9A;&#x4F4D;&#x5230; Error 104 &#x5BF9;&#x5E94;&#x7684;&#x8BED;&#x53E5;
+</p>
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">(<span class="name">set-process-sentinel</span> process</span><br><span class="line">  `(lambda (process signal)</span><br><span class="line">     (when (memq (process-status process) &apos;(exit signal))</span><br><span class="line">       (kill-buffer (process-buffer process))</span><br><span class="line">       (let ((exit-status (process-exit-status process)))</span><br><span class="line">	 (when (and (not (= <span class="number">0</span> exit-status)) (not (= <span class="number">102</span> exit-status)))</span><br><span class="line">	   (cond</span><br><span class="line">	     ((= exit-status <span class="number">103</span>) (error <span class="string">&quot;WakaTime Error (%s) Config file parse error. Check your ~/.wakatime.cfg file.&quot;</span> exit-status))</span><br><span class="line">	     ((= exit-status <span class="number">104</span>) (error <span class="string">&quot;WakaTime Error (%s) Invalid API Key. Set your api key with: (custom-set-variables &apos;(wakatime-api-key \&quot;XXXX\&quot;))&quot;</span> exit-status))</span><br><span class="line">	     ((= exit-status <span class="number">105</span>) (error <span class="string">&quot;WakaTime Error (%s) Unknown wakatime-cli error. Please check your ~/.wakatime.log file and open a new issue at https://github.com/wakatime/wakatime-mode&quot;</span> exit-status))</span><br><span class="line">	     ((= exit-status <span class="number">106</span>) (error <span class="string">&quot;WakaTime Error (%s) Malformed heartbeat error. Please check your ~/.wakatime.log file and open a new issue at https://github.com/wakatime/wakatime-mode&quot;</span> exit-status))</span><br><span class="line">	     (<span class="literal">t</span> (error <span class="string">&quot;WakaTime Error (%s) Make sure this command runs in a Terminal: %s&quot;</span> exit-status (wakatime-client-command <span class="literal">nil</span>)))</span><br><span class="line">	   )</span><br><span class="line">	 )</span><br><span class="line">       )</span><br><span class="line">     )</span><br><span class="line">  )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x679C;&#x65AD;&#x5220;&#x9664;&#x4E86;
+</p>
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">((<span class="name">=</span> exit-status <span class="number">104</span>) (<span class="name">error</span> <span class="string">&quot;WakaTime Error (%s) Invalid API Key. Set your api key with: (custom-set-variables &apos;(wakatime-api-key \&quot;XXXX\&quot;))&quot;</span> exit-status))</span><br></pre></td></tr></table></figure>
+</div>
+<p>
+&#x518D;&#x6D4B;&#x8BD5;&#x4E00;&#x6CE2;, dashboard &#x80FD;&#x7EDF;&#x8BA1;&#x5230; emacs &#x7684;&#x6D3B;&#x52A8;, emacs &#x7684; wakatime-mode &#x4E5F;&#x4E0D;&#x518D;&#x62A5;&#x9519;.
+&#x5B8C;&#x7F8E;&#x89E3;&#x51B3;.
+</p>
+
+<p>
+&#x5BF9;&#x6211;&#x6765;&#x8BF4;&#x662F;&#x89E3;&#x51B3;&#x4E86;, &#x5982;&#x679C;&#x6709;&#x80FD;&#x529B;&#x7684;&#x8BDD;, &#x8FD8;&#x662F;&#x628A;&#x8FD9;&#x4E2A; bug &#x62A5;&#x7ED9;&#x5F00;&#x53D1;&#x90FD;&#x6BD4;&#x8F83;&#x597D;. &#x6211;&#x8FD8;&#x662F;&#x7B97;&#x4E86;&#x2026;
+</p>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/emacs/" rel="tag"># emacs</a>
+          
+            <a href="/tags/wakatime/" rel="tag"># wakatime</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/10/HeisenbergEOM/" rel="next" title="关于 Heisenberg 运动方程">
+                <i class="fa fa-chevron-left"></i> 关于 Heisenberg 运动方程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/05/LegendreTrans/" rel="prev" title="Legendre Transform">
+                Legendre Transform <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgf01d431"><span class="nav-text">ailien invasion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgfe91a70"><span class="nav-text">VS Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org40d963d"><span class="nav-text">wakatime-mode</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

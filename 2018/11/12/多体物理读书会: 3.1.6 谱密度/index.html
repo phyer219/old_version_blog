@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="物理,格林函数,多体物理读书会,谱密度">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多体物理读书会：多体物理读书会: 3.1.6 谱密度">
+<meta property="og:url" content="https://zqw.ink/2018/11/12/多体物理读书会: 3.1.6 谱密度/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.850Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多体物理读书会：多体物理读书会: 3.1.6 谱密度">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2018/11/12/多体物理读书会: 3.1.6 谱密度/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>多体物理读书会：多体物理读书会: 3.1.6 谱密度 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2018/11/12/多体物理读书会: 3.1.6 谱密度/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">多体物理读书会：多体物理读书会: 3.1.6 谱密度
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-12 00:00:00" itemprop="dateCreated datePublished" datetime="2018-11-12T00:00:00+08:00">2018-11-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/12/多体物理读书会: 3.1.6 谱密度/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/11/12/多体物理读书会: 3.1.6 谱密度/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+<div id="outline-container-org4fdfe38" class="outline-2">
+<h2 id="org4fdfe38">&#x5355;&#x7C92;&#x5B50;&#x8C31; (single particle spectroscopy)</h2>
+<div class="outline-text-2" id="text-org4fdfe38">
+</div>
+<div id="outline-container-org2c43e6e" class="outline-3">
+<h3 id="org2c43e6e">Photoemission (PES)</h3>
+<div class="outline-text-3" id="text-org2c43e6e">
+<ol class="org-ol">
+<li>&#x80FD;&#x91CF;&#x4E3A; \(\hbar \omega\) &#x7684;&#x5149;&#x5B50;&#x88AB;&#x56FA;&#x4F53;&#x90E8;&#x5206;&#x5360;&#x636E;&#x7684;&#x80FD;&#x5E26; (partially filled energy band) &#x4E2D;&#x7684;&#x7535;&#x5B50;&#x5438;&#x6536;.</li>
+<li>&#x7535;&#x5B50;&#x5438;&#x6536;&#x80FD;&#x91CF;&#x540E;&#x8DD1;&#x51FA;&#x56FA;&#x4F53;.</li>
+<li>&#x5206;&#x6790;&#x8DD1;&#x51FA;&#x5149;&#x7535;&#x5B50;&#x7684;&#x52A8;&#x80FD;, &#x5F97;&#x5230;&#x80FD;&#x5E26;&#x4E2D;&#x5360;&#x636E;&#x6001;&#x7684;&#x4FE1;&#x606F;.</li>
+<li>&#x7814;&#x7A76;&#x7684;&#x5BF9;&#x8C61;&#x662F;&#x80FD;&#x5E26;. &#x80FD;&#x5E26;&#x4E2D;&#x51CF;&#x5C11;&#x4E00;&#x4E2A;&#x7535;&#x5B50;. &#x8DC3;&#x8FC1;&#x7B97;&#x7B26;&#x4E3A; \(Z_{-1} = a_{\alpha}\).</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org349490e" class="outline-3">
+<h3 id="org349490e">Iverse Photoemission (IPE)</h3>
+<div class="outline-text-3" id="text-org349490e">
+<ol class="org-ol">
+<li>&#x5C06;&#x7535;&#x5B50;&#x6CE8;&#x5165;&#x5230;&#x56FA;&#x4F53;&#x4E2D;, &#x964D;&#x843D;&#x5230;&#x90E8;&#x5206;&#x5360;&#x636E;&#x7684;&#x80FD;&#x5E26; (partially filled energy band) &#x4E2D;&#x7684;&#x975E;&#x5360;&#x636E;&#x6001;.</li>
+<li>&#x7535;&#x5B50;&#x91CA;&#x653E;&#x80FD;&#x91CF;&#x4E3A; \(\hbar \omega\) &#x7684;&#x5149;&#x5B50;.</li>
+<li>&#x5206;&#x6790;&#x91CA;&#x653E;&#x7684;&#x5149;&#x5B50;,&#x5F97;&#x5230;&#x80FD;&#x5E26;&#x4E2D;&#x975E;&#x5360;&#x636E;&#x6001;&#x7684;&#x4FE1;&#x606F;.</li>
+<li>&#x7814;&#x7A76;&#x7684;&#x5BF9;&#x8C61;&#x662F;&#x80FD;&#x5E26;. &#x80FD;&#x5E26;&#x4E2D;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x7535;&#x5B50;. &#x8DC3;&#x8FC1;&#x7B97;&#x7B26;&#x4E3A; \(Z_{+1}=a_{\$\beta}^{\dagger}\).</li>
+</ol>
+<p>
+PES &#x548C; IPE &#x662F;&#x4E24;&#x79CD;&#x4E92;&#x8865;&#x7684;&#x8C31;(complementary spectroscopies).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org524c670" class="outline-2">
+<h2 id="org524c670">&#x4E8C;&#x7C92;&#x5B50;&#x8C31; (two particle spectroscopy)</h2>
+<div class="outline-text-2" id="text-org524c670">
+</div>
+<div id="outline-container-orgad8b640" class="outline-3">
+<h3 id="orgad8b640">Auger Electron Spectroscopy (AES)</h3>
+<div class="outline-text-3" id="text-orgad8b640">
+<ol class="org-ol">
+<li>&#x56FA;&#x4F53;&#x4E2D;&#x539F;&#x5B50;&#x7684;&#x5185;&#x5C42;&#x7535;&#x5B50;&#x6001;&#x6709;&#x7A7A;&#x7A74;.</li>
+<li>&#x7535;&#x5B50;&#x4ECE;&#x90E8;&#x5206;&#x5360;&#x636E;&#x7684;&#x80FD;&#x5E26; (partially filled energy band) &#x8DC3;&#x8FC1;&#x5230;&#x8FD9;&#x4E2A;&#x5185;&#x5C42;&#x7535;&#x5B50;&#x6001;.</li>
+<li>&#x91CA;&#x653E;&#x7684;&#x80FD;&#x91CF;&#x4F20;&#x9012;&#x7ED9;&#x90E8;&#x5206;&#x5360;&#x636E;&#x7684;&#x80FD;&#x5E26; (partially filled energy band)&#x4E2D;&#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x7535;&#x5B50;.</li>
+<li>&#x53E6;&#x4E00;&#x4E2A;&#x7535;&#x5B50;&#x8DD1;&#x51FA;&#x56FA;&#x4F53;.</li>
+<li>&#x5206;&#x6790;&#x8DD1;&#x51FA;&#x7684;&#x7535;&#x5B50;&#x7684;&#x52A8;&#x80FD;, &#x5F97;&#x5230;&#x672A;&#x5360;&#x636E;&#x672A;&#x5360;&#x636E;&#x80FD;&#x6001;&#x7684;&#x80FD;&#x5E26;&#x7ED3;&#x6784;&#x4FE1;&#x606F;.</li>
+<li>&#x7814;&#x7A76;&#x7684;&#x5BF9;&#x8C61;&#x662F;&#x80FD;&#x5E26;, &#x80FD;&#x5E26;&#x4E2D;&#x5C11;&#x4E86;&#x4E24;&#x4E2A;&#x7535;&#x5B50; ,&#x8DC3;&#x8FC1;&#x7B97;&#x7B26;&#x4E3A; \(Z_{-2} = a_{\alpha}a_{\beta}\).</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org9de541a" class="outline-3">
+<h3 id="org9de541a">Appearance Potential Spectroscopy (APS)</h3>
+<div class="outline-text-3" id="text-org9de541a">
+<ol class="org-ol">
+<li>&#x7535;&#x5B50;&#x964D;&#x843D;&#x5230;&#x5E26;&#x4E2D;&#x7684;&#x975E;&#x5360;&#x636E;&#x6001;.</li>
+<li>&#x91CA;&#x653E;&#x7684;&#x80FD;&#x91CF;&#x4F20;&#x9012;&#x7ED9;&#x5185;&#x5C42;&#x7535;&#x5B50;(&#x975E;&#x4EF7;&#x7535;&#x5B50;)</li>
+<li>&#x5185;&#x5C42;&#x7535;&#x5B50;&#x5F97;&#x5230;&#x80FD;&#x91CF;, &#x6FC0;&#x53D1;&#x5230;&#x80FD;&#x5E26;&#x4E2D;&#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x6001;&#x4E0A;.</li>
+<li>&#x5206;&#x6790;&#x4EC0;&#x4E48;?</li>
+</ol>
+<p>
+AES &#x548C; APS &#x662F;&#x4E24;&#x79CD;&#x4E92;&#x8865;&#x7684;&#x4E8C;&#x7C92;&#x5B50;&#x8C31;(complementary two-particle spectroscopies).
+</p>
+<ul class="org-ul">
+<li>&#x7814;&#x7A76;&#x7684;&#x5BF9;&#x8C61;&#x662F;&#x80FD;&#x5E26;, &#x80FD;&#x5E26;&#x4E2D;&#x591A;&#x4E86;&#x4E24;&#x4E2A;&#x7535;&#x5B50; ,&#x8DC3;&#x8FC1;&#x7B97;&#x7B26;&#x4E3A; \(Z_{+2} = a_{\beta}^{\dagger}a_{\alpha}^{\dagger}\).</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd5f7a79" class="outline-2">
+<h2 id="orgd5f7a79">&#x5F3A;&#x5EA6;</h2>
+<div class="outline-text-2" id="text-orgd5f7a79">
+\begin{align*}
+  I_r(E) = \frac{1}{\Xi}\sum_{mn}e^{-\beta E_n} \mid \langle E_m Z_r \mid E_n \rangle \mid^2 \delta (E-(E_m-E_n))
+\end{align*}
+<p>
+&#x5F3A;&#x5EA6;&#x7531;&#x4E09;&#x90E8;&#x5206;&#x7EC4;&#x6210;:
+</p>
+<ol class="org-ol">
+<li>&#x5360;&#x636E;&#x6982;&#x7387;</li>
+<li>&#x8DC3;&#x8FC1;&#x6982;&#x7387;</li>
+<li>Dirac delta&#x51FD;&#x6570;</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org66471eb" class="outline-2">
+<h2 id="org66471eb">&#x8DC3;&#x8FC1;&#x7B97;&#x7B26;&#x4E0E;&#x5F3A;&#x5EA6;&#x7684;&#x6027;&#x8D28;</h2>
+<div class="outline-text-2" id="text-org66471eb">
+<p>
+&#x5BF9;&#x4E8E;&#x4E92;&#x8865;&#x7684;&#x8C31;&#x6709;:
+</p>
+\begin{align*}
+  Z_r = Z_{-r}^{\dagger}
+\end{align*}
+\begin{align*}
+  I_r(E) = e^{\beta E} I_{-r}(-E)
+\end{align*}
+<p>
+&#x6240;&#x4EE5;&#x4E92;&#x8865;&#x7684;&#x8C31;&#x4E0D;&#x662F;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x7684;. &#x56E0;&#x6B64;&#x5C31;&#x5F15;&#x51FA;&#x4E86;&#x8C31;&#x5BC6;&#x5EA6;&#x7684;&#x5B9A;&#x4E49;:
+</p>
+\begin{align*}
+  \frac{1}{\hbar} S_r^{\pm} (E) = I_{-r} (E) \mp I_r(-E) = \left( e^{-\beta E} \pm 1 \right)
+\end{align*}
+<p>
+&#x53D8;&#x6362;&#x5230;&#x65F6;&#x95F4;&#x8868;&#x793A;&#x4E0B;&#x5C31;&#x662F;&#x683C;&#x6797;&#x51FD;&#x6570;&#x4E2D;&#x5E38;&#x89C1;&#x7684;&#x8C31;&#x5BC6;&#x5EA6;:
+</p>
+\begin{align*}
+  S_{AB}^{(\varepsilon)}(t,t&apos;) =\frac{1}{2 \pi} \langle \left[ \hat{A}(t),\hat{B}(t&apos;) \right]_{-\varepsilon}\rangle
+\end{align*}
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/格林函数/" rel="tag"># 格林函数</a>
+          
+            <a href="/tags/多体物理读书会/" rel="tag"># 多体物理读书会</a>
+          
+            <a href="/tags/谱密度/" rel="tag"># 谱密度</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/12/多体物理读书会:整书勘误表/" rel="next" title="多体物理读书会：整书勘误表 Errata: Typographical Errors, Mistakes, and Comments of Fundamentals of Many-body Physics (Wolfgang Nolting)">
+                <i class="fa fa-chevron-left"></i> 多体物理读书会：整书勘误表 Errata: Typographical Errors, Mistakes, and Comments of Fundamentals of Many-body Physics (Wolfgang Nolting)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/13/质点组的动能分解/" rel="prev" title="质点组的动能分解">
+                质点组的动能分解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org4fdfe38"><span class="nav-text">单粒子谱 (single particle spectroscopy)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org2c43e6e"><span class="nav-text">Photoemission (PES)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org349490e"><span class="nav-text">Iverse Photoemission (IPE)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org524c670"><span class="nav-text">二粒子谱 (two particle spectroscopy)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgad8b640"><span class="nav-text">Auger Electron Spectroscopy (AES)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org9de541a"><span class="nav-text">Appearance Potential Spectroscopy (APS)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd5f7a79"><span class="nav-text">强度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org66471eb"><span class="nav-text">跃迁算符与强度的性质</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

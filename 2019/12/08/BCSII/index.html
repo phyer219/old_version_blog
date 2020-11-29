@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="物理,BCS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BCS Theory 课堂笔记整理 II">
+<meta property="og:url" content="https://zqw.ink/2019/12/08/BCSII/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2019/12/08/BCSII/fig2.jpg">
+<meta property="og:updated_time" content="2020-11-29T02:17:49.103Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BCS Theory 课堂笔记整理 II">
+<meta name="twitter:image" content="https://zqw.ink/2019/12/08/BCSII/fig2.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2019/12/08/BCSII/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>BCS Theory 课堂笔记整理 II | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2019/12/08/BCSII/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">BCS Theory 课堂笔记整理 II
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-08 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-08T00:00:00+08:00">2019-12-08</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/08/BCSII/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/12/08/BCSII/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-org06dd88d" class="outline-2">
+<h2 id="org06dd88d">Review</h2>
+<div class="outline-text-2" id="text-org06dd88d">
+<p>
+&#x771F;&#x7A7A;&#x4E2D;&#x7684;&#x4E24;&#x4F53;&#x95EE;&#x9898;, &#x8D39;&#x7C73;&#x6D77;&#x4E0A;&#x7684;&#x4E24;&#x4F53;&#x95EE;&#x9898;, &#x90FD;&#x53EF;&#x4EE5;&#x6C42;&#x89E3;, &#x5B83;&#x4EEC;&#x7684;&#x65B9;&#x7A0B;&#x7565;&#x6709;&#x4E0D;&#x540C;.
+</p>
+
+\begin{align}
+  \frac{m}{4\pi \hbar^2 a_s} = \left\{ 
+  \begin{array}{cc}
+    \frac{1}{V}\left( \sum_{\vec{k}}\frac{1}{E - 2\epsilon_{\vec{k}}}
+       + \sum_{\vec{k}}\frac{1}{2\epsilon_{\vec{k}}}\right)  &amp; \mathrm{vacuum}\\
+    \frac{1}{V}\left( 
+          \sum_{|\vec{k}|&gt; k_{\mathrm{F}}}\frac{1}{E - 2(\epsilon_{\vec{k}} - \mu)}
+                   + \sum_{\vec{k}}\frac{1}{2\epsilon_{\vec{k}}}\right) &amp; \mathrm{Fermi sea}
+  \end{array}
+  \right.
+\end{align}
+<p>
+&#x53F3;&#x8FB9;&#x6C42;&#x548C;&#x4E4B;&#x540E;&#x662F;&#x5173;&#x4E8E;&#x80FD;&#x91CF;&#x7684;&#x51FD;&#x6570;, &#x628A;&#x80FD;&#x91CF;&#x7684;&#x51FD;&#x6570;&#x753B;&#x51FA;&#x6765;. &#x7279;&#x522B;&#x5173;&#x5FC3;&#x7684;&#x662F;&#x80FD;&#x91CF;&#x4E3A;&#x8D1F;&#x7684;&#x4E00;&#x8FB9;
+<img src="/2019/12/08/BCSII/fig2.jpg">
+&#x6709;&#x8D39;&#x7C73;&#x6D77;&#x7684;&#x4E24;&#x4F53;&#x95EE;&#x9898;, &#x6C42;&#x548C;&#x53D8;&#x6210;&#x4E86;&#x6240;&#x6709;&#x5BF9;&#x4E8E; \(|\vec{k}| &gt; k_{\mathrm{F}}\) &#x7684;&#x6C42;&#x548C;, &#x56E0;&#x4E3A;
+&#x8FD9;&#x65F6;&#x5019;&#x5DF2;&#x7ECF;&#x6709;&#x8D39;&#x7C73;&#x5B50;&#x628A;&#x8D39;&#x7C73;&#x6D77;&#x586B;&#x6EE1;&#x4E86;. &#x5728; \(E\) &#x5F88;&#x8D1F;&#x7684;&#x5730;&#x65B9;, &#x4E24;&#x6761;&#x7EBF;&#x662F;&#x9010;&#x6E10;&#x9760;&#x8FD1;&#x7684;. &#x5B83;&#x4EEC;&#x7684;
+&#x533A;&#x522B;&#x662F;&#x5728; \(E=0\) &#x65F6;, &#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x662F; \(0\) (&#x4E00;&#x52A0;&#x4E00;&#x51CF;&#x62B5;&#x6D88;&#x6389;&#x4E86;), &#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x5411; \(-\infty\) &#x53D1;&#x6563;. &#x89E3;
+&#x8FD9;&#x4E2A;&#x65B9;&#x7A0B;, &#x753B;&#x4E00;&#x6761;&#x6A2A;&#x7EBF;( \(\propto \frac{1}{a_s}\) ) . 
+</p>
+
+<p>
+&#x4ECE;&#x8FD9;&#x4E2A;&#x65B9;&#x7A0B;&#x7684;&#x7ED3;&#x6784;&#x91CC;&#x8FB9;&#x53EF;&#x4EE5;&#x770B;&#x5230;, &#x5982;&#x679C;
+&#x8981;&#x53BB;&#x7814;&#x7A76;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x8BDD;, &#x6563;&#x5C04;&#x957F;&#x5EA6;&#x662F;&#x4E00;&#x4E2A;&#x6700;&#x5173;&#x952E;&#x7684;&#x53C2;&#x6570;. &#x6700;&#x597D;&#x7684;&#x6807;&#x5B9A;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x6548;&#x679C;&#x7684;&#x4E0D;&#x662F;&#x5B83;
+&#x81EA;&#x5DF1;, &#x800C;&#x662F;&#x5B83;&#x7684;&#x5012;&#x6570;, &#x4E5F;&#x5C31;&#x662F; \(1/a_s\) . &#x4F46;&#x5B83;&#x4E0D;&#x662F;&#x65E0;&#x91CF;&#x7EB2;&#x7684;&#x4E1C;&#x897F;, &#x5728;&#x591A;&#x4F53;&#x7CFB;&#x7EDF;&#x4E2D;, &#x4E00;&#x822C;&#x8981;
+&#x4E58;&#x4E0A;&#x4E00;&#x4E2A;&#x52A8;&#x91CF;&#x7684;&#x5355;&#x4F4D; , &#x5728;&#x591A;&#x4F53;&#x7CFB;&#x7EDF;&#x4E2D;, &#x6700;&#x81EA;&#x7136;&#x7684;&#x5355;&#x4F4D;&#x5C31;&#x662F;&#x8D39;&#x7C73;&#x52A8;&#x91CF;, &#x6240;&#x4EE5;&#x5C31;&#x7528;
+\(-\frac{1}{k_{\mathrm{F}}a_s}\) (&#x4E60;&#x60EF;&#x4E0A;&#x52A0;&#x4E2A;&#x8D1F;&#x53F7;) &#x6765;&#x6807;&#x5B9A;. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org043b84d" class="outline-2">
+<h2 id="org043b84d">BEC &#x4FA7;</h2>
+<div class="outline-text-2" id="text-org043b84d">
+<p>
+&#x5982;&#x679C; \(\frac{1}{k_{\mathrm{F}}a_s} \gg 1\) , &#x6563;&#x5C04;&#x957F;&#x5EA6;&#x81EA;&#x5DF1;&#x662F;&#x4E2A;&#x975E;&#x5E38;&#x5C0F;&#x7684;&#x6B63;&#x6570;. &#x6C42;&#x89E3;&#x7684;&#x65F6;
+&#x5019;, &#x7EBF;&#x5C31;&#x5728;&#x5F88;&#x9AD8;&#x7684;&#x5730;&#x65B9;. &#x8FD9;&#x65F6;&#x4E24;&#x4E2A;&#x4EA4;&#x70B9;&#x90FD;&#x5728; \(E\) &#x662F;&#x8D1F;&#x7684;, &#x5E76;&#x4E14;&#x5F88;&#x5927;&#x7684;&#x5730;&#x65B9;, &#x8BF4;&#x660E;&#x8FD9;&#x4E24;&#x4E2A;&#x4E24;
+&#x4F53;&#x95EE;&#x9898;&#x7684;&#x89E3;&#x8D77;&#x6765;&#x8D8A;&#x9760;&#x8FD1;, &#x9760;&#x8FD1;&#x5230; \(\propto\sqrt{-E}\) , &#x65B9;&#x7A0B;&#x7684;&#x89E3;&#x662F;
+</p>
+\begin{align}
+  E = - \frac{\hbar^2}{m a_s}
+\end{align}
+<p>
+&#x8FD9;&#x4E2A;&#x533A;&#x57DF;, &#x7B49;&#x4EF7;&#x4E8E; \(1/a_s \gg k_{\mathrm{F}}\) , \(d \tilde{} 1/k_{\mathrm{F}} \gg a_s\) , &#x8FD9;&#x4EE3;&#x8868;
+&#x7740; 2-body bound state energy &#x7684;&#x7EDD;&#x5BF9;&#x503C;&#x8981;&#x8FDC;&#x5927;&#x4E8E;&#x8D39;&#x7C73;&#x80FD;, &#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+  |E| \gg \frac{\hbar^2k_{\mathrm{F}}^2}{2m} = E_{\mathrm{F}}
+\end{align}
+<p>
+&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x89D2;&#x5EA6;&#x6765;&#x8BB2;, &#x8FD9;&#x6837;&#x7684; energy &#x5BF9;&#x5E94;&#x7684; 2-body bound state &#x7684;&#x5927;&#x5C0F;&#x662F; \(a_s\) &#x90A3;&#x4E48;&#x5927;.
+binding energy &#x8D8A;&#x5927;, \(a_s\) &#x8D8A;&#x5C0F;. bound state size &#x8D8A;&#x5C0F;, &#x675F;&#x7F1A;&#x8D8A;&#x5F3A;. bound state
+size &#x8FDC;&#x5C0F;&#x4E8E;&#x7C92;&#x5B50;&#x95F4;&#x95F4;&#x8DDD;. &#x53CC;&#x539F;&#x5B50;&#x5206;&#x5B50;&#x5F62;&#x6210; BEC
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga03517e" class="outline-2">
+<h2 id="orga03517e">BCS &#x4FA7;</h2>
+<div class="outline-text-2" id="text-orga03517e">
+<p>
+&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x533A;&#x57DF;, \(\frac{1}{k_{\mathrm{F}}a_s} \gg 1\) , &#x7EBF;&#x5728;&#x5F88;&#x8D1F;&#x7684;&#x5730;&#x65B9;, &#x5728;&#x4E0B;&#x9762;. &#x5728;&#x8FD9;&#x4E2A;
+&#x533A;&#x57DF;&#x4E2D;, &#x771F;&#x7A7A;&#x4E2D;&#x7684;&#x4E24;&#x4F53;&#x95EE;&#x9898;&#x662F;&#x6CA1;&#x6709;&#x89E3;&#x7684;. &#x6CA1;&#x9519;, &#x5982;&#x679C;&#x6563;&#x5C04;&#x957F;&#x5EA6;&#x662F;&#x8D1F;&#x7684;, &#x771F;&#x7A7A;&#x4E2D;&#x7684;&#x4E24;&#x4F53;&#x95EE;&#x9898;&#x6CA1;
+&#x6709;&#x6240;&#x8C13;&#x7684; shallow bound state . &#x4F46;&#x662F;, &#x5728;&#x591A;&#x4F53;&#x7CFB;&#x7EDF;&#x4E2D;, &#x4F1A;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A; \(E &lt; 0\) &#x7684;&#x89E3;, &#x8FD9;&#x544A;&#x8BC9;
+&#x6211;&#x4EEC; Fermi surface &#x662F;&#x4E0D;&#x7A33;&#x5B9A;&#x7684;. &#x56E0;&#x4E3A;&#x5728;&#x8D39;&#x7C73;&#x9762;&#x4E0A;&#x653E;&#x4E24;&#x4E2A; particle , &#x6FC0;&#x53D1;&#x80FD;&#x662F;&#x8D1F;&#x7684;. &#x6240;
+&#x4EE5;&#x8981; reconstruct &#x4E00;&#x4E2A; ground state. &#x4F46;&#x662F; 2-body &#x7684;&#x89E3;&#x7ED9;&#x6211;&#x4EEC;&#x4E00;&#x4E9B;&#x542F;&#x53D1;
+</p>
+<ol class="org-ol">
+<li>&#x8FD9;&#x4E2A;&#x4E0D;&#x7A33;&#x5B9A;, &#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5355;&#x7C92;&#x5B50;&#x7684;&#x4E0D;&#x7A33;&#x5B9A;, &#x662F;&#x4E00;&#x4E2A; 2-body &#x7684;&#x4E0D;&#x7A33;&#x5B9A;&#x6027;, &#x5B83;&#x5E94;&#x8BE5;&#x8DDF;&#x4E24;&#x4E2A;&#x8D39;
+&#x7C73;&#x5B50;&#x7684;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x6709;&#x5173;&#x7CFB;</li>
+<li>&#x8FD9;&#x4E2A;&#x80FD;&#x91CF;&#x867D;&#x7136;&#x662F;&#x8D1F;&#x7684;, &#x4F46;&#x662F;&#x975E;&#x5E38;&#x5C0F;, &#x8FD9;&#x4E2A;&#x8D21;&#x732E;&#x6765;&#x81EA;&#x4E8E; \(\mu\) &#x7684;&#x8D21;&#x732E; (&#x4ECE;&#x65B9;&#x7A0B;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x51FA;,
+&#x8FD9;&#x4E2A;&#x53D1;&#x6563;&#x7684;&#x8D21;&#x732E;, &#x6765;&#x81EA;&#x4E8E;&#x8D39;&#x7C73;&#x9762;&#x9644;&#x8FD1;&#x7684;&#x8D21;&#x732E;) , &#x6240;&#x4EE5;&#x8FD9;&#x4E2A; reconstruction &#x6700;&#x4E3B;&#x8981;&#x7684;&#x8981;
+&#x53D1;&#x751F;&#x5728; Fermi surface &#x9644;&#x8FD1;.</li>
+</ol>
+<p>
+&#x8FD9;&#x5C31;&#x662F;&#x4ECE; 2-body &#x7684;&#x89E3;&#x5F97;&#x5230;&#x7684; motivation . &#x56E0;&#x4E3A;&#x8FD9;&#x4E2A; motivation, &#x8981;&#x53BB;&#x91CD;&#x6784;&#x4E00;&#x4E2A; ground
+state, &#x8FD9;&#x4E2A; ground state &#x5C31;&#x662F; BCS state
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4687dde" class="outline-2">
+<h2 id="org4687dde">&#x8D39;&#x7C73;&#x9762;&#x7684;&#x7A7A;&#x95F4;&#x53CD;&#x5C04;&#x5BF9;&#x79F0;&#x6027;</h2>
+<div class="outline-text-2" id="text-org4687dde">
+<p>
+&#x8FD9;&#x4E2A; BCS state &#x4ECE;&#x6700;&#x539F;&#x59CB;&#x7684;&#x6709;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x7684;&#x4E24;&#x5206;&#x91CF;&#x8D39;&#x7C73;&#x6C14;&#x4F53;&#x51FA;&#x53D1;
+</p>
+\begin{align}
+  H = \sum_{\vec{k,\sigma}}(\epsilon_{\vec{k}} - \mu)
+      c^{\dagger}_{\vec{k}\sigma}c_{\vec{k}\sigma} + \frac{g}{V}\sum_{\vec{k}, \vec{k}&apos;, \vec{q}}
+      c^{\dagger}_{\vec{k}+\vec{q}/2\uparrow}c^{\dagger}_{-\vec{k}+\vec{q}/2\downarrow}
+      c_{-\vec{k}&apos; + \vec{q}/2\downarrow}c_{\vec{k}&apos;+\vec{q}/2\uparrow}
+\end{align}
+<p>
+&#x6709;&#x56DB;&#x8D39;&#x7C73;&#x5B50;&#x7684;&#x76F8;&#x4E92;&#x4F5C;&#x7528;. &#x7B2C;&#x4E00;&#x4EF6;&#x4E8B;&#x60C5;&#x662F;&#x53D6; \(\mathrm{q}=0\) . &#x6240;&#x4EE5;&#x6563;&#x5C04;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x4E00;&#x5BF9;&#x8D39;&#x7C73;&#x5B50;
+&#x7684; center of mass momentum &#x5C31;&#x662F; \(\mathrm{q}\) . &#x52A8;&#x91CF;&#x8F6C;&#x79FB;&#x662F; \(\vec{k} -
+\vec{k}&apos;\) . &#x539F;&#x5219;&#x4E0A; \(\vec{q}\) &#x53EF;&#x4EE5;&#x968F;&#x4FBF;&#x53D6;. &#x4F46;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x901A;&#x5E38;&#x5728; BCS &#x7406;&#x8BBA;&#x4E2D;&#x53D6; \(\vec{q}
+= 0\) , &#x8FD9;&#x662F;&#x4EC0;&#x4E48;&#x9053;&#x7406;?
+</p>
+
+<p>
+&#x56E0;&#x4E3A;&#x5927;&#x90E8;&#x5206;&#x5904;&#x7406;&#x7684;&#x95EE;&#x9898;&#x4E2D;, &#x8D39;&#x7C73;&#x9762;&#x6709;&#x7A7A;&#x95F4;&#x53CD;&#x5C04;&#x4E0D;&#x53D8;&#x6027; (&#x7403;&#x5F62;&#x662F;&#x4E00;&#x4E2A;&#x5178;&#x578B;&#x4F8B;&#x5B50;). &#x8FD9;&#x4FDD;&#x8BC1;&#x4E86;&#x5982;
+&#x679C; \(\vec{k}\) &#x5728;&#x8D39;&#x7C73;&#x9762;&#x4E0A;, \(-\vec{k}\) &#x4E00;&#x5B9A;&#x4E5F;&#x5728;&#x8D39;&#x7C73;&#x9762;&#x4E0A;. &#x4FDD;&#x8BC1;&#x4E86;
+</p>
+\begin{align}
+  \epsilon_{\vec{k}} = \epsilon_{-\vec{k}}
+\end{align}
+<p>
+&#x5982;&#x679C; \(\vec{q}\neq 0\) , &#x90A3;&#x4E48; \(\epsilon_{\vec{k}+\vec{q}/2}\) &#x548C; \(\epsilon_{-\vec{k}+\vec{q}/2}\)
+&#x4E0D;&#x4E00;&#x5B9A;&#x76F8;&#x7B49;. &#x76F8;&#x5F53;&#x4E8E;&#x628A;&#x4E24;&#x4E2A;&#x7C92;&#x5B50;&#x5728;&#x52A8;&#x91CF;&#x7A7A;&#x95F4;&#x4E0A;&#x6574;&#x4F53;&#x5E73;&#x8861;&#x4E00;&#x4E0B;, &#x4E00;&#x4E2A;&#x6001;&#x8FD8;&#x5728;&#x8D39;&#x7C73;&#x9762;&#x4E0A;, &#x53E6;&#x4E00;
+&#x4E2A;&#x6001;&#x5DF2;&#x7ECF;&#x4E0D;&#x5728;&#x8D39;&#x7C73;&#x9762;&#x4E0A;&#x4E86;. &#x6240;&#x4EE5;&#x5177;&#x6709;&#x7A7A;&#x95F4;&#x53CD;&#x5C04;&#x4E0D;&#x53D8;&#x6027;&#x7684;&#x8D39;&#x7C73;&#x9762;&#x4FDD;&#x8BC1;&#x4E86;, &#x4E24;&#x4E2A;&#x53D1;&#x751F;&#x6563;&#x5C04;&#x7684;&#x7C92;&#x5B50;
+&#x540C;&#x65F6;&#x5728;&#x8D39;&#x7C73;&#x9762;&#x4E0A;, &#x4E5F;&#x5C31;&#x662F;&#x53EA;&#x8981; \(\vec{k}\) &#x5728;&#x8D39;&#x7C73;&#x9762;&#x4E0A;, \(-\vec{k}\) &#x4E00;&#x5B9A;&#x5728;&#x8D39;&#x7C73;&#x9762;&#x4E0A;, &#x6563;&#x5C04;
+&#x4E4B;&#x540E;&#x4E5F;&#x4E00;&#x5B9A;&#x5728;&#x8D39;&#x7C73;&#x9762;&#x4E0A;. 
+</p>
+
+<p>
+&#x8FD9;&#x4E2A; reconstruction , &#x91CF;&#x5B50;&#x6001;&#x7684;&#x91CD;&#x6784;&#x53D1;&#x751F;&#x5728;, Fermi surface &#x9644;
+&#x8FD1;, &#x8981;&#x4FDD;&#x8BC1; \(\vec{k}\) &#x8DDF; \(-\vec{k}\) &#x90FD;&#x5728;&#x8D39;&#x7C73;&#x9762;&#x9644;&#x8FD1;. &#x4E5F;&#x6709;&#x4E00;&#x4E9B;&#x7CFB;&#x7EDF;, &#x5B83;&#x53D1;&#x751F;&#x7684;
+pairing \(\vec{q} \neq 0\) &#x8FD9;&#x4E9B;&#x7CFB;&#x7EDF;&#x8D39;&#x7C73;&#x9762;&#x7684;&#x7ED3;&#x6784;&#x548C;&#x73B0;&#x5728;&#x8BA8;&#x8BBA;&#x7684;&#x4E0D;&#x4E00;&#x6837;. &#x8FD9;&#x4E9B; \(\vec{q}
+\neq 0\) &#x7684; pairing state &#x53EB;&#x505A; FFLO state, &#x4F46;&#x8FD9;&#x4E9B;&#x6001;&#x662F;&#x5F88;&#x5947;&#x602A;&#x7684;. &#x5F88;&#x591A;&#x60C5;&#x51B5;&#x4E0B;, &#x5B83;&#x7684;
+energy &#x662F;&#x4E0D;&#x7A33;&#x5B9A;&#x7684;, &#x9664;&#x975E; Fermi surface &#x7279;&#x522B;&#x5947;&#x602A;. 
+</p>
+
+<p>
+&#x6240;&#x4EE5;&#x7B2C;&#x4E00;&#x4EF6;&#x4E8B;, &#x5C31;&#x662F;&#x53D6;&#x4E86; \(\vec{q} = 0\) &#x7684; scattering , &#x8FD9;&#x6837;&#x505A;&#x7684;&#x539F;&#x56E0;&#x4E0E;&#x8D39;&#x7C73;&#x9762;&#x7684;&#x7A7A;&#x95F4;
+&#x53CD;&#x5C04;&#x5BF9;&#x79F0;&#x6027;&#x6709;&#x5173;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org641a972" class="outline-2">
+<h2 id="org641a972">Pairing Symmetry</h2>
+<div class="outline-text-2" id="text-org641a972">
+<p>
+&#x7B2C;&#x4E8C;&#x4EF6;&#x4E8B;&#x60C5;&#x5C31;&#x662F;, &#x4E00;&#x822C;&#x8BB2;&#x6765;, &#x6563;&#x5C04;&#x7684;&#x7CFB;&#x6570;&#x662F; \(V(\vec{k} - \vec{k}&apos;)\) , &#x5C31;&#x50CF;&#x4E00;&#x4E2A;&#x77E9;&#x9635;&#x4E00;
+&#x6837;, &#x6709;&#x4E24;&#x4E2A; index . &#x4E00;&#x4E2A; index &#x662F; \(\vec{k}\) , &#x4E00;&#x4E2A; index &#x662F; \(\vec{k}&apos;\) . &#x53EF;&#x4EE5;&#x5BF9;&#x8FD9;
+&#x4E2A;&#x77E9;&#x9635;&#x8FDB;&#x884C;&#x6B63;&#x4EA4;&#x5206;&#x89E3; 
+</p>
+\begin{align}
+  V(\vec{k} - \vec{k}&apos;) = \sum_i \lambda_i f_{\vec{k}}^i f_{\vec{k}&apos;}^i
+\end{align}
+<blockquote>
+<p>
+&#x8FD9;&#x91CC;&#x76F8;&#x5F53;&#x4E8E;&#x662F;&#x505A;&#x4E86;&#x5BF9;&#x89D2;&#x5316;(<a href="https://zh.wikipedia.org/wiki/%E7%89%B9%E5%BE%81%E5%88%86%E8%A7%A3" target="_blank" rel="noopener">&#x7279;&#x5F81;&#x5206;&#x89E3;</a>) . &#x800C;&#x4E14;&#x4E0A;&#x5F0F;&#x7684;&#x7ED3;&#x679C;&#x5DF2;&#x7ECF;&#x9ED8;&#x8BA4; \(V(\vec{k} -
+\vec{k}&apos;)\) &#x662F;&#x5B9E;&#x5BF9;&#x79F0;&#x7684;, &#x8FD9;&#x7B26;&#x5408;&#x7269;&#x7406;. &#x4ECE;&#x4E0A;&#x5F0F;&#x4E5F;&#x53EF;&#x4EE5;&#x4F53;&#x4F1A;&#x7279;&#x5F81;&#x5206;&#x89E3;&#x7684;&#x672C;&#x8D28;. &#x6BCF;&#x4E2A;&#x77E9;&#x9635;&#x5143;&#x90FD;
+&#x5305;&#x542B;&#x4E0D;&#x540C;&#x7684;&#x7279;&#x5F81;&#x503C;&#x7684;&#x6210;&#x5206;, &#x6BCF;&#x4E2A;&#x7279;&#x5F81;&#x503C;&#x5BF9;&#x5E94;&#x7684;&#x6210;&#x5206;&#x5C31;&#x662F;&#x7279;&#x5F81;&#x503C;&#x5BF9;&#x5E94;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x7684;&#x7684;&#x4E24;&#x4E2A;&#x5143;&#x7D20;
+&#x7684;&#x4E58;&#x79EF;, &#x5C31;&#x662F;&#x6BCF;&#x4E2A;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x7684;&#x5916;&#x79EF;&#x6309;&#x7279;&#x5F81;&#x503C;&#x4E3A;&#x6743;&#x91CD;&#x505A;&#x7EBF;&#x6027;&#x7EC4;&#x5408;.
+</p>
+
+<p>
+&#x6BD4;&#x5982;&#x4E00;&#x4E2A; \(2\times 2\) &#x7684;&#x5B9E;&#x5BF9;&#x79F0;&#x7684;&#x77E9;&#x9635; \(\Sigma\) &#x53EF;&#x4EE5;&#x5BF9;&#x89D2;&#x5316;
+</p>
+\begin{align}
+  U^T\Sigma U = \Lambda = \left(  
+    \begin{array}{cc}
+      \lambda_a &amp; \\
+         &amp; \lambda_b 
+    \end{array}
+   \right)
+\end{align}
+<p>
+&#x5176;&#x4E2D;
+</p>
+\begin{align}
+  U =    \left( \begin{array}{cc}
+           \vec{u}_a &amp; \vec{u}_b
+    \end{array}\right)
+    =    \left( \begin{array}{cc}
+      C_{a1} &amp; C_{b1}\\
+      C_{a2}   &amp; C_{b2}
+    \end{array}\right)
+\end{align}
+
+<p>
+&#x5982;&#x679C;&#x5206;&#x89E3;&#x6210;&#x5916;&#x79EF;&#x7684;&#x5F62;&#x5F0F;
+</p>
+\begin{align}
+  \Sigma = \sum_i \, \lambda_i \cdot\vec{u}_i \otimes \vec{u}^T_i
+\end{align}
+<p>
+&#x5982;&#x679C;&#x5199;&#x6210;&#x77E9;&#x9635;&#x5143;&#x7684;&#x5F62;&#x5F0F;
+</p>
+\begin{align}
+  \Sigma_{ij} = \sum_{kl} U_{ik} \lambda_k\delta_{kl} U_{jl} = \sum_k \lambda_k U_{ik}  U_{jk}
+\end{align}
+<p>
+&#x5177;&#x4F53;&#x5199;&#x51FA;&#x6765;&#x5C31;&#x662F;
+</p>
+\begin{align}
+  \Sigma = U \Lambda U^T = \left(
+    \begin{array}{cc}
+      \lambda_aC_{a1}^2 + \lambda_bC_{b1}^2 &amp; \lambda_a C_{a1} C_{a2} + \lambda_b C_{b1} C_{b2}\\
+      \lambda_aC_{a1}C_{a2} + \lambda_bC_{b1}C_{b2} &amp; \lambda_a C_{a2}^2 + \lambda_b C_{b2}^2
+    \end{array}\right)
+\end{align}
+
+<p>
+\(U_{ij}\) &#x4E0B;&#x6807;&#x8868;&#x793A;&#x7B2C; \(j\) &#x4E2A;&#x672C;&#x5F81;&#x5411;&#x91CF;&#x7B2C; \(i\) &#x4E2A;&#x5143;&#x7D20;. &#x5F88;&#x660E;&#x663E;, &#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x90FD;&#x662F; \(\lambda_a\) &#x4E0E;
+\(\lambda_b\) &#x7684;&#x7EC4;&#x5408;. 
+</p>
+<ul class="org-ul">
+<li>\(\Sigma_{11}\) &#x662F;: \(\lambda_a\) &#x4E58;&#x4E0A;&#x7B2C; \(a\) &#x4E2A;&#x672C;&#x5F81;&#x503C;&#x7684;&#x7B2C; \(1\) &#x4E2A;&#x5143;&#x7D20;&#x4E0E;&#x7B2C; \(1\) &#x4E2A;&#x5143;&#x7D20;, &#x52A0;&#x4E0A;
+\(\lambda_b\) &#x4E58;&#x4E0A;&#x7B2C; \(b\) &#x4E2A;&#x672C;&#x5F81;&#x503C;&#x7684;&#x7B2C; \(1\) &#x4E2A;&#x5143;&#x7D20;&#x4E0E;&#x7B2C; \(1\) &#x4E2A;&#x5143;&#x7D20;.</li>
+<li>\(\Sigma_{12}\) &#x662F;: \(\lambda_a\) &#x4E58;&#x4E0A;&#x7B2C; \(a\) &#x4E2A;&#x672C;&#x5F81;&#x503C;&#x7684;&#x7B2C; \(1\) &#x4E2A;&#x5143;&#x7D20;&#x4E0E;&#x7B2C; \(2\) &#x4E2A;&#x5143;&#x7D20;, &#x52A0;&#x4E0A;
+\(\lambda_b\) &#x4E58;&#x4E0A;&#x7B2C; \(b\) &#x4E2A;&#x672C;&#x5F81;&#x503C;&#x7684;&#x7B2C; \(1\) &#x4E2A;&#x5143;&#x7D20;&#x4E0E;&#x7B2C; \(2\) &#x4E2A;&#x5143;&#x7D20;.</li>
+<li>\(\Sigma_{21}\) &#x662F;: \(\lambda_a\) &#x4E58;&#x4E0A;&#x7B2C; \(a\) &#x4E2A;&#x672C;&#x5F81;&#x503C;&#x7684;&#x7B2C; \(2\) &#x4E2A;&#x5143;&#x7D20;&#x4E0E;&#x7B2C; \(1\) &#x4E2A;&#x5143;&#x7D20;, &#x52A0;&#x4E0A;
+\(\lambda_b\) &#x4E58;&#x4E0A;&#x7B2C; \(b\) &#x4E2A;&#x672C;&#x5F81;&#x503C;&#x7684;&#x7B2C; \(2\) &#x4E2A;&#x5143;&#x7D20;&#x4E0E;&#x7B2C; \(1\) &#x4E2A;&#x5143;&#x7D20;.</li>
+<li>&#x2026;</li>
+</ul>
+
+<p>
+&#x8FD8;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;, &#x4E0D;&#x540C;&#x7684;&#x7279;&#x5F81;&#x503C;&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x8026;&#x5408;. &#x8FD9;&#x4E5F;&#x5408;&#x7406;, &#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x662F;&#x6B63;&#x4EA4;&#x7684;.
+</p>
+</blockquote>
+<p>
+&#x5982;&#x679C;&#x6709;&#x4E00;&#x4E2A; \(\lambda_i\) &#x7279;&#x522B;&#x91CD;&#x8981;, &#x628A;&#x5B83;&#x7279;&#x522B;&#x63D0;&#x51FA;&#x6765;(&#x7701;&#x7565;&#x4E0B;&#x6807; \(i\) )
+</p>
+\begin{align}
+  \lambda \sum_{\vec{k}, \vec{k}&apos;} \, f_{\vec{k}} f_{\vec{k}&apos;}\,
+  \hat{c}^{\dagger}_{\vec{k}, \uparrow} \hat{c}^{\dagger}_{-\vec{k}, \downarrow} 
+  \hat{c}_{-\vec{k}&apos;, \downarrow} \hat{c}_{\vec{k}&apos;, \uparrow} 
+\end{align}
+<p>
+&#x6362;&#x4E00;&#x79CD;&#x8BB0;&#x53F7;
+</p>
+\begin{align}
+  g \left( \sum_{\vec{k}} \, f_{\vec{k}} 
+  \hat{c}^{\dagger}_{\vec{k}, \uparrow} \hat{c}^{\dagger}_{-\vec{k}, \downarrow} \right)
+  \left( \sum_{\vec{k}&apos;} f_{\vec{k}&apos;}\hat{c}_{-\vec{k}&apos;, \downarrow}
+    \hat{c}_{\vec{k}&apos;, \uparrow}  \right)
+\end{align}
+<p>
+&#x8FD9;&#x662F;
+</p>
+\begin{align}
+  g \hat{A}^{\dagger} \hat{A} = \Delta^{*}\hat{A} 
+   + \Delta\hat{A}^{\dagger} 
+   - \frac{\Delta^2}{g} \quad \mathrm{where} \quad \Delta = \langle g \hat{A} \rangle 
+\end{align}
+<p>
+&#x7684;&#x5F62;&#x5F0F;
+&#x505A;&#x5B8C;&#x5E73;&#x5747;&#x573A;&#x540E;
+</p>
+\begin{align}
+  \Delta^{*} \sum_{\vec{k}} \, f_{\vec{k}} 
+  \hat{c}^{\dagger}_{\vec{k}, \uparrow} \hat{c}^{\dagger}_{-\vec{k}, \downarrow} 
+  + \Delta \sum_{\vec{k}&apos;} f_{\vec{k}&apos;}\hat{c}_{-\vec{k}&apos;, \downarrow}
+    \hat{c}_{\vec{k}&apos;, \uparrow} 
+\end{align}
+<p>
+&#x8FD9;&#x4E2A;&#x5F62;&#x5F0F;&#x91CC;&#x9762;, &#x8FD9;&#x4E2A; \(f_{\vec{k}}\) &#x6765;&#x6E90;&#x4E8E;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x7684;&#x5206;&#x6CE2;&#x5C55;&#x5F00;, &#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x6570;, &#x6765;&#x81EA;&#x4E8E;&#x76F8;
+&#x4E92;&#x4F5C;&#x7528;&#x7684; Fourier &#x53D8;&#x6362;. &#x6240;&#x4EE5;&#x8FD9;&#x65F6;&#x5019;&#x628A; \(\Delta\) &#x4E0E; \(f_{\vec{k}}\) &#x5408;&#x5728;&#x4E00;&#x8D77;
+</p>
+\begin{align}
+  \Delta_{\vec{k}} \equiv \Delta^{*} f_{\vec{k}}
+\end{align}
+<p>
+&#x76F8;&#x5F53;&#x4E8E;, &#x8FD9;&#x65F6;&#x5019;&#x7684; order parameter &#x6709;&#x4E00;&#x4E2A;&#x52A8;&#x91CF;&#x4F9D;&#x8D56;, &#x8FD9;&#x4E2A;&#x52A8;&#x91CF;&#x4F9D;&#x8D56;&#x7684;&#x5F62;&#x5F0F;&#x6765;&#x81EA;&#x4E8E;&#x76F8;&#x4E92;&#x4F5C;
+&#x7528;&#x5206;&#x6CE2;&#x5C55;&#x5F00;. &#x8FD9;&#x91CC;&#x7684; \(f^i_{\vec{k}}\) &#x53D6;&#x54EA;&#x4E00;&#x4E2A;, &#x76F8;&#x5F53;&#x4E8E;&#x662F;&#x770B;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x91CC;&#x9762;&#x54EA;&#x4E00;&#x4E2A;&#x5206;&#x6CE2;&#x662F;&#x6700;
+&#x91CD;&#x8981;&#x7684;. &#x6240;&#x4EE5; \(f_{\vec{k}}\) &#x5728;&#x52A8;&#x91CF;&#x7A7A;&#x95F4;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x5BF9;&#x79F0;&#x6027;, &#x76F8;&#x5F53;&#x4E8E;&#x5206;&#x6CE2;&#x5C55;&#x5F00;, &#x5982;&#x679C;
+\(f_{\vec{k}}\) &#x662F;&#x5404;&#x5411;&#x540C;&#x6027;&#x7684;, &#x5C31;&#x76F8;&#x5F53;&#x4E8E; s &#x6CE2;. p-wave, d-wave &#x7C7B;&#x4F3C;. &#x4E0D;&#x540C;&#x7684;
+\(f_{\vec{k}}\) &#x7684;&#x4E0D;&#x540C;&#x7684;&#x5BF9;&#x79F0;&#x6027;, &#x5C31;&#x51B3;&#x5B9A;&#x4E86; pairing &#x7684; order parameter &#x4E0D;&#x540C;&#x7684;&#x5BF9;&#x79F0;&#x6027;.
+&#x8FD9;&#x4E2A;&#x5BF9;&#x79F0;&#x6027;&#x53EB;&#x4F5C; pairing symmetry . define Cooper wave function &#x7684;&#x65F6;&#x5019;, &#x5C31;&#x662F;&#x5F62;&#x6210;
+Cooper pair &#x7684;&#x4E24;&#x4E2A;&#x7C92;&#x5B50;&#x76F8;&#x5BF9;&#x8FD0;&#x52A8;&#x6CE2;&#x51FD;&#x6570;&#x662F; s &#x6CE2;&#x8FD8;&#x662F; p &#x6CE2;&#x7684;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1662cae" class="outline-2">
+<h2 id="org1662cae">Reconstruction of Fermi Surface</h2>
+<div class="outline-text-2" id="text-org1662cae">
+<p>
+&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A; BCS &#x7406;&#x8BBA;&#x6765;&#x8BB2;, &#x6709;&#x4E24;&#x4EF6;&#x4E8B;&#x60C5;. &#x4E00;&#x4E2A;&#x5C31;&#x662F; pairing &#x7684; center of masss momentum
+, &#x8FD9;&#x91CC;&#x53D6;&#x4E86; \(\vec{q}0\) . &#x7B2C;&#x4E8C;&#x4EF6;&#x4E8B;&#x60C5;&#x5C31;&#x662F; pairing symmetry , &#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x7684;&#x5404;&#x4E2A;&#x4E0D;&#x540C;&#x901A;&#x9053;
+&#x91CC;&#x9762;, &#x53D6;&#x54EA;&#x4E2A;&#x901A;&#x9053;&#x505A; pairing &#x7684;&#x5E73;&#x5747;&#x573A;. &#x8FD9;&#x4E24;&#x4EF6;&#x4E8B;&#x662F;&#x5728;&#x505A; mean field &#x4E4B;&#x524D;, &#x5148;&#x4EBA;&#x4E3A;&#x53D6;&#x5B9A;
+&#x7684;. &#x53D6;&#x54EA;&#x4E2A;&#x6CE2;, &#x76F8;&#x5F53;&#x4E8E;&#x53D6;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x9879;&#x505A;&#x5E73;&#x5747;&#x573A;, &#x6700;&#x540E;&#x5F97;&#x5230;&#x7684; wave function, ground state
+&#x4E5F;&#x4E0D;&#x4E00;&#x6837;. &#x6700;&#x540E;&#x54EA;&#x4E2A; mean field &#x66F4;&#x6B63;&#x786E;, &#x5C31;&#x8981;&#x6BD4;&#x4E0D;&#x540C;&#x7684; mean field &#x7ED9;&#x51FA;&#x7684; ground
+state energy &#x54EA;&#x4E2A;&#x66F4;&#x4F4E;.
+</p>
+
+<p>
+&#x8FD9;&#x91CC;&#x8BA8;&#x8BBA;&#x7684;&#x662F;&#x4E00;&#x4E2A; constant \(g\) , &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x662F;&#x8003;&#x8651; s &#x6CE2;&#x6563;&#x5C04;, s &#x6CE2; pairing,
+\(f_{\vec{k}}\) &#x662F;&#x4E00;&#x4E2A; constant . &#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x8BA8;&#x8BBA;&#x7684;&#x662F; \(\vec{q}=0\) &#x7684; s &#x6CE2; pairing
+. &#x5C31;&#x5F97;&#x5230;&#x4E86;&#x4E00;&#x4E2A; BCS mean field Hamiltonian
+</p>
+\begin{align}
+  H_{\mathrm{MF}} = \sum_{\vec{k,\sigma}}(\epsilon_{\vec{k}} - \mu)
+      c^{\dagger}_{\vec{k}\sigma}c_{\vec{k}\sigma} 
+      +\Delta^{*} \sum_{\vec{k}}\hat{c}_{-\vec{k},\downarrow} \hat{c}_{\vec{k}, \uparrow}
+      +\Delta \sum_{\vec{k}}\hat{c}^{\dagger}_{\vec{k},\uparrow} 
+       \hat{c}^{\dagger}_{-\vec{k}, \downarrow}
+      - \frac{V}{g}|\Delta|^2
+\end{align}
+<p>
+&#x8FD9;&#x4E2A; Hamiltonian &#x91CD;&#x8981;&#x7684;&#x5730;&#x65B9;&#x5C31;&#x662F;&#x5B83;&#x53EF;&#x4EE5;&#x5BF9;&#x89D2;&#x5316;, &#x628A;&#x5B83;&#x5BF9;&#x89D2;&#x5316;&#x4EE5;&#x540E;
+</p>
+\begin{align}
+  H_{MF} = \sum_{\vec{k}} \left[ E_{\vec{k}} 
+                                (\alpha_{\vec{k}}^{\dagger}\alpha_{\vec{k}} 
+                                 + \beta_{\vec{k}}^{\dagger}\beta_{\vec{k}}) 
+           + (\epsilon_{\vec{k}} - \mu -E_{\vec{k}} ) \right] 
+           - \frac{V}{g}|\Delta|^2
+\end{align}
+<p>
+&#x5F97;&#x5230;&#x51C6;&#x7C92;&#x5B50;&#x6FC0;&#x53D1;&#x7684;&#x80FD;&#x8C31;, &#x4EE5;&#x53CA;&#x8FD9;&#x4E9B; quasi-particle &#x7684; operator. where 
+</p>
+\begin{align}
+  E_{\vec{k}} = \sqrt{(\epsilon_k - \mu)^2 + \Delta^2} &gt; 0
+\end{align}
+\begin{align}
+  \alpha^{\dagger}_{\vec{k}} =  u_{\vec{k}} \hat{c}^{\dagger}_{\vec{k}, \uparrow} 
+                    - v_{\vec{k}}\hat{c}_{-\vec{k}, \downarrow}\\
+  \beta^{\dagger}_{\vec{k}} =  v_{\vec{k}} \hat{c}_{\vec{k}, \uparrow} 
+                    + u_{\vec{k}}\hat{c}^{\dagger}_{-\vec{k}, \downarrow}
+\end{align}
+<p>
+&#x600E;&#x4E48;&#x4ECE; Hamiltonian &#x77E5;&#x9053;&#x6CE2;&#x51FD;&#x6570;, &#x77E5;&#x9053; ground state wave function . &#x56E0;&#x4E3A;&#x5BF9;&#x89D2;&#x5316;&#x5B8C;&#x4EE5;
+&#x540E;, &#x5B83;&#x7684;&#x80FD;&#x8C31;&#x90FD;&#x662F;&#x6B63;&#x7684;. &#x8981;&#x627E; ground state, &#x5C31;&#x662F;&#x627E; 
+</p>
+\begin{align}
+  \alpha_{\vec{k}} |G\rangle = 0 \\
+  \beta_{\vec{k}} |G\rangle = 0 
+\end{align}
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;, &#x4E00;&#x65E6;&#x5BF9;&#x89D2;&#x5316;&#x4EE5;&#x540E;, &#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x80FD;&#x8C31;, &#x8FD9;&#x4E2A;&#x80FD;&#x8C31;&#x662F;&#x6052;&#x6B63;&#x7684;. &#x5C31;&#x662F;&#x627E;&#x5230;&#x4E86;&#x8FD9;&#x4E2A;&#x4F53;&#x7CFB;&#x91CC;&#x9762;
+well define &#x7684; quasi-particle, &#x8FD9;&#x65F6;&#x5019;, ground state &#x5C31;&#x5E94;&#x8BE5;&#x5B9A;&#x4E49;&#x4E3A; quasi-particle
+&#x7684;&#x771F;&#x7A7A;. &#x8FD9;&#x65F6;&#x5019;&#x627E;&#x5230;&#x7684;&#x6001;&#x5C31;&#x662F; BCS state
+</p>
+\begin{align}
+  |BCS \rangle = \prod_{\vec{k}}\left( u_{\vec{k}} + 
+  v_{\vec{k}}c^{\dagger}_{\vec{k}, \uparrow} 
+      c^{\dagger}_{-\vec{k}, \downarrow} \right)|0\rangle
+\end{align}
+<p>
+&#x8FD9;&#x65F6;&#x5019;&#x8BA8;&#x8BBA;&#x4E00;&#x4E2A; \(\Delta \to 0\) &#x7684;&#x6781;&#x9650;. &#x5982;&#x679C; \(\Delta \to 0\) , &#x90A3;&#x4E48;
+</p>
+\begin{align}
+  E_{\vec{k}} \to |\epsilon_k - \mu|
+\end{align}
+<p>
+&#x5BF9;&#x4E8E; \(|\vec{k}| &lt; k_{\mathrm{F}}\) &#x7684;&#x65F6;&#x5019;
+</p>
+\begin{align}
+  u_{\vec{k}}^2 = \frac{1}{2}\left(1 + 
+    \frac{\epsilon_{\vec{k}} - \mu}{E_{\vec{k}}} \right)\to 0 \\
+  v_{\vec{k}}^2 = \frac{1}{2}\left(1 - 
+    \frac{\epsilon_{\vec{k}} - \mu}{E_{\vec{k}}} \right) \to 1
+\end{align}
+\begin{align}
+  \alpha_{\vec{k}}^{\dagger} \to \hat{c}_{-\vec{k},\downarrow}\\
+  \beta_{\vec{k}}^{\dagger} \to \hat{c}_{\vec{k},\uparrow}
+\end{align}
+<p>
+&#x51C6;&#x7C92;&#x5B50;&#x5BF9;&#x5E94;&#x4E8E; hole
+&#x5BF9;&#x4E8E; \(|\vec{k}| &gt; k_{\mathrm{F}}\) &#x7684;&#x65F6;&#x5019;
+</p>
+\begin{align}
+  u_{\vec{k}}^2 = \frac{1}{2}\left(1 + 
+    \frac{\epsilon_{\vec{k}} - \mu}{E_{\vec{k}}} \right)\to 1 \\
+  v_{\vec{k}}^2 = \frac{1}{2}\left(1 - 
+    \frac{\epsilon_{\vec{k}} - \mu}{E_{\vec{k}}} \right) \to 0
+\end{align}
+\begin{align}
+  \alpha_{\vec{k}}^{\dagger} \to \hat{c}^{\dagger}_{\vec{k},\uparrow}\\
+  \beta_{\vec{k}}^{\dagger} \to \hat{c}^{\dagger}_{-\vec{k},\downarrow}
+\end{align}
+<p>
+&#x51C6;&#x7C92;&#x5B50;&#x5BF9;&#x5E94;&#x4E8E; particle
+</p>
+
+<p>
+\(\Delta \to 0\) &#x5C31;&#x610F;&#x5473;&#x7740; \(\Delta \ll |\epsilon_k - \mu|\) , &#x5B9E;&#x9645;&#x4E0A;&#x610F;&#x5473;&#x7740;&#x8FDC;&#x79BB;&#x8D39;&#x7C73;&#x9762;. &#x8FD9;&#x5F88;&#x6709;&#x9053;&#x7406;. &#x56E0;
+&#x4E3A;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x8D39;&#x7C73;&#x6C14;&#x4F53;, &#x5728;&#x8D39;&#x7C73;&#x6D77;&#x91CC;&#x9762;&#x7684;&#x6FC0;&#x53D1;&#x5BF9;&#x5E94;&#x4E8E;&#x4E00;&#x4E2A; hole , &#x5728;&#x8D39;&#x7C73;&#x6D77;&#x5916;&#x9762;, &#x6FC0;&#x53D1;&#x5BF9;&#x5E94;
+&#x4E8E;&#x4E00;&#x4E2A; particle. 
+</p>
+
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4; for samll \(\Delta\)  , &#x8FD9;&#x4E2A; \(\Delta\) &#x5BF9; \(E_{\vec{k}}\) &#x7684;&#x4FEE;&#x6B63;&#x4E3B;&#x8981;&#x96C6;&#x4E2D;&#x5728;&#x8D39;&#x7C73;&#x9762;&#x9644;&#x8FD1;.
+&#x5728;&#x8D39;&#x7C73;&#x9762;&#x4E0A; \(E_{\vec{k}} = \Delta\) , &#x662F;&#x4E00;&#x4E2A;&#x6709;&#x9650;&#x7684;&#x503C;. &#x539F;&#x6765;&#x5BF9;&#x4E8E; free Fermion, &#x5B83;&#x7684;
+quasi-particle &#x7684;&#x6FC0;&#x53D1;&#x662F; gapless &#x7684;, &#x4F46;&#x662F;&#x73B0;&#x5728;&#x6709;&#x4E86;&#x4E00;&#x4E2A; \(\Delta\) &#x7684; gap . &#x4E00;&#x65E6;&#x8FDC;&#x79BB;&#x8D39;&#x7C73;
+&#x9762;, \(\Delta\) &#x53EF;&#x4EE5;&#x5FFD;&#x7565;, &#x5C31;&#x56DE;&#x5230;&#x4E86; free Fermion &#x7684;&#x60C5;&#x51B5;.  
+</p>
+
+<p>
+&#x8FD8;&#x4F1A;&#x53D1;&#x73B0;  \(\Delta \to 0\) &#x7684;&#x65F6;&#x5019;
+</p>
+\begin{align}
+  |BCS\rangle \to |FS\rangle \quad , \quad |k| &lt; k_{\mathrm{F}}
+  |BCS\rangle \to |0\rangle, \quad |k| &gt; k_{\mathrm{F}}
+\end{align}
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x8D39;&#x7C73;&#x6D77;&#x4E0B;&#x9762;&#x662F;&#x5168;&#x5360;&#x7684;, &#x8D39;&#x7C73;&#x6D77;&#x4E0A;&#x9762;&#x662F;&#x5168;&#x7A7A;&#x7684;.
+</p>
+
+<p>
+BCS &#x6CE2;&#x51FD;&#x6570;&#x5BF9;&#x8D39;&#x7C73;&#x9762;&#x8FDB;&#x884C;&#x4E86;&#x91CD;&#x6784;, &#x5B83;&#x4E3B;&#x8981;&#x53D1;&#x751F;&#x5728;&#x8D39;&#x7C73;&#x9762;&#x9644;&#x8FD1;. &#x5728;&#x52A8;&#x91CF;&#x7A7A;&#x95F4;&#x91CD;&#x6784;&#x6CE2;&#x51FD;&#x6570;, &#x4F7F;&#x5F97;
+&#x5168;&#x5360;&#x662F;&#x7A7A;&#x7684;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org18b0f26" class="outline-2">
+<h2 id="org18b0f26">Bound State and Momentum Space Pairing</h2>
+<div class="outline-text-2" id="text-org18b0f26">
+<p>
+bound state , &#x5F53;&#x7C92;&#x5B50;&#x62C9;&#x8FDC;&#x7684;&#x65F6;&#x5019;, &#x6CE2;&#x51FD;&#x6570;&#x8981; exponential decay, &#x8FD9;&#x662F; real space &#x7684;
+bound state. 
+</p>
+
+<p>
+BCS pairing, &#x5F53;&#x4E24;&#x4E2A;&#x7C92;&#x5B50;&#x62C9;&#x8FDC;&#x7684;&#x65F6;&#x5019;, &#x6CA1;&#x6709; exponential decay. &#x5B83;&#x662F;&#x8BF4;&#x5728;  momentum
+space &#x4E2D;&#x628A;&#x5355;&#x5360;&#x7684;&#x6001; exclude &#x6389;, &#x53EA;&#x7559;&#x4E0B;&#x7A7A;&#x6001;&#x548C;&#x53CC;&#x5360;&#x6001;&#x7684;&#x7EBF;&#x6027;&#x7EC4;&#x5408;, &#x7EC4;&#x5408;&#x7684;&#x4F4D;&#x76F8;&#x8981;&#x53D6;&#x597D;,
+&#x4ECE;&#x800C; minimize energy. 
+</p>
+
+<p>
+&#x5728;&#x8FD9;&#x4E2A;&#x56FE;&#x50CF;&#x91CC;&#x9762;, &#x770B;&#x5230;&#x4E86;&#x4E24;&#x4E2A;&#x622A;&#x7136;&#x4E0D;&#x540C;&#x7684;&#x7269;&#x7406;! 
+</p>
+
+<p>
+\(a_s&gt;0\) &#x7684;&#x65F6;&#x5019;, &#x6709;&#x771F;&#x7A7A;&#x4E2D;&#x7684; 2-body state, &#x800C;&#x4E14;&#x5F53; \(\frac{1}{k_{\mathrm{F}}a_s} \gg
+1\) &#x7684;&#x65F6;&#x5019;, bound state &#x7684; size &#x8981;&#x8FDC;&#x8FDC;&#x5C0F;&#x4E8E;&#x7C92;&#x5B50;&#x95F4;&#x7684;&#x95F4;&#x8DDD;. &#x6BCF;&#x4E2A; particle &#x90FD;&#x662F;
+Fermion, &#x5F62;&#x6210; bound state &#x540E;, &#x662F;&#x4E00;&#x4E2A; Boson, &#x53EF;&#x4EE5;&#x770B;&#x6210;&#x662F;&#x4E00;&#x4E2A;&#x53CC;&#x539F;&#x5B50;&#x7684; molecular, &#x4E5F;
+&#x53EF;&#x4EE5;&#x79F0;&#x4E3A; molecular state. 
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgd28847b" class="outline-2">
+<h2 id="orgd28847b">Crossover</h2>
+<div class="outline-text-2" id="text-orgd28847b">
+<p>
+&#x8FDE;&#x7EED;&#x8C03;&#x8282; \(-\frac{1}{k_{\mathrm{F}}a_s}\) &#x5C31;&#x53EB; BEC-BCS Crossover, &#x53EF;&#x4EE5;&#x628A;&#x4E24;&#x79CD;&#x56FE;&#x50CF;&#x8FDE;
+&#x63A5;&#x8D77;&#x6765;. &#x4ECE;&#x5BF9;&#x79F0;&#x6027;&#x4E0A;&#x6765;&#x8BB2;, &#x6CA1;&#x6709;&#x533A;&#x522B; (&#x524D;&#x63D0;&#x662F; pairing symmetry &#x548C; bound state &#x7684;
+symmetry &#x662F;&#x4E00;&#x81F4;&#x7684;) 
+</p>
+
+\begin{align}
+  |BCS \rangle =&amp; \prod_{\vec{k}}\left( u_{\vec{k}} + 
+  v_{\vec{k}}c^{\dagger}_{\vec{k}, \uparrow} 
+      c^{\dagger}_{-\vec{k}, \downarrow} \right)|0\rangle \\
+  =&amp;\prod_{\vec{k}}\left( 1 + 
+  \frac{v_{\vec{k}}}{u_{\vec{k}}}c^{\dagger}_{\vec{k}, \uparrow} 
+      c^{\dagger}_{-\vec{k}, \downarrow} \right)|0\rangle \\
+  =&amp;e^{\sum_{\vec{k}} \frac{v_{\vec{k}}}{u_{\vec{k}}} c^{\dagger}_{\vec{k}, \uparrow} 
+      c^{\dagger}_{-\vec{k}, \downarrow}}|0\rangle 
+\end{align}
+<p>
+&#x5B9A;&#x4E49;
+</p>
+\begin{align}
+  \sum_{\vec{k}} \frac{v_{\vec{k}}}{u_{\vec{k}}} c^{\dagger}_{\vec{k}, \uparrow} 
+      c^{\dagger}_{-\vec{k}, \downarrow} \equiv \hat{b}^{\dagger}
+\end{align}
+<p>
+&#x5B83;&#x7684;&#x52A8;&#x91CF; \(\vec{q}=0\) , &#x66F4;&#x7B26;&#x5408; BEC &#x7684;&#x6761;&#x4EF6;.
+</p>
+
+<p>
+&#x5982;&#x679C; \(\hat{b}\) &#x6EE1;&#x8DB3; Bose &#x5BF9;&#x6613;&#x5173;&#x7CFB;
+</p>
+\begin{align}
+  [\hat{b}, \hat{b}^{\dagger}] = 1
+\end{align}
+<p>
+&#x90A3;&#x5B83;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x76F8;&#x5E72;&#x6001;&#x7684;&#x5F62;&#x5F0F;.  \(\hat{b}\) &#x662F;&#x7531;&#x4E24;&#x4E2A; particle &#x7EC4;&#x6210;&#x7684;, &#x4E00;&#x4E2A;&#x52A8;&#x91CF;&#x662F;
+\(\vec{k}\) , &#x4E00;&#x4E2A;&#x662F; \(-\vec{k}\) &#x628A;&#x76F8;&#x5BF9;&#x8FD0;&#x52A8;&#x7684;&#x6CE2;&#x51FD;&#x6570; Fourier &#x53D8;&#x6362;&#x5230;&#x5B9E;&#x7A7A;&#x95F4;, 
+</p>
+\begin{align}
+  \phi(r) = \int \frac{v_{\vec{k}}}{u_{\vec{k}}} e^{\mathrm{i} \vec{k}\cdot \vec{r}} \,
+         \mathrm{d}^3k
+\end{align}
+<p>
+&#x5982;&#x679C; \(\phi(\vec{r})\) ( \(\vec{r}\) &#x662F;&#x76F8;&#x5BF9;&#x5750;&#x6807;)&#x5728;&#x5B9E;&#x7A7A;&#x95F4;&#x662F;&#x5C40;&#x57DF;&#x7684;, &#x5E76;&#x4E14;&#x6CE2;&#x51FD;&#x6570;&#x7684;&#x5927;&#x5C0F;(&#x6CE2;&#x5305;)&#x76F8;
+&#x5BF9;&#x4E8E;&#x7C92;&#x5B50;&#x95F4;&#x95F4;&#x8DDD;&#x5C0F;&#x5F88;&#x591A;. 
+</p>
+
+<p>
+&#x73BB;&#x8272;&#x578B;&#x7B97;&#x7B26;, &#x5C31;&#x662F;&#x628A;&#x53E6;&#x4E00;&#x4E2A; pair &#x7ED5;&#x4E00;&#x4E2A; pair &#x8F6C;&#x4E00;&#x5708;, &#x51FA;&#x6765;&#x7684;&#x4F4D;&#x76F8;&#x662F; \(+1\) . &#x4F46;&#x662F; pair
+&#x7684; size &#x8FDC;&#x5C0F;&#x4E8E;&#x7C92;&#x5B50;&#x95F4;&#x95F4;&#x8DDD;&#x7684;&#x8BDD;, &#x4E24;&#x4E2A;&#x7C92;&#x5B50;&#x90FD;&#x4EA4;&#x6362;&#x4E00;&#x4E0B;. &#x4F46;&#x662F; pair &#x6BD4;&#x8F83;&#x5927;, &#x5C31;&#x4E0D;&#x597D;&#x5B9A;&#x4E49;&#x4E86;.
+</p>
+
+<p>
+\(u_{\vec{k}}\) , \(v_{\vec{k}}\) &#x5BF9; \(\vec{k}\) &#x7684; dependence &#x662F;&#x7531; \(f_{\vec{k}}\) &#x7ED9;&#x51FA;
+&#x7684;. \(f_{\vec{k}}\) &#x7684;&#x5BF9;&#x79F0;&#x6027;, &#x4F1A;&#x901A;&#x8FC7; Fourier &#x4F20;&#x5230; \(\phi(\vec{r})\) &#x4E0A;&#x6765;.
+</p>
+
+<p>
+BCS &#x6CE2;&#x51FD;&#x5982;&#x679C;&#x80FD;&#x591F;&#x7528; BEC &#x6CE2;&#x51FD; adiabatically, &#x4E0D;&#x7ECF;&#x8FC7;&#x4EFB;&#x4F55;&#x76F8;&#x53D8;&#x5730;&#x8FDE;&#x7EED;&#x5730;&#x8C03;&#x8282;&#x8FC7;&#x6765;, &#x5C31;&#x5FC5;
+&#x987B;&#x8981;&#x6EE1;&#x8DB3;&#x4E24;&#x4E2A;&#x6761;&#x4EF6;
+</p>
+<ol class="org-ol">
+<li>&#x8C03;&#x8282;&#x53C2;&#x6570;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;, \(u_{\vec{k}}\) , \(v_{\vec{k}}\) &#x90FD;&#x5728;&#x53D8;, &#x5E76;&#x4E14;&#x80FD;&#x591F;&#x503C;&#x5F97; pair
+wave function &#x8D77;&#x6765;&#x8D8A;&#x5C0F;.</li>
+<li>pairing &#x7684; symmetry &#x6700;&#x540E;&#x51B3;&#x5B9A;&#x4E86; pair wave function &#x7684; symmetry, &#x548C;&#x6700;&#x540E;&#x7684;
+2-body bound state &#x7684;&#x5BF9;&#x79F0;&#x6027;&#x8981;&#x517C;&#x5BB9;. &#x6BD4;&#x5982;&#x662F;&#x4E00;&#x4E2A; s &#x6CE2;&#x7684; bound state, &#x5728;&#x53E6;&#x4E00;&#x4FA7;&#x505A;
+d &#x7684; BCS &#x7406;&#x8BBA;, &#x5B83;&#x4EEC;&#x662F;&#x6CA1;&#x6CD5;&#x63A5;&#x8D77;&#x6765;&#x7684;, &#x56E0;&#x4E3A; d &#x6CE2;&#x7684; BCS &#x7406;&#x8BBA;&#x7ED9;&#x51FA;&#x7684; pair wave
+functio &#x6C38;&#x8FDC;&#x662F; d-wave &#x7684;, &#x6CA1;&#x6CD5;&#x548C; s-wave &#x7684; bound state &#x63A5;&#x8D77;&#x6765;&#x7684;.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orge8a622a" class="outline-2">
+<h2 id="orge8a622a">Gap Equation and Number Equation</h2>
+<div class="outline-text-2" id="text-orge8a622a">
+<p>
+\(\Delta\) &#x5982;&#x4F55;&#x51B3;&#x5B9A;&#x5462;?
+</p>
+
+<p>
+&#x4E00;&#x5F00;&#x59CB; \(\Delta\equiv g\sum_{\vec{k}}\langle \hat{c}_{\vec{k}, \uparrow} \hat{c}_{-k,\downarrow} \rangle\) , &#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+  \Delta\equiv g\sum_{\vec{k}}\langle \hat{c}_{\vec{k}, \uparrow} \hat{c}_{-k,\downarrow} \rangle 
+\end{align}
+<p>
+&#x4EE3;&#x5165;&#x5177;&#x4F53;&#x7684;&#x5F62;&#x5F0F;&#x5E76;&#x91CD;&#x6574;&#x5316;&#x540E;
+</p>
+\begin{align}
+  \frac{m}{4\pi\hbar^2a_s} = \frac{1}{V}\sum_{\vec{k}} \left( \frac{1}{2\sqrt{(\epsilon_k - \mu)^2 + \Delta^2}} 
+   - \frac{1}{2\epsilon_k} \right)
+\end{align}
+<p>
+&#x901A;&#x8FC7;&#x81EA;&#x6D3D;&#x6C42;&#x89E3;&#x4E0A;&#x5F0F;, &#x6765;&#x786E;&#x5B9A; \(\Delta\) . &#x4E0A;&#x5F0F;&#x79F0;&#x4E3A; gap equation.
+</p>
+
+<p>
+&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x65B9;&#x7A0B;, &#x6765;&#x51B3;&#x5B9A; \(\mu\) &#x591A;&#x5927;. &#x4E4B;&#x524D;&#x662F;&#x5047;&#x8BBE; \(\mu\) &#x5728; \(E_{\mathrm{F}}\) &#x4E0A;, &#x8FD9;&#x662F;&#x5047;&#x8BBE;
+&#x8FD9;&#x4E2A;&#x6001;&#x504F;&#x79BB;&#x8D39;&#x7C73;&#x7403;&#x4E0D;&#x8FDC;. &#x4F46;&#x662F;&#x539F;&#x7406;&#x4E0A;&#x8BB2;, &#x4E5F;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x65B9;&#x7A0B;&#x6765;&#x51B3;&#x5B9A; \(\mu\) &#x6709;&#x591A;&#x5927;. &#x8FD9;&#x5C31;&#x662F;
+number equation
+</p>
+\begin{align}
+  n = \frac{1}{V}\sum_{\vec{k}} |v_{\vec{k}}|^2
+\end{align}
+<p>
+&#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+  \frac{k_{\mathrm{F}}^3}{6\pi} = \frac{1}{V}\sum_{\vec{k}}\frac{1}{2}\left( 
+      \frac{\epsilon_k - \mu}{\sqrt{(\epsilon_k - \mu)^2 + \Delta^2}} \right)
+\end{align}
+<p>
+&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x770B;&#x5230;, \(v_k\) &#x5728;&#x8D39;&#x7C73;&#x9762;&#x4EE5;&#x4E0B;&#x662F;&#x8D8B;&#x4E8E; \(1\) &#x7684;, &#x5728;&#x8D39;&#x7C73;&#x9762;&#x4EE5;&#x4E0A;&#x662F;&#x8D8B;&#x4E8E; \(0\) &#x7684;. &#x628A;&#x5B83;&#x6C42;
+&#x548C;, &#x5C31;&#x5F97;&#x5230;&#x4E86;&#x7C92;&#x5B50;&#x6570;.
+</p>
+
+<p>
+&#x8981;&#x6570;&#x503C;&#x5730;&#x6C42;&#x89E3;&#x8FD9;&#x4E2A;&#x65B9;&#x7A0B;, &#x9996;&#x5148;&#x8981;&#x65E0;&#x91CF;&#x7EB2;&#x5316;, &#x53D6; \(E_{\mathrm{F}}\) (&#x81EA;&#x7531;&#x8D39;&#x7C73;&#x6C14;&#x4F53;&#x7684;) &#x4E3A;&#x5355;&#x4F4D;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgecf4134" class="outline-2">
+<h2 id="orgecf4134">Reference</h2>
+<div class="outline-text-2" id="text-orgecf4134">
+<ul class="org-ul">
+<li>H. Z. &#x7684;&#x8BFE;.</li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/BCS/" rel="tag"># BCS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/27/Matsubara/" rel="next" title="松原频率求和(update 11/Aug/2020)">
+                <i class="fa fa-chevron-left"></i> 松原频率求和(update 11/Aug/2020)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/19/dwaveRF/" rel="prev" title="d-wave (dissuasion)">
+                d-wave (dissuasion) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org06dd88d"><span class="nav-text">Review</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org043b84d"><span class="nav-text">BEC 侧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orga03517e"><span class="nav-text">BCS 侧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org4687dde"><span class="nav-text">费米面的空间反射对称性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org641a972"><span class="nav-text">Pairing Symmetry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org1662cae"><span class="nav-text">Reconstruction of Fermi Surface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org18b0f26"><span class="nav-text">Bound State and Momentum Space Pairing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd28847b"><span class="nav-text">Crossover</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orge8a622a"><span class="nav-text">Gap Equation and Number Equation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgecf4134"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

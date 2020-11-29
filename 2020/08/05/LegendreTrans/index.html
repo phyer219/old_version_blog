@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="数学,物理,Legendre Transformation,Classical Mechanics,Statistical Mechanics">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Legendre Transform">
+<meta property="og:url" content="https://zqw.ink/2020/08/05/LegendreTrans/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:49.113Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Legendre Transform">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2020/08/05/LegendreTrans/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Legendre Transform | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2020/08/05/LegendreTrans/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Legendre Transform
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-08-05 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-05T00:00:00+08:00">2020-08-05</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/08/05/LegendreTrans/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/08/05/LegendreTrans/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-org473353e" class="outline-2">
+<h2 id="org473353e">Intro</h2>
+<div class="outline-text-2" id="text-org473353e">
+<p>
+&#x591A;&#x6B21;&#x770B;&#x5230;&#x8FC7; Legendre transform &#x8FD9;&#x4E2A;&#x540D;&#x8BCD;.
+</p>
+
+<p>
+Reference [Am. J. Phys. 77 (7), July 2009] &#x975E;&#x5E38;&#x8BE6;&#x7EC6;&#x6E05;&#x6670;&#x53CB;&#x597D;&#x5730;&#x89E3;&#x7B54;&#x4E86;&#x6211;&#x5FC3;&#x4E2D;&#x7684;&#x5404;&#x79CD;
+&#x7591;&#x60D1;, &#x73B0;&#x5C06;&#x5B83;&#x505A;&#x4E00;&#x4E2A;&#x6574;&#x7406;.
+</p>
+
+<p>
+&#x5B83;&#x5728;&#x5F00;&#x5934;&#x8BF4;&#x9053;:
+</p>
+
+<blockquote>
+<p>
+The Legendre transform is a powerful tool in theoretical physics and plays an
+important role in classical mechanics, statistical mechanics, and
+thermodynamics. 
+</p>
+
+<p>
+Legendre transform &#x5728;&#x7406;&#x8BBA;&#x7269;&#x7406;&#x9886;&#x57DF;&#x662F;&#x4E00;&#x4E2A;&#x5F3A;&#x6709;&#x7528;&#x7684;&#x5DE5;&#x5177;, &#x5728;&#x7ECF;&#x5178;&#x529B;&#x5B66;, &#x7EDF;&#x8BA1;&#x529B;&#x5B66;, &#x4EE5;&#x53CA;
+&#x70ED;&#x529B;&#x5B66;&#x4E2D;&#x53D1;&#x6325;&#x4E86;&#x7684;&#x4F5C;&#x7528;.
+</p>
+</blockquote>
+
+<p>
+&#x8FDB;&#x884C; Legendre transform &#x4E4B;&#x540E;, &#x76F8;&#x5F53;&#x4E8E;&#x662F;&#x76F8;&#x540C;&#x7684;&#x4FE1;&#x606F;, &#x7528;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x5C55;&#x793A;
+(display).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgafb8f20" class="outline-2">
+<h2 id="orgafb8f20">Definition</h2>
+<div class="outline-text-2" id="text-orgafb8f20">
+<p>
+&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x51FD;&#x6570; \(F(x)\) &#x5982;&#x679C;&#x5B83;&#x6EE1;&#x8DB3;
+</p>
+
+<ol class="org-ol">
+<li>&#x662F;&#x4E00;&#x4E2A;&#x51F8;(conves)&#x51FD;&#x6570;, &#x4E5F;&#x5C31;&#x662F;&#x50CF; \(y=x^2\) &#x8FD9;&#x79CD;&#x4E8C;&#x9636;&#x5BFC;&#x6570;&#x6052;&#x6B63;&#x7684;&#x51FD;&#x6570;. &#x5E76;&#x4E14;&#x662F;&#x5149;&#x6ED1;&#x7684;&#x51FD;
+&#x6570;.</li>
+
+<li>\(F\) &#x7684;&#x5BFC;&#x6570;, &#x6BD4; \(x\) &#x672C;&#x8EAB;, &#x66F4;&#x52A0;&#x5BB9;&#x6613;&#x53BB;&#x6D4B;&#x91CF;, &#x63A7;&#x5236;&#x6216;&#x8005;&#x8003;&#x8651;.</li>
+</ol>
+
+<p>
+&#x90A3;&#x4E48;&#x5BF9;&#x5B83; Legendre transform &#x66F4;&#x52A0;&#x65B9;&#x4FBF;.
+</p>
+
+
+<p>
+&#x5BF9;&#x4E8E;&#x51FD;&#x6570; \(F(x)\) &#x5B83;&#x7684;&#x659C;&#x7387;
+</p>
+\begin{align}
+  s(x) \equiv \frac{\mathrm{d}F(x)}{\mathrm{d}x}
+\end{align}
+<p>
+\(s(x)\) &#x662F;&#x4E00;&#x4E2A;&#x5355;&#x8C03;&#x51FD;&#x6570;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4; \(s\) &#x548C; \(x\) &#x662F;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#x7684;. &#x90A3;&#x4E48;, &#x5C31;&#x53EF;&#x4EE5;&#x5C06; \(s\) &#x505A;&#x4E3A;
+&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x53D8;&#x91CF;&#x6765;&#x4EE3;&#x66FF; \(x\), &#x5373;
+</p>
+\begin{align}
+  F(x(s))
+\end{align}
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6211;&#x4EEC;&#x7528;&#x4E86; \(F\) &#x7684;&#x5BFC;&#x6570;, &#x800C;&#x4E0D;&#x662F; \(x\) &#x672C;&#x8EAB;&#x6765;&#x63CF;&#x8FF0;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5173;&#x7CFB;.
+</p>
+
+<p>
+&#x8FD9;&#x4E2A;&#x7528;&#x590D;&#x5408;&#x51FD;&#x6570;&#x7684;&#x65B9;&#x6CD5;, &#x5C06; \(x\) &#x7528; \(F\) &#x7684;&#x5BFC;&#x6570;, &#x5373; \(s\) &#x505A;&#x4E86;&#x66FF;&#x6362;. &#x8FD9;&#x662F;&#x6700;&#x5BB9;&#x6613;&#x60F3;&#x5230;&#x7684;.
+&#x800C; Legendre transform &#x63D0;&#x4F9B;&#x4E86;&#x53E6;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;, &#x5B9A;&#x4E49; \(F(x)\) &#x7684; Legendre transform \(G(s)\)
+&#x4E3A;
+</p>
+\begin{align}
+  G(s) \equiv s x(s) - F(x(s))
+\end{align}
+<p>
+&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x4E0A;&#x5F0F;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x53D8;&#x91CF; \(s\) . Legendre transform &#x7684;&#x597D;&#x5904;&#x662F;, \(G(s)\) &#x548C;
+\(F(x)\) &#x4E00;&#x79CD;&#x5BF9;&#x79F0;&#x7684;&#x7684;&#x5173;&#x7CFB;(&#x6B64;&#x5916; Reference [Am. J. Phys. 77 (7), July 2009] &#x7ED9;&#x51FA;&#x4E00;&#x4E00;
+&#x79CD;&#x51E0;&#x4F55;&#x4E0A;&#x7684;&#x76F4;&#x89C2;&#x7406;&#x89E3;) &#x4EE5;&#x53CA;&#x4E00;&#x4E9B;&#x5176;&#x5B83;&#x7684;&#x6027;&#x8D28;. &#x8FD9;&#x4F53;&#x73B0;&#x5728;
+</p>
+
+<ul class="org-ul">
+<li></li>
+</ul>
+\begin{align}
+  x(s) = \frac{\mathrm{d}G}{\mathrm{d}s} \\
+  s(x) = \frac{\mathrm{d}F}{\mathrm{d}x}
+\end{align} 
+
+<ul class="org-ul">
+<li>Legendre &#x53D8;&#x6362;&#x7684;&#x9006;&#x53D8;&#x6362;&#x662F;&#x5B83;&#x672C;&#x8EAB;. &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x7ECF;&#x8FC7;&#x4E24;&#x6B21; Legendre &#x53D8;&#x6362;&#x540E;, &#x56DE;&#x5230;&#x51FD;&#x6570;&#x672C;&#x8EAB;.
+&#x5F62;&#x5F0F;&#x4E0A;&#x5C06;&#x8FD9;&#x79CD;&#x5173;&#x7CFB;&#x8868;&#x793A;&#x4E3A;</li>
+</ul>
+\begin{align}
+ \{F, x\} \Leftrightarrow \{G, s\} \\
+  G(s) + f(x) = sx
+\end{align}
+<p>
+&#x8981;&#x6CE8;&#x610F;&#x72EC;&#x7ACB;&#x53D8;&#x91CF;&#x53EA;&#x6709;&#x4E00;&#x4E2A;, \(s, x\) &#x5E76;&#x4E0D;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;.
+</p>
+
+<ul class="org-ul">
+<li>&#x5B83;&#x4EEC;&#x7684;&#x6781;&#x503C;</li>
+</ul>
+\begin{align}
+  F_{\mathrm{min}} = -G(0) \\
+  G_{\mathrm{min}} = -F(0)
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org30f6600" class="outline-2">
+<h2 id="org30f6600">Examples</h2>
+<div class="outline-text-2" id="text-org30f6600">
+</div>
+<div id="outline-container-org5c5cc14" class="outline-3">
+<h3 id="org5c5cc14">Lagrangian to Hamiltonian</h3>
+</div>
+
+<div id="outline-container-org36549e7" class="outline-3">
+<h3 id="org36549e7">In Statistical Thermodynamics</h3>
+</div>
+</div>
+
+<div id="outline-container-org5b39315" class="outline-2">
+<h2 id="org5b39315">Reference</h2>
+<div class="outline-text-2" id="text-org5b39315">
+<ul class="org-ul">
+<li>Herbert Goldstein Charles P. Poole John Safko - Classical Mechanics</li>
+
+<li>Making sense of the Legendre transform, Am. J. Phys. 77 (7), July 2009
+(arXiv:0806.1147v2  [physics.ed-ph]  4 Mar 2009)</li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/Legendre-Transformation/" rel="tag"># Legendre Transformation</a>
+          
+            <a href="/tags/Classical-Mechanics/" rel="tag"># Classical Mechanics</a>
+          
+            <a href="/tags/Statistical-Mechanics/" rel="tag"># Statistical Mechanics</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/28/wakatime/" rel="next" title="坎坷的 wakatime-mode">
+                <i class="fa fa-chevron-left"></i> 坎坷的 wakatime-mode
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/09/07/summary_grade_3_2/" rel="prev" title="研三下学期总结">
+                研三下学期总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org473353e"><span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgafb8f20"><span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org30f6600"><span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org5c5cc14"><span class="nav-text">Lagrangian to Hamiltonian</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org36549e7"><span class="nav-text">In Statistical Thermodynamics</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org5b39315"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

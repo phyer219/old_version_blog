@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="积分,数值计算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数值积分遇到的一个坑">
+<meta property="og:url" content="https://zqw.ink/2020/03/19/Angle_Integration/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2020/03/19/Angle_Integration/Integration.png">
+<meta property="og:updated_time" content="2020-11-29T02:17:49.110Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数值积分遇到的一个坑">
+<meta name="twitter:image" content="https://zqw.ink/2020/03/19/Angle_Integration/Integration.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2020/03/19/Angle_Integration/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>数值积分遇到的一个坑 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2020/03/19/Angle_Integration/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数值积分遇到的一个坑
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-19 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-19T00:00:00+08:00">2020-03-19</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/19/Angle_Integration/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/03/19/Angle_Integration/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <!-- toc -->
+<a id="more"></a>
+<h1 id="问题积分"><a href="#问题积分" class="headerlink" title="问题积分"></a>问题积分</h1><script type="math/tex; mode=display">
+\begin{align}
+I(\Omega) =& \frac{1}{2\pi}\int_0^{\infty}\mathrm{d}^3\vec{q}\cdot
+        \mathrm{Im} \left[\frac{1}{q^2-16q\cos\theta+2(\Omega+14)+\mathrm{i}0^+}\right]\\
+        =& \frac{1}{2\pi}\int_0^{\infty}\mathrm{d}q
+                         \int_0^{\pi}\mathrm{d}\theta
+                         \int_0^{2\pi}\mathrm{d}\phi \cdot
+        \mathrm{Im} \left[\frac{q^2\sin\theta}
+                 {q^2-16q\cos\theta+2(\Omega+14)+\mathrm{i}0^+}\right]\\
+    =&\int_0^{\infty}\mathrm{d}q\int_{-1}^1\mathrm{d}x \cdot\mathrm{Im}\left[ 
+    \frac{q^2}{q^2-16qx+2(\Omega+14)+\mathrm{i}0^+}
+  \right]
+\end{align}</script><h1 id="全部解析地积-先积-x-再积-q"><a href="#全部解析地积-先积-x-再积-q" class="headerlink" title="全部解析地积: 先积 $x$ 再积 $q$"></a>全部解析地积: 先积 $x$ 再积 $q$</h1><script type="math/tex; mode=display">
+\begin{align}
+I(\Omega) =&\int_0^{\infty}\mathrm{d}q \cdot \frac{q}{16}\mathrm{Im}\left[
+   \ln\left(q^2+16q+2(\Omega+14)+\mathrm{i}0^+\right)
+  -\ln\left(q^2-16q+2(\Omega+14)+\mathrm{i}0^+\right)
+    \right] \\
+    =& -\pi \theta(18-\Omega)\sqrt{2(18-\Omega)}
+\end{align}</script><h1 id="全部解析地积-先积-q-对积-x"><a href="#全部解析地积-先积-q-对积-x" class="headerlink" title="全部解析地积: 先积 $q$ 对积 $x$"></a>全部解析地积: 先积 $q$ 对积 $x$</h1><script type="math/tex; mode=display">
+\begin{align}
+I(\Omega) =&-\pi\int_{-1}^1\mathrm{d}x \int_0^{\infty}\mathrm{d}q\cdot 
+    q^2\frac{\delta(q-q^+)+\delta(q-q^-)}{|q^+-q^-|}\\
+    =&-\pi\left[\int_{-1}^1\mathrm{d}x \cdot\frac{\theta(-\Omega-14)q^{+2}}{|q^+-q^-|}
+      +\int_\sqrt{\frac{\Omega+14}{32}}^1\mathrm{d}x\cdot 
+                 \frac{\theta(\Omega+14)\theta(18-\Omega)
+                \left( q^{+2}+q^{-2} \right)}{|q^+-q^-|}\right]\\
+    =& -\pi\theta(18-\Omega)\sqrt{2(18-\Omega)}
+\end{align}</script><h1 id="解析积-q-数值积-x"><a href="#解析积-q-数值积-x" class="headerlink" title="解析积 $q$ , 数值积 $x$"></a>解析积 $q$ , 数值积 $x$</h1><script type="math/tex; mode=display">
+\begin{align}
+I(\Omega) =&-\pi\int_{-1}^1\mathrm{d}x \int_0^{\infty}\mathrm{d}q\cdot 
+    q^2\frac{\delta(q-q^+)+\delta(q-q^-)}{|q^+-q^-|}\\
+        =&\int_0^{\infty}\mathrm{d}q\int_{-1}^1\mathrm{d}x \cdot\mathrm{Im}\left[ 
+    \frac{q^2}{q^2-16qx+2(\Omega+14)+\mathrm{i}0^+}
+  \right](通否化成 q 复平面上的积分?)\\
+    =&-\pi\left[\int_{-1}^1\mathrm{d}x \cdot\frac{\theta(-\Omega-14)q^{+2}}{|q^+-q^-|}
+      +\int_\sqrt{\frac{\Omega+14}{32}}^1\mathrm{d}x\cdot 
+                 \frac{\theta(\Omega+14)\theta(18-\Omega)
+                \left( q^{+2}+q^{-2} \right)}{|q^+-q^-|}\right]
+\end{align}</script><p>其中</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\Delta =& (16x)^2-8(\Omega+14) \\
+q^{\pm} =& \frac{16x \pm\sqrt{\Delta}}{2}
+\end{align}</script><p>而</p>
+<script type="math/tex; mode=display">
+|q^+ - q^-| = \sqrt{\Delta}</script><script type="math/tex; mode=display">
+\begin{align}
+\int_{-1}^{1}\mathrm{d}x\cdot\frac{q^{+2}}{|q^+-q^-|} 
+  =& \frac{1}{4}\int_{-1}^{1}\mathrm{d}x\cdot\left(32x + \sqrt{\Delta}+\frac{(16x)^2}{\sqrt{\Delta}}\right) \\
+  =& \frac{1}{4}\int_{-1}^{1}\mathrm{d}x\cdot\left(32x + \sqrt{(16x)^2-8(\Omega+14)}+
+         \frac{(16x)^2}{\sqrt{(16x)^2-8(\Omega+14)}}\right)
+\end{align}</script><script type="math/tex; mode=display">
+\begin{align}
+\int_\sqrt{\frac{\Omega+14}{32}}^1\mathrm{d}x\cdot\frac{q^{+2}+q^{-2}}{|q^+-q^-|} 
+  =& \frac{1}{2}\int_\sqrt{\frac{\Omega+14}{32}}^1\mathrm{d}x\cdot\frac{(16x)^2+ \Delta}{\sqrt{\Delta}} \\
+  =& \frac{1}{2}\int_\sqrt{\frac{\Omega+14}{32}}^1\mathrm{d}x\cdot\left[\frac{(16x)^2}{\sqrt{\Delta}} +\sqrt{\Delta}\right] \\
+ =& \frac{1}{2}\int_\sqrt{\frac{\Omega+14}{32}}^1\mathrm{d}x\cdot\left[\frac{(16x)^2}{\sqrt{(16x)^2-8(\Omega+14)}} +\sqrt{(16x)^2-8(\Omega+14)}\right]
+\end{align}</script><p>上面这两个积分, 想通过数值计算. 值得注意的是, 被积函数在积分下限处发散, 但是 $\mathcal{O}\left(x^{-\frac{1}{2}}\right)$ 形式的发散, 积分结果并不发散. 比如当 $\Omega=-6$ 时</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\int_\sqrt{\frac{\Omega+14}{32}}^1\mathrm{d}x\cdot\frac{q^{+2}+q^{-2}}{|q^+-q^-|} 
+ =& \frac{1}{2}\int_\sqrt{\frac{\Omega+14}{32}}^1\mathrm{d}x\cdot\left[\frac{(16x)^2}{\sqrt{(16x)^2-8(\Omega+14)}} +\sqrt{(16x)^2-8(\Omega+14)}\right] \\
+  =& \frac{1}{2}\int_\frac{1}{2}^1\mathrm{d}x\cdot\left[\frac{(16x)^2}{\sqrt{(16x)^2-64}} +\sqrt{(16x)^2-64}\right]
+\end{align}</script><h1 id="普遍情况"><a href="#普遍情况" class="headerlink" title="普遍情况"></a>普遍情况</h1><p>积分</p>
+<script type="math/tex; mode=display">
+I(B,C,x) = \int_{0}^{\infty}\mathrm{d}q\cdot \mathrm{Im}\left[ 
+        \frac{q^2f(q)}{q^2 - qBx+C+\mathrm{i}0^+}\right] 
+        ,\quad \mathrm{for} \,\, x\in[-1,1],B>0</script><p>分母中关于 $q$ 的二次函数的根的判别式</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\Delta =& (Bx)^2 -4C \\
+\Delta >& 0 \Rightarrow  C<\frac{(Bx)^2}{4} \\
+\end{align}</script><p>只有 $\Delta&gt;0$ 时, 积分才不为零. 此时分母中关于 $q$ 的二次函数有两个根</p>
+<script type="math/tex; mode=display">
+q^{\pm} = \frac{Bx\pm\sqrt{\Delta}}{2}</script><p>取虚部</p>
+<script type="math/tex; mode=display">
+\begin{align}
+I(B,C,x) =& -\pi\int_0^{\infty}\mathrm{d}q\cdot 
+           q^2f(q)\frac{\delta(q-q^+)+\delta(q-q^+)}{|q^+-q^-|} \\
+         =& -\pi\int_0^{\infty}\mathrm{d}q\cdot 
+           q^2f(q)\frac{\delta(q-q^+)+\delta(q-q^+)}{\sqrt{\Delta}}
+\end{align}</script><p>对 $q$ 的积分范围是 $[0, \infty]$ , 因此 $q^{\pm}&gt;0$ 时, 对应的 Dirac delta 函数才对积分有贡献.</p>
+<p>$q^+&gt;0$ 的条件为</p>
+<ul>
+<li><p>当 $x&gt;0$ 时: $q^+&gt;0$ 恒成立. </p>
+</li>
+<li><p>当 $x &lt; 0$ 时: 若要 $q^+ &gt; 0$ , 应有 $Bx+\sqrt{\Delta}&gt;0 \Rightarrow C&lt;0$ .</p>
+</li>
+</ul>
+<p>$q^-&gt;0$ 的条件为</p>
+<ul>
+<li>当 $x &lt; 0$ 时: $q ^ - &lt; 0$ 恒成立, 即 $q^+ &gt; 0$ 恒不成立.</li>
+<li>当 $x&gt;0$ 时: 若要 $q^-&gt;0$ 应有 $Bx-\sqrt{\Delta}&gt;0 \Rightarrow C&gt;0$ .</li>
+</ul>
+<p>所以对积分有贡献的区域如下图</p>
+<p><img src="/2020/03/19/Angle_Integration/Integration.png" alt="Integration"></p>
+<p>因此, 积分化为</p>
+<script type="math/tex; mode=display">
+\begin{align}
+I(B,C,x) =& -\pi\int_0^{\infty}\mathrm{d}q\cdot 
+           q^2f(q)\frac{\delta(q-q^+)+\delta(q-q^+)}{\sqrt{\Delta}} \\
+         =& -\pi \left[ \theta(-C)\frac{f(q^+)q^{+2}}{\sqrt{\Delta}}
+            + \theta(C)\theta\left(\frac{(Bx)^2}{4}-C\right)
+              \theta\left(\sqrt{\frac{4C}{B}}-x\right)
+            \frac{f(q^+)q^{+2}+f(q^-)q^{-2}}{\sqrt{\Delta}}\right]
+\end{align}</script><h1 id="Supplementary"><a href="#Supplementary" class="headerlink" title="Supplementary"></a>Supplementary</h1><h2 id="先积-x-再积-q-的详细过程"><a href="#先积-x-再积-q-的详细过程" class="headerlink" title="先积 $x$ 再积 $q$ 的详细过程"></a>先积 $x$ 再积 $q$ 的详细过程</h2><script type="math/tex; mode=display">
+ \begin{align}I(\Omega) =&\int_0^{\infty}\mathrm{d}q \cdot \frac{q}{16}\mathrm{Im}\left[   \ln\left(q^2+16q+2(\Omega+14)+\mathrm{i}0^+\right)  -\ln\left(q^2-16q+2(\Omega+14)+\mathrm{i}0^+\right)    \right] \\    =& -\pi \theta(18-\Omega)\sqrt{2(18-\Omega)}\end{align}</script><p>上式中第二个等号的计算细节.</p>
+<p>只有当第一个对数中大于零, 第二个对数中小于零时积分才不为零.</p>
+<p>二次函数根的判别式相同, 为</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\Delta = 16^2-8(\Omega + 14)\\
+\Delta > 0 \Rightarrow \Omega < 18 \\
+\sqrt{\Delta} > 16 \Rightarrow \Omega < 14
+\end{align}</script><p>第一项的根为</p>
+<script type="math/tex; mode=display">
+q^{\pm}= \frac{-16 \pm \sqrt{\Delta}}{2}</script><p>第二项的根为</p>
+<script type="math/tex; mode=display">
+q^{\pm}= \frac{16 \pm \sqrt{\Delta}}{2}</script><p>积分不为零的条件为</p>
+<script type="math/tex; mode=display">
+\begin{align}
+0<\frac{\sqrt{\Delta}-16}{2}<q<\frac{\sqrt{\Delta}+16}{2},\quad \mathrm{if}\quad \sqrt{\Delta}>14 \\
+0<\frac{16-\sqrt{\Delta}}{2}<q<\frac{16+\sqrt{\Delta}}{2},\quad \mathrm{if}\quad \sqrt{\Delta}<14
+\end{align}</script><p>所以积分结果为</p>
+<script type="math/tex; mode=display">
+\begin{align}
+I(\Omega) =& -\pi\left[ 
+\theta(14-\Omega)\left.\frac{q^2}{32}\right|_{q=\frac{\sqrt{\Delta}-16}{2}}^{q=\frac{\sqrt{\Delta}+16}{2}}
++\theta(\Omega-14)\theta(18-\Omega)\left.\frac{q^2}{32}\right|_{q=\frac{16-\sqrt{\Delta}}{2}}^{q =\frac{16+\sqrt{\Delta}}{2}}
+\right]\\
+=&-\pi \theta(18-\Omega)\frac{\sqrt{\Delta}}{2} \\
+=& -\pi \theta(18-\Omega)\sqrt{2(18-\Omega)}
+\end{align}</script><h2 id="先积-q-再积-x-的详细过程"><a href="#先积-q-再积-x-的详细过程" class="headerlink" title="先积 $q$ 再积 $x$ 的详细过程"></a>先积 $q$ 再积 $x$ 的详细过程</h2><script type="math/tex; mode=display">
+\begin{align}
+I(\Omega) =&-\pi\int_{-1}^1\mathrm{d}x \int_0^{\infty}\mathrm{d}q\cdot 
+    q^2\frac{\delta(q-q^+)+\delta(q-q^-)}{|q^+-q^-|}\\
+        =&-\pi\left[\int_{-1}^1\mathrm{d}x \cdot\frac{\theta(-\Omega-14)q^{+2}}{|q^+-q^-|}
+      +\int_\sqrt{\frac{\Omega+14}{32}}^1\mathrm{d}x\cdot 
+                 \frac{\theta(\Omega+14)\theta(18-\Omega)
+                \left( q^{+2}+q^{-2} \right)}{|q^+-q^-|}\right]\\
+    =& -\pi \left[ \theta(-\Omega-14)\left.\cdot \frac{x}{4}
+         \sqrt{(16x)^2-8(\Omega+14)}\right|_{x=-1}^{x=1}   \\
+       +\left.\theta(\Omega+14)\theta(18-\Omega)\cdot \frac{x}{2}
+         \sqrt{(16x)^2-8(\Omega+14)}\right|_{x=\sqrt{\frac{\Omega+14}{32}}}^{x=1}
+    \right]\\
+    =& -\pi \left[ \theta(-\Omega-14)\left.\cdot \frac{x}{2}
+         \sqrt{(16x)^2-8(\Omega+14)}\right|_{x=0}^{x=1}   \\
+       +\left.\theta(\Omega+14)\theta(18-\Omega)\cdot \frac{x}{2}
+         \sqrt{(16x)^2-8(\Omega+14)}\right|_{x=\sqrt{\frac{\Omega+14}{32}}}^{x=1}
+    \right]\\
+    =& -\pi \left[ \theta(-\Omega-14)\left.\cdot \frac{x}{2}
+         \sqrt{(16x)^2-8(\Omega+14)}\right|_{x=0}^{x=1}   \\
+       +\left.\theta(\Omega+14)\theta(18-\Omega)\cdot \frac{x}{2}
+         \sqrt{(16x)^2-8(\Omega+14)}\right|_{x=\sqrt{\frac{\Omega+14}{32}}}^{x=1}
+    \right] \\
+    =& -\pi\theta(18-\Omega)\sqrt{2(18-\Omega)}
+\end{align}</script><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>数值积分的时候, 注意某个点发散但积分不发散的情况.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/积分/" rel="tag"># 积分</a>
+          
+            <a href="/tags/数值计算/" rel="tag"># 数值计算</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/18/OpticsTA/" rel="next" title="常用光学知识点">
+                <i class="fa fa-chevron-left"></i> 常用光学知识点
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/16/TermSymbl/" rel="prev" title="Term Symbol">
+                Term Symbol <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题积分"><span class="nav-text">问题积分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#全部解析地积-先积-x-再积-q"><span class="nav-text">全部解析地积: 先积 $x$ 再积 $q$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#全部解析地积-先积-q-对积-x"><span class="nav-text">全部解析地积: 先积 $q$ 对积 $x$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解析积-q-数值积-x"><span class="nav-text">解析积 $q$ , 数值积 $x$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#普遍情况"><span class="nav-text">普遍情况</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Supplementary"><span class="nav-text">Supplementary</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#先积-x-再积-q-的详细过程"><span class="nav-text">先积 $x$ 再积 $q$ 的详细过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#先积-q-再积-x-的详细过程"><span class="nav-text">先积 $q$ 再积 $x$ 的详细过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

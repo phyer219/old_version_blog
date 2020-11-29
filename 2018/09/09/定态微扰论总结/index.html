@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="物理,高等量子力学,微扰">
+<meta property="og:type" content="article">
+<meta property="og:title" content="定态微扰论总结 (update 18&#x2F;Apr&#x2F;2020)">
+<meta property="og:url" content="https://zqw.ink/2018/09/09/定态微扰论总结/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.846Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="定态微扰论总结 (update 18&#x2F;Apr&#x2F;2020)">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2018/09/09/定态微扰论总结/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>定态微扰论总结 (update 18/Apr/2020) | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2018/09/09/定态微扰论总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">定态微扰论总结 (update 18/Apr/2020)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-09 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-09T00:00:00+08:00">2018-09-09</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/09/定态微扰论总结/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/09/09/定态微扰论总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-org36b1628" class="outline-2">
+<h2 id="org36b1628">Statement of the Problem</h2>
+<div class="outline-text-2" id="text-org36b1628">
+<p>
+&#x5DF2;&#x77E5; \(H_0\) &#x7684;&#x7CBE;&#x786E;&#x89E3;&#xFF1A;
+</p>
+\begin{align*}
+H_0 \mid n^{(0)} \rangle = E_n^{(0)} \mid n^{(0)} \rangle
+\end{align*}
+
+<p>
+\(\{ \mid n^{(0)} \rangle\}\) &#x662F;&#x4E00;&#x7EC4;&#x5B8C;&#x5907;&#x57FA;&#xFF0C;&#x4E5F;&#x5C31;&#x662F; \(1 = \sum_n \mid n^{(0)} \rangle \langle n^{(0)} \mid\) &#xFF1B;
+</p>
+
+<p>
+&#x6C42;&#x89E3;&#xFF1A;
+</p>
+\begin{align*}
+(H_0 + \lambda V) \mid n \rangle = E_n \mid n \rangle \tag{1}
+\end{align*}
+
+<p>
+\(\mid n \rangle\) &#x548C; \(E_n\) &#x90FD;&#x662F; \(\lambda\) &#x7684;&#x8FDE;&#x7EED;&#x51FD;&#x6570;&#x3002;
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb2fc62d" class="outline-2">
+<h2 id="orgb2fc62d">&#x6838;&#x5FC3;&#x601D;&#x8DEF;</h2>
+<div class="outline-text-2" id="text-orgb2fc62d">
+<p>
+&#x5FAE;&#x6270;&#x7684;&#x6838;&#x5FC3;&#xFF0C;&#x628A;&#x672C;&#x5F81;&#x6001;&#x548C;&#x672C;&#x5F81;&#x80FD;&#x91CF;&#x6309; \(\lambda\) &#x7EA7;&#x6570;&#x5C55;&#x5F00;&#xFF1A;
+</p>
+\begin{align*}
+\mid n \rangle = \mid n^{(0)} \rangle +\lambda \mid n^{(1)} \rangle + \lambda^2 \mid n^{(2)} \rangle+\cdots
+\end{align*}
+
+\begin{align*}
+E_n = E_n^{(0)} +\lambda E_n^{(1)} +\lambda^2 E_n^{(2)} + \cdots
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orga8dc38b" class="outline-2">
+<h2 id="orga8dc38b">&#x672C;&#x5F81;&#x80FD;&#x91CF;&#x4FEE;&#x6B63;</h2>
+<div class="outline-text-2" id="text-orga8dc38b">
+<p>
+&#x4ECE;&#x859B;&#x5B9A;&#x8C14;&#x65B9;&#x7A0B;&#x5165;&#x624B;&#x8003;&#x8651;
+</p>
+\begin{align*}
+(H_0 + \lambda V) \mid n \rangle = E_n \mid n \rangle
+\tag{1}
+\end{align*}
+<p>
+&#x57FA;&#x672C;&#x601D;&#x662F;&#x628A; \(E_n\) &#x76F4;&#x63A5;&#x5C55;&#x5F00;&#x6210; \(\lambda\) &#x7684;&#x7EA7;&#x6570;&#xFF0C;&#x540C;&#x65F6;&#x628A;&#x859B;&#x5B9A;&#x8C14;&#x65B9;&#x7A0B;&#x4E5F;&#x5C55;&#x5F00;&#x6210; \(\lambda\) &#x7684;&#x7EA7;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x4E8C;&#x8005;&#x5BF9;&#x5E94;&#x76F8;&#x7B49;&#xFF0C;&#x5373;&#x53EF;&#x5F97;&#x51FA; \(\lambda\) &#x7684;&#x7CFB;&#x6570;&#x3002;
+&#x5148;&#x628A;&#x65B9;&#x7A0B; \((1)\) &#x4ECE;&#x4E00;&#x4E2A;&#x5173;&#x4E8E;&#x6001;&#x77E2;&#x7684;&#x65B9;&#x7A0B;&#x53D8;&#x6210;&#x4E00;&#x4E2A;&#x5173;&#x4E8E;&#x6570;&#x7684;&#x65B9;&#x7A0B;&#xFF0C;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x5DE6;&#x4E58;&#x4E00;&#x4E2A;&#x5DE6;&#x77E2;&#x3002;&#x7531;&#x4E8E; \(\langle n^{(0)} \mid\) &#x662F; \(H_0\) &#x7684;&#x672C;&#x5F81;&#x77E2;&#xFF0C;&#x6240;&#x4EE5;
+&#x5C31;&#x5DE6;&#x4E58;  \(\langle n^{(0)} \mid\) &#x3002;&#x7531;&#x4E8E;&#x4E0D;&#x77E5;&#x9053;&#x7B97;&#x7B26; \(V\) &#x7684;&#x672C;&#x5F81;&#x6001;&#xFF0C;&#x800C;&#x6001;&#x77E2; \(\mid n \rangle\) &#x662F;&#x6700;&#x7EC8;&#x8981;&#x6C42;&#x5F97;&#x7684;&#x91CF;&#xFF0C;&#x53EA;&#x80FD;&#x4FDD;&#x7559;&#x3002;&#x5DE6;&#x4E58;  \(\langle n^{(0)} \mid\) &#x540E;&#x5F97;&#x5230;&#x4EE5;&#x4E0B;&#x65B9;&#x7A0B;&#xFF1A;
+</p>
+\begin{align*}
+  \langle n^{(0)} \mid  (H_0 + \lambda V) \mid n \rangle =&amp; \langle n^{(0)} \mid  E_n \mid n \rangle \\
+  \Downarrow &amp;\\
+  \langle n^{(0)} \mid  \lambda V \mid n \rangle =&amp; \langle n^{(0)} \mid  (E_n- E_n^{(0)}) \mid n \rangle \\
+\end{align*}
+<p>
+&#x8BB0;
+</p>
+\begin{align*}
+\Delta_n \equiv E_n - E_n^{(0)}
+\end{align*}
+<p>
+&#x6C42;&#x5F97; \(\Delta_n\) &#x4E5F;&#x5C31;&#x6C42;&#x5F97;&#x4E86; \(E_n\) &#x3002;&#x5982;&#x679C;&#x5C06;&#x65B0;&#x7684;&#x6CE2;&#x51FD;&#x6570;&#x5F52;&#x4E00;&#x5316;&#x5230; \(\langle n^{(0)} \mid\) &#xFF0C;&#x800C;&#x4E0D;&#x662F; \(\langle n \mid\) &#xFF1A;
+</p>
+\begin{align*}
+\langle n^{(0)} \mid n \rangle = 1
+\end{align*}
+<p>
+&#x80FD;&#x91CF;&#x4FEE;&#x6B63;&#x5C31;&#x4E3A;&#xFF1A;
+\[
+\Delta_n = \lambda\langle n^{(0)} \mid V \mid n \rangle
+\]
+&#x4E5F;&#x5C31;&#x662F; \(V\) &#x5728;&#x5FAE;&#x6270;&#x524D;&#x540E;&#x7684;&#x672C;&#x5F81;&#x6001;&#x4E4B;&#x95F4;&#x7684;&#x8DC3;&#x8FC1;&#x77E9;&#x9635;&#x5143;&#x3002;&#x5C55;&#x5F00;&#x6210; \(\lambda\) &#x7684;&#x7EA7;&#x6570;&#xFF1A;
+\[
+\Delta_n = \Delta_n^{(0)} +\lambda\Delta_n^{(1)}+\lambda^2\Delta_n^{(2)}+\cdots
+= \lambda \langle n^{(0)}\mid V(\mid n^{(0)}\rangle +\lambda \mid n^{(1)}\rangle +\lambda^2\mid n^{(2)}\rangle+\cdots)\\\\
+=\lambda\langle n^{(0)}\mid V\mid n^{(0)}\rangle +\lambda^2\langle n^{(0)}\mid V\mid n^{(1)}\rangle+\cdots
+\]
+&#x5BF9;&#x5E94;&#x7CFB;&#x6570;&#x76F8;&#x7B49;&#x5F97; &#xFF1A;
+\[
+\Delta_n^{(0)} = 0
+\]
+\(\Delta\) &#x7684;&#x96F6;&#x9636;&#x5F53;&#x7136;&#x4E3A; \(0\) &#xFF0C;&#x5FAE;&#x6270;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#x80FD;&#x7EA7;&#x6CA1;&#x6709;&#x79FB;&#x52A8;&#xFF1B;
+\[
+\Delta_n^{(1)} = \langle n^{(0)}\mid V\mid n^{(0)}\rangle
+\]
+&#x4E00;&#x9636;&#x4FEE;&#x6B63;&#x662F; \(V\) &#x5728;&#x65E0;&#x5FAE;&#x6270;&#x7684;&#x672C;&#x5F81;&#x6001;&#x4E4B;&#x95F4;&#x7684;&#x8DC3;&#x8FC1;&#xFF1B;
+\[
+\Delta_n^{(2)} = \langle n^{(0)}\mid V\mid n^{(1)}\rangle
+\]
+&#x4E8C;&#x9636;&#x4FEE;&#x6B63;&#x662F; \(V\) &#x5728;&#x672C;&#x5F81;&#x6001;&#x7684;&#x4E00;&#x9636;&#x5FAE;&#x6270;&#x548C;&#x65E0;&#x5FAE;&#x672C;&#x5F81;&#x6001;&#x4E4B;&#x95F4;&#x7684;&#x8DC3;&#x8FC1;&#xFF1B;
+\[
+\Delta_n^{(3)} = \langle n^{(0)}\mid V\mid n^{(2)}\rangle \\
+\vdots
+\]
+&#x67D0;&#x4E00;&#x9636;&#x80FD;&#x91CF;&#x4FEE;&#x6B63;&#x5BF9; \(V\) &#x5728;&#x5E94;&#x67D0;&#x4E00;&#x9636;&#x672C;&#x5F81;&#x6001;&#x4FEE;&#x6B63;&#x548C;&#x65E0;&#x5FAE;&#x6270;&#x672C;&#x5F81;&#x6001;&#x4E4B;&#x95F4;&#x7684;&#x8DC3;&#x8FC1;&#x77E9;&#x9635;&#x5143;&#x3002;&#x5404;&#x9636;&#x6C42;&#x548C;&#x7684;&#x7ED3;&#x679C;&#x5C31;&#x662F;\(V\) &#x5728;&#x5FAE;&#x6270;&#x524D;&#x540E;&#x7684;&#x672C;&#x5F81;&#x6001;&#x4E4B;&#x95F4;&#x7684;&#x8DC3;&#x8FC1;&#x77E9;&#x9635;&#x5143;&#x3002;
+</p>
+
+<p>
+&#x5176;&#x4E2D;&#x6709;&#x672A;&#x77E5;&#x7684; \(\mid n \rangle\) &#xFF0C;&#x662F;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x6700;&#x7EC8;&#x8981;&#x6C42;&#x5F97;&#x7684;&#x91CF;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x6C42; \(\mid n \rangle\) &#x3002;
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd500baa" class="outline-2">
+<h2 id="orgd500baa">&#x672C;&#x5F81;&#x6001;&#x4FEE;&#x6B63;</h2>
+<div class="outline-text-2" id="text-orgd500baa">
+<p>
+&#x4ECE;&#x859B;&#x5B9A;&#x8C14;&#x65B9;&#x7A0B;&#x5165;&#x624B;&#x8003;&#x8651;
+\[
+(H_0 + \lambda V) \mid n \rangle = E_n \mid n \rangle
+\tag{1}
+\]
+&#x5C06; \((1)\) &#x5F0F;&#x5316;&#x4E3A;
+\[
+(H_0 + \lambda V) \mid n \rangle = (E_n^{(0)} + \Delta_n) \mid n \rangle
+\]
+&#x79FB;&#x9879;&#x5F97;
+\[
+(E_n^{(0)}-H_0)\mid n \rangle = (\lambda V -\Delta_n)\mid n \rangle
+\tag{2}
+\]
+&#x601D;&#x8DEF;&#x4E5F;&#x662F;&#x628A; \(\mid n \rangle\) &#x76F4;&#x63A5;&#x5C55;&#x5F00;&#x6210; \(\lambda\) &#x7684;&#x7EA7;&#x6570;
+</p>
+\begin{align*}
+\mid n \rangle = \mid n^{(0)} \rangle +\lambda \mid n^{(1)} \rangle + \lambda^2 \mid n^{(2)} \rangle+\cdots
+\end{align*}
+<p>
+&#x540C;&#x65F6;&#x628A;&#x859B;&#x5B9A;&#x8C14;&#x65B9;&#x7A0B;&#x4E5F;&#x5C55;&#x5F00;&#x6210; \(\lambda\) &#x7684;&#x7EA7;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x4E8C;&#x8005;&#x5BF9;&#x5E94;&#x76F8;
+&#x7B49;&#xFF0C;&#x5373;&#x53EF;&#x5F97;&#x51FA; \(\lambda\) &#x7684;&#x7CFB;&#x6570;&#x3002;&#x540C;&#x6837;&#xFF0C; \(H_0\) &#x7684;&#x6240;&#x6709;&#x4FE1;&#x606F;&#x90FD;&#x662F;
+&#x5DF2;&#x77E5;&#x7684;&#xFF0C;&#x4E0D;&#x60F3;&#x8BA9;&#x5B83;&#x4F5C;&#x4E3A;&#x7B97;&#x7B26;&#x5B58;&#x5728;&#xFF0C;&#x800C;&#x662F;&#x4EE5;&#x5B83;&#x7684;&#x672C;&#x5F81;&#x503C;&#x7684;&#x5F62;&#x5F0F;&#x5B58;&#x5728;&#x3002;&#x6700;&#x7EC8;&#x5C06;&#x8981;
+&#x6C42;&#x5F97;&#x7684; \(\mid n^{(1)} \rangle\) &#xFF0C; \(\mid n^{(2)} \rangle\) &#x2026;&#x2026;&#x5E94;&#x8BE5;&#x662F;
+&#x5728;&#x57FA;&#x5E95; \(\{\mid n^{(0)}\rangle\}\) &#x4E0B;&#x7684;&#x8868;&#x793A;&#x5F62;&#x5F0F;&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x8981;&#x6C42;&#x5F97;&#x5B83;&#x5728;&#x8FD9;&#x7EC4;&#x57FA;&#x5E95;&#x4E0B;&#x7684;&#x7CFB;&#x6570; \(\langle n&apos;^{(0)}\mid n \rangle\) &#x5373;&#x53EF;&#x3002;&#x6545;
+&#x5C06;&#x65B9;&#x7A0B; \((2)\) &#x5DE6;&#x4E58; \(\langle n&apos;^{(0)} \mid\) &#x662F;&#x6700;&#x4F73;&#x9009;&#x62E9;&#xFF1A;
+</p>
+\begin{align*}
+  \langle n&apos;^{(0)} \mid (E_n^{(0)}-H_0)\mid n \rangle =&amp;\langle n&apos;^{(0)} \mid  (\lambda V -\Delta_n)\mid n \rangle \\
+  \Downarrow &amp; \\
+  (E_n^{(0)}-E_{n&apos;}^{(0)})\langle n&apos;^{(0)} \mid n \rangle =&amp;\langle n&apos;^{(0)} \mid  (\lambda V -\Delta_n)\mid n \rangle \\
+\tag{3}
+\end{align*}
+
+<p>
+&#x53EA;&#x8981;&#x628A; \((E_n^{(0)}-E_{n&apos;}^{(0)})&#x200B;\) &#x79FB;&#x5230;&#x53F3;&#x8FB9;&#xFF0C;&#x5C31;&#x5F97;&#x5230;&#x60F3;&#x8981;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x3002;&#x4F46;&#x662F;&#x79FB;&#x9879;&#x4E4B;&#x524D;&#x5E94;&#x8BE5;&#x8003;&#x8651;&#x8981;&#x662F;&#x5426;&#x4E3A; \(0&#x200B;\) &#x3002;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x6EE1;&#x8DB3;\(E_n^{(0)}\neq E_{n&apos;}^{(0)}&#x200B;\) &#xFF1A;
+</p>
+
+<ul class="org-ul">
+<li>&#x975E;&#x4F53;&#x7CFB;&#x6CA1;&#x6709;&#x7B80;&#x5E76;&#xFF0C;&#x4E14; \(n\neq n&apos;\) &#xFF1B;</li>
+<li>&#x4F53;&#x7CFB;&#x6709;&#x7B80;&#x5E76;&#xFF0C;&#x4F46;&#x662F;&#x5E76;&#x975E; \(n\) &#x548C; \(n&apos;\) &#x90FD;&#x5728;&#x7B80;&#x5E76;&#x7A7A;&#x95F4;</li>
+</ul>
+
+<p>
+&#x4E0B;&#x9762;&#x5206;&#x5F00;&#x8BA8;&#x8BBA;&#x3002;
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb1ab0b9" class="outline-2">
+<h2 id="orgb1ab0b9">&#x975E;&#x7B80;&#x5E76;</h2>
+<div class="outline-text-2" id="text-orgb1ab0b9">
+<p>
+&#x975E;&#x7B80;&#x5E76;&#xFF0C;&#x4E14; \(n\neq n&apos;\) &#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x628A; \((E_n^{(0)}-E_{n&apos;}^{(0)})\) &#x79FB;&#x5230;&#x53F3;&#x8FB9;&#xFF1A;
+\[
+\langle n&apos;^{(0)} \mid n \rangle =\frac{1}{E_n^{(0)}-E_{n&apos;}^{(0)}}\langle n&apos;^{(0)} \mid  (\lambda V -\Delta_n)\mid n \rangle
+\]
+&#x628A;&#x4E0A;&#x8FF0;&#x65B9;&#x7A0B;&#x5C55;&#x5F00;&#x6210; \(\lambda\) &#x7684;&#x7EA7;&#x6570;&#xFF1A;
+\[
+\langle n&apos;^{(0)} \mid( \mid n^{(0)} \rangle +\lambda \mid n^{(1)} \rangle +\cdots)\\\\
+=\frac{1}{E_n^{(0)}-E_{n&apos;}^{(0)}}\langle n&apos;^{(0)} \mid  (\lambda V -\lambda\Delta_n^{(1)}-\cdots)( \mid n^{(0)} \rangle +\lambda \mid n^{(1)} \rangle +\cdots)
+\]
+&#x5BF9;&#x5E94; \(\lambda\) &#x7684;&#x7CFB;&#x6570;&#x76F8;&#x7B49;&#x5F97;&#xFF1A;
+\[
+\langle n&apos;^{(0)}\mid n^{(1)} \rangle
+=\frac{1}{E_n^{(0)}-E_{n&apos;}^{(0)}}\langle n&apos;^{(0)} \mid  (V -\Delta_n^{(1)}) \mid n^{(0)} \rangle
+\]
+&#x7531;&#x4E8E; \(n\neq n&apos;\) &#xFF0C;&#x6240;&#x4EE5; \(\langle n&apos;^{(0)} \mid  \lambda\Delta_n^{(1)}\mid n^{(0)} \rangle=\lambda\Delta_n^{(1)}\langle n&apos;^{(0)} \mid n^{(0)} \rangle=0\) &#xFF0C;&#x6545;&#xFF1A;
+\[
+\langle n&apos;^{(0)}\mid n^{(1)} \rangle
+=\frac{1}{E_n^{(0)}-E_{n&apos;}^{(0)}}\langle n&apos;^{(0)} \mid  V \mid n^{(0)} \rangle
+\]
+&#x90A3;&#x4E48; \(\mid n^{(1)} \rangle\) &#x5C31;&#x662F;&#xFF08;&#x5C06; $ n=n&apos;$ &#x7684;&#x7CFB;&#x6570; \(\langle n^{(0)}\mid n^{(1)} \rangle\) &#x5168;&#x90FD;&#x653E;&#x5230; \(\mid n^{(0)} \rangle\) &#x91CC;&#x9762;&#xFF09;&#xFF1A;
+\[
+\mid n^{(1)}\rangle=\sum_{n&apos;\neq n}\mid n&apos;^{(0)}\rangle\langle n&apos;^{(0)}\mid n^{(1)} \rangle
+=\sum_{n&apos;\neq n}\frac{1}{E_n^{(0)}-E_{n&apos;}^{(0)}}\mid n&apos;^{(0)}\rangle\langle n&apos;^{(0)} \mid  V \mid n^{(0)} \rangle
+\]
+&#x540C;&#x6837;&#x4E5F;&#x53EF;&#x4EE5;&#x5BF9;&#x5E94; \(\lambda^2\) &#xFF0C; \(\lambda^3\) &#x2026;&#x2026;&#x7684;&#x7CFB;&#x6570;&#x76F8;&#x7B49;&#x3002;
+</p>
+</div>
+</div>
+
+<div id="outline-container-org51f7078" class="outline-2">
+<h2 id="org51f7078">&#x7B80;&#x5E76;</h2>
+<div class="outline-text-2" id="text-org51f7078">
+</div>
+<div id="outline-container-org90ccedc" class="outline-3">
+<h3 id="org90ccedc">&#x5E76;&#x975E; \(n\) &#x548C; \(n&apos;\) &#x90FD;&#x5728;&#x7B80;&#x5E76;&#x7A7A;&#x95F4;</h3>
+<div class="outline-text-3" id="text-org90ccedc">
+<p>
+&#x4F53;&#x7CFB;&#x6709;&#x7B80;&#x5E76;&#xFF0C;&#x4F46;&#x662F;&#x5E76;&#x975E; \(n\) &#x548C; \(n&apos;\) &#x90FD;&#x5728;&#x7B80;&#x5E76;&#x7A7A;&#x95F4;&#x65F6;&#xFF0C; \((E_n^{(0)}-E_{n&apos;}^{(0)})\) &#x4E5F;&#x53EF;&#x4EE5;&#x79FB;&#x5230;&#x53F3;&#x8FB9;&#xFF0C;&#x60C5;&#x51B5;&#x4E0E;&#x975E;&#x7B80;&#x5E76;&#x7684;&#x60C5;&#x51B5;&#x5B8C;&#x5168;&#x4E00;&#x6837;&#x3002;
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd24c588" class="outline-3">
+<h3 id="orgd24c588">\(n\) &#x548C; \(n&apos;\) &#x90FD;&#x5728;&#x7B80;&#x5E76;&#x7A7A;&#x95F4;</h3>
+<div class="outline-text-3" id="text-orgd24c588">
+<p>
+&#x4E3A;&#x4E86;&#x4FBF;&#x4E8E;&#x533A;&#x5206;&#xFF0C;&#x5C06;&#x7B80;&#x5E76;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x672C;&#x5F81;&#x6001;&#x7528; \(m\) &#x6807;&#x8BB0;&#xFF0C; \(E_m^{(0)} = E_D^{(0)}\) &#xFF0C;&#x5047;&#x8BBE;&#x7B80;&#x5E76;&#x7A7A;&#x95F4;&#x8BB0;&#x4E3A; \(D\) &#xFF0C;&#x662F; \(g\) &#x91CD;&#x7B80;&#x5E76;&#x7684;&#xFF0C;&#x6295;&#x5F71;
+&#x5230;&#x7B80;&#x5E76;&#x7A7A;&#x95F4;&#x7684;&#x6295;&#x5F71;&#x7B97;&#x7B26;&#x8BB0;&#x4E3A; \(P_D\) &#xFF0C;&#x6295;&#x5F71;&#x5230;&#x975E;&#x7B80;&#x5E76;&#x7A7A;&#x95F4;&#x7684;&#x6295;&#x5F71;&#x7B97;&#x7B26;&#x8BB0;&#x4E3A; \(P_N = 1 - P_D\) &#x3002; \(\mid m_0 \rangle\) &#x662F;&#x53EA;&#x5728;&#x7B80;
+&#x5E76;&#x7A7A;&#x95F4;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5FAE;&#x6270;&#x53D8;&#x6210; \(\mid m \rangle\) &#x540E;&#x63BA;&#x5165;&#x4E86;&#x975E;&#x7B80;&#x5E76;&#x7A7A;&#x95F4;&#x7684;&#x5206;&#x91CF;&#x3002;&#x6240;&#x4EE5; \(\mid m \rangle\) &#x53EF;&#x4EE5;&#x5206;&#x6210;&#x4E24;&#x90E8;&#x5206;&#xFF1A;
+\[
+\mid m \rangle   = P_D \mid m \rangle  + P_N \mid m \rangle
+\]
+&#x56DE;&#x5230;&#x859B;&#x5B9A;&#x8C14;&#x65B9;&#x7A0B; \((3)\) &#xFF1A;
+\[
+\langle m&apos;^{(0)} \mid (E_D^{(0)}-H_0)\mid m \rangle =\langle m&apos;^{(0)} \mid  (\lambda V -\Delta_m)\mid m \rangle
+\]
+</p>
+
+<p>
+\[
+\Downarrow
+\]
+</p>
+
+<p>
+\[
+\langle m&apos;^{(0)} \mid (E_D^{(0)}-E_D^{(0)})\mid m \rangle= 0 =\langle m&apos;^{(0)} \mid  (\lambda V -\Delta_m)\mid m \rangle
+\]
+</p>
+
+<p>
+\[
+\Downarrow
+\]
+</p>
+
+<p>
+\[
+\langle m&apos;^{(0)} \mid  (\lambda V -\Delta_m)\mid m \rangle =0
+\tag{4}
+\]
+</p>
+
+<p>
+&#x8FD9;&#x662F;&#x552F;&#x4E00;&#x7684;&#x51FA;&#x8DEF;&#xFF0C;&#x6240;&#x4EE5;&#x5C06; \((4)&#x200B;\) &#x5F0F;&#x5C55;&#x5F00;&#x6210; \(\lambda&#x200B;\) &#x7684;&#x7EA7;&#x6570;&#xFF1A;
+\[
+\langle m&apos;^{(0)} \mid  (\lambda V -\lambda \Delta_m^{(1)}-\lambda^2 \Delta_m^{(2)}-\cdots)(\mid m^{(0)}\rangle+\lambda \mid m^{(1)}\rangle+\cdots ) =0
+\]
+&#x5BF9;&#x5E94; \(\lambda&#x200B;\) &#x7684;&#x7CFB;&#x6570;&#x76F8;&#x7B49;&#x5F97;&#xFF1A;
+\[
+\langle m&apos;^{(0)} \mid  ( V -\Delta_m)\mid m^{(0)} \rangle =0
+\]
+&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x672C;&#x5F81;&#x503C;&#x95EE;&#x9898;&#xFF0C;&#x7B97;&#x7B26; \(V\) &#x5728;&#x7B80;&#x5E76;&#x7A7A;&#x95F4; \(D\) &#x4E2D;&#x7684;&#x672C;&#x5F81;&#x503C;&#x95EE;&#x9898;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x52A0;&#x5165;&#x5FAE;&#x6270;&#x4EE5;&#x540E;&#x7684;&#x96F6;&#x7EA7;&#x672C;
+&#x5F81;&#x6001;&#x5E94;&#x8BE5;&#x6EE1;&#x8DB3;&#x4E0A;&#x5F0F;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7B80;&#x5E76;&#x7A7A;&#x95F4;&#x4E2D;&#x4EFB;&#x610F;&#x7684;&#x4E00;&#x7EC4;&#x57FA;&#x5E95;&#x90FD;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x96F6;&#x7EA7;&#x672C;&#x5F81;&#x6001;&#x8FDB;&#x884C;&#x5FAE;&#x6270;&#x8BA1;&#x7B97;&#x3002;&#x8BB0;&#x6EE1;&#x8DB3;&#x4E0A;&#x8FF0;&#x65B9;&#x7A0B;&#x7684;&#x57FA;&#x5E95;&#x4E3A; \(\{\mid l^{0)}\rangle\}\) &#xFF0C;&#x5373;
+\[
+\langle l&apos;^{(0)} \mid V \mid l^{(0)}\rangle = v_i\delta_{l,l&apos;}
+\]
+&#x5176;&#x4E2D; \(v_i\) &#x4E3A; \(V\) &#x5728;&#x7B80;&#x5E76;&#x7A7A;&#x95F4;&#x4E2D;&#x89E3;&#x5F97;&#x7684;&#x672C;&#x5F81;&#x503C;&#x3002;&#x518D;&#x770B; \(\lambda ^2\) &#x5BF9;&#x5E94;&#x7684;&#x7CFB;&#x6570;&#x76F8;&#x7B49;&#x5F97;&#xFF08;&#x8FD9;&#x65F6;&#x5DF2;&#x7ECF;&#x6362;&#x5230;&#x65B0;&#x7684;&#x57FA;&#x5E95;&#x4E86;&#xFF09;&#xFF1A;
+\[
+\langle l&apos;^{(0)}\mid(V - \Delta_l^{(1)}) \mid l^{(1)}\rangle -\langle l&apos;^{(0)}\mid\Delta_l^{(2)} \mid l^{(0)}\rangle=0
+\]
+&#x800C; \(\langle l&apos;^{(0)}\mid\Delta_D^{(2)}\mid l^{(0)}\rangle=\Delta_D^{(2)}\langle l&apos;^{(0)}\mid l^{(0)}\rangle=0\) &#xFF0C;&#x6240;&#x4EE5;
+\[
+\langle l&apos;^{(0)}\mid(V - \Delta_l^{(1)}) \mid l^{(1)}\rangle =0
+\]
+\(l^{(1)}\) &#x4E2D;&#x5728;&#x975E;&#x7B80;&#x5E76;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x5206;&#x91CF;&#x5DF2;&#x7ECF;&#x77E5;&#x9053;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x5C06; \(\mid l^{(1)} \rangle\) &#x5206;&#x6210;&#x4E24;&#x90E8;&#x5206;&#xFF1A;
+\[
+\mid l^{(1)} \rangle   = P_D \mid l^{(1)} \rangle  + P_N \mid l^{(1)} \rangle
+\]
+&#x6240;&#x4EE5;
+\[
+\langle l&apos;^{(0)}\mid(V - \Delta_l^{(1)}) P_D\mid l^{(1)}\rangle + \langle l&apos;^{(0)}\mid(V - \Delta_l^{(1)}) P_N\mid l^{(1)}\rangle =0
+\]
+</p>
+
+
+<p>
+&#x5176;&#x4E2D; \(P_N \mid l^{(1)} \rangle\) &#x4E3A;&#x60C5;&#x51B5;&#x201C;&#x5E76;&#x975E; \(n\) &#x548C; \(n&apos;\) &#x90FD;&#x5728;&#x7B80;&#x5E76;&#x7A7A;&#x95F4;&#x201D;&#x4E2D;&#x5DF2;&#x77E5;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x800C;
+\[
+\langle l&apos;^{(0)}\mid V  P_D\mid l^{(1)}\rangle =\langle l&apos;^{(0)}\mid V  \sum_l \mid l^{(0)}\rangle\langle l^{(0)}\mid l^{(1)}\rangle=  v_{l&apos;}\langle l&apos;^{(0)}\mid  \sum_{l&apos;&apos;} \mid l&apos;&apos;^{(0)}\rangle\langle l&apos;&apos;^{(0)}\mid l^{(1)}\rangle=v_{l&apos;}\langle l&apos;^{(0)}\mid l^{(1)}\rangle
+\]
+</p>
+
+<p>
+\[
+\langle l&apos;^{(0)}\mid \Delta_l^{(1)} P_N\mid l^{(1)}\rangle =\Delta_l^{(1)} \langle l&apos;^{(0)}\mid P_N\mid l^{(1)}\rangle=0
+\]
+</p>
+
+<p>
+&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x6C42;&#x5F97;
+\[
+(v_{l&apos;}-\Delta_l^{(1)})\langle l&apos;^{(0)}\mid l^{(1)}\rangle = \langle l&apos;^{(0)}\mid V  P_N\mid l^{(1)}\rangle
+\]
+</p>
+
+<p>
+\[
+\Downarrow
+\]
+</p>
+
+<p>
+\[
+\langle l&apos;^{(0)}\mid l^{(1)}\rangle =\frac{1}{v_{l&apos;}-\Delta_l^{(1)}}\langle l&apos;^{(0)}\mid V  P_N\mid l^{(1)}\rangle
+\]
+</p>
+
+<p>
+&#x5176;&#x4E2D; \(P_N \mid l^{(1)} \rangle\) &#x4E3A;&#xFF1A;
+\[
+P_N \mid l^{(1)} \rangle = \sum_{n\notin D} \mid n^{(0)} \rangle\langle n^{(0)}\mid l^{(1)}\rangle =\sum_{n\notin D} \mid n^{(0)} \rangle \frac{1}{E_D^{(0)}-E_{n}^{(0)}}\langle n^{(0)} \mid  V \mid l^{(0)} \rangle
+\]
+&#x7531;&#x4E8E; \(\Delta_l^{(1)} = v_l\) &#xFF0C;&#x6700;&#x7EC8;&#x53EF;&#x6C42;&#x5F97;
+\[
+\langle l&apos;^{(0)}\mid l^{(1)}\rangle =\frac{1}{v_{l&apos;}-v_l}\langle l&apos;^{(0)}\mid V  \sum_{n\notin D} \mid n^{(0)} \rangle \frac{1}{E_D^{(0)}-E_{n}^{(0)}}\langle n^{(0)} \mid  V \mid l^{(0)} \rangle
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc2051e7" class="outline-2">
+<h2 id="orgc2051e7">&#x603B;&#x7ED3;</h2>
+<div class="outline-text-2" id="text-orgc2051e7">
+<p>
+&#x5DF2;&#x77E5; \(H_0\) &#x7684;&#x7CBE;&#x786E;&#x89E3;&#xFF1A;
+\[
+H_0 \mid n^{(0)} \rangle = E_n^{(0)} \mid n^{(0)} \rangle
+\]
+&#x6C42;&#x89E3;&#xFF1A;
+\[
+(H_0 + V) \mid n \rangle = E_n \mid n \rangle
+\]
+</p>
+</div>
+
+<div id="outline-container-org018a814" class="outline-3">
+<h3 id="org018a814">&#x5BF9;&#x4E8E;&#x975E;&#x7B80;&#x5E76;&#x6216; \(\mid n \rangle\) &#x4E0D;&#x5728;&#x7B80;&#x5E76;&#x7A7A;&#x95F4;&#x65F6;</h3>
+<div class="outline-text-3" id="text-org018a814">
+<p>
+&#x65B0;&#x7684;&#x672C;&#x5F81;&#x80FD;&#x91CF;&#x4E3A;&#xFF1A;
+\[
+E_n = E_n^{(0)} + \langle n^{(0)}\mid V\mid n^{(0)}\rangle + \langle n^{(0)}\mid V\mid n^{(1)}\rangle +\cdots
+\]
+&#x65B0;&#x7684;&#x672C;&#x5F81;&#x6001;&#x4E3A;&#xFF1A;
+\[
+\mid n \rangle = \mid n^{(0)}\rangle + \mid n^{(1)}\rangle +\cdots
+\]
+&#x5176;&#x4E2D;&#xFF1A;
+\[
+\mid n^{(1)}\rangle=\sum_{n&apos;\neq n}\frac{1}{E_n^{(0)}-E_{n&apos;}^{(0)}}\mid n&apos;^{(0)}\rangle\langle n&apos;^{(0)} \mid  V \mid n^{(0)} \rangle
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org904003f" class="outline-3">
+<h3 id="org904003f">&#x5BF9;&#x4E8E; \(\mid n \rangle\) &#x5728;&#x7B80;&#x5E76;&#x7A7A;&#x95F4;&#x4E2D;&#x65F6;</h3>
+<div class="outline-text-3" id="text-org904003f">
+<p>
+&#x65B0;&#x7684;&#x672C;&#x5F81;&#x80FD;&#x91CF;&#x4E3A;&#xFF1A;
+\[
+E_l = E_D +v_l  + \langle l^{(0)}\mid V\mid l^{(1)}\rangle +\cdots
+\]
+</p>
+
+
+<p>
+&#x5176;&#x4E2D; \(E_D\) &#x4E3A;&#x7B80;&#x5E76;&#x7684;&#x672C;&#x5F81;&#x80FD;&#x91CF;&#xFF0C; \(\mid l^{(0)}\rangle\) &#x4E3A;&#xFF1A;
+\[
+\langle m&apos;^{(0)} \mid  ( V -\Delta_m)\mid m^{(0)} \rangle =0
+\]
+&#x7684;&#x672C;&#x5F81;&#x6001;&#xFF0C;&#x5176;&#x4E2D;\(\mid m^{(0)} \rangle, \mid m&apos;^{(0)} \rangle\) &#x4E3A;&#x7B80;&#x5E76;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x7684;&#x672A;&#x7ECF;&#x5FAE;&#x6270;&#x7684;&#x672C;&#x5F81;&#x6001;&#xFF0C;&#x4E14;&#x8BB0;&#x5176;&#x672C;&#x5F81;&#x503C;&#x4E3A; \(v_l\) &#x3002;
+</p>
+
+
+
+
+
+<p>
+&#x65B0;&#x7684;&#x672C;&#x5F81;&#x6001;&#x4E3A;&#xFF1A;
+\[
+\mid n \rangle = \mid l^{(0)}\rangle + \mid l^{(1)}\rangle +\cdots
+\]
+ \(\mid l^{(1)}\rangle\) &#x4E3A;
+\[
+\mid l^{(1)}\rangle=\sum_{n\notin D}\frac{1}{E_D^{(0)}-E_{n}^{(0)}}\mid n^{(0)}\rangle\langle n^{(0)} \mid  V \mid l^{(0)} \rangle
+\\\\+ \sum_{l&apos;^{(0)}}\mid l&apos;^{(0)}\rangle\frac{1}{v_{l&apos;}-v_l}\langle l&apos;^{(0)}\mid V  \sum_{n\notin D} \mid n^{(0)} \rangle \frac{1}{E_D^{(0)}-E_{n}^{(0)}}\langle n^{(0)} \mid  V \mid l^{(0)} \rangle
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2a34916" class="outline-2">
+<h2 id="org2a34916">&#x4F8B;&#x5B50;</h2>
+<div class="outline-text-2" id="text-org2a34916">
+</div>
+<div id="outline-container-org1a0f257" class="outline-3">
+<h3 id="org1a0f257">&#x4E8C;&#x80FD;&#x7EA7;&#x7CFB;&#x7EDF;</h3>
+<div class="outline-text-3" id="text-org1a0f257">
+<p>
+&#x5047;&#x8BBE;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x7684; Hamiltonian &#x4E3A;
+</p>
+\begin{align}
+  \hat{H} = \hat{H}_0 + \hat{V} 
+\end{align}
+<p>
+&#x5B83;&#x5728; \(H_0\) &#x7684;&#x672C;&#x5F81;&#x8868;&#x8C61;&#x4E2D;
+</p>
+\begin{align}
+  H = H_0+V = \left( 
+  \begin{array}{cc}
+   E^{(0)}_1 &amp; 0 \\
+   0 &amp; E^{(0)}_2
+  \end{array}
+ \right) + 
+\left( 
+  \begin{array}{cc}
+   0 &amp; V \\
+   V &amp; 0
+  \end{array}
+ \right)
+\end{align}
+<p>
+&#x5982;&#x679C;&#x7528;&#x5FAE;&#x6270;&#x8BBA;&#x8BA1;&#x7B97;, &#x5B83;&#x7684;&#x80FD;&#x91CF;&#x4E00;&#x9636;&#x4FEE;&#x6B63;&#x662F;&#x96F6;, &#x56E0;&#x4E3A;&#x5FAE;&#x6270;&#x7684;&#x5BF9;&#x89D2;&#x5143;&#x4E3A;&#x96F6;. &#x4E8C;&#x9636;&#x4FEE;&#x6B63;&#x4E3A;
+</p>
+\begin{align}
+E_1^{(2)} = \frac{V^2}{E_1-E_2} \\
+E_2^{(2)} = \frac{V^2}{E_2-E_1}
+\end{align}
+<p>
+&#x540C;&#x65F6;&#x5B83;&#x53EF;&#x4EE5;&#x7CBE;&#x786E;&#x6C42;&#x89E3;
+</p>
+\begin{align}
+  E^{\pm} = \frac{E_1^{(0)} + E^{(0)}_2}{2}
+  \pm \sqrt{\left( \frac{E^{(0)}_1 - E^{(0)}_2}{2} \right)^2 + V^2} 
+\end{align}
+<p>
+&#x5982;&#x679C;&#x628A; \(V\) &#x505A;&#x4E3A;&#x5C0F;&#x91CF;, &#x5C06;&#x7CBE;&#x786E;&#x89E3;&#x5C55;&#x5F00;(&#x5047;&#x8BBE; \(E_1&gt;E_2\) )
+</p>
+\begin{align}
+  E^{\pm} =&amp; \frac{E_1^{(0)} + E^{(0)}_2}{2} 
+  \pm \sqrt{\left( \frac{E^{(0)}_1 - E^{(0)}_2}{2} \right)^2 + V^2} \\
+  =&amp; \left\{ 
+  \begin{array}{cc}
+  E_1 + \frac{V^2}{E_1 - E_{2}} + \mathcal{O}(V^{4}) ,&amp;+\\
+  E_2 - \frac{V^2}{E_1 - E_{2}} + \mathcal{O}(V^{4}) ,&amp;-
+  \end{array}
+ \right. 
+\end{align}
+<p>
+&#x6B63;&#x597D;&#x4E0E;&#x5FAE;&#x6270;&#x8BBA;&#x76F8;&#x7B26;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgacc9363" class="outline-3">
+<h3 id="orgacc9363">&#x4E09;&#x80FD;&#x7EA7;&#x7CFB;&#x7EDF;</h3>
+<div class="outline-text-3" id="text-orgacc9363">
+<p>
+&#x5047;&#x8BBE;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x7684; Hamiltonian &#x4E3A;
+</p>
+\begin{align}
+  \hat{H} = \hat{H}_0 + \hat{V} 
+\end{align}
+<p>
+&#x5B83;&#x5728; \(H_0\) &#x7684;&#x672C;&#x5F81;&#x8868;&#x8C61;&#x4E2D;
+</p>
+\begin{align}
+  H = H_0+V = \left( 
+  \begin{array}{ccc}
+   E^{(0)}_1 &amp; 0 &amp;0\\
+   0 &amp; E^{(0)}_2 &amp; 0 \\
+   0 &amp; 0 &amp; E^{(0)}_e
+  \end{array}
+ \right) + 
+\left( 
+  \begin{array}{ccc}
+   0 &amp; V_{12} &amp; V_{13}\\
+   V_{12} &amp; 0 &amp; V_{23} \\
+   V_{13} &amp; V_{23} &amp; 0
+  \end{array}
+ \right)
+\end{align}
+<p>
+&#x5047;&#x8BBE;&#x5B83;&#x4EEC;&#x5177;&#x4F53;&#x6570;&#x503C;, &#x5E76;&#x7528;&#x6570;&#x503C;&#x7CBE;&#x786E;&#x6C42;&#x89E3;
+</p>
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">e1 = <span class="number">100</span></span><br><span class="line">e2 = <span class="number">300</span></span><br><span class="line">e3 = <span class="number">500</span></span><br><span class="line">v12 = <span class="number">10</span></span><br><span class="line">v13 = <span class="number">20</span></span><br><span class="line">v23 = <span class="number">30</span></span><br><span class="line">a = np.array([[e1,   v12,   v13],</span><br><span class="line">	      [v12,   e2,   v23],</span><br><span class="line">	      [v13,  v23,    e3]])</span><br><span class="line">w, v = np.linalg.eig(a)</span><br><span class="line">print(w)</span><br><span class="line">print(v)</span><br></pre></td></tr></table></figure>
+</div>
+<p>
+&#x7ED3;&#x679C;&#x4E3A;
+</p>
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[ <span class="number">98.64010314</span> <span class="number">505.51622055</span> <span class="number">295.84367631</span>]</span><br><span class="line">[[-<span class="number">0.99800619</span>  <span class="number">0.0523362</span>  -<span class="number">0.03527831</span>]</span><br><span class="line"> [ <span class="number">0.04262872</span>  <span class="number">0.14673809</span> -<span class="number">0.98825641</span>]</span><br><span class="line"> [ <span class="number">0.04654492</span>  <span class="number">0.98778988</span>  <span class="number">0.14867655</span>]]</span><br></pre></td></tr></table></figure>
+</div>
+<p>
+&#x7528;&#x5FAE;&#x6270;&#x8BBA;&#x6C42;&#x89E3; \(E_1\) , &#x4E00;&#x9636;&#x4FEE;&#x6B63;&#x662F;&#x96F6;. &#x4E8C;&#x9636;&#x4FEE;&#x6B63;&#x4E3A;
+</p>
+\begin{align}
+  E_1^{(2)} =&amp; V_{12}\frac{1}{E_1 - E_2}V_{12} + V_{13}\frac{1}{E_1 - E_3}V_{13} \\ 
+  =&amp; 10\cdot\frac{1}{100-300}\cdot 10 + 20\cdot\frac{1}{100-500}\cdot 20 \\
+  =&amp; -1.5
+\end{align}       
+<p>
+&#x4E09;&#x9636;&#x4FEE;&#x6B63;&#x4E3A;(&#x5982;&#x679C;&#x5FAE;&#x6270;&#x5BF9;&#x89D2;&#x5143;&#x4E0D;&#x4E3A;&#x96F6;, &#x6B64;&#x516C;&#x5F0F;&#x8FD8;&#x6709;&#x4E00;&#x9879;)
+</p>
+\begin{align}
+  E_1^{(3)} =&amp; V_{12}\frac{1}{E_1 - E_2}V_{23}\frac{1}{E_1 - E_3}V_{31} \\ 
+  +&amp; V_{13}\frac{1}{E_1 - E_3}V_{32}\frac{1}{E_1 - E_2}V_{21}\\
+  =&amp; 2\times 0.075 = 0.15
+\end{align}       
+<p>
+&#x6240;&#x4EE5;&#x5FAE;&#x6270;&#x8BBA;&#x7ED9;&#x51FA;&#x4E8C;&#x9636;&#x4FEE;&#x6B63;&#x7ED3;&#x679C;&#x4E3A; \(100-1.5=98.5\) , &#x4E09;&#x9636;&#x4FEE;&#x6B63;&#x7ED9;&#x51FA;&#x7684;&#x7ED3;&#x679C;&#x4E3A; 
+\(100-1.5+0.15 = 98.65\) , &#x800C;&#x6570;&#x503C;&#x6C42;&#x89E3;&#x7684;&#x7ED3;&#x679C;&#x4E3A; \(98.64010314\) . \(E_{2}, E_3\) &#x7684;&#x5FAE;&#x6270;&#x4FEE;&#x6B63;
+&#x53EF;&#x4F5C;&#x4E3A;&#x7EC3;&#x4E60;.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2aefc4e" class="outline-2">
+<h2 id="org2aefc4e">Appendix</h2>
+<div class="outline-text-2" id="text-org2aefc4e">
+</div>
+<div id="outline-container-orgbd6b9c1" class="outline-3">
+<h3 id="orgbd6b9c1">&#x7B97;&#x7B26;&#x51FA;&#x73B0;&#x5728;&#x5206;&#x6BCD;&#x4E0A;</h3>
+<div class="outline-text-3" id="text-orgbd6b9c1">
+<p>
+&#x610F;&#x4E3A;&#x9006;&#x7B97;&#x7B26;. &#x5373;
+</p>
+\begin{align*}
+  A^{-1} \equiv \frac{1}{A}
+\end{align*}
+<p>
+&#x548C;&#x5B83;&#x672C;&#x8EAB;&#x6709;&#x5171;&#x540C;&#x672C;&#x5F81;&#x503C;. &#x5176;&#x672C;&#x5F81;&#x503C;&#x4E3A;&#x81EA;&#x8EAB;&#x672C;&#x5F81;&#x503C;&#x7684;&#x5012;&#x6570;.
+</p>
+
+<p>
+&#x8BC1;&#x660E;&#x5982;&#x4E0B;:
+</p>
+
+<blockquote>
+<p>
+&#x5047;&#x8BBE; \(A\) &#x5BF9;&#x5E94;&#x6001; \(|n\rangle\) &#x7684;&#x672C;&#x5F81;&#x503C;&#x4E3A; \(a_n\) ,&#x5373;
+</p>
+\begin{align*}
+  A |n \rangle = a_n |n\rangle
+\end{align*}
+<p>
+&#x90A3;&#x4E48;&#x4E24;&#x8FB9;&#x5DE6;&#x4E58; \(A^{-1}\) &#x6709;
+</p>
+\begin{align*}
+  | n \rangle =&amp; a_n A^{-1} | n \rangle \\
+  \Downarrow&amp; \\
+  \frac{1}{a_n} | n \rangle =&amp; A^{-1} | n \rangle
+\end{align*}
+<p>
+&#x7528;&#x5206;&#x6570;&#x7684;&#x8BB0;&#x6CD5;&#x5373;
+</p>
+\begin{align*}
+  \frac{1}{A}| n \rangle = \frac{1}{a_n} |n \rangle
+\end{align*}
+</blockquote>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org735192d" class="outline-2">
+<h2 id="org735192d">Reference</h2>
+<div class="outline-text-2" id="text-org735192d">
+<ul class="org-ul">
+<li>J. J. Sakurai, Jim Napolitano, Modern Quantum Mechanics 2nd</li>
+
+<li>&#x9AD8;&#x9636;&#x4FEE;&#x6B63;&#x7684;&#x516C;&#x5F0F;: <a href="https://en.wikipedia.org/wiki/Perturbation_theory_(quantum_mechanics)" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Perturbation_theory_(quantum_mechanics)</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/高等量子力学/" rel="tag"># 高等量子力学</a>
+          
+            <a href="/tags/微扰/" rel="tag"># 微扰</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/07/你好！/" rel="next" title="你好！">
+                <i class="fa fa-chevron-left"></i> 你好！
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/18/待解决问题/" rel="prev" title="待解决问题">
+                待解决问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org36b1628"><span class="nav-text">Statement of the Problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgb2fc62d"><span class="nav-text">核心思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orga8dc38b"><span class="nav-text">本征能量修正</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd500baa"><span class="nav-text">本征态修正</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgb1ab0b9"><span class="nav-text">非简并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org51f7078"><span class="nav-text">简并</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org90ccedc"><span class="nav-text">并非 \(n\) 和 \(n&#39;\) 都在简并空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd24c588"><span class="nav-text">\(n\) 和 \(n&#39;\) 都在简并空间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc2051e7"><span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org018a814"><span class="nav-text">对于非简并或 \(\mid n \rangle\) 不在简并空间时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org904003f"><span class="nav-text">对于 \(\mid n \rangle\) 在简并空间中时</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2a34916"><span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org1a0f257"><span class="nav-text">二能级系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgacc9363"><span class="nav-text">三能级系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2aefc4e"><span class="nav-text">Appendix</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgbd6b9c1"><span class="nav-text">算符出现在分母上</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org735192d"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

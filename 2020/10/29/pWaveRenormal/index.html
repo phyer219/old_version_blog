@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="p-wave,Renormalization,Scattering">
+<meta property="og:type" content="article">
+<meta property="og:title" content="p 波接触相互作用参数的重整化">
+<meta property="og:url" content="https://zqw.ink/2020/10/29/pWaveRenormal/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2020/10/29/pWaveRenormal/diagram.png">
+<meta property="og:updated_time" content="2020-11-29T02:17:49.126Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="p 波接触相互作用参数的重整化">
+<meta name="twitter:image" content="https://zqw.ink/2020/10/29/pWaveRenormal/diagram.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2020/10/29/pWaveRenormal/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>p 波接触相互作用参数的重整化 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2020/10/29/pWaveRenormal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">p 波接触相互作用参数的重整化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-10-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/10/29/pWaveRenormal/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/pWaveRenormal/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-org3b3080a" class="outline-2">
+<h2 id="org3b3080a">p-Wave Scattering Amplitude</h2>
+<div class="outline-text-2" id="text-org3b3080a">
+<p>
+&#x7531; Taylor &#x4E66; (6.14) &#x53EF;&#x5F97; \(l\) &#x5206;&#x6CE2;&#x7684;&#x6563;&#x5C04;&#x632F;&#x5E45;
+</p>
+\begin{align}
+  f_l(k) = \frac{e^{2\mathrm{i}\delta_l(k)} - 1}{2 \mathrm{i} k}
+  = \frac{1}{k \cot \delta_l(k) - \mathrm{i}k}
+\end{align}
+<p>
+&#x5BF9;&#x4E8E; \(l = 1\) &#x7684; p &#x6CE2;, &#x7528; \(m = 1, 0, -1\) &#x8868;&#x793A;&#x78C1;&#x91CF;&#x5B50;&#x6570;, &#x5C06; \(k^3\cot \delta_m(k)\) &#x4F4E;&#x80FD;&#x5C55;
+&#x5F00;&#x5230; \(k^2\) &#x9636; 
+</p>
+\begin{align}
+  k^3\cot \delta_m(k) = - \frac{1}{v_m} - \frac{k^2}{R_m}
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(v_m\) &#x662F; effective volume, \(R_m\) &#x662F; effective range. &#x90A3;&#x4E48;&#x6563;&#x5C04;&#x632F;&#x5E45;&#x5C31;&#x4E3A;
+</p>
+\begin{align}
+  \label{eq:scatterAM}
+  f(k) \approx \frac{k^2}{- \frac{1}{v_m} - \frac{k^2}{R_m} - \mathrm{i}k^3}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org9c57e1a" class="outline-2">
+<h2 id="org9c57e1a">Hamiltonian</h2>
+<div class="outline-text-2" id="text-org9c57e1a">
+<p>
+&#x8003;&#x8651; p &#x6CE2;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x7684;&#x4E24;&#x5206;&#x91CF; Bose &#x6C14;&#x4F53;
+</p>
+\begin{align}
+  \hat{H} = &amp;\sum_{\vec{k},\sigma}\left(\frac{k^2}{2M} - \mu\right)\hat{a}_{\vec{k},\sigma}^{\dagger}
+            \hat{a}_{\vec{k},\sigma}
+           + \sum_{\vec{q},m}\left(\frac{q^2}{4M} - 2 \mu -
+  \nu_m\right)\hat{b}_{\vec{q},m}^{\dagger} \hat{b}_{\vec{q}, m}\\
+ &amp;+ \sqrt{\frac{1}{V }} \sum_{\vec{k},\vec{q},m}\left[g_m k Y_{1, m}(\hat{k})
+   \hat{b}^{\dagger}_{\vec{q},m}\hat{a}_{\frac{\vec{q}}{2} + \vec{k}}
+          \hat{a}_{\frac{\vec{q}}{2} - \vec{k}}
+   + \mathrm{h.c.} \right]
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org1b4cbcc" class="outline-2">
+<h2 id="org1b4cbcc">T-matrix</h2>
+<div class="outline-text-2" id="text-org1b4cbcc">
+<p>
+&#x4E0B;&#x56FE;&#x4E2D; \(G_0\) &#x8868;&#x793A;&#x81EA;&#x7531;&#x539F;&#x5B50;&#x7684;&#x81EA;&#x7531;&#x677E;&#x539F;&#x683C;&#x6797;&#x51FD;&#x6570;, \(D_0\) &#x8868;&#x793A;&#x4E24;&#x4E2A;&#x539F;&#x5B50;&#x5F62;&#x6210;&#x7684;&#x5206;&#x5B50;&#x7684;&#x81EA;&#x7531;
+&#x677E;&#x539F;&#x683C;&#x6797;&#x51FD;&#x6570;, \(D\) &#x8868;&#x793A;&#x8003;&#x8651;&#x5206;&#x5B50;&#x5206;&#x88C2;&#x548C;&#x5F62;&#x6210;&#x4E4B;&#x540E;&#x7684;&#x5206;&#x5B50;&#x683C;&#x6797;&#x51FD;&#x6570;
+<img src="/2020/10/29/pWaveRenormal/diagram.png">
+&#x901A;&#x8FC7;&#x56FE;&#x53EF;&#x4EE5;&#x5BF9;&#x5E94; Dyson &#x65B9;&#x7A0B;
+</p>
+\begin{align}
+D = D_0-D_0 \left(\frac{1}{\beta}\sum_{\vec{k}_1, \omega}\mathcal{V} G_1 G_2\mathcal{V}^* \right) D
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\mathcal{V}\) &#x8868;&#x793A; p &#x6CE2;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x9876;&#x70B9;. &#x5373; \(\mathcal{V} =
+\frac{1}{\sqrt{V}}g_m k Y_{1, m}(\hat{k})\) . &#x901A;&#x8FC7;&#x6B64; Dyson &#x65B9;&#x7A0B;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x5206;&#x5B50;&#x683C;&#x6797;&#x51FD;
+&#x6570;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x4E3A;
+</p>
+\begin{align}
+  \frac{1}{D} = \frac{1}{D_0} + \frac{1}{\beta}\sum_{\vec{k}_{1}, \omega} G_0 G_0|\mathcal{V}|^2
+\end{align}
+<p>
+&#x5176;&#x4E2D;&#x5BF9; \(\omega\) &#x7684;&#x6C42;&#x548C;&#x53EF;&#x4EE5;&#x7531; Matsubara frequency summation &#x6C42;&#x51FA;(&#x8003;&#x8651;&#x5316;&#x5B66;&#x52BF;&#x4F1A;&#x5F71;&#x54CD;&#x91CD;&#x6574;
+&#x5316;&#x5173;&#x7CFB;?)
+</p>
+\begin{align}
+&amp;\frac{1}{\beta}\sum_{\vec{k}_{1}, \omega} G_{0}(E - \omega, \frac{\vec{q}}{2} + \vec{k}_1)
+  G_0(\omega, \frac{\vec{q}}{2} - \vec{k}_1)|\mathcal{V}|^2\\
+=&amp; -\sum_{\vec{k}_1}
+     \frac{n(\varepsilon_{\vec{q} /2 + \vec{k}_1})+1
+     + n(\varepsilon_{\vec{q}/2 - \vec{k}_1})}
+     {\mathrm{i}E- \varepsilon_{\vec{q} /2 + \vec{k}_1} + \varepsilon_{\vec{q} /2 - \vec{k}_1}}
+    \frac{1}{V } g_m^2 k_1^2 \left|Y_{l, m}(\hat{k}_1)\right|^2\\
+\end{align}
+<p>
+&#x6240;&#x4EE5;&#x6C42;&#x5F97;&#x5206;&#x5B50;&#x677E;&#x539F;&#x683C;&#x6797;&#x51FD;&#x6570;
+</p>
+\begin{align}
+ \frac{1}{D} = \mathrm{i}E - \frac{q^2}{4M} + \nu_m -\sum_{\vec{k}_1}
+     \frac{n(\varepsilon_{\vec{q} /2 + \vec{k}_1})+1
+     + n(\varepsilon_{\vec{q}/2 - \vec{k}_1})}
+     {\mathrm{i}E- \varepsilon_{\vec{q} /2 + \vec{k}_1} + \varepsilon_{\vec{q} /2 - \vec{k}_1}}
+    \frac{1}{V } g_m^2 k_1^2 \left|Y_{l=1, m}(\hat{k}_1)\right|^2
+\end{align}
+<p>
+&#x5C06;&#x677E;&#x539F;&#x683C;&#x6797;&#x51FD;&#x6570;&#x89E3;&#x6790;&#x5EF6;&#x62D3;&#x6210;&#x63A8;&#x8FDF;&#x683C;&#x6797;&#x51FD;&#x6570;(&#x5FFD;&#x7C92;&#x5B50;&#x6570;&#x662F;&#x5EF6;&#x62D3;&#x7684;&#x4E00;&#x90E8;&#x5206;?)
+</p>
+\begin{align}
+ \frac{1}{D^{\mathrm{ret}}} = E + \mathrm{i}0^+ - \frac{q^2}{4M} + \nu_m -\sum_{\vec{k}_1}
+     \frac{1}
+     {E + \mathrm{i}0^+ - \varepsilon_{\vec{q} /2 + \vec{k}_1} + \varepsilon_{\vec{q} /2 - \vec{k}_1}}
+    \frac{1}{V } g_m^2 k_1^2 \left|Y_{1, m}(\hat{k}_1)\right|^2
+\end{align}
+<p>
+&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x5F97;&#x5230; T-matrix &#x4E3A;(&#x4E0D;&#x4EC5;&#x52A0;&#x4E0A;&#x4E24;&#x4E2A;&#x9876;&#x70B9;, &#x8FD8;&#x8981;&#x6709;&#x4E2A;&#x56E0;&#x5B50; \(4\) ?)(&#x4EE5;&#x53CA;&#x6C42;&#x548C;&#x9879;&#x4E2D; \(4\pi\)
+&#x7684;&#x6765;&#x6E90;?) 
+</p>
+\begin{align}
+  T(k \hat{k}, k \hat{k}&apos;, E = \frac{k^2}{M})
+  =&amp; \frac{1}{V} g_m^{2}k^2 Y_{1, m}^{*}(\hat{k}) Y_{1, m}(\hat{k}&apos;) D^{\mathrm{ret}}(\vec{q} = 0, E) \\
+  =&amp; \frac{\frac{1}{V} g_m^{2}k^2 Y_{1, m}^{*}(\hat{k}) Y_{1, m}(\hat{k}&apos;)}
+       {E + \mathrm{i}0^+ + \nu_m - 4\pi \sum_{\vec{k}_1}
+         \frac{g_m^2 k_1^2\left|Y_{1, m}(\hat{k_1})\right|^2}{V}
+       \frac{1}{E - \frac{k_1^2}{M} + \mathrm{i}0^+}}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org3956360" class="outline-2">
+<h2 id="org3956360">Renormalization</h2>
+<div class="outline-text-2" id="text-org3956360">
+<p>
+&#x5206;&#x6BCD;&#x4E2D;&#x7684;&#x6C42;&#x548C;&#x5316;&#x79EF;&#x5206;&#x4E3A;(&#x7403;&#x8C10;&#x51FD;&#x6570;&#x5BF9;&#x89D2;&#x5EA6;&#x79EF;&#x5206;&#x5F52;&#x4E00;)
+</p>
+\begin{align}
+     &amp;4\pi \sum_{\vec{k}_1}
+         \frac{g_m^2 k_1^2\left|Y_{1, m}(\hat{k_1})\right|^2}{V}
+       \frac{1}{E - \frac{k_1^2}{M} + \mathrm{i}0^+} \\
+   =&amp; \frac{g_m^2}{2 \pi^2}\int_0^{\infty} \mathrm{d}k_1 \frac{k^4_1}{E- \frac{k_1^2}{M} + \mathrm{i}0^+} \\
+   =&amp; \frac{g_m^2}{2 \pi^2}\int_0^{\infty} \mathrm{d}k_1 \left[\mathcal{P}\frac{k^4_1}{E- \frac{k_1^2}{M}} 
+       - \mathrm{i}\pi \cdot k_1^4 \delta(E - \frac{k_1^2}{M})\right]
+\end{align}
+<p>
+&#x88AB;&#x79EF;&#x51FD;&#x6570;&#x90E8;&#x5206;&#x53D1;&#x6563;, &#x5176;&#x53D1;&#x6563;&#x884C;&#x4E3A;
+</p>
+\begin{align}
+  \frac{k^4_1}{E- \frac{k_1^2}{M}} = - M^2E - Mk_1^2 + M^2 E^2 \frac{1}{E - \frac{k_1^2}{M}}
+\end{align}
+<p>
+&#x7B2C;&#x4E00;&#x9879;&#x662F;&#x5E38;&#x6570;, &#x7B2C;&#x4E8C;&#x9879;&#x662F; \(k^2\) , &#x5BF9;&#x8FD9;&#x4E24;&#x9879;&#x7684;&#x79EF;&#x5206;&#x662F;&#x53D1;&#x6563;&#x7684;. &#x800C;&#x7B2C;&#x4E09;&#x9879;, &#x53EF;&#x4EE5;&#x7B97;&#x51FA;&#x5176;&#x79EF;&#x5206;&#x503C;
+&#x4E3A; \(0\) .
+&#x88AB;&#x79EF;&#x51FD;&#x6570;&#x865A;&#x90E8;&#x53EF;&#x4EE5;&#x7B97;&#x51FA;
+</p>
+\begin{align}
+- \mathrm{i}\pi \int_0^{\infty} \mathrm{d}k_1  \cdot k_1^4 \delta(E - \frac{k_1^2}{M}) 
+   = -\mathrm{i}\pi \frac{M k^3}{2}
+\end{align}
+<p>
+&#x5176;&#x4E2D;&#x5229;&#x7528;&#x4E86;&#x5173;&#x7CFB; \(E = \frac{k^2}{M}\) .
+</p>
+
+<p>
+&#x5C06;&#x79EF;&#x5206;&#x7ED3;&#x679C;&#x4EE3;&#x56DE;&#x539F;&#x5F0F;, &#x5E76;&#x5C06;&#x79EF;&#x5206;&#x518D;&#x5316;&#x4E3A;&#x6C42;&#x548C;, &#x5F97;
+</p>
+\begin{align}
+     &amp;4\pi \sum_{\vec{k}_1}
+         \frac{g_m^2 k_1^2\left|Y_{1, m}(\hat{k_1})\right|^2}{V}
+       \frac{1}{E - \frac{k_1^2}{M} + \mathrm{i}0^+} \\
+=&amp; - \frac{g_m^2}{V} M \left[\sum_{\vec{k}_1} \frac{ME}{k^2_1} + \sum_{\vec{k}_1}1 \right]
+    - \mathrm{i} \frac{g_m^2}{4\pi} Mk^3
+\end{align}
+<p>
+&#x5C06;&#x6B64;&#x7ED3;&#x679C;&#x4EE3;&#x52A0; T-matrix &#x8868;&#x8FBE;&#x5F0F;&#x53EF;&#x5F97;
+</p>
+\begin{align}
+  T(k \hat{k}, k \hat{k}&apos;, E = \frac{k^2}{M})
+  =&amp; \frac{\frac{1}{V} k^2 Y_{1, m}^{*}(\hat{k}) Y_{1, m}(\hat{k}&apos;)}
+     {\frac{k^2}{M }\left[ \frac{1}{g_m^2} + \frac{M^2}{V}\sum_{\vec{k}_1}\frac{1}{k_1^2}\right]
+      + \left[ \frac{\nu_m}{g_m^2} + \frac{M}{V}\sum_{\vec{k}_1}1 \right] 
+       + \mathrm{i} \frac{M}{4\pi}k^3  }
+\end{align}
+<p>
+&#x5176;&#x4E2D;&#x5229;&#x7528;&#x4E86;&#x5173;&#x7CFB; \(E = \frac{k^2}{M}\) . &#x4E0A;&#x5F0F;&#x4E0E; (\ref{eq:scatterAM}) &#x5BF9;&#x6BD4;&#x53EF;&#x5F97;&#x91CD;&#x6574;&#x5316;&#x5173;
+&#x7CFB;
+</p>
+\begin{align}
+  \frac{1}{g_m^2} =&amp; \frac{M^2}{4\pi} R_m^{-1} - \frac{M^2}{V}\sum_{\vec{k}_1}\frac{1}{k_1^2} \\
+  \frac{\nu_m}{g_m^2} = &amp; \frac{M}{4\pi} v_m^{-1} - \frac{M}{V} \sum_{\vec{k}_1}1
+\end{align}
+<blockquote>
+<p>
+&#x91CD;&#x6574;&#x5316;&#x4E4B;&#x540E;&#x7684; T-matrix &#x4E3A;
+</p>
+\begin{align}
+  T(k \hat{k}, k \hat{k}&apos;, E = \frac{k^2}{M})
+  =&amp; \frac{\frac{1}{V} R_m \frac{4\pi}{M^2}k^2 Y_{1, m}^{*}(\hat{k}) Y_{1, m}(\hat{k}&apos;)}
+     {\frac{k^2}{M } + \frac{R_m}{M v_m}
+       + \mathrm{i} \frac{M}{4\pi}k^3  }
+\end{align}
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgeaa336d" class="outline-2">
+<h2 id="orgeaa336d">Reference</h2>
+<div class="outline-text-2" id="text-orgeaa336d">
+<ul class="org-ul">
+<li>Taylor, Scattering Theory: quantum theory of nonrelativistic collisions, 1972, 
+John Wiley &amp; Sons</li>
+
+<li>PhysRevA.86.012711, Renormalization in the three-body problem with resonant
+p-wave interactions</li>
+
+<li>PhysRevA.99.012701, Three-body problem of bosons near a d-wave resonance</li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/p-wave/" rel="tag"># p-wave</a>
+          
+            <a href="/tags/Renormalization/" rel="tag"># Renormalization</a>
+          
+            <a href="/tags/Scattering/" rel="tag"># Scattering</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/10/10/CarlBenderMathematicalPhysicsLecture6/" rel="next" title="Carl Bender Mathematical Physics Lecture6 Note">
+                <i class="fa fa-chevron-left"></i> Carl Bender Mathematical Physics Lecture6 Note
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/11/29/newSSD/" rel="prev" title="SSD 备忘与趣事">
+                SSD 备忘与趣事 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org3b3080a"><span class="nav-text">p-Wave Scattering Amplitude</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org9c57e1a"><span class="nav-text">Hamiltonian</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org1b4cbcc"><span class="nav-text">T-matrix</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org3956360"><span class="nav-text">Renormalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgeaa336d"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

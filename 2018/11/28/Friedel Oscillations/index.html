@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="物理,Friedel Oscillations">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Friedel Oscillations疑问">
+<meta property="og:url" content="https://zqw.ink/2018/11/28/Friedel Oscillations/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2018/11/28/Friedel%20Oscillations/friedel_oscillations.png">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.850Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Friedel Oscillations疑问">
+<meta name="twitter:image" content="https://zqw.ink/2018/11/28/Friedel%20Oscillations/friedel_oscillations.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2018/11/28/Friedel Oscillations/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Friedel Oscillations疑问 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2018/11/28/Friedel Oscillations/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Friedel Oscillations疑问
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-28 00:00:00" itemprop="dateCreated datePublished" datetime="2018-11-28T00:00:00+08:00">2018-11-28</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/28/Friedel Oscillations/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/11/28/Friedel Oscillations/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+<div id="outline-container-org0430ef3" class="outline-2">
+<h2 id="org0430ef3">&#x95EE;&#x9898;</h2>
+<div class="outline-text-2" id="text-org0430ef3">
+<p>
+&#x52A8;&#x91CF;&#x7A7A;&#x95F4;&#x4E2D;&#x7535;&#x52BF;&#x4E3A;
+</p>
+
+\begin{align}
+\varphi (\vec{q})= \frac{\varphi_{ext(\vec{q})}}{\varepsilon(\vec{q})}
+\end{align}
+
+<p>
+&#x5176;&#x4E2D;
+</p>
+
+\begin{align}
+\varphi_{ext}(\vec{q}) = \frac{-e}{\varepsilon_0 V q^2 }
+\end{align}
+
+<p>
+&#x6240;&#x4EE5;
+</p>
+
+\begin{equation}
+\label{eq:1}
+\varphi (\vec{q})= \frac{-e}{\varepsilon_0 V q^2 {\varepsilon(\vec{q})}}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org2a7a470" class="outline-2">
+<h2 id="org2a7a470">Thomas-Fermi &#x8FD1;&#x4F3C;&#x7684;&#x7ED3;&#x679C;</h2>
+<div class="outline-text-2" id="text-org2a7a470">
+<p>
+Thomas-Fermi &#x8FD1;&#x4F3C;&#x7ED9;&#x51FA;
+</p>
+
+\begin{align}
+\varepsilon_{TF}(\vec{q}) = 1 +\frac{q_{TF}^2}{q^2}
+\end{align}
+
+<p>
+&#x5C06;&#x4E0A;&#x5F0F;&#x4EE3;&#x5165; \(\varphi(\vec{q})\) &#x6709;
+</p>
+
+\begin{equation}
+\varphi (\vec{q})= \frac{-e}{\varepsilon_0 V q^2 \left(1 +\frac{q_{TF}^2}{q^2}\right)} 
+=\frac{-e}{\varepsilon_0 V \left(q^2 +q_{TF}^2\right)} 
+\end{equation}
+
+<p>
+&#x5BF9;&#x5176; Fourier Transform
+</p>
+
+\begin{align}
+\varphi(\vec{r}) =&amp; \int_{-\infty}^{+\infty} e^{i \vec{q}\cdot \vec{r}} \varphi (\vec{q}) \mathrm{d}^3 q \\
+=&amp; \frac{-e}{2 \pi^2 \varepsilon_0} \cdot \frac{1}{r} \int_0^{+\infty} \sin(qr)\cdot \frac{q}{q^2+q_{TF}^2} \mathrm{d}q\\
+=&amp; \frac{-e}{4 \pi \varepsilon_0} \cdot \frac{1}{r} \cdot \frac{2}{\pi}\int_0^{+\infty} \sin(qr)\cdot \frac{q}{q^2+q_{TF}^2} \mathrm{d}q
+\end{align}
+
+<p>
+&#x5BF9;
+</p>
+\begin{align}
+\frac{q}{q^2+q_{TF}^2}
+\end{align}
+<p>
+&#x5728; \(q \rightarrow +\infty\) &#x5C55;&#x5F00;(&#x4E0E;&#x5728; \(q_{TF}\rightarrow 0\) &#x65F6;&#x5BF9; \(q_{TF}\) &#x5C55;&#x5F00;&#x76F8;&#x540C;):
+</p>
+
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sympy <span class="keyword">as</span> sym</span><br><span class="line">q = sym.Symbol(<span class="string">&apos;q&apos;</span>)</span><br><span class="line">q_tf = sym.Symbol(<span class="string">&apos;q_TF&apos;</span>)</span><br><span class="line">s = sym.series(q/(q**<span class="number">2</span>+q_tf**<span class="number">2</span>),q,sym.oo,<span class="number">5</span>)</span><br><span class="line">print(sym.latex(s))</span><br></pre></td></tr></table></figure>
+</div>
+
+<ul class="org-ul">
+<li>\frac{q<sub>TF</sub><sup>2</sup>}{q<sup>3</sup>} + \frac{1}{q} + O\left(\frac{1}{q<sup>5</sup>}; q&#x2192; &#x221E;\right)</li>
+</ul>
+
+
+\begin{align}
+\frac{q}{q^2+q_{TF}^2}  =\frac{q_{TF}^{2}}{q^{3}} + \frac{1}{q} + O\left(\frac{1}{q^{5}}; q\rightarrow \infty\right)
+\end{align}
+
+<p>
+&#x8BA1;&#x7B97; leading order
+</p>
+
+\begin{align}
+ \int_0^{+\infty} \sin(qr)\cdot \frac{1}{q}\mathrm{d}q = \frac{1}{2i} \int_{-\infty}^{+\infty} e^{iqr}\cdot \frac{1}{q} \mathrm{d}
+q = \frac{1}{2i} \cdot \pi i \cdot 1 = \frac{\pi}{2}
+\end{align}
+
+<p>
+&#x8FD9;&#x6B63;&#x597D;&#x662F;&#x7CBE;&#x786E;&#x7ED3;&#x679C; 
+</p>
+\begin{align}
+\frac{-e}{4 \pi \varepsilon_0} \cdot \frac{e^{-q_{TF} r}}{r}
+\end{align}
+<p>
+&#x5728; \(q_{TF}\rightarrow 0\) &#x65F6;&#x5BF9; \(q_{TF}\) &#x5C55;&#x5F00;&#x7684;&#x7ED3;&#x679C;&#x7684; leading order &#x76F8;&#x540C;.
+</p>
+</div>
+
+<div id="outline-container-org0933f94" class="outline-3">
+<h3 id="org0933f94">&#x95EE;&#x9898;1</h3>
+<div class="outline-text-3" id="text-org0933f94">
+<p>
+Thomas-Fermi &#x8FD1;&#x4F3C;&#x7ED3;&#x679C;&#x4E0E;&#x7CBE;&#x786E;&#x7ED3;&#x679C;&#x7684; \(q_{TF}^2\) &#x7684;&#x7CFB;&#x6570;&#x4E0D;&#x540C;?
+</p>
+
+<p>
+&#x7B54;: &#x56E0;&#x4E3A;&#x5C55;&#x5F00;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x4E2D;&#x51FA;&#x73B0;&#x4E86;&#x53D1;&#x6563;&#x9879;, &#x6240;&#x4EE5;&#x95EE;&#x9898;&#x672C;&#x8EAB;&#x5C31;&#x4E0D;&#x80FD;&#x5C55;&#x5F00;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0aec649" class="outline-3">
+<h3 id="org0aec649">&#x95EE;&#x9898;2</h3>
+<div class="outline-text-3" id="text-org0aec649">
+<p>
+&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5BF9; \(q\) &#x5728; \(q\rightarrow +\infty\) &#x5C55;&#x5F00;? &#x79EF;&#x5206;&#x7684;&#x533A;&#x95F4;&#x4E0D;&#x662F;&#x6574;&#x4E2A;&#x5B9E;&#x8F74;&#x5417;?
+</p>
+
+<p>
+&#x7B54;: &#x6211;&#x4E4B;&#x524D;&#x5BF9;&#x5C55;&#x5F00;&#x7684;&#x76EE;&#x7684;&#x7406;&#x89E3;&#x6709;&#x8BEF;. &#x5C55;&#x5F00;&#x7684;&#x76EE;&#x7684;&#x4E0D;&#x662F;&#x4E3A;&#x4E86;&#x4E00;&#x9636;&#x4E00;&#x9636;&#x5730;&#x8BA1;&#x7B97;&#x79EF;&#x5206;. &#x5C55;&#x5F00;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x6570;&#x503C;&#x7684;&#x8BA1;&#x7B97;&#x79EF;&#x5206;. Thomas-Fermi &#x7684;&#x79EF;&#x5206;&#x672C;&#x8EAB;&#x53EF;&#x4EE5;&#x7CBE;&#x786E;&#x89E3;&#x51FA;, &#x6CA1;&#x5FC5;&#x8981;&#x6570;&#x503C;&#x79EF;&#x5206;, &#x56E0;&#x6B64;&#x4E0D;&#x5FC5;&#x505A;&#x5C55;&#x5F00;. &#x5C55;&#x5F00;&#x7684;&#x610F;&#x4E49;&#x4F1A;&#x5728;&#x4E0B;&#x9762; RPA &#x7684;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x4E2D;&#x4F53;&#x73B0;. 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf9b780e" class="outline-2">
+<h2 id="orgf9b780e">RPA &#x7684;&#x7ED3;&#x679C;</h2>
+<div class="outline-text-2" id="text-orgf9b780e">
+<p>
+RPA &#x7ED9;&#x51FA;
+</p>
+
+\begin{align}
+\varepsilon (\vec{q}) = 1+ \frac{q_{TF}^2}{q^2}g\left( \frac{q}{2k_F} \right)
+\end{align}
+
+<p>
+&#x5C06;&#x4E0A;&#x5F0F;&#x4EE3;&#x5165; \(\phi (\vec{q})\) &#x6709;
+</p>
+
+\begin{equation}
+\varphi (\vec{q})= \frac{-e}{\varepsilon_0 V q^2 \left(1 +\frac{q_{TF}^2}{q^2}\right)} 
+=\frac{-e}{\varepsilon_0 V \left(q^2 +q_{TF}^2 g\left( \frac{q}{2k_F} \right) \right)} 
+\end{equation}
+
+<p>
+&#x5176;&#x4E2D;
+</p>
+
+\begin{align}
+g(u) = \frac{1}{2} \left( 1+\frac{1}{2u}(1-u^2)\ln \left| \frac{1+u}{1-u} \right| \right)
+\end{align}
+
+<p>
+&#x5BF9; \(\phi (\vec{q})\) &#x4F5C; Fourier Transform  
+</p>
+
+\begin{align}
+\varphi(\vec{r}) =\frac{-e}{2 \pi^2 \varepsilon_0} \cdot \frac{1}{r} \int_0^{+\infty}  \sin(qr)\cdot \frac{q}{q^2+q_{TF}^2g( \frac{q}{2k_F} )} \mathrm{d}q
+\end{align}
+</div>
+
+<div id="outline-container-org7b205ec" class="outline-3">
+<h3 id="org7b205ec">&#x7EA7;&#x6570;&#x5C55;&#x5F00;</h3>
+<div class="outline-text-3" id="text-org7b205ec">
+<p>
+&#x5BF9; 
+</p>
+\begin{align}
+\frac{q}{q^2+q_{TF}^2g( \frac{q}{2k_F} )}
+\end{align} 
+<p>
+&#x5728; \(q\rightarrow +\infty\) &#x5C55;&#x5F00;
+</p>
+
+
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sympy <span class="keyword">as</span> sym</span><br><span class="line">q = sym.Symbol(<span class="string">&apos;q&apos;</span>)</span><br><span class="line">q_tf = sym.Symbol(<span class="string">&apos;q_TF&apos;</span>)</span><br><span class="line">kf = sym.Symbol(<span class="string">&apos;k_F&apos;</span>)</span><br><span class="line">u = q/(<span class="number">2</span>*kf)</span><br><span class="line">*g=<span class="number">1</span></span><br><span class="line">g = sym.Rational(<span class="number">1</span>,<span class="number">2</span>)*( <span class="number">1</span>+(<span class="number">1</span>-u**<span class="number">2</span>)/(<span class="number">2</span>*u)*sym.log((u+<span class="number">1</span>)/(u-<span class="number">1</span>) ) )</span><br><span class="line">s = sym.series(q/(q**<span class="number">2</span>+q_tf**<span class="number">2</span>)*g,q,sym.oo,<span class="number">10</span>)</span><br><span class="line">print(sym.latex(s))</span><br></pre></td></tr></table></figure>
+</div>
+
+<ul class="org-ul">
+<li>\frac{\frac{256 k<sub>F</sub><sup>8</sup>}{63} - \frac{64 k<sub>F</sub><sup>6</sup> q<sub>TF</sub><sup>2</sup>}{35} + \frac{16 k<sub>F</sub><sup>4</sup> q<sub>TF</sub><sup>4</sup>}{15}}{q<sup>9</sup>} + \frac{\frac{64 k<sub>F</sub><sup>6</sup>}{35} - \frac{16 k<sub>F</sub><sup>4</sup> q<sub>TF</sub><sup>2</sup>}{15} + \frac{4 k<sub>F</sub><sup>2</sup> q<sub>TF</sub><sup>4</sup>}{3}}{q<sup>7</sup>} + \frac{\frac{16 k<sub>F</sub><sup>4</sup>}{15} - \frac{4 k<sub>F</sub><sup>2</sup> q<sub>TF</sub><sup>2</sup>}{3}}{q<sup>5</sup>} + \frac{4 k<sub>F</sub><sup>2</sup>}{3 q<sup>3</sup>} + O\left(\frac{1}{q<sup>10</sup>}; q&#x2192; &#x221E;\right)</li>
+</ul>
+
+
+\begin{align}
+\frac{q}{q^2+q_{TF}^2g( \frac{q}{2k_F} )} = \frac{\frac{256 k_{F}^{8}}{63} - \frac{64 k_{F}^{6} q_{TF}^{2}}{35} + \frac{16 k_{F}^{4} q_{TF}^{4}}{15}}{q^{9}} + \frac{\frac{64 k_{F}^{6}}{35} - \frac{16 k_{F}^{4} q_{TF}^{2}}{15} + \frac{4 k_{F}^{2} q_{TF}^{4}}{3}}{q^{7}} + \frac{\frac{16 k_{F}^{4}}{15} - \frac{4 k_{F}^{2} q_{TF}^{2}}{3}}{q^{5}} + \frac{4 k_{F}^{2}}{3 q^{3}} + O\left(\frac{1}{q^{10}}; q\rightarrow \infty\right)
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org3fa243e" class="outline-3">
+<h3 id="org3fa243e">&#x95EE;&#x9898;3: &#x63A5;&#x4E0B;&#x6765;&#x8BE5;&#x600E;&#x4E48;&#x505A;? &#x6240;&#x6709;&#x7684;&#x5C55;&#x5F00;&#x9879;&#x4EE3;&#x5165;&#x79EF;&#x5206;&#x90FD;&#x662F;&#x53D1;&#x6563;&#x7684;.</h3>
+<div class="outline-text-3" id="text-org3fa243e">
+<p>
+&#x7B54;: &#x5C55;&#x5F00;&#x7B97;&#x9519;&#x4E86;. &#x7A0B;&#x5E8F;&#x4E2D;&#x628A;&#x516C;&#x5F0F;&#x6284;&#x9519;&#x4E86;. &#x770B;&#x6765;&#x6700;&#x597D;&#x8FD8;&#x662F;&#x624B;&#x7B97; check &#x4E00;&#x4E0B;&#x6BD4;&#x8F83;&#x597D;, &#x4E0D;&#x7136;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x8FD9;&#x4E48;&#x4F4E;&#x7EA7;&#x7684;&#x9519;&#x8BEF;. &#x7EA7;&#x6570;&#x5C55;&#x5F00;&#x7684;&#x8BA1;&#x7B97;&#x80FD;&#x529B;&#x8FD8;&#x6709;&#x5F85;&#x63D0;&#x9AD8;&#x2026; 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8a482a1" class="outline-3">
+<h3 id="org8a482a1">&#x6B63;&#x786E;&#x7684;&#x7EA7;&#x6570;&#x5C55;&#x5F00;</h3>
+<div class="outline-text-3" id="text-org8a482a1">
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sympy <span class="keyword">as</span> sym</span><br><span class="line">q = sym.Symbol(<span class="string">&apos;q&apos;</span>)</span><br><span class="line">q_tf = sym.Symbol(<span class="string">&apos;q_TF&apos;</span>)</span><br><span class="line">kf = sym.Symbol(<span class="string">&apos;k_F&apos;</span>)</span><br><span class="line">u = q/(<span class="number">2</span>*kf)</span><br><span class="line">g = sym.Rational(<span class="number">1</span>,<span class="number">2</span>)*( <span class="number">1</span>+(<span class="number">1</span>-u**<span class="number">2</span>)/(<span class="number">2</span>*u)*sym.log(sym.Abs((u+<span class="number">1</span>)/(u-<span class="number">1</span>)) ) )</span><br><span class="line">s = sym.series(q/(q**<span class="number">2</span>+q_tf**<span class="number">2</span>*g),q,sym.oo,<span class="number">10</span>)</span><br><span class="line">print(sym.latex(s))</span><br></pre></td></tr></table></figure>
+</div>
+
+<ul class="org-ul">
+<li>\frac{1}{q} - \frac{4 k<sub>F</sub><sup>2</sup> q<sub>TF</sub><sup>2</sup>}{3 q<sup>5</sup>} - \frac{16 k<sub>F</sub><sup>4</sup> q<sub>TF</sub><sup>2</sup>}{15 q<sup>7</sup>} - \frac{64 k<sub>F</sub><sup>6</sup> q<sub>TF</sub><sup>2</sup>}{35 q<sup>9</sup>} + O\left(\frac{1}{q<sup>10</sup>}; q&#x2192; &#x221E;\right)</li>
+</ul>
+
+\begin{align}
+\frac{q}{q^2+q_{TF}^2g( \frac{q}{2k_F} )} = \frac{1}{q} - \frac{4 k_{F}^{2} q_{TF}^{2}}{3 q^{5}} - \frac{16 k_{F}^{4} q_{TF}^{2}}{15 q^{7}} - \frac{64 k_{F}^{6} q_{TF}^{2}}{35 q^{9}} + O\left(\frac{1}{q^{10}}; q\rightarrow \infty\right)
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6f17f57" class="outline-2">
+<h2 id="org6f17f57">&#x6570;&#x503C;&#x8BA1;&#x7B97; RPA &#x7684;&#x7ED3;&#x679C;</h2>
+<div class="outline-text-2" id="text-org6f17f57">
+</div>
+<div id="outline-container-orgc2a91fa" class="outline-3">
+<h3 id="orgc2a91fa">&#x95EE;&#x9898;&#x5206;&#x6790;</h3>
+<div class="outline-text-3" id="text-orgc2a91fa">
+<p>
+&#x9996;&#x5148;, &#x79EF;&#x5206; 
+</p>
+\begin{align}
+\varphi(\vec{r}) =\frac{-e}{2 \pi^2 \varepsilon_0} \cdot \frac{1}{r} \int_0^{+\infty}  \sin(qr)\cdot \frac{q}{q^2+q_{TF}^2g( \frac{q}{2k_F} )} \mathrm{d}q
+\end{align}
+<p>
+&#x96BE;&#x4EE5;&#x89E3;&#x6790;&#x5730;&#x8BA1;&#x7B97;, &#x56E0;&#x6B64;&#x60F3;&#x8981;&#x6570;&#x503C;&#x5730;&#x8BA1;&#x7B97;.
+</p>
+
+<p>
+&#x5176;&#x6B21;, &#x88AB;&#x79EF;&#x51FD;&#x6570;&#x6536;&#x655B;&#x4E0D;&#x591F;&#x5FEB;.
+</p>
+
+<p>
+&#x7ECF;&#x8FC7;&#x524D;&#x9762;&#x5BF9;&#x88AB;&#x79EF;&#x51FD;&#x6570;&#x7EA7;&#x6570;&#x5C55;&#x5F00;&#x7684;&#x5206;&#x6790;, &#x53D1;&#x73B0;&#x88AB;&#x79EF;&#x5206;&#x51FD;&#x6570;&#x5728;&#x8FDC;&#x5904;&#x7684; leading order &#x4E3A;
+</p>
+
+\begin{equation}
+\label{eq:leading}
+\frac{\sin(qr)}{q}
+\end{equation}
+
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;, &#x88AB;&#x79EF;&#x51FD;&#x6570;&#x5728;&#x8FDC;&#x5904;&#x7684;&#x8D21;&#x732E;&#x4E3B;&#x8981;&#x6765;&#x81EA;&#x4E8E; leading order &#x9879; (\ref{eq:leading}), &#x800C;&#x4E14;&#x8FD9;&#x4E00;&#x9879;&#x662F;&#x53EF;&#x4EE5;&#x89E3;&#x6790;&#x5730;&#x8BA1;&#x7B97;&#x51FA;&#x7ED3;&#x679C;&#x7684;. &#x5982;&#x679C;&#x6211;&#x4EEC;&#x4ECE;&#x88AB;&#x51FD;&#x6570;&#x4E2D;&#x628A;&#x8FD9;&#x9879;&#x51CF;&#x53BB;, &#x90A3;&#x4E48;&#x88AB;&#x79EF;&#x51FD;&#x6570;&#x5728;&#x8FDC;&#x5904;&#x5C31;&#x8FD1;&#x4F3C;&#x4E3A; \(0\) &#x4E86;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x79EF;&#x5206;&#x4F1A;&#x66F4;&#x5FEB;&#x5730;&#x6536;&#x655B;. &#x8FD9;&#x5C31;&#x89E3;&#x51B3;&#x4E86;&#x79EF;&#x5206;&#x6536;&#x655B;&#x4E0D;&#x591F;&#x5FEB;&#x7684;&#x95EE;&#x9898;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbbc732b" class="outline-3">
+<h3 id="orgbbc732b">&#x6784;&#x9020;&#x65B0;&#x7684;&#x88AB;&#x79EF;&#x51FD;&#x6570;</h3>
+<div class="outline-text-3" id="text-orgbbc732b">
+<p>
+&#x6784;&#x9020;&#x51FD;&#x6570;
+</p>
+
+\begin{equation}
+F(q) = \sin(qr)\cdot \frac{q}{q^2+q_{TF}^2g( \frac{q}{2k_F} )} - \frac{\sin(qr)}{q}
+\end{equation}
+
+<p>
+&#x65B0;&#x7684; \(F(q)\) &#x51FD;&#x6570;&#x4F1A;&#x5F88;&#x5FEB;&#x5730;&#x6536;&#x655B;.
+</p>
+
+<p>
+&#x539F;&#x6765;&#x7684;&#x79EF;&#x5206;&#x5C31;&#x53EF;&#x4EE5;&#x5206;&#x89E3;&#x4E3A;
+</p>
+
+\begin{align}
+\varphi(\vec{r}) =&amp;\frac{-e}{2 \pi^2 \varepsilon_0} \cdot \frac{1}{r} \int_0^{+\infty}  \sin(qr)\cdot \frac{q}{q^2+q_{TF}^2g( \frac{q}{2k_F} )} \mathrm{d}q \\
+=&amp; \frac{-e}{2 \pi^2 \varepsilon_0} \cdot \frac{1}{r} \int_0^{+\infty} \left( F(q) +  \frac{\sin(qr)}{q} \right)\mathrm{d}q \\
+=&amp; \frac{-e}{2 \pi^2 \varepsilon_0} \cdot \frac{1}{r} \left(  \int_0^{+\infty}  F(q) \mathrm{d}q + \frac{\pi}{2} \right)
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orga6c17d3" class="outline-3">
+<h3 id="orga6c17d3">&#x6570;&#x503C;&#x79EF;&#x5206;</h3>
+<div class="outline-text-3" id="text-orga6c17d3">
+<p>
+&#x4E0B;&#x9762;&#x6570;&#x503C;&#x5730;&#x8BA1;&#x7B97;
+</p>
+
+\begin{align}
+ \int_0^{+\infty}  F(q) \mathrm{d}q 
+\end{align}
+
+<p>
+python &#x7A0B;&#x5E8F;&#x5982;&#x4E0B;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#&#x5BFC;&#x5165;&#x6570;&#x503C;&#x8BA1;&#x7B97;&#x5305;, &#x753B;&#x56FE;&#x5305;, &#x79EF;&#x5206;&#x5305;</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> integrate</span><br><span class="line"></span><br><span class="line"><span class="comment">#&#x8BBE;&#x7F6E;&#x7269;&#x7406;&#x53C2;&#x91CF;</span></span><br><span class="line">qtf = <span class="number">3</span>/<span class="number">4</span></span><br><span class="line">kf = <span class="number">1</span>/<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#&#x6570;&#x503C;&#x79EF;&#x5206;&#x7684;&#x533A;&#x95F4;:(0,end)</span></span><br><span class="line">end = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#&#x5B9A;&#x4E49;&#x51FD;&#x6570; phi_r, g(u), phi_q, lo(q)&#x662F;phi_q &#x7684; leading order, F(q)&#x662F;&#x4ECE; phi(q) &#x91CC;&#x8FB9;&#x51CF;&#x53BB; leading order</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">phi_r</span>(<span class="params">r</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">g</span>(<span class="params">u</span>):</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>/<span class="number">2</span>*(<span class="number">1</span>+<span class="number">1</span>/(<span class="number">2</span>*u)*(<span class="number">1</span>-u**<span class="number">2</span>)*np.log(np.<span class="built_in">abs</span>((<span class="number">1</span>+u)/(<span class="number">1</span>-u))))</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">phi</span>(<span class="params">q</span>):</span></span><br><span class="line">	phi = np.sin(q*r)*q/(q**<span class="number">2</span>+qtf**<span class="number">2</span>*g(q/(<span class="number">2</span>*kf)))</span><br><span class="line">	<span class="keyword">return</span> phi</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lo</span>(<span class="params">q</span>):</span></span><br><span class="line">	lo = np.sin(q*r)/q</span><br><span class="line">	<span class="keyword">return</span> lo</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">F</span>(<span class="params">q</span>):</span></span><br><span class="line">	F = phi(q) - lo(q)</span><br><span class="line">	<span class="keyword">return</span> F</span><br><span class="line">    (Fres,err) = integrate.quad(F,<span class="number">0</span>,end)</span><br><span class="line">    phir = Fres + np.pi/<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> phir</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#&#x8BA1;&#x7B97;N&#x4E2A;&#x4E0D;&#x540C;&#x7684; r &#x7684;&#x53D6;&#x503C;&#x7684;&#x6570;&#x503C;&#x79EF;&#x5206; </span></span><br><span class="line">N = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#&#x753B;&#x516D;&#x4E2A;&#x56FE;&#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x56FE;</span></span><br><span class="line">plt.subplot(<span class="number">321</span>) <span class="comment">#(321)&#x7684;&#x610F;&#x601D;&#x662F;&#x6574;&#x4E2A;&#x56FE;&#x662F;3&#x884C;2&#x5217;,&#x8FD9;&#x4E2A;&#x56FE;&#x753B;&#x5728;&#x7B2C;1&#x4E2A;&#x4F4D;&#x7F6E;</span></span><br><span class="line">a = <span class="number">0.1</span> <span class="comment">#&#x753B;&#x56FE;&#x7684;&#x533A;&#x95F4;&#x4E3A;[a,b],&#x8FD9;&#x91CC;&#x7B2C;&#x4E00;&#x4E2A;&#x56FE;&#x4E3A; r &#x53D6; [0,10]</span></span><br><span class="line">b = a+<span class="number">10</span></span><br><span class="line">r = np.linspace(a,b,N)</span><br><span class="line"></span><br><span class="line"><span class="comment">#&#x8FDB;&#x884C; N &#x6B21;&#x6570;&#x503C;&#x79EF;&#x5206;, &#x7136;&#x540E;&#x628A; N &#x4E2A;&#x70B9;&#x7684;&#x6570;&#x503C;&#x79EF;&#x5206;&#x7684;&#x7ED3;&#x679C;&#x4FDD;&#x5B58;&#x5728;&#x6570;&#x7EC4; s &#x4E2D;</span></span><br><span class="line">s = np.linspace(<span class="number">0</span>,<span class="number">0</span>,N)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    s[i-<span class="number">1</span>] = phi_r(r[i-<span class="number">1</span>])</span><br><span class="line"><span class="comment">#&#x753B;&#x56FE;, &#x6307;&#x5B9A;&#x7EBF;&#x7684;&#x989C;&#x8272;&#x548C;&#x56FE;&#x4F8B;</span></span><br><span class="line">plt.plot(r, s, color=<span class="string">&quot;red&quot;</span>, label=<span class="string">&quot;Numerical Result&quot;</span>)</span><br><span class="line"><span class="comment">#&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x5C06;&#x6570;&#x503C;&#x7684;&#x7ED3;&#x679C;&#x548C; Friedel Oscillations &#x7684;&#x7ED3;&#x679C;&#x505A;&#x6BD4;&#x8F83;, &#x4F46;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x4F1A;&#x5DEE;&#x4E00;&#x4E2A;&#x5E38;&#x6570;k, &#x73B0;&#x5728;&#x628A;&#x8FD9;&#x4E2A;&#x5E38;&#x6570; k &#x53D6; N &#x6B21;&#x6570;&#x503C;&#x79EF;&#x5206;&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;&#x70B9;&#x7684;&#x6BD4;&#x503C;</span></span><br><span class="line">k = phi_r(a)/(<span class="number">1</span>/(a**<span class="number">3</span>)*np.cos(<span class="number">2</span>*kf*a))</span><br><span class="line">fo = k*<span class="number">1</span>/(r**<span class="number">3</span>)*np.cos(<span class="number">2</span>*kf*r) <span class="comment">#&#x8FD9;&#x662F; Friedel Oscillations &#x7684;&#x7ED3;&#x679C;</span></span><br><span class="line">plt.plot(r,fo, <span class="string">&quot;--&quot;</span>, color=<span class="string">&quot;blue&quot;</span>, label=<span class="string">&quot;Friedel Oscillation&quot;</span>) <span class="comment">#&#x753B;&#x51FA; Friedel Oscillations &#x7684;&#x7ED3;&#x679C;</span></span><br><span class="line"></span><br><span class="line">plt.xlabel(<span class="string">&quot;$r$&quot;</span>) <span class="comment">#&#x8BBE;&#x7F6E;&#x6A2A;&#x5750;&#x6807;&#x7684;&#x7269;&#x7406;&#x91CF;</span></span><br><span class="line">plt.ylabel(<span class="string">&quot;$\phi(r)$&quot;</span>) <span class="comment">#&#x8BBE;&#x7F6E;&#x7EB5;&#x5750;&#x6807;&#x7684;&#x7269;&#x7406;&#x91CF;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#&#x4EE5;&#x4E0B;&#x4E09;&#x884C;&#x662F;&#x4E3A;&#x4E86;&#x8BA9;&#x5750;&#x6807;&#x7684;&#x6570;&#x503C;&#x4EE5;&#x79D1;&#x5B66;&#x8BA1;&#x6570;&#x6CD5;&#x663E;&#x793A;</span></span><br><span class="line">ax = plt.gca()  <span class="comment"># &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x56FE;&#x50CF;&#x7684;&#x5750;&#x6807;&#x8F74;&#x4FE1;&#x606F;</span></span><br><span class="line">ax.yaxis.get_major_formatter().set_powerlimits((<span class="number">0</span>,<span class="number">1</span>)) <span class="comment"># &#x5C06;&#x5750;&#x6807;&#x8F74;&#x7684;base number&#x8BBE;&#x7F6E;&#x4E3A;&#x4E00;&#x4F4D;&#x3002;</span></span><br><span class="line">plt.legend()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#&#x4E0E;&#x753B;&#x7B2C;&#x4E00;&#x4E2A;&#x56FE;&#x540C;&#x6837;&#x7684;&#x65B9;&#x6CD5;, &#x753B;&#x51FA;&#x5269;&#x4E0B;&#x7684;5&#x4E2A;&#x56FE;, &#x5B83;&#x4EEC;&#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E; r &#x7684;&#x533A;&#x95F4;&#x4E0D;&#x540C;</span></span><br><span class="line">plt.subplot(<span class="number">322</span>)</span><br><span class="line">a = <span class="number">10</span></span><br><span class="line">b = a+<span class="number">10</span></span><br><span class="line">r = np.linspace(a,b,N)</span><br><span class="line"></span><br><span class="line">s = np.linspace(<span class="number">0</span>,<span class="number">0</span>,N)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    s[i-<span class="number">1</span>] = phi_r(r[i-<span class="number">1</span>])</span><br><span class="line">plt.plot(r, s, color=<span class="string">&quot;red&quot;</span>, label=<span class="string">&quot;Numerical Result&quot;</span>)</span><br><span class="line"></span><br><span class="line">k = phi_r(a)/(<span class="number">1</span>/(a**<span class="number">3</span>)*np.cos(<span class="number">2</span>*kf*a))</span><br><span class="line">fo = k*<span class="number">1</span>/(r**<span class="number">3</span>)*np.cos(<span class="number">2</span>*kf*r)</span><br><span class="line">plt.plot(r,fo, <span class="string">&quot;--&quot;</span>, color=<span class="string">&quot;blue&quot;</span>, label=<span class="string">&quot;Friedel Oscillation&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.xlabel(<span class="string">&quot;$r$&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;$\phi(r)$&quot;</span>)</span><br><span class="line"></span><br><span class="line">ax = plt.gca()  <span class="comment"># &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x56FE;&#x50CF;&#x7684;&#x5750;&#x6807;&#x8F74;&#x4FE1;&#x606F;</span></span><br><span class="line">ax.yaxis.get_major_formatter().set_powerlimits((<span class="number">0</span>,<span class="number">1</span>)) <span class="comment"># &#x5C06;&#x5750;&#x6807;&#x8F74;&#x7684;base number&#x8BBE;&#x7F6E;&#x4E3A;&#x4E00;&#x4F4D;&#x3002;</span></span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">323</span>)</span><br><span class="line">a = <span class="number">20</span></span><br><span class="line">b = a+<span class="number">10</span></span><br><span class="line">r = np.linspace(a,b,N)</span><br><span class="line"></span><br><span class="line">s = np.linspace(<span class="number">0</span>,<span class="number">0</span>,N)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    s[i-<span class="number">1</span>] = phi_r(r[i-<span class="number">1</span>])</span><br><span class="line">plt.plot(r, s, color=<span class="string">&quot;red&quot;</span>, label=<span class="string">&quot;Numerical Result&quot;</span>)</span><br><span class="line"></span><br><span class="line">k = phi_r(a)/(<span class="number">1</span>/(a**<span class="number">3</span>)*np.cos(<span class="number">2</span>*kf*a))</span><br><span class="line">fo = k*<span class="number">1</span>/(r**<span class="number">3</span>)*np.cos(<span class="number">2</span>*kf*r)</span><br><span class="line">plt.plot(r,fo, <span class="string">&quot;--&quot;</span>, color=<span class="string">&quot;blue&quot;</span>, label=<span class="string">&quot;Friedel Oscillation&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.xlabel(<span class="string">&quot;$r$&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;$\phi(r)$&quot;</span>)</span><br><span class="line"></span><br><span class="line">ax = plt.gca()  <span class="comment"># &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x56FE;&#x50CF;&#x7684;&#x5750;&#x6807;&#x8F74;&#x4FE1;&#x606F;</span></span><br><span class="line">ax.yaxis.get_major_formatter().set_powerlimits((<span class="number">0</span>,<span class="number">1</span>)) <span class="comment"># &#x5C06;&#x5750;&#x6807;&#x8F74;&#x7684;base number&#x8BBE;&#x7F6E;&#x4E3A;&#x4E00;&#x4F4D;&#x3002;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">324</span>)</span><br><span class="line">a = <span class="number">50</span></span><br><span class="line">b = a+<span class="number">10</span></span><br><span class="line">r = np.linspace(a,b,N)</span><br><span class="line"></span><br><span class="line">s = np.linspace(<span class="number">0</span>,<span class="number">0</span>,N)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    s[i-<span class="number">1</span>] = phi_r(r[i-<span class="number">1</span>])</span><br><span class="line">plt.plot(r, s, color=<span class="string">&quot;red&quot;</span>, label=<span class="string">&quot;Numerical Result&quot;</span>)</span><br><span class="line"></span><br><span class="line">k = phi_r(a)/(<span class="number">1</span>/(a**<span class="number">3</span>)*np.cos(<span class="number">2</span>*kf*a))</span><br><span class="line">fo = k*<span class="number">1</span>/(r**<span class="number">3</span>)*np.cos(<span class="number">2</span>*kf*r)</span><br><span class="line">plt.plot(r,fo, <span class="string">&quot;--&quot;</span>, color=<span class="string">&quot;blue&quot;</span>, label=<span class="string">&quot;Friedel Oscillation&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.xlabel(<span class="string">&quot;$r$&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;$\phi(r)$&quot;</span>)</span><br><span class="line"></span><br><span class="line">ax = plt.gca()  <span class="comment"># &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x56FE;&#x50CF;&#x7684;&#x5750;&#x6807;&#x8F74;&#x4FE1;&#x606F;</span></span><br><span class="line">ax.yaxis.get_major_formatter().set_powerlimits((<span class="number">0</span>,<span class="number">1</span>)) <span class="comment"># &#x5C06;&#x5750;&#x6807;&#x8F74;&#x7684;base number&#x8BBE;&#x7F6E;&#x4E3A;&#x4E00;&#x4F4D;&#x3002;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">325</span>)</span><br><span class="line">a = <span class="number">100</span></span><br><span class="line">b = a+<span class="number">10</span></span><br><span class="line">r = np.linspace(a,b,N)</span><br><span class="line"></span><br><span class="line">s = np.linspace(<span class="number">0</span>,<span class="number">0</span>,N)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    s[i-<span class="number">1</span>] = phi_r(r[i-<span class="number">1</span>])</span><br><span class="line">plt.plot(r, s, color=<span class="string">&quot;red&quot;</span>, label=<span class="string">&quot;Numerical Result&quot;</span>)</span><br><span class="line"></span><br><span class="line">k = phi_r(a)/(<span class="number">1</span>/(a**<span class="number">3</span>)*np.cos(<span class="number">2</span>*kf*a))</span><br><span class="line">fo = k*<span class="number">1</span>/(r**<span class="number">3</span>)*np.cos(<span class="number">2</span>*kf*r)</span><br><span class="line">plt.plot(r,fo, <span class="string">&quot;--&quot;</span>, color=<span class="string">&quot;blue&quot;</span>, label=<span class="string">&quot;Friedel Oscillation&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.xlabel(<span class="string">&quot;$r$&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;$\phi(r)$&quot;</span>)</span><br><span class="line"></span><br><span class="line">ax = plt.gca()  <span class="comment"># &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x56FE;&#x50CF;&#x7684;&#x5750;&#x6807;&#x8F74;&#x4FE1;&#x606F;</span></span><br><span class="line">ax.yaxis.get_major_formatter().set_powerlimits((<span class="number">0</span>,<span class="number">1</span>)) <span class="comment"># &#x5C06;&#x5750;&#x6807;&#x8F74;&#x7684;base number&#x8BBE;&#x7F6E;&#x4E3A;&#x4E00;&#x4F4D;&#x3002;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">326</span>)</span><br><span class="line">a = <span class="number">200</span></span><br><span class="line">b = a+<span class="number">10</span></span><br><span class="line">r = np.linspace(a,b,N)</span><br><span class="line"></span><br><span class="line">s = np.linspace(<span class="number">0</span>,<span class="number">0</span>,N)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    s[i-<span class="number">1</span>] = phi_r(r[i-<span class="number">1</span>])</span><br><span class="line">plt.plot(r, s, color=<span class="string">&quot;red&quot;</span>, label=<span class="string">&quot;Numerical Result&quot;</span>)</span><br><span class="line"></span><br><span class="line">k = phi_r(a)/(<span class="number">1</span>/(a**<span class="number">3</span>)*np.cos(<span class="number">2</span>*kf*a))</span><br><span class="line">fo = k*<span class="number">1</span>/(r**<span class="number">3</span>)*np.cos(<span class="number">2</span>*kf*r)</span><br><span class="line">plt.plot(r,fo, <span class="string">&quot;--&quot;</span>, color=<span class="string">&quot;blue&quot;</span>, label=<span class="string">&quot;Friedel Oscillation&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.xlabel(<span class="string">&quot;$r$&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;$\phi(r)$&quot;</span>)</span><br><span class="line"></span><br><span class="line">ax = plt.gca()  <span class="comment"># &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x56FE;&#x50CF;&#x7684;&#x5750;&#x6807;&#x8F74;&#x4FE1;&#x606F;</span></span><br><span class="line">ax.yaxis.get_major_formatter().set_powerlimits((<span class="number">0</span>,<span class="number">1</span>)) <span class="comment"># &#x5C06;&#x5750;&#x6807;&#x8F74;&#x7684;base number&#x8BBE;&#x7F6E;&#x4E3A;&#x4E00;&#x4F4D;&#x3002;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.suptitle(<span class="string">&quot;The Results of RPA&quot;</span>) <span class="comment">#&#x753B;&#x51FA;&#x6574;&#x4E2A;&#x56FE;&#x7684;&#x6807;&#x9898;</span></span><br><span class="line">plt.show() <span class="comment">#&#x663E;&#x793A;&#x56FE;&#x7247;</span></span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge70d9c2" class="outline-3">
+<h3 id="orge70d9c2">&#x7ED3;&#x679C;&#x5BF9;&#x6BD4;</h3>
+<div class="outline-text-3" id="text-orge70d9c2">
+<p>
+&#x5C06;&#x6570;&#x503C;&#x7ED3;&#x679C;&#x4E0E; Friedel Oscillations &#x7684;&#x7ED3;&#x679C;
+</p>
+
+\begin{align}
+\varphi(\vec{r}) \sim \frac{1}{r^3} \cos (2 k_fr)
+\end{align}
+
+<p>
+&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;
+</p>
+
+
+<div id="org3104682" class="figure">
+<p><img src="/2018/11/28/Friedel Oscillations/friedel_oscillations.png">
+</p>
+</div>
+
+<p>
+&#x53EF;&#x4EE5;&#x770B;&#x51FA;, Friedel Oscillations &#x7684;&#x7ED3;&#x679C;&#x5728; \(r\) &#x8F83;&#x5927;&#x65F6;&#x7684;&#x7ED3;&#x679C;&#x6BD4;&#x8F83;&#x597D;.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9e6f236" class="outline-2">
+<h2 id="org9e6f236">&#x53C2;&#x8003;&#x6587;&#x732E;</h2>
+<div class="outline-text-2" id="text-org9e6f236">
+<p>
+Friedel Oscillation &#x7684;&#x539F;&#x59CB;&#x6587;&#x732E; the shielding of a fixed charge in a high-density electron gas <a href="http://www.doc88.com/p-9512851691956.html" target="_blank" rel="noopener">http://www.doc88.com/p-9512851691956.html</a> 
+</p>
+
+<p>
+Wolfgang Nolting, Fundamentals of Many-body Physics
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5780968" class="outline-2">
+<h2 id="org5780968">&#x81F4;&#x8C22;</h2>
+<div class="outline-text-2" id="text-org5780968">
+<p>
+&#x611F;&#x8C22;&#x5BFC;&#x5E08; Ran Qi &#x7684;&#x6307;&#x5BFC;
+</p>
+
+<p>
+&#x611F;&#x8C22; Fan Yang &#x5E08;&#x5144;&#x7684;&#x8BA8;&#x8BBA;
+</p>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/Friedel-Oscillations/" rel="tag"># Friedel Oscillations</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/13/关于 Dirac delta 函数的定义/" rel="next" title="关于 Dirac delta 函数的定义">
+                <i class="fa fa-chevron-left"></i> 关于 Dirac delta 函数的定义
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/03/多体物理读书会:5.2和5.3节 contraction-Grenn's Function-Feynman graphs三者之间的对应/" rel="prev" title="多体物理读书会: 5.2和5.3节 contraction-Grenn's Function-Feynman graphs三者之间的对应">
+                多体物理读书会: 5.2和5.3节 contraction-Grenn's Function-Feynman graphs三者之间的对应 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org0430ef3"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2a7a470"><span class="nav-text">Thomas-Fermi 近似的结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org0933f94"><span class="nav-text">问题1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org0aec649"><span class="nav-text">问题2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgf9b780e"><span class="nav-text">RPA 的结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org7b205ec"><span class="nav-text">级数展开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org3fa243e"><span class="nav-text">问题3: 接下来该怎么做? 所有的展开项代入积分都是发散的.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org8a482a1"><span class="nav-text">正确的级数展开</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6f17f57"><span class="nav-text">数值计算 RPA 的结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgc2a91fa"><span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgbbc732b"><span class="nav-text">构造新的被积函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orga6c17d3"><span class="nav-text">数值积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orge70d9c2"><span class="nav-text">结果对比</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org9e6f236"><span class="nav-text">参考文献</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org5780968"><span class="nav-text">致谢</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

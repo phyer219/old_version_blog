@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux使用笔记">
+<meta property="og:url" content="https://zqw.ink/2018/09/07/Linux使用笔记/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.846Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux使用笔记">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2018/09/07/Linux使用笔记/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Linux使用笔记 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2018/09/07/Linux使用笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux使用笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-07 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-07T00:00:00+08:00">2018-09-07</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件使用/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/07/Linux使用笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/09/07/Linux使用笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <!-- toc -->
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ol>
+<li>显示已安装的软件包列表：<code>dpkg -l</code></li>
+<li>gbk编码访问bbs：<code>luit -encoding gbk telnet bbs.xxx.xxx.xx</code>  </li>
+<li>列出块设备：<code>lsblk</code></li>
+<li>打印当前系统的全部相关信息：<code>uname -a</code></li>
+<li>显示已执行命令：<code>history</code></li>
+<li>打开pdf文件：<code>evince test.pdf</code></li>
+<li>查看ip：<code>ip addr show</code> </li>
+</ol>
+<h3 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h3><ol>
+<li>黑客帝国：cmatrix </li>
+<li>小火车：sl</li>
+<li>格言：fortune</li>
+<li>不断输出字符：yes</li>
+</ol>
+<h3 id="好玩的"><a href="#好玩的" class="headerlink" title="好玩的"></a>好玩的</h3><h4 id="ASSIC码电影："><a href="#ASSIC码电影：" class="headerlink" title="ASSIC码电影："></a>ASSIC码电影：</h4><ol>
+<li>在线观看<code>telnet towel.blinkenlights.nl</code></li>
+</ol>
+<p>toilet   toilet -f mono12 -F gay ‘hhh’</p>
+<p>oneko</p>
+<p>xeyes</p>
+<p>cal</p>
+<p>espeak    espeak ‘hh’</p>
+<p>bsdgames        adventure, arithmetic, atc, backgammon, battlestar, bcd, boggle, caesar, canfield, countmail, cribbage, dab, go-fish, gomoku, hack, hangman, hunt, mille, monop, morse, number, pig, phantasia, pom, ppt, primes, quiz, random, rain, robots, rot13, sail, snake, tetris, trek, wargames, worm, worms, wump, wtf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install libaa-bin</span><br><span class="line">aafire</span><br></pre></td></tr></table></figure>
+<h2 id="play"><a href="#play" class="headerlink" title="play"></a>play</h2><p>方法1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffplay xxx.avi</span><br></pre></td></tr></table></figure>
+<p>方法2：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mplayer -vo caca video.avi</span><br></pre></td></tr></table></figure>
+<p>  注：参数caca表示彩色字符模式，aa表示黑白字符模式。</p>
+<h2 id="w3m"><a href="#w3m" class="headerlink" title="w3m"></a>w3m</h2><p> sudo apt-get install w3m w3m-img<br> w3m www.zhihu.com</p>
+<h2 id="telnet"><a href="#telnet" class="headerlink" title="telnet"></a>telnet</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet towel.blinkenlights.nl</span><br></pre></td></tr></table></figure>
+<h2 id="Host"><a href="#Host" class="headerlink" title="Host"></a>Host</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1	localhost</span><br><span class="line">127.0.1.1   dx-PC</span><br><span class="line"></span><br><span class="line"># The following lines are desirable for IPv6 capable hosts</span><br><span class="line">::1     ip6-localhost ip6-loopback</span><br><span class="line">fe00::0 ip6-localnet</span><br><span class="line">ff00::0 ip6-mcastprefix</span><br><span class="line">ff02::1 ip6-allnodes</span><br><span class="line">ff02::2 ip6-allrouters</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/hosts</span><br><span class="line">sudo /etc/init.d/networking restart</span><br></pre></td></tr></table></figure>
+<h3 id="matlab"><a href="#matlab" class="headerlink" title="matlab"></a>matlab</h3><h4 id="运行命令行界面"><a href="#运行命令行界面" class="headerlink" title="运行命令行界面"></a>运行命令行界面</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./matlab -nodisplay</span><br></pre></td></tr></table></figure>
+<h4 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h4><p><code>cd /etc</code></p>
+<p><code>sudo gedit profile</code></p>
+<p>添加</p>
+<p><code>\# add matlab path</code></p>
+<p><code>export PATH=$PATH:/usr/local/MATLAB/R2018a/bin</code></p>
+<p>保存</p>
+<h3 id="mathematica"><a href="#mathematica" class="headerlink" title="mathematica"></a>mathematica</h3><p>退出： <code>ctrl D</code> </p>
+<p>在linux下一般用scp这个命令来通过ssh传输文件。</p>
+<p>1、从服务器上下载文件<br>scp username@servername:/path/filename /var/www/local_dir（本地目录）</p>
+<p> 例如scp root@192.168.0.101:/var/www/test.txt  把192.168.0.101上的/var/www/test.txt 的文件下载到/var/www/local_dir（本地目录）</p>
+<p>2、上传本地文件到服务器<br>scp /path/filename username@servername:/path   </p>
+<p>例如scp /var/www/test.php  root@192.168.0.101:/var/www/  把本机/var/www/目录下的test.php文件上传到192.168.0.101这台服务器上的/var/www/目录中</p>
+<p>3、从服务器下载整个目录<br>scp -r username@servername:/var/www/remote_dir/（远程目录） /var/www/local_dir（本地目录）</p>
+<p>例如:scp -r root@192.168.0.101:/var/www/test  /var/www/  </p>
+<p>4、上传目录到服务器<br>scp  -r local_dir username@servername:remote_dir<br>例如：scp -r test  root@192.168.0.101:/var/www/   把当前目录下的test目录上传到服务器的/var/www/ 目录</p>
+<h2 id="note"><a href="#note" class="headerlink" title="note"></a>note</h2><p><code>man</code> mannual</p>
+<p><code>pwd</code>  present working directory</p>
+<p><code>cd</code> change directory</p>
+<p>The single dot ( . ) to represent the current directory<br>The double dot ( .. ) to represent the parent directory</p>
+<p>cd ../../etc</p>
+<p><code>ls</code> list</p>
+<p><code>ls -F</code> The -F parameter flags the directories with a forward slash ( / ), to help identify them in the<br>listing, it flags executable files (like the my_script file in the preceding code)<br>with an asterisk ( * ).</p>
+<p><code>ls -R</code> recursive</p>
+<p><code>ls -a</code> all</p>
+<p>文件名上的单引号: 有空格或需要转义的字符</p>
+<p>常用组合: <code>ls -alF</code></p>
+<p><code>ls -l</code> long listing format. </p>
+<p>The file type — such as directory ( d ), file ( - ), linked file ( l ), character device ( c ), or block device ( b ) The file permissions (see Chapter 6)<br>The number of file hard links (See the section “Linking Files” in Chapter 7.)<br>The file owner usernameThe file primary group name<br>The file byte size<br>The last time the file was modified<br>The filename or directory name</p>
+<p>A question mark ( ? ) to represent one character<br>An asterisk ( * ) to represent any number of characters</p>
+<p>$ ls -l my_scr[ai]pt<br>-rw-rw-r— 1 christine christine 0 May 21 13:25 my_scrapt<br>-rwxrw-r— 1 christine christine 54 May 21 11:26 my_script</p>
+<p>$ ls -l f[a-i]ll<br>-rw-rw-r— 1 christine christine 0 May 21 13:44 fall<br>-rw-rw-r— 1 christine christine 0 May 21 13:44 fell<br>-rw-rw-r— 1 christine christine 0 May 21 13:44 fill</p>
+<p>$ ls -l f[!a]ll<br>-rw-rw-r— 1 christine christine 0 May 21 13:44 fell<br>-rw-rw-r— 1 christine christine 0 May 21 13:44 fill<br>-rw-rw-r— 1 christine christine 0 May 21 13:44 full</p>
+<p><code>touch</code> :   change file timestamps</p>
+<p> cp test<em>one test_two<br> ls -l test</em>*<br>-rw-rw-r— 1 christine christine 0 May 21 14:35 test_one<br>-rw-rw-r— 1 christine christine 0 May 21 15:15 test_two</p>
+<p>It is best<br>to add the -i option to force the shell to ask whether you want to overwrite a file:</p>
+<p>cp -i test_one /home/christine/Documents/</p>
+<p>If you need to<br>copy a file with a long source object name to your present working directory, the single<br>dot can simplify the task:<br>$ cp -i /etc/NetworkManager/NetworkManager.conf .</p>
+<p>cp -R Scripts/ Mod_Scripts</p>
+<p>You can also use wildcard metacharacters in your cp commands:<br>$ cp *script Mod_Scripts/</p>
+<p><code>mv</code>  You can use the mv command to move a file’s location and rename it, all in one easy step: </p>
+<p>mv /home/christine/Pictures/fzll /home/christine/fall </p>
+<p>To create several directories and subdirectories at the same time, you need to add the -p<br>parameter:<br>$ mkdir -p New_Dir/Sub_Dir/Under_Dir</p>
+<p>rm -ri My_Dir</p>
+<p>tree hexo -L 1<br>hexo<br>├── _config.yml<br>├── db.json<br>├── hexo-org-cache<br>├── node_modules<br>├── package.json<br>├── package-lock.json<br>├── public<br>├── scaffolds<br>├── source<br>└── themes</p>
+<p>file my_file<br>my_file: ASCII text</p>
+<p>file Mathematica_11.0.0_Keygen.exe<br>Mathematica_11.0.0_Keygen.exe: PE32 executable (console) Intel 80386, for MS Windows</p>
+<p>cat -n test1<br>1 hello<br>2<br>3 This is a test file.<br>4<br>5<br>6 That we’ll use to<br>$<br>test the cat command.</p>
+<p><code>more</code>  用 q 退出 <code>less</code> </p>
+<p>The tail command displays the last lines in a file (the file’s “tail”). By default, it shows<br>the last 10 lines in the file.</p>
+<p>tail -n 2 log_file<br>line19<br>Last line - line20</p>
+<p><code>tail</code> <code>head</code> </p>
+<p>The -f parameter is a pretty cool feature of the tail command. It allows you to peek<br>inside a file as the file is being used by other processes. The tail command stays active<br>and continues to display new lines as they appear in the text file. This is a great way to<br>monitor the system log files in real-time mode.</p>
+<h3 id="More-bash-Shell-Commands"><a href="#More-bash-Shell-Commands" class="headerlink" title="More bash Shell Commands"></a>More bash Shell Commands</h3><h4 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h4><p>By default, the ps command shows only the processes that belong to the<br>current user and that are running on the current terminal.</p>
+<p><code>ps -ef</code>  (all full)</p>
+<h4 id="top"><a href="#top" class="headerlink" title="top"></a>top</h4><p>if your load averages start getting over 2, things are getting busy on your<br>system.</p>
+<p><code>kill</code> <code>killall http*</code></p>
+<p>自己可以安装 gotop</p>
+<h4 id="mount"><a href="#mount" class="headerlink" title="mount"></a>mount</h4><p>mount -t type device directory</p>
+<p>vfat: Windows long filesystem<br>ntfs: Windows advanced filesystem used in Windows NT, XP, and Vista<br>iso9660: The standard CD-ROM filesystem</p>
+<p>umount /home/rich/mnt</p>
+<h4 id="df"><a href="#df" class="headerlink" title="df"></a>df</h4><h4 id="du"><a href="#du" class="headerlink" title="du"></a>du</h4><p>disk usage</p>
+<p>-c :<br>Produces a grand total of all the files listed<br>-h :<br>Prints sizes in human-readable form, using K for kilobyte, M for megabyte, and<br>G for gigabyte<br>-s :<br>Summarizes each argument</p>
+<h4 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h4><p><code>sort -n</code></p>
+<h4 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h4><p>grep import fft.py<br>import numpy as np<br>import matplotlib.pyplot as plt<br>from scipy import integrate</p>
+<h4 id="gzip"><a href="#gzip" class="headerlink" title="gzip"></a>gzip</h4><h4 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h4><p>tar -cvf test.tar test/ test2/ 打包</p>
+<p>tar -xvf 解包</p>
+<h3 id="understand-shell"><a href="#understand-shell" class="headerlink" title="understand shell"></a>understand shell</h3><p>cat /etc/passwd<br>[…]<br>christine:x:1000:1000:Christine,,,:/home/christine:/bin/bash</p>
+<p>On a single line, you can designate a list of commands to be run one after another.</p>
+<p><code>ls ; ls -lh</code></p>
+<p><code>(ls ; cd /etc ; ls ; echo $BASH_SUBSHELL)</code>  在新的 shell 运行, 运行完不改变工作路径</p>
+<p><code>ls ; cd /etc ; ls ; echo $BASH_SUBSHELL</code> 在本 shell 运行, 运行完到了 <code>/etc</code> 路径</p>
+<h4 id="jobs"><a href="#jobs" class="headerlink" title="jobs"></a>jobs</h4><p>jobs command displays any user’s processes (jobs) currently running in<br>background mode:</p>
+<h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><h4 id="which"><a href="#which" class="headerlink" title="which"></a>which</h4><p>type cd<br>cd is a shell builtin</p>
+<p>Using the type -a command shows both types for each of the two commands. Note that<br>the which command shows only the external command file.</p>
+<h4 id="history"><a href="#history" class="headerlink" title="history"></a>history</h4><p>Command history is kept in the hidden .bash_history file, which is located in the user’s<br>home directory</p>
+<p>You can force the command history to be written to the .bash_history file before leaving<br>a shell session. In order to force this write, use the -a option on the history command:<br>history -a</p>
+<p> !20<br>type -a pwd<br>pwd is a shell builtin<br>pwd is /bin/pwd</p>
+<p>Command number 20 was pulled from command history. Notice that similar to executing<br>the last command in history, the bash shell first displays the command it is recalling from<br>the shell’s history. After the command is displayed, it is executed.</p>
+<p><code>!!</code> 上一条命令</p>
+<h4 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h4><p><code>alias -p</code> </p>
+<p>alias li=‘ls -li’</p>
+<h3 id="Using-Linux-Environment-Variables"><a href="#Using-Linux-Environment-Variables" class="headerlink" title="Using Linux Environment Variables"></a>Using Linux Environment Variables</h3><p><code>env</code> or the <code>printenv</code></p>
+<h4 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h4><p>You can also use the echo command to display a variable’s value. When referencing an<br>environment variable in this case, you must place a dollar sign ( $ ) before the environmentvariable name</p>
+<p>echo $HOME</p>
+<p>The dollar sign before a variable name<br>allows the variable to be passed as a command parameter:<br> ls $HOME</p>
+<h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><p>The set command displays all variables<br>defined for a specific process, including both local and global environment variables and<br>user-defined variables </p>
+<p>echo my_variable<br>my_variable=Hello<br>echo my_variable</p>
+<p>If you need to assign a string value that contains spaces, you need to use a single or double<br>quotation mark to delineate the beginning and the end of the string:</p>
+<p>my_variable=“Hello World”</p>
+<p>Notice that for the local variable you defined, you used lowercase<br>letters, while the system environment variables you’ve seen so far have all used uppercase<br>letters.</p>
+<h4 id="export"><a href="#export" class="headerlink" title="export"></a>export</h4><p><code>export my_variable</code> </p>
+<p>This is done by using the export command and the variable name minus the dollar sign</p>
+<h4 id="unset"><a href="#unset" class="headerlink" title="unset"></a>unset</h4><p>unset my_variable</p>
+<p>If you are doing anything with the<br>variable, use the dollar sign. If you are doing anything to the variable, don’t use the<br>dollar sign.</p>
+<p>echo $PATH</p>
+<p><code>PATH=$PATH:/home/christine/Scripts</code> 添加 PATH 环境变量</p>
+<p>It is a better idea to create a file ending with .sh in the /etc/profile.d directory. In that<br>file, place all your new or modified global environment variable settings.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/07/特殊二阶矩阵的本征值求解/" rel="next" title="特殊二阶矩阵的本征值求解">
+                <i class="fa fa-chevron-left"></i> 特殊二阶矩阵的本征值求解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/07/Emacs使用笔记/" rel="prev" title="Emacs使用笔记">
+                Emacs使用笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件"><span class="nav-text">软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#好玩的"><span class="nav-text">好玩的</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ASSIC码电影："><span class="nav-text">ASSIC码电影：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#play"><span class="nav-text">play</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#w3m"><span class="nav-text">w3m</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#telnet"><span class="nav-text">telnet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Host"><span class="nav-text">Host</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#matlab"><span class="nav-text">matlab</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#运行命令行界面"><span class="nav-text">运行命令行界面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加环境变量"><span class="nav-text">添加环境变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mathematica"><span class="nav-text">mathematica</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#note"><span class="nav-text">note</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#More-bash-Shell-Commands"><span class="nav-text">More bash Shell Commands</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ps"><span class="nav-text">ps</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top"><span class="nav-text">top</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mount"><span class="nav-text">mount</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#df"><span class="nav-text">df</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#du"><span class="nav-text">du</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sort"><span class="nav-text">sort</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#grep"><span class="nav-text">grep</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gzip"><span class="nav-text">gzip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tar"><span class="nav-text">tar</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#understand-shell"><span class="nav-text">understand shell</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jobs"><span class="nav-text">jobs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#type"><span class="nav-text">type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#which"><span class="nav-text">which</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history"><span class="nav-text">history</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#alias"><span class="nav-text">alias</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-Linux-Environment-Variables"><span class="nav-text">Using Linux Environment Variables</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#echo"><span class="nav-text">echo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#set"><span class="nav-text">set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#export"><span class="nav-text">export</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#unset"><span class="nav-text">unset</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

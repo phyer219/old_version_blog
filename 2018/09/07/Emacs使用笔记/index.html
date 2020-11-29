@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="Emacs,快捷键">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Emacs使用笔记">
+<meta property="og:url" content="https://zqw.ink/2018/09/07/Emacs使用笔记/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.846Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Emacs使用笔记">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2018/09/07/Emacs使用笔记/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Emacs使用笔记 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2018/09/07/Emacs使用笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Emacs使用笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-07 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-07T00:00:00+08:00">2018-09-07</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件使用/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/07/Emacs使用笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/09/07/Emacs使用笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <!-- toc -->
+<a id="more"></a>
+<h3 id="修改配色"><a href="#修改配色" class="headerlink" title="修改配色"></a>修改配色</h3><p>打开Emacs的配置文件。配置文件在~/.emacs。增加：</p>
+<blockquote>
+<p>(set-background-color “black”) ;; 使用黑色背景<br>(set-foreground-color “white”) ;; 使用白色前景<br>(set-face-foreground ‘region “green”)  ;; 区域前景颜色设为绿色<br>(set-face-background ‘region “blue”) ;; 区域背景色设为蓝色</p>
+</blockquote>
+<p>尽管可以重启Emacs使配置生效，但更快捷的方式是在打开~/.emacs的时候执行命令M-x eval-buffer，就可以使配置文件立即生效。</p>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>中文帮助：<code>C-h t</code> </p>
+<p>撤消：<code>C-x u</code> <code>C-/</code> </p>
+<p>启动自动折行模式：<code>M-x auto-fill-mode &lt;Return&gt;</code> </p>
+<p>相关命令搜索（Command Apropos）：<code>C-h a</code> </p>
+<p>Emacs 使用手册（manual）：<code>C-h r</code> </p>
+<p>自动补全：<code>M-/</code>     </p>
+<p>在另一个窗口打开缓冲：<code>C-x 4 b</code>     </p>
+<p>复制：<code>M-w</code> </p>
+<p>把当前进程放到后台（之后可用’’fg’’命令回到前台）： <code>Ctrl Z</code>   </p>
+<p>清屏：<code>ctrl L</code></p>
+<h3 id="打开"><a href="#打开" class="headerlink" title="打开"></a>打开</h3><p>终端模式：<code>emacs -nw</code></p>
+<h3 id="配置备份"><a href="#配置备份" class="headerlink" title="配置备份"></a>配置备份</h3><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;;用xetex编译,以支持中文</span></span><br><span class="line">(<span class="name">setq-default</span> TeX-engine 'xetex)</span><br><span class="line"><span class="comment">;;默认输出pdf</span></span><br><span class="line">(<span class="name">setq-default</span> TeX-PDF-mode <span class="literal">t</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">;;ELPA (Emacs Lisp Package Archive)扩展插件管理,用命令`package-list-packages`调用.</span></span><br><span class="line"><span class="comment">;;主题网站https://emacsthemes.com/ </span></span><br><span class="line">(<span class="name">require</span> 'package)</span><br><span class="line">(<span class="name">add-to-list</span> 'package-archives </span><br><span class="line">             '(<span class="string">"melpa"</span> . <span class="string">"http://melpa.org/packages/"</span>))</span><br><span class="line">(<span class="name">package-initialize</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">;;加载主题</span></span><br><span class="line">(<span class="name">load-theme</span> 'light-blue <span class="literal">t</span>)</span><br><span class="line"><span class="comment">;;auctex插件</span></span><br><span class="line">(<span class="name">load</span> <span class="string">"auctex.el"</span> <span class="literal">nil</span> <span class="literal">t</span> <span class="literal">t</span>)</span><br><span class="line">(<span class="name">load</span> <span class="string">"preview-latex.el"</span> <span class="literal">nil</span> <span class="literal">t</span> <span class="literal">t</span>)</span><br><span class="line">(<span class="name">setq</span> TeX-auto-save <span class="literal">t</span>)</span><br><span class="line">(<span class="name">setq</span> TeX-parse-self <span class="literal">t</span>)</span><br><span class="line">(<span class="name">setq-default</span> TeX-master <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">;;在 LaTeX mode 中，默认开启 PDF mode，即默认使用 xelatex 直接生成 pdf 文 件，而不用每次用 'C-c C-t C-p' 进行切换。设置 'Tex-show-compilation' 为 t，在另一个窗口显示编译信息，对于错误的排除很方便。另外，编译时默认直接 保存文件，绑定补全符号到 TAB 键。</span></span><br><span class="line">(<span class="name">add-hook</span> 'LaTeX-mode-hook</span><br><span class="line">          (<span class="name">lambda</span> ()</span><br><span class="line">            (<span class="name">setq</span> TeX-auto-untabify <span class="literal">t</span>     <span class="comment">; remove all tabs before saving</span></span><br><span class="line">                  TeX-engine 'xetex       <span class="comment">; use xelatex default</span></span><br><span class="line">                  TeX-show-compilation <span class="literal">t</span>) <span class="comment">; display compilation windows</span></span><br><span class="line">            (<span class="name">TeX-global-PDF-mode</span> <span class="literal">t</span>)       <span class="comment">; PDF mode enable, not plain</span></span><br><span class="line">            (<span class="name">setq</span> TeX-save-query <span class="literal">nil</span>)</span><br><span class="line">            (<span class="name">imenu-add-menubar-index</span>)</span><br><span class="line">            (<span class="name">define-key</span> LaTeX-mode-map (<span class="name">kbd</span> <span class="string">"TAB"</span>) 'TeX-complete-symbol)))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">;;自动换行，数学公式，reftex，显示号</span></span><br><span class="line">(<span class="name">mapc</span> (<span class="name">lambda</span> (<span class="name">mode</span>)</span><br><span class="line">      (<span class="name">add-hook</span> 'LaTeX-mode-hook mode))</span><br><span class="line">      (<span class="name">list</span> 'auto-fill-mode</span><br><span class="line">            'LaTeX-math-mode</span><br><span class="line">            'turn-on-reftex</span><br><span class="line">            'linum-mode))</span><br><span class="line">(<span class="name">custom-set-variables</span></span><br><span class="line"> <span class="comment">;; custom-set-variables was added by Custom.</span></span><br><span class="line"> <span class="comment">;; If you edit it by hand, you could mess it up, so be careful.</span></span><br><span class="line"> <span class="comment">;; Your init file should contain only one such instance.</span></span><br><span class="line"> <span class="comment">;; If there is more than one, they won't work right.</span></span><br><span class="line"> '(package-selected-packages (quote (pyim nord-theme))))</span><br><span class="line">(<span class="name">custom-set-faces</span></span><br><span class="line"> <span class="comment">;; custom-set-faces was added by Custom.</span></span><br><span class="line"> <span class="comment">;; If you edit it by hand, you could mess it up, so be careful.</span></span><br><span class="line"> <span class="comment">;; Your init file should contain only one such instance.</span></span><br><span class="line"> <span class="comment">;; If there is more than one, they won't work right.</span></span><br><span class="line"> )</span><br><span class="line"></span><br><span class="line">(<span class="name">elpy-use-ipython</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">; python-mode</span></span><br><span class="line">(<span class="name">setq</span> py-install-directory <span class="string">"~/.emacs.d/python-mode-6.0.11"</span>)</span><br><span class="line">(<span class="name">add-to-list</span> 'load-path py-install-directory)</span><br><span class="line">(<span class="name">require</span> 'python-mode)</span><br><span class="line"></span><br><span class="line"><span class="comment">; use IPython</span></span><br><span class="line">(<span class="name">setq-default</span> py-shell-name <span class="string">"ipython"</span>)</span><br><span class="line">(<span class="name">setq-default</span> py-which-bufname <span class="string">"IPython"</span>)</span><br><span class="line"><span class="comment">; use the wx backend, for both mayavi and matplotlib</span></span><br><span class="line">(<span class="name">setq</span> py-python-command-args</span><br><span class="line">  '(<span class="string">"--gui=wx"</span> <span class="string">"--pylab=wx"</span> <span class="string">"-colors"</span> <span class="string">"Linux"</span>))</span><br><span class="line">(<span class="name">setq</span> py-force-py-shell-name-p <span class="literal">t</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">; switch to the interpreter after executing code</span></span><br><span class="line">(<span class="name">setq</span> py-shell-switch-buffers-on-execute-p <span class="literal">t</span>)</span><br><span class="line">(<span class="name">setq</span> py-switch-buffers-on-execute-p <span class="literal">t</span>)</span><br><span class="line"><span class="comment">; don't split windows</span></span><br><span class="line">(<span class="name">setq</span> py-split-windows-on-execute-p <span class="literal">nil</span>)</span><br><span class="line"><span class="comment">; try to automagically figure out indentation</span></span><br><span class="line">(<span class="name">setq</span> py-smart-indentation <span class="literal">t</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(<span class="name">setq</span> TeX-view-program-list</span><br><span class="line">      '((<span class="string">"SumatraPDF"</span> <span class="string">"SumatraPDF.exe %o"</span>)</span><br><span class="line">        (<span class="string">"Gsview"</span> <span class="string">"gsview32.exe %o"</span>)</span><br><span class="line">        (<span class="string">"Okular"</span> <span class="string">"okular --unique %o"</span>)</span><br><span class="line">        (<span class="string">"Evince"</span> <span class="string">"evince %o"</span>)</span><br><span class="line">        (<span class="string">"Firefox"</span> <span class="string">"firefox %o"</span>)))</span><br><span class="line"> ((<span class="name">eq</span> system-type 'gnu/linux)</span><br><span class="line">  (<span class="name">add-hook</span> 'LaTeX-mode-hook</span><br><span class="line">            (<span class="name">lambda</span> ()</span><br><span class="line">              (<span class="name">setq</span> TeX-view-program-selection '((output-pdf <span class="string">"Okular"</span>)</span><br><span class="line">                                                 (output-dvi "Okular")))))))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(<span class="name">add-to-list</span> 'load-path <span class="string">"/home/dx/Downloads/neotree"</span>)</span><br><span class="line">(<span class="name">require</span> 'neotree)</span><br><span class="line">(<span class="name">global-set-key</span> [f8] 'neotree-toggle)</span><br><span class="line"></span><br><span class="line">(<span class="name">require</span> 'sr-speedbar)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Emacs/" rel="tag"># Emacs</a>
+          
+            <a href="/tags/快捷键/" rel="tag"># 快捷键</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/07/Linux使用笔记/" rel="next" title="Linux使用笔记">
+                <i class="fa fa-chevron-left"></i> Linux使用笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/07/Fourier transform 总结/" rel="prev" title="Fourier transform 总结">
+                Fourier transform 总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配色"><span class="nav-text">修改配色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快捷键"><span class="nav-text">快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打开"><span class="nav-text">打开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置备份"><span class="nav-text">配置备份</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

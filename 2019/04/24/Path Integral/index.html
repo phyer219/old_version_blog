@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="物理,path integral">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Feynman Path Integral Note">
+<meta property="og:url" content="https://zqw.ink/2019/04/24/Path Integral/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.886Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Feynman Path Integral Note">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2019/04/24/Path Integral/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Feynman Path Integral Note | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2019/04/24/Path Integral/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Feynman Path Integral Note
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-24T00:00:00+08:00">2019-04-24</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/24/Path Integral/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/04/24/Path Integral/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-org0dd93b2" class="outline-2">
+<h2 id="org0dd93b2">Propagators</h2>
+<div class="outline-text-2" id="text-org0dd93b2">
+</div>
+<div id="outline-container-org8bd9d64" class="outline-3">
+<h3 id="org8bd9d64">Heisenberg &#x8868;&#x8C61;&#x4E2D;&#x7684;&#x6001;&#x7684;&#x5185;&#x79EF;</h3>
+<div class="outline-text-3" id="text-org8bd9d64">
+<p>
+Propagator &#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x662F; Heisenberg &#x8868;&#x8C61;&#x4E2D;&#x7684;&#x6001;&#x7684;&#x5185;&#x79EF;, &#x5373;
+</p>
+\begin{align}
+  \langle x_N, t_N | x_0 , t_0 \rangle
+  = [\langle x_N | U(t_N, 0)]
+   \cdot[ U(0,t_0)| x_0 \rangle]
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org945b337" class="outline-3">
+<h3 id="org945b337">&#x6F14;&#x5316;&#x7B97;&#x7B26;&#x7684;&#x77E9;&#x9635;&#x5143;</h3>
+<div class="outline-text-3" id="text-org945b337">
+<p>
+Propagator &#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x662F;&#x6F14;&#x5316;&#x7B97;&#x7B26;&#x7684;&#x77E9;&#x9635;&#x5143;, &#x5373;
+</p>
+\begin{align}
+  \langle x_N, t_N | x_0 , t_0 \rangle
+  = \langle x_N | U(t_N, t_0) | x_0 \rangle
+\end{align}
+<p>
+&#x7269;&#x7406;&#x610F;&#x4E49;&#x89E3;&#x91CA;&#x4E3A;: \(t_0\) &#x65F6;&#x523B;&#x5904;&#x4E8E; \(|x_0\rangle\) , &#x7136;&#x540E;&#x6F14;&#x5316;&#x5230; \(t_N\) &#x65F6;&#x523B;,
+&#x8FD9;&#x65F6;&#x5728;&#x6001; \(| x_N\rangle\) &#x4E0A;&#x7684;&#x6295;&#x5F71;, &#x5373;&#x5728;&#x6001; \(| x_N\rangle\) &#x4E0A;&#x7684;&#x6982;&#x7387;&#x632F;&#x5E45;,
+&#x5C31;&#x662F; Propagator .
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5def740" class="outline-2">
+<h2 id="org5def740">Feynman&apos;s Path Interal</h2>
+<div class="outline-text-2" id="text-org5def740">
+</div>
+<div id="outline-container-org944f5aa" class="outline-3">
+<h3 id="org944f5aa">&#x6838;&#x5FC3;&#x601D;&#x8DEF;</h3>
+<div class="outline-text-3" id="text-org944f5aa">
+<p>
+&#x7B97;&#x5F97;&#x4E86; Propagator , &#x5C31;&#x77E5;&#x9053;&#x4E86;&#x4F53;&#x7CFB;&#x7684;&#x6F14;&#x5316;, &#x95EE;&#x9898;&#x5C31;&#x5F97;&#x5230;&#x4E86;&#x89E3;&#x51B3;. &#x6240;&#x4EE5;&#x662F;&#x76EE;&#x6807;&#x5C31;
+&#x662F;&#x8BA1;&#x7B97; Propagator .
+</p>
+
+<p>
+&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x7684;&#x5047;&#x8BBE;&#x662F;
+</p>
+\begin{align}
+    \langle x_N, t_N | x_0 , t_0 \rangle \quad \mathrm{corresponds\quad to }
+  \quad e^{\frac{\mathrm{i}}{\hbar}S(0,N)}
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(S\) &#x662F;&#x4F5C;&#x7528;&#x91CF;
+</p>
+\begin{align}
+  S(N,0) =
+   \int_{t_0}^{t_N}\mathrm{d}t \cdot L(x, \dot{x}) 
+\end{align}
+<p>
+\(L\) &#x662F;&#x7ECF;&#x5178;&#x7684;&#x62C9;&#x6C0F;&#x91CF;. &#x4F46;&#x662F; \(L\) &#x662F; \(x\) &#x548C; \(\dot{x}\) &#x7684;&#x51FD;&#x6570;. &#x6240;&#x4EE5;&#x53EA;&#x6709;&#x9009;&#x5B9A;
+&#x4E00;&#x4E2A;&#x8DEF;&#x5F84;&#x540E;, \(S(N,0)\) &#x624D;&#x6709;&#x660E;&#x786E;&#x5B9A;&#x4E49;. &#x600E;&#x4E48;&#x529E;&#x5462;?
+</p>
+
+<p>
+&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x662F;, &#x63D2;&#x5165;&#x5B8C;&#x5907;&#x57FA;. &#x5728; Heisenberg &#x8868;&#x8C61;&#x4E2D;, &#x6BCF;&#x4E2A;&#x65F6;&#x523B;&#x7684;&#x4F4D;&#x7F6E;&#x7684;&#x672C;&#x5F81;&#x6001;&#x90FD;
+&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x662F;&#x4E00;&#x7EC4;&#x5B8C;&#x5907;&#x57FA;. &#x5373;
+</p>
+\begin{align}
+  \int \mathrm{d}^3 x\cdot |\vec{x},t\rangle \langle \vec{x},t |
+  = 1
+\end{align}
+<p>
+&#x5728; \(t_0\) &#x548C; \(t_N\) &#x4E4B;&#x95F4;&#x63D2;&#x5165;&#x65E0;&#x7A77;&#x591A;&#x7EC4;&#x5B8C;&#x5907;&#x57FA;, &#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align*}
+  &amp;\langle x_N, t_N | x_0 , t_0 \rangle \\
+   =&amp;
+   \int\mathrm{d}^3 x_{N-1}\cdots
+   \int\mathrm{d}^3 x_1 \cdot
+   \langle x_N, t_N |\vec{x}_{N-1},t_{N-1}\rangle
+   \langle \vec{x}_{N-1},t_{N-1} |
+   \cdots |\vec{x}_1, t_1\rangle
+   \langle \vec{x}_1, t_1 | x_0 , t_0 \rangle
+\end{align*}
+<p>
+&#x5176;&#x4E2D; \(N\to \infty\) . &#x8FD9;&#x6837;&#x76F8;&#x5F53;&#x4E8E;&#x5BF9;&#x4E8E;&#x6240;&#x6709;&#x7684;&#x8DEF;&#x5F84;&#x90FD;&#x4F5C;&#x4E86;&#x8BA1;&#x7B97;, &#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+      \langle x_N, t_N | x_0 , t_0 \rangle \quad \sim
+  \quad \sum_{\mathrm{all\,paths}} e^{\frac{\mathrm{i}}{\hbar}S(N,0)}
+\end{align}
+<p>
+&#x5BF9;&#x4E8E;&#x65E0;&#x7A77;&#x77ED;&#x95F4;&#x9694;&#x5185;&#x7684; Propagator , &#x5C06;&#x5176;&#x5047;&#x8BBE;&#x4E3A;
+</p>
+\begin{align}
+  \langle x +\Delta x , t + \Delta t |x , t \rangle
+  = \frac{1}{\omega(\Delta t)}
+   e^{\frac{\mathrm{i}}{\hbar}S}
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\omega(\Delta t)\) &#x662F;&#x53EA;&#x4E0E; \(\Delta t\) &#x7684;&#x5927;&#x5C0F;&#x6709;&#x5173;&#x7684;&#x4E00;&#x4E2A;&#x5F52;&#x4E00;&#x5316;&#x7CFB;&#x6570;.
+</p>
+
+<p>
+&#x8FD9;&#x6837;, &#x5C31;&#x5F97;&#x5230;&#x4E86; Feynman &#x7684; Path Integral &#x7684;&#x8868;&#x8FBE;&#x5F0F;
+</p>
+\begin{align*}
+  &amp;\langle x_N, t_N | x_0 , t_0 \rangle \\
+  =&amp; \lim_{N\to \infty}\frac{1}{[\omega(\Delta t)]^{N-1}}\cdot
+   \int\mathrm{d}^3 x_{N-1}\cdots
+   \int\mathrm{d}^3 x_1 \cdot e^{\frac{\mathrm{i}}{\hbar}S(N,0)}\\
+  =&amp;\int_{x_1}^{x_N}\mathcal{D}[x(t)] \cdot e^{\frac{\mathrm{i}}{\hbar}S(N,0)}\\
+\end{align*}
+<p>
+&#x7B2C;&#x4E8C;&#x4E2A;&#x7B49;&#x53F7;&#x91C7;&#x7528;&#x4E86;&#x65B0;&#x7684;&#x8BB0;&#x53F7;
+</p>
+\begin{align}
+  \int_{x_1}^{x_N} \mathcal{D}[x(t)]\equiv \lim_{N\to \infty}\frac{1}{[\omega(\Delta t)]^{N-1}}\cdot
+   \int\mathrm{d}^3 x_{N-1}\cdots
+   \int\mathrm{d}^3 x_1 
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org22d5332" class="outline-3">
+<h3 id="org22d5332">&#x5F52;&#x4E00;&#x5316;&#x7CFB;&#x6570;</h3>
+<div class="outline-text-3" id="text-org22d5332">
+<p>
+&#x4E0B;&#x9762;&#x6765;&#x6C42;&#x5F52;&#x4E00;&#x5316;&#x56E0;&#x5B50; \(\omega(\Delta t)\) (&#x5047;&#x8BBE;&#x5B83;&#x4E0E;&#x52BF;&#x65E0;&#x5173;), &#x53EF;&#x4EE5;&#x7528;&#x81EA;&#x7531;&#x7C92;&#x5B50;
+&#x7684;&#x62C9;&#x6C0F;&#x91CF;. &#x7136;&#x540E;, &#x5229;&#x7528;&#x5B8C;&#x5907;&#x57FA;&#x7684;&#x6B63;&#x4EA4;&#x5F52;&#x4E00;&#x6027;
+</p>
+\begin{align}
+  \lim_{\Delta t\to 0}   \langle x +\Delta x , t + \Delta t |x , t \rangle
+  = \delta (\Delta x)
+\end{align}
+<p>
+&#x90A3;&#x4E48;
+</p>
+\begin{align}
+  \lim_{\Delta t\to 0}\frac{1}{\omega(\Delta t)}
+   e^{\frac{\mathrm{i}}{\hbar}S} = \delta (\Delta x)
+\end{align}
+<p>
+&#x4E0B;&#x9762;&#x5148;&#x628A; \(S\) &#x7B97;&#x51FA;&#x6765;
+</p>
+\begin{align}
+  S = \int_t^{t+\Delta t} \mathrm{d} t&apos; \cdot \left[
+  \frac{m}{2}\left(\frac{\Delta x}{\Delta t}\right)^2  \right]
+  = \frac{m (\Delta x) ^2}{2\Delta t}
+\end{align}
+<p>
+&#x4E0A;&#x5F0F;&#x4E2D;&#x7531;&#x4E8E;&#x662F;&#x81EA;&#x7531;&#x7C92;&#x5B50;, &#x6240;&#x4EE5;&#x7C92;&#x5B50;&#x662F;&#x76F4;&#x7EBF;&#x8FD0;&#x52A8;, &#x901F;&#x5EA6;&#x4E3A; \(\Delta x/\Delta t\) .
+&#x5C06;&#x7B97;&#x51FA;&#x6765;&#x7684; \(S\) &#x4EE3;&#x56DE;&#x539F;&#x5F0F;&#x5E76;&#x5BF9; \(\Delta x\) &#x5728;&#x5168;&#x7A7A;&#x95F4;&#x79EF;&#x5206;&#x5F97;
+</p>
+\begin{align}
+  \frac{1}{\omega(\Delta t)} \cdot\int \mathrm{d}\Delta x \cdot
+  e^{\frac{\mathrm{im (\Delta x)^2}}{2 \hbar \Delta t}}
+  =\frac{1}{\omega(\Delta t)} \sqrt{\pi\frac{2\hbar \Delta t}{m}}
+  =1
+\end{align}
+<p>
+&#x5373;&#x6C42;&#x5F97;&#x5F52;&#x4E00;&#x5316;&#x7CFB;&#x6570;&#x4E3A;
+</p>
+\begin{align}
+  \frac{1}{\omega (\Delta t)} = \sqrt{\frac{m}{2\pi \hbar\Delta t}}
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org51da072" class="outline-2">
+<h2 id="org51da072">Classical Limit</h2>
+<div class="outline-text-2" id="text-org51da072">
+<p>
+&#x5F53; \(\hbar \to 0\) &#x65F6;, &#x53EA;&#x6709;&#x7ECF;&#x5178;&#x8F68;&#x9053;&#x6709;&#x8D21;&#x732E;. &#x6240;&#x8C13;&#x7ECF;&#x5178;&#x8F68;&#x9053;, &#x5373;&#x6EE1;&#x8DB3; Hamilton
+&#x539F;&#x7406;&#x7684;&#x8DEF;&#x5F84;
+</p>
+\begin{align}
+  \delta S = 0
+\end{align}
+<p>
+. &#x8FD9;&#x662F;&#x56E0;&#x4E3A;, &#x4E0D;&#x6EE1;&#x8DB3; Hamilton &#x539F;&#x7406;&#x7684;&#x4F5C;&#x7528;&#x91CF; \(\delta S \neq 0\) , &#x800C; \(\hbar
+\to 0\) , &#x6240;&#x4EE5;&#x4F5C;&#x7528;&#x91CF;&#x5373;&#x4F7F;&#x6709;&#x5F88;&#x5C0F;&#x7684;&#x6539;&#x53D8;, &#x5B83;&#x5BF9;&#x5E94;&#x7684;&#x76F8;&#x4F4D;&#x4E5F;&#x4F1A;&#x6709;&#x5F88;&#x5927;&#x7684;&#x6539;&#x53D8;, &#x90A3;&#x4E48;&#x5B83;&#x5728;&#x5BF9;
+&#x6240;&#x6709;&#x8DEF;&#x5F84;&#x6C42;&#x548C;&#x65F6;, &#x76F8;&#x4F4D;&#x4F1A;&#x76F8;&#x5E72;&#x76F8;&#x6D88;. &#x800C;&#x53EA;&#x6709;&#x6EE1;&#x8DB3; Hamilton &#x539F;&#x7406;&#x7684;&#x8DEF;&#x5F84;, &#x5B83;&#x6709;&#x5FAE;
+&#x5C0F;&#x7684;&#x6539;&#x53D8;&#x65F6;, &#x5B83;&#x7684;&#x76F8;&#x4F4D;&#x4E0D;&#x4F1A;&#x76F8;&#x6D88;. &#x4F5C;&#x7528;&#x91CF;&#x5728; \([-\hbar \pi, \hbar\pi]\) &#x5185;&#x90FD;&#x4F1A;
+&#x6709;&#x8D21;&#x732E;.
+</p>
+
+<p>
+&#x4E00;&#x4E2A;&#x5468;&#x671F;&#x5185;&#x7684;&#x76F8;&#x4F4D;&#x90FD;&#x4F1A;&#x76F8;&#x6D88;, &#x53EA;&#x6709;&#x4F5C;&#x7528;&#x91CF;&#x53D6;&#x5E73;&#x7A33;&#x503C;&#x7684;&#x65F6;&#x5019;&#x6CA1;&#x6709;&#x5176;&#x5B83;&#x76F8;&#x4F4D;&#x4E0E;&#x5B83;&#x76F8;&#x6D88;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org768ff77" class="outline-2">
+<h2 id="org768ff77">Equivalence to Schrodinger&apos;s Wave Mechanics</h2>
+<div class="outline-text-2" id="text-org768ff77">
+<p>
+&#x8003;&#x8651;&#x4ECE; Propagator &#x5BF9;&#x65F6;&#x95F4;&#x7684;&#x5FAE;&#x5206;&#x5165;&#x624B;, &#x5C06;&#x4ECE; \(t_0, x_0\) &#x5230;&#x4EFB;&#x610F;&#x65F6;&#x523B; \(t, x\) &#x7684;
+Propagator &#x5728; \(t-\Delta t\) &#x5904;&#x5C55;&#x5F00;
+</p>
+\begin{align}
+  \langle x, t| x_0, t_0 \rangle = \langle x, t-\Delta t | x_0 ,t_0 \rangle
+  + \Delta t \frac{\partial}{\partial t}
+  \langle x, t-\Delta t | x_0 ,t_0 \rangle + \mathcal{O}[(\Delta t)^2]
+\end{align}
+<p>
+&#x540C;&#x65F6;, &#x4E5F;&#x53EF;&#x4EE5;&#x7528; Path Integral &#x7684;&#x65B9;&#x6CD5;&#x8BA1;&#x7B97; Propagator &#x7136;&#x540E;&#x518D;&#x5BF9;&#x5E94; \(\Delta
+t\) &#x7684;&#x4E00;&#x9636;&#x9879;. &#x8FD9;&#x6837;&#x5C31;&#x7528; Path Integral &#x6C42;&#x5F97; Propagator &#x5BF9;&#x65F6;&#x95F4;&#x7684;&#x4E00;&#x9636;&#x5BFC;&#x6570;.
+</p>
+
+<p>
+&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x5728;&#x79BB; \(|x, t\rangle\) &#x65E0;&#x7A77;&#x8FD1;&#x7684;&#x5730;&#x65B9;&#x63D2;&#x5165;&#x4E00;&#x7EC4;&#x5B8C;&#x5907;&#x57FA;
+</p>
+\begin{align}
+  \langle x, t| x_0, t_0 \rangle = \sqrt{\frac{\lambda}{\pi}}
+  \int_{-\infty}^{+\infty} \mathrm{d}\Delta x \cdot e^{-\lambda (\Delta x)^2 }
+  \cdot e^{-\frac{\mathrm{i} V \Delta t}{\hbar}} \cdot
+  \langle x- \Delta x, t- \Delta t| x_0, t_0 \rangle
+\end{align}
+<p>
+&#x5176;&#x4E2D;&#x62C9;&#x6C0F;&#x91CF;&#x5DF2;&#x4EE3;&#x4E3A; \(L = \frac{m}{2}\left( \frac{\Delta x}{ \Delta t}
+\right)^2 - V\) , &#x4E3A;&#x4E86;&#x7B80;&#x4FBF;&#x8BB0; \(\lambda = \frac{m}{2\mathrm{i}\hbar
+\Delta t}\sim \frac{1}{\Delta t}\) . 
+&#x5C06;&#x4E0A;&#x5F0F;&#x6700;&#x540E;&#x4E00;&#x9879;&#x5728; \(\langle x, t- \Delta t |\) &#x9644;&#x8FD1;&#x5C55;&#x5F00;
+</p>
+\begin{align*}
+  \langle x- \Delta x, t- \Delta t| x_0, t_0 \rangle
+  =&amp; \langle x, t- \Delta t| x_0, t_0 \rangle + \mathrm{Linear\, term}\\
+  &amp;+ \frac{(\Delta x)^2}{2}\cdot \frac{\partial^2}{\partial x^2}
+  \langle x, t- \Delta t| x_0, t_0 \rangle + \mathcal{O}[(\Delta x)^3]
+\end{align*}
+<p>
+&#x4E0A;&#x5F0F;&#x4E2D;&#x7684;&#x7EBF;&#x6027;&#x9879;&#x53CA;&#x5176;&#x5B83;&#x5947;&#x6570;&#x6B21;&#x5E42;&#x9879;&#x7531;&#x4E8E;&#x662F;&#x5947;&#x51FD;&#x6570;, &#x79EF;&#x5206;&#x540E;&#x90FD;&#x4E3A;&#x96F6;, &#x6240;&#x4EE5;&#x4E0D;&#x52A0;&#x8003;&#x8651;.
+</p>
+
+<p>
+&#x4EE3;&#x56DE;&#x79EF;&#x5206;&#x5F0F;&#x4E2D;, &#x5E76;&#x5C06; \(e^{-\frac{\mathrm{i} V\Delta t}{\hbar}}\) &#x4E5F;&#x6309;
+\(\Delta t\) &#x8FDB;&#x884C; Taylor &#x5C55;&#x5F00;, &#x53EF;&#x5F97;
+</p>
+\begin{align*}
+  \langle x, t| x_0, t_0 \rangle =  \langle x, t-\Delta t | x_0 ,t_0 \rangle
+  + \left[\frac{1}{2}\frac{\partial^2}{\partial x^2} \cdot \frac{1}{2}\frac{1}{\lambda}
+   -\frac{\mathrm{i}}{\hbar}V \Delta t\right] \langle x, t- \Delta t| x_0, t_0 \rangle
+  + \mathcal{O}[(\Delta t)^3]
+\end{align*}
+<p>
+&#x6CE8;&#x610F;&#x5F0F;&#x5176;&#x4E2D; \(\frac{1}{\lambda}\sim t\) . &#x5176;&#x4E2D;&#x5229;&#x7528;&#x4E86;&#x79EF;&#x5206;&#x516C;&#x5F0F;
+</p>
+\begin{align}
+  \int_{-\infty}^{+\infty}\mathrm{d} x\cdot e^{-\lambda x^2}
+  =&amp; \sqrt{\frac{\pi}{\lambda}} \\
+  \int_{-\infty}^{+\infty}\mathrm{d} x\cdot x^2e^{-\lambda x^2}
+  =&amp; -\frac{\partial}{\partial \lambda}\sqrt{\frac{\pi}{\lambda}} 
+  = \frac{1}{2}\sqrt{\frac{\pi}{\lambda^3}}
+\end{align}
+<p>
+&#x6BD4;&#x8F83;&#x4E24;&#x79CD;&#x5C55;&#x5F00;&#x7684;&#x4E00;&#x9636;&#x9879;&#x53EF;&#x5F97;
+</p>
+\begin{align}
+  \mathrm{i}\hbar \frac{\partial}{\partial t}\langle x, t- \Delta t| x_0, t_0 \rangle
+  =\left[ -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}
+  +V\right]\langle x, t- \Delta t| x_0, t_0 \rangle
+\end{align}
+<p>
+&#x6B64;&#x5373; Schrodinger Equation !
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge8c2390" class="outline-2">
+<h2 id="orge8c2390">Reference</h2>
+<div class="outline-text-2" id="text-orge8c2390">
+<p>
+J. J Sakurai, Jim Napolitano, Modern Quantum Mechanics 2ed:
+</p>
+<ul class="org-ul">
+<li>Chap 2.6 Propagators and Feynman Path Integral</li>
+</ul>
+
+<p>
+R. Shankar, Principles of Quantum Mechanics 2ed:
+</p>
+<ul class="org-ul">
+<li>Chap 8 The Path Integral Formulation of Quantum Theory</li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/path-integral/" rel="tag"># path integral</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/18/Git 使用备忘/" rel="next" title="Git 使用备忘">
+                <i class="fa fa-chevron-left"></i> Git 使用备忘
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/15/PAR99/" rel="prev" title="PRA 99">
+                PRA 99 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org0dd93b2"><span class="nav-text">Propagators</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org8bd9d64"><span class="nav-text">Heisenberg 表象中的态的内积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org945b337"><span class="nav-text">演化算符的矩阵元</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org5def740"><span class="nav-text">Feynman&#39;s Path Interal</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org944f5aa"><span class="nav-text">核心思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org22d5332"><span class="nav-text">归一化系数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org51da072"><span class="nav-text">Classical Limit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org768ff77"><span class="nav-text">Equivalence to Schrodinger&#39;s Wave Mechanics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orge8c2390"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="物理,Rotating Wave Approximation,Atom Light Interaction">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rotating Wave Approximation">
+<meta property="og:url" content="https://zqw.ink/2020/04/22/RotatingWaveApprox/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:49.110Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rotating Wave Approximation">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2020/04/22/RotatingWaveApprox/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Rotating Wave Approximation | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2020/04/22/RotatingWaveApprox/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Rotating Wave Approximation
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-04-22 00:00:00" itemprop="dateCreated datePublished" datetime="2020-04-22T00:00:00+08:00">2020-04-22</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/04/22/RotatingWaveApprox/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/04/22/RotatingWaveApprox/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-orgdcc6bb0" class="outline-2">
+<h2 id="orgdcc6bb0">Hamiltonian</h2>
+<div class="outline-text-2" id="text-orgdcc6bb0">
+<p>
+&#x8003;&#x8651;&#x78B1;&#x91D1;&#x5C5E;&#x539F;&#x5B50;&#x7684;&#x57FA;&#x6001; \(|^2S_{1/2}\rangle\) &#x548C;&#x4E24;&#x4E2A;&#x6FC0;&#x53D1;&#x6001; \(|^2P_{1/2}\rangle, |^2P_{3/2}\rangle\)
+&#x4E4B;&#x95F4;&#x7684;&#x8DC3;&#x8FC1;. 
+</p>
+
+<p>
+&#x5982;&#x679C;&#x4E0D;&#x8003;&#x8651;&#x7CBE;&#x7EC6;&#x7ED3;&#x6784;, &#x4E24;&#x4E2A;&#x6FC0;&#x53D1;&#x6001; \(|^2P_{1/2}\rangle, |^2P_{3/2}\rangle\) &#x662F;&#x7B80;&#x5E76;&#x7684;.
+&#x90A3;&#x4E48;&#x5B83;&#x7684; Hamiltonian &#x5728;&#x57FA;&#x5E95; \(|^2S_{1/2}\rangle, |^2P_{1/2}\rangle, |^2P_{3/2}\rangle\) &#x4E0B;&#x53EF;&#x4EE5;&#x5199;&#x4E3A;
+</p>
+\begin{align}
+  \left( 
+  \begin{array}{ccc}
+   E_{\mathrm{ex}}  &amp;  0  &amp; 0 \\
+   0 &amp;  E_{\mathrm{ex}}  &amp;   0 \\
+    0 &amp; 0 &amp; 0
+  \end{array}   
+   \right)
+\end{align}
+<p>
+&#x5176;&#x4E2D;, &#x9009;&#x53D6;&#x4E86;&#x57FA;&#x6001; \(|^2S_{1/2}\rangle\) &#x80FD;&#x91CF;&#x4E3A; \(0\) , &#x6FC0;&#x53D1;&#x6001;&#x80FD;&#x91CF;&#x4E3A; \(E_{\mathrm{ex}}\) .
+</p>
+
+<p>
+&#x4E24;&#x4E2A;&#x6FC0;&#x53D1;&#x6001;&#x53EF;&#x4EE5;&#x7531; spin-orbital coupling &#x9879;
+\(\frac{A_{\mathrm{fs}}}{\hbar^2}\hat{\vec{L}}\cdot\hat{\vec{S}}\) &#x89E3;&#x9664;&#x7B80;&#x5E76;
+</p>
+\begin{align}
+  \hat{\vec{L}}\cdot\hat{\vec{S}} 
+  &amp;= \frac{1}{2}\left[(\hat{\vec{L}}+\hat{\vec{S}} )^2 - \hat{\vec{L}}^2 - \hat{\vec{S}}^2\right] \\
+  &amp;= \frac{1}{2}\left[\hat{\vec{J}} ^2 - \hat{\vec{L}}^2 - \hat{\vec{S}}^2\right] 
+\end{align}
+<p>
+&#x6240;&#x4EE5;
+</p>
+\begin{align}
+  \frac{A_{\mathrm{fs}}}{\hbar^2}\hat{\vec{L}}\cdot\hat{\vec{S}} |^2S_{1/2}\rangle
+  =&amp;0|^2S_{1/2}\rangle \\
+  \frac{A_{\mathrm{fs}}}{\hbar^2}\hat{\vec{L}}\cdot\hat{\vec{S}} |^2P_{1/2}\rangle
+  =&amp; \frac{A_{\mathrm{fs}}}{2} |^2P_{1/2}\rangle\\
+  \frac{A_{\mathrm{fs}}}{\hbar^2}\hat{\vec{L}}\cdot\hat{\vec{S}} |^2P_{3/2}\rangle
+  =&amp;- A_{\mathrm{fs}}|^2P_{3/2}\rangle
+\end{align}
+<p>
+&#x90A3;&#x4E48;&#x5B83;&#x7684; Hamiltonian &#x5728;&#x57FA;&#x5E95; \(|^2S_{1/2}\rangle, |^2P_{1/2}\rangle, |^2P_{3/2}\rangle\) &#x4E0B;&#x53EF;&#x4EE5;&#x5199;&#x4E3A;
+</p>
+\begin{align}
+  H_{\mathrm{at}} = \left( 
+  \begin{array}{ccc}
+   E_{\mathrm{ex}} + \frac{A_{\mathrm{fs}}}{2} &amp;  0  &amp; 0 \\
+   0 &amp;  E_{\mathrm{ex}} - A_{\mathrm{fs}} &amp;   0 \\
+    0 &amp; 0 &amp; 0
+  \end{array}   
+   \right)
+\end{align}
+
+<p>
+&#x5728;&#x5076;&#x6781;&#x8FD1;&#x4F3C;&#x4E0B;, &#x5149;&#x4F1A;&#x901A;&#x8FC7;&#x5076;&#x6781;&#x76F8;&#x4E92;&#x4F5C;&#x7528;
+\(\hat{H}_{\mathrm{d}} = \hat{\vec{d}}\cdot\hat{\vec{E}} = d_jE^0_j \cos(\phi_j - \omega
+t)\) (&#x5BF9;&#x76F8;&#x540C;&#x7684;&#x6307;&#x6807;&#x6C42;&#x548C;)&#x5C06;&#x57FA;&#x6001;&#x4E0E;&#x6FC0;&#x53D1;&#x6001;&#x8026;&#x5408;&#x5728;&#x4E00;&#x8D77;. &#x7531;&#x4E8E; \(|^2S_{1/2}\rangle\) &#x662F;&#x5076;&#x5B87;&#x79F0;&#x7684;&#x6001;,
+\(|^2P_{1/2}\rangle, |^2P_{3/2}\rangle\) &#x662F;&#x5947;&#x5B87;&#x79F0;&#x7684;&#x6001;, &#x800C;&#x5076;&#x6781;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x53EA;&#x8026;&#x5408;&#x4E0D;&#x540C;&#x5B87;&#x79F0;&#x7684;&#x6001;, &#x6240;&#x4EE5;&#x5B83;
+&#x5728;&#x57FA;&#x5E95; \(|^2S_{1/2}\rangle, |^2P_{1/2}\rangle, |^2P_{3/2}\rangle\) &#x4E0B;&#x53EF;&#x4EE5;&#x5199;&#x4E3A;
+</p>
+\begin{align}
+  H_{\mathrm{d}} = \left( 
+  \begin{array}{ccc}
+   0 &amp;  0  &amp;   V \\
+   0 &amp;  0  &amp;   V \\
+   V^{*} &amp;  V^{*}  &amp;   0
+  \end{array}   
+   \right)
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(V = \langle^2P_{1/2}|d_j|^2S_{1/2}\rangle E^0_j \cos(\phi_j - \omega t) =
+\langle^2P_{3/2}|d_j|^2S_{1/2}\rangle E^0_j \cos(\phi_j - \omega t) \equiv \langle \mathrm{ex}|d_j|\mathrm{g}\rangle
+E^0_j \cos(\phi_j - \omega t)\)  
+</p>
+
+<p>
+&#x6240;&#x4EE5;&#x603B;&#x7684; Hamiltonian &#x5728;&#x57FA;&#x5E95; \(|^2S_{1/2}\rangle, |^2P_{1/2}\rangle, |^2P_{3/2}\rangle\) &#x4E0B;&#x53EF;&#x4EE5;&#x5199;&#x4E3A;
+</p>
+\begin{align}
+  H = H_{\mathrm{at}} + H_{\mathrm{d}} =
+  \left( 
+  \begin{array}{ccc}
+   E_{\mathrm{ex}} + \frac{A_{\mathrm{fs}}}{2} &amp;  0  &amp; 0 \\
+   0 &amp;  E_{\mathrm{ex}} - A_{\mathrm{fs}} &amp;   0 \\
+    0 &amp; 0 &amp; 0
+  \end{array}   
+   \right)
+  +\left( 
+  \begin{array}{ccc}
+   0 &amp;  0  &amp;   V \\
+   0 &amp;  0  &amp;   V \\
+   V^{*} &amp;  V^{*}  &amp;   0
+  \end{array}   
+   \right)
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org4f6aa06" class="outline-2">
+<h2 id="org4f6aa06">Rotating Wave Approximation</h2>
+<div class="outline-text-2" id="text-org4f6aa06">
+</div>
+<div id="outline-container-org1ba8187" class="outline-3">
+<h3 id="org1ba8187">&#x5BF9; Hamiltonian &#x4F5C;&#x53D8;&#x6362;</h3>
+<div class="outline-text-3" id="text-org1ba8187">
+<p>
+&#x5BF9; Hamiltonian &#x505A;&#x4E00;&#x4E2A;&#x5E7A;&#x6B63;&#x53D8;&#x6362;
+</p>
+\begin{align}
+  U =   \left( 
+  \begin{array}{ccc}
+   e^{-\mathrm{i}\omega t} &amp;  0  &amp;   0 \\
+   0 &amp;  e^{-\mathrm{i}\omega t}  &amp;   0 \\
+   0 &amp;  0  &amp;   1
+  \end{array}   
+   \right)
+\end{align}
+\begin{align}
+  U^{\dagger}H U = U^{\dagger}H_{\mathrm{at}} U  + U^{\dagger}H_{\mathrm{d}} U 
+ = H_{\mathrm{at}} + 
+\left( 
+  \begin{array}{ccc}
+   0 &amp;  0  &amp;   V e^{\mathrm{i}\omega t} \\
+   0 &amp;  0  &amp;   V e^{\mathrm{i}\omega t} \\
+   V^{*}e^{-\mathrm{i}\omega t} &amp;  V^{*}e^{-\mathrm{i}\omega t}  &amp;   0
+  \end{array}   
+   \right)
+\end{align}
+<p>
+&#x5176;&#x4E2D;
+</p>
+\begin{align}
+  V e^{\mathrm{i}\omega t} = &amp;
+ \langle \mathrm{ex}|d_j|\mathrm{g}\rangle E^0_j \cos(\phi_j - \omega t) e^{\mathrm{i}\omega t}\\
+= &amp;\langle \mathrm{ex}|d_j|\mathrm{g}\rangle 
+  E^0_j \frac{1}{2}(e^{\mathrm{i}(\phi_j-\omega t)} + e^{-\mathrm{i}(\phi_j-\omega t)}) 
+  e^{\mathrm{i}\omega t} \\
+= &amp;\langle \mathrm{ex}|d_j|\mathrm{g}\rangle 
+  E^0_j \frac{1}{2}e^{\mathrm{i}\phi_j}(1 + e^{2\mathrm{i}\omega t}) 
+\end{align}
+<p>
+&#x5982;&#x679C;&#x7565;&#x53BB;&#x9AD8;&#x9891;&#x9879; \(e^{2\mathrm{i}\omega t}\) , &#x5E76;&#x8BB0; \(E_j \equiv E_j^0 e^{\mathrm{i}\phi_j}\) &#x90A3;&#x4E48;
+&#x8BB0;  
+</p>
+\begin{align}
+   U^{\dagger}H_{\mathrm{d}} U 
+ \approx 
+\left( 
+  \begin{array}{ccc}
+   0 &amp;  0  &amp;   V_r \\
+   0 &amp;  0  &amp;   V_r \\
+   V_r^{*} &amp;  V_r^{*}  &amp;   0
+  \end{array}   
+   \right)
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orga7db815" class="outline-3">
+<h3 id="orga7db815">&#x5BF9; \(\mathrm{i}\hbar \frac{\partial}{\partial t}\) &#x4F5C;&#x53D8;&#x6362;</h3>
+<div class="outline-text-3" id="text-orga7db815">
+<p>
+&#x505A;&#x4E00;&#x4E2A;&#x5E7A;&#x6B63;&#x53D8;&#x6362;&#x76F8;&#x5F53;&#x4E8E;&#x9009;&#x4E86;&#x4E00;&#x7EC4;&#x57FA;&#x5E95;, &#x5E7A;&#x6B63;&#x53D8;&#x6362;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;&#x672C;&#x5F81;&#x80FD;&#x91CF;. &#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x5E7A;&#x6B63;&#x53D8;&#x6362;&#x662F;&#x542B;
+&#x65F6;&#x7684;, &#x4F1A;&#x5BF9;&#x65F6;&#x95F4;&#x6F14;&#x5316;&#x4EA7;&#x751F;&#x5F71;&#x54CD;, &#x5B83;&#x7684;&#x65F6;&#x95F4;&#x6F14;&#x5316;&#x4E3A;
+</p>
+\begin{align}
+  \left(U^{\dagger} \mathrm{i}\hbar \frac{\partial}{\partial t} U \right) \left(U^{\dagger}|\psi\rangle \right) =  
+    \left(U^{\dagger} H U \right) \left(U^{\dagger}|\psi\rangle \right)
+\end{align}
+<p>
+&#x8BA1;&#x7B97;&#x65F6;&#x95F4;&#x6F14;&#x5316;&#x7684;&#x5E7A;&#x6B63;&#x53D8;&#x6362; \(\left(U^{\dagger} \mathrm{i}\hbar \frac{\partial}{\partial t} U \right)\) 
+</p>
+
+\begin{align}
+   \frac{\partial}{\partial t} U \left(U^{\dagger}|\psi\rangle \right)
+  = &amp;   \frac{\partial}{\partial t}  \left( 
+  \begin{array}{ccc}
+   e^{-\mathrm{i}\omega t} &amp;  0  &amp;   0 \\
+   0 &amp;  e^{-\mathrm{i}\omega t}  &amp;   0 \\
+   0 &amp;  0  &amp;   1
+  \end{array}   
+   \right)\left(U^{\dagger}|\psi\rangle \right) \\
+  = &amp;   
+     \left[ 
+  \begin{array}{c}
+    \\ \\  \\
+   \end{array}   
+   \right.
+   \left( 
+  \begin{array}{ccc}
+   -\mathrm{i}\omega   &amp;  0  &amp;   0 \\
+   0 &amp;  -\mathrm{i}\omega    &amp;   0 \\
+   0 &amp;  0  &amp;   0
+  \end{array}   
+   \right)U + U\frac{\partial}{\partial t}
+     \left. 
+  \begin{array}{c}
+    \\ \\  \\
+   \end{array}   
+   \right]
+  \left(U^{\dagger}|\psi\rangle \right) 
+\end{align}
+<p>
+&#x6240;&#x4EE5;&#x65B0;&#x7684;&#x65F6;&#x95F4;&#x6F14;&#x5316;&#x4E3A;
+</p>
+\begin{align}
+  \mathrm{i}\hbar \frac{\partial}{\partial t} \left(U^{\dagger}|\psi\rangle \right) =  
+    H_r \left(U^{\dagger}|\psi\rangle \right)
+\end{align}
+<p>
+&#x5176;&#x4E2D;
+</p>
+\begin{align}
+  H_r =&amp;  U^{\dagger} H U -    \left( 
+  \begin{array}{ccc}
+   \hbar\omega   &amp;  0  &amp;   0 \\
+   0 &amp;  \hbar\omega  &amp;   0 \\
+   0 &amp;  0  &amp;   0
+  \end{array}   
+   \right) \\
+  =&amp;\left( 
+  \begin{array}{ccc}
+   E_{\mathrm{ex}} + \frac{A_{\mathrm{fs}}}{2}- \hbar\omega &amp;  0  &amp; 0 \\
+   0 &amp;  E_{\mathrm{ex}} - A_{\mathrm{fs}} - \hbar\omega &amp;   0 \\
+    0 &amp; 0 &amp; 0
+  \end{array}   
+   \right)
+  +\left( 
+  \begin{array}{ccc}
+   0 &amp;  0  &amp;   V_r \\
+   0 &amp;  0  &amp;   V_r \\
+   V_r^{*} &amp;  V_r^{*}  &amp;   0
+  \end{array}   
+   \right)
+\end{align}
+<p>
+&#x5982;&#x679C;&#x8BB0; \(\Delta_{\mathrm{ex2}} \equiv E_{\mathrm{ex}} + \frac{A_{\mathrm{fs}}}{2}- \hbar\omega\) ,
+\(\Delta_{\mathrm{ex1}} \equiv E_{\mathrm{ex}} + A_{\mathrm{fs}}- \hbar\omega\) &#x90A3;&#x4E48;
+</p>
+\begin{align}
+  H_r =\left( 
+  \begin{array}{ccc}
+   \Delta_{\mathrm{ex2}} &amp;  0  &amp; 0 \\
+   0 &amp;  \Delta_{\mathrm{ex1}}  &amp;   0 \\
+    0 &amp; 0 &amp; 0
+  \end{array}   
+   \right)
+  +\left( 
+  \begin{array}{ccc}
+   0 &amp;  0  &amp;   V_r \\
+   0 &amp;  0  &amp;   V_r \\
+   V_r^{*} &amp;  V_r^{*}  &amp;   0
+  \end{array}   
+   \right)
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd2ba8c2" class="outline-2">
+<h2 id="orgd2ba8c2">&#x7528; Dirac &#x8868;&#x8C61;&#x6765;&#x7406;&#x89E3; Rotating Wave Approximation</h2>
+<div class="outline-text-2" id="text-orgd2ba8c2">
+<p>
+&#x56DE;&#x5230;&#x6211;&#x4EEC;&#x505A; Rotating Wave Approximation &#x4E4B;&#x524D;&#x7684; Hamiltonian
+</p>
+
+\begin{align}
+  H = H_{\mathrm{at}} + H_{\mathrm{d}} =
+  \left( 
+  \begin{array}{ccc}
+   E_{\mathrm{ex}} + \frac{A_{\mathrm{fs}}}{2} &amp;  0  &amp; 0 \\
+   0 &amp;  E_{\mathrm{ex}} - A_{\mathrm{fs}} &amp;   0 \\
+    0 &amp; 0 &amp; 0
+  \end{array}   
+   \right)
+  +\left( 
+  \begin{array}{ccc}
+   0 &amp;  0  &amp;   V \\
+   0 &amp;  0  &amp;   V \\
+   V^{*} &amp;  V^{*}  &amp;   0
+  \end{array}   
+   \right)
+\end{align}
+<p>
+&#x5982;&#x679C;&#x6253;&#x5165;&#x7684;&#x5149;&#x7684;&#x9891;&#x7387;&#x5BF9;&#x5E94;&#x7684;&#x80FD;&#x91CF; \(\hbar\omega\) &#x5F88;&#x63A5;&#x8FD1; \(E_{\mathrm{ex}}\) , &#x90A3;&#x4E48; \(\Delta_{\mathrm{ex2}}\) &#x548C;
+\(\Delta_{\mathrm{ex2}}\) &#x53EF;&#x4EE5;&#x770B;&#x505A;&#x662F;&#x4E00;&#x4E2A;&#x5FAE;&#x6270;, &#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x5C06; Hamiltonian &#x5199;&#x6210; \(H = H_0 +
+V_\mathrm{p}\) (&#x6DFB;&#x52A0;&#x4E0B;&#x6807; \(p\) &#x4EE3;&#x8868; perturbation, &#x4EE5;&#x533A;&#x522B;&#x4E8E; \(V = \langle
+\mathrm{ex}|d_j|\mathrm{g}\rangle E^0_j \cos(\phi_j - \omega t)\) )&#x7684;&#x5F62;&#x5F0F;
+</p>
+
+\begin{align}
+  H = H_0 + V_{\mathrm{p}} =
+  \left( 
+  \begin{array}{ccc}
+   \hbar\omega &amp;  0  &amp; 0 \\
+   0 &amp;  \hbar\omega &amp;   0 \\
+    0 &amp; 0 &amp; 0
+  \end{array}   
+   \right)
+  +\left( 
+  \begin{array}{ccc}
+   \Delta_{\mathrm{ex2}} &amp;  0  &amp;   V \\
+   0 &amp;  \Delta_{\mathrm{ex1}}  &amp;   V \\
+   V^{*} &amp;  V^{*}  &amp;   0
+  \end{array}   
+   \right)
+\end{align}
+<p>
+&#x6240;&#x4EE5;&#x5728; Dirac &#x8868;&#x8C61;&#x4E2D;, &#x5B83;&#x7684;&#x6F14;&#x5316;&#x65B9;&#x7A0B;&#x4E3A;
+</p>
+\begin{align}
+  \mathrm{i}\hbar\frac{\partial}{\partial t}|\psi^D(t) \rangle = V_{\mathrm{p}}^D(t) |\psi^D(t) \rangle
+\end{align}
+<p>
+&#x5176;&#x4E2D;&#x4E0A;&#x6807; \(D\) &#x4EE3;&#x8868; Dirac &#x8868;&#x8C61;. \(|\psi^D(t)\rangle = U_0^{\dagger}(t)| \psi(t)\rangle\) &#x662F; Schrodinger &#x8868;&#x8C61;&#x4E2D;
+&#x7684;&#x6001;&#x77E2;&#x53BB;&#x6389; \(H_0\) &#x7684;&#x6F14;&#x5316;. \(V_{\mathrm{p}}^D(t) = U_0^{\dagger}(t) V_p U_0(t)\) &#x662F; Dirac &#x8868;&#x8C61;&#x4E2D;
+&#x7684;&#x5FAE;&#x6270;&#x9879;. &#x800C;&#x6839;&#x636E; Dirac &#x8868;&#x8C61;&#x7684;&#x5B9A;&#x4E49; \(U_0(t)\) &#x4E3A; \(H_0\) &#x5BF9;&#x5E94;&#x7684;&#x65F6;&#x95F4;&#x6F14;&#x5316;&#x4E3A;
+</p>
+\begin{align}
+  U_0 = e^{-\frac{\mathrm{i}}{\hbar}H_0t} = 
+  \left( 
+  \begin{array}{ccc}
+   e^{-\mathrm{i}\omega t} &amp;  0  &amp;   0 \\
+   0 &amp;  e^{-\mathrm{i}\omega t}  &amp;   0 \\
+   0 &amp;  0  &amp;   1
+  \end{array}   
+   \right)
+\end{align}
+<p>
+&#x5C31;&#x662F;&#x4E4B;&#x524D;&#x8FDB;&#x884C;&#x7528;&#x5230;&#x8FC7;&#x7684;&#x5E7A;&#x6B63;&#x53D8;&#x6362;. &#x6240;&#x4EE5;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x91CC;&#x540C;&#x6837;&#x5730;&#x7565;&#x6389;&#x9AD8;&#x9891;&#x9879;, &#x5C31;&#x6709;
+\(V_{\mathrm{p}}^D(t) = H_{r}\) &#x4E0E;&#x4E4B;&#x524D;&#x7684;&#x7ED3;&#x679C;&#x76F8;&#x7B26;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org05d302b" class="outline-2">
+<h2 id="org05d302b">Reference</h2>
+<div class="outline-text-2" id="text-org05d302b">
+<ul class="org-ul">
+<li>[1] H. Z. &#x7684; lecture</li>
+<li>[2] &#x535A;&#x5BA2;&#x4E2D;&#x7684; Term Symbol, &#x591A;&#x4F53;&#x7269;&#x7406;&#x8BFB;&#x4E66;&#x4F1A;:3.1&#x8282; Dirac&#x8868;&#x8C61;&#x4E2D;&#x7684;&#x6F14;&#x5316;&#x7B97;&#x7B26;-diagram
+techniques&#x7684;&#x8D77;&#x70B9;, &#x5B9A;&#x6001;&#x5FAE;&#x6270;&#x8BBA;&#x603B;&#x7ED3; (update 18/Apr/2020)</li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/Rotating-Wave-Approximation/" rel="tag"># Rotating Wave Approximation</a>
+          
+            <a href="/tags/Atom-Light-Interaction/" rel="tag"># Atom Light Interaction</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/16/TermSymbl/" rel="next" title="Term Symbol">
+                <i class="fa fa-chevron-left"></i> Term Symbol
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/02/rfcurrent_linear_respons/" rel="prev" title="由 rf current 的定义推导其格林函数的表达形式">
+                由 rf current 的定义推导其格林函数的表达形式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgdcc6bb0"><span class="nav-text">Hamiltonian</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org4f6aa06"><span class="nav-text">Rotating Wave Approximation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org1ba8187"><span class="nav-text">对 Hamiltonian 作变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orga7db815"><span class="nav-text">对 \(\mathrm{i}\hbar \frac{\partial}{\partial t}\) 作变换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd2ba8c2"><span class="nav-text">用 Dirac 表象来理解 Rotating Wave Approximation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org05d302b"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

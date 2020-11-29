@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="数学,留数定理,复变函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="留数定理笔记">
+<meta property="og:url" content="https://zqw.ink/2019/01/05/留数定理笔记/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.853Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="留数定理笔记">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2019/01/05/留数定理笔记/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>留数定理笔记 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2019/01/05/留数定理笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">留数定理笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-05 00:00:00" itemprop="dateCreated datePublished" datetime="2019-01-05T00:00:00+08:00">2019-01-05</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/05/留数定理笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/01/05/留数定理笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-orga19ae68" class="outline-2">
+<h2 id="orga19ae68">&#x89E3;&#x6790;( Anlyticity )</h2>
+<div class="outline-text-2" id="text-orga19ae68">
+</div>
+<div id="outline-container-orga0b775c" class="outline-3">
+<h3 id="orga0b775c">&#x60EF;&#x7528;&#x8BB0;&#x6CD5;</h3>
+<div class="outline-text-3" id="text-orga0b775c">
+<p>
+&#x4EFB;&#x610F;&#x590D;&#x6570; \(z\) &#x8BB0;&#x4E3A;
+</p>
+\begin{align*}
+  z = x + \mathrm{i}y
+\end{align*}
+
+<p>
+&#x590D;&#x51FD;&#x6570; \(f(z)\) &#x8BB0;&#x4E3A;
+</p>
+\begin{align*}
+  f(z) = u(x,y) +\mathrm{i} v(x,y)
+\end{align*}
+
+<p>
+&#x4F8B;&#x5982;
+</p>
+\begin{align*}
+  f(z) = z + z^2 = x + \mathrm{i}y + (x + \mathrm{i}y)^2 = x + x^2 - y^2 + \mathrm{i}(y + 2xy)
+\end{align*}
+<p>
+&#x5176;&#x4E2D;
+</p>
+\begin{align*}
+  u(x,y) =&amp; x + x^2 - y^2 \\
+  v(x,y) =&amp; y + 2xy
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-org285279b" class="outline-3">
+<h3 id="org285279b">&#x5BFC;&#x6570;</h3>
+<div class="outline-text-3" id="text-org285279b">
+<p>
+&#x7531;&#x4E8E;
+</p>
+\begin{align*}
+  f(z) = f(x,\mathrm{i}y)
+\end{align*}
+<p>
+&#x53EF;&#x4EE5;&#x770B;&#x6210;&#x662F;&#x4E00;&#x4E2A;&#x4E8C;&#x5143;&#x51FD;&#x6570;.
+&#x90A3;&#x4E48;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;&#x4E00;&#x822C;&#x7684;&#x4E8C;&#x5143;&#x51FD;&#x6570;&#x68AF;&#x5EA6;
+</p>
+\begin{align*}
+  \nabla g(x,y) = \frac{\partial}{\partial x} g(x,y) \vec{i}+ \frac{\partial}{\partial y} g(x,y) \vec{j}
+\end{align*}
+<p>
+&#x7684;&#x5B9A;&#x4E49;, &#x590D;&#x51FD;&#x6570;&#x7684;&#x5BFC;&#x6570;&#x5305;&#x542B;&#x4E24;&#x4E2A;&#x6B63;&#x4EA4;&#x7684;&#x65B9;&#x5411;&#x4E0A;&#x7684;&#x5BFC;&#x6570;
+</p>
+\begin{align*}
+  \frac{\partial}{\partial x} f(x,\mathrm{i}y) =&amp;\frac{\partial u}{\partial x} + \mathrm{i}\frac{\partial v}{\partial x}\\
+  \frac{\partial}{\partial y} f(x,\mathrm{i}y) =&amp;\frac{\partial u}{\partial \mathrm{i}y} + \mathrm{i} \frac{\partial v}{\partial \mathrm{i}y}
+                                               =- \mathrm{i}\frac{\partial u}{\partial y} +\frac{\partial v}{\partial y}
+\end{align*}
+<p>
+&#x89E3;&#x6790; ( Anlyticity ) &#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x662F;&#x6EE1;&#x8DB3;&#x4EE5;&#x4E0B;&#x67EF;&#x897F;-&#x9ECE;&#x66FC;&#x6761;&#x4EF6; (Cauchy-Riemann conditions)
+</p>
+\begin{align*}
+  \frac{\partial u}{\partial x} =&amp;\quad \frac{\partial v}{\partial y} \\
+  \frac{\partial u}{\partial y} =&amp; -\frac{\partial v}{\partial x}
+\end{align*}
+<p>
+&#x7684;&#x590D;&#x51FD;&#x6570;. &#x53EF;&#x4EE5;&#x770B;&#x51FA;, &#x5BF9;&#x4E8E;&#x89E3;&#x6790;&#x51FD;&#x6570;, &#x5728; \(x\) &#x65B9;&#x5411;&#x548C;&#x5728; \(\mathrm{i}y\) &#x65B9;&#x5411;&#x4E0A;&#x7684;&#x5BFC;&#x6570;&#x662F;&#x4E00;&#x6837;&#x7684;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc859918" class="outline-3">
+<h3 id="orgc859918">&#x89E3;&#x6790;&#x51FD;&#x6570;&#x4E00;&#x5B9A;&#x53EF;&#x4EE5;&#x5199;&#x5728; \(z\) &#x7684;&#x51FD;&#x6570;</h3>
+<div class="outline-text-3" id="text-orgc859918">
+<p>
+&#x4E00;&#x4E2A;&#x590D;&#x51FD;&#x6570;, &#x5373;&#x53EF;&#x4EE5;&#x770B;&#x6210;&#x662F; \((x,y)\) &#x7684;&#x51FD;&#x6570;, &#x4E5F;&#x53EF;&#x4EE5;&#x770B;&#x6210;&#x662F; \((z,z^{*})\) &#x7684;&#x51FD;&#x6570;.
+&#x56E0;&#x4E3A;&#x8FD9;&#x662F;&#x4E24;&#x7EC4;&#x72EC;&#x7ACB;&#x7684;&#x53D8;&#x91CF;, &#x53D8;&#x6362;&#x5173;&#x7CFB;&#x662F;
+</p>
+\begin{align*}
+  \left\{
+  \begin{array}{c}
+    z = x + \mathrm{i} y \\
+    z^{*} = x - \mathrm{i}y
+      \end{array}
+  \right.
+  \quad  \quad  \quad  \quad
+    \left\{
+  \begin{array}{c}
+    x = \frac{1}{2}(z + z^{* }) \\
+    y = \frac{1}{2\mathrm{i}} (z - z^{*})
+          \end{array}
+  \right.
+\end{align*}
+
+<p>
+&#x6240;&#x4EE5;, &#x590D;&#x51FD;&#x6570;&#x66F4;&#x52A0;&#x666E;&#x904D;&#x7684;&#x5B9A;&#x4E49;&#x5E94;&#x8BE5;&#x5199;&#x6210; \(f(z,z^{* })\) , &#x4F46;&#x662F;&#x5BF9;&#x4E8E;&#x89E3;&#x6790;&#x51FD;&#x6570;&#x6709;
+</p>
+\begin{align*}
+  \frac{\partial}{\partial z^{* }}f(x, y) =&amp; \frac{\partial f}{\partial x}\frac{\partial x}{\partial z^{* }}
+               +\frac{\partial f}{\partial y}\frac{\partial y}{\partial z^{* }} \\
+        =&amp; \left(\frac{\partial u}{\partial x} + \mathrm{i}\frac{\partial v}{\partial x}\right)\left(\frac{1}{2}\right)
+               + \left(\frac{\partial u}{\partial y} +\mathrm{i}\frac{\partial v}{\partial y}\right)\left(-\frac{1}{2\mathrm{i}}\right) \\
+          =&amp;0
+\end{align*}
+<p>
+&#x6240;&#x4EE5;&#x89E3;&#x6790;&#x51FD;&#x6570;&#x4E0D;&#x5305;&#x542B; \(z^{* }\) .
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org94ad8d8" class="outline-2">
+<h2 id="org94ad8d8">&#x7559;&#x6570;&#x5B9A;&#x7406;</h2>
+<div class="outline-text-2" id="text-org94ad8d8">
+<p>
+&#x5047;&#x8BBE;&#x4E00;&#x51FD;&#x6570;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5199;&#x6210;
+</p>
+\begin{align*}
+  g(z) = \frac{f(z)}{z - z_0}
+\end{align*}
+<p>
+&#x7684;&#x5F62;&#x5F0F;, &#x5176;&#x4E2D; \(f(z)\) &#x6CA1;&#x6709;&#x5947;&#x70B9;. &#x90A3;&#x4E48;&#x5B83;&#x5728; \(z = z_0\) &#x5904;&#x6709;&#x5947;&#x70B9;.&#x5BF9;&#x4EFB;&#x610F;&#x5305;&#x542B; \(z_0\) &#x70B9;&#x7684;&#x8DEF;&#x5F84; \(C\) &#x9006;&#x65F6;&#x9488;&#x79EF;&#x5206;
+</p>
+\begin{align*}
+  \oint_{C}\frac{f(z)}{z -z_0} \mathrm{d}z
+\end{align*}
+<p>
+&#x4E0E;&#x5728;&#x5947;&#x70B9;&#x9644;&#x8FD1;&#x4E0A;&#x4E00;&#x4E2A;&#x65E0;&#x7A77;&#x5C0F;&#x7684;&#x5706;&#x7684;&#x79EF;&#x5206;&#x662F;&#x76F8;&#x7B49;&#x7684;
+</p>
+\begin{align*}
+  \oint_{C_0}\frac{f(z)}{z -z_0} \mathrm{d}z
+\end{align*}
+<p>
+&#x7528;&#x632F;&#x5E45;&#x548C;&#x8F90;&#x89D2;&#x6765;&#x8868;&#x793A;&#x3000;\(z-z_{0} = r e^{\mathrm{i}\phi}\) , &#x56E0;&#x4E3A;&#x5728;&#x5706;&#x4E0A;&#x79EF;&#x5206;, &#x6240;&#x4EE5; \(r\) &#x662F;&#x5E38;&#x6570;, &#x90A3;&#x4E48;&#x6709;
+</p>
+\begin{align*}
+  \oint_{C_0}\frac{f(z)}{z -z_0} \mathrm{d}z &amp;= \int_0^{2\pi}\frac{f(z)}{r e^{\mathrm{i}\phi}} \mathrm{i}re^{\mathrm{i}\phi}\mathrm{d}\phi \\
+          &amp;=\mathrm{i}\int_0^{2\pi} f(z_0) \mathrm{d}\phi \\
+           &amp;= \mathrm{i} 2\pi f(z_{0})
+\end{align*}
+<p>
+&#x6240;&#x4EE5;&#x6700;&#x7EC8;&#x5C31;&#x6709;
+</p>
+\begin{align*}
+  \oint_{C}g(z)\mathrm{d}z = \oint_{C}\frac{f_z}{z -z_0}\mathrm{d}z = 2\pi \mathrm{i} f(z_0) = 2\pi \mathrm{i}\cdot g(z)(z-z_{0})|_{z=z_0}
+\end{align*}
+<p>
+\(g(z)(z-z_0)|_{z=z_0}\) &#x5C31;&#x662F;&#x7559;&#x6570;, &#x53BB;&#x6389;&#x5947;&#x70B9;&#x7559;&#x4E0B;&#x7684;&#x6570;.
+</p>
+
+<p>
+&#x63A8;&#x5E7F;&#x5230;&#x591A;&#x4E2A;&#x5947;&#x70B9;&#x7684;&#x60C5;&#x51B5;
+</p>
+\begin{align*}
+  \oint_C g(z) \mathrm{d}z = 2\pi \mathrm{i} \sum_{k=1}^N \mathrm{Res}[g(z_k)]
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orga125ae7" class="outline-2">
+<h2 id="orga125ae7">&#x53C2;&#x8003;&#x6587;&#x732E;</h2>
+<div class="outline-text-2" id="text-orga125ae7">
+<p>
+Jim, Napolitano, March 9, 2013, Notes on Complex Analysis in Physics
+</p>
+
+<p>
+<a href="http://www.rpi.edu/dept/phys/Courses/PHYS6520/Spring2018/NotesOnComplexAnalysis.pdf" target="_blank" rel="noopener">http://www.rpi.edu/dept/phys/Courses/PHYS6520/Spring2018/NotesOnComplexAnalysis.pdf</a>
+</p>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/留数定理/" rel="tag"># 留数定理</a>
+          
+            <a href="/tags/复变函数/" rel="tag"># 复变函数</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/03/FFT(Fast Fourier Transformation)笔记/" rel="next" title="FFT (Fast Fourier Transform) 笔记">
+                <i class="fa fa-chevron-left"></i> FFT (Fast Fourier Transform) 笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/12/句子/" rel="prev" title="句子">
+                句子 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orga19ae68"><span class="nav-text">解析( Anlyticity )</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orga0b775c"><span class="nav-text">惯用记法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org285279b"><span class="nav-text">导数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgc859918"><span class="nav-text">解析函数一定可以写在 \(z\) 的函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org94ad8d8"><span class="nav-text">留数定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orga125ae7"><span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

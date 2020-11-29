@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="数学,Poincare Algebra,Relativistic Quantum Machinics,Lorentz Transformation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="庞加莱代数">
+<meta property="og:url" content="https://zqw.ink/2020/07/07/PoincareAlgebra/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:49.113Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="庞加莱代数">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2020/07/07/PoincareAlgebra/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>庞加莱代数 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2020/07/07/PoincareAlgebra/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">庞加莱代数
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-07-07 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-07T00:00:00+08:00">2020-07-07</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/07/07/PoincareAlgebra/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/07/07/PoincareAlgebra/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-org7fa0e0e" class="outline-2">
+<h2 id="org7fa0e0e">&#x8BF4;&#x660E;</h2>
+<div class="outline-text-2" id="text-org7fa0e0e">
+<p>
+&apos;&#x53EF;&#x4EE5;&#x8BC1;&#x660E;&apos; &#x5728;&#x672C;&#x6587;&#x4E2D;&#x7684;&#x610F;&#x601D;&#x662F;, &#x53EF;&#x4EE5;&#x8BC1;&#x660E;&#x4F46;&#x662F;&#x6211;&#x61D2;&#x4E0D;&#x60F3;&#x5199;&#x8BC1;&#x660E;&#x6216;&#x8005;&#x6211;&#x4E0D;&#x4F1A;&#x8BC1;&#x660E;. Weinberg
+&#x7684;&#x4E66;&#x771F;&#x7684;&#x592A;&#x5F3A;&#x4E86;, &#x4E00;&#x53E5;&#x8BDD;&#x4E5F;&#x4E0D;&#x591A;&#x4F59;, &#x4E00;&#x53E5;&#x8BDD;&#x4E5F;&#x4E0D;&#x6B20;&#x7F3A;. &#x6211;&#x53EA;&#x80FD;&#x628A;&#x5DF2;&#x7ECF;&#x770B;&#x660E;&#x767D;&#x7684;&#x5199;&#x51FA;&#x6765;, &#x5E76;&#x8BD5;
+&#x7740;&#x9A8C;&#x7B97;&#x4E00;&#x4E9B;&#x7ED3;&#x679C;. &#x66F4;&#x52A0;&#x8BE6;&#x7EC6;&#x7684;&#x8FC7;&#x7A0B;&#x8BB0;&#x4E8E;&#x6D3B;&#x9875;&#x624B;&#x7A3F; \(21\) .
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8d43298" class="outline-2">
+<h2 id="org8d43298">Lorentz Transformation</h2>
+<div class="outline-text-2" id="text-org8d43298">
+<p>
+&#x5047;&#x8BBE;&#x53D6;&#x5149;&#x901F; \(c=1\) &#x5728;&#x6240;&#x6709;&#x60EF;&#x6027;&#x7CFB;&#x4E2D;&#x90FD;&#x662F;&#x4E0D;&#x53D8;&#x7684;, \(x^{\mu}\) &#x662F;&#x60EF;&#x6027;&#x7CFB;&#x4E2D;&#x7684;&#x5750;&#x6807; ( \(x^0=t\) &#x662F;
+&#x65F6;&#x95F4;&#x5750;&#x6807;, \(x^1, x^2, x^3\) &#x662F;&#x7A7A;&#x95F4;&#x5750;&#x6807;). &#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x5728;&#x4EFB;&#x610F;&#x4E24;&#x4E2A;&#x60EF;&#x6027;&#x7CFB;&#x4E2D;&#x6709; 
+</p>
+\begin{align}
+  \eta_{\mu\nu} \mathrm{d}x&apos;^{\mu} \mathrm{d}x&apos;^{\nu}
+  =  \eta_{\mu\nu} \mathrm{d}x^{\mu} \mathrm{d}x^{\nu}
+\end{align}
+<p>
+&#x5176;&#x4E2D;
+</p>
+\begin{align}
+  \eta = \left(
+  \begin{array}{cccc}
+    -1  &amp;  0  &amp; 0 &amp; 0 \\
+    0   &amp;  1    &amp; 0 &amp; 0 \\
+    0  &amp;  0    &amp; 1 &amp; 0 \\
+    0  &amp;  0    &amp; 0 &amp; 1
+  \end{array}
+ \right)
+\end{align}
+<blockquote>
+<p>
+&#x7531;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x8BF4;&#x660E;&#x4E0A;&#x5F0F;&#x7684;&#x5408;&#x7406;&#x6027;.
+</p>
+
+<p>
+&#x5728;&#x5782;&#x76F4;&#x4E8E; \(y\) &#x65B9;&#x5411;&#x4E0A;&#x653E;&#x4E24;&#x9762;&#x76F8;&#x8DDD;&#x4E3A; \(l\) &#x7684;&#x955C;&#x5B50;, &#x5728; \(xOy\) &#x5E73;&#x9762;&#x5185;, &#x4E00;&#x675F;&#x5149;&#x4ECE;&#x4E00;&#x9762;&#x955C;&#x5B50;&#x5C04;
+&#x51FA;, &#x51FA;&#x5C04;&#x7684;&#x65B9;&#x5411;&#x4E0E; \(z\) &#x8F74;&#x5782;&#x76F4;, &#x5230;&#x8FBE;&#x53E6;&#x4E00;&#x9762;&#x955C;&#x5B50;&#x540E;&#x53CD;&#x5C04;, &#x518D;&#x56DE;&#x5230;&#x7B2C;&#x4E00;&#x9762;&#x955C;&#x5B50;&#x4E0A;. &#x5728;&#x76F8;&#x5BF9;&#x955C;
+&#x5B50;&#x9759;&#x6B62;&#x7684;&#x53C2;&#x8003;&#x7CFB;&#x4E2D;, &#x5149;&#x8D70;&#x8FC7;&#x7684;&#x8DEF;&#x7A0B;&#x4E3A; \(c\Delta t = 2\sqrt{(\frac{\Delta x}{2})^2 + l^2}\) . &#x5728;&#x53E6;
+&#x4E00;&#x4E2A;&#x6CBF; \(x\) &#x65B9;&#x5411;&#x76F8;&#x5BF9;&#x5300;&#x901F;&#x8FD0;&#x52A8;&#x7684;&#x60EF;&#x6027;&#x7CFB;&#x4E2D;, &#x5149;&#x8D70;&#x8FC7;&#x7684;&#x8DEF;&#x7A0B;&#x4E3A; \(c\Delta t&apos; = 2\sqrt{(\frac{\Delta
+x&apos;}{2})^2 + l^2}\) , &#x7531;&#x8FD9;&#x4E24;&#x5F0F;&#x53EF;&#x5F97; \(- (c \Delta t)^2 + (\Delta x)^2 = - (c \Delta t&apos;)^2 + (\Delta x&apos;)^2\) .
+</p>
+</blockquote>
+
+<p>
+&#x53EF;&#x4EE5;&#x8BC1;&#x660E;, &#x4E0D;&#x540C;&#x60EF;&#x6027;&#x7CFB;&#x4E4B;&#x95F4;&#x7684; Lorentz &#x53D8;&#x6362;(&#x6CBF; \(x_1\) &#x65B9;&#x5411;)&#x53EF;&#x4EE5;&#x5199;&#x4E3A;
+</p>
+\begin{align}
+  x&apos;^{\mu} = \Lambda ^{\mu}_{\,\nu} x^{\nu}
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\Lambda ^{\mu}_{\,\nu}\) &#x6EE1;&#x8DB3;
+</p>
+\begin{align}
+  \eta_{\mu\nu} \Lambda^{\mu}_{\,\,\rho}\Lambda^{\nu}_{\,\,\sigma} = \eta_{\rho\sigma}
+\end{align}
+<p>
+&#x5C06;&#x4E0A;&#x5F0F;&#x7684;&#x4E24;&#x8FB9;&#x540C;&#x65F6;&#x5DE6;&#x4E58; \(\eta^{\tau\rho}\) &#x53EF;&#x4EE5;&#x5F97;&#x5230; \(\Lambda\) &#x7684;&#x9006;&#x4E3A;
+</p>
+\begin{align}
+(\Lambda^{-1}) ^{\rho} _{\,\,\nu} = \Lambda_{\nu}^{\,\,\rho} \equiv \eta_{\nu\mu} \eta^{\rho\sigma} \Lambda^{\mu}_{\,\,\sigma}
+\end{align}
+
+
+<blockquote>
+<p>
+Exercise: 
+</p>
+
+<p>
+&#x6CBF; \(x\) &#x65B9;&#x5411;&#x7684; Lorentz transformation &#x53EF;&#x4EE5;&#x5199;&#x4E3A;
+</p>
+\begin{align}
+  \Lambda = \left(
+  \begin{array}{cccc}
+    \gamma  &amp;  \beta \gamma  &amp; 0 &amp; 0 \\
+    \beta\gamma &amp;  \gamma    &amp; 0 &amp; 0 \\
+    0  &amp;  0    &amp; 1 &amp; 0 \\
+    0  &amp;  0    &amp; 0 &amp; 1
+  \end{array}
+ \right)
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\beta = \frac{v}{c}\), \(\gamma = \frac{1}{\sqrt{1- \beta^2}}\) . 
+&#x9A8C;&#x8BC1;&#x5176;&#x9006;&#x53D8;&#x6362;&#x4E3A;
+</p>
+\begin{align}
+  \Lambda^{-1} = \left(
+  \begin{array}{cccc}
+    \gamma  &amp; -\beta \gamma  &amp; 0 &amp; 0 \\
+   -\beta\gamma &amp;  \gamma    &amp; 0 &amp; 0 \\
+    0  &amp;  0    &amp; 1 &amp; 0 \\
+    0  &amp;  0    &amp; 0 &amp; 1
+  \end{array}
+ \right)
+\end{align}
+<p>
+&#x9A8C;&#x8BC1; \(\Lambda\) &#x6EE1;&#x8DB3;
+</p>
+\begin{align}
+  \eta_{\mu\nu} \Lambda^{\mu}_{\,\,\rho}\Lambda^{\nu}_{\,\,\sigma} = \eta_{\rho\sigma}
+\end{align}
+</blockquote>
+
+
+<p>
+Lorentz tranformation &#x6784;&#x6210; Lorentz group. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga2e1836" class="outline-2">
+<h2 id="orga2e1836">Poincare Group</h2>
+<div class="outline-text-2" id="text-orga2e1836">
+<p>
+&#x5728; Lorentz transformation &#x7684;&#x57FA;&#x7840;&#x4E0A;, &#x518D;&#x52A0;&#x4E0A;&#x65F6;&#x95F4;&#x4E0E;&#x7A7A;&#x95F4;&#x5E73;&#x79FB;, &#x5C31;&#x6784;&#x6210;&#x4E86; Poincare
+group. &#x5B83;&#x7684;&#x53D8;&#x6362;&#x4E3A;
+</p>
+\begin{align}
+  x&apos;^{\mu} = \Lambda ^{\mu}_{\,\nu} x^{\nu} + a^{\mu}
+\end{align}
+<p>
+&#x5728;&#x91CF;&#x5B50;&#x529B;&#x5B66;&#x4E2D;, &#x5B83;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x5E7A;&#x6B63;&#x53D8;&#x6362;
+</p>
+\begin{align}
+  \Psi \to U(\Lambda, a) \Psi
+\end{align}
+
+<blockquote>
+<p>
+Exercise:
+</p>
+
+<p>
+&#x7531;&#x5B9A;&#x4E49; \(x^{\mu} \to x&apos;^{\mu} \to x&apos;&apos;^{\mu}\) &#x9A8C;&#x8BC1;&#x5982;&#x679C;&#x4F5C;&#x7528;&#x4E24;&#x6B21;, &#x5176;&#x7ED3;&#x679C;&#x4E3A;
+</p>
+\begin{align}
+U(\bar{\Lambda}, \bar{a})U(\Lambda, a) = U(\bar{\Lambda}\Lambda, \bar{\Lambda}a + \bar{a})
+\end{align}
+</blockquote>
+
+<blockquote>
+<p>
+Exercise:
+</p>
+
+<p>
+&#x7531;&#x4E0A;&#x9762;&#x7684;&#x7ED3;&#x679C;&#x9A8C;&#x8BC1;
+</p>
+\begin{align}
+U^{-1}(\Lambda, a) = U(\Lambda^{-1}, -\Lambda^{-1}a)
+\end{align}
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org41560bb" class="outline-2">
+<h2 id="org41560bb">The Poincare Algebra</h2>
+<div class="outline-text-2" id="text-org41560bb">
+</div>
+<div id="outline-container-org7fb1e7d" class="outline-3">
+<h3 id="org7fb1e7d">&#x751F;&#x6210;&#x5143;</h3>
+<div class="outline-text-3" id="text-org7fb1e7d">
+<p>
+&#x674E;&#x7FA4;&#x7684;&#x6807;&#x51C6;&#x4F5C;&#x6CD5;, &#x8003;&#x8651;&#x5728; identity &#x9644;&#x8FD1;&#x7684;&#x7684;&#x53D8;&#x6362;
+</p>
+\begin{align}
+  \Lambda^{\mu}_{\,\,\nu} = \delta^{\mu}_{\,\,\nu} + \omega^{\mu}_{\,\,\nu}, \quad \quad a^{\mu} = \epsilon^{\mu}
+\end{align}
+<p>
+&#x5B83;&#x5E94;&#x5F53;&#x6EE1;&#x8DB3; \(\eta_{\mu\nu} \Lambda^{\mu}_{\,\,\rho}\Lambda^{\nu}_{\,\,\sigma} = \eta_{\rho\sigma}\) , &#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+  \eta_{\rho\sigma} =&amp; \eta_{\mu\nu} (\delta^{\mu}_{\,\,\rho} + \omega^{\mu}_{\,\,\rho})
+  (\delta^{\nu}_{\,\,\sigma} + \omega^{\nu}_{\,\,\sigma}) \\
+  = &amp; \eta_{\rho\sigma} + \eta_{\rho\nu} \omega ^{\nu}_{\,\,\sigma} + \eta_{\mu\sigma} \omega ^{\mu}_{\,\,\rho} +\mathcal{O}(\omega^{2}) \\
+  = &amp; \eta_{\rho\sigma} +  \omega _{\rho\sigma} + \omega_{\sigma\rho} + \mathcal{O}(\omega^{2})
+\end{align}
+<p>
+&#x91C7;&#x7528;&#x4E86; \(\eta_{\mu\nu} , \eta^{\mu\nu}\) &#x53EF;&#x4EE5;&#x5C06;&#x4E0A;&#x6807;&#x53D8;&#x6210;&#x4E0B;&#x6807;, &#x4E0B;&#x6807;&#x53D8;&#x6210;&#x4E0A;&#x6807;&#x7684;&#x89C4;&#x5B9A;, &#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+\omega_{\sigma\rho} \equiv&amp; \eta_{\mu\sigma} \omega^{\mu} _{\,\,\rho} \\
+\omega^{\mu} _{\,\,\rho}  \equiv&amp; \eta^{\mu\sigma} \omega_{\sigma\rho}
+\end{align}
+<p>
+&#x6240;&#x4EE5;&#x7531; \(\eta_{\mu\nu} \Lambda^{\mu}_{\,\,\rho}\Lambda^{\nu}_{\,\,\sigma} = \eta_{\rho\sigma}\) &#x53EF;&#x4EE5;&#x5F97;&#x5230;
+\(\omega_{\mu\nu}\) &#x662F;&#x53CD;&#x5BF9;&#x79F0;&#x7684;, &#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+  \omega_{\mu\nu} = - \omega_{\nu\mu}
+\end{align}
+<p>
+&#x90A3;&#x4E48;, &#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x7684; \(\omega_{\rho\sigma}\) &#x6709; \(6\) &#x4E2A;, &#x518D;&#x52A0;&#x4E0A;&#x56DB;&#x4E2A; \(\epsilon^{\mu}\) , &#x4E00;&#x5171;&#x6709; \(10\) &#x4E2A;&#x53C2;
+&#x6570;. &#x5BF9;&#x5E94;&#x5230;&#x91CF;&#x5B50;&#x529B;&#x5B66;&#x4E2D;, &#x65E0;&#x7A77;&#x5C0F;&#x7684;&#x53D8;&#x6362;&#x5BF9;&#x5E94;&#x7684;&#x5E7A;&#x6B63;&#x7B97;&#x7B26;&#x5C31;&#x53EF;&#x4EE5;&#x5199;&#x6210; \(\omega_{\rho\sigma}\) &#x548C; \(\epsilon_{\rho}\)
+&#x7684;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#x518D;&#x52A0;&#x4E0A; \(1\) 
+</p>
+\begin{align}
+  U(1 + \omega, \epsilon) = 1 + \frac{1}{2}\mathrm{i}\omega_{\rho\sigma} J^{\rho\sigma} - \mathrm{i}\epsilon_{\rho} P^{\rho} + \cdots
+\end{align}
+<p>
+&#x8981;&#x4F7F; \(U(1 + \omega, \epsilon)\) &#x662F;&#x5E7A;&#x6B63;&#x7684;, &#x90A3;&#x4E48; \(J^{\rho\sigma}\) &#x548C; \(P^{\rho}\) &#x5C31;&#x5FC5;&#x987B;&#x662F;&#x5384;&#x7C73;&#x7684;, &#x4E5F;&#x5C31;
+&#x662F;
+</p>
+\begin{align}
+  J^{\rho\sigma\dagger} = J^{\rho\sigma}, \quad\quad P^{\rho\dagger} = P^{\rho}
+\end{align}
+<p>
+\(\omega_{\rho\sigma}\) &#x662F;&#x53CD;&#x5BF9;&#x79F0;&#x7684;, \(J^{\rho\sigma}\) &#x4E5F;&#x53EF;&#x4EE5;&#x53D6;&#x6210;&#x53CD;&#x5BF9;&#x79F0;
+</p>
+\begin{align}
+  J^{\rho\sigma} = - J^{\rho\sigma}
+\end{align}
+<p>
+&#x5176;&#x5B9E;, \(P^1, P^2, P^3\) &#x5C31;&#x662F;&#x52A8;&#x91CF;&#x7B97;&#x7B26;, \(P^{0}\) &#x5C31;&#x662F;&#x80FD;&#x91CF;, &#x4E5F;&#x5C31;&#x662F; Hamiltonian, \(J^{23},
+J^{31}, J^{12}\) &#x5C31;&#x662F;&#x89D2;&#x52A8;&#x91CF;&#x7B97;&#x7B26;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5707a88" class="outline-3">
+<h3 id="org5707a88">&#x751F;&#x6210;&#x5143;&#x5982;&#x4F55;&#x53D8;&#x6362;</h3>
+<div class="outline-text-3" id="text-org5707a88">
+<p>
+&#x674E;&#x7FA4;&#x7684;&#x6027;&#x8D28;&#x53CD;&#x5E94;&#x5728;&#x5BF9;&#x6613;&#x5173;&#x7CFB;&#x4E0A;. &#x56E0;&#x6B64;&#x8BA1;&#x7B97;
+</p>
+\begin{align}
+  U(\Lambda, a) U(1 + \omega, \epsilon) U^{-1}(\Lambda, a)
+\end{align}
+<p>
+&#x5982;&#x679C;&#x5C06; \(U(1 + \omega, \epsilon)\) &#x76F4;&#x63A5;&#x5C55;&#x5F00;, &#x53EF;&#x4EE5;&#x5F97;&#x5230;
+</p>
+\begin{align}
+  &amp;U(\Lambda, a) U(1 + \omega, \epsilon) U^{-1}(\Lambda, a) \\
+ =&amp; 1  + \frac{1}{2}\mathrm{i}\omega_{\rho\sigma} U(\Lambda, a) J^{\rho\sigma} U^{-1}(\Lambda, a)
+  - \mathrm{i}\epsilon_{\rho}U(\Lambda, a) P^{\rho} U^{-1}(\Lambda, a)
+\end{align}
+<p>
+&#x5982;&#x679C;&#x5148;&#x628A;&#x4E09;&#x4E2A;&#x4F5C;&#x7528;&#x5408;&#x5E76;, &#x518D;&#x5C55;&#x5F00;, &#x53EF;&#x4EE5;&#x5F97;&#x5230;
+</p>
+\begin{align}
+  &amp;U(\Lambda, a) U(1 + \omega, \epsilon) U^{-1}(\Lambda, a) \\
+ =&amp; 1  + \frac{1}{2}\mathrm{i}\Lambda_{\rho}^{\,\,\mu} \omega_{\mu\nu}\Lambda_{\sigma}^{\,\,\nu}J^{\rho\sigma}
+  - \mathrm{i} \Lambda_{\rho}^{\,\,\mu} \epsilon_{\mu} P^{\rho}
+  + \mathrm{i} \Lambda_{\rho}^{\,\,\mu} \omega_{\mu\nu}\Lambda_{\sigma}^{\,\,\nu} a^{\sigma} P^{\rho}
+\end{align}
+<blockquote>
+<p>
+Exercise:
+</p>
+
+<p>
+&#x4E0B;&#x9762;&#x9A8C;&#x8BC1;&#x4E0A;&#x5F0F;
+</p>
+\begin{align}
+  &amp; U(\Lambda, a) U(1 + \omega, \epsilon) U^{-1}(\Lambda, a) \\
+  =&amp; U(1 + \Lambda\omega\Lambda^{-1}, \Lambda\epsilon - \Lambda\omega\Lambda^{-1}a)\\
+  = &amp; 1 + \frac{1}{2}\mathrm{i}(\Lambda\omega\Lambda^{-1})_{\rho\sigma} J^{\rho\sigma} - \mathrm{i}(\Lambda\epsilon - \Lambda\omega\Lambda^{-1}a)_{\rho} P^{\rho} \\
+ =&amp; 1  + \frac{1}{2}\mathrm{i}\Lambda_{\rho\mu} \omega^{\mu}_{\,\,\nu}\Lambda_{\sigma}^{\,\,\nu}J^{\rho\sigma}
+  - \mathrm{i} \Lambda_{\rho\mu} \epsilon^{\mu} P^{\rho}
+  + \mathrm{i} \Lambda_{\rho\mu} \omega^{\mu}_{\,\,\nu}\Lambda_{\sigma}^{\,\,\nu} a^{\sigma} P^{\rho} \\
+ =&amp; 1  + \frac{1}{2}\mathrm{i}\Lambda_{\rho}^{\,\,\mu} \omega_{\mu\nu}\Lambda_{\sigma}^{\,\,\nu}J^{\rho\sigma}
+  - \mathrm{i} \Lambda_{\rho}^{\,\,\mu} \epsilon_{\mu} P^{\rho}
+  + \mathrm{i} \Lambda_{\rho}^{\,\,\mu} \omega_{\mu\nu}\Lambda_{\sigma}^{\,\,\nu} a^{\sigma} P^{\rho}
+\end{align}
+</blockquote>
+<p>
+&#x5BF9;&#x6BD4;&#x4E0A;&#x9762;&#x4E24;&#x79CD;&#x5C55;&#x5F00;&#x7684;&#x7CFB;&#x6570;. &#x9996;&#x5148;&#x5BF9;&#x5E94; \(\omega_{\rho\sigma}\) &#x7684;&#x7CFB;&#x6570;&#x5F97;
+</p>
+\begin{align}
+  U(\Lambda, a) J^{\rho\sigma}U^{-1}(\Lambda, a) = \Lambda_{\mu}^{\,\,\rho} \Lambda_{\nu}^{\,\,\sigma}
+    (J^{\mu\nu} + a^{\nu} P^{\mu} - a^{\mu}P^{\nu})
+\end{align}
+<p>
+&#x5BF9;&#x5E94; \(\epsilon_{\rho}\) &#x7684;&#x7CFB;&#x6570;&#x5F97;
+</p>
+\begin{align}
+  U(\Lambda, a) P^{\rho}U^{-1}(\Lambda, a) = \Lambda_{\mu}^{\,\,\rho}P^{\mu}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org9ec96f5" class="outline-3">
+<h3 id="org9ec96f5">&#x5BF9;&#x6613;&#x5173;&#x7CFB;</h3>
+<div class="outline-text-3" id="text-org9ec96f5">
+<p>
+&#x5C06;&#x4E0A;&#x9762;&#x4E24;&#x4E2A;&#x5F0F;&#x5B50;&#x4E2D;&#x7684; \(U(\Lambda, a) = U(1 + \omega, \epsilon)\) &#x4E5F;&#x5728;&#x5355;&#x4F4D;&#x5143;&#x5904;&#x5C55;&#x5F00; 
+</p>
+\begin{align}
+  U(\Lambda, a) =&amp; 1 + \frac{1}{2}\mathrm{i}\omega_{\rho\sigma} J^{\rho\sigma} - \mathrm{i}\epsilon_{\rho} P^{\rho}\\
+  U^{-1}(\Lambda, a) =&amp; 1 - \frac{1}{2}\mathrm{i}\omega_{\rho\sigma} J^{\rho\sigma} + \mathrm{i}\epsilon_{\rho} P^{\rho}
+\end{align}
+<p>
+&#x4FDD;&#x7559;&#x5230;&#x4E00;&#x9636;&#x9879;
+</p>
+\begin{align}
+  U(\Lambda, a) J^{\rho\sigma}U^{-1}(\Lambda, a) =&amp; J^{\rho\sigma} 
+     +\frac{1}{2}\mathrm{i}\omega_{\mu\nu} [J^{\mu\nu}, J^{\rho\sigma}]
+     - \mathrm{i}\epsilon_{\mu} [P^{\mu}, J^{\rho\sigma}] \\
+=&amp; \\
+ \Lambda_{\mu}^{\,\,\rho} \Lambda_{\nu}^{\,\,\sigma}
+    (J^{\mu\nu} + a^{\nu} P^{\mu} - a^{\mu}P^{\nu}) = &amp; J^{\rho\sigma}
+  + \omega_{\mu\nu}\eta^{\nu\rho}J^{\mu\sigma} + \omega_{\mu\nu}\eta^{\nu\sigma} J^{\rho\mu}
+  - \epsilon_{\mu}\eta^{\mu\rho}P^{\sigma} + \epsilon_{\mu} \eta^{\mu\sigma} P^{\rho}
+\end{align}
+<p>
+&#x5BF9;&#x5E94; \(\omega_{\mu\nu}\) &#x7684;&#x7CFB;&#x6570;&#x53EF;&#x5F97;
+</p>
+\begin{align}
+  \mathrm{i}[J^{\mu\nu}, J^{\rho\sigma}] = 
+   \eta^{\nu\rho} J^{\mu\sigma} - \eta^{\mu\rho} J^{\nu\sigma} - \eta^{\sigma\mu} J^{\rho\nu} + \eta^{\sigma\nu} J^{\rho\mu} 
+\end{align}
+<p>
+&#x5BF9;&#x5E94; \(\epsilon_{\mu}\) &#x7684;&#x7CFB;&#x6570;&#x5F97;
+</p>
+\begin{align}
+  \mathrm{i}[P^{\mu}, J^{\rho\sigma}] = \eta^{\mu\rho} P^{\sigma} - \eta^{\mu\sigma} P^{\rho}
+\end{align}
+<p>
+&#x540C;&#x7406;&#x5BF9; \(U(\Lambda, a) P^{\rho}U^{-1}(\Lambda, a) = \Lambda_{\mu}^{\,\,\rho}P^{\mu}\) &#x5C55;&#x5F00;&#x53EF;&#x4EE5;&#x5F97;&#x5230;
+</p>
+\begin{align}
+[P^{\mu}, P^{\rho}] = 0
+\end{align}
+<p>
+&#x6240;&#x4EE5;&#x81F3;&#x6B64;&#x5C31;&#x5F97;&#x5230;&#x4E86;&#x5E9E;&#x52A0;&#x83B1;&#x4EE3;&#x6570;&#x7684;&#x6240;&#x6709;&#x5BF9;&#x6613;&#x5173;&#x7CFB;
+</p>
+\begin{align}
+  \mathrm{i}[J^{\mu\nu}, J^{\rho\sigma}] =&amp; 
+   \eta^{\nu\rho} J^{\mu\sigma} - \eta^{\mu\rho} J^{\nu\sigma} - \eta^{\sigma\mu} J^{\rho\nu} + \eta^{\sigma\nu} J^{\rho\mu}  \\
+  \mathrm{i}[P^{\mu}, J^{\rho\sigma}] =&amp; \eta^{\mu\rho} P^{\sigma} - \eta^{\mu\sigma} P^{\rho} \\
+    [P^{\mu}, P^{\rho}] =&amp; 0
+\end{align}
+<blockquote>
+<p>
+Exercise:
+</p>
+
+<p>
+&#x9A8C;&#x8BC1;&#x52A8;&#x91CF;&#x548C;&#x89D2;&#x52A8;&#x91CF; \(\vec{P} = \{P^1, P^2, P^{3} \}, \vec{J} = \{J^{23}, J^{31}, J^{12}\}\) &#x662F;&#x5B88;&#x6052;&#x91CF;, &#x4E5F;&#x5C31;&#x662F;&#x5B83;&#x4EEC;&#x548C; \(H
+= P^0\) &#x5BF9;&#x6613;. &#x800C; boost three-vector \(K = \{J^{01}, J^{02}, J^{03}\}\) &#x4E0D;&#x662F;&#x5B88;&#x6052;&#x91CF;. 
+</p>
+</blockquote>
+<blockquote>
+<p>
+Exercise:
+</p>
+
+<p>
+&#x4ECE;&#x5E9E;&#x52A0;&#x83B1;&#x4EE3;&#x6570;&#x7684;&#x5BF9;&#x6613;&#x5173;&#x7CFB;&#x5F97;&#x5230;&#x91CF;&#x5B50;&#x529B;&#x5B66;&#x4E2D;&#x5E38;&#x89C1;&#x7684;&#x52A8;&#x91CF;&#x4E0E;&#x89D2;&#x52A8;&#x91CF;&#x4E4B;&#x95F4;&#x7684;&#x5BF9;&#x6613;&#x5173;&#x7CFB;. 
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgcdfaf58" class="outline-2">
+<h2 id="orgcdfaf58">Reference</h2>
+<div class="outline-text-2" id="text-orgcdfaf58">
+<ul class="org-ul">
+<li>Steven Weinberg, The Quantum Theory of Fields Foundations Vol. 1(1995,
+Cambridge University Press)</li>
+
+<li>A. Zee, Group Theory in a Nutshell for Physicists (2016, Princeton University Press)</li>
+
+<li>Tom Lancaster, Stephen J. Blundell, Quantum Field Theory for the Gifted Amateur (2014, Oxford University Press)</li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/Poincare-Algebra/" rel="tag"># Poincare Algebra</a>
+          
+            <a href="/tags/Relativistic-Quantum-Machinics/" rel="tag"># Relativistic Quantum Machinics</a>
+          
+            <a href="/tags/Lorentz-Transformation/" rel="tag"># Lorentz Transformation</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/03/GreenFunction/" rel="next" title="格林函数方法求解微分方程">
+                <i class="fa fa-chevron-left"></i> 格林函数方法求解微分方程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/10/HeisenbergEOM/" rel="prev" title="关于 Heisenberg 运动方程">
+                关于 Heisenberg 运动方程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org7fa0e0e"><span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org8d43298"><span class="nav-text">Lorentz Transformation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orga2e1836"><span class="nav-text">Poincare Group</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org41560bb"><span class="nav-text">The Poincare Algebra</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org7fb1e7d"><span class="nav-text">生成元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org5707a88"><span class="nav-text">生成元如何变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org9ec96f5"><span class="nav-text">对易关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgcdfaf58"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="manjaro,linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Manjaro-18-Gnome 装机备忘">
+<meta property="og:url" content="https://zqw.ink/2018/11/11/Manjaro-18-Gnome 装机备忘/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T07:54:28.021Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Manjaro-18-Gnome 装机备忘">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2018/11/11/Manjaro-18-Gnome 装机备忘/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Manjaro-18-Gnome 装机备忘 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2018/11/11/Manjaro-18-Gnome 装机备忘/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Manjaro-18-Gnome 装机备忘
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-11 00:00:00" itemprop="dateCreated datePublished" datetime="2018-11-11T00:00:00+08:00">2018-11-11</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件使用/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/11/Manjaro-18-Gnome 装机备忘/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/11/11/Manjaro-18-Gnome 装机备忘/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-orgc954b09" class="outline-2">
+<h2 id="orgc954b09">&#x57FA;&#x672C;&#x5B89;&#x88C5;</h2>
+<div class="outline-text-2" id="text-orgc954b09">
+</div>
+<div id="outline-container-org608b346" class="outline-3">
+<h3 id="org608b346">&#x523B;&#x76D8;</h3>
+<div class="outline-text-3" id="text-org608b346">
+<ul class="org-ul">
+<li>&#x4F7F;&#x7528;ultroiso&#xFF0C;&#x523B;&#x5F55;&#x65B9;&#x5F0F;&#x5E94;&#x9009;&#x62E9;raw</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6db8fe1" class="outline-3">
+<h3 id="org6db8fe1">&#x914D;&#x7F6E;&#x5B89;&#x88C5;&#x6E90;</h3>
+<div class="outline-text-3" id="text-org6db8fe1">
+</div>
+<div id="outline-container-orgdceb999" class="outline-4">
+<h4 id="orgdceb999">&#x6DFB;&#x52A0;&#x4E2D;&#x56FD;&#x955C;&#x50CF;</h4>
+<div class="outline-text-4" id="text-orgdceb999">
+<p>
+&#x751F;&#x6210;&#x53EF;&#x7528;&#x4E2D;&#x56FD;&#x955C;&#x50CF;&#x7AD9;&#x5217;&#x8868;:
+</p>
+
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman-mirrors -i -c China -m rank</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x51FA;&#x73B0;&#x955C;&#x50CF;&#x5217;&#x8868;&#x540E;&#x52FE;&#x9009;&#x6240;&#x9700;&#x8981;&#x7684;&#x955C;&#x50CF;.
+</p>
+
+<p>
+&#x7136;&#x540E;&#x5237;&#x65B0;&#x7F13;&#x5B58;:
+</p>
+
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -Syy</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x53C2;&#x89C1;: <a href="http://mirrors.ustc.edu.cn/help/manjaro.html" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/help/manjaro.html</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcedc846" class="outline-4">
+<h4 id="orgcedc846">&#x6DFB;&#x52A0; archlinuxcn &#x4ED3;&#x5E93;</h4>
+<div class="outline-text-4" id="text-orgcedc846">
+<p>
+&#x5728; `/etc/pacman.conf` &#x6587;&#x4EF6;&#x672B;&#x5C3E;&#x6DFB;&#x52A0;&#x4E24;&#x884C;&#xFF1A;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x5237;&#x65B0;
+</p>
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -Syy</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x4E4B;&#x540E;&#x5B89;&#x88C5; archlinuxcn-keyring &#x5305;&#x5BFC;&#x5165; GPG key.
+</p>
+
+
+<p>
+&#x53C2;&#x89C1;: <a href="https://mirror.tuna.tsinghua.edu.cn/help/archlinuxcn" target="_blank" rel="noopener">https://mirror.tuna.tsinghua.edu.cn/help/archlinuxcn</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org2cf12dc" class="outline-4">
+<h4 id="org2cf12dc">yaourt &#x914D;&#x7F6E;</h4>
+<div class="outline-text-4" id="text-org2cf12dc">
+<ul class="org-ul">
+<li>&#x5B89;&#x88C5; yaourt</li>
+</ul>
+
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S yaourt</span><br></pre></td></tr></table></figure>
+</div>
+<ul class="org-ul">
+<li>&#x5B89;&#x88C5; base-devel</li>
+</ul>
+
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S base-devel</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x53C2;&#x89C1;: <a href="https://wiki.archlinux.org/index.php/Arch_User_Repository_(%25E7%25AE%2580%25E4%25BD%2593%25E4%25B8%25AD%25E6%2596%2587)" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/Arch_User_Repository_(%25E7%25AE%2580%25E4%25BD%2593%25E4%25B8%25AD%25E6%2596%2587)</a>
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgccd3fd3" class="outline-4">
+<h4 id="orgccd3fd3">snap</h4>
+<div class="outline-text-4" id="text-orgccd3fd3">
+</div>
+<ul class="org-ul">
+<li><a id="org52d6166"></a>&#x8FDE;&#x4E0D;&#x4E0A;&#x7F51;<br>
+<div class="outline-text-5" id="text-org52d6166">
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start snapd.service</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org380872a" class="outline-3">
+<h3 id="org380872a">&#x4E2D;&#x6587;&#x8F93;&#x5165;&#x6CD5;</h3>
+<div class="outline-text-3" id="text-org380872a">
+</div>
+<div id="outline-container-org271dae9" class="outline-4">
+<h4 id="org271dae9">&#x5B89;&#x88C5;</h4>
+<div class="outline-text-4" id="text-org271dae9">
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S fcitx</span><br><span class="line">sudo pacman -S fcitx -configtool   ----&#x914D;&#x7F6E;&#x5DE5;&#x5177;</span><br><span class="line">sudo pacman -S fcitx-sogoupinyin    ----&#x53EF;&#x9009;&#x5B89;&#x88C5;&#xFF0C;fcitx&#x9ED8;&#x8BA4;&#x5DF2;&#x6709;&#x4E2D;&#x6587;&#x8F93;&#x5165;</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc9f05aa" class="outline-4">
+<h4 id="orgc9f05aa">&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h4>
+<div class="outline-text-4" id="text-orgc9f05aa">
+<p>
+&#x5728; <code>~/.xprofile</code> &#x4E2D;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> GTK_IM_MODULE=fcitx</span><br><span class="line"><span class="built_in">export</span> QT_IM_MODULE=fcitx</span><br><span class="line"><span class="built_in">export</span> XMODIFIERS=@im=fcitx</span><br></pre></td></tr></table></figure>
+</div>
+
+
+<p>
+&#x53C2;&#x89C1;: <a href="https://wiki.archlinux.org/index.php/Fcitx_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E5.AE.89.E8.A3.85" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/Fcitx_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E5.AE.89.E8.A3.85</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8620300" class="outline-2">
+<h2 id="org8620300">&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;</h2>
+<div class="outline-text-2" id="text-org8620300">
+</div>
+<div id="outline-container-orgfbbfb53" class="outline-3">
+<h3 id="orgfbbfb53">tex</h3>
+<div class="outline-text-3" id="text-orgfbbfb53">
+<p>
+&#x5B89;&#x88C5;&#x4EE5;&#x4E0B;&#x4E09;&#x4E2A;&#x5305;, &#x4E2D;&#x6587;&#x7F16;&#x5199;&#x5E94;&#x8BE5;&#x6CA1;&#x6709;&#x95EE;&#x9898;.
+</p>
+
+<p>
+texlive-most
+</p>
+
+<p>
+texlive-lang
+</p>
+
+<p>
+texlive-latexextra
+</p>
+</div>
+</div>
+
+<div id="outline-container-org510a0e7" class="outline-3">
+<h3 id="org510a0e7">evince &#x4E2D;&#x6587;</h3>
+<div class="outline-text-3" id="text-org510a0e7">
+<p>
+evince &#x53EF;&#x80FD;&#x4E2D;&#x6587;&#x663E;&#x793A;&#x4E0D;&#x597D;. &#x5B89;&#x88C5; xpdf &#x540E;&#x4F1A;&#x89E3;&#x51B3;
+</p>
+</div>
+</div>
+
+<div id="outline-container-org44de2a3" class="outline-3">
+<h3 id="org44de2a3">hexo</h3>
+<div class="outline-text-3" id="text-org44de2a3">
+</div>
+<div id="outline-container-org62b5246" class="outline-4">
+<h4 id="org62b5246">&#x5B89;&#x88C5; Hexo</h4>
+<div class="outline-text-4" id="text-org62b5246">
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org798816c" class="outline-4">
+<h4 id="org798816c">&#x590D;&#x5236;&#x65E7;&#x7684;&#x6587;&#x4EF6;&#x8FC7;&#x6765;</h4>
+</div>
+
+<div id="outline-container-org14af45b" class="outline-4">
+<h4 id="org14af45b">&#x6DFB;&#x52A0;site map</h4>
+<div class="outline-text-4" id="text-org14af45b">
+</div>
+<ul class="org-ul">
+<li><a id="org4341a47"></a>&#x6267;&#x884C;&#x547D;&#x4EE4;&#x5B89;&#x88C5;sitemap<br>
+<div class="outline-text-5" id="text-org4341a47">
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</li>
+
+<li><a id="org63f7011"></a>&#x5728;Hexo&#x7AD9;&#x70B9;&#x914D;&#x7F6E;&#x6587;&#x4EF6; _config.yml &#x4E2D;&#x52A0;&#x5165; sitemap &#x63D2;&#x4EF6;<br>
+<div class="outline-text-5" id="text-org63f7011">
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line">plugins: hexo-generator-sitemap</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</li>
+
+<li><a id="orga5c78ab"></a>&#x6267;&#x884C;&#x547D;&#x4EE4;&#x751F;&#x6210;sitemap&#x6587;&#x4EF6;<br>
+<div class="outline-text-5" id="text-orga5c78ab">
+<pre class="example">
+hexo clean
+hexo g</pre>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4080dd8" class="outline-3">
+<h3 id="org4080dd8">emacs</h3>
+<div class="outline-text-3" id="text-org4080dd8">
+</div>
+<div id="outline-container-org8c6c8e9" class="outline-4">
+<h4 id="org8c6c8e9">&#x53F3;alt&#x4E0D;&#x80FD;&#x5F53;meta</h4>
+<div class="outline-text-4" id="text-org8c6c8e9">
+<p>
+&#x641C;&#x7D22;&#xFF1A;&#x4F18;&#x5316;-&#x952E;&#x76D8;&#x548C;&#x9F20;&#x6807;-&#x5176;&#x5B83;&#x5E03;&#x5C40;&#x9009;&#x9879;
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0cb98c4" class="outline-3">
+<h3 id="org0cb98c4">&#x575A;&#x679C;&#x4E91;</h3>
+<div class="outline-text-3" id="text-org0cb98c4">
+</div>
+<div id="outline-container-orgfa7155f" class="outline-4">
+<h4 id="orgfa7155f">&#x65E0;&#x6258;&#x76D8;&#x56FE;&#x6807;&#xFF1A;</h4>
+<div class="outline-text-4" id="text-orgfa7155f">
+<p>
+&#x641C;&#x7D22;&#xFF1A;&#x4F18;&#x5316;-&#x6269;&#x5C55;-topicons plus&#xFF08;&#x6CA1;&#x6709;&#x7684;&#x8BDD;&#x5B89;&#x88C5;gnome-shell-extension-topicons-plus-git&#xFF09;
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org519ecf7" class="outline-3">
+<h3 id="org519ecf7">teamviewer</h3>
+<div class="outline-text-3" id="text-org519ecf7">
+</div>
+<div id="outline-container-org2353873" class="outline-4">
+<h4 id="org2353873">&#x4E0D;&#x80FD;&#x8FDE;&#x7F51;&#xFF1A;</h4>
+<div class="outline-text-4" id="text-org2353873">
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo teamviewer --daemon start</span><br><span class="line">teamviewer</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org600d662" class="outline-2">
+<h2 id="org600d662">&#x95EE;&#x9898;&#x5408;&#x96C6;</h2>
+<div class="outline-text-2" id="text-org600d662">
+</div>
+<div id="outline-container-org85179e4" class="outline-3">
+<h3 id="org85179e4">shadowsocks-qt5&#x8FDE;&#x4E0A;, &#x4F46;&#x662F;&#x6D4F;&#x89C8;&#x5668;&#x8FDE;&#x4E0D;&#x4E0A;</h3>
+<div class="outline-text-3" id="text-org85179e4">
+<p>
+&#x539F;&#x6765;&#x662F; ss-qt5 &#x91CC;&#x8FB9;&#x6CA1;&#x6539;&#x7AEF;&#x53E3;. &#x6C57;&#x2026;
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orge1e631a" class="outline-2">
+<h2 id="orge1e631a">&#x6CE8;</h2>
+<div class="outline-text-2" id="text-orge1e631a">
+<p>
+&#x5584;&#x7528; arch &#x7684; wiki , &#x4E00;&#x822C;&#x95EE;&#x9898;&#x90FD;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x89E3;&#x51B3;.
+</p>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/manjaro/" rel="tag"># manjaro</a>
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/21/多体物理读书会：Dirac delta函数从零到正无穷的积分/" rel="next" title="多体物理读书会：Dirac delta函数从零到正无穷的积分">
+                <i class="fa fa-chevron-left"></i> 多体物理读书会：Dirac delta函数从零到正无穷的积分
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/12/多体物理读书会:整书勘误表/" rel="prev" title="多体物理读书会：整书勘误表 Errata: Typographical Errors, Mistakes, and Comments of Fundamentals of Many-body Physics (Wolfgang Nolting)">
+                多体物理读书会：整书勘误表 Errata: Typographical Errors, Mistakes, and Comments of Fundamentals of Many-body Physics (Wolfgang Nolting) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc954b09"><span class="nav-text">基本安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org608b346"><span class="nav-text">刻盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org6db8fe1"><span class="nav-text">配置安装源</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orgdceb999"><span class="nav-text">添加中国镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgcedc846"><span class="nav-text">添加 archlinuxcn 仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org2cf12dc"><span class="nav-text">yaourt 配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgccd3fd3"><span class="nav-text">snap</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org380872a"><span class="nav-text">中文输入法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org271dae9"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgc9f05aa"><span class="nav-text">配置文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org8620300"><span class="nav-text">软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgfbbfb53"><span class="nav-text">tex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org510a0e7"><span class="nav-text">evince 中文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org44de2a3"><span class="nav-text">hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org62b5246"><span class="nav-text">安装 Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org798816c"><span class="nav-text">复制旧的文件过来</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org14af45b"><span class="nav-text">添加site map</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org4080dd8"><span class="nav-text">emacs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org8c6c8e9"><span class="nav-text">右alt不能当meta</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org0cb98c4"><span class="nav-text">坚果云</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orgfa7155f"><span class="nav-text">无托盘图标：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org519ecf7"><span class="nav-text">teamviewer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org2353873"><span class="nav-text">不能连网：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org600d662"><span class="nav-text">问题合集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org85179e4"><span class="nav-text">shadowsocks-qt5连上, 但是浏览器连不上</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orge1e631a"><span class="nav-text">注</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

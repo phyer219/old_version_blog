@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="物理,格林函数,多体物理读书会">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多体物理读书会：3.2节 双时格林函数">
+<meta property="og:url" content="https://zqw.ink/2018/10/19/多体物理读书会：3.2节 双时格林函数/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.850Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多体物理读书会：3.2节 双时格林函数">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2018/10/19/多体物理读书会：3.2节 双时格林函数/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>多体物理读书会：3.2节 双时格林函数 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2018/10/19/多体物理读书会：3.2节 双时格林函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">多体物理读书会：3.2节 双时格林函数
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-19 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-19T00:00:00+08:00">2018-10-19</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/19/多体物理读书会：3.2节 双时格林函数/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/10/19/多体物理读书会：3.2节 双时格林函数/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+<div id="outline-container-orgd351f2f" class="outline-2">
+<h2 id="orgd351f2f">&#x4E09;&#x79CD;&#x683C;&#x6797;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;</h2>
+<div class="outline-text-2" id="text-orgd351f2f">
+<ul class="org-ul">
+<li>Retarted Grenn&apos;s Function</li>
+</ul>
+\begin{align*}
+G_{AB}^{\mathrm{ret}}(t,t&apos;) \equiv \langle\langle A(t);B(t&apos;)\rangle\rangle ^{\mathrm{ret}}=-\mathrm{i}\theta(t-t&apos;)\langle [A(t),B(t&apos;)]_{-\varepsilon}\rangle
+\end{align*}
+<ul class="org-ul">
+<li>Advanced Grenn&apos;s Function</li>
+</ul>
+\begin{align*}
+  G_{AB}^{\mathrm{adv}}(t,t&apos;) \equiv \langle\langle A(t);B(t&apos;)\rangle\rangle^{\mathrm{adv}}=\mathrm{i}\theta(t&apos;-t)\langle [A(t),B(t&apos;)]_{-\varepsilon}\rangle
+\end{align*}
+<ul class="org-ul">
+<li>Causal Grenn&apos;s Function</li>
+</ul>
+\begin{align*}
+  G_{AB}^{\mathrm{c}} \equiv&amp; \langle\langle A(t):B(t&apos;)\rangle\rangle^{\mathrm{c}}=-\mathrm{i}\langle T_{\varepsilon}(A(t)B(t&apos;))\rangle \\
+  =&amp; -\mathrm{i}\left[\theta(t-t&apos;)A(t)B(t&apos;)-\varepsilon B(t&apos;)A(t)\right]
+\end{align*}
+<ul class="org-ul">
+<li>&#x5728;&#x89E3;&#x683C;&#x6797;&#x51FD;&#x6570;&#x8FD0;&#x52A8;&#x65B9;&#x7A0B;&#x65F6;&#xFF0C;&#x5E38;&#x7528;&#x7684;&#x662F;&#x63A8;&#x8FDF;&#x548C;&#x8D85;&#x524D;&#x683C;&#x6797;&#x51FD;&#x6570;&#xFF0C;&#x800C;diagram techniques&#x4E2D;&#x5E38;&#x7528;&#x56E0;&#x679C;&#x683C;&#x6797;&#x51FD;&#x6570;&#x3002;</li>
+<li>&#x6839;&#x636E;&#x5B9A;&#x4E49;&#x5C31;&#x53EF;&#x4EE5;&#x9A8C;&#x8BC1;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#xFF1A;\(G_{AB}^{\mathrm{ret}}(t,t&apos;)=\varepsilon G_{BA}^{\mathrm{adv}}(t,t&apos;)\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org160a0ed" class="outline-2">
+<h2 id="org160a0ed">&#x8C31;&#x5BC6;&#x5EA6;&#x7684;&#x5B9A;&#x4E49;</h2>
+<div class="outline-text-2" id="text-org160a0ed">
+<ul class="org-ul">
+<li>Spectral Density</li>
+</ul>
+\begin{align*}
+  S_{AB}(t,t&apos;) = \frac{1}{2\pi}\langle [A(t),B(t&apos;)]_{-\varepsilon}\rangle
+\end{align*}
+<ul class="org-ul">
+<li>&#x8C31;&#x5BC6;&#x5EA6;&#x6240;&#x5305;&#x542B;&#x7684;&#x4E0E;&#x683C;&#x6797;&#x51FD;&#x6570;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x7684;&#x4FE1;&#x606F;&#x3002;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org82a939e" class="outline-2">
+<h2 id="org82a939e">&#x5173;&#x8054;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;</h2>
+<div class="outline-text-2" id="text-org82a939e">
+<ul class="org-ul">
+<li>&#x4E3A;&#x4E86;&#x8BC1;&#x660E;&#x683C;&#x6797;&#x51FD;&#x6570;&#x548C;&#x8C31;&#x5BC6;&#x5EA6;&#x5BF9;&#x4E8E;&#x65F6;&#x95F4;&#x662F;&#x5404;&#x5411;&#x540C;&#x6027;(homogeneous in time)&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5B83;&#x4EEC;&#x7684;&#x503C;&#x53EA;&#x4E0E;$t-t&apos;$&#x6709;&#x5173;&#xFF0C;&#x800C;&#x4E0E;$t$&#x548C;$t&apos;$&#x7684;&#x5177;&#x4F53;&#x4F4D;&#x7F6E;&#x65E0;&#x5173;&#xFF0C;&#x5B9A;&#x4E49;&#x5173;&#x8054;&#x51FD;&#x6570;&#x4E3A;</li>
+</ul>
+\begin{align*}
+  \langle A(t)B(t&apos;)\rangle\\
+  \langle B(t&apos;)A(t)\rangle
+\end{align*}
+<p>
+&#x8FD9;&#x6837;&#xFF0C;&#x53EA;&#x987B;&#x8BC1;&#x660E;&#x5173;&#x8054;&#x51FD;&#x6570;&#x5BF9;&#x4E8E;&#x65F6;&#x95F4;&#x7684;&#x5404;&#x5411;&#x540C;&#x6027;&#xFF0C;&#x5373;&#x53EF;&#x8BC1;&#x660E;&#x683C;&#x6797;&#x51FD;&#x6570;&#x548C;&#x8C31;&#x5BC6;&#x5EA6;&#x5BF9;&#x4E8E;&#x65F6;&#x95F4;&#x7684;&#x5404;&#x5411;&#x540C;&#x6027;&#x3002;
+</p>
+</div>
+</div>
+<div id="outline-container-org0ed3769" class="outline-2">
+<h2 id="org0ed3769">&#x8FD0;&#x52A8;&#x65B9;&#x7A0B;</h2>
+<div class="outline-text-2" id="text-org0ed3769">
+<ul class="org-ul">
+<li>&#x65F6;&#x95F4;&#x8868;&#x8C61;&#x7684;equation of motion&#xFF0C;&#x5BF9;&#x683C;&#x6797;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x5F0F;&#x6C42;&#x65F6;&#x95F4;&#x7684;&#x504F;&#x5C42;&#x6570;&#x5373;&#x53EF;&#x5F97;&#x5230;</li>
+</ul>
+\begin{align*}
+  i\hbar \frac{\partial}{\partial t}G_{AB}^{\alpha}(t,t&apos;) = \hbar\delta(t-t&apos;)\langle [A,B]_{-\varepsilon}\rangle +\langle\langle[A,H]_{-}(t);B(t&apos;)\rangle\rangle^{\alpha}
+\end{align*}
+<ul class="org-ul">
+<li>&#x5C06;&#x5176;&#x53D8;&#x6362;&#x5230;&#x80FD;&#x91CF;&#x8868;&#x8C61;</li>
+</ul>
+\begin{align*}
+  E\langle\langle A;B \rangle\rangle_{E}^{\alpha} = \hbar\langle [A,B]_{\varepsilon}\rangle +\langle\langle [A,H]_{-};B\rangle\rangle _{E}^{\alpha}
+\end{align*}
+<p>
+&#x683C;&#x6797;&#x51FD;&#x6570;&#x5728;\(t-t&apos;=\pm \infty\) &#x65F6;&#x4E3A;&#x96F6;&#xFF1F;
+</p>
+</div>
+</div>
+<div id="outline-container-orgececb01" class="outline-2">
+<h2 id="orgececb01">&#x8C31;&#x8868;&#x793A;</h2>
+<div class="outline-text-2" id="text-orgececb01">
+<ul class="org-ul">
+<li>&#x8C31;&#x5BC6;&#x5EA6;&#x7684;&#x8C31;&#x8868;&#x793A;</li>
+</ul>
+\begin{align*}
+  S_{AB}(E) =&amp; \frac{\hbar}{\Xi}\sum_{n,m}\langle E_{n}\mid B\mid E_{m} \rangle \langle E_{m} \mid A \mid E_{n}\rangle e^{-\beta E_{n}}\cdot  \\
+  &amp;\cdot (e^{\beta E} -\varepsilon)\delta [E-(E_{n}-E_{m})]
+\end{align*}
+<ul class="org-ul">
+<li>&#x63A8;&#x8FDF;&#x683C;&#x6797;&#x51FD;&#x6570;&#x7684;&#x8C31;&#x8868;&#x793A;</li>
+</ul>
+\begin{align*}
+  G_{AB}^{\mathrm{ret}}(E) = \int _{-\infty}^{+\infty} \mathrm{d}E&apos; \frac{S_{AB}(E&apos;)}{E-E&apos;+\mathrm{i}0^{+}}
+\end{align*}
+<ul class="org-ul">
+<li>&#x8D85;&#x524D;&#x683C;&#x6797;&#x51FD;&#x6570;&#x7684;&#x8C31;&#x8868;&#x793A;</li>
+</ul>
+\begin{align*}
+  G_{AB}^{\mathrm{ret}}(E) = \int _{-\infty}^{+\infty} \mathrm{d}E&apos; \frac{S_{AB}(E&apos;)}{E-E&apos;-\mathrm{i}0^{+}}
+\end{align*}
+<ul class="org-ul">
+<li>&#x56E0;&#x679C;&#x683C;&#x6797;&#x51FD;&#x6570;&#x7684;&#x8C31;&#x8868;&#x793A;</li>
+</ul>
+\begin{align*}
+  G_{AB}^{\mathcal{c}} =&amp; \frac{\hbar}{\Xi} \sum_{n,m} \langle E_{n}\mid B \mid E_{m}\rangle\langle E_{m} \mid A \mid E_{n} \rangle e^{-\beta E_{n}}\cdot\\
+  &amp;\cdot \left[ \frac{e^{\beta(E_{n}-E_{m})}}{E-(E_{n}-E_{m})+\mathrm{i}0^{+}} - \frac{\varepsilon}{E-(E_{n}-E_{m})-\mathrm{i}0^{+}} \right]
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org9e4e6d0" class="outline-2">
+<h2 id="org9e4e6d0">&#x8C31;&#x5B9A;&#x7406;</h2>
+<div class="outline-text-2" id="text-org9e4e6d0">
+<ul class="org-ul">
+<li>&#x8C31;&#x5B9A;&#x7406;&#x63CF;&#x8FF0;&#x4E86;&#x5173;&#x8054;&#x51FD;&#x6570;&#x548C;&#x8C31;&#x5BC6;&#x5EA6;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;</li>
+</ul>
+\begin{align*}
+  \langle B(t&apos;)A(t)\rangle = \frac{1}{\hbar}\int_{-\infty}^{+\infty}\mathrm{d}E \frac{S_{AB}^{(\varepsilon)}(E)}{e^{\beta E}-\varepsilon}e^{-\frac{\mathrm{i}}{\hbar}E(t-t&apos;)} +\frac{1}{2}(1+\varepsilon)D
+\end{align*}
+<ul class="org-ul">
+<li>&#x5176;&#x4E2D;&#x7684;&#x5E38;&#x6570;$D$&#x53EF;&#x4EE5;&#x7531;&#x4EE5;&#x4E0B;&#x5F0F;&#x5B50;&#x6C42;&#x5F97;</li>
+</ul>
+\begin{align*}
+  \lim _{E\rightarrow0} EG_{AB}^{(\varepsilon)}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org70cb170" class="outline-2">
+<h2 id="org70cb170">Exact Expressions</h2>
+<div class="outline-text-2" id="text-org70cb170">
+<ul class="org-ul">
+<li>&#x5224;&#x5B9A;&#x8FD1;&#x4F3C;&#x7684;&#x65B9;&#x6CD5;&#x4E4B;&#x4E00;</li>
+</ul>
+\begin{align*}
+  \left(G_{AB}^{\mathrm{ret,adv}}(t,t&apos;)\right) ^{*} = \varepsilon G_{A^{\dagger}B^{\dagger}}^{\mathrm{ret,adv}}(t,t&apos;)
+\end{align*}
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5BF9;&#x6613;&#x683C;&#x6797;&#x51FD;&#x6570;&#x662F;&#x5B9E;&#x7684;&#xFF0C;&#x53CD;&#x5BF9;&#x6613;&#x683C;&#x6797;&#x51FD;&#x6570;&#x662F;&#x865A;&#x7684;&#x3002;
+</p>
+<ul class="org-ul">
+<li>&#x5224;&#x5B9A;&#x8FD1;&#x4F3C;&#x7684;&#x65B9;&#x6CD5;&#x4E4B;&#x4E8C;</li>
+</ul>
+\begin{align*}
+  \lim _{E\rightarrow\infty}G_{AB}^{\alpha}(E) \approx \frac{\hbar}{E}\langle [A,B]_{-\varepsilon}\rangle
+\end{align*}
+<ul class="org-ul">
+<li>Sepctral Monments &#x7684;&#x5B9A;&#x4E49;</li>
+</ul>
+\begin{align*}
+  M_{AB}^{\alpha} = \frac{1}{\hbar}\int_{-\infty}^{+\infty} \mathrm{d} E\, E^{n} S_{AB}(E)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org1eedcd0" class="outline-2">
+<h2 id="org1eedcd0">Kramers-Kronig relations</h2>
+<div class="outline-text-2" id="text-org1eedcd0">
+<ul class="org-ul">
+<li></li>
+</ul>
+\begin{align*}
+  \mathrm{Re} G_{AB}^{
+  \begin{matrix}
+    \mathrm{ret}\\
+    \mathrm{adv}
+  \end{matrix}
+} (E) = \mp \frac{1}{\pi}\mathcal{P} \int_{-\infty}^{+\infty}\mathrm{d}\bar{E} \frac{\mathrm{Im}G_{AB}^{
+  \begin{matrix}
+    \mathrm{ret}\\
+    \mathrm{adv}
+  \end{matrix}}(\bar{E})}{E - \bar{E}}
+\end{align*}
+\begin{align*}
+  \mathrm{Im} G_{AB}^{
+  \begin{matrix}
+    \mathrm{ret}\\
+    \mathrm{adv}
+  \end{matrix}
+} (E) = \pm \frac{1}{\pi}\mathcal{P} \int_{-\infty}^{+\infty}\mathrm{d}\bar{E} \frac{\mathrm{Re}G_{AB}^{
+  \begin{matrix}
+    \mathrm{ret}\\
+    \mathrm{adv}
+  \end{matrix}}(\bar{E})}{E - \bar{E}}
+\end{align*}
+<ul class="org-ul">
+<li>K-K&#x5173;&#x7CFB;&#x8BF4;&#x660E;&#xFF0C;&#x683C;&#x6797;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x90E8;&#x548C;&#x865A;&#x90E8;&#x662F;&#x4E0D;&#x72EC;&#x7ACB;&#x7684;&#xFF0C;&#x53EA;&#x8981;&#x6C42;&#x5176;&#x5B9E;&#x90E8;&#x6216;&#x8005;&#x865A;&#x90E8;&#xFF0C;&#x5C31;&#x53EF;&#x6C42;&#x5F97;&#x683C;&#x6797;&#x51FD;&#x6570;&#x7684;&#x5168;&#x90E8;&#x4FE1;&#x606F;&#x3002;</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf2e1ed0" class="outline-2">
+<h2 id="orgf2e1ed0">&#x6CE8;</h2>
+<div class="outline-text-2" id="text-orgf2e1ed0">
+<ol class="org-ol">
+<li>&#x683C;&#x6797;&#x51FD;&#x6570;&#x7B26;&#x53F7; $&#x27E8;&#x27E8;&#x27E9;&#x27E9;$&#x5728;$\LaTeX$&#x4E2D;&#x53EF;&#x4EE5;&#x5F15;&#x7528;MnSymbol&#x5305;&#x7528; \llangle &#x6253;&#x51FA;&#x3002;</li>
+</ol>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/格林函数/" rel="tag"># 格林函数</a>
+          
+            <a href="/tags/多体物理读书会/" rel="tag"># 多体物理读书会</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/18/Hello org-mode/" rel="next" title="Hello org-mode">
+                <i class="fa fa-chevron-left"></i> Hello org-mode
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/20/多体物理读书会：格林函数分母中无穷小的来源/" rel="prev" title="多体物理读书会：格林函数分母中无穷小的来源">
+                多体物理读书会：格林函数分母中无穷小的来源 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd351f2f"><span class="nav-text">三种格林函数的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org160a0ed"><span class="nav-text">谱密度的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org82a939e"><span class="nav-text">关联函数的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org0ed3769"><span class="nav-text">运动方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgececb01"><span class="nav-text">谱表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org9e4e6d0"><span class="nav-text">谱定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org70cb170"><span class="nav-text">Exact Expressions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org1eedcd0"><span class="nav-text">Kramers-Kronig relations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgf2e1ed0"><span class="nav-text">注</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

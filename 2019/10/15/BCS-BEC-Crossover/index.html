@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="物理,BCS-BEC Crossover,BEC,BCS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BCS-BEC Crossover">
+<meta property="og:url" content="https://zqw.ink/2019/10/15/BCS-BEC-Crossover/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2019/10/15/BCS-BEC-Crossover/gapless.jpg">
+<meta property="og:image" content="https://zqw.ink/2019/10/15/BCS-BEC-Crossover/gaped.jpg">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.930Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BCS-BEC Crossover">
+<meta name="twitter:image" content="https://zqw.ink/2019/10/15/BCS-BEC-Crossover/gapless.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2019/10/15/BCS-BEC-Crossover/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>BCS-BEC Crossover | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2019/10/15/BCS-BEC-Crossover/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">BCS-BEC Crossover
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-15 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-15T00:00:00+08:00">2019-10-15</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/15/BCS-BEC-Crossover/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/10/15/BCS-BEC-Crossover/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-org9f852eb" class="outline-2">
+<h2 id="org9f852eb">System</h2>
+<div class="outline-text-2" id="text-org9f852eb">
+<p>
+Fremi gas, interaction described by s-wave scattering length \(a\) .
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc08ba71" class="outline-2">
+<h2 id="orgc08ba71">Two-Body Collisions</h2>
+<div class="outline-text-2" id="text-orgc08ba71">
+<p>
+s- wave scattering amplitude 
+</p>
+
+\begin{align}
+  f_0(k) = - \frac{1}{\frac{1}{a} 
+                      - \frac{k^2}{2}r_{\mathrm{eff}} + \mathrm{i}k} 
+\end{align}
+
+<ul class="org-ul">
+<li>if \(|ka|\ll 1\) , &#x90A3;&#x4E48; \(f_0(k)=-a\) &#x662F;&#x4E00;&#x4E2A;&#x5E38;&#x6570;. \(a\) &#x7684;&#x5927;&#x5C0F;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x7684;&#x5F3A;&#x5F31;.</li>
+<li>if \(|ka|\gg 1\) , \(k|r_{\mathrm{eff}}|\ll 1\) , &#x90A3;&#x4E48; \(f_0(k)=\mathrm{i}/k\) , &#x8FD9;
+&#x53EB; universal law . &#x6563;&#x5C04;&#x632F;&#x5E45;&#x53EA;&#x4E0E; \(k\) &#x6709;&#x5173;, &#x4E0E;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x4EE5;&#x53CA;&#x5176;&#x5B83;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x90FD;&#x65E0;&#x5173;, &#x8FD9;
+&#x53EB; unitary regime.</li>
+<li>\(a&gt;0\) &#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x662F;&#x4E00;&#x4E2A;&#x6392;&#x65A5;&#x52BF;. &#x8981;&#x6EE1;&#x8DB3;: 1). \(ka\ll 1\) , &#x5E76;&#x4E14;&#x53EA;&#x8003;&#x8651;&#x4F4E;&#x80FD;&#x6563;&#x5C04;&#x6001;.
+2). &#x675F;&#x7F1A;&#x6001;&#x8DB3;&#x591F; deep, &#x53EF;&#x4EE5; safely &#x5FFD;&#x7565;&#x6389;.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orga38df33" class="outline-2">
+<h2 id="orga38df33">Physics</h2>
+<div class="outline-text-2" id="text-orga38df33">
+</div>
+<div id="outline-container-org12bb066" class="outline-3">
+<h3 id="org12bb066">BCS</h3>
+</div>
+
+<div id="outline-container-orgc528ebd" class="outline-3">
+<h3 id="orgc528ebd">BEC</h3>
+</div>
+
+<div id="outline-container-orga479740" class="outline-3">
+<h3 id="orga479740">Unitary</h3>
+</div>
+
+<div id="outline-container-orge74758e" class="outline-3">
+<h3 id="orge74758e">Critial Temperature</h3>
+</div>
+
+<div id="outline-container-org9d9ff52" class="outline-3">
+<h3 id="org9d9ff52">Pseudo Gap</h3>
+<div class="outline-text-3" id="text-org9d9ff52">
+<p>
+&#x5BF9;&#x4E8E;&#x65E0;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x6216;&#x8005;&#x5F31;&#x6392;&#x65A5;&#x7684;&#x8D39;&#x7C73;&#x5B50;(&#x6CA1;&#x6709;&#x53D1;&#x751F;&#x914D;&#x5BF9;, &#x6CA1;&#x6709;&#x8D85;&#x6D41;), &#x5B83;&#x7684;&#x8272;&#x6563;&#x5173;&#x7CFB;&#x5927;&#x6982;&#x662F;&#x4E00;&#x4E2A;
+&#x629B;&#x7269;&#x7EBF;&#x578B;
+</p>
+\begin{align}
+  \varepsilon(\vec{k})= \frac{k^2}{2m} - \mu
+\end{align}
+<p>
+&#x5728; \(k=\mu\) &#x9644;&#x8FD1;&#x7684;&#x6FC0;&#x53D1;&#x662F; gapless &#x7684;. &#x5728;&#x8D39;&#x7C73;&#x9762;&#x9644;&#x8FD1;, &#x4ECE; \(k\) &#x4EE5;&#x4E0B;&#x4E00;&#x4E2A;&#x65E0;&#x7A77;&#x5C0F;&#x7684;&#x52A8;&#x91CF;,
+&#x6FC0;&#x53D1;&#x5230;&#x4E0A;&#x9762;&#x4E00;&#x4E2A;&#x5F88;&#x5C0F;&#x7684;&#x52A8;&#x91CF;, &#x8FD9;&#x662F;&#x4E00;&#x4E2A; gapless &#x7684;&#x6FC0;&#x53D1;. &#x53EA;&#x8981;&#x52A8;&#x91CF;&#x8F6C;&#x79FB;&#x8DB3;&#x591F;&#x5C0F;, &#x6FC0;&#x53D1;&#x80FD;&#x5C31;
+&#x53EF;&#x4EE5;&#x8DB3;&#x591F;&#x5C0F;.
+</p>
+
+<p>
+&#x5982;&#x679C;&#x770B;&#x5355;&#x7C92;&#x5B50;&#x7684; density of state , &#x4E09;&#x7EF4;&#x7684;&#x8BDD;&#x662F; \(\sqrt{E}\) &#x7684;&#x5F62;&#x5F0F;.
+</p>
+\begin{align}
+  D(E) = \int \mathrm{d}\vec{k} \cdot \delta (E - \varepsilon(\vec{k}))
+\end{align}
+<p>
+&#x8D39;&#x7C73;&#x9762;&#x4EE5;&#x4E0B;&#x7684;&#x6001;&#x90FD;&#x662F;&#x586B;&#x6EE1;&#x7684;. 
+</p>
+
+
+<p>
+&#x5982;&#x56FE;..
+<img src="/2019/10/15/BCS-BEC-Crossover/gapless.jpg">
+<a href="gapless.py">picture code</a>
+</p>
+
+<p>
+&#x6FC0;&#x53D1;&#x8C31;&#x5728;&#x914D;&#x5BF9;&#x7684;&#x65F6;&#x5019;(&#x5982;&#x679C;&#x5B58;&#x5728;&#x8D85;&#x6D41;), &#x90A3;&#x4E48;&#x5B83;&#x7684;&#x51C6;&#x7C92;&#x5B50;&#x6FC0;&#x53D1;&#x5C31;&#x662F;&#x8FD9;&#x6837;
+</p>
+
+<p>
+&#x5B83;&#x4F1A;&#x6253;&#x5F00;&#x4E00;&#x4E2A; gap, &#x8FD9;&#x4E2A; gap &#x5C31;&#x662F; \(\Delta\) , &#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5B83;&#x7684;&#x6FC0;&#x53D1;&#x8C31;&#x53D8;&#x6210;&#x4E86;
+</p>
+\begin{align}
+  \varepsilon(\vec{k}) = \sqrt{(\varepsilon_k - \mu)^2 + \Delta^2}
+\end{align}
+<p>
+where \(\Delta = \langle \psi_{\downarrow} \psi_{\uparrow}(\vec{r})\rangle\)
+&#x8FD9;&#x4E2A;&#x662F; BSC &#x5E73;&#x5747;&#x573A; Hamiltonian &#x505A; Boguliubov &#x53D8;&#x6362;, &#x5E94;&#x8BE5;&#x662F;&#x6C42;&#x51FA;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x5355;&#x7C92;&#x5B50;&#x7684;&#x8272;&#x6563;
+&#x5173;&#x7CFB;. 
+</p>
+
+<p>
+&#x8FD9;&#x4E2A; gap &#x53CD;&#x5E94;&#x5728;&#x6001;&#x5BC6;&#x5EA6;&#x4E0A;&#x5982;&#x56FE;
+<img src="/2019/10/15/BCS-BEC-Crossover/gaped.jpg">
+<a href="gaped.py">picture code</a>
+</p>
+
+<p>
+pseudo gap &#x6700;&#x65E9;&#x7684;&#x5B9A;&#x4E49;&#x662F;&#x8BF4;, &#x6001;&#x5BC6;&#x5EA6;&#x5728;&#x8D39;&#x7C73;&#x9762;&#x9644;&#x8FD1;&#x6709;&#x4E00;&#x4E2A; deep. &#x8FD9;&#x4E2A; deep, &#x4E0D;&#x540C;&#x7684;&#x4F53;&#x7CFB;,
+&#x4EA7;&#x751F;&#x7684;&#x539F;&#x56E0;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;. &#x5982;&#x679C;&#x6FC0;&#x53D1;&#x8C31;&#x5728;&#x8FD9;&#x91CC;&#x5B58;&#x5728;&#x4E00;&#x4E2A; gap, &#x5B83;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x6837;&#x5BFC;&#x81F4;&#x4E00;&#x4E2A; deep
+. &#x5982;&#x679C;&#x662F;&#x96F6;&#x6E29;&#x4E0B;, &#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x4E2A; gap , &#x539F;&#x5219;&#x4E0A;&#x5B83;&#x53EF;&#x4EE5;&#x964D;&#x5230;&#x96F6;. &#x5728;&#x8D39;&#x7C73;&#x9762;&#x8FD9;&#x4E2A;&#x5730;&#x65B9;, &#x6253;&#x5F00;&#x4E00;&#x4E2A;
+gap, &#x5B83;&#x8FD9;&#x4E2A;&#x5730;&#x65B9;&#x5C31;&#x4F1A;&#x6389;&#x5230;&#x96F6;. &#x5176;&#x5B83;&#x4E00;&#x4E9B;&#x539F;&#x56E0;, &#x6709;&#x53EF;&#x80FD;&#x4F7F;&#x5F97;, &#x5B83;&#x53EF;&#x80FD;&#x6CA1;&#x6709;&#x6389;&#x5230;&#x96F6;, &#x4F46;&#x662F;&#x5B83;&#x5462;
+&#x4F1A;&#x6709;&#x4E00;&#x4E2A; deep , &#x628A;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x53EB;&#x505A;&#x4E00;&#x4E2A; psudo gap. &#x5982;&#x679C;&#x6389;&#x5230;&#x96F6;&#x4E86;, &#x5B83;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x771F;&#x7684; gap. 
+</p>
+
+<p>
+&#x5BF9;&#x4E8E; BCS-BEC crossover, &#x5728;&#x5F31;&#x5438;&#x5F15;&#x7684;&#x8FD9;&#x4E00;&#x8FB9;, &#x57FA;&#x672C;&#x4E0A;, &#x6BD4;&#x5982;&#x8BF4; \(T\) &#x4ECE; \(0\) , &#x9010;&#x6E10;&#x589E;&#x9AD8;, 
+&#x8FBE;&#x5230; \(T_{C}\) &#x7684;&#x65F6;&#x5019;, &#x90A3;&#x4E48; \(T\) &#x63A5;&#x8FD1; \(T_{C}\) &#x4EE5;&#x540E;&#x5462;, &#x4E00;&#x65B9;&#x9762;&#x5B83;&#x7684;&#x8D85;&#x6D41;&#x5E8F;&#x53C2;&#x91CF;&#x53D8;&#x6210;&#x96F6;&#x4E86;
+\(\Delta = 0\) , &#x53E6;&#x4E00;&#x65B9;&#x9762;, &#x8FD9;&#x4E2A; deep &#x540C;&#x65F6;&#x4E5F;&#x6D88;&#x5931;&#x4E86;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5728; \(T_C\) &#x7684;&#x65F6;&#x5019;, &#x8D85;&#x6D41;&#x4E5F;
+&#x6D88;&#x5931;&#x4E86;, &#x6001;&#x5BC6;&#x5EA6;&#x5C31;&#x56DE;&#x590D;&#x5230;&#x4E00;&#x4E2A;&#x63A5;&#x8FD1;&#x65E0;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x7684;&#x8D39;&#x7C73;&#x5B50;&#x6C14;&#x4F53;, &#x540C;&#x65F6;&#x6FC0;&#x53D1;&#x8C31;&#x91CC;&#x4E5F;&#x6CA1;&#x6709; gap. &#x4F46;
+&#x662F;&#x6BD4;&#x5982;&#x8BF4;&#x5728;&#x5E7A;&#x6B63;&#x533A;, &#x6216;&#x8005;&#x8BF4;&#x5728;&#x504F; BEC &#x90A3;&#x8FB9;,  &#x5728; \(T\) &#x63A5;&#x8FD1; \(T_{C}\) &#x7684;&#x65F6;&#x5019;&#x5462;, &#x5E8F;&#x80FD;&#x91CF;&#x4ECD;&#x7136;
+&#x8981;&#x63A5;&#x8FD1;&#x4E8E;&#x96F6;, &#x56E0;&#x4E3A;&#x8FD9;&#x662F;&#x8D85;&#x6D41;&#x5230;&#x6B63;&#x5E38;&#x76F8;&#x7684;&#x4E00;&#x4E2A;&#x5224;&#x636E;. &#x4F46;&#x662F;&#x6FC0;&#x53D1;&#x8C31;&#x4ECD;&#x7136;&#x662F;&#x6709; gap &#x7684;, &#x540C;&#x65F6;&#x5462;,
+&#x8FD9;&#x91CC;&#x4ECD;&#x7136;&#x6709;&#x4E00;&#x4E2A; deep , &#x4F46;&#x662F;&#x8FD9;&#x4E2A; deep &#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x901A;&#x5E38;, &#x6BD4;&#x5982;&#x8BF4; \(T_{C}\) &#x4EE5;&#x4E0A;, &#x5B83;&#x662F;&#x4E0D;&#x4F1A;
+&#x6389;&#x5230;&#x96F6;&#x7684;, &#x4F46;&#x5B83;&#x8FD8;&#x6709;&#x4E00;&#x4E2A; deep, &#x8FD9;&#x4E2A;&#x91CC;&#x9762;&#x5B83;&#x53EB;&#x505A;&#x4E00;&#x4E2A; pseudo gap.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdbddf11" class="outline-3">
+<h3 id="orgdbddf11">Paring Gap</h3>
+<div class="outline-text-3" id="text-orgdbddf11">
+<blockquote>
+<p>
+&#x5B83;&#x6307;&#x7684;&#x5E8F;&#x53C2;&#x91CF; . \(\Delta = \langle \psi_{\downarrow}
+\psi_{\uparrow}(\vec{r})\rangle\) .&#x5747;&#x5300;&#x7CFB;&#x7EDF;&#x7684;&#x8BDD;, &#x5B83;&#x662F;&#x548C;&#x7A7A;&#x95F4;&#x65E0;&#x5173;&#x7684;&#x91CF;. &#x8FD9;&#x4E2A;&#x5E73;&#x5747;&#x503C;&#x53EA;
+&#x8981;&#x5728; \(T_{C}\) &#x6216;&#x662F; \(T_{C}\) &#x4EE5;&#x4E0A;, &#x8FD9;&#x4E2A;&#x80AF;&#x5B9A;&#x662F;&#x96F6;&#x7684;, &#x56E0;&#x4E3A;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x53CD;&#x5E38;&#x7684;&#x683C;&#x6797;&#x51FD;&#x6570;, &#x662F;&#x4E24;
+&#x4E2A;&#x6D88;&#x706D;&#x7B97;&#x7B26;. 
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7b9f95b" class="outline-2">
+<h2 id="org7b9f95b">Method</h2>
+<div class="outline-text-2" id="text-org7b9f95b">
+</div>
+<div id="outline-container-orgf7bce83" class="outline-3">
+<h3 id="orgf7bce83">Mean Field</h3>
+</div>
+
+<div id="outline-container-orgb39cb99" class="outline-3">
+<h3 id="orgb39cb99">NSR</h3>
+</div>
+</div>
+
+<div id="outline-container-org891fd2f" class="outline-2">
+<h2 id="org891fd2f">Reference</h2>
+<div class="outline-text-2" id="text-org891fd2f">
+<p>
+Ran Qi
+</p>
+
+<p>
+Stinati
+</p>
+
+<p>
+Pitaevskii 
+</p>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/BCS-BEC-Crossover/" rel="tag"># BCS-BEC Crossover</a>
+          
+            <a href="/tags/BEC/" rel="tag"># BEC</a>
+          
+            <a href="/tags/BCS/" rel="tag"># BCS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/09/NSRCalv3/" rel="next" title="NSR Calaulate III">
+                <i class="fa fa-chevron-left"></i> NSR Calaulate III
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/16/DrudeSommerfeldTheory/" rel="prev" title="Drude Model and the Sommerfeld Theory of Metals">
+                Drude Model and the Sommerfeld Theory of Metals <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org9f852eb"><span class="nav-text">System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc08ba71"><span class="nav-text">Two-Body Collisions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orga38df33"><span class="nav-text">Physics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org12bb066"><span class="nav-text">BCS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgc528ebd"><span class="nav-text">BEC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orga479740"><span class="nav-text">Unitary</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orge74758e"><span class="nav-text">Critial Temperature</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org9d9ff52"><span class="nav-text">Pseudo Gap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgdbddf11"><span class="nav-text">Paring Gap</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org7b9f95b"><span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgf7bce83"><span class="nav-text">Mean Field</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgb39cb99"><span class="nav-text">NSR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org891fd2f"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

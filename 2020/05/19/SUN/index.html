@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读书笔记: IV.4 Tensors and Representations of Special Unitary Groups">
+<meta property="og:url" content="https://zqw.ink/2020/05/19/SUN/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:49.110Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="读书笔记: IV.4 Tensors and Representations of Special Unitary Groups">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2020/05/19/SUN/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>读书笔记: IV.4 Tensors and Representations of Special Unitary Groups | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2020/05/19/SUN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">读书笔记: IV.4 Tensors and Representations of Special Unitary Groups
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-19 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-19T00:00:00+08:00">2020-05-19</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/19/SUN/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/05/19/SUN/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+
+<div id="outline-container-org4e750df" class="outline-2">
+<h2 id="org4e750df">\(SO(N)\) &#x4E0E; \(SU(N)\) &#x7684;&#x5BF9;&#x6BD4;</h2>
+<div class="outline-text-2" id="text-org4e750df">
+<p>
+&#x5728;&#x8FD9;&#x91CC;, &#x8981;&#x5BF9; \(SU(N)\) &#x7FA4;&#x505A;&#x4E0E; \(SO(N)\) &#x7FA4;&#x76F8;&#x540C;&#x7684;&#x4E8B;. &#x5B83;&#x4EEC;&#x7684;&#x533A;&#x522B;&#x5982;&#x4E0B;
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">\(SO(N)\)</td>
+<td class="org-left">\(SU(N)\)</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x5B9E;</td>
+<td class="org-left">&#x590D;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x53EA;&#x6709;&#x4E0A;&#x6807;</td>
+<td class="org-left">&#x6709;&#x4E0A;&#x6807;, &#x6709;&#x4E0B;&#x6807;</td>
+</tr>
+
+<tr>
+<td class="org-left">Special</td>
+<td class="org-left">\(O^T O=1\)</td>
+<td class="org-left">\(U^{\dagger} U = 1\)</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">\(O(N)\to SO(N)\)</td>
+<td class="org-left">\(U(N) \to SU(N)\)</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">\(\det O=\pm 1\to \det O = 1\)</td>
+<td class="org-left">\(\det U = e^{\mathrm{i}\alpha} \to \det U = 1\)</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org18b9c3c" class="outline-2">
+<h2 id="org18b9c3c">\(SU(3)\) &#x7FA4;&#x7684;&#x8868;&#x793A;</h2>
+<div class="outline-text-2" id="text-org18b9c3c">
+<p>
+&#x5168;&#x5BF9;&#x79F0;&#x5F20;&#x91CF; \(\phi^{ijk}\) &#x751F;&#x6210; \(SU(3)\) &#x7684;&#x4E00;&#x4E2A; \(10\) &#x7EF4;&#x4E0D;&#x53EF;&#x7EA6;&#x8868;&#x793A;.
+</p>
+\begin{align}
+  \phi^{333},   \phi^{331},   \phi^{332},   \phi^{322},   \phi^{321},   \phi^{311},   \phi^{222},   \phi^{221},   \phi^{111},   \phi^{112}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org56da64b" class="outline-2">
+<h2 id="org56da64b">\(SU(N)\) &#x7FA4;&#x7684;&#x4E0B;&#x6807;</h2>
+<div class="outline-text-2" id="text-org56da64b">
+<p>
+&#x4ECE; \(SO(N)\) &#x7FA4;&#x7684; \(O^T O=1\) &#x5230; \(SU(N)\) &#x7FA4;&#x7684; \(U^{\dagger} U = 1\) &#x5C31;&#x5F15;&#x51FA;&#x4E86;&#x4E0B;&#x6807;
+</p>
+\begin{align}
+  \psi_i \equiv \psi^{i*}
+\end{align}
+<p>
+&#x56E0;&#x6B64;
+</p>
+\begin{align}
+  \zeta^{\dagger}\psi = \zeta^{j*}\psi^j = \zeta_j\psi^j
+\end{align}
+<p>
+&#x628A; \(U^{ij}\) &#x4E5F;&#x5199;&#x6210; \(U^i_{\,j}\) &#x7684;&#x5F62;&#x5F0F;, &#x6765;&#x4FDD;&#x8BC1;&#x4E0A;&#x6807;&#x53EA;&#x548C;&#x4E0B;&#x6807;&#x6C42;&#x548C;, &#x4E0B;&#x6807;&#x53EA;&#x548C;&#x4E0A;&#x6807;&#x6C42;&#x548C;, &#x6240;&#x4EE5;
+tensor &#x4E4B;&#x95F4;&#x7684;&#x53D8;&#x6362;&#x5C31;&#x5199;&#x4E3A;
+</p>
+\begin{align}
+  \psi^i \to&amp; \psi&apos;^i = U^i_{\,j} \psi^j \\
+  \psi_i \to&amp; \psi&apos;_i = \psi_j (U^{\dagger})^j_{\,i}
+\end{align}
+<p>
+&#x603B;&#x7684;&#x6765;&#x8BF4;&#x5C31;&#x662F;: &#x4E0A;&#x6807;&#x7531; \(U\) &#x53D8;&#x6362;, &#x4E0B;&#x6807;&#x7531; \(U^{\dagger}\) &#x53D8;&#x6362;.
+</p>
+<blockquote>
+<p>
+Example:
+</p>
+\begin{align}
+  \phi^{ij}_k \to \phi&apos;^{ij}_k = U^i_{\,l} U^j_{\,m} \phi^{lm}_n (U^{\dagger})^n_{\,k}
+\end{align}
+</blockquote>
+<p>
+&#x5728;&#x6B64;&#x8BB0;&#x6CD5;&#x4E0B;, &#x5B83;&#x4EEC;&#x7684; trace &#x4E3A;&#x4E00;&#x4E2A;&#x4E0A;&#x6807;&#x548C;&#x4E00;&#x4E2A;&#x4E0B;&#x6807;&#x7684;&#x6C42;&#x548C;
+</p>
+\begin{align}
+  \delta^k_{\,j} \phi^{ij}_k \equiv \phi^{ij}_j
+\end{align}
+<blockquote>
+<p>
+Exercise:
+</p>
+\begin{align}
+  \phi^{ij}_j \to U^i_{\,l}U^j_{\,m} \phi^{lm}_n(U^{\dagger})^n_{\,j}
+  =&amp; U^i_{\,l}\delta ^n_{\,m} \phi^{lm}_n  = U^i_{\,l} \phi^{ln}_n
+\end{align}
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgbe089af" class="outline-2">
+<h2 id="orgbe089af">\(SO(N)\) &#x7FA4;&#x7684;&#x4E0D;&#x53EF;&#x7EA6;&#x8868;&#x793A;</h2>
+<div class="outline-text-2" id="text-orgbe089af">
+<p>
+&#x56E0;&#x4E3A;&#x4E0A;&#x6807;&#x548C;&#x4E0B;&#x6807;&#x6309;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x53D8;&#x6362;, &#x6240;&#x4EE5;&#x5B83;&#x4EEC;&#x5404;&#x81EA;&#x6709;&#x72EC;&#x7ACB;&#x7684;&#x5BF9;&#x79F0;&#x6027;.
+</p>
+
+<p>
+&#x4E66;&#x4E0A;&#x8BF4;
+</p>
+<blockquote>
+<p>
+Thus, in summary, the irreducible representations of \(SU(N)\) are realized by traceless
+tensors with definite symmetry properties under permutation of indices.
+</p>
+
+<p>
+Convince yourself that for \(SU(N)\) , the dimensions of the representations
+defined by the following tensors \(\phi^i\) , \(\phi^{ij}\) (antisymmetric), \(\phi^{ij}\)
+(symmetric), \(\phi^i_{\,j}\) , and \(\phi^{ij}_k\) (antisymmetric in the upper indices) 
+are, respectively, \(N , N (N &#x2212; 1)/2, N (N + 1)/2, N^2 &#x2212; 1\) and \(\frac{1}{2} N (N &#x2212;
+2)(N + 1)\). 
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+Example:
+</p>
+
+<p>
+symmetric traceless representation \(S^{ij}_k = S^{ji}_k\) &#x662F; \(\frac{1}{2}N(N+1)N-N
+=\frac{1}{2}N(N-1)(N+2)\) &#x7EF4;&#x7684;. 
+</p>
+
+<p>
+&#x5148;&#x4E0D;&#x8003;&#x8651;&#x4E0B;&#x6807;, &#x76EE;&#x6807;&#x7684;&#x5BF9;&#x79F0;&#x8868;&#x793A;&#x5171;&#x6709; \(\frac{1}{2}N(N+1)\) &#x79CD;, &#x4E0B;&#x6807;&#x8FD8;&#x6709; \(N\) &#x79CD;&#x53EF;&#x80FD;, &#x518D;
+&#x51CF;&#x53BB; \(N\) &#x4E2A;&#x8FF9;. &#x8FD9; \(N\) &#x4E2A;&#x8FF9; \(S^{ij}_i\) &#x5BF9;&#x5E94; \(N\) &#x4E2A;&#x4E0D;&#x540C;&#x7684; \(j\) .
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+Exercise:
+&#x8BF4;&#x660E; antisymmetric traceless representation \(A^{ij}_k = - A^{ji}_k\) &#x662F;
+\(\frac{1}{2}N(N-1)N - N = \frac{1}{2}N(N+1)(N-2)\) &#x7EF4;&#x7684;.
+</p>
+</blockquote>
+
+<p>
+\(SU(N)\) &#x7FA4;&#x7684;&#x4E0D;&#x53EF;&#x7EA6;&#x8868;&#x793A;&#x662F;&#x7531;&#x5177;&#x6709;&#x786E;&#x5B9A;&#x5BF9;&#x79F0;&#x6027;&#x7684;&#x65E0;&#x8FF9;&#x5F20;&#x91CF;&#x751F;&#x6210;&#x7684;. (&#x4E0D;&#x77E5;&#x9053;&#x7B2C;&#x4E8C;&#x53E5;&#x8BDD;&#x7684;&#x610F;&#x601D;
+&#x662F;&#x5426;&#x662F;&#x8BF4;&#x6240;&#x6709;&#x7684; \(SU(N)\) &#x7FA4;&#x7684;&#x4E0D;&#x53EF;&#x7EA6;&#x8868;&#x793A;&#x90FD;&#x53EA;&#x6709;&#x8FD9;&#x51E0;&#x4E2A;&#x7EF4;&#x5EA6;, &#x8FD9;&#x91CC;&#x8C8C;&#x4F3C;&#x662F;&#x4E0D;&#x52A0;&#x8BC1;&#x660E;&#x5730;&#x7ED9;&#x51FA;
+&#x4E86;&#x8FD9;&#x4E2A;&#x7ED3;&#x8BBA;) .
+</p>
+
+<blockquote>
+<p>
+Example:
+</p>
+
+<p>
+\(SU(5)\) &#x6709; \(5, 10, 15, 24, 45\) &#x7EF4;&#x7684;&#x4E0D;&#x53EF;&#x7EA6;&#x8868;&#x793A;.
+</p>
+</blockquote>
+</div>
+</div>
+
+
+<div id="outline-container-orgd36f95e" class="outline-2">
+<h2 id="orgd36f95e">&#x4E0A;&#x4E0B;&#x6807;&#x4E4B;&#x95F4;&#x7684;&#x79FB;&#x52A8;</h2>
+<div class="outline-text-2" id="text-orgd36f95e">
+<p>
+&#x524D;&#x9762;&#x7528;&#x5230;&#x4E86; \(SU(N)\) &#x7684; unitary \(U^{\dagger}U = 1\) . &#x5B83;&#x53EF;&#x4EE5;&#x5982;&#x4E0B;&#x8868;&#x793A;
+</p>
+\begin{align}
+  \varepsilon_{i_1i_2\cdots i_N} U^{i_1}_{\,j_1}U^{i_2}_{\,j_2} \cdots U^{i_N}_{\,j_N} = \varepsilon_{j_1j_2\cdots j_N}
+\end{align}
+<p>
+&#x4E24;&#x8FB9;&#x540C;&#x65F6;&#x4E58; \((U^{\dagger})^{j_N}_{p_N}\) &#x5E76;&#x5BF9; \(j_N\) &#x6C42;&#x548C;&#x6709;
+</p>
+\begin{align}
+    \varepsilon_{i_1i_2\cdots i_N} U^{i_1}_{\,j_1}U^{i_2}_{\,j_2} \cdots U^{i_N}_{\,j_N}(U^{\dagger})^{j_N}_{p_N} =&amp; \varepsilon_{j_1j_2\cdots j_N}(U^{\dagger})^{j_N}_{p_N} \\
+     \Downarrow&amp; \\
+    \varepsilon_{i_1i_2\cdots p_N} U^{i_1}_{\,j_1}U^{i_2}_{\,j_2} \cdots U^{i_{N-1}}_{\,j_{N-1}} =&amp; \varepsilon_{j_1j_2\cdots j_N}(U^{\dagger})^{j_N}_{p_N} 
+\end{align}
+<p>
+&#x91CD;&#x590D;&#x4E0A;&#x8FF0;&#x8FC7;&#x7A0B;&#x53EF;&#x4EE5;&#x628A; \(U\) &#x6362;&#x6210; \(U^{\dagger}\) .
+</p>
+<blockquote>
+<p>
+Example:
+</p>
+
+<p>
+&#x5B9A;&#x4E49;
+</p>
+\begin{align}
+  \phi_{kpq} \equiv \epsilon_{ijpq} \phi^{ij}_k
+\end{align}
+<p>
+&#x90A3;&#x4E48;&#x5B83;&#x7684;&#x53D8;&#x6362;
+</p>
+\begin{align}
+  \varepsilon_{ijpq} \phi^{ij}_k \to \varepsilon_{ijpq} U^i_{\,l}U^j_{\,m} \phi^{ij}_k (U^{\dagger})^n_{\,k}
+  = (U^{\dagger})^s_{\,p}(U^{\dagger})^t_{\,q}(U^{\dagger})^n_{\,k} \phi_{nst}
+\end{align}
+</blockquote>
+<p>
+&#x603B;&#x7ED3;&#x4E00;&#x4E0B;, &#x7528;&#x4E24;&#x4E2A;&#x53CD;&#x5BF9;&#x79F0;&#x7B26;&#x53F7;, &#x5C31;&#x53EF;&#x4EE5;&#x5C06; \(SU(N)\) &#x7FA4;&#x5F20;&#x91CF;&#x7684;&#x4E0A;&#x4E0B;&#x6807;&#x4E0A;&#x4E0B;&#x79FB;&#x52A8;. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbc81741" class="outline-2">
+<h2 id="orgbc81741">Reference</h2>
+<div class="outline-text-2" id="text-orgbc81741">
+<ul class="org-ul">
+<li>A. Zee, Group Theory in a Nutshell for Physicists, 2016, Princeton University Press</li>
+
+<li><a href="https://en.wikipedia.org/wiki/3D_rotation_group" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/3D_rotation_group</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/18/Functional/" rel="next" title="从此不再恐惧变分和高阶泛函导数(update 23/Sept/2020)">
+                <i class="fa fa-chevron-left"></i> 从此不再恐惧变分和高阶泛函导数(update 23/Sept/2020)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/20/SU2/" rel="prev" title="读书笔记: SU(2) 群">
+                读书笔记: SU(2) 群 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org4e750df"><span class="nav-text">\(SO(N)\) 与 \(SU(N)\) 的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org18b9c3c"><span class="nav-text">\(SU(3)\) 群的表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org56da64b"><span class="nav-text">\(SU(N)\) 群的下标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgbe089af"><span class="nav-text">\(SO(N)\) 群的不可约表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd36f95e"><span class="nav-text">上下标之间的移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgbc81741"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

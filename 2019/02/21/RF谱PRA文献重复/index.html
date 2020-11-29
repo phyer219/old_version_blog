@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="RF谱">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RF谱PRA文献重复">
+<meta property="og:url" content="https://zqw.ink/2019/02/21/RF谱PRA文献重复/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2019/02/21/RF谱PRA文献重复/fig4a.jpeg">
+<meta property="og:image" content="https://zqw.ink/2019/02/21/RF谱PRA文献重复/fig4a_b=.5.jpeg">
+<meta property="og:image" content="https://zqw.ink/2019/02/21/RF谱PRA文献重复/root.png">
+<meta property="og:image" content="https://zqw.ink/2019/02/21/RF谱PRA文献重复/T=0.png">
+<meta property="og:image" content="https://zqw.ink/2019/02/21/RF谱PRA文献重复/T=1.png">
+<meta property="og:image" content="https://zqw.ink/2019/02/21/RF谱PRA文献重复/T=2.png">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.853Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RF谱PRA文献重复">
+<meta name="twitter:image" content="https://zqw.ink/2019/02/21/RF谱PRA文献重复/fig4a.jpeg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2019/02/21/RF谱PRA文献重复/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>RF谱PRA文献重复 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2019/02/21/RF谱PRA文献重复/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">RF谱PRA文献重复
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-21 00:00:00" itemprop="dateCreated datePublished" datetime="2019-02-21T00:00:00+08:00">2019-02-21</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/21/RF谱PRA文献重复/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/21/RF谱PRA文献重复/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-org7af1c28" class="outline-2">
+<h2 id="org7af1c28">Model &#x90E8;&#x5206;</h2>
+<div class="outline-text-2" id="text-org7af1c28">
+<p>
+Hamiltonian &#x4E3A;
+</p>
+\begin{align*}
+  H =&amp; \sum_{k,\sigma}\varepsilon_{k,\sigma} a_{k,\sigma}^{\dagger} a_{k,\sigma}
+  + \sum_k (\varepsilon_{k,b}+\delta)b_k^{\dagger}b_k  \\
+  &amp; + \frac{\lambda}{\sqrt{\Omega}} \sum_{p,q}(b_{p+q}^{\dagger}a_{p,1}a_{q,2}+\mathrm{H.c.})
+\end{align*}
+<p>
+&#x524D;&#x4E24;&#x9879;&#x662F;&#x539F;&#x5B50;&#x548C;&#x5206;&#x5B50;&#x6001;&#x7684;&#x80FD;&#x91CF;, &#x6700;&#x540E;&#x4E00;&#x9879;&#x662F;&#x6001; 1, 2 &#x548C;&#x5206;&#x5B50;&#x6001;&#x4E4B;&#x95F4;&#x7684;&#x8026;&#x5408;&#x9879;. &#x5176;&#x4E2D;
+</p>
+\begin{align*}
+  \varepsilon_{k,\sigma} =&amp; \frac{\hbar^2 k^2}{2m} - \mu_{\sigma} \\
+  \varepsilon_{k,b} =&amp; \frac{\hbar^2 k^2}{4m} - \mu_1 -\mu_2 \\
+  \mu_1 =&amp; \mu_3 = \mu ,\quad \mu_2 =0
+\end{align*}
+<p>
+&#x5C06;&#x8026;&#x5408;&#x90E8;&#x5206;&#x7B80;&#x8BB0;&#x4E3A;
+</p>
+\begin{align*}
+  \Lambda = \sum_{p,q}(b_{p+q}^{\dagger}a_{p,1}a_{q,2}+\mathrm{H.c.})
+\end{align*}
+
+<p>
+&#x5FAE;&#x6270;&#x4E3A;
+</p>
+\begin{align*}
+  V = \sum_k(a_{k,2}^{\dagger}a_{k,3} e^{-\mathrm{i} \omega&apos;t}+a_{k,3}^{\dagger}a_{k,2}e^{\mathrm{i}\omega&apos;t})
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-org662b51c" class="outline-2">
+<h2 id="org662b51c">Sum rules &#x90E8;&#x5206;</h2>
+<div class="outline-text-2" id="text-org662b51c">
+</div>
+<div id="outline-container-org878880a" class="outline-3">
+<h3 id="org878880a">&#x5047;&#x8BBE;</h3>
+<div class="outline-text-3" id="text-org878880a">
+<p>
+&#x5047;&#x8BBE;&#x7CFB;&#x7EDF;&#x7684;&#x57FA;&#x6001;&#x4E3A; 1 &#x548C; 3 &#x6001;&#x7684;&#x8D39;&#x7C73;&#x6D77;
+</p>
+\begin{align*}
+  |GS\rangle = |F \rangle = \prod_{k&lt; k_F}  a_{k,1}^{\dagger} a_{k,3}^{\dagger} |0\rangle
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-org3758eb6" class="outline-3">
+<h3 id="org3758eb6">Transition rate form 3 to 2</h3>
+<div class="outline-text-3" id="text-org3758eb6">
+\begin{align*}
+  I(\omega) =&amp; 2\pi \sum_f |\langle GS |V |f \rangle|^2 \delta(\omega+\mu -E_f +E_0) \\
+            =&amp; 2 \sum_f |\langle GS |V |f \rangle|^2 \mathrm{Im}\frac{1}{\omega +\mu -E_f +E_0 -\mathrm{i}0^{ +}} \\
+            \propto &amp;\mathrm{Im} \sum_f \langle GS |V \frac{1}{\omega +\mu -E_f +E_0 -\mathrm{i}0^{ +}} |f \rangle\langle f| V^{\dagger} |GS\rangle  \\
+            =&amp; \mathrm{Im}  \langle GS |V \frac{1}{\omega +\mu -H +E_0 -\mathrm{i}0^{ +}}  V^{\dagger} |GS\rangle  \\
+            =&amp; \mathrm{Im}  \langle GS |V \frac{1}{\omega - \bar{H}} V^{\dagger} |GS\rangle
+\end{align*}
+<p>
+&#x5176;&#x4E2D;
+</p>
+\begin{align*}
+  \bar{H} = H -E_0 -\mu
+\end{align*}
+<p>
+&#x7B2C;&#x4E8C;&#x4E2A;&#x7B49;&#x53F7;&#x7528;&#x5230;&#x4E86; Dirac Identity
+</p>
+\begin{align*}
+  \frac{1}{x - x_0 \pm \mathrm{i}0^+} = \mathcal{P}\frac{1}{x-x_0} \mp \mathrm{i}\pi\delta(x-x_0)
+\end{align*}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdaf5b2d" class="outline-2">
+<h2 id="orgdaf5b2d">&#x96F6;&#x6E29;&#x516C;&#x5F0F;&#x63A8;&#x5BFC;</h2>
+<div class="outline-text-2" id="text-orgdaf5b2d">
+<p>
+&#x8003;&#x8651;&#x4E2D;&#x95F4;&#x6001; \(|n\rangle\) &#x6709;&#x4E24;&#x79CD;
+</p>
+\begin{align*}
+  |q \rangle =&amp; a_{q,2}^{\dagger} a_{q,3}| F\rangle \quad(q&lt; k_F)\\
+  |p,q \rangle =&amp; b_{p+q}^{\dagger} a_{p,1} a_{q_3}|F \rangle \quad(p,q&lt; k_F)
+\end{align*}
+<p>
+&#x8026;&#x5408;&#x4F5C;&#x7528;&#x5230;&#x4E2D;&#x95F4;&#x6001;&#x4E0A;&#x7684;&#x7ED3;&#x679C;&#x4E3A;
+</p>
+\begin{align*}
+  \Lambda |q \rangle =&amp;  \sum_p |p,q\rangle \\
+  \Lambda |p,q\rangle =&amp; |q \rangle
+\end{align*}
+<p>
+&#x4F5C;&#x7528;&#x662F;&#x5728;&#x4E24;&#x79CD;&#x4E2D;&#x95F4;&#x6001;&#x4E4B;&#x95F4;&#x5207;&#x6362;,
+&#x5219; \(\bar{H}\) &#x5728;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x77E9;&#x9635;&#x5143;&#x4E3A;
+</p>
+\begin{align*}
+  \langle q |\bar{H} |q \rangle =&amp; \varepsilon_{q,2} -\varepsilon_{q,3} - \mu = 0 \\
+  \langle p,q|\bar{H} |p,q \rangle =&amp; \delta + \varepsilon_{p+q,b} - \varepsilon_{p,1}-\varepsilon_{q,3}-\mu \\
+  \langle q| \bar{H}|p,q\rangle  =&amp; \langle p,q |\bar{H} | q\rangle = \lambda/\sqrt{\Omega}
+\end{align*}
+<p>
+Transition rate form 3 to 2 &#x5728;&#x4E0A;&#x8FF0;&#x7A7A;&#x95F4;&#x4E2D;&#x4E3A;
+</p>
+\begin{align*}
+  I(\omega) \propto \mathrm{Im}\sum_{n,n&apos;} \langle GS| V | n \rangle \langle n| \frac{1}{\omega-\bar{H}} | n&apos;\rangle \langle n&apos; V^{\dagger}|GS\rangle
+\end{align*}
+<p>
+&#x5C06;&#x8026;&#x5408; \(\lambda/\sqrt{\Omega}\Lambda\) &#x770B;&#x4F5C;&#x5C0F;&#x91CF;,&#x5373; \(\bar{H}= \bar{H_0}+\lambda/\sqrt{\Omega}\Lambda\) , &#x53EF;&#x505A;&#x5982;&#x4E0B;&#x5C55;&#x5F00;
+</p>
+\begin{align*}
+  \frac{1}{\omega-\bar{H}} &amp;=\frac{1}{\omega - \bar{H_0}-\lambda/\sqrt{\Omega}\Lambda}\\
+  =&amp; \frac{1}{\omega - \bar{H_0}}\cdot \left( \frac{1}{1- \frac{\lambda}{\sqrt{\Omega}}\frac{1}{\omega-\bar{H_0}}\Lambda} \right) \\
+  =&amp; \frac{1}{\omega - \bar{H_0}}\cdot \sum_m \left( \frac{\lambda}{\sqrt{\Omega}}\frac{1}{\omega-\bar{H_0}}\Lambda \right)^m \\
+\end{align*}
+<p>
+&#x800C;&#x4E14;&#x5C06;&#x5FAE;&#x6270; \(V\) &#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x4EE3;&#x5165;&#x6709;
+</p>
+\begin{align*}
+  \langle GS| V |n\rangle = \sum_q e^{\mathrm{i}\omega&apos;t}\delta_{n,q}\\
+  \langle n&apos;| V |GS\rangle = \sum_{q&apos;} e^{-\mathrm{i}\omega&apos;t}\delta_{n&apos;,q&apos;}\\
+\end{align*}
+<p>
+&#x6240;&#x4EE5;
+</p>
+\begin{align*}
+  I(\omega) \propto&amp; \mathrm{Im}\sum_{q,q&apos;} \langle q| \frac{1}{\omega-\bar{H}} | q&apos;\rangle \\
+  =&amp;\mathrm{Im}\sum_{q,q&apos;} \langle q|\frac{1}{\omega - \bar{H_0}}\cdot \sum_m \left( \frac{\lambda}{\sqrt{\Omega}}\frac{1}{\omega-\bar{H_0}}\Lambda \right)^m | q&apos;\rangle \\
+\end{align*}
+<p>
+&#x7531;&#x524D;&#x9762;&#x5F97;&#x51FA;&#x7684;&#x8026;&#x5408; \(\Lambda\) &#x4F5C;&#x7528;&#x5728;&#x4E2D;&#x95F4;&#x6001;&#x4E0A;&#x7684;&#x7ED3;&#x679C;&#x53EF;&#x77E5;, &#x8026;&#x5408;&#x4F5C;&#x7528;&#x5947;&#x6570;&#x6B21;&#x4F1A;&#x7531;&#x4E8E;&#x6B63;&#x4EA4;&#x6027;&#x4F7F;&#x7ED3;&#x679C;&#x4E3A; \(0\) ( \(\bar{H_0}\) &#x4E3A;&#x672C;&#x5F81;&#x6001;), &#x6240;&#x4EE5; \(m\) &#x53EA;&#x80FD;&#x53D6;&#x5076;&#x6570;.
+&#x800C;&#x4E14;&#x4E0D;&#x540C;&#x7684; \(|q\rangle\) &#x4E5F;&#x662F;&#x6B63;&#x4EA4;&#x7684;, &#x6240;&#x4EE5;
+</p>
+\begin{align*}
+  I(\omega) \propto&amp; \mathrm{Im}\sum_q \langle q|\frac{1}{\omega - \bar{H_0}}\cdot \sum_m \left( \frac{\lambda}{\sqrt{\Omega}}\frac{1}{\omega-\bar{H_0}}\Lambda \right)^{2m} | q\rangle \\
+                 =&amp; \mathrm{Im}\sum_q \langle q|\frac{1}{\omega - \bar{H_0}}\cdot \sum_m \left( \frac{\lambda^2}{\Omega}\frac{1}{\omega-\bar{H_0}}\Lambda\frac{1}{\omega-\bar{H_0}}\Lambda \right)^m | q\rangle \\
+                 =&amp; \mathrm{Im}\sum_q \langle q|\frac{1}{\omega - \bar{H_0}}\cdot \frac{1}{1-  \frac{\lambda^2}{\Omega}\frac{1}{\omega-\bar{H_0}}\Lambda\frac{1}{\omega-\bar{H_0}}\Lambda } | q\rangle \\
+                 =&amp; \mathrm{Im}\sum_q \langle q|\frac{1}{\frac{1}{\omega - \bar{H_0}}-  \frac{\lambda^2}{\Omega}\Lambda\frac{1}{\omega-\bar{H_0}}\Lambda } | q\rangle \\
+                 =&amp; \mathrm{Im}\sum_{q&lt; q_F}\frac{1}{\omega+ \mu +\varepsilon_{q,3}-\varepsilon_{q,2}-\lambda^2 \theta(q,\omega)}
+\end{align*}
+<p>
+&#x5176;&#x4E2D;
+</p>
+\begin{align*}
+  \theta(q,\omega) = \frac{1}{\Omega} \sum_{p&lt; k_F} \frac{1}{\omega+ \mu  + \varepsilon_{q,3}+\varepsilon_{p,1} - \varepsilon_{p+q,b}-\delta}
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orgd55f46e" class="outline-2">
+<h2 id="orgd55f46e">&#x96F6;&#x6E29;&#x6570;&#x503C;</h2>
+<div class="outline-text-2" id="text-orgd55f46e">
+</div>
+<div id="outline-container-orgaabcb63" class="outline-3">
+<h3 id="orgaabcb63">&#x5316;&#x7B80;&#x516C;&#x5F0F;</h3>
+<div class="outline-text-3" id="text-orgaabcb63">
+\begin{align*}
+  \mu + \varepsilon_{q,3} -\varepsilon_{q,2} = 0
+\end{align*}
+<p>
+&#x6240;&#x4EE5;
+</p>
+\begin{align*}
+  I(\omega) \propto &amp; \mathrm{Im} \sum_{q&lt; q_{F}} \frac{1}{\omega -\lambda^2 \theta(q,\omega)} \\
+  =&amp; \sum_{q&lt; k_F} \frac{\lambda^2\mathrm{Im}\theta(q,\omega)}{\left[
+  \omega - \lambda^2 \mathrm{Re}\theta(q,\omega) \right]^2
+  + \left[ \lambda^2 \mathrm{Im}\theta(q,\omega) \right]^2}
+\end{align*}
+
+<p>
+&#x800C;
+</p>
+\begin{align*}
+  \theta(q,\omega) =&amp; \frac{1}{\Omega}\sum_{p&lt; k_F} \frac{1}{\omega + \frac{\hbar^2}{4m}\left(
+   p-q\right)^2-\delta}
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orga0f9161" class="outline-3">
+<h3 id="orga0f9161">&#x65E0;&#x91CF;&#x7EB2;&#x5316;</h3>
+<div class="outline-text-3" id="text-orga0f9161">
+<p>
+&#x5BF9;&#x4EE5;&#x4E0B;&#x91CF;&#x8FDB;&#x884C;&#x65E0;&#x91CF;&#x7EB2;&#x5316;:
+</p>
+\begin{align*}
+  \tilde{\omega} = \frac{\omega}{\varepsilon_F} ;\quad
+  \tilde{\delta} = \frac{\delta}{\varepsilon_F} ;\quad
+  \tilde{p} = \frac{p}{k_F} ;\quad \\
+  \tilde{q} = \frac{q}{k_F}; \quad
+  \tilde{\lambda}^2 = \frac{\lambda^2}{\Omega \varepsilon_F^2}
+\end{align*}
+
+<p>
+&#x539F;&#x5F0F;&#x5C31;&#x53D8;&#x4E3A;
+</p>
+\begin{align*}
+  \theta(\tilde{q},\tilde{\omega}) =&amp; \frac{1}{\Omega \varepsilon_F} \sum_{\tilde{p}&lt; 1}
+  \frac{1}{\tilde{\omega} + \frac{1}{2}(\tilde{p}-\tilde{q})^2 -\tilde{\delta} } \\
+  =&amp;\frac{1}{\Omega\varepsilon_F}(B+ \mathrm{i}A)
+\end{align*}
+<p>
+&#x5176;&#x4E2D;
+</p>
+\begin{align*}
+  A =&amp; \pi \sum_{\tilde{p}&lt; 1}  \delta\left( \tilde{\omega}-\tilde{\delta} +
+  \frac{1}{2}(\tilde{p}-\tilde{q})^2 \right) \\
+  B =&amp; \sum_{\tilde{p} &lt; 1} \mathcal{P}\frac{1}{\tilde{\omega}-\tilde{\delta} +
+  \frac{1}{2}(\tilde{p}-\tilde{q})^2 }
+\end{align*}
+<p>
+Transition rate &#x5C31;&#x8BB0;&#x4E3A;:
+</p>
+\begin{align*}
+  \varepsilon_F I(\tilde{\omega}) =\sum_{\tilde{q}&lt; 1} \frac{ \tilde{\lambda}^2A}{\left(
+  \tilde{\omega} -\tilde{\lambda}^2 B\right)^2+\tilde{\lambda}^4 A^2}
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-org269d096" class="outline-3">
+<h3 id="org269d096">&#x6570;&#x503C;&#x5904;&#x7406;</h3>
+<div class="outline-text-3" id="text-org269d096">
+<p>
+Dirac Delta &#x51FD;&#x6570;&#x548C;&#x4E3B;&#x503C;&#x5206;&#x522B;&#x7528;&#x5176;&#x6781;&#x9650;&#x5F62;&#x5F0F;:
+</p>
+\begin{align*}
+  \delta(x) =&amp; \frac{1}{\pi} \lim_{b\to 0}\frac{b}{b^2+x^2} \\
+  \mathcal{P}\frac{1}{x} =&amp; \lim_{b\to 0}\frac{x}{b^2+x^2}
+\end{align*}
+<p>
+&#x8BA1;&#x7B97;&#x4E2D; \(b=0.0001\) .
+</p>
+
+<p>
+&#x6C42;&#x548C;&#x8FD1;&#x4F3C;&#x4E3A;&#x4ECE; \(0\) &#x5230; \(1\) &#x7684;&#x79EF;&#x5206;.
+</p>
+
+<p>
+&#x6570;&#x503C;&#x53D6;&#x503C;&#x4E3A;
+</p>
+\begin{align*}
+  \tilde{\lambda} = 1
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orgdcb10e9" class="outline-3">
+<h3 id="orgdcb10e9">&#x7ED3;&#x679C;</h3>
+<div class="outline-text-3" id="text-orgdcb10e9">
+</div>
+<div id="outline-container-orgfe099ee" class="outline-4">
+<h4 id="orgfe099ee">code</h4>
+<div class="outline-text-4" id="text-orgfe099ee">
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> integrate</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x5B9A;&#x4E49;&#x53D8;&#x91CF;</span></span><br><span class="line">l = <span class="number">1</span> <span class="comment"># lambd_tilde</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#&#x753B;&#x56FE;&#x7684;&#x7CBE;&#x5EA6;</span></span><br><span class="line">N = <span class="number">1000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x5B9A;&#x4E49;delta&#x51FD;&#x6570;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delta</span>(<span class="params">x</span>):</span></span><br><span class="line">    b = <span class="number">.0001</span></span><br><span class="line">    f = b/(b**<span class="number">2</span> + x**<span class="number">2</span>)/np.pi</span><br><span class="line">    <span class="keyword">return</span> f</span><br><span class="line"><span class="comment"># &#x5B9A;&#x4E49;&#x4E3B;&#x503C;&#x51FD;&#x6570;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pv</span>(<span class="params">x</span>):</span></span><br><span class="line">    b = <span class="number">0.0001</span></span><br><span class="line">    f = x/(b*<span class="number">2</span> + x**<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> f</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x5B9A;&#x4E49;&#x6700;&#x7EC8;&#x60F3;&#x8981;&#x5F97;&#x5230;&#x7684;&#x51FD;&#x6570;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">I</span>(<span class="params">o,d</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">I</span>(<span class="params">q</span>):</span><span class="comment">#&#x5B9A;&#x4E49;&#x6CA1;&#x6709;&#x79EF;&#x5206;&#x7684;&#x7ED3;&#x679C;</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">A</span>(<span class="params">q</span>):</span><span class="comment">#&#x5B9A;&#x4E49;theta&#x7684;&#x865A;&#x90E8;</span></span><br><span class="line">	    <span class="function"><span class="keyword">def</span> <span class="title">A</span>(<span class="params">p</span>):</span></span><br><span class="line">		x = o + (p-q)**<span class="number">2</span>/<span class="number">2</span> - d</span><br><span class="line">		A =np.pi * delta(x)</span><br><span class="line">		<span class="keyword">return</span> A</span><br><span class="line">	    (fres,err) = integrate.quad(A,<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">	    <span class="keyword">return</span> fres</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">B</span>(<span class="params">q</span>):</span><span class="comment">#&#x5B9A;&#x4E49;theta&#x7684;&#x5B9E;&#x90E8;</span></span><br><span class="line">	    <span class="function"><span class="keyword">def</span> <span class="title">B</span>(<span class="params">p</span>):</span></span><br><span class="line">		x = o + (p-q)**<span class="number">2</span>/<span class="number">2</span> - d</span><br><span class="line">		B = pv(x)</span><br><span class="line">		<span class="keyword">return</span> B</span><br><span class="line">	    (fres,err) = integrate.quad(B,<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">	    <span class="keyword">return</span> fres</span><br><span class="line"></span><br><span class="line">	I = l**<span class="number">2</span>*A(q) / ( (o-l**<span class="number">2</span>*B(q))**<span class="number">2</span> + l**<span class="number">4</span>*A(q)**<span class="number">2</span> )</span><br><span class="line">	<span class="keyword">return</span> I</span><br><span class="line"></span><br><span class="line">    (fres,err) = integrate.quad(I,<span class="number">0</span>,<span class="number">1</span>)<span class="comment">#&#x5BF9;&#x5176;&#x79EF;&#x5206;,&#x5373;&#x5F97;&#x5230;&#x6700;&#x7EC8;&#x7ED3;&#x679C;</span></span><br><span class="line">    <span class="keyword">return</span>(fres)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#&#x753B;&#x56FE;&#x7684;&#x6A2A;&#x5750;&#x6807;omega&#x4ECE;-2&#x53D6;&#x5230;2</span></span><br><span class="line">omega = np.linspace(-<span class="number">2</span>,<span class="number">2</span>,N)</span><br><span class="line"></span><br><span class="line">C = <span class="number">33</span> <span class="comment"># &#x753B;C&#x6839;&#x7EBF;</span></span><br><span class="line"><span class="comment">#&#x6C42;&#x51FA;&#x60F3;&#x8981;&#x7684;&#x51FD;&#x6570;&#x5728;&#x6A2A;&#x5750;&#x6807;&#x53D6;&#x503C;&#x533A;&#x95F4;&#x5185;&#x7684;&#x7ED3;&#x679C;</span></span><br><span class="line">I_omega = np.linspace(<span class="number">0</span>,<span class="number">0</span>,N)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span> (C):</span><br><span class="line">    d = j-(C-<span class="number">1</span>)/<span class="number">2</span></span><br><span class="line">    d = d/<span class="number">2</span> <span class="comment">#&#x95F4;&#x8DDD;&#x662F;&#x5206;&#x6BCD;&#x5206;&#x4E4B;&#x4E00;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">	I_omega[i-<span class="number">1</span>] = I(omega[i-<span class="number">1</span>],d)</span><br><span class="line">	print(d)</span><br><span class="line">	print(i-<span class="number">1</span>)</span><br><span class="line">    plt.plot(omega,I_omega+<span class="number">100</span>*j, label=<span class="string">&apos;d= %.2f&apos;</span> %(d) , color=<span class="string">&apos;gray&apos;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#plt.legend()</span></span><br><span class="line"></span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb048d0d" class="outline-4">
+<h4 id="orgb048d0d">fig</h4>
+<div class="outline-text-4" id="text-orgb048d0d">
+<p>
+&#x7ED3;&#x679C;&#x5982;&#x56FE;
+</p>
+
+<p>
+<img src="/2019/02/21/RF谱PRA文献重复/fig4a.jpeg">
+&#x56FE;&#x4E2D;&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;, \(\tilde{\delta}\) &#x5728;&#x533A;&#x95F4; \([8,-8]\) &#x6BCF;&#x95F4;&#x9694; \(0.5\) &#x53D6;&#x4E00;&#x4E2A;&#x503C;.
+</p>
+
+<p>
+&#x4E0A;&#x56FE;&#x7684;&#x5CF0;&#x4E00;&#x4E9B;&#x5C16;. &#x5982;&#x679C; Dirac delta &#x51FD;&#x6570;&#x4E2D;&#x7684;&#x53C2;&#x6570; \(b\) &#x53D6;&#x5F97;&#x66F4;&#x5927;&#x4E00;&#x4E9B;, &#x56FE;&#x5C31;&#x4F1A;&#x5E73;&#x6ED1;&#x4E00;&#x4E9B;.
+</p>
+
+<p>
+&#x4E0B;&#x56FE;&#x662F; \(b=0.5\) &#x65F6;&#x7684;&#x7ED3;&#x679C;. &#x4E3A;&#x4E86;&#x76F4;&#x89C2;,&#x7EBF;&#x7684;&#x95F4;&#x8DDD;&#x4E5F;&#x7531; \(100\) &#x6539;&#x4E3A; \(10\) . 
+</p>
+
+
+<div id="org2ffe60a" class="figure">
+<p><img src="/2019/02/21/RF谱PRA文献重复/fig4a_b=.5.jpeg">
+</p>
+</div>
+
+
+
+<p>
+eps&#x77E2;&#x91CF;&#x56FE;:
+<a href="fig4a.eps">fig4a.eps</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge2b4131" class="outline-2">
+<h2 id="orge2b4131">&#x96F6;&#x6E29;&#x89E3;&#x6790;</h2>
+<div class="outline-text-2" id="text-orge2b4131">
+</div>
+<div id="outline-container-org88fc30e" class="outline-3">
+<h3 id="org88fc30e">&#x63A8;&#x5BFC;&#x56DE;&#x987E;</h3>
+<div class="outline-text-3" id="text-org88fc30e">
+<p>
+&#x539F;&#x516C;&#x5F0F;&#x4E3A;:
+</p>
+\begin{align*}
+  I(\omega) \propto
+                  \mathrm{Im}\sum_{q&lt; q_F}\frac{1}{\omega+ \mu +\varepsilon_{q,3}-\varepsilon_{q,2}-\lambda^2 \theta(q,\omega)}
+\end{align*}
+<p>
+&#x5176;&#x4E2D;
+</p>
+\begin{align*}
+  \theta(q,\omega) = \frac{1}{\Omega} \sum_{p&lt; k_F} \frac{1}{\omega+ \mu  + \varepsilon_{q,3}+\varepsilon_{p,1} - \varepsilon_{p+q,b}-\delta}
+\end{align*}
+<p>
+&#x8FDB;&#x884C;&#x5316;&#x7B80;, &#x9996;&#x5148;&#x5728;&#x8FD9;&#x4E2A;&#x7CFB;&#x7EDF;&#x4E2D;&#x6709;&#x5982;&#x4E0B;&#x5173;&#x7CFB;
+</p>
+\begin{align*}
+  \mu + \varepsilon_{q,3} -\varepsilon_{q,2} = 0
+\end{align*}
+<p>
+&#x6240;&#x4EE5;&#x539F;&#x5F0F;&#x53EF;&#x4EE5;&#x5316;&#x4E3A;:
+</p>
+\begin{align*}
+  I(\omega) \propto  \sum_{q&lt; k_F} \frac{\lambda^2\mathrm{Im}\theta(q,\omega)}{\left[
+  \omega - \lambda^2 \mathrm{Re}\theta(q,\omega) \right]^2
+  + \left[ \lambda^2 \mathrm{Im}\theta(q,\omega) \right]^2}
+\end{align*}
+<p>
+&#x5176;&#x4E2D;
+</p>
+\begin{align*}
+  \theta(q,\omega) =&amp; \frac{1}{\Omega}\sum_{p&lt; k_F} \frac{1}{\omega + \frac{\hbar^2}{4m}\left(
+   p-q\right)^2-\delta}
+\end{align*}
+
+
+<p>
+&#x5BF9;&#x4EE5;&#x4E0B;&#x91CF;&#x8FDB;&#x884C;&#x65E0;&#x91CF;&#x7EB2;&#x5316;:
+</p>
+\begin{align*}
+  \tilde{\omega} = \frac{\omega}{\varepsilon_F} ;\quad
+  \tilde{\delta} = \frac{\delta}{\varepsilon_F} ;\quad
+  \tilde{p} = \frac{p}{k_F} ;\quad \\
+  \tilde{q} = \frac{q}{k_F}; \quad
+  \tilde{\lambda}^2 = \frac{\lambda^2}{\Omega \varepsilon_F^2}
+\end{align*}
+
+<p>
+&#x539F;&#x5F0F;&#x5C31;&#x53D8;&#x4E3A;
+</p>
+\begin{align}
+  \varepsilon_F I(\tilde{\omega}) =\sum_{\tilde{q}&lt; 1} \frac{ \tilde{\lambda}^2A}{\left(
+  \tilde{\omega} -\tilde{\lambda}^2 B\right)^2+\tilde{\lambda}^4 A^2}
+\end{align}
+<p>
+&#x5176;&#x4E2D;
+</p>
+\begin{align}
+  A =&amp; \pi \sum_{\tilde{p}&lt; 1}  \delta\left( \tilde{\omega}-\tilde{\delta} +
+  \frac{1}{2}(\tilde{p}-\tilde{q})^2 \right) \\
+  B =&amp; \sum_{\tilde{p} &lt; 1} \mathcal{P}\frac{1}{\tilde{\omega}-\tilde{\delta} +
+  \frac{1}{2}(\tilde{p}-\tilde{q})^2 }
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org02e1fbf" class="outline-3">
+<h3 id="org02e1fbf">&#x89E3;&#x6790;&#x8BA1;&#x7B97;</h3>
+<div class="outline-text-3" id="text-org02e1fbf">
+<p>
+&#x6C42;&#x548C;&#x5316;&#x79EF;&#x5206;
+</p>
+\begin{align*}
+  A \approx&amp; \pi \frac{Vk^3_F}{(2\pi)^3} \int_{|\tilde{p}| &lt; 1}\mathrm{d}^3\tilde{p} \cdot \delta\left( \tilde{\omega}-\tilde{\delta} +
+  \frac{1}{2}(\tilde{p}-\tilde{q})^2 \right) =\pi \frac{Vk^3_F}{(2\pi)^3} a\\
+  B \approx&amp; \frac{Vk^3_F}{(2\pi)^3} \int_{|\tilde{p}| &lt; 1}\mathrm{d}^3\tilde{p} \cdot\mathcal{P}\frac{1}{\tilde{\omega}-\tilde{\delta} +
+  \frac{1}{2}(\tilde{p}-\tilde{q})^2 } = \frac{Vk^3_F}{(2\pi)^3} b
+\end{align*}
+<p>
+&#x89E3;&#x6790;&#x7684;&#x8BA1;&#x7B97;&#x79EF;&#x5206; \(a\) &#x548C; \(b\)
+</p>
+\begin{align*}
+  a =&amp;2\pi \int_{-1}^{1}\mathrm{d}x \int_0^1\mathrm{d}\tilde{p} \cdot \delta\left( \tilde{\omega}-\tilde{\delta} +
+  \frac{\tilde{p}^2}{2} +\frac{\tilde{q}^2}{2} -\tilde{p}\tilde{q}x \right) \tilde{p}^2\\
+  b =&amp;2\pi\int_{-1}^{1}\mathrm{d}x \int_0^1\mathrm{d}\tilde{p} \cdot\mathcal{P}\frac{1}{\tilde{\omega}-\tilde{\delta} +
+  \frac{\tilde{p}^2}{2} +\frac{\tilde{q}^2}{2} -\tilde{p}\tilde{q}x }\tilde{p}^2
+\end{align*}
+
+<p>
+&#x79EF;&#x5206; \(a\) &#x662F;&#x4E00;&#x4E2A;&#x5BF9; \(\delta\) &#x51FD;&#x6570;&#x5728; \([0,1]\) &#x533A;&#x95F4;&#x5185;&#x7684;&#x79EF;&#x5206;. &#x6240;&#x4EE5;&#x8981;&#x5BF9; \(\delta\) &#x51FD;&#x6570;&#x5185;&#x7684;
+&#x90E8;&#x5206;&#x5206;&#x60C5;&#x51B5;&#x8BA8;&#x8BBA;.
+</p>
+
+<p>
+&#x5982;&#x679C; \(\tilde{\omega}-\tilde{\delta} +
+  \frac{\tilde{p}^2}{2} +\frac{\tilde{q}^2}{2} -\tilde{p}\tilde{q}x = 0\)
+&#x6CA1;&#x6709;&#x6839;, &#x90A3;&#x4E48;&#x79EF;&#x5206; \(a=0\) . &#x5982;&#x679C;&#x6709;&#x6839;, &#x8BB0;&#x4E24;&#x4E2A;&#x6839;&#x4E3A; \(r_1, r_2\) , &#x90A3;&#x4E48;&#x79EF;&#x5206; \(a\) &#x5316;&#x4E3A;
+</p>
+\begin{align*}
+  a =&amp;2\pi\int_{-1}^{1}\mathrm{d}x \int_0^1\mathrm{d}\tilde{p}  \cdot \delta\left[ (\tilde{p}-r_1)(\tilde{p}-r_2) \right] \tilde{p}^2 \\
+    =&amp;2\pi\frac{1}{|r_1-r_2|} \int_{-1}^{1}\mathrm{d}x \int_0^1\mathrm{d}\tilde{p} \cdot \left[ \delta(\tilde{p}-r_1)
+    +\delta(\tilde{p}-r_2) \right] \tilde{p}^2
+\end{align*}
+
+<p>
+&#x79EF;&#x5206; \(b\) &#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x4E3B;&#x503C;&#x7684;&#x79EF;&#x5206;,&#x4E5F;&#x9700;&#x8981;&#x5206;&#x60C5;&#x51B5;&#x8BA8;&#x8BBA;.
+</p>
+
+<p>
+&#x5982;&#x679C; \(\tilde{\omega}-\tilde{\delta} +\frac{\tilde{p}^2}{2} +\frac{\tilde{q}^2}{2} -\tilde{p}\tilde{q}x =0\)
+&#x6CA1;&#x6709;&#x6839;, &#x90A3;&#x4E48;&#x5B83;&#x5C31;&#x53EF;&#x4EE5;&#x5F53;&#x505A;&#x666E;&#x901A;&#x7684;&#x79EF;&#x5206;
+</p>
+\begin{align*}
+    b =&amp;\int_0^1\mathrm{d}\tilde{p} \cdot \frac{1}{\tilde{\omega}-\tilde{\delta} +
+  \frac{1}{2}(\tilde{p}-\tilde{q})^2 } \\
+      =&amp;\frac{1}{\tilde{\omega}-\tilde{\delta}} \int_0^1 \mathrm{d}\tilde{p} \cdot
+        \frac{1}{1+\left( \frac{\tilde{p}- \tilde{q}}{ \sqrt{2(\tilde{\omega} -\tilde{\delta})} } \right)^2} \\
+      =&amp;\frac{1}{\tilde{\omega}-\tilde{\delta}} \cdot \left[ \arctan(t)
+        \right]_{t==\frac{-\tilde{q}}{ \sqrt{2(\tilde{\omega} -\tilde{\delta})} }}
+          ^{t=\frac{1-\tilde{q}}{ \sqrt{2(\tilde{\omega} -\tilde{\delta})} }}
+\end{align*}
+<p>
+&#x5982;&#x6709;&#x4E24;&#x4E2A;&#x6839; \(r_1, r_2\) &#x90A3;&#x4E48;
+</p>
+\begin{align*}
+    b =&amp;\int_0^1\mathrm{d}\tilde{p} \cdot \mathcal{P} \frac{1}{(\tilde{p}-r_1)(\tilde{p}-r_2)} \\
+      =&amp;\frac{1}{r_1-r_2}\int_0^1\mathrm{d}\tilde{p} \cdot\left[ \mathcal{P}
+          \frac{1}{\tilde{p}-r_1}-\mathcal{P}\frac{1}{\tilde{p}-r_2}\right]
+\end{align*}
+
+<p>
+&#x4E24;&#x4E2A;&#x6839; \(r_1, r_2\) &#x662F;&#x5426;&#x5728;&#x79EF;&#x5206;&#x533A;&#x95F4; \([0,1]\) &#x4E4B;&#x95F4;&#x4E5F;&#x4F1A;&#x5BF9;&#x79EF;&#x5206; \(a, b\) &#x7684;&#x7ED3;&#x679C;&#x6709;&#x5F71;&#x54CD;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org55693ef" class="outline-3">
+<h3 id="org55693ef">&#x6839;&#x636E;&#x6839;&#x7684;&#x60C5;&#x51B5;&#x8BA8;&#x8BBA;&#x79EF;&#x5206;&#x7ED3;&#x679C;</h3>
+<div class="outline-text-3" id="text-org55693ef">
+\begin{align}
+  \tilde{\omega}-\tilde{\delta} +\frac{1}{2}(\tilde{p}-\tilde{q})^2 = 0
+\end{align}
+<p>
+&#x5982;&#x679C;&#x6709;&#x6839;, &#x8BB0; \(r_1 = \tilde{q} + \sqrt{2(\tilde{\delta}-\tilde{\omega})},
+r_1 = \tilde{q} + \sqrt{2(\tilde{\delta}-\tilde{\omega})}\) . &#x5F53;
+\(\tilde{p}, \tilde{\omega}\) &#x53D6;&#x4E0D;&#x540C;&#x7684;&#x503C;&#x65F6;, &#x6839;&#x7684;&#x60C5;&#x51B5;&#x5982;&#x56FE;
+</p>
+
+
+<div id="org44bb319" class="figure">
+<p><img src="/2019/02/21/RF谱PRA文献重复/root.png">
+</p>
+</div>
+
+<p>
+no root &#x65F6;
+</p>
+\begin{align*}
+  a =&amp;0 \\
+  b = &amp;\frac{1}{\tilde{\omega}-\tilde{\delta}} \cdot \left[ \arctan(t)
+        \right]_{t==\frac{-\tilde{q}}{ \sqrt{2(\tilde{\omega} -\tilde{\delta})a} }}
+          ^{t=\frac{1-\tilde{q}}{ \sqrt{2(\tilde{\omega} -\tilde{\delta})} }}
+\end{align*}
+
+<p>
+\(r_1, r_2 \in [0,1]\) &#x65F6;
+</p>
+\begin{align*}
+  a =&amp; \frac{1}{ \sqrt{2(\tilde{\delta}-\tilde{\omega})} } \\
+  b =&amp; \frac{1}{r_1-r_2} \ln \frac{ (1-r_1)r_2 }{ (1-r_2)r_1 }
+\end{align*}
+
+<p>
+\(r_1\in [0,1]\) &#x548C; \(r_2 \in [0,1]\) &#x65F6;
+</p>
+\begin{align*}
+  a =&amp; \frac{1}{2 \sqrt{2(\tilde{\delta}-\tilde{\omega})} } \\
+  b =&amp; \frac{1}{r_1-r_2} \ln \frac{ -(1-r_1)r_2 }{ (1-r_2)r_1 }
+\end{align*}
+
+<p>
+\(r_1, r_2 \notin [0,1]\) &#x65F6;
+</p>
+\begin{align*}
+  a =&amp;0 \\
+  b =&amp; \frac{1}{r_1-r_2} \ln \frac{ (1-r_1)r_2 }{ (1-r_2)r_1 }
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-org2ca550d" class="outline-3">
+<h3 id="org2ca550d">&#x4EE3;&#x56DE;&#x539F;&#x5F0F;</h3>
+<div class="outline-text-3" id="text-org2ca550d">
+\begin{align*}
+  \varepsilon_F I(\tilde{\omega}) =&amp;\sum_{\tilde{q}&lt; 1} \frac{ \tilde{\lambda}^2A}{\left(
+  \tilde{\omega} -\tilde{\lambda}^2 B\right)^2+\tilde{\lambda}^4 A^2} \\
+    \approx&amp; \int_0^1 \mathrm{d}\tilde{q}\cdot \frac{ \tilde{\lambda}^2 \pi A}{\left(
+  \frac{(2\pi)^3}{Vk_F}\tilde{\omega} -\tilde{\lambda}^2 B\right)^2+\tilde{\lambda}^4 \pi^2 A^2}
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-org8490b18" class="outline-3">
+<h3 id="org8490b18">&#x79EF;&#x5206;&#x548C;&#x7ED3;&#x679C;</h3>
+<div class="outline-text-3" id="text-org8490b18">
+</div>
+<div id="outline-container-org4493ad1" class="outline-4">
+<h4 id="org4493ad1">code</h4>
+<div class="outline-text-4" id="text-org4493ad1">
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> integrate</span><br><span class="line"></span><br><span class="line">l = <span class="number">1</span>                           <span class="comment"># &#x5B9A;&#x4E49;&#x53D8;&#x91CF;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delta</span>(<span class="params">x</span>):</span></span><br><span class="line">    b = <span class="number">.01</span></span><br><span class="line">    f = b/(b**<span class="number">2</span> + x**<span class="number">2</span>)/np.pi</span><br><span class="line">    <span class="keyword">return</span> f</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">I</span>(<span class="params">o,d</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">I</span>(<span class="params">q</span>):</span></span><br><span class="line">	r1 = q + np.sqrt( <span class="number">2</span>*(d-o) )</span><br><span class="line">	r2 = q - np.sqrt( <span class="number">2</span>*(d-o) )</span><br><span class="line"></span><br><span class="line">	a1 = <span class="number">0</span>                  <span class="comment"># &#x65E0;&#x6839;</span></span><br><span class="line">	b1 = <span class="number">1</span>/(o-d) * ( \</span><br><span class="line">			 np.arctan( (<span class="number">1</span>-q)/np.sqrt( <span class="number">2</span>*(o-d) )  ) - \</span><br><span class="line">			 np.arctan( ( -q)/np.sqrt( <span class="number">2</span>*(o-d) )  ))</span><br><span class="line"></span><br><span class="line">	a2 = <span class="number">1</span>/np.sqrt( <span class="number">2</span>*(d-o) ) <span class="comment"># &#x6839;&#x90FD;&#x5728;&#x79EF;&#x5206;&#x533A;&#x95F4;&#x5185;</span></span><br><span class="line">	b2 = <span class="number">1</span>/(r1-r2)*np.log( ( (<span class="number">1</span>-r1)*r2 )/ \</span><br><span class="line">			       ( (<span class="number">1</span>-r2)*r1 ) )</span><br><span class="line"></span><br><span class="line">	a3 = <span class="number">.5</span>/np.sqrt( <span class="number">2</span>*(d-o) ) <span class="comment"># &#x4E00;&#x5185;&#x4E00;&#x5916;</span></span><br><span class="line">	b3 = <span class="number">1</span>/(r1-r2)*np.log(-( (<span class="number">1</span>-r1)*r2 )/ \</span><br><span class="line">			       ( (<span class="number">1</span>-r2)*r1 ) )</span><br><span class="line"></span><br><span class="line">	a4 = <span class="number">0</span>                   <span class="comment"># &#x90FD;&#x5728;&#x5916;</span></span><br><span class="line">	b4 = b2</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> o&gt;d:</span><br><span class="line">	    A, B = a1, b1</span><br><span class="line">	    case = <span class="number">1</span></span><br><span class="line">	<span class="keyword">elif</span> o&gt;(d-q**<span class="number">2</span>/<span class="number">2</span>) <span class="keyword">and</span> o&gt;(d-(<span class="number">1</span>-q)**<span class="number">2</span>/<span class="number">2</span>):</span><br><span class="line">	    A, B = a2, b2</span><br><span class="line">	    case = <span class="number">2</span></span><br><span class="line">	<span class="keyword">elif</span> o&gt;(d-q**<span class="number">2</span>/<span class="number">2</span>) <span class="keyword">or</span> o&gt;(d-(<span class="number">1</span>-q)**<span class="number">2</span>/<span class="number">2</span>):</span><br><span class="line">	    A, B = a3, b3</span><br><span class="line">	    case = <span class="number">3</span></span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">	    A, B = a4, b4</span><br><span class="line">	    case = <span class="number">4</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> case == <span class="number">2</span> <span class="keyword">or</span> case == <span class="number">3</span>:</span><br><span class="line">	    I = l**<span class="number">2</span>*A / ( (o-l**<span class="number">2</span>*B)**<span class="number">2</span> + l**<span class="number">4</span>*A**<span class="number">2</span> )</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">	    I = delta(o - l**<span class="number">2</span>*B)</span><br><span class="line">	<span class="keyword">return</span> I</span><br><span class="line">    (fres, err) = integrate.quad(I, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> fres</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">N = <span class="number">1000</span></span><br><span class="line"><span class="comment">#&#x753B;&#x56FE;&#x7684;&#x6A2A;&#x5750;&#x6807;omega&#x4ECE;-2&#x53D6;&#x5230;2</span></span><br><span class="line">omega = np.linspace(-<span class="number">2</span>,<span class="number">2</span>,N)</span><br><span class="line"></span><br><span class="line">C = <span class="number">33</span> <span class="comment"># &#x753B;C&#x6839;&#x7EBF;</span></span><br><span class="line"><span class="comment">#&#x6C42;&#x51FA;&#x60F3;&#x8981;&#x7684;&#x51FD;&#x6570;&#x5728;&#x6A2A;&#x5750;&#x6807;&#x53D6;&#x503C;&#x533A;&#x95F4;&#x5185;&#x7684;&#x7ED3;&#x679C;</span></span><br><span class="line">I_omega = np.linspace(<span class="number">0</span>,<span class="number">0</span>,N)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span> (C):</span><br><span class="line">    d = j-(C-<span class="number">1</span>)/<span class="number">2</span></span><br><span class="line">    d = d/<span class="number">2</span> <span class="comment">#&#x95F4;&#x8DDD;&#x662F;&#x5206;&#x6BCD;&#x5206;&#x4E4B;&#x4E00;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">	I_omega[i-<span class="number">1</span>] = I(omega[i-<span class="number">1</span>],d)</span><br><span class="line">	print(d)</span><br><span class="line">	print(i-<span class="number">1</span>)</span><br><span class="line">    plt.plot(omega,I_omega+j*<span class="number">10</span>, label=<span class="string">&apos;d= %.2f&apos;</span> %(d) , color=<span class="string">&apos;gray&apos;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org71a355d" class="outline-3">
+<h3 id="org71a355d">fig</h3>
+</div>
+</div>
+
+<div id="outline-container-orgd766c14" class="outline-2">
+<h2 id="orgd766c14">&#x6709;&#x9650;&#x6E29;&#x516C;&#x5F0F;&#x63A8;&#x5BFC;</h2>
+<div class="outline-text-2" id="text-orgd766c14">
+<p>
+2 &#x7C92;&#x5B50;&#x7684;&#x677E;&#x539F;&#x51FD;&#x6570;(&#x6709;&#x81EA;&#x80FD;&#x4FEE;&#x6B63;)
+</p>
+\begin{align*}
+  G_2(k, \mathrm{i} \omega_2) =&amp; \frac{1}{G_2^0(k,\mathrm{i}\omega_2)^{-1} -\lambda^2 \Sigma (k, \mathrm{i}\omega_2)} \\
+                         =&amp; \frac{1}{\mathrm{i}\omega_2 - \epsilon_{k,2} -\lambda^2 \Sigma (k, \mathrm{i}\omega_2)}
+\end{align*}
+<p>
+3 &#x7C92;&#x5B50;&#x7684;&#x677E;&#x539F;&#x51FD;&#x6570;(&#x65E0;&#x76F8;&#x4E92;&#x4F5C;&#x7528;)
+</p>
+\begin{align*}
+  G_3^0(k,\mathrm{i}\omega_3) = \frac{1}{\mathrm{i}\omega_3 - \epsilon_{k,3}}
+\end{align*}
+<p>
+&#x4EE3;&#x5165;&#x603B;&#x7684;&#x677E;&#x539F;&#x51FD;&#x6570;
+</p>
+\begin{align*}
+  R(k , \mathrm{i}\omega_n) =&amp; \frac{1}{\beta}\sum_{\omega_2} G_3(k,\mathrm{i}(\omega_2-\omega_n)) G_2(k,\mathrm{i}\omega_2)\\
+   =&amp; \frac{1}{\beta} \sum_{\omega_2} \frac{1}{\mathrm{i}(\omega_2 -\omega_n) - \epsilon_{k,3}}\cdot
+     \frac{1}{\mathrm{i}\omega_2 - \epsilon_{k,2} -\lambda^2 \Sigma (k, \mathrm{i}\omega_2)} \\
+   =&amp;\frac{1}{\beta} \sum_{\omega_2}\left( \frac{1}{\mathrm{i}(\omega_2 -\omega_n) - \epsilon_{k,3}} +
+     \frac{-1}{\mathrm{i}\omega_2 - \epsilon_{k,2} -\lambda^2 \Sigma (k, \mathrm{i}\omega_2)} \right)\cdot
+     \frac{1}{\mathrm{i}\omega_n +\epsilon_{k,3}-\epsilon_{k,2}-\lambda^2 \Sigma (k, \mathrm{i}\omega_2)}
+\end{align*}
+<p>
+&#x63A5;&#x4E0B;&#x6765;&#x5355;&#x72EC;&#x8BA1;&#x7B97;&#x7B2C;&#x4E00;&#x9879;
+</p>
+\begin{align*}
+  \frac{1}{\beta} \sum_{\omega_2} \frac{1}{\mathrm{i}(\omega_2 -\omega_n) - \epsilon_{k,3}}\cdot
+  \frac{1}{\mathrm{i}\omega_n +\epsilon_{k,3}-\epsilon_{k,2}-\lambda^2 \Sigma (k, \mathrm{i}\omega_2)}
+\end{align*}
+<p>
+&#x5229;&#x7528;&#x73AF;&#x8DEF;&#x79EF;&#x5206;&#x8BA1;&#x7B97;&#x6B64;&#x9879;. &#x79EF;&#x5206;
+</p>
+\begin{align*}
+  \oint_{R\to\infty}\frac{1}{\mathrm{i}(\omega_2 -\omega_n) - \epsilon_{k,3}}\cdot
+  \frac{1}{\mathrm{i}\omega_n +\epsilon_{k,3}-\epsilon_{k,2}-\lambda^2 \Sigma (k, \mathrm{i}\omega_2)}
+  \cdot \frac{1}{e^{\mathrm{i}\beta\omega_2} +1}\mathrm{d}\omega_2 = 0
+\end{align*}
+<p>
+&#x79EF;&#x5206;&#x7684;&#x7559;&#x6570;&#x4E3A;:
+</p>
+
+<p>
+&#x7B2C;&#x4E09;&#x9879;&#x5BF9;&#x5E94;&#x7684;&#x7559;&#x6570;
+</p>
+\begin{align*}
+  R_3 =   \frac{1}{\beta} \sum_{\omega_2} \frac{1}{\mathrm{i}(\omega_2 -\omega_n) - \epsilon_{k,3}}\cdot
+  \frac{1}{\mathrm{i}\omega_n +\epsilon_{k,3}-\epsilon_{k,2}-\lambda^2 \Sigma (k, \mathrm{i}\omega_2)}
+\end{align*}
+<p>
+&#x5176;&#x4E2D; \(\omega_2 = (2m+1)\pi/\beta\) . &#x5C31;&#x662F;&#x8981;&#x6C42;&#x7684;&#x603B;&#x7684;&#x677E;&#x539F;&#x51FD;&#x6570; \(R(k,\mathrm{i}\omega)\) .
+</p>
+
+<p>
+&#x7B2C;&#x4E00;&#x9879;&#x5BF9;&#x5E94;&#x7684;&#x7559;&#x6570;
+</p>
+\begin{align*}
+  R_1 =&amp; \frac{1}{\mathrm{i}\omega_n +\epsilon_{k,3}-\epsilon_{k,2}-\lambda^2 \Sigma (k, \mathrm{i}\omega_n +\epsilon_{k,3})}
+  \cdot \frac{1}{e^{\beta(\mathrm{i}\omega_n + \epsilon_{k,3})} +1} \\
+      =&amp; \frac{ f(\epsilon_{k,3}) }{\mathrm{i}\omega_n +\epsilon_{k,3}-\epsilon_{k,2}-\lambda^2 \Sigma (k, \mathrm{i}\omega_n +\epsilon_{k,3})}
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orgecfd8c8" class="outline-2">
+<h2 id="orgecfd8c8">&#x6709;&#x9650;&#x6E29;&#x53CA;&#x96F6;&#x6E29;&#x7684;&#x6700;&#x7EC8;&#x91CD;&#x590D;&#x7ED3;&#x679C;</h2>
+<div class="outline-text-2" id="text-orgecfd8c8">
+</div>
+<div id="outline-container-org06a62bc" class="outline-3">
+<h3 id="org06a62bc">code</h3>
+<div class="outline-text-3" id="text-org06a62bc">
+<p>
+<a href="T=0.py">T=0.py</a>
+</p>
+
+<p>
+<a href="T=1.py">T=1.py</a>
+</p>
+
+<p>
+<a href="T=1.py">T=1.py</a>
+</p>
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> integrate</span><br><span class="line"><span class="keyword">from</span> scipy.special <span class="keyword">import</span> roots_legendre <span class="keyword">as</span> leg</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gauquad</span>(<span class="params">f,a,b,n = <span class="number">50</span></span>):</span></span><br><span class="line">    <span class="string">&apos;&apos;&apos;</span></span><br><span class="line"><span class="string">    &#x5B9A;&#x4E49; Gaussian quadrature &#x79EF;&#x5206;</span></span><br><span class="line"><span class="string">    &#x51FD;&#x6570; f &#x7684;&#x79EF;&#x5206;&#x533A;&#x95F4;&#x4E3A; [a,b]</span></span><br><span class="line"><span class="string">    &#x53D6; n &#x4E2A; Legendre &#x7684;&#x6839;</span></span><br><span class="line"><span class="string">    def Gaussian quadrature integration</span></span><br><span class="line"><span class="string">    integrate function f from a to b</span></span><br><span class="line"><span class="string">    take n Legendre roots</span></span><br><span class="line"><span class="string">    &apos;&apos;&apos;</span></span><br><span class="line">    ft = <span class="keyword">lambda</span> t: f( (b-a)*t/<span class="number">2</span> +(a+b)/<span class="number">2</span> ) * (b-a)/<span class="number">2</span></span><br><span class="line">    x, w = leg(n)</span><br><span class="line">    I = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">	I = I + w[i]*ft(x[i])</span><br><span class="line">    err = <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> I,err</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">twovarplt</span>(<span class="params">f,ax,bx,ay,by,Nx=<span class="number">100</span>,Ny=<span class="number">10</span>,gap = <span class="number">2</span></span>):</span></span><br><span class="line">    <span class="string">&apos;&apos;&apos;</span></span><br><span class="line"><span class="string">    &#x4E24;&#x53D8;&#x91CF;&#x753B;&#x56FE;</span></span><br><span class="line"><span class="string">    f(x,y): &#x8981;&#x7ED8;&#x5236;&#x7684;&#x51FD;&#x6570;</span></span><br><span class="line"><span class="string">    &#x53D8;&#x91CF; x &#x7684;&#x53D6;&#x503C;&#x533A;&#x95F4;&#x4E3A; [ax,bx], &#x53D6;&#x70B9;&#x7684;&#x4E2A;&#x6570;&#x4E3A; Nx &#x4E2A;</span></span><br><span class="line"><span class="string">    &#x53D8;&#x91CF; y &#x7684;&#x53D6;&#x503C;&#x533A;&#x95F4;&#x4E3A; [ay,by], &#x753B; Ny &#x6761;&#x7EBF;, &#x6BCF;&#x6761;&#x7EBF;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A; y &#x503C;</span></span><br><span class="line"><span class="string">    &#x7EBF;&#x4E0E;&#x7EBF;&#x4E4B;&#x95F4;&#x7684;&#x95F4;&#x9694;&#x4E3A; gap</span></span><br><span class="line"><span class="string">    two variables plot</span></span><br><span class="line"><span class="string">    plot function f(x,y)</span></span><br><span class="line"><span class="string">    x takes Nx points from &apos;ax&apos; to &apos;bx&apos;</span></span><br><span class="line"><span class="string">    each line corresponds a fixd y, y takes Ny points from &apos;ay&apos; to &apos;by&apos;</span></span><br><span class="line"><span class="string">    the gap between lines is &apos;gap&apos;</span></span><br><span class="line"><span class="string">    &apos;&apos;&apos;</span></span><br><span class="line">    x = np.linspace(ax,bx,Nx)</span><br><span class="line">    y = np.linspace(ay,by,Ny)</span><br><span class="line">    fx = np.linspace(<span class="number">0</span>,<span class="number">0</span>,Nx)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(Ny):</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(Nx):</span><br><span class="line">	    print(<span class="string">&apos;&#x7B2C;&apos;</span>,j+<span class="number">1</span>,<span class="string">&apos;&#x6761;&#x7EBF;,&apos;</span>,<span class="string">&apos;&#x7B2C;&apos;</span>,i+<span class="number">1</span>,<span class="string">&apos;&#x4E2A;&#x70B9;,&apos;</span>,<span class="string">&apos;&#x5171;&apos;</span>,Ny,<span class="string">&apos;&#x6761;&#x7EBF;,&apos;</span>,<span class="string">&apos;&#x6BCF;&#x6761;&#x7EBF;&apos;</span>,Nx,<span class="string">&apos;&#x4E2A;&#x70B9;.&apos;</span>)</span><br><span class="line">	    fx[i] = f(x[i],y[j])</span><br><span class="line">	plt.plot(x,fx+j*gap )</span><br><span class="line">    <span class="comment">#    plt.plot(x,x*0+y[j],color=(j/Ny,1-j/Ny,j/Ny))</span></span><br><span class="line">    plt.xlabel(<span class="string">r&apos;$\tilde{\omega}$&apos;</span>)</span><br><span class="line">    plt.ylabel(<span class="string">r&apos;$I(\tilde{\omega})$&apos;</span>)</span><br><span class="line">    plt.yticks([])</span><br><span class="line">    plt.savefig(<span class="string">&apos;./T = 2.jpeg&apos;</span>,writer=<span class="string">&apos;imagemagick&apos;</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">p,m,T</span>):</span>   <span class="comment"># Fermi distribution function</span></span><br><span class="line">    f = <span class="number">1</span>/(np.exp((p**<span class="number">2</span>-m)/T)+<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> f</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">theta</span>(<span class="params">x</span>):</span>   <span class="comment"># Heaviside theta function</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;=<span class="number">0</span>:</span><br><span class="line">	f = <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">	f = <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> f</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delta</span>(<span class="params">x,b = <span class="number">1e-2</span></span>):</span>  <span class="comment"># Dirac delta function</span></span><br><span class="line">    b = <span class="number">1e-2</span></span><br><span class="line">    f = b/(b**<span class="number">2</span> + x**<span class="number">2</span>)/np.pi</span><br><span class="line">    <span class="keyword">return</span> f</span><br><span class="line"></span><br><span class="line">T = <span class="number">2</span>  <span class="comment"># Temperature</span></span><br><span class="line">m = <span class="number">1</span>   <span class="comment"># Chemical potential mu</span></span><br><span class="line">up = <span class="number">10</span> <span class="comment"># Integration cut off of </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">A</span>(<span class="params">o,d,k,p</span>):</span> <span class="comment"># the unintegrated Imaginary part of self-energy</span></span><br><span class="line">    x1 = o-d+p**<span class="number">2</span>/<span class="number">2</span>+k**<span class="number">2</span>/<span class="number">2</span>-p*k</span><br><span class="line">    x2 = o-d+p**<span class="number">2</span>/<span class="number">2</span>+k**<span class="number">2</span>/<span class="number">2</span>+p*k</span><br><span class="line">    <span class="keyword">if</span> x1&gt;<span class="number">0</span> <span class="keyword">or</span> x2&lt;<span class="number">0</span>:</span><br><span class="line">	A = <span class="number">0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">	A = np.pi*p/k*f(p,m,T)</span><br><span class="line">    <span class="keyword">return</span> A</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">AA</span>(<span class="params">o,d,k</span>):</span>  <span class="comment"># the integrated Imaginary part of self-energy</span></span><br><span class="line">    AA, err = gauquad(<span class="keyword">lambda</span> p:A(o,d,k,p),<span class="number">0</span>,up)</span><br><span class="line">    <span class="keyword">return</span> AA</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">s</span>(<span class="params">o,d,k,p</span>):</span> <span class="comment"># the unintegrated Real part of self-energy</span></span><br><span class="line">    s = f(p,m,T)*p/k*( np.log( np.<span class="built_in">abs</span>(o-d + (k+p)**<span class="number">2</span>/<span class="number">2</span>) ) - np.log( np.<span class="built_in">abs</span>(o-d + (k-p)**<span class="number">2</span>/<span class="number">2</span>) ) )</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">S</span>(<span class="params">o,d,k</span>):</span>   <span class="comment"># the integrated Real part of self-energy</span></span><br><span class="line">    S,err = gauquad(<span class="keyword">lambda</span> p:s(o,d,k,p),<span class="number">0</span>,up)</span><br><span class="line">    <span class="keyword">return</span> S</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">I</span>(<span class="params">o,d,k</span>):</span>   <span class="comment"># the unintegrated spectral function</span></span><br><span class="line">    aa = AA(o,d,k)</span><br><span class="line">    bb = S(o,d,k)</span><br><span class="line">    <span class="keyword">if</span> aa == <span class="number">0</span>:</span><br><span class="line">	I = k**<span class="number">2</span>*f(k,m,T)*delta(o-bb,b=<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">	I = k**<span class="number">2</span>*f(k,m,T)*aa/((o-bb)**<span class="number">2</span>+aa**<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> I</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">II</span>(<span class="params">o,d</span>):</span>    <span class="comment"># the integrated spectral function</span></span><br><span class="line">    <span class="keyword">if</span> d&gt;o:</span><br><span class="line">	II,err = gauquad(<span class="keyword">lambda</span> k:I(o,d,k),<span class="number">0</span>,up,n = <span class="number">100</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">	II, err = integrate.quad(<span class="keyword">lambda</span> k:I(o,d,k),<span class="number">0</span>,up,epsabs=<span class="number">1.49e-2</span>)</span><br><span class="line">    <span class="keyword">return</span> II</span><br><span class="line"></span><br><span class="line">twovarplt(II,-<span class="number">2</span>,<span class="number">2</span>,-<span class="number">8</span>,<span class="number">8</span>,Nx = <span class="number">1000</span>,Ny=<span class="number">33</span>,gap=<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#twovarplt(lambda k ,o:S(o,0,k),0,10,0.1,2,Nx = 100,Ny = 25,gap=0)</span></span><br><span class="line"></span><br><span class="line"><span class="string">&apos;&apos;&apos;</span></span><br><span class="line"><span class="string">def A(o,d,k,x):</span></span><br><span class="line"><span class="string">    g = o-d+k**2/2</span></span><br><span class="line"><span class="string">    r1 = k*x + np.sqrt( k**2*x**2 -2*g )</span></span><br><span class="line"><span class="string">    r2 = k*x - np.sqrt( k**2*x**2 -2*g )</span></span><br><span class="line"><span class="string">    A = theta(-g)*theta(1+2*g-2*k*x)*r1**2*f(r1,m,T)</span></span><br><span class="line"><span class="string">    A = A+ theta(g)*theta(k*x-np.sqrt(2*g))*theta(x) * ( theta(1+2*g-2*k*x)*r1**2*f(r1,m,T) + r2**2*f(r2,m,T))</span></span><br><span class="line"><span class="string">    A = A/(r1-r2)</span></span><br><span class="line"><span class="string">    return A</span></span><br><span class="line"><span class="string">def AA(o,d,k):</span></span><br><span class="line"><span class="string">    AA, err = gauquad(lambda x:A(o,d,k,x),-1,1)</span></span><br><span class="line"><span class="string">    AA = np.nan_to_num(AA)</span></span><br><span class="line"><span class="string">    AA = np.pi*AA</span></span><br><span class="line"><span class="string">    return AA</span></span><br><span class="line"><span class="string">&apos;&apos;&apos;</span></span><br><span class="line"><span class="string">&apos;&apos;&apos;</span></span><br><span class="line"><span class="string">    n = 500</span></span><br><span class="line"><span class="string">    k = np.linspace(1e-5,up,n)</span></span><br><span class="line"><span class="string">    for i in range(n):</span></span><br><span class="line"><span class="string">	dd = np.abs(o - S(o,d,k[i]))</span></span><br><span class="line"><span class="string">    #    print(dd)</span></span><br><span class="line"><span class="string">	if dd&lt;1e-1:</span></span><br><span class="line"><span class="string">	    ko = k[i]</span></span><br><span class="line"><span class="string">	    break</span></span><br><span class="line"><span class="string">	else:</span></span><br><span class="line"><span class="string">	    ko = 0</span></span><br><span class="line"><span class="string">    II = ko**2*f(ko,m,T)</span></span><br><span class="line"><span class="string">    return II</span></span><br><span class="line"><span class="string">&apos;&apos;&apos;</span></span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+<div id="outline-container-orge8989ec" class="outline-3">
+<h3 id="orge8989ec">&#x7ED3;&#x679C;</h3>
+<div class="outline-text-3" id="text-orge8989ec">
+
+<div id="orga992ac4" class="figure">
+<p><img src="/2019/02/21/RF谱PRA文献重复/T=0.png">
+</p>
+</div>
+
+
+<div id="orgc7f879f" class="figure">
+<p><img src="/2019/02/21/RF谱PRA文献重复/T=1.png">
+</p>
+</div>
+
+
+<div id="org3620ea5" class="figure">
+<p><img src="/2019/02/21/RF谱PRA文献重复/T=2.png">
+</p>
+</div>
+
+<p>
+<a href="T=0.eps">T=0.eps</a>
+</p>
+
+<p>
+<a href="T=1.eps">T=1.eps</a>
+</p>
+
+<p>
+<a href="T=2.eps">T=2.eps</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd79cb7d" class="outline-2">
+<h2 id="orgd79cb7d">Supplementary</h2>
+<div class="outline-text-2" id="text-orgd79cb7d">
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">delta = <span class="number">.5</span></span><br><span class="line">N = <span class="number">100</span></span><br><span class="line">o = np.linspace(-<span class="number">2</span>, <span class="number">2</span>, N)</span><br><span class="line">q = np.linspace(-<span class="number">2</span>, <span class="number">2</span>, N)</span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line"><span class="comment">#line = ax.plot(o,q)</span></span><br><span class="line"><span class="comment">#ax3 = fig.add_axes([0.1, 0.1, 0.2, 0.2])</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#ax.plot(o,o*0+1)</span></span><br><span class="line"><span class="comment">#ax.plot(o,o*0)</span></span><br><span class="line">ax.plot(o*<span class="number">0</span>+delta,o, color = <span class="string">&apos;green&apos;</span>)</span><br><span class="line">ax.plot(o*<span class="number">0</span>+delta-<span class="number">.5</span>,o, color = <span class="string">&apos;gray&apos;</span>, linestyle = <span class="string">&apos;--&apos;</span>)</span><br><span class="line">ax.plot(delta - q**<span class="number">2</span>/<span class="number">2</span>, q, <span class="string">&apos;r&apos;</span>, label = <span class="string">r&apos;$\~\omega = \~\delta - \frac{\~q^2}{2}$&apos;</span>)</span><br><span class="line">ax.plot(delta - (q-<span class="number">1</span>)**<span class="number">2</span>/<span class="number">2</span>, q, color = <span class="string">&apos;blue&apos;</span>, label = <span class="string">r&apos;$\~\omega = \~\delta - \frac{(\~q-1)^2}{2}$&apos;</span>)</span><br><span class="line"></span><br><span class="line">ax.text(-<span class="number">1.2</span>, <span class="number">.5</span>, <span class="string">r&apos;$r_1,r_2\notin [0,1]$&apos;</span>, {<span class="string">&apos;fontsize&apos;</span>:<span class="number">20</span>})</span><br><span class="line">ax.text(<span class="number">.05</span>, <span class="number">.95</span>, <span class="string">r&apos;$r_2\in [0,1]$&apos;</span>, {<span class="string">&apos;fontsize&apos;</span>:<span class="number">20</span>})</span><br><span class="line">ax.text(<span class="number">.07</span>, <span class="number">.05</span>, <span class="string">r&apos;$r_1\in [0,1]$&apos;</span>, {<span class="string">&apos;fontsize&apos;</span>:<span class="number">20</span>})</span><br><span class="line">ax.text(<span class="number">1</span>, <span class="number">.5</span>, <span class="string">r&apos;no root&apos;</span>, {<span class="string">&apos;fontsize&apos;</span>:<span class="number">20</span>})</span><br><span class="line"></span><br><span class="line">ax.arrow(<span class="number">1</span>, <span class="number">.25</span>, -<span class="number">.55</span>, <span class="number">.25</span>, width = <span class="number">.01</span>)</span><br><span class="line">ax.text(<span class="number">1</span>, <span class="number">.25</span>, <span class="string">r&apos;$r_1,r_2\in [0,1]$&apos;</span>, {<span class="string">&apos;fontsize&apos;</span>:<span class="number">20</span>})</span><br><span class="line"></span><br><span class="line"><span class="comment">#ax.set_xlim(0,4*np.pi)</span></span><br><span class="line">ax.set_xlim(-<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">ax.set_ylim(<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">ax.set_xticks([-<span class="number">2</span>, delta-<span class="number">.5</span>, delta, <span class="number">2</span>])</span><br><span class="line">ax.set_yticks([<span class="number">0</span>,<span class="number">1</span>],)</span><br><span class="line">ax.set_xticklabels([<span class="string">&apos;$-2$&apos;</span>, <span class="string">&apos;$\~\delta-1/2$&apos;</span>, <span class="string">&apos;$\~\delta$&apos;</span>, <span class="string">&apos;$2$&apos;</span>],{<span class="string">&apos;fontsize&apos;</span>:<span class="number">20</span>})</span><br><span class="line">ax.set_yticklabels([<span class="number">0</span>,<span class="number">1</span>],{<span class="string">&apos;fontsize&apos;</span>:<span class="number">20</span>})</span><br><span class="line">ax.set_xlabel(<span class="string">&apos;$\~\omega$&apos;</span>,{<span class="string">&apos;fontsize&apos;</span>:<span class="number">20</span>})</span><br><span class="line">ax.set_ylabel(<span class="string">&apos;$\~q$&apos;</span>,{<span class="string">&apos;fontsize&apos;</span>:<span class="number">20</span>})</span><br><span class="line">ax.legend(fontsize = <span class="number">20</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orga6c8a72" class="outline-2">
+<h2 id="orga6c8a72">&#x53C2;&#x8003;&#x6587;&#x732E;</h2>
+<div class="outline-text-2" id="text-orga6c8a72">
+<p>
+Junjun Xu, Qiang Gu, and Erich J. Mueller Phys. Rev. A 88, 023604 (2013)
+</p>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/RF谱/" rel="tag"># RF谱</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/12/句子/" rel="next" title="句子">
+                <i class="fa fa-chevron-left"></i> 句子
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/28/佛系/" rel="prev" title="佛系">
+                佛系 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org7af1c28"><span class="nav-text">Model 部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org662b51c"><span class="nav-text">Sum rules 部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org878880a"><span class="nav-text">假设</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org3758eb6"><span class="nav-text">Transition rate form 3 to 2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgdaf5b2d"><span class="nav-text">零温公式推导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd55f46e"><span class="nav-text">零温数值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgaabcb63"><span class="nav-text">化简公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orga0f9161"><span class="nav-text">无量纲化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org269d096"><span class="nav-text">数值处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgdcb10e9"><span class="nav-text">结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orgfe099ee"><span class="nav-text">code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgb048d0d"><span class="nav-text">fig</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orge2b4131"><span class="nav-text">零温解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org88fc30e"><span class="nav-text">推导回顾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org02e1fbf"><span class="nav-text">解析计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org55693ef"><span class="nav-text">根据根的情况讨论积分结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org2ca550d"><span class="nav-text">代回原式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org8490b18"><span class="nav-text">积分和结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org4493ad1"><span class="nav-text">code</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org71a355d"><span class="nav-text">fig</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd766c14"><span class="nav-text">有限温公式推导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgecfd8c8"><span class="nav-text">有限温及零温的最终重复结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org06a62bc"><span class="nav-text">code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orge8989ec"><span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd79cb7d"><span class="nav-text">Supplementary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orga6c8a72"><span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

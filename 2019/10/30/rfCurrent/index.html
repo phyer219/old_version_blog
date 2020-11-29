@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="物理,RF谱">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RF Current 推导">
+<meta property="og:url" content="https://zqw.ink/2019/10/30/rfCurrent/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2019/10/30/rfCurrent/level.jpg">
+<meta property="og:image" content="https://zqw.ink/2019/10/30/rfCurrent/feynmanDiagram.jpg">
+<meta property="og:updated_time" content="2020-11-29T02:17:49.073Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RF Current 推导">
+<meta name="twitter:image" content="https://zqw.ink/2019/10/30/rfCurrent/level.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2019/10/30/rfCurrent/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>RF Current 推导 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2019/10/30/rfCurrent/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">RF Current 推导
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-30 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-30T00:00:00+08:00">2019-10-30</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/30/rfCurrent/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/10/30/rfCurrent/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-orgd90dafa" class="outline-2">
+<h2 id="orgd90dafa">System</h2>
+<div class="outline-text-2" id="text-orgd90dafa">
+<p>
+&#x8003;&#x8651; Li-6 &#x6700;&#x4F4E;&#x7684;&#x4E09;&#x4E2A; hyperfine states. &#x6700;&#x4F4E;&#x7684;&#x4E24;&#x4E2A;&#x6001; \(|1\rangle\) , \(|2\rangle\) &#x53C2;&#x4E0E;&#x8D85;
+&#x6D41;&#x914D;&#x5BF9;. &#x6001; \(|3\rangle\) &#x662F;&#x4E00;&#x4E2A;&#x6709;&#x6548;&#x7684;&#x81EA;&#x7531;&#x7684;&#x6FC0;&#x53D1;&#x80FD;&#x7EA7;(effectively a free atom
+excitation level) . 
+</p>
+
+<p>
+&#x4E00;&#x5F00;&#x59CB; \(|3\rangle\) &#x6001;&#x662F;&#x7A7A;&#x7684;.
+</p>
+
+<p>
+RF field, &#x4F1A; drive &#x539F;&#x5B50;&#x4ECE; \(|2\rangle\) &#x6001;&#x5411; \(|3\rangle\) &#x6001;&#x8DC3;&#x8FC1;. &#x5982;&#x56FE;
+<img src="/2019/10/30/rfCurrent/level.jpg">
+<a href="level.py">picture code</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6ecfd3b" class="outline-2">
+<h2 id="org6ecfd3b">Hamiltonian</h2>
+<div class="outline-text-2" id="text-org6ecfd3b">
+<p>
+&#x8003;&#x8651;&#x5DE8;&#x6B63;&#x5219;&#x7CFB;&#x7EDF;, &#x6001; \(|3\rangle\) &#x7684; Hamiltonian &#x4E3A;
+</p>
+\begin{align}
+  H_3 - \mu_3N_3 = \sum_{\vec{k}}(\epsilon_{\vec{k}} 
+  - \mu_3) c_{3,\vec{k}}^{\dagger} c_{3,\vec{k}}
+\end{align}
+<p>
+&#x6001; \(|1\rangle\) , \(|2\rangle\) &#x7C7B;&#x4F3C;, &#x5316;&#x5B66;&#x52BF; \(\mu_1=\mu_2=\mu\)
+</p>
+
+<p>
+&#x7531; RF field &#x4EA7;&#x751F;&#x7684;&#x7684; \(|2\rangle\) , \(|3\rangle\) &#x4E4B;&#x95F4;&#x7684;&#x8DC3;&#x8FC1;&#x4E3A;
+</p>
+\begin{align}
+  H_T = \sum_{\vec{k},\vec{p}}T_{\vec{k},\vec{p}} 
+        c_{3,\vec{p}}^{\dagger} c_{2,\vec{k}} + \mathrm{h.c.}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org894e8e4" class="outline-2">
+<h2 id="org894e8e4">RF Current</h2>
+<div class="outline-text-2" id="text-org894e8e4">
+<p>
+RF current &#x5B9A;&#x4E49;&#x4E3A;
+</p>
+\begin{align}
+  I = -\langle \dot{N}_2\rangle = -\mathrm{i}
+     \langle [H, N_2] \rangle
+\end{align}
+<p>
+&#x7531;&#x7EBF;&#x6027;&#x54CD;&#x5E94;&#x7406;&#x8BBA;&#x5F97;
+</p>
+\begin{align}
+  I(\nu) = - \frac{1}{\pi}\mathrm{Im}D^R(\nu + \mu -\mu_3) 
+  = - \frac{1}{\pi}\mathrm{Im}D^R(\Omega_L)
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\Omega_L\) &#x662F; rf field &#x7684;&#x9891;&#x7387;. \(\nu =  \Omega_L - (\epsilon_3-\epsilon_2)= \Omega_L - (\mu-\mu_3)\) &#x4E3A;
+detuning. &#x8003;&#x8651;&#x7EBF;&#x6027;&#x54CD;&#x5E94;&#x7406;&#x8BBA;&#x7684;&#x6700;&#x4F4E;&#x9636;&#x8FD1;&#x4F3C;, \(D\) &#x53EF;&#x4EE5;&#x5206;&#x89E3;&#x4E3A;(&#x5982;&#x56FE;) 
+</p>
+\begin{align}
+  D_0(\mathrm{i}\Omega_{m}, \vec{0}) = \frac{1}{\beta}
+  \sum_{\vec{k}}\sum_{\omega_n} G^{(2)}(\mathrm{i}\omega_n, \vec{k})
+  G^{(3)}(\mathrm{i}\omega_n + \mathrm{i}\Omega_m, \vec{k})
+\end{align}
+<p>
+<img src="/2019/10/30/rfCurrent/feynmanDiagram.jpg">
+<a href="feynmanDiagram.py">picture code</a>
+</p>
+
+<p>
+&#x7528;&#x4E0B;&#x9762;&#x7684;&#x5F0F;&#x5B50;, &#x628A;&#x683C;&#x6797;&#x51FD;&#x6570;&#x7528;&#x8C31;&#x51FD;&#x6570;&#x8868;&#x793A;
+</p>
+\begin{align}
+  G^M(\vec{k}, E_n) = \frac{1}{2\pi}\int \mathrm{d}E&apos; \frac{A(\vec{k}, E&apos;)}
+  {\mathrm{i}E_n - E&apos;}
+\end{align}
+<p>
+&#x5F97;&#x5230;
+</p>
+\begin{align}
+  D_0(\mathrm{i}\Omega_{m}, \vec{0}) = \frac{1}{\beta}\frac{1}{4\pi^2}\sum_{\vec{k}}
+    \int \mathrm{d}E_1 \int \mathrm{d}E_2 \sum_{\omega_n}
+    A^{(2)}(E_1, \vec{k}) A^{(3)}(E_2, \vec{k})
+    \frac{1}{\mathrm{i}\omega_n-E_1} 
+    \frac{1}{\mathrm{i}\omega_n + \mathrm{i}\Omega_m-E_2}
+\end{align}
+<p>
+&#x9891;&#x7387;&#x6C42;&#x548C;&#x540E;
+</p>
+\begin{align}
+  D_0(\mathrm{i}\Omega_{m}, \vec{0}) = \frac{1}{4\pi^2}\sum_{\vec{k}}
+    \int \mathrm{d}E_1 \int \mathrm{d}E_2 
+    A^{(2)}(E_1, \vec{k}) A^{(3)}(E_2, \vec{k})
+    \left[ f(E_1) - f(E_2) \right]
+    \frac{1}{\mathrm{i}\Omega_m-E_2 + E_1}
+\end{align}
+<p>
+&#x505A;&#x4EE3;&#x6362; \(\mathrm{i}\Omega_m \to \Omega_{L} + \mathrm{i}0^+\) , &#x5E76;&#x53D6;&#x865A;&#x90E8;&#x5F97;&#x5230; \(I_0(\nu)\)
+</p>
+\begin{align}
+  I_0(\nu) =&amp; -\frac{1}{\pi}(-\pi)\frac{1}{4\pi^2} \sum_{\vec{k}}
+    \int \mathrm{d}E_1 \int \mathrm{d}E_2\cdot
+    A^{(2)}(E_1, \vec{k}) A^{(3)}(E_2, \vec{k})
+    \cdot\left[ f(E_1) - f(E_2) \right] \cdot\delta (\Omega_L - E_2 + E_1) \\
+  =&amp;\frac{1}{4\pi^2} \sum_{\vec{k}}
+    \int \mathrm{d}E_1 
+    A^{(2)}(E_1, \vec{k}) A^{(3)}(\Omega_L + E_1, \vec{k})
+    \cdot\left[ f(E_1) - f(\Omega_L + E_1) \right] \\
+  =&amp; \frac{1}{4\pi^2} \sum_{\vec{k}}
+    \int \mathrm{d}\epsilon \cdot
+    A^{(2)}(\epsilon, \vec{k}) A^{(3)}(\bar{\epsilon}, \vec{k})
+    \cdot\left[ f(\epsilon) - f(\bar{\epsilon}) \right] \\
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\bar{\epsilon} = \Omega_L+\epsilon=\epsilon+\nu+\mu-\mu_3\) .
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3d28738" class="outline-2">
+<h2 id="org3d28738">&#x6001; \(|3\rangle\) &#x4E0A;&#x7684;&#x7C92;&#x5B50;&#x81EA;&#x7531;&#x65F6;</h2>
+<div class="outline-text-2" id="text-org3d28738">
+<p>
+&#x6001; \(|3\rangle\) &#x662F;&#x81EA;&#x7531;&#x7C92;&#x5B50;, &#x6240;&#x4EE5;&#x5B83;&#x7684;&#x8C31;&#x51FD;&#x6570;&#x4E3A; \(A^{(3)}(\bar{\epsilon}, \vec{k}) =
+2\pi\delta [\bar{\epsilon} - (\epsilon_{\vec{k}} - \mu_3)] = 2\pi\delta (\epsilon + \nu + \mu - \epsilon_{\vec{k}}) 
+= 2\pi\delta(\epsilon-\xi_{\vec{k}}  + \nu)\) , &#x4EE3;&#x5165;&#x4E0A;&#x5F0F;&#x53EF;&#x5F97;
+</p>
+\begin{align}
+  I_0(\nu) = \frac{1}{2\pi}\sum_{\vec{k}}
+    A^{(2)}(\xi_{\vec{k}} - \nu, \vec{k})
+    \cdot\left[ f(\xi_{\vec{k}} - \nu) - f(\xi_{\vec{k},3}) \right]
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\epsilon_{\vec{k}} = \frac{\hbar^2k^2}{2m}, \xi_{\vec{k}} = \epsilon_{\vec{k}} - \mu,
+ \xi_{\vec{k},3} = \epsilon_{\vec{k}} - \mu_3\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0ab4727" class="outline-2">
+<h2 id="org0ab4727">&#x6001; \(|2\rangle\) &#x4E0A;&#x7684;&#x7C92;&#x5B50;&#x4E5F;&#x81EA;&#x7531;&#x65F6;</h2>
+<div class="outline-text-2" id="text-org0ab4727">
+<p>
+&#x5728; \(|2\rangle\) &#x6001;&#x4E5F;&#x662F;&#x81EA;&#x7531;&#x7684;&#x65F6;&#x5019;, \(A^{(2)}(\xi_{\vec{k}}- \nu,
+\vec{k})=A_0^{(2)}(\xi_{\vec{k}}-\nu, \vec{k})= 2\pi
+\delta(\xi_{\vec{k}}-\nu-\xi_{\vec{k}}) = 2\pi
+\delta(\nu)\) , &#x4EE3;&#x56DE;&#x4E0A;&#x5F0F;
+</p>
+\begin{align}
+  I_0(\nu) = \sum_{\vec{k}} \delta(\nu)
+    \cdot\left[ f(\xi_{\vec{k}} - \nu) - f(\xi_{\vec{k},3}) \right]
+\end{align}
+<p>
+&#x662F;&#x4E00;&#x4E2A; \(\delta\) &#x5CF0;. &#x5B83;&#x6EE1;&#x8DB3; sum rule
+</p>
+\begin{align}
+  \int \mathrm{d}\nu \cdot I_0(\nu) =&amp; \sum_{\vec{k}}
+  \left[f(\xi_{\vec{k}}) - 0\right] \\
+  =&amp; \sum_{\vec{k}} f(\xi_{\vec{k}}) \\
+  =&amp; N
+\end{align}
+<p>
+&#x5176;&#x4E2D;&#x5229;&#x7528;&#x4E86; \(|3\rangle\) &#x7A7A;&#x6001;, &#x6240;&#x4EE5; \(f(\xi_{\vec{k},3}) = 0\) .
+</p>
+</div>
+</div>
+
+<div id="outline-container-org94cdf79" class="outline-2">
+<h2 id="org94cdf79">&#x603B;&#x7ED3;</h2>
+<div class="outline-text-2" id="text-org94cdf79">
+<p>
+&#x5E38;&#x7528;&#x601D;&#x60F3;, &#x9664;&#x4E86;&#x7EA7;&#x6570;&#x5C55;&#x5F00;, &#x5C0F;&#x91CF;&#x5206;&#x6790;&#x5916;, &#x5C06;&#x65B0;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x4EE3;&#x56DE;&#x7684;&#x5DF2;&#x77E5;&#x7ED3;&#x8BBA;, &#x770B;&#x80FD;&#x5426;&#x56DE;&#x5230;&#x539F;
+&#x6765;&#x7684;&#x7B80;&#x5355;&#x60C5;&#x51B5;, &#x662F;&#x5426;&#x7B26;&#x5408;&#x5B9E;&#x9645;&#x7684;&#x7269;&#x7406;, &#x4EE5;&#x9A8C;&#x8BC1;&#x65B0;&#x7ED3;&#x8BBA;&#x662F;&#x5426;&#x53EF;&#x9760;, &#x4E5F;&#x662F;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x601D;&#x60F3;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1b36a42" class="outline-2">
+<h2 id="org1b36a42">Supplymentary</h2>
+<div class="outline-text-2" id="text-org1b36a42">
+<p>
+&#x8D39;&#x7C73;&#x5B50;&#x7684;&#x9891;&#x7387;&#x6C42;&#x548C;
+</p>
+\begin{align}
+  \sum_{\omega_n = \frac{(2n+1)\pi}{\beta}} 
+  \frac{1}{\mathrm{i}\omega_n - \xi_{\vec{k}}}
+  = \beta n_{\mathrm{F}}(\xi_{\vec{k}})
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orge684132" class="outline-2">
+<h2 id="orge684132">Reference</h2>
+<div class="outline-text-2" id="text-orge684132">
+<ul class="org-ul">
+<li>Qijin Chen et al 2009 Rep. Prog. Phys. 72 122501</li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/RF谱/" rel="tag"># RF谱</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/28/NSRCalv4/" rel="next" title="NSR Calaulate IV">
+                <i class="fa fa-chevron-left"></i> NSR Calaulate IV
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/30/ColdAtomExp/" rel="prev" title="Cold Atom 实验时间线">
+                Cold Atom 实验时间线 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd90dafa"><span class="nav-text">System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6ecfd3b"><span class="nav-text">Hamiltonian</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org894e8e4"><span class="nav-text">RF Current</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org3d28738"><span class="nav-text">态 \(|3\rangle\) 上的粒子自由时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org0ab4727"><span class="nav-text">态 \(|2\rangle\) 上的粒子也自由时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org94cdf79"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org1b36a42"><span class="nav-text">Supplymentary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orge684132"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

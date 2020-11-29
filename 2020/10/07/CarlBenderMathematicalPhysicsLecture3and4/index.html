@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="Carl Bender,Mathematical Physics,Shanks Transform">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Carl Bender Mathematical Physics Lecture3 &amp; Lecture4 Note">
+<meta property="og:url" content="https://zqw.ink/2020/10/07/CarlBenderMathematicalPhysicsLecture3and4/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2020/10/07/CarlBenderMathematicalPhysicsLecture3and4/log2.jpg">
+<meta property="og:image" content="https://zqw.ink/2020/10/07/CarlBenderMathematicalPhysicsLecture3and4/ShanksTrans.jpg">
+<meta property="og:image" content="https://zqw.ink/2020/10/07/CarlBenderMathematicalPhysicsLecture3and4/Richardson.jpg">
+<meta property="og:image" content="https://zqw.ink/2020/10/07/CarlBenderMathematicalPhysicsLecture3and4/zeta1.gif">
+<meta property="og:updated_time" content="2020-11-29T02:17:49.123Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Carl Bender Mathematical Physics Lecture3 &amp; Lecture4 Note">
+<meta name="twitter:image" content="https://zqw.ink/2020/10/07/CarlBenderMathematicalPhysicsLecture3and4/log2.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2020/10/07/CarlBenderMathematicalPhysicsLecture3and4/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Carl Bender Mathematical Physics Lecture3 & Lecture4 Note | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2020/10/07/CarlBenderMathematicalPhysicsLecture3and4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Carl Bender Mathematical Physics Lecture3 & Lecture4 Note
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-10-07 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-07T00:00:00+08:00">2020-10-07</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/10/07/CarlBenderMathematicalPhysicsLecture3and4/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/10/07/CarlBenderMathematicalPhysicsLecture3and4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-org8aff29a" class="outline-2">
+<h2 id="org8aff29a">Information</h2>
+<div class="outline-text-2" id="text-org8aff29a">
+<ul class="org-ul">
+<li>&#x539F;&#x51FA;&#x5904;: <a href="https://www.perimeterinstitute.ca/video-library/collection/11/12-psi-mathematical-physics" target="_blank" rel="noopener">https://www.perimeterinstitute.ca/video-library/collection/11/12-psi-mathematical-physics</a></li>
+
+<li>&#x53EF;&#x4EE5;&#x770B;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x5B57;&#x5E55;: <a href="https://www.youtube.com/playlist?list=PLzcd6SoIscwjHuWRE38UXWG92uq0Sy4UF" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PLzcd6SoIscwjHuWRE38UXWG92uq0Sy4UF</a></li>
+
+<li>Bilibili:
+<a href="https://www.bilibili.com/video/BV1w4411q7x6?from=search&amp;seid=7852838902448285010" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1w4411q7x6?from=search&amp;seid=7852838902448285010</a></li>
+
+<li>Book: Carl M. Bender, Steven A. Orszag, Advanced Mathematical Methods for Scientists and
+Engineers I Asympotic Methods and Perturbation Theory, 1999</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7b033ec" class="outline-2">
+<h2 id="org7b033ec">Keywords</h2>
+<div class="outline-text-2" id="text-org7b033ec">
+<p>
+Branch cuts. Shanks transform. Acceleration of convergence. Richardson
+extrapolation.  Summing a divergent series.  Euler summation.  Borel summation.
+Generic summation machines.  
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7577b8a" class="outline-2">
+<h2 id="org7577b8a">Branch Point And Branch Cut</h2>
+<div class="outline-text-2" id="text-org7577b8a">
+<p>
+&#x4EE5; \(\sqrt{z}\) &#x4E3A;&#x4F8B;&#x8BB2;&#x89E3;, &#x975E;&#x5E38;&#x6E05;&#x6670;!
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6246002" class="outline-2">
+<h2 id="org6246002">Shanks Transform</h2>
+<div class="outline-text-2" id="text-org6246002">
+<p>
+Shanks Transform &#x7684;&#x4F5C;&#x7528;&#x662F;
+</p>
+<blockquote>
+<p>
+Accelerate the convergence of a series that was already converging.
+</p>
+</blockquote>
+<p>
+&#x4F8B;&#x5982;
+</p>
+\begin{align}
+  \label{eq:log2}
+  \ln 2 = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots = 0.693 147 2\cdots
+\end{align}
+
+<div id="orgf0fff27" class="figure">
+<p><img src="/2020/10/07/CarlBenderMathematicalPhysicsLecture3and4/log2.jpg">
+</p>
+</div>
+
+<p>
+Shanks Transform &#x80FD;&#x591F;&#x8BA9;&#x6536;&#x655B;&#x53D8;&#x5F97;&#x66F4;&#x5FEB;.
+</p>
+<blockquote>
+<p>
+Mr. Shanks syas, let&apos;s make a model of this series.
+</p>
+</blockquote>
+<p>
+&#x628A;&#x8FD9;&#x79CD;&#x632F;&#x8361;&#x7684;&#x7EA7;&#x6570; model &#x4E00;&#x4E0B;.&#x5047;&#x8BBE;&#x7EA7;&#x6570; \(S_N\) &#x6709;&#x5982;&#x4E0B;&#x7684;&#x5F62;&#x5F0F;
+</p>
+\begin{align}
+  S_N = L + A B^N
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(-1 &lt; B &lt; 0\) , \(L\) &#x4EE3;&#x8868; limit, &#x4E5F;&#x5C31;&#x662F;&#x7EA7;&#x6570;&#x6536;&#x655B;&#x7684;&#x7ED3;&#x679C;. &#x8FD9;&#x4E2A; model &#x5E76;&#x4E0D;&#x5B8C;&#x5168;&#x548C;
+(\ref{eq:log2}) &#x4E00;&#x81F4;, &#x53EA;&#x662F;&#x5B83;&#x4EEC;&#x7684;&#x6A21;&#x5F0F;&#x4E00;&#x81F4;.&#x6211;&#x4EEC;&#x53EA;&#x5173;&#x5FC3;&#x7EA7;&#x6570;&#x6700;&#x7EC8;&#x6536;&#x655B;&#x7684;&#x7ED3;&#x679C;, &#x4E5F;&#x5C31;&#x662F;
+\(L\) , &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x5F0F;&#x5B50;&#x628A; \(L\) &#x89E3;&#x51FA;&#x6765;
+</p>
+\begin{align}
+  S_{N-1} =&amp; L + A B^{N-1}\\
+  S_N =&amp; L + A B^N \\
+  S_{N+1} =&amp; L + A B^{N+1} 
+\end{align}
+<p>
+&#x53EF;&#x5F97;
+</p>
+\begin{align}
+  L = \frac{S_N^2 - S_{N+1}S_{N-1}}{2 S_N - S_{N-1} - S_{N+1}}
+\end{align}
+<p>
+&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5BF9;&#x7EA7;&#x6570; (\ref{eq:log2}) &#x505A;&#x591A;&#x6B21; Shanks transform, &#x7ED3;&#x679C;&#x5982;&#x4E0B;
+<img src="/2020/10/07/CarlBenderMathematicalPhysicsLecture3and4/ShanksTrans.jpg"> 
+code: <a href="ShanksTrans.py">ShanksTrans.py</a> 
+</p>
+
+<p>
+&#x6548;&#x679C;&#x76F8;&#x5F53;&#x660E;&#x663E;(&#x4E0D;&#x8FC7;&#x8FD8;&#x662F;&#x50CF; Bender &#x4E00;&#x6837;&#x5217;&#x8868;, &#x624D;&#x80FD;&#x591F;&#x66F4;&#x6E05;&#x6670;&#x5730;&#x770B;&#x51FA;&#x7CBE;&#x5EA6;&#x7684;&#x4E0D;&#x65AD;&#x589E;&#x52A0;. &#x753B;&#x8FD9;
+&#x4E2A;&#x56FE;&#x662F;&#x4E3A;&#x4E86;&#x628A;&#x7B97;&#x6CD5;&#x5199;&#x51FA;&#x6765;). 
+</p>
+
+<p>
+&#x5BF9;&#x4E8E; Shanks transform, &#x6709;&#x540C;&#x5B66;&#x63D0;&#x95EE;, &#x5982;&#x4F55;&#x8BC1;&#x660E;&#x5B83;&#x80FD;&#x591F;&#x5BF9;&#x8FD9;&#x6837;&#x7EA7;&#x6570;&#x52A0;&#x901F;&#x6536;&#x655B;,  Bender &#x5982;
+&#x662F;&#x56DE;&#x7B54;
+</p>
+<blockquote>
+<p>
+Some summation theory partially rigorous but mostly not. It is very powerful and
+works in places where people cannot even justify why it is working.
+</p>
+</blockquote>
+<p>
+&#x5E76;&#x8BF4;&#x5B83;&#x5728;&#x8FD9;&#x95E8;&#x8BFE;&#x6240;&#x8981;&#x6559;&#x7684;&#x662F;
+</p>
+<blockquote>
+<p>
+Cutting-edge mathematical physics. Very useful mathematical physics.
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org4d16234" class="outline-2">
+<h2 id="org4d16234">Richardson Extrapolation</h2>
+<div class="outline-text-2" id="text-org4d16234">
+<p>
+&#x4EE5;&#x7EA7;&#x6570;
+</p>
+\begin{align}
+  S = \sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6} = \zeta(2)
+\end{align}
+<p>
+&#x4E3A;&#x4F8B;. &#x8BB2;&#x89E3;&#x5982;&#x4F55;&#x7528; Richardson extrapolation (&#x7406;&#x67E5;&#x5FB7;&#x68EE;&#x5916;&#x63A8;&#x6CD5;) &#x5BF9;&#x4E0D;&#x65AD;&#x903C;&#x8FD1;, &#x4F46;&#x662F;&#x6536;&#x655B;
+&#x5F88;&#x6162;&#x7684;&#x7EA7;&#x6570;&#x8FDB;&#x884C;&#x52A0;&#x901F;.
+</p>
+
+<p>
+&#x9996;&#x5148;&#x8BF4;&#x660E;&#x5B83;&#x6536;&#x655B;&#x5F88;&#x6162;. &#x8BA1;&#x7B97;&#x5230;&#x7B2C; \(N\) &#x9879;&#x7684;&#x8BEF;&#x5DEE;&#x4E3A;
+</p>
+\begin{align}
+  S - S_N = \sum_{N+1}^{\infty} \frac{1}{n^2} \sim \int_N^{\infty} \frac{\mathrm{d}n}{n^2} 
+   \sim \frac{1}{N} \quad (\mathrm{as} \, N\to \infty)
+\end{align}
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;, &#x8BA1;&#x7B97;&#x5230;&#x7B2C; \(1000\) &#x9879;, &#x4E5F;&#x53EA;&#x8FBE;&#x5230; \(\frac{1}{1000}\) &#x7684;&#x7CBE;&#x786E;&#x5EA6;. &#x5982;&#x679C;&#x60F3;&#x5230;&#x7CBE;&#x786E;&#x5230;
+&#x5C0F;&#x6570;&#x70B9;&#x540E;&#x9762;&#x5341;&#x51E0;&#x4F4D;, &#x8BA1;&#x7B97;&#x91CF;&#x5C31;&#x53D8;&#x5F97;&#x76F8;&#x5F53;&#x5927;.
+</p>
+<blockquote>
+<p>
+Richardson extrapolation is a technique for extrapolating a sequence \(S_N\) to
+the limit of that sequence. 
+</p>
+</blockquote>
+<p>
+&#x4E0E; Shanks transform &#x7C7B;&#x4F3C;&#x7684;&#x505A;&#x6CD5;, &#x5BF9;&#x8FD9;&#x79CD;&#x6536;&#x655B;&#x5F62;&#x5F0F;&#x7684;&#x7EA7;&#x6570; makes a model
+</p>
+\begin{align}
+  S_N = S + \frac{a}{N} + \frac{b}{N^2} + \frac{c}{N^3} + \cdots
+\end{align}
+<p>
+&#x5982;&#x679C;&#x4FDD;&#x7559;&#x5230;&#x4E00;&#x9636;, as \(N\to \infty\)
+</p>
+\begin{align}
+  S_{N } \sim &amp; S + \frac{a}{N} \\
+  S_{N+1}\sim &amp; S + \frac{a}{N + 1}\\
+\end{align}
+<p>
+&#x4E24;&#x8FB9;&#x540C;&#x4E58; \(N\) &#x4EE5;&#x53CA; \(N + 1\) , &#x7136;&#x540E;&#x4E24;&#x5F0F;&#x76F8;&#x51CF;(not care \(a\)), &#x53EF;&#x4EE5;&#x89E3;&#x51FA;
+</p>
+\begin{align}
+  R_1 \equiv S = (N + 1)S_{N + 1} - N S_N
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(R_1\) &#x4EE3;&#x8868; first order Richardson. &#x7C7B;&#x4F3C;&#x5730;&#x53EF;&#x4EE5;&#x505A;&#x4E8C;&#x9636;, &#x7ED3;&#x679C;
+</p>
+\begin{align}
+  R_2 \equiv \frac{N^2S_N - 2(N + 1)^2S_{N + 1} + (N + 2)^2 S_{N + 2}}{2}
+\end{align}
+<p>
+&#x4EE5;&#x53CA;&#x66F4;&#x9AD8;&#x9636;. &#x4E0B;&#x56FE;&#x662F;&#x4E8C;&#x9636;&#x7684;&#x7ED3;&#x679C;
+<img src="/2020/10/07/CarlBenderMathematicalPhysicsLecture3and4/Richardson.jpg"> 
+code: <a href="Richardson.py">Richardson.py</a> 
+</p>
+
+
+<p>
+Richardson extrapolation &#x5728;&#x6570;&#x503C;&#x79EF;&#x5206;&#x4E2D;&#x6709;&#x5F88;&#x591A;&#x5E94;&#x7528;, &#x5982; Simpson&apos;s rule &#x662F; trapezoid
+rule &#x7684;&#x4E00;&#x9636; Richardson. Romberg integration &#x662F; trapezoid rule &#x7684;&#x66F4;&#x9AD8;&#x9636;&#x7684;
+Richardson. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6604496" class="outline-2">
+<h2 id="org6604496">Summing Divergent Series</h2>
+<div class="outline-text-2" id="text-org6604496">
+<p>
+Shanks transform &#x548C; Richardson extrapolation &#x90FD;&#x662F;&#x5BF9;&#x672C;&#x6765;&#x5C31;&#x5DF2;&#x7ECF;&#x6536;&#x655B;&#x7684;&#x7EA7;&#x6570;&#x8FDB;&#x884C;&#x52A0;&#x901F;.
+&#x4E0B;&#x9762;&#x8BA8;&#x8BBA;&#x5982;&#x4F55; summing divergent series. &#x6BD4;&#x5982;
+</p>
+\begin{align}
+  &amp;1 - 1 + 1 - 1 + 1 \cdots \label{div}   \\
+  &amp;1 + 2 + 4 + 8 + 16 \cdots              \\
+  &amp;1 + 1 + 1 + 1 + 1 \cdots                \\
+  &amp;1 + 0 - 1 + 1 + 0 - 1 + 1 + 0 - 1\cdots \\
+  &amp;1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} \cdots = \zeta(1) \label{eq:zeta1}
+\end{align}
+<p>
+&#x9996;&#x5148;, &#x7528; (\ref{eq:zeta1}) &#x6765;&#x8BF4;&#x660E;
+</p>
+<blockquote>
+<p>
+Some divergent series REALLY sum up to infinity &#x2013; this is perfectly OK!
+</p>
+</blockquote>
+<p>
+(\ref{eq:zeta1}) &#x53EF;&#x4EE5;&#x5BF9;&#x5E94;&#x7269;&#x7406;&#x56FE;&#x50CF;, &#x5C06;&#x8D28;&#x91CF;&#x5747;&#x5300;&#x7684;&#x7816;&#x4E00;&#x5757;&#x4E00;&#x5757;&#x5730;&#x645E;, &#x6700;&#x591A;&#x80FD;&#x4F38;&#x51FA;&#x591A;&#x8FDC;.
+&#x5982;&#x56FE; 
+<img src="/2020/10/07/CarlBenderMathematicalPhysicsLecture3and4/zeta1.gif">
+Geogebra &#x5728;&#x7EBF;&#x793A;&#x610F;: <a href="https://www.geogebra.org/m/gxzshmzr" target="_blank" rel="noopener">https://www.geogebra.org/m/gxzshmzr</a>
+&#x5C06;&#x7816;&#x81EA;&#x4E0A;&#x800C;&#x4E0B;&#x7684;&#x653E;, &#x6BCF;&#x6B21;&#x653E;&#x7816;, &#x4F7F;&#x7816;&#x7684;&#x53F3;&#x4FA7;&#x5BF9;&#x51C6;&#x4E0A;&#x9762;&#x6240;&#x6709;&#x7816;&#x5934;&#x7684;&#x91CD;&#x5FC3;, &#x90A3;&#x4E48;&#x4F38;&#x51FA;&#x7684;&#x957F;&#x5EA6;&#x5C31;&#x662F;
+\(1 + \frac{1}{2} + \frac{1}{3} + \cdots\) , &#x800C;&#x91CD;&#x5FC3;&#x59CB;&#x7EC8;&#x4FDD;&#x6301;&#x7A33;&#x5B9A;, &#x4E0D;&#x4F1A;&#x5012;. &#x56E0;&#x4E3A; \(\zeta(1)\)
+&#x8FD9;&#x4E2A;&#x7EA7;&#x6570;&#x662F;&#x53D1;&#x6563;&#x7684;, &#x90A3;&#x4E48;&#x6309;&#x7167;&#x8FD9;&#x79CD;&#x645E;&#x6CD5;, &#x53EA;&#x8981;&#x591F;&#x9AD8;, &#x7816;&#x5934;&#x5C31;&#x4F1A;&#x4F38;&#x51FA;&#x65E0;&#x7A77;&#x8FDC;. &#x8FD9;&#x4E2A;&#x975E;&#x5E38;&#x6709;&#x610F;&#x601D;! 
+</p>
+
+<p>
+&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x65E0;&#x7A77;&#x7EA7;&#x6570;&#x6765;&#x8BF4;, &#x4E0D;&#x80FD;&#x591F;&#x4EA4;&#x6362;&#x5404;&#x9879;&#x7684;&#x987A;&#x5E8F;, &#x5426;&#x5219;&#x4F1A;&#x6539;&#x53D8;&#x4ED6;&#x4EEC;&#x7684;&#x503C;. &#x6BD4;&#x5982;&#x524D;&#x9762;&#x63D0;&#x5230;&#x7684;
+</p>
+\begin{align}
+  \ln 2 = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots = 0.693 147 2\cdots
+\end{align}
+<p>
+&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4EFB;&#x610F;&#x4EA4;&#x6362;&#x5404;&#x9879;&#x7684;&#x987A;&#x5E8F;, &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8BA9;&#x5B83;&#x6536;&#x655B;&#x5230;&#x4EFB;&#x610F;&#x5B9E;&#x6570;. &#x53EF;&#x4EE5;&#x7ED9;&#x4E00;&#x4E2A;&#x4E0D;&#x6536;&#x655B;&#x7684;&#x7EA7;&#x6570;&#x6C42;
+&#x548C;&#x5B89;&#x6392;&#x4E00;&#x4E2A;&#x6709;&#x610F;&#x4E49;&#x7684;&#x6570;&#x5B57;.  
+</p>
+</div>
+
+<div id="outline-container-org83d1e96" class="outline-3">
+<h3 id="org83d1e96">Euler Summation (Machine)</h3>
+<div class="outline-text-3" id="text-org83d1e96">
+<p>
+&#x9996;&#x5148;, &#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;&#x662F; Euler summation. &#x5047;&#x8BBE; \(\sum_{n=0}^{\infty}a_n\) &#x4E0D;&#x6536;&#x655B;. &#x90A3;&#x4E48;&#x6784;&#x9020;&#x51FD;
+&#x6570; \(f(x) = \sum_{n=0}^{\infty}a_nx^n\) , &#x5982;&#x679C;&#x5B83;&#x5728; \(|x| &lt; 1\) &#x65F6;&#x662F;&#x6536;&#x655B;&#x7684;, &#x90A3;&#x4E48;&#x5B9A;&#x4E49; 
+</p>
+\begin{align}
+E \equiv \lim_{x\to 1}  f(x)
+\end{align}
+<p>
+&#x4F8B;&#x5982;, &#x5BF9;&#x4E8E; series
+</p>
+\begin{align}
+  1 - 1 + 1 - 1 + 1 \cdots
+\end{align}
+<p>
+&#x6784;&#x9020;
+</p>
+\begin{align}
+  f(x) = 1 - x + x^2 - x^3 + \cdots = \frac{1}{1 - x}
+\end{align}
+<p>
+&#x90A3;&#x4E48;
+</p>
+\begin{align}
+  E \equiv \lim_{x\to 1}  f(x) = \frac{1}{2}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgc0a4a7b" class="outline-3">
+<h3 id="orgc0a4a7b">Borel Summation (Machine)</h3>
+<div class="outline-text-3" id="text-orgc0a4a7b">
+<p>
+Borel Summation &#x6BD4; Euler Summation &#x66F4;&#x52A0; powerful.
+</p>
+
+<p>
+&#x7531; \(\Gamma\) &#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x6211;&#x4EEC;&#x77E5;&#x9053;
+</p>
+\begin{align}
+  \frac{\int_0^{\infty}\mathrm{d}t\cdot e^{-t}t^n}{n!} = 1
+\end{align}
+<p>
+&#x90A3;&#x4E48;&#x5BF9;&#x4E8E;&#x7EA7;&#x6570; \(\sum_{n=0}^{\infty}a_n\) &#x6784;&#x9020;
+</p>
+\begin{align}
+  B \equiv   \int_0^{\infty}\mathrm{d}t\cdot e^{-t}\frac{ t^n a_n}{n!}
+\end{align}
+<p>
+&#x5982;&#x679C;&#x4E5F;&#x628A;&#x5B83;&#x7528;&#x5728;&#x7EA7;&#x6570;
+</p>
+\begin{align}
+  1 - 1 + 1 - 1 + 1 \cdots
+\end{align}
+<p>
+&#x4E0A;, &#x4F1A;&#x53D1;&#x73B0; \(B=\frac{1}{2}\) , &#x548C; Euler machine &#x7684;&#x7ED3;&#x679C;&#x662F;&#x76F8;&#x540C;&#x7684;!
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2aaf862" class="outline-3">
+<h3 id="org2aaf862">Generic Summation Procedure (Machine)</h3>
+<div class="outline-text-3" id="text-org2aaf862">
+<p>
+&#x63A5;&#x4E0B;&#x6765;&#x6784;&#x9020;&#x4E00;&#x79CD;&#x666E;&#x9002;&#x7684;&#x65B9;&#x6CD5; \(\mathcal{S}(a_0 + a_1 + a_2 + \cdots) = S\). &#x4F46;&#x662F;&#x4E0D;&#x7ED9;&#x51FA;&#x5177;&#x4F53;&#x7684;
+&#x64CD;&#x4F5C;&#x8FC7;&#x7A0B;, &#x53EA;&#x7ED9;&#x51FA;&#x5B83;&#x5E94;&#x8BE5;&#x6EE1;&#x8DB3;&#x7684;&#x4E24;&#x6761;&#x6027;&#x8D28; 
+</p>
+<blockquote>
+<ul class="org-ul">
+<li>prop #1 : \(\mathcal{S}(a_0 + a_1 + a_2 + \cdots) = a_0 + \mathcal{S}(a_1 + a_2 + a_3 +
+  \cdots)\)</li>
+
+<li>prop #2: linearity
+\(\mathcal{S}\left(\sum(\alpha a_n + \beta b_n)\right) = \alpha \mathcal{S} (\sum a_n)+ \beta
+  \mathcal{S}(\sum b_n)\)</li>
+</ul>
+</blockquote>
+<p>
+&#x4F8B;&#x5982;, &#x6211;&#x4EEC;&#x8FD8;&#x662F;&#x5C06;&#x5B83;&#x7528;&#x5728;&#x7EA7;&#x6570;
+</p>
+\begin{align}
+  1 - 1 + 1 - 1 + 1 \cdots
+\end{align}
+<p>
+&#x4E0A;.
+</p>
+\begin{align}
+  S = &amp;\mathcal{S}(1 - 1 + 1 - 1 + 1 \cdots)  \\
+   = &amp; 1 + \mathcal{S}( - 1 + 1 - 1 + 1 \cdots) \quad \mathrm{prop1} \\
+   =&amp; 1 - \mathcal{S}(1 - 1 + 1 - 1 + 1 \cdots) \quad \mathrm{prop2} \\
+   =&amp; 1 - S
+\end{align}
+<p>
+&#x53EF;&#x5F97; \(S = \frac{1}{2}\) , &#x662F;&#x548C;&#x524D;&#x9762;&#x4E00;&#x6837;&#x7684;&#x7ED3;&#x8BBA;.
+</p>
+
+<p>
+&#x518D;&#x5982;, &#x7EA7;&#x6570;
+</p>
+\begin{align}
+  1 + 0 - 1 + 1 + 0 - 1 + 1 + 0 - 1\cdots 
+\end{align}
+<p>
+&#x5982;&#x679C;&#x7528; Euler machine
+</p>
+\begin{align}
+  E = &amp; \lim_{x\to 1} f(x) = \lim_{x\to 1} 1 - x^{2} + x^3 - x^5 + x^6 \cdots \\
+  =&amp; \lim_{x\to 1} (1 + x^3  + x^6 + x^9\cdots) - (x^2 + x^5 + x^8 \cdots)  \\
+  =&amp; \lim_{x\to 1} \frac{1}{1 - x^3} - \frac{x^2}{1 - x^3} \\
+  = &amp; \frac{2}{3}
+\end{align}
+<p>
+&#x6CE8;&#x610F;&#x7B2C;&#x4E09;&#x4E2A;&#x7B49;&#x53F7;&#x4EA4;&#x6362;&#x4E86;&#x5404;&#x9879;&#x7684;&#x987A;&#x5E8F;, &#x8FD9;&#x5BF9;&#x4E8E; Taylor &#x7EA7;&#x6570;&#x6765;&#x8BF4;&#x662F;&#x6CA1;&#x95EE;&#x9898;&#x7684;. &#x53EF;&#x4EE5;&#x770B;&#x51FA;, &#x8FD9;&#x4E2A;
+&#x7EA7;&#x6570;&#x4E2D;&#x6709;&#x6CA1;&#x6709;&#x96F6;&#x662F;&#x5F88;&#x5173;&#x952E;&#x7684;, &#x8FD9;&#x8BF4;&#x660E;&#x6C42;&#x548C;&#x65F6;, &#x4E0D;&#x80FD;&#x591F;&#x7528;&#x7ED3;&#x5408;&#x5F8B;&#x628A;&#x67D0;&#x4E9B;&#x9879;&#x52A0;&#x8D77;&#x6765;&#x518D;&#x6C42;&#x548C;.
+</p>
+
+<p>
+&#x5982;&#x679C;&#x7528; Generic machine
+</p>
+\begin{align}
+S = &amp; \mathcal{S}(1 + 0 - 1 + 1 + 0 - 1 + 1 + 0 - 1 \cdots) \\
+  = &amp; 1 + \mathcal{S}( 0 - 1 + 1 + 0 - 1 + 1 + 0 - 1 \cdots) \quad \mathrm{prop1} \\
+  = &amp; 1 + \mathcal{S}( - 1 + 1 + 0 - 1 + 1 + 0 - 1 \cdots) \quad \mathrm{prop1} \\ 
+\end{align}
+<p>
+&#x628A;&#x4E09;&#x4E2A;&#x7B49;&#x53F7;&#x540E;&#x9762;&#x7684;&#x5F0F;&#x5B50;&#x76F8;&#x52A0;, &#x5E76;&#x7528; prop#2
+</p>
+\begin{align}
+  3S = 2 + \mathcal{S}\left( (1 + 0 - 1) + (0 - 1 + 1) + (-1 + 1 + 0)\cdots \right) 
+   = 2
+\end{align}
+<p>
+&#x56E0;&#x6B64; \(S = \frac{2}{3}\) , &#x548C; Euler machine &#x7684;&#x7ED3;&#x679C;&#x76F8;&#x540C;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org269ce60" class="outline-3">
+<h3 id="org269ce60">Commentment</h3>
+<div class="outline-text-3" id="text-org269ce60">
+<p>
+Bender &#x5728; Lecture 4 &#x7684;&#x6700;&#x540E;&#x505A;&#x4E86;&#x7CBE;&#x5F69;&#x7684;&#x8BC4;&#x8FF0;, &#x5927;&#x610F;&#x5982;&#x4E0B;:
+</p>
+
+<p>
+&#x8BB2;&#x8FD9;&#x4E9B;&#x5BF9;&#x4E0D;&#x6536;&#x655B;&#x7684;&#x7EA7;&#x6570;&#x6C42;&#x548C;, &#x662F;&#x4E3A;&#x4E86;&#x7528;&#x4E8E;&#x5FAE;&#x6270;&#x8BBA;.
+</p>
+
+<p>
+&#x5FAE;&#x6270;&#x8BBA;&#x5C06;&#x4E00;&#x4E2A; hard problem &#x8F6C;&#x5316;&#x4E00;&#x65E0;&#x7A77;&#x591A;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x7684;&#x95EE;&#x9898;. &#x4F46;&#x662F;&#x8FD9;&#x4E9B;&#x7EA7;&#x6570;&#x662F;&#x4E0D;&#x6536;&#x655B;&#x7684;, &#x56E0;
+&#x6B64;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7528;&#x5230;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x6765;&#x5BF9;&#x5B83;&#x6C42;&#x548C;.
+</p>
+
+<p>
+&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7528;&#x5FAE;&#x6270;&#x6C42;&#x89E3;&#x4E00;&#x4E2A;&#x95EE;&#x9898;, &#x5B83;&#x7684; answer &#x662F; \(\frac{1}{1 + \epsilon}\) , &#x4F46;&#x662F;&#x5B83;&#x5F88;&#x96BE;,
+&#x6211;&#x4EEC;&#x6CA1;&#x6CD5;&#x76F4;&#x63A5;&#x5F97;&#x5230; \(\frac{1}{1 + \epsilon}\) &#x8FD9;&#x4E2A;&#x7B54;&#x6848;. &#x53EA;&#x80FD;&#x7528;&#x5FAE;&#x6270;&#x6765;&#x89E3;, &#x800C;&#x901A;&#x8FC7;&#x5FAE;&#x6270;, &#x6211;&#x4EEC;&#x5F97; 
+&#x5230;&#x7684;&#x7ED3;&#x679C;&#x662F; \(\sum(-1)^n \epsilon^n\) . &#x4F46;&#x662F;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x662F; \(\epsilon=3\) &#x65F6;&#x7684;&#x7ED3;&#x679C;, &#x90A3;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x53D1;&#x6563;&#x7684;&#x6C42;&#x548C;.
+&#x90A3;&#x6211;&#x4EEC; play &#x4E00;&#x4E2A; trick. &#x5C06; \(\epsilon\) &#x53D6;&#x6210; \(|\epsilon| &lt; 1\) &#x7684;&#x503C;, &#x90A3;&#x5C31;&#x5F97;&#x5230;&#x4E86; \(\frac{1}{1 +
+\epsilon}\) , &#x90A3;&#x628A; \(\epsilon=3\) &#x4EE3;&#x5165;&#x5C31;&#x5F97;&#x5230;&#x4E86;&#x7B54;&#x6848; \(\frac{1}{4}\) .  \(\sum(-1)^n \epsilon^n\) &#x53EA;&#x662F;&#x7B54;&#x6848;&#x7684;&#x4E00;
+&#x79CD;&#x8868;&#x793A;, &#x5E76;&#x4E0D;&#x662F;&#x8981;&#x6211;&#x4EEC;&#x771F;&#x7684;&#x53BB;&#x6C42;&#x548C;. &#x6211;&#x4EEC;&#x8981;&#x505A;&#x7684;&#x662F;&#x7528;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x5C06;&#x7B54;&#x6848;&#x4ECE;&#x6C42;&#x548C;&#x7684;&#x8868;&#x793A;, &#x5F97;&#x5230;&#x5B83;
+&#x771F;&#x6B63;&#x7684;&#x503C;.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org84b3d39" class="outline-2">
+<h2 id="org84b3d39">Summary</h2>
+<div class="outline-text-2" id="text-org84b3d39">
+<p>
+&#x5FAE;&#x6270;&#x5F97;&#x5230;&#x7684;&#x662F;&#x4E0D;&#x6536;&#x655B;&#x7684;&#x7EA7;&#x6570;, &#x6211;&#x4EEC;&#x56E0;&#x6B64;&#x53D1;&#x5C55;&#x4E86;&#x7528;&#x6765;&#x6C42;&#x4E0D;&#x6536;&#x655B;&#x7684;&#x7EA7;&#x6570;&#x7684;&#x65B9;&#x6CD5;.
+</p>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Carl-Bender/" rel="tag"># Carl Bender</a>
+          
+            <a href="/tags/Mathematical-Physics/" rel="tag"># Mathematical Physics</a>
+          
+            <a href="/tags/Shanks-Transform/" rel="tag"># Shanks Transform</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/10/01/CarlBenderMathematicalPhysicsLecture2/" rel="next" title="Carl Bender Mathematical Physics Lecture2 Note">
+                <i class="fa fa-chevron-left"></i> Carl Bender Mathematical Physics Lecture2 Note
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/10/08/CarlBenderMathematicalPhysicsLecture5/" rel="prev" title="Carl Bender Mathematical Physics Lecture5 Note">
+                Carl Bender Mathematical Physics Lecture5 Note <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org8aff29a"><span class="nav-text">Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org7b033ec"><span class="nav-text">Keywords</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org7577b8a"><span class="nav-text">Branch Point And Branch Cut</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6246002"><span class="nav-text">Shanks Transform</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org4d16234"><span class="nav-text">Richardson Extrapolation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6604496"><span class="nav-text">Summing Divergent Series</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org83d1e96"><span class="nav-text">Euler Summation (Machine)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgc0a4a7b"><span class="nav-text">Borel Summation (Machine)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org2aaf862"><span class="nav-text">Generic Summation Procedure (Machine)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org269ce60"><span class="nav-text">Commentment</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org84b3d39"><span class="nav-text">Summary</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

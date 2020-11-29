@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="物理,散射,分波展开,Legendre fucntions,associated Legendre functions,Bessel functions,Spherical Bessel functions">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Partial Wave Expansion">
+<meta property="og:url" content="https://zqw.ink/2019/06/05/PartialWaveExpansion/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.890Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Partial Wave Expansion">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2019/06/05/PartialWaveExpansion/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Partial Wave Expansion | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2019/06/05/PartialWaveExpansion/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Partial Wave Expansion
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-05 00:00:00" itemprop="dateCreated datePublished" datetime="2019-06-05T00:00:00+08:00">2019-06-05</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/05/PartialWaveExpansion/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/06/05/PartialWaveExpansion/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-org0a8a7f3" class="outline-2">
+<h2 id="org0a8a7f3">Radical Potential</h2>
+<div class="outline-text-2" id="text-org0a8a7f3">
+</div>
+<div id="outline-container-org14fc600" class="outline-3">
+<h3 id="org14fc600">Schrodinger EQ</h3>
+<div class="outline-text-3" id="text-org14fc600">
+\begin{align}
+  \left[ -\frac{\hbar^2}{2m}\nabla^2 + V(r) -E\right]\psi = 0
+\end{align}
+<p>
+&#x53D8;&#x5F62;&#x4E3A;
+</p>
+\begin{align}
+  \nabla^2 \psi = \left[ \frac{2m}{\hbar^2} V(r) - k^2 \right]\psi
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(k^2 = E/\frac{\hbar^2}{2m}\) . &#x5199;&#x51FA; \(\nabla^2\) &#x5728;&#x7403;
+&#x5750;&#x6807;&#x7CFB;&#x4E2D;&#x7684;&#x5F62;&#x5F0F;, &#x65B9;&#x7A0B;&#x53D8;&#x4E3A;
+</p>
+\begin{align}
+  \left[\frac{1}{r^2}\frac{\partial}{\partial r}r^2 \frac{\partial}{\partial r} +
+  \frac{1}{r^2 \sin \theta}\frac{\partial}{\partial \theta}\sin \theta \frac{\partial}{\partial \theta}
+  + \frac{1}{r^2\sin^2 \theta}\frac{\partial^2}{\partial\phi^2} \right] \psi
+  = \left[ \frac{2m}{\hbar^2} V(r) - k^2 \right]\psi
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org750beee" class="outline-3">
+<h3 id="org750beee">Separation of variables</h3>
+<div class="outline-text-3" id="text-org750beee">
+<p>
+&#x5206;&#x79BB;&#x53D8;&#x91CF;, &#x4EE4;
+</p>
+\begin{align}
+  \psi(r,\theta,\phi) = R(r)\Theta(\theta)\Phi(\phi)
+\end{align}
+<p>
+&#x4EE3;&#x56DE;&#x65B9;&#x7A0B;, &#x5E76;&#x4E14;&#x4E24;&#x8FB9;&#x540C;&#x65F6;&#x9664;&#x4EE5; \(R(r)\Theta(\theta)\Phi(\phi)\) &#x53EF;&#x5F97;
+</p>
+\begin{align}
+  \frac{1}{R}\frac{1}{r^2}\frac{\mathrm{d}}{\mathrm{d} r}r^2 \frac{\mathrm{d}}{\mathrm{d} r} R+
+  \frac{1}{\Theta}\frac{1}{r^2 \sin \theta}\frac{\mathrm{d}}{\mathrm{d} \theta}\sin \theta \frac{\mathrm{d}}{\mathrm{d} \theta}\Theta
+  +\frac{1}{\Phi} \frac{1}{r^2\sin^2 \theta}\frac{\mathrm{d}^2}{\mathrm{d}\phi^2}\Phi
+  =  \frac{2m}{\hbar^2} V(r) - k^2
+\end{align}
+<p>
+&#x6240;&#x6709;&#x542B;&#x6709; \(\phi\) &#x7684;&#x9879;&#x90FD;&#x5728;&#x65B9;&#x7A0B;&#x5DE6;&#x8FB9;&#x7B2C;&#x4E09;&#x9879;, &#x4E0E; \(r,\theta\) &#x6CA1;&#x6709;&#x8026;&#x5408;, &#x6240;&#x4EE5;
+&#x5B83;&#x4E00;&#x5B9A;&#x662F;&#x4E00;&#x4E2A;&#x5E38;&#x6570;. &#x56E0;&#x4E3A;&#x5176;&#x5B83;&#x7684;&#x9879;&#x4E2D;&#x90FD;&#x4E0E; \(\theta\) &#x65E0;&#x5173;, \(\theta\) &#x6539;&#x53D8;&#x65F6;&#x5176;&#x5B83;
+&#x9879;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;. &#x8BB0;&#x8FD9;&#x4E2A;&#x5E38;&#x6570;&#x4E3A; \(-m^2\) &#x5373;
+</p>
+\begin{align}
+  \frac{1}{\Phi}\frac{\mathrm{d}^2}{\mathrm{d}\phi^2}\Phi = -m^2
+\end{align}
+<p>
+&#x5B83;&#x7684;&#x89E3;&#x4E3A;
+</p>
+\begin{align}
+  \Phi (\phi) = e^{\mathrm{i}m\phi}
+\end{align}
+<p>
+&#x5C06;&#x5B83;&#x4EE3;&#x56DE;&#x539F;&#x65B9;&#x7A0B;, &#x539F;&#x65B9;&#x7A0B;&#x53D8;&#x4E3A;
+</p>
+\begin{align}
+  \frac{1}{R}\frac{1}{r^2}\frac{\mathrm{d}}{\mathrm{d} r}r^2 \frac{\mathrm{d}}{\mathrm{d} r} R+
+  \frac{1}{\Theta}\frac{1}{r^2 \sin \theta}\frac{\mathrm{d}}{\mathrm{d} \theta}\sin \theta \frac{\mathrm{d}}{\mathrm{d} \theta}\Theta
+  - \frac{m^2}{r^2\sin^2 \theta}
+  =  \frac{2m}{\hbar^2} V(r) - k^2
+\end{align}
+<p>
+\(\theta\) &#x548C; \(r\) &#x4E5F;&#x6CA1;&#x6709;&#x8026;&#x5408;, &#x540C;&#x7406;&#x53EF;&#x4EE5;&#x628A;&#x4E0E; \(\theta\) &#x6709;&#x5173;&#x7684;&#x9879;&#x5355;&#x62CE;&#x51FA;&#x6765;, &#x662F;&#x4E00;&#x4E2A;&#x5E38;&#x6570;, &#x8BB0;&#x4E3A; \(-\lambda\) ,&#x5373;
+</p>
+\begin{align}
+    \frac{1}{\Theta}\frac{1}{ \sin \theta}\frac{\mathrm{d}}{\mathrm{d} \theta}\sin \theta \frac{\mathrm{d}}{\mathrm{d} \theta}\Theta
+  - \frac{m^2}{\sin^2 \theta} = -\lambda
+\end{align}
+<p>
+&#x4E0A;&#x8FF0;&#x5173;&#x4E8E; \(\theta\) &#x7684;&#x65B9;&#x7A0B;&#x7684;&#x89E3;&#x662F;&#x8FDE;&#x5E26; Legendre &#x591A;&#x9879;&#x5F0F; \(P_l^m(\cos\theta)\), &#x672C;&#x5F81;&#x503C; \(\lambda\) &#x53EA;&#x80FD;&#x53D6;&#x503C;&#x4E3A; \(l(l+1)\) , \(l\) &#x662F;&#x4E2A;
+&#x6574;&#x6570;. 
+&#x5269;&#x4E0B;&#x7684;&#x53EA;&#x6709; \(r\) &#x7684;&#x65B9;&#x7A0B;&#x4E3A;
+</p>
+\begin{align}
+  \frac{1}{R}\frac{1}{r^2}\frac{\mathrm{d}}{\mathrm{d} r}r^2 \frac{\mathrm{d}}{\mathrm{d} r} R
+  = \frac{2m}{\hbar^2} V(r) - k^2 +\frac{l(l + 1)}{r^2}
+\end{align}
+<p>
+&#x5373;
+</p>
+\begin{align}
+  \frac{1}{r^2}\frac{\mathrm{d}}{\mathrm{d} r}r^2 \frac{\mathrm{d}}{\mathrm{d} r} R
+  -\left[ \frac{2m}{\hbar^2} V(r) - k^2 +\frac{l(l + 1)}{r^2}\right]R =0
+\end{align}
+<p>
+&#x82E5; \(V(r) = 0\) &#x5B83;&#x7684;&#x4E00;&#x822C;&#x89E3;&#x7684;&#x5F62;&#x5F0F;&#x662F;&#x7403; Bessel &#x51FD;&#x6570;
+</p>
+\begin{align}
+  R_l(kr) = a_{lm}j_l(kr) + b_{lm}y_l(kr) 
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org27a3b2a" class="outline-3">
+<h3 id="org27a3b2a">Final Results</h3>
+<div class="outline-text-3" id="text-org27a3b2a">
+<p>
+\(\Theta\) &#x548C; \(\Phi\) &#x7684;&#x89E3;&#x5408;&#x5728;&#x4E00;&#x8D77;, &#x6DFB;&#x52A0;&#x5F52;&#x4E00;&#x5316;&#x6761;&#x4EF6;&#x4E3A; Spherical harmonics
+\(Y_l^m(\theta,\phi)\) ,&#x6240;&#x4EE5;&#x5BF9;&#x4E8E; \(V(r) = 0\) &#x7684;&#x81EA;&#x7531;&#x7C92;&#x5B50;, &#x603B;&#x7684;&#x89E3;&#x5C31;&#x662F; 
+</p>
+\begin{align}
+  \psi(r,\theta,\phi) = \sum_{l=0}^{\infty} \sum_{m=-l}^l
+  \left[ a_{lm}j_l(kr) + b_{lm}y_l(kr)  \right] Y_l^m(\theta,\phi)
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgea20d79" class="outline-2">
+<h2 id="orgea20d79">Partial Wave Expansion</h2>
+<div class="outline-text-2" id="text-orgea20d79">
+</div>
+<div id="outline-container-org8f8460d" class="outline-3">
+<h3 id="org8f8460d">Free Particle</h3>
+<div class="outline-text-3" id="text-org8f8460d">
+<p>
+&#x81EA;&#x7531;&#x7C92;&#x5B50;&#x53EA;&#x6709;&#x52A8;&#x80FD;&#x9879;, Hamiltonian &#x4E0E;&#x89D2;&#x52A8;&#x91CF; \(\vec{L}\) &#x548C;&#x89D2;&#x52A8;&#x91CF; \(z\) &#x5206;&#x91CF;
+\(L_z\) &#x90FD;&#x5BF9;&#x6613;, &#x6240;&#x4EE5;&#x5B83;&#x4EEC;&#x6709;&#x5171;&#x540C;&#x7684;&#x672C;&#x5F81;&#x6001;, &#x8BB0;&#x4E3A; \(|E,l,m\rangle\) , &#x5B83;&#x5728;
+&#x52A8;&#x91CF;&#x548C;&#x5750;&#x6807;&#x8868;&#x8C61;&#x4E0B;&#x7684;&#x77E9;&#x9635;&#x5143;&#x5206;&#x522B;&#x4E3A;
+</p>
+\begin{align}
+  \langle \vec{k}|E,l,m\rangle =&amp; \frac{\hbar}{\sqrt{mk}}
+          \delta \left( E - \frac{\hbar^2k^2}{2m} \right)
+           Y_l^m(\hat{k})\\
+  \langle \vec{r}|E,l,m\rangle =&amp; \frac{\mathrm{i}^l}{\hbar}
+          \sqrt{\frac{2mk}{\pi}}j_l(kr) Y_l^m(\hat{r})
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgaaca096" class="outline-3">
+<h3 id="orgaaca096">Rayleigh equation</h3>
+<div class="outline-text-3" id="text-orgaaca096">
+\begin{align}
+  e^{\mathrm{i}\vec{k}\vec{r}} = \sum _{l=0}^{\infty}(2l+1)P_l(\cos \theta)
+  j_l(kr)
+\end{align}
+<p>
+&#x5B83;&#x7B49;&#x4EF7;&#x4E8E;
+</p>
+\begin{align}
+  e^{\mathrm{i}\vec{k}\vec{r}} = 4\pi \sum_{l=0}^{\infty}\sum_{m=-l}^l
+  \mathrm{i}^l Y_l^m(\hat{r})\left[ Y_l^m (\hat{k}) \right]^{*}j_l(kr)
+\end{align}
+<p>
+Integral representation for \(j_l(kr)\)
+</p>
+\begin{align}
+  j_l(kr) = \frac{1}{2\mathrm{i}^l}\int_{-1}^1
+  e^{\mathrm{i}kr\cos \theta}P_l(\cos\theta)\mathrm{d}(\cos\theta)
+\end{align}
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org2a904f5" class="outline-2">
+<h2 id="org2a904f5">Summary</h2>
+<div class="outline-text-2" id="text-org2a904f5">
+</div>
+<div id="outline-container-org52a1792" class="outline-3">
+<h3 id="org52a1792">Summary of A Free Partical in Spherical Coordinate</h3>
+<div class="outline-text-3" id="text-org52a1792">
+<p>
+&#x81EA;&#x7531;&#x7C92;&#x5B50;&#x7684; Schrodinger equation &#x662F;&#x4E00;&#x4E2A; Helmholtz &#x65B9;&#x7A0B;
+</p>
+\begin{align}
+  \left(\nabla^2 \psi + k^2 \right)\psi = 0
+\end{align}
+<p>
+&#x5728;&#x7403;&#x5750;&#x6807;&#x7CFB;&#x4E2D;&#x53EF;&#x4EE5;&#x5206;&#x79BB;&#x53D8;&#x91CF;
+</p>
+\begin{align}
+  \psi(r,\theta,\phi) = R(r)\Theta(\theta)\Phi(\phi)
+\end{align}
+<p>
+&#x4EE3;&#x56DE;&#x539F;&#x5F0F;&#x5F97;
+</p>
+\begin{align}
+  \frac{1}{R}\frac{1}{r^2}\frac{\mathrm{d}}{\mathrm{d} r}r^2 \frac{\mathrm{d}}{\mathrm{d} r} R+
+  \frac{1}{\Theta}\frac{1}{r^2 \sin \theta}\frac{\mathrm{d}}{\mathrm{d} \theta}\sin \theta \frac{\mathrm{d}}{\mathrm{d} \theta}\Theta
+  +\frac{1}{\Phi} \frac{1}{r^2\sin^2 \theta}\frac{\mathrm{d}^2}{\mathrm{d}\phi^2}\Phi
+  + k^2 = 0
+\end{align}
+<p>
+Schrodinger equation &#x5316;&#x4E3A;&#x4E09;&#x4E2A;&#x65B9;&#x7A0B;, &#x5206;&#x522B;&#x662F;
+</p>
+
+<p>
+&#x5173;&#x4E8E; \(\phi\) &#x7684;&#x65B9;&#x7A0B;
+</p>
+\begin{align}
+  \frac{1}{\Phi}\frac{\mathrm{d}^2}{\mathrm{d}\phi^2}\Phi = -m^2
+\end{align}
+<p>
+&#x89E3;&#x4E3A;
+</p>
+\begin{align}
+  \Phi (\phi) = \sum_{m=-\infty}^{\infty} e^{\mathrm{i}m\phi}
+\end{align}
+<p>
+&#x5173;&#x4E8E; \(\theta\) &#x7684;&#x65B9;&#x7A0B; ( \(x = \cos \theta\) )( associated Legendre equation )
+</p>
+\begin{align}
+    (1-x^2)\frac{\mathrm{d}^2}{\mathrm{d}x^2}\Theta - 2x \frac{\mathrm{d}}{\mathrm{d}x}
+  \Theta+\left[ l(l + 1) - \frac{m^2}{1-x^2} \right] \Theta = 0
+\end{align}
+<p>
+&#x89E3;&#x4E3A; associated Legendre function
+</p>
+\begin{align}
+  \Theta = \sum_{l=|m|}^{\infty}P_l^m(\cos\theta)
+\end{align}
+<p>
+&#x5173;&#x4E8E; \(r\) &#x7684;&#x65B9;&#x7A0B; ( spherical Bessel equation )
+</p>
+\begin{align}
+  r^2 \frac{\mathrm{d}^2}{\mathrm{d}r^2}R +2r \frac{\mathrm{d}}{\mathrm{d}r}R
+  +\left[ k^2r^2 - l(l + 1 ) \right]R = 0
+\end{align}
+<p>
+&#x89E3;&#x4E3A; spherical Bessel function
+</p>
+\begin{align}
+  R = \sum_{l=|m|}^{\infty} a_{lm} j_l(kr) + b_{lm} y_l(kr)
+\end{align}
+<p>
+&#x603B;&#x7684;&#x89E3;&#x4E3A; ( &#x80FD;&#x91CF;&#x4E3A; \(E = \frac{\hbar^2k^2}{2m}\) &#x7684;&#x4E00;&#x4E2A;&#x672C;&#x5F81;&#x6001; ) (&#x5DF2;&#x820D;&#x53BB;
+&#x5728;&#x539F;&#x70B9;&#x53D1;&#x6563;&#x7684; \(y_l(kr)\) ) ( &#x5F52;&#x4E00;&#x5316;&#x4E3A; \(\delta_{ll&apos;}
+\delta_{mm&apos;} \delta(E-E&apos;)\) )
+</p>
+\begin{align}
+  \psi_k(r,\theta,\phi) = \sum_{l=0}^{\infty}\sum_{m = -l}^l
+     \frac{\mathrm{i}^l}{\hbar}\sqrt{\frac{2mk}{\pi}}  j_l(kr)Y_l^m(\theta,\phi)
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(Y_l^m(\theta,\phi)\) &#x4E3A; spherical harmonics
+</p>
+\begin{align}
+  Y_l^m (\theta,\phi) \equiv \sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}}
+  P_l^m(\cos\theta)e^{\mathrm{i}m\phi}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgbbd1cf9" class="outline-3">
+<h3 id="orgbbd1cf9">Summary of Some Useful Equations</h3>
+<div class="outline-text-3" id="text-orgbbd1cf9">
+<p>
+Closure Relation for spherical Bessel functions 
+</p>
+\begin{align}
+  \int_0^{\infty} r^2 j_l(k_1r)j_l(k_2r) \mathrm{d}r
+  = \frac{\pi}{2k_1^2}\delta(k_1-k_2)
+\end{align}
+<p>
+Orthogonality of spherical harmonics
+</p>
+\begin{align}
+  \int_0^{2\pi} \mathrm{d}\phi \int_0^{\pi}\sin \theta \mathrm{d}\theta
+   \left[ Y_{l_1}^{m_1} (\theta,\phi) \right]^{*}
+   Y_{l_2}^{m_2} (\theta,\phi) =\delta_{l_1l_2} \delta_{m_1m_2}
+\end{align}
+<p>
+Orthogonality of Legendre Functions
+</p>
+\begin{align}
+  \int_{-1}^{1} P_l(x)P_m(x) \cdot \mathrm{d}x 
+   = \frac{2 \delta_{lm}}{2l+1}
+\end{align}
+<p>
+\(x \to \infty\) asymptotic behavior of spherical functions
+</p>
+\begin{align}
+  j_n(x) =&amp; \frac{1}{x}\sin (x - \frac{n\pi}{2}) \\
+  y_n(x) =&amp; - \frac{1}{x}\cos (x - \frac{n\pi}{2})
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5c9a028" class="outline-2">
+<h2 id="org5c9a028">Reference</h2>
+<div class="outline-text-2" id="text-org5c9a028">
+<p>
+&#x6881;&#x6606;&#x6DFC;&#x7F16;, &#x5218;&#x6CD5;,&#x7F2A;&#x56FD;&#x5E86;&#x4FEE;&#x8BA2;, &#x6570;&#x5B66;&#x7269;&#x7406;&#x65B9;&#x6CD5;(&#x7B2C;&#x56DB;&#x7248;)
+</p>
+
+<ul class="org-ul">
+<li>11.5 &#x7403;&#x8D1D;&#x585E;&#x5C14;&#x65B9;&#x7A0B;</li>
+</ul>
+
+<p>
+Arfken, Weber, Harris, Mathematical Methods for Physicists 7ed: 
+</p>
+
+<ul class="org-ul">
+<li>Chap 7.5 Series Solutions-Frobenius&apos; Methods</li>
+
+<li>Example 8.3.1 Legendre Equation</li>
+
+<li>Chap 14 Bessel Functions</li>
+
+<li>Chap 15.1 Legendre Polynomials</li>
+</ul>
+
+<p>
+J. J Sakurai, Jim Napolitano, Modern Quantum Mechanics 2ed:
+</p>
+
+<ul class="org-ul">
+<li>Chap 6.4 Phase Shifts and Partial Waves</li>
+</ul>
+
+<p>
+R. Mehrem, arXiv:0909.0494v4: <a href="https://arxiv.org/pdf/0909.0494.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/0909.0494.pdf</a>
+</p>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/散射/" rel="tag"># 散射</a>
+          
+            <a href="/tags/分波展开/" rel="tag"># 分波展开</a>
+          
+            <a href="/tags/Legendre-fucntions/" rel="tag"># Legendre fucntions</a>
+          
+            <a href="/tags/associated-Legendre-functions/" rel="tag"># associated Legendre functions</a>
+          
+            <a href="/tags/Bessel-functions/" rel="tag"># Bessel functions</a>
+          
+            <a href="/tags/Spherical-Bessel-functions/" rel="tag"># Spherical Bessel functions</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/03/SpecialFunctions/" rel="next" title="Special Functions">
+                <i class="fa fa-chevron-left"></i> Special Functions
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/02/FermiLiquid/" rel="prev" title="费米液体(冷原子作业)">
+                费米液体(冷原子作业) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org0a8a7f3"><span class="nav-text">Radical Potential</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org14fc600"><span class="nav-text">Schrodinger EQ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org750beee"><span class="nav-text">Separation of variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org27a3b2a"><span class="nav-text">Final Results</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgea20d79"><span class="nav-text">Partial Wave Expansion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org8f8460d"><span class="nav-text">Free Particle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgaaca096"><span class="nav-text">Rayleigh equation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2a904f5"><span class="nav-text">Summary</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org52a1792"><span class="nav-text">Summary of A Free Partical in Spherical Coordinate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgbbd1cf9"><span class="nav-text">Summary of Some Useful Equations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org5c9a028"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

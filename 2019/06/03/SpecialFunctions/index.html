@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="物理,散射,分波展开,Legendre fucntions,associated Legendre functions,Bessel functions,Spherical Bessel functions">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Special Functions">
+<meta property="og:url" content="https://zqw.ink/2019/06/03/SpecialFunctions/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2019/06/03/SpecialFunctions/LegenderPolynomials.jpg">
+<meta property="og:image" content="https://zqw.ink/2019/06/03/SpecialFunctions/BFF.jpg">
+<meta property="og:image" content="https://zqw.ink/2019/06/03/SpecialFunctions/MBFF.jpg">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.886Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Special Functions">
+<meta name="twitter:image" content="https://zqw.ink/2019/06/03/SpecialFunctions/LegenderPolynomials.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2019/06/03/SpecialFunctions/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Special Functions | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2019/06/03/SpecialFunctions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Special Functions
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-03 00:00:00" itemprop="dateCreated datePublished" datetime="2019-06-03T00:00:00+08:00">2019-06-03</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/03/SpecialFunctions/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/06/03/SpecialFunctions/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-orgef0ea90" class="outline-2">
+<h2 id="orgef0ea90">Legendre Polynomials</h2>
+<div class="outline-text-2" id="text-orgef0ea90">
+</div>
+<div id="outline-container-org8343cea" class="outline-3">
+<h3 id="org8343cea">Legendre Equation</h3>
+<div class="outline-text-3" id="text-org8343cea">
+<p>
+Equation
+</p>
+<blockquote>
+\begin{align}
+  (1-x^2) P&apos;&apos;(x) - 2xP&apos;(x) + \lambda P(x) = 0
+  \label{eq:leq}
+\end{align}
+</blockquote>
+<p>
+Boundary conditons
+</p>
+<blockquote>
+<p>
+\[\mathrm{Nonsingularity at} x = \pm 1\]
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgaa2ed15" class="outline-3">
+<h3 id="orgaa2ed15">Frobenius&apos; Methods</h3>
+<div class="outline-text-3" id="text-orgaa2ed15">
+<p>
+&#x5C1D;&#x8BD5;&#x7EA7;&#x6570;&#x89E3;
+</p>
+\begin{align}
+  P(x) =&amp; x^{s} (a_0 + a_1 x + a_2 x^2 + \cdots) \\
+       =&amp; \sum_{j=0}^{\infty}a_j x^{s+j}, \quad a_0 \neq 0
+\end{align}
+<p>
+&#x4EE3;&#x56DE;&#x539F;&#x59CB;&#x65B9;&#x7A0B; \eqref{eq:leq} , &#x5F97;
+</p>
+\begin{align}
+  \sum_{j=0}^{\infty}\left[ 
+   a_j (s+j) (s+j-1) x^{s+j-2} - a_j (s+j) (s+j-1) x^{s+j}
+   - 2(s+j)a_j x^{s+j} + \lambda a_j x^{s+j}
+ \right] = 0 
+\end{align}
+<p>
+\(j=0\) &#x65F6;, &#x5F97; \(x\) &#x7684;&#x6700;&#x4F4E;&#x9636;&#x5373; \(x-2\) ,&#x5BF9;&#x5E94;&#x7684;&#x7CFB;&#x6570;&#x65B9;&#x7A0B;&#x4E3A;
+</p>
+\begin{align}
+  a_0 s (s-1) = 0
+\end{align}
+<p>
+\(j=1\) &#x65F6;
+</p>
+\begin{align}
+  a_1 (s+1)s = 0
+\end{align}
+<p>
+&#x5E76;&#x4E14; \(a_0\neq 0\) , &#x6240;&#x4EE5;
+</p>
+\begin{align}
+   s(s-1) = 0 \quad \quad \mathrm{(indical\quad equation)}
+\end{align}
+<p>
+&#x5373; \(s=0\) &#x6216; \(s=1\)
+</p>
+</div>
+
+<div id="outline-container-org7a04c21" class="outline-4">
+<h4 id="org7a04c21">\(s=0\)</h4>
+<div class="outline-text-4" id="text-org7a04c21">
+<p>
+&#x6B64;&#x65F6;&#x5F97; recurrence relation &#x4E3A;
+</p>
+\begin{align}
+  a_{j+2} = \frac{j(j+1)-\lambda}{(j+1)(j+2)}a_j
+\end{align}
+<p>
+&#x5047;&#x8BBE; \(a_1 = 0\) . &#x90A3;&#x4E48;&#x6240;&#x6709;&#x7684;&#x5947;&#x6570;&#x9879;&#x90FD;&#x4E3A; \(0\) . &#x5F53; \(j\to \infty\) &#x65F6;, &#x7EA7;&#x6570;
+&#x89E3; \(P(x = \pm 1)\) &#x4E0D;&#x6536;&#x655B;, &#x4E0D;&#x6EE1;&#x8DB3;&#x8FB9;&#x754C;&#x6761;&#x4EF6;. &#x4F7F;&#x5176;&#x6536;&#x655B;, \(\lambda\) &#x5FC5;&#x987B;&#x53D6;
+</p>
+\begin{align}
+  \lambda = l(l+1)
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(l\) &#x662F;&#x5076;&#x6570;. &#x8FD9;&#x6837;&#x7684;&#x8BDD;, &#x7EA7;&#x6570;&#x89E3;&#x5C31;&#x5728; \(l\) &#x9636;&#x622A;&#x65AD;&#x4E86;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org989a639" class="outline-4">
+<h4 id="org989a639">\(s=1\)</h4>
+<div class="outline-text-4" id="text-org989a639">
+<p>
+&#x6B64;&#x65F6;&#x5F97; recurrence relation &#x4E3A;
+</p>
+\begin{align}
+  a_{j+2} = \frac{(j+1)(j+2) -\lambda}{(j+2)(j+3)} a_j
+\end{align}
+<p>
+&#x800C;&#x4E14;&#x5FC5;&#x987B;&#x6709; \(a_1=0\) &#x90A3;&#x4E48;&#x6B64;&#x65F6;&#x6240;&#x6709;&#x7684;&#x5947;&#x6570;&#x9879;&#x90FD;&#x4E3A; \(0\) . &#x6B64;&#x65F6;&#x622A;&#x65AD;&#x7684;&#x6761;&#x4EF6;&#x4E3A;
+</p>
+\begin{align}
+  \lambda = (l+1)(l+2)
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(l\) &#x662F;&#x5076;&#x6570;. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org54c64e1" class="outline-4">
+<h4 id="org54c64e1">&#x5408;&#x5E76;</h4>
+<div class="outline-text-4" id="text-org54c64e1">
+<p>
+\(s=0, a_1 = 0\) &#x65F6;, &#x5BF9;&#x5E94;&#x7684;&#x7EA7;&#x6570;&#x89E3;, &#x90FD;&#x662F; \(x\) &#x7684;&#x5076;&#x6570;&#x6B21;&#x5E42;. \(s = 1\) &#x65F6;, &#x5BF9;&#x5E94;
+&#x7684;&#x7EA7;&#x6570;&#x89E3;, &#x90FD;&#x662F; \(x\) &#x7684;&#x5947;&#x6570;&#x6B21;&#x5E42;, &#x5176;&#x5B9E;&#x5BF9;&#x5E94;&#x4E8E; \(s=0, a_1 \neq 0\) &#x65F6;&#x89E3;. &#x4E24;&#x79CD;
+\(s\) &#x7684;&#x53D6;&#x503C;, &#x5BF9;&#x5E94;&#x7684;&#x622A;&#x65AD;&#x6761;&#x4EF6;&#x4E5F;&#x53EF;&#x4EE5;&#x5408;&#x5E76;&#x4E3A;
+</p>
+\begin{align}
+  \lambda = l(l+1)
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(l\) &#x662F;&#x6574;&#x6570;.
+&#x5408;&#x5E76;&#x7684; recurrence relation &#x4E3A;
+</p>
+\begin{align}
+  a_{j+2} = \frac{j(j+1)-\lambda}{(j+1)(j+2)}a_j
+\end{align}
+<p>
+&#x6709; \(a_1, a_2\) &#x4E24;&#x4E2A;&#x5F85;&#x5B9A;&#x7684;&#x7CFB;&#x6570;, &#x8FD9;&#x6070;&#x597D;&#x662F;&#x4E00;&#x4E2A;&#x4E8C;&#x9636;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#x6240;&#x9700;&#x8981;&#x7684;!
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org77adcb1" class="outline-3">
+<h3 id="org77adcb1">Legendre Polynomials</h3>
+<div class="outline-text-3" id="text-org77adcb1">
+<p>
+&#x4E0B;&#x9762;&#x662F;&#x753B;&#x524D;&#x4E03;&#x9636; Legendre Polynomials &#x7684;&#x56FE;&#x50CF;
+</p>
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">P</span>(<span class="params">N,x</span>):</span></span><br><span class="line">    l = N*(N+<span class="number">1</span>)</span><br><span class="line">    a = np.zeros(N+<span class="number">1</span>)</span><br><span class="line">    k = N//<span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> N &gt; <span class="number">0</span>:</span><br><span class="line">	<span class="keyword">if</span> N%<span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">	    a[<span class="number">0</span>] = (-<span class="number">1</span>)**k</span><br><span class="line">	    a[<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">	<span class="keyword">if</span> N%<span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">	    a[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">	    a[<span class="number">1</span>] = (-<span class="number">1</span>)**k</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(N-<span class="number">1</span>):</span><br><span class="line">	    a[j+<span class="number">2</span>] = j*(j+<span class="number">1</span>) - l </span><br><span class="line">	    a[j+<span class="number">2</span>] = a[j+<span class="number">2</span>] * a[j]</span><br><span class="line">	    a[j+<span class="number">2</span>] = a[j+<span class="number">2</span>] / (j+<span class="number">1</span>)</span><br><span class="line">	    a[j+<span class="number">2</span>] = a[j+<span class="number">2</span>] / (j+<span class="number">2</span>)</span><br><span class="line">	a = a/a.<span class="built_in">sum</span>()</span><br><span class="line">	s = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N+<span class="number">1</span>):</span><br><span class="line">	    s = s + a[i]*x**i</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">	s =<span class="number">1</span> </span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line">n = <span class="number">1000</span></span><br><span class="line">nn = <span class="number">8</span></span><br><span class="line">x = np.linspace(-<span class="number">1</span>,<span class="number">1</span>,n)</span><br><span class="line">y = np.zeros(n)</span><br><span class="line">plt.figure(figsize=(<span class="number">6.0</span>,<span class="number">10.0</span>))    <span class="comment"># must before plt.plot(x,y)</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(nn):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">	y[j] = P(i,x[j])</span><br><span class="line">    t = <span class="string">&quot;$P_ { %s }(x)$&quot;</span>%i</span><br><span class="line">    plt.plot(x,y,label=t)</span><br><span class="line">plt.xlabel(<span class="string">r&quot;$x$&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">r&quot;$P_ { l }(x)$&quot;</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Legendre Polynomials&quot;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.savefig(<span class="string">&quot;./2019-06-03-&#x4E13;&#x4E1A;&#x7B14;&#x8BB0;-PartialWaveExpansion/LegenderPolynomials.jpg&quot;</span>\</span><br><span class="line">    ,writer=<span class="string">&apos;imageffmagick&apos;</span>, dpi=<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</div>
+
+
+<div id="org474c8d6" class="figure">
+<p><img src="/2019/06/03/SpecialFunctions/LegenderPolynomials.jpg">
+</p>
+</div>
+
+<p>
+&#x4E0B;&#x9762;&#x662F;&#x7528; sympy &#x8F93;&#x51FA;&#x524D;&#x4E03;&#x9636; Legendre Polynomials
+</p>
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> Rational <span class="keyword">as</span> R</span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> Symbol</span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> factor</span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> latex</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">P</span>(<span class="params">N</span>):</span></span><br><span class="line">    l = N*(N+<span class="number">1</span>)</span><br><span class="line">    a = []</span><br><span class="line">    k = N//<span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> N%<span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">	a.append((-<span class="number">1</span>)**k)</span><br><span class="line">	a.append(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">if</span> N%<span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">	a.append(<span class="number">0</span>)</span><br><span class="line">	a.append((-<span class="number">1</span>)**k) </span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(N-<span class="number">1</span>):</span><br><span class="line">	a.append(j*(j+<span class="number">1</span>) - l )</span><br><span class="line">	a[j+<span class="number">2</span>] = a[j+<span class="number">2</span>] * a[j]</span><br><span class="line">	a[j+<span class="number">2</span>] = R( a[j+<span class="number">2</span>] , (j+<span class="number">1</span>) )</span><br><span class="line">	a[j+<span class="number">2</span>] = R( a[j+<span class="number">2</span>] , (j+<span class="number">2</span>) )</span><br><span class="line"></span><br><span class="line">    c = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N+<span class="number">1</span>):</span><br><span class="line">	c = c + a[i]</span><br><span class="line"></span><br><span class="line">    P = <span class="number">0</span></span><br><span class="line">    x = Symbol(<span class="string">&apos;x&apos;</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N+<span class="number">1</span>):</span><br><span class="line">	a[i] = R(a[i], c) * x**i</span><br><span class="line">	P = P + a[i]</span><br><span class="line">    P = latex(P)</span><br><span class="line">    <span class="keyword">return</span> P</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>):</span><br><span class="line">    print(<span class="string">r&apos;P_%d(x)=&amp;&apos;</span>%i,P(i),<span class="string">&quot;\\\\&quot;</span>)</span><br></pre></td></tr></table></figure>
+</div>
+<p>
+&#x7ED3;&#x679C;
+</p>
+\begin{align*}
+: P_0(x)=&amp; 1 \\
+: P_1(x)=&amp; x \\
+: P_2(x)=&amp; \frac{3 x^{2} - 1}{2} \\
+: P_3(x)=&amp; \frac{x \left(5 x^{2} - 3\right)}{2} \\
+: P_4(x)=&amp; \frac{35 x^{4} - 30 x^{2} + 3}{8} \\
+: P_5(x)=&amp; \frac{x \left(63 x^{4} - 70 x^{2} + 15\right)}{8} \\
+: P_6(x)=&amp; \frac{231 x^{6} - 315 x^{4} + 105 x^{2} - 5}{16} \\
+: P_7(x)=&amp; \frac{x \left(429 x^{6} - 693 x^{4} + 315 x^{2} - 35\right)}{16} \\
+\end{align*}
+
+<p>
+&#x5176;&#x4E2D; \(a_1\) &#x548C; \(a_0\) r &#x53D6;&#x4E3A;, &#x6EE1;&#x8DB3; \(P_l(1) = 1\) , &#x5E76;&#x4E14; \(x\) &#x7684;&#x6700;&#x9AD8;&#x6B21;&#x5E42;&#x7684;
+&#x7CFB;&#x6570;&#x4E3A;&#x6B63;&#x7684;&#x503C;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org55787fd" class="outline-3">
+<h3 id="org55787fd">Orthogonality</h3>
+<div class="outline-text-3" id="text-org55787fd">
+<p>
+Legendre Polynomials &#x7684;&#x6B63;&#x4EA4;&#x5F52;&#x4E00;&#x6027;&#x4E3A;
+</p>
+\begin{align}
+  \int_{-1}^{1} P_l(x)P_m(x) \cdot \mathrm{d}x 
+   = \frac{2 \delta_{lm}}{2l+1}
+\end{align}
+</div>
+</div>
+
+
+<div id="outline-container-org064970d" class="outline-3">
+<h3 id="org064970d">Associated Legendre Functions</h3>
+<div class="outline-text-3" id="text-org064970d">
+</div>
+<div id="outline-container-orgd0bd2cd" class="outline-4">
+<h4 id="orgd0bd2cd">Associated Legendre Equation</h4>
+<div class="outline-text-4" id="text-orgd0bd2cd">
+\begin{align}
+  (1-x^2) P&apos;&apos;(x) -2x P&apos;(x) + \left[ 
+  \lambda - \frac{m^2}{1-x^2} \right]P(x) = 0
+\end{align}
+<p>
+&#x5206;&#x6BCD;&#x4E2D;&#x7684; \(1-x^2\) &#x662F;&#x4E2A;&#x95EE;&#x9898;, &#x5C1D;&#x8BD5;&#x901A;&#x8FC7;&#x505A;&#x53D8;&#x6362;&#x628A;&#x5B83;&#x4ECE;&#x5206;&#x6BCD;&#x4E2D;&#x53BB;&#x6389;. &#x4EE4;
+</p>
+\begin{align}
+  P(x) = (1-x^2)^p \mathcal{P}(x)
+\end{align}
+<p>
+&#x539F;&#x5F0F;&#x53D8;&#x4E3A;
+</p>
+\begin{align}
+  \mathcal{P}(1-x^2)^{p-1}\left[ -2p(1+x^2)
+   + 4p^2 x^2 +4px^2 +\lambda(1-x^2) -m^2 \right]\\
+   -2x \mathcal{P}&apos;(1-x^2)^p(2p + 1) + \mathcal{P}&apos;&apos;(1-x^2)^{p+1} = 0 
+\end{align}
+<p>
+&#x8FD9;&#x548C;&#x539F;&#x6765;&#x7684; Legendre equation &#x6709;&#x4E9B;&#x7C7B;&#x4F3C;. \(\mathcal{P}\) &#x7684;&#x7CFB;&#x6570;&#x4E2D;&#x6709;
+\(\lambda(1-x^2)\) &#x800C;&#x4E14;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x80FD;&#x63D0;&#x53D6;&#x51FA;&#x4E00;&#x4E2A; \(1-x^2\) &#x8BDD;, &#x5B83;&#x548C; Legendre
+equation &#x5C31;&#x66F4;&#x50CF;&#x4E86;. &#x6211;&#x4EEC;&#x8FD8;&#x6709; \(p\) &#x662F;&#x53EF;&#x8C03;&#x7684;, &#x53EF;&#x4EE5;&#x4EE4;&#x5E38;&#x6570;&#x9879;&#x548C; \(x^{2}\) &#x9879;&#x524D;
+&#x9762;&#x7684;&#x7CFB;&#x6570;&#x5DEE;&#x4E00;&#x8D1F;&#x53F7;, &#x5C31;&#x53EF;&#x4EE5;&#x63D0;&#x51FA;&#x5566;! &#x5373;
+</p>
+\begin{align}
+
+  -2p+4p^2+4p = -(-2p-m^2)
+\end{align}
+<p>
+&#x5F97; \(p = \frac{m}{2}\) .&#x5C06;&#x5B83;&#x4EE3;&#x56DE;, &#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;
+</p>
+\begin{align}
+  (1-x^2)\mathcal{P}&apos;&apos;- 2x(m+1)\mathcal{P}&apos; +
+  \left[ \lambda - m(m+1) \right]\mathcal{P} = 0
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org3005f6e" class="outline-4">
+<h4 id="org3005f6e">Frobenius&apos; Methods</h4>
+<div class="outline-text-4" id="text-org3005f6e">
+<p>
+&#x8FD9;&#x4E2A;&#x53D8;&#x6362;&#x540E;&#x7684;&#x65B9;&#x7A0B;&#x5C31;&#x53EF;&#x4EE5;&#x7531; Frobenius&apos; Methods &#x5F97;&#x5230;&#x7EA7;&#x6570;&#x89E3;
+</p>
+
+<p>
+&#x5C1D;&#x8BD5;&#x7EA7;&#x6570;&#x89E3;
+</p>
+\begin{align}
+  P(x) =&amp; x^{s} (a_0 + a_1 x + a_2 x^2 + \cdots) \\
+       =&amp; \sum_{j=0}^{\infty}a_j x^{s+j}, \quad a_0 \neq 0
+\end{align}
+<p>
+&#x4EE3;&#x56DE;&#x539F;&#x59CB;&#x65B9;&#x7A0B; \eqref{eq:leq} , &#x5F97;
+</p>
+\begin{align}
+  \sum_{j=0}^{\infty} \left[ 
+   (s+j)(s+j-1)a_jx^{s+j-2} -(s+j)(s+j-1)a_jx^{s+j} \\
+   -2a_j(m+1)(s+j)x^{s+j} + a_j(\lambda -m(m+1))x^{s+j}
+   \right] = 0 
+\end{align}
+<p>
+\(j=0\) &#x65F6;, &#x5F97; \(x\) &#x7684;&#x6700;&#x4F4E;&#x9636;&#x5373; \(x-2\) ,&#x5BF9;&#x5E94;&#x7684;&#x7CFB;&#x6570;&#x65B9;&#x7A0B;&#x4E3A;
+</p>
+\begin{align}
+  a_0 s (s-1) = 0
+\end{align}
+<p>
+\(j=1\) &#x65F6;
+</p>
+\begin{align}
+  a_1 (s+1)s = 0
+\end{align}
+<p>
+&#x5E76;&#x4E14; \(a_0\neq 0\) , &#x6240;&#x4EE5;&#x5F97;&#x5230;&#x4E86;&#x548C; Legendre equation &#x4E00;&#x6837;&#x7684; indical
+equation
+</p>
+\begin{align}
+   s(s-1) = 0 \quad \quad \mathrm{(indical\quad equation)}
+\end{align}
+<p>
+&#x5373; \(s=0\) &#x6216; \(s=1\)
+</p>
+
+<p>
+&#x5F53; $s=0$&#x65F6;, recurrence relation &#x4E3A;
+</p>
+\begin{align}
+  a_{j+2} = \frac{(j+m)(j+m+1)-\lambda}{(j+1)(j+2)}a_j
+\end{align}
+<p>
+&#x5047;&#x8BBE; \(a_1 = 0\) . &#x90A3;&#x4E48;&#x6240;&#x6709;&#x7684;&#x5947;&#x6570;&#x9879;&#x90FD;&#x4E3A; \(0\) . &#x5F53; \(j\to \infty\) &#x65F6;, &#x7EA7;&#x6570;
+&#x89E3; \(P(x = \pm 1)\) &#x4E0D;&#x6536;&#x655B;, &#x4E0D;&#x6EE1;&#x8DB3;&#x8FB9;&#x754C;&#x6761;&#x4EF6;. &#x4F7F;&#x5176;&#x6536;&#x655B;, \(\lambda\) &#x5FC5;&#x987B;&#x53D6;
+</p>
+\begin{align}
+  \lambda = (j+m)(j+m+1)
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(l\) &#x662F;&#x5076;&#x6570;. &#x8FD9;&#x6837;&#x7684;&#x8BDD;, &#x7EA7;&#x6570;&#x89E3;&#x5C31;&#x5728; \(l\) &#x9636;&#x622A;&#x65AD;&#x4E86;. &#x4E0E; Legendre
+equation &#x7C7B;&#x4F3C;, \(s=1\) &#x65F6;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x5BF9;&#x5E94;&#x7684;&#x5947;&#x6570;&#x9879;, &#x6240;&#x4EE5; \(l\) &#x53D6;&#x6574;&#x6570;&#x5C31;&#x662F;&#x6700;
+&#x540E;&#x7684;&#x7ED3;&#x679C;. 
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="orgcf0fe90"></a>\(\lambda = l(l+1)\)<br>
+<div class="outline-text-5" id="text-orgcf0fe90">
+<p>
+&#x5728;&#x5B9E;&#x9645;&#x95EE;&#x9898;&#x4E2D;, &#x4E00;&#x822C; \(\lambda = l(l+1)\) , &#x6B64;&#x65F6;&#x622A;&#x65AD;&#x4E3A;
+</p>
+\begin{align}
+  j = l - m 
+\end{align}
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x53EA;&#x6709;&#x5728; \(m\le l\) &#x65F6;&#x624D;&#x6709;&#x6536;&#x655B;&#x7684;&#x89E3;.
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org03c1dfb" class="outline-2">
+<h2 id="org03c1dfb">Bessel Functions</h2>
+<div class="outline-text-2" id="text-org03c1dfb">
+</div>
+<div id="outline-container-org9f0700c" class="outline-3">
+<h3 id="org9f0700c">Bessel ODE</h3>
+<div class="outline-text-3" id="text-org9f0700c">
+<blockquote>
+\begin{align}
+  x^2 J_{\nu}&apos;&apos; +x J_{\nu}&apos; + (x^2 - \nu^2)J_{\nu} = 0
+\end{align}
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgb8ff716" class="outline-3">
+<h3 id="orgb8ff716">Frobenius&apos; Methods and Bessel Functions of the First Kind</h3>
+<div class="outline-text-3" id="text-orgb8ff716">
+<p>
+&#x5C1D;&#x8BD5;&#x7EA7;&#x6570;&#x89E3;
+</p>
+\begin{align}
+  J_{\nu}(x) =&amp; x^{s} (a_0 + a_1 x + a_2 x^2 + \cdots) \\
+       =&amp; \sum_{j=0}^{\infty}a_j x^{s+j}, \quad a_0 \neq 0
+\end{align}
+<p>
+&#x4EE3;&#x56DE; Bessel ODE , &#x5F97;
+</p>
+\begin{align}
+  \sum_{j = 0}^{\infty} \left[ 
+  (s+j)(s+j-1) + (s+j) -\nu^2
+  \right]  a_j x^j + a_{j}x^{j+2} = 0
+\end{align}
+<p>
+\(j=0\) &#x65F6;, &#x5F97; \(x\) &#x7684;&#x6700;&#x4F4E;&#x9636;&#x5373; \(x\) ,&#x5BF9;&#x5E94;&#x7684;&#x7CFB;&#x6570;&#x65B9;&#x7A0B;&#x4E3A;
+</p>
+\begin{align}
+( s^2 - \nu^2 ) a_0 = 0
+\end{align}
+<p>
+&#x5E76;&#x4E14; \(a_0\neq 0\) , &#x6240;&#x4EE5;
+</p>
+\begin{align}
+   (s+\nu)(s-\nu) = 0 \quad \quad \mathrm{(indical\quad equation)}
+\end{align}
+<p>
+&#x5F97; 
+</p>
+\begin{align}
+  s = \pm \nu
+\end{align}
+<p>
+\(j=1\) &#x65F6;
+</p>
+\begin{align}
+  (s+1+\nu)(s+1-\nu)a_1 = 0
+\end{align}
+<p>
+&#x7531;&#x4E8E; \(s = \pm \nu\) , &#x6240;&#x4EE5; \(a_1 = 0\)
+</p>
+
+<p>
+&#x4EE5;&#x4E0B;&#x5148;&#x8BA8;&#x8BBA; \(\nu = n\) &#x662F;&#x6574;&#x6570;&#x7684;&#x60C5;&#x51B5;
+</p>
+</div>
+
+<div id="outline-container-orgcfa162f" class="outline-4">
+<h4 id="orgcfa162f">\(s = n\)</h4>
+<div class="outline-text-4" id="text-orgcfa162f">
+<p>
+&#x6B64;&#x65F6;&#x5F97; recurrence relation &#x4E3A;
+</p>
+\begin{align}
+  a_{j+2} = - \frac{1}{(j+2)(2n +j + 2)} a_j
+\end{align}
+<p>
+&#x4EFB;&#x610F;&#x7CFB;&#x6570;&#x4E3A;
+</p>
+\begin{align}
+  a_{2p} = (-1)^p \frac{a_0 n!}{2^{2p}p! (n+p)!}
+\end{align}
+<p>
+Bessel ODE &#x7684;&#x89E3;&#x4E3A;
+</p>
+\begin{align}
+  J_n(x) = \sum_{s=0}^{\infty} \frac{(-1)^s}{s!(n+s)!}
+  \left( \frac{x}{2} \right)^{n+2s}
+\end{align}
+<p>
+&#x4E0A;&#x5F0F;&#x4E2D;&#x6309;&#x4E60;&#x60EF;&#x53D6; \(a_0 = \frac{1}{2^n n!}\) .
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0962997" class="outline-4">
+<h4 id="org0962997">\(s = -n\)</h4>
+<div class="outline-text-4" id="text-org0962997">
+<p>
+&#x6B64;&#x65F6;&#x5F97; recurrence relation &#x4E3A;
+</p>
+\begin{align}
+  a_{j+2} =  \frac{1}{(j+2)(2n -j - 2)} a_j
+\end{align}
+<p>
+&#x5F53; \(j = 2n-2\) &#x65F6;&#x4E0A;&#x5F0F;&#x53D1;&#x6563;, &#x5E76;&#x4E14;&#x4E0D;&#x6EE1;&#x8DB3;&#x7EA7;&#x6570;&#x662F;&#x4ECE; \(x^{-n}\) &#x5F00;&#x59CB;&#x7684;&#x5047;&#x8BBE;. &#x56E0;&#x6B64;
+\(s = -n\) &#x4E0D;&#x7ED9;&#x51FA;&#x89E3;.
+</p>
+
+<p>
+\(\nu = n\) &#x662F;&#x6574;&#x6570;&#x7684;&#x60C5;&#x51B5;&#x7ED9;&#x51FA;&#x4E86; Bessel &#x7684;&#x4E00;&#x4E2A;&#x89E3;, &#x79F0;&#x4E3A; Bessel function of
+first kink. &#x4E14;&#x6709;&#x4EE5;&#x4E0B;&#x6027;&#x8D28;
+</p>
+\begin{align}
+ J_{-n}(x) = (-1)^n J_n(x)
+\end{align}
+</div>
+</div>
+
+
+
+<div id="outline-container-org24aee57" class="outline-4">
+<h4 id="org24aee57">code</h4>
+<div class="outline-text-4" id="text-org24aee57">
+<p>
+&#x4E0B;&#x9762;&#x662F;&#x753B;&#x524D;3&#x9636; Bessel functions of the first kind &#x7684;&#x56FE;&#x50CF;
+</p>
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">start = time.process_time()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">J</span>(<span class="params">n,x,up=<span class="number">10</span></span>):</span></span><br><span class="line">    J = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> <span class="built_in">range</span>(up):</span><br><span class="line">	js = (-<span class="number">1</span>)**s</span><br><span class="line">	js = js/(np.math.factorial(s))</span><br><span class="line">	js = js/(np.math.factorial(s+n))</span><br><span class="line">	js = js*(x/<span class="number">2</span>)**(n+<span class="number">2</span>*s)</span><br><span class="line">	J = J + js</span><br><span class="line">    <span class="keyword">return</span> J</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">N = <span class="number">1000</span></span><br><span class="line">x = np.linspace(<span class="number">1e-8</span>,<span class="number">30</span>,N)</span><br><span class="line">up =<span class="number">100</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pltj</span>(<span class="params">J,n,x,N</span>):</span></span><br><span class="line">    j = np.zeros(N)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">	j[i] = J(n,x[i],up = up)</span><br><span class="line">    <span class="keyword">return</span> j</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">    l = <span class="string">r&quot;$J _ { %d } (x)$&quot;</span> %i</span><br><span class="line">    plt.plot( x, pltj(J,i,x,N), label = l)</span><br><span class="line"></span><br><span class="line">plt.plot(x, <span class="number">1</span>/np.sqrt(x),label=<span class="string">r&quot;$x^{-1/2}$&quot;</span>) </span><br><span class="line"></span><br><span class="line">plt.ylim(-<span class="number">.5</span>,<span class="number">1.</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;x&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">r&quot;$J_n(x)$&quot;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.title(<span class="string">&quot;Bessel Functions&quot;</span>)</span><br><span class="line"></span><br><span class="line">end = time.process_time()</span><br><span class="line">print(<span class="string">&apos;time is&apos;</span>,end-start)</span><br><span class="line">plt.savefig(<span class="string">&quot;./2019-06-03-&#x4E13;&#x4E1A;&#x7B14;&#x8BB0;-PartialWaveExpansion/BFF.jpg&quot;</span>\</span><br><span class="line">    ,writer=<span class="string">&apos;imageffmagick&apos;</span>, dpi=<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</div>
+
+
+<div id="orga4de4ab" class="figure">
+<p><img src="/2019/06/03/SpecialFunctions/BFF.jpg">
+</p>
+</div>
+
+<p>
+&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x5B83;&#x5728; \(x=0\) &#x5904;&#x6CA1;&#x6709;&#x53D1;&#x6563;.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb2c0fdd" class="outline-3">
+<h3 id="orgb2c0fdd">the Bessel Functions of the Second Kind</h3>
+<div class="outline-text-3" id="text-orgb2c0fdd">
+</div>
+<div id="outline-container-org09d87a7" class="outline-4">
+<h4 id="org09d87a7">Definition</h4>
+<div class="outline-text-4" id="text-org09d87a7">
+<p>
+Bessel ODE &#x662F;&#x4E00;&#x4E2A;&#x4E8C;&#x9636;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;, &#x5B83;&#x5E94;&#x8BE5;&#x6709;&#x4E24;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x89E3;. &#x4E0A;&#x9762; \(\nu\) &#x53D6;&#x6574;&#x6570;
+&#x7684;&#x65F6;&#x5019;&#x53EA;&#x7ED9;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x89E3;. &#x5B83;&#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x89E3;&#x7531; Neumann functions &#x7ED9;&#x51FA;, &#x5B9A;&#x4E49;&#x5982;&#x4E0B;
+</p>
+\begin{align}
+  Y_{\nu}(x) = \frac{\cos (\nu\pi) J_{\nu}(x)-J_{-\nu(x)}}{\sin(\nu\pi)}
+\end{align}
+<p>
+&#x5F53; \(\nu\) &#x4E0D;&#x6574;&#x6570;&#x7684;&#x65F6;&#x5019;, &#x4E0A;&#x5F0F;&#x5C31;&#x662F; Bessel functions of the first kind &#x7684;
+&#x7EBF;&#x6027;&#x7EC4;&#x5408;. &#x5F53; \(\nu = n\) &#x53D6;&#x6574;&#x6570;&#x7684;&#x65F6;&#x5019;, &#x5B83;&#x5E94;&#x53D6;&#x6781;&#x9650;
+</p>
+\begin{align}
+  Y_n(x) = \lim_{\nu\to n}Y_{\nu}(x)
+\end{align}
+<p>
+&#x5B83;&#x5728; \(x = 0\) &#x5904;&#x662F;&#x53D1;&#x6563;&#x7684;. &#x5B83;&#x5C31;&#x662F; Bessel Functions &#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x89E3;, Bessel
+functions of the second kind . &#x8FD9;&#x91CC;&#x4E0D;&#x8BE6;&#x7EC6;&#x8BA8;&#x8BBA;&#x5B83;. 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6c7a45a" class="outline-3">
+<h3 id="org6c7a45a">Hankel Functions</h3>
+<div class="outline-text-3" id="text-org6c7a45a">
+<p>
+Hankel Functions &#x66FE;&#x7ECF;&#x4E5F;&#x5E38;&#x88AB;&#x53EB;&#x505A; Bessel functions of the third kind
+. &#x5B83;&#x7531; Bessel functions of the first kind and the second kind &#x7684;&#x7EBF;&#x6027;
+&#x7EC4;&#x5408;&#x5B9A;&#x4E49;
+</p>
+\begin{align}
+  H_{\nu}^{(1)} = J_{\nu}(x) + \mathrm{i}Y_{\nu}(x) \\
+  H_{\nu}^{(2)} = J_{\nu}(x) - \mathrm{i}Y_{\nu}(x) 
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org77db3f8" class="outline-3">
+<h3 id="org77db3f8">Modified Bessel Functions</h3>
+<div class="outline-text-3" id="text-org77db3f8">
+</div>
+<div id="outline-container-orgea28b4b" class="outline-4">
+<h4 id="orgea28b4b">MOdified Bessel equation</h4>
+<div class="outline-text-4" id="text-orgea28b4b">
+\begin{align}
+  \rho^2 \frac{\mathrm{d}^2}{\mathrm{d}\rho^2}P_{\nu}(k\rho)
+   + \rho \frac{\mathrm{d}}{\mathrm{d}\rho}P_{\nu}(k\rho)
+   - (k^2\rho^2 + \nu^2) P_{\nu} P_{\nu}(k\rho) = 0
+\end{align}
+<p>
+&#x5B83;&#x4E0E; Bessel ODE 
+</p>
+\begin{align}
+  x^2 J_{\nu}&apos;&apos; +x J_{\nu}&apos; + (x^2 - \nu^2)J_{\nu} = 0
+\end{align}
+<p>
+&#x76F8;&#x6BD4;, &#x5728;&#x4E8E; \(k^2\rho^2\) &#x524D;&#x9762;&#x7684;&#x7B26;&#x53F7;&#x53D8;&#x4E86;. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcfccf3c" class="outline-4">
+<h4 id="orgcfccf3c">Modified Bessel Functions of the First Kind</h4>
+<div class="outline-text-4" id="text-orgcfccf3c">
+<p>
+&#x5B83;&#x7684;&#x89E3;&#x53EA;&#x987B;&#x505A;&#x4EE3;&#x6362; \(k\to
+\mathrm{i}k\) &#x5373;&#x53EF;&#x5F97;&#x5230;, &#x5373; modified Bessel functions of the first kind
+</p>
+\begin{align}
+  I_{\nu}(x) = \mathrm{i}^{-\nu}J_{\nu}(\mathrm{i}x)
+  = \sum_{s=0}^{\infty} \frac{1}{s!\Gamma(s+\nu+1)}
+   \left( \frac{x}{2} \right)^{\nu+2s}
+\end{align}
+<p>
+&#x5B83;&#x7684;&#x7CFB;&#x6570;&#x90FD;&#x662F;&#x6B63;&#x7684;, &#x6CA1;&#x6709;&#x632F;&#x8361;. &#x5B83;&#x6709; 
+</p>
+\begin{align}
+  I_n(x) = I_{-n}(x)
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgd9d0b66" class="outline-4">
+<h4 id="orgd9d0b66">Code</h4>
+<div class="outline-text-4" id="text-orgd9d0b66">
+<p>
+&#x4E0B;&#x9762;&#x662F;&#x753B;&#x524D;3&#x9636; modified Bessel functions of the first kind &#x7684;&#x56FE;&#x50CF;
+</p>
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">start = time.process_time()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">J</span>(<span class="params">n,x,up=<span class="number">10</span></span>):</span></span><br><span class="line">    J = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> <span class="built_in">range</span>(up):</span><br><span class="line">	js = <span class="number">1</span>/(np.math.factorial(s))</span><br><span class="line">	js = js/(np.math.factorial(s+n))</span><br><span class="line">	js = js*(x/<span class="number">2</span>)**(n+<span class="number">2</span>*s)</span><br><span class="line">	J = J + js</span><br><span class="line">    <span class="keyword">return</span> J</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">N = <span class="number">1000</span></span><br><span class="line">x = np.linspace(<span class="number">1e-8</span>,<span class="number">3</span>,N)</span><br><span class="line">up =<span class="number">100</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pltj</span>(<span class="params">J,n,x,N</span>):</span></span><br><span class="line">    j = np.zeros(N)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">	j[i] = J(n,x[i],up = up)</span><br><span class="line">    <span class="keyword">return</span> j</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">    l = <span class="string">r&quot;$I _ { %d } (x)$&quot;</span> %i</span><br><span class="line">    plt.plot( x, pltj(J,i,x,N), label = l)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.xlabel(<span class="string">&quot;x&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">r&quot;$I_n(x)$&quot;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.title(<span class="string">&quot;Modified Bessel Functions&quot;</span>)</span><br><span class="line"></span><br><span class="line">end = time.process_time()</span><br><span class="line">print(<span class="string">&apos;time is&apos;</span>,end-start)</span><br><span class="line">plt.savefig(<span class="string">&quot;./2019-06-03-&#x4E13;&#x4E1A;&#x7B14;&#x8BB0;-PartialWaveExpansion/MBFF.jpg&quot;</span>\</span><br><span class="line">    ,writer=<span class="string">&apos;imageffmagick&apos;</span>, dpi=<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</div>
+
+
+<div id="orgb4d541a" class="figure">
+<p><img src="/2019/06/03/SpecialFunctions/MBFF.jpg">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org133f31b" class="outline-4">
+<h4 id="org133f31b">Modified Bessel Functions of the Second Kind</h4>
+<div class="outline-text-4" id="text-org133f31b">
+<p>
+modified Bessel functions of the second kind &#x6709;&#x65F6;&#x4E5F;&#x53EB;&#x505A; Whittaker
+functions , &#x5B9A;&#x4E49;&#x5982;&#x4E0B;
+</p>
+
+\begin{align}
+  K_{\nu}(x) = \frac{\pi}{2}\frac{I_{-\nu}(x)-I_{\nu}(x)}{\sin(\nu\pi)}
+\end{align}
+
+
+<p>
+moddified Bessel function &#x5BF9;&#x4E8E; Bessel function &#x7684;&#x5173;&#x7CFB;, &#x5C31;&#x50CF; \(\sinh\) &#x5BF9;
+&#x4E8E; \(\sin\) &#x7684;&#x5173;&#x7CFB;, &#x6240;&#x4EE5;&#x6709;&#x65F6;&#x5B83;&#x4EEC;&#x4E5F;&#x53EB;&#x505A; hyperbolic Bessel functions .
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd35f98c" class="outline-3">
+<h3 id="orgd35f98c">Spherical Bessel Functions</h3>
+<div class="outline-text-3" id="text-orgd35f98c">
+<p>
+&#x5BF9;&#x4E8E;&#x7403;&#x5BF9;&#x79F0;&#x7684;&#x95EE;&#x9898;, &#x7ECF;&#x5E38;&#x4F1A;&#x9047;&#x5230;&#x5F84;&#x5411;&#x65B9;&#x7A0B;
+</p>
+\begin{align}
+  r^2 \frac{\mathrm{d}^2 R}{\mathrm{d}r^2} + 2r \frac{\mathrm{d}R}{\mathrm{d}r}
+  +[k^2r^2 - l(l + 1)]R = 0
+\end{align}
+<p>
+&#x8FD9;&#x4E2A;&#x65B9;&#x7A0B;&#x548C; Bessel ODE &#x5F88;&#x50CF;, &#x533A;&#x522B;&#x5728;&#x4E8E; \(l(l+1)\) , &#x800C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7684;&#x5E73;&#x65B9;. &#x4F46;
+&#x662F;&#x53EA;&#x8981;&#x505A;&#x5982;&#x4E0B;&#x53D8;&#x91CF;&#x4EE3;&#x6362;
+</p>
+\begin{align}
+  R(kr) = \frac{Z(kr)}{\sqrt{kr}}
+\end{align}
+<p>
+&#x5C31;&#x53EF;&#x4EE5;&#x5316;&#x4E3A; Bessel ODE &#x7684;&#x5F62;&#x5F0F;
+</p>
+\begin{align}
+  r^2 \frac{\mathrm{d}^2 Z}{\mathrm{d}r^2} + r \frac{\mathrm{d}Z}{\mathrm{d}r}
+  +\left[ k^2r^2 -\left( l + \frac{1}{2} \right) \right]Z = 0
+\end{align}
+<p>
+&#x90A3;&#x4E48;&#x5B83;&#x7684;&#x89E3;&#x5C31;&#x53EF;&#x4EE5;&#x5199;&#x51FA;
+</p>
+\begin{align}
+  R(kr) = \frac{C}{\sqrt{kr}}J_{l+1/2}(kr)
+\end{align}
+<p>
+&#x5B83;&#x5C31;&#x662F; Spherical Functions . \(C\) &#x662F;&#x4E00;&#x4E2A;&#x4EFB;&#x610F;&#x5E38;&#x6570;, &#x56E0;&#x4E3A;&#x65B9;&#x7A0B;&#x662F;&#x9F50;&#x6B21;&#x7684;
+</p>
+</div>
+
+<div id="outline-container-org8719989" class="outline-4">
+<h4 id="org8719989">Definition</h4>
+<div class="outline-text-4" id="text-org8719989">
+<p>
+&#x53D6;&#x5B9A;&#x5E38;&#x6570; \(C\) , Spherical Functions &#x5B9A;&#x4E49;&#x5982;&#x4E0B;
+</p>
+\begin{align}
+  j_n(x) =&amp; \sqrt{\frac{\pi}{2x}}J_{n+1/2}(x) \\
+  y_n(x) =&amp; \sqrt{\frac{\pi}{2x}}Y_{n+1/2}(x) \\
+  h_n^{(1)}(x) =&amp; j_n(x) +\mathrm{i}y_n(x) \\
+  h_n^{(2)}(x) =&amp; j_n(x) -\mathrm{i}y_n(x) \\
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org88d206d" class="outline-4">
+<h4 id="org88d206d">Some Examples</h4>
+<div class="outline-text-4" id="text-org88d206d">
+\begin{align}
+  j_0(x) =&amp; \quad\frac{1}{x}\sin x \\
+  y_0(x) = &amp; - \frac{1}{x}\cos x
+\end{align}
+
+\begin{align}
+  j_1(x) =&amp;\quad \frac{1}{x^2}\sin x - \frac{1}{x}\cos x \\
+  y_1(x) =&amp;-\frac{1}{x^2}\cos x -\frac{1}{x}\sin x
+\end{align}
+
+\begin{align}
+  j_2(x) = &amp; \quad\left( \frac{3}{x^3} - \frac{1}{x} \right)\sin x 
+                -\frac{3}{x^2}\cos x \\
+  y_2(x) = &amp; -\left( \frac{3}{x^3} -\frac{1}{x} \right)\cos x
+           - \frac{3}{x^2}\sin x
+\end{align}
+
+\begin{align}
+  j_3(x) = &amp;\quad \left( \frac{15}{x^4} - \frac{6}{x^2} \right)\sin x
+            +\left( - \frac{15}{x^3} + \frac{1}{x} \right) \cos x \\
+  y_3(x) = &amp; -\left( \frac{15}{x^4} -\frac{6}{x^2} \right) \cos x
+            +\left( -\frac{15}{x^3} + \frac{1}{x} \right) \sin x
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org14dd5f5" class="outline-4">
+<h4 id="org14dd5f5">Asymptotic Forms</h4>
+<div class="outline-text-4" id="text-org14dd5f5">
+<p>
+as \(x \to \infty\) 
+</p>
+\begin{align}
+  j_n(x) =&amp; \frac{1}{x}\sin (x - \frac{n\pi}{2}) \\
+  y_n(x) =&amp; - \frac{1}{x}\cos (x - \frac{n\pi}{2})
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org09a0496" class="outline-4">
+<h4 id="org09a0496">Closure Relation</h4>
+<div class="outline-text-4" id="text-org09a0496">
+<p>
+Closure Relation for spherical Bessel functions
+</p>
+\begin{align}
+  \int_0^{\infty} r^2 j_l(k_1r)j_l(k_2r) \mathrm{d}r
+  = \frac{\pi}{2k_1^2}\delta(k_1-k_2)
+\end{align}
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfc695d3" class="outline-2">
+<h2 id="orgfc695d3">Spherical Harmonics</h2>
+<div class="outline-text-2" id="text-orgfc695d3">
+</div>
+<div id="outline-container-org8814c1c" class="outline-3">
+<h3 id="org8814c1c">Associated Legendre Functions</h3>
+<div class="outline-text-3" id="text-org8814c1c">
+\begin{align}
+  P_l^m(x) = (-1)^m \frac{\mathrm{d}^m}{\mathrm{d}x^m}P_l(x)
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgca81edb" class="outline-3">
+<h3 id="orgca81edb">Spherical Harmonics</h3>
+<div class="outline-text-3" id="text-orgca81edb">
+\begin{align}
+  Y_l^m (\theta,\phi) \equiv \sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}}
+  P_l^m(\cos\theta)e^{\mathrm{i}m\phi}
+\end{align}
+<p>
+&#x5B83;&#x4EEC;&#x5728;&#x6574;&#x4E2A;&#x7403;&#x9762;&#x4E0A;&#x662F;&#x6B63;&#x4EA4;&#x5F52;&#x4E00;&#x7684;
+</p>
+\begin{align}
+  \int_0^{2\pi} \mathrm{d}\phi \int_0^{\pi}\sin \theta \mathrm{d}\theta
+   \left[ Y_{l_1}^{m_1} (\theta,\phi) \right]^{*}
+   Y_{l_2}^{m_2} (\theta,\phi) =\delta_{l_1l_2} \delta_{m_1m_2}
+\end{align}
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org0cff3d8" class="outline-2">
+<h2 id="org0cff3d8">Summary</h2>
+<div class="outline-text-2" id="text-org0cff3d8">
+<p>
+Legendre equation and its orthogonality
+</p>
+\begin{align}
+  (1-x^2) P&apos;&apos;(x) - 2xP&apos;(x) + \lambda P(x) = 0
+\end{align}
+\begin{align}
+  \int_{-1}^{1} P_l(x)P_m(x) \cdot \mathrm{d}x 
+   = \frac{2 \delta_{lm}}{2l+1}
+\end{align}
+<p>
+associated Legendre equation
+</p>
+\begin{align}
+  (1-x^2) P&apos;&apos;(x) -2x P&apos;(x) + \left[ 
+  \lambda - \frac{m^2}{1-x^2} \right]P(x) = 0
+\end{align}
+<p>
+&#x89E3;&#x4E3A;
+</p>
+\begin{align}
+  P_l^m(x) = (-1)^m \frac{\mathrm{d}^m}{\mathrm{d}x^m}P_l(x)
+\end{align}
+<p>
+Spherical Harmonics
+</p>
+\begin{align}
+  Y_l^m (\theta,\phi) \equiv \sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}}
+  P_l^m(\cos\theta)e^{\mathrm{i}m\phi}
+\end{align}
+<p>
+orthogonality
+</p>
+\begin{align}
+  \int_0^{2\pi} \mathrm{d}\phi \int_0^{\pi}\sin \theta \mathrm{d}\theta
+   \left[ Y_{l_1}^{m_1} (\theta,\phi) \right]^{*}
+   Y_{l_2}^{m_2} (\theta,\phi) =\delta_{l_1l_2} \delta_{m_1m_2}
+\end{align}
+<p>
+Bessel ODE
+</p>
+\begin{align}
+  x^2 J_{\nu}&apos;&apos; +x J_{\nu}&apos; + (x^2 - \nu^2)J_{\nu} = 0
+\end{align}
+<p>
+the Bessel functions of the first kind
+</p>
+\begin{align}
+ J_{-n}(x) = (-1)^n J_n(x)
+\end{align}
+<p>
+Neumann functions ( the Bessel functions of the second kind )
+</p>
+\begin{align}
+  Y_{\nu}(x) = \frac{\cos (\nu\pi) J_{\nu}(x)-J_{-\nu(x)}}{\sin(\nu\pi)}
+\end{align}
+\begin{align}
+  Y_n(x) = \lim_{\nu\to n}Y_{\nu}(x)
+\end{align}
+<p>
+Hankel Functions, &#x66FE;&#x7ECF;&#x4E5F;&#x5E38;&#x88AB;&#x53EB;&#x505A; Bessel functions of the third kind
+. &#x5B83;&#x7531; Bessel functions of the first kind and the second kind &#x7684;&#x7EBF;&#x6027;&#x7EC4;
+&#x5408;&#x5B9A;&#x4E49; 
+</p>
+\begin{align}
+  H_{\nu}^{(1)} = J_{\nu}(x) + \mathrm{i}Y_{\nu}(x) \\
+  H_{\nu}^{(2)} = J_{\nu}(x) - \mathrm{i}Y_{\nu}(x) 
+\end{align}
+<p>
+MOdified Bessel equation
+</p>
+\begin{align}
+  \rho^2 \frac{\mathrm{d}^2}{\mathrm{d}\rho^2}P_{\nu}(k\rho)
+   + \rho \frac{\mathrm{d}}{\mathrm{d}\rho}P_{\nu}(k\rho)
+   - (k^2\rho^2 + \nu^2) P_{\nu} P_{\nu}(k\rho) = 0
+\end{align}
+<p>
+\(k^2\rho^2\) &#x524D;&#x9762;&#x7684;&#x7B26;&#x53F7;&#x53D8;&#x4E86;
+Modified Bessel Functions of the First Kind
+</p>
+\begin{align}
+  I_n(x) = I_{-n}(x)
+\end{align}
+<p>
+&#x5B83;&#x6CA1;&#x6709;&#x632F;&#x8361;. &#x5B83;&#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x89E3;&#x4E3A;
+Modified Bessel Functions of the Second Kind
+</p>
+\begin{align}
+  K_{\nu}(x) = \frac{\pi}{2}\frac{I_{-\nu}(x)-I_{\nu}(x)}{\sin(\nu\pi)}
+\end{align}
+<p>
+Spherical Bessel Functions
+</p>
+\begin{align}
+  r^2 \frac{\mathrm{d}^2 R}{\mathrm{d}r^2} + 2r \frac{\mathrm{d}R}{\mathrm{d}r}
+  +[k^2r^2 - l(l + 1)]R = 0
+\end{align}
+\begin{align}
+  j_n(x) =&amp; \sqrt{\frac{\pi}{2x}}J_{n+1/2}(x) \\
+  y_n(x) =&amp; \sqrt{\frac{\pi}{2x}}Y_{n+1/2}(x) \\
+  h_n^{(1)}(x) =&amp; j_n(x) +\mathrm{i}y_n(x) \\
+  h_n^{(2)}(x) =&amp; j_n(x) -\mathrm{i}y_n(x) \\
+\end{align}
+<p>
+asymptotic as \(x\to\infty\)
+</p>
+\begin{align}
+  j_n(x) =&amp; \frac{1}{x}\sin (x - \frac{n\pi}{2}) \\
+  y_n(x) =&amp; - \frac{1}{x}\cos (x - \frac{n\pi}{2})
+\end{align}
+<p>
+Closure Relation for spherical Bessel functions 
+</p>
+\begin{align}
+  \int_0^{\infty} r^2 j_l(k_1r)j_l(k_2r) \mathrm{d}r
+  = \frac{\pi}{2k_1^2}\delta(k_1-k_2)
+\end{align}
+</div>
+</div>
+
+
+<div id="outline-container-orgcd76024" class="outline-2">
+<h2 id="orgcd76024">Reference</h2>
+<div class="outline-text-2" id="text-orgcd76024">
+<p>
+&#x6881;&#x6606;&#x6DFC;&#x7F16;, &#x5218;&#x6CD5;,&#x7F2A;&#x56FD;&#x5E86;&#x4FEE;&#x8BA2;, &#x6570;&#x5B66;&#x7269;&#x7406;&#x65B9;&#x6CD5;(&#x7B2C;&#x56DB;&#x7248;)
+</p>
+
+<ul class="org-ul">
+<li>11.5 &#x7403;&#x8D1D;&#x585E;&#x5C14;&#x65B9;&#x7A0B;</li>
+</ul>
+
+<p>
+Arfken, Weber, Harris, Mathematical Methods for Physicists 7ed: 
+</p>
+
+<ul class="org-ul">
+<li>Chap 7.5 Series Solutions-Frobenius&apos; Methods</li>
+
+<li>Example 8.3.1 Legendre Equation</li>
+
+<li>Chap 14 Bessel Functions</li>
+
+<li>Chap 15.1 Legendre Polynomials</li>
+</ul>
+
+<p>
+J. J Sakurai, Jim Napolitano, Modern Quantum Mechanics 2ed:
+</p>
+
+<ul class="org-ul">
+<li>Chap 6.4 Phase Shifts and Partial Waves</li>
+</ul>
+
+<p>
+R. Mehrem, arXiv:0909.0494v4: <a href="https://arxiv.org/pdf/0909.0494.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/0909.0494.pdf</a>
+</p>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/散射/" rel="tag"># 散射</a>
+          
+            <a href="/tags/分波展开/" rel="tag"># 分波展开</a>
+          
+            <a href="/tags/Legendre-fucntions/" rel="tag"># Legendre fucntions</a>
+          
+            <a href="/tags/associated-Legendre-functions/" rel="tag"># associated Legendre functions</a>
+          
+            <a href="/tags/Bessel-functions/" rel="tag"># Bessel functions</a>
+          
+            <a href="/tags/Spherical-Bessel-functions/" rel="tag"># Spherical Bessel functions</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/31/SomeIntegrals/" rel="next" title="Some Integrals">
+                <i class="fa fa-chevron-left"></i> Some Integrals
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/05/PartialWaveExpansion/" rel="prev" title="Partial Wave Expansion">
+                Partial Wave Expansion <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgef0ea90"><span class="nav-text">Legendre Polynomials</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org8343cea"><span class="nav-text">Legendre Equation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgaa2ed15"><span class="nav-text">Frobenius&#39; Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org7a04c21"><span class="nav-text">\(s=0\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org989a639"><span class="nav-text">\(s=1\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org54c64e1"><span class="nav-text">合并</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org77adcb1"><span class="nav-text">Legendre Polynomials</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org55787fd"><span class="nav-text">Orthogonality</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org064970d"><span class="nav-text">Associated Legendre Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orgd0bd2cd"><span class="nav-text">Associated Legendre Equation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org3005f6e"><span class="nav-text">Frobenius&#39; Methods</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org03c1dfb"><span class="nav-text">Bessel Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org9f0700c"><span class="nav-text">Bessel ODE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgb8ff716"><span class="nav-text">Frobenius&#39; Methods and Bessel Functions of the First Kind</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orgcfa162f"><span class="nav-text">\(s = n\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org0962997"><span class="nav-text">\(s = -n\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org24aee57"><span class="nav-text">code</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgb2c0fdd"><span class="nav-text">the Bessel Functions of the Second Kind</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org09d87a7"><span class="nav-text">Definition</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org6c7a45a"><span class="nav-text">Hankel Functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org77db3f8"><span class="nav-text">Modified Bessel Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orgea28b4b"><span class="nav-text">MOdified Bessel equation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgcfccf3c"><span class="nav-text">Modified Bessel Functions of the First Kind</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgd9d0b66"><span class="nav-text">Code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org133f31b"><span class="nav-text">Modified Bessel Functions of the Second Kind</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd35f98c"><span class="nav-text">Spherical Bessel Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org8719989"><span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org88d206d"><span class="nav-text">Some Examples</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org14dd5f5"><span class="nav-text">Asymptotic Forms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org09a0496"><span class="nav-text">Closure Relation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgfc695d3"><span class="nav-text">Spherical Harmonics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org8814c1c"><span class="nav-text">Associated Legendre Functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgca81edb"><span class="nav-text">Spherical Harmonics</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org0cff3d8"><span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgcd76024"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

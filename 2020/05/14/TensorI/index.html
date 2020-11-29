@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读书笔记: Tensors and Representations of the Rotation Groups SO(N)">
+<meta property="og:url" content="https://zqw.ink/2020/05/14/TensorI/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:49.110Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="读书笔记: Tensors and Representations of the Rotation Groups SO(N)">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2020/05/14/TensorI/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>读书笔记: Tensors and Representations of the Rotation Groups SO(N) | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2020/05/14/TensorI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">读书笔记: Tensors and Representations of the Rotation Groups SO(N)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-14 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-14T00:00:00+08:00">2020-05-14</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/14/TensorI/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/05/14/TensorI/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-orgd06e579" class="outline-2">
+<h2 id="orgd06e579">&#x524D;&#x8A00;</h2>
+<div class="outline-text-2" id="text-orgd06e579">
+<p>
+Zee &#x7684;&#x8FD9;&#x672C;&#x4E66;&#x770B;&#x4E86;&#x597D;&#x4E45;&#x4E86;, &#x4E5F;&#x6CA1;&#x6574;&#x7406;&#x8FC7;&#x7B14;&#x8BB0;. &#x770B;&#x5230;&#x54EA;&#x91CC;&#x90FD;&#x4E0D;&#x8BB0;&#x5F97;&#x4E86;&#x2026; &#x4ECA;&#x5929;&#x6574;&#x7406;&#x4E00;&#x4E0B;, &#x4E0B;&#x6B21;
+&#x518D;&#x770B;&#x5C31;&#x77E5;&#x9053;&#x4ECE;&#x54EA;&#x770B;&#x4E86;(&#x867D;&#x7136;&#x4E0D;&#x77E5;&#x9053;&#x4E0B;&#x6B21;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x770B; (- _ -)  ).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcfc317e" class="outline-2">
+<h2 id="orgcfc317e">IV.1 Tensor and Representations of Rotation Groups \(SO(N)\)</h2>
+<div class="outline-text-2" id="text-orgcfc317e">
+</div>
+<div id="outline-container-orgd92d132" class="outline-3">
+<h3 id="orgd92d132">Representing the rotation groups</h3>
+<div class="outline-text-3" id="text-orgd92d132">
+<p>
+\(SO(N)\) &#x7FA4;&#x5B9A;&#x4E49;&#x4E3A;, &#x6EE1;&#x8DB3;&#x5982;&#x4E0B;&#x5173;&#x7CFB;&#x7684;, \(N\times N\) &#x7EF4;&#x77E9;&#x9635; \(R\) , &#x7EC4;&#x6210;&#x7684;&#x7FA4;
+</p>
+\begin{align}
+  R^TR = I \\
+  \det R = 1
+\end{align}
+
+<p>
+vector &#x7684;&#x5B9A;&#x4E49;, &#x7531;&#x5B83;&#x5728;&#x8F6C;&#x52A8;&#x4E0B;&#x7684;&#x5173;&#x7CFB;&#x5B9A;&#x4E49;
+</p>
+\begin{align}
+  v^i \to V&apos;^{i} = R^{ij} V^j \quad \quad \mathrm{with} i, j = 1, 2, \cdots,N
+\end{align}
+
+<p>
+&#x7531;&#x4E00;&#x4E2A; vector &#x751F;&#x6210; \(SO(N)\) &#x7FA4;&#x7684;&#x4E00;&#x4E2A; \(N\) &#x7EF4; irreducible representations.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org22cd57c" class="outline-3">
+<h3 id="org22cd57c">Several questions and some flying guesses</h3>
+</div>
+
+<div id="outline-container-orgd637e8d" class="outline-3">
+<h3 id="orgd637e8d">Constructing the irreducible representations of \(SO(N)\)</h3>
+<div class="outline-text-3" id="text-orgd637e8d">
+<p>
+&#x8FD9;&#x91CC;&#x7ED9;&#x51FA;&#x4E86; tensor &#x7684;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;. &#x60F3;&#x50CF;&#x4E00;&#x4E0B;, &#x5728; \(N\) &#x7EF4;&#x7A7A;&#x95F4;&#x91CC;, &#x4E00;&#x4E2A;&#x6570;&#x5B66;&#x7684;&#x4E1C;&#x897F;, &#x5B83;&#x957F;&#x7740;
+&#x4E24;&#x4E2A;&#x6307;&#x6807;, &#x5982;&#x679C;&#x5B83;&#x5728;&#x65CB;&#x8F6C;&#x4E0B;&#x6309;&#x5982;&#x4E0B;&#x65B9;&#x5F0F;&#x53D8;&#x6362;
+</p>
+\begin{align}
+  T^{ij} \to T&apos;^{ij} = R^{ik} R^{jl} T^{kl}
+\end{align}
+<p>
+&#x90A3; \(T\) &#x5C31;&#x50CF;&#x4E00;&#x4E2A; tensor &#x4E00;&#x6837;&#x53D8;&#x6362;, &#x5B83;&#x5C31;&#x662F;&#x4E00;&#x4E2A; tensor.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbfe1ec6" class="outline-3">
+<h3 id="orgbfe1ec6">Fear of tensors</h3>
+</div>
+
+<div id="outline-container-org3228a08" class="outline-3">
+<h3 id="org3228a08">Representation Theory</h3>
+<div class="outline-text-3" id="text-org3228a08">
+<p>
+tensor \(T\) &#x7684;&#x6BCF;&#x4E2A;&#x6307;&#x6807;&#x90FD;&#x72EC;&#x7ACB;&#x5730;&#x53D8;&#x6362;
+</p>
+\begin{align}
+  T^{ij} \to T&apos;^{ij} = R^{ik} R^{jl} T^{kl}
+\end{align}
+<p>
+tensor \(T\) &#x751F;&#x6210; \(SO(3)\) &#x7FA4;&#x7684;&#x4E00;&#x4E2A;&#x4E5D;&#x7EF4;&#x8868;&#x793A; \(D(R)D(R)\) .
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9076436" class="outline-3">
+<h3 id="org9076436">Reducible or irreducible?</h3>
+<div class="outline-text-3" id="text-org9076436">
+<p>
+&#x6709;&#x4E5D;&#x4E2A;&#x91CF; \(T^{ij}\) &#x5728;&#x53D8;&#x6362;&#x4E0B;&#x4F1A;&#x53D8;&#x6210;&#x53E6;&#x5916;&#x4E5D;&#x4E2A;. &#x4F46;&#x662F;&#x5B83;&#x662F;&#x5426;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x5B50;&#x96C6;, &#x80FD;&#x591F;&#x72EC;&#x7ACB;&#x5730;&#x53D8;&#x6362;?
+&#x6709;&#x7684;.
+</p>
+
+<p>
+antisymmetric &#x7684; \(A^{ij}\equiv T^{ij} - T^{ji}\) , &#x5177;&#x6709;&#x53CD;&#x5BF9;&#x79F0;&#x7684;&#x6027;&#x8D28; \(A^{ij} =
+-A^{ji}\) . &#x5B83;&#x5982;&#x4E0B;&#x53D8;&#x6362;
+</p>
+\begin{align}
+  A^{ij} \to A&apos;^{ij} \equiv T&apos;^{ij} - T&apos;^{ji} = R^{ik}R^{jl}T^{kl} - R^{jk}R^{il}T^{kl}
+  = R^{ik}R^{jl}T^{kl} - R^{jl}R^{ik}T^{lk}
+  = R^{ik}R^{jl}(T^{kl} - T^{lk}) = R^{ik}R^{jl} A^{kl}
+\end{align}
+<p>
+&#x6240;&#x4EE5; \(A^{ji}\) &#x4E5F;&#x662F;&#x4E00;&#x4E2A; tensor. &#x53CD;&#x5BF9;&#x79F0;&#x7684;&#x7279;&#x6027;&#x5728;&#x53D8;&#x6362;&#x4E0B;&#x4E0D;&#x53D8;. \(A^{ji}\) &#x5171;&#x6709;
+\(\frac{1}{2}N(N-1)\) &#x4E2A;, &#x4F8B;&#x5982;&#x6B64;&#x65F6; \(N=3\) &#x5171;&#x6709; \(3\) &#x4E2A;.
+</p>
+
+<p>
+&#x8FD8;&#x6709; symmetric \(S^{ij}\equiv T^{ij} + T^{ji}\) , &#x540C;&#x6837;&#x53EF;&#x4EE5;&#x8BC1;&#x660E;&#x5B83;&#x662F;&#x4E00;&#x4E2A; tensor. &#x7136;&#x800C;&#x5B83;
+&#x8FD8;&#x53EF;&#x4EE5;&#x7EA6;&#x5316;, &#x5B83;&#x7684; trace \(S^{ii} = S^{11} + S^{22} + \cdots\) &#x4E5F;&#x662F;&#x4E00;&#x4E2A; tensor. 
+</p>
+
+<p>
+&#x56E0;&#x6B64; tensor \(T^{ij}\) &#x751F;&#x6210; \(SO(3)\) &#x7684;&#x4E00;&#x4E2A; \(9\) &#x7EF4;&#x8868;&#x793A;, &#x5B83;&#x53EF;&#x4EE5;&#x7EA6;&#x5316;&#x4E3A; \(3\oplus 5\oplus 1\) , &#x5206;
+&#x522B;&#x662F; \(\frac{1}{2}N(N-1)\) &#x7EF4;&#x7684;&#x53CD;&#x5BF9;&#x79F0;&#x5F20;&#x91CF; \(A^{ij}\) ,  \(\frac{1}{2}N(N+1)-1\) &#x7EF4;&#x7684;&#x65E0;&#x8FF9;
+&#x5BF9;&#x79F0;&#x5F20;&#x91CF; \(\tilde{S}^{ij} = S^{ij} - \delta^{ij}\frac{S^{kk}}{N}\) &#x548C; \(1\) &#x7EF4;&#x7684;&#x8FF9;
+\(S^{ii}\) .
+</p>
+
+<p>
+&#x5C06; \(T^{ij}\) &#x7EA6;&#x5316;&#x6210;&#x4E09;&#x4E2A;&#x8868;&#x793A;, &#x4E5F;&#x5C31;&#x662F;&#x5C06; \(T^{ij}\) &#x751F;&#x6210;&#x7684;&#x8868;&#x793A;&#x5206;&#x5757;&#x5BF9;&#x89D2;&#x5316;&#x7684;&#x8FC7;&#x7A0B;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org56a50c5" class="outline-3">
+<h3 id="org56a50c5">An advanced tidbit(&#x82B1;&#x7D6E;)</h3>
+</div>
+
+<div id="outline-container-org21a5874" class="outline-3">
+<h3 id="org21a5874">Invariant symbols</h3>
+<div class="outline-text-3" id="text-org21a5874">
+<p>
+SO(3) &#x7684; Orthogonal
+</p>
+\begin{align}
+  R^TR =&amp;  I \\
+  (R^{T})^{ij}R^{jk} =&amp; R^{ji} R^{jk} = \delta^{ik} \\
+ \delta^{ij} R^{ik}R^{jl} =&amp; \delta^{kl}
+\end{align}
+<p>
+SO(3) &#x7684; Special
+</p>
+\begin{align}
+  \det R =&amp; 1 \\
+  \varepsilon^{ijk\cdots n}R^{ip}R^{jq}R^{kr}\cdots R^{ns} =&amp; \varepsilon^{pqr\cdots s}
+\end{align}
+
+<p>
+&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x5F0F;&#x5B50;&#x53EF;&#x4EE5;&#x770B;&#x51FA;, \(\delta^{ij}, \varepsilon^{ijk\cdots n}\) &#x5728;&#x65CB;&#x8F6C;&#x4E0B;&#x662F;&#x4E0D;&#x53D8;&#x7684;, &#x662F;
+invariant symbols. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3693fe8" class="outline-3">
+<h3 id="org3693fe8">Dual tensors</h3>
+<div class="outline-text-3" id="text-org3693fe8">
+<p>
+&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65B0;&#x7684; tensor \(B^{k\cdots n} = \varepsilon^{ijk\cdots n}A^{ij}\) , &#x5B83;&#x6709; \(N-2\) &#x4E2A;&#x6307;&#x6807;(
+&#x518D;&#x590D;&#x4E60;&#x7684;&#x65F6;&#x5019;, &#x53EF;&#x4EE5;&#x9A8C;&#x8BC1;&#x5B83;&#x6309;&#x5F20;&#x91CF;&#x7684;&#x65B9;&#x5F0F;&#x65CB;&#x8F6C;&#x505A;&#x7EC3;&#x4E60;&#x54E6; ). \(A\) &#x548C; \(B\) &#x53EB;&#x505A; dual to each
+other. 
+</p>
+
+<p>
+&#x5BF9;&#x4E8E; \(N=3\) &#x7684;&#x60C5;&#x51B5;, \(B^k=\varepsilon^{ijk}A^{ij}\) , &#x6709;&#x4E00;&#x4E2A;&#x6307;&#x6807;, &#x5C31;&#x662F;&#x4E00;&#x4E2A;
+vector. &#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x4ECE; \(9\) &#x7EF4;&#x8868;&#x793A;&#x4E2D;&#x7EA6;&#x5316;&#x51FA;&#x6765;&#x7684; \(3\) &#x7EF4;&#x8868;&#x793A;&#x5C31;&#x662F;&#x4E4B;&#x524D;&#x5B9A;&#x4E49; \(SO(3)\) &#x65F6;&#x7684;
+vector. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb2fb0b3" class="outline-3">
+<h3 id="orgb2fb0b3">Constructing larger irreducible representations of \(SO(N)\)</h3>
+<div class="outline-text-3" id="text-orgb2fb0b3">
+<p>
+&#x7528;&#x8FD9;&#x79CD;&#x5F20;&#x91CF;&#x7684;&#x65B9;&#x6CD5;, &#x53EF;&#x4EE5;&#x6784;&#x9020;&#x51FA;&#x8BB8;&#x591A; \(SO(N)\) &#x7FA4;&#x7684;&#x8868;&#x793A;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdb94e3f" class="outline-3">
+<h3 id="orgdb94e3f">Contraction indices</h3>
+<div class="outline-text-3" id="text-orgdb94e3f">
+<p>
+\(S^{ii}\) &#x662F; contracted indices &#x7684;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x60C5;&#x51B5;, &#x5B83;&#x53EA;&#x6709;&#x4E24;&#x4E2A;&#x6307;&#x6807;, &#x628A;&#x5B83;&#x4EEC;&#x6536;&#x7F29;&#x4E86;&#x4E4B;&#x540E;,
+&#x5C31;&#x6309;&#x7167; \(0\) &#x4E2A;&#x6307;&#x6807;&#x7684;&#x5F20;&#x91CF;&#x65CB;&#x8F6C;, &#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x4E2A; trivial &#x7684;&#x8868;&#x793A;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org47e5aaf" class="outline-3">
+<h3 id="org47e5aaf">Why SO(3) is special</h3>
+<div class="outline-text-3" id="text-org47e5aaf">
+<p>
+&#x5728;&#x524D;&#x9762;&#x7684; Dual tensors &#x90E8;&#x5206;&#x63D0;&#x5230;, &#x5BF9;&#x4E8E; \(N=3\) &#x7684; \(SO(3)\) &#x7684;&#x60C5;&#x51B5;, &#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x5168;&#x53CD;&#x5BF9;&#x79F0;&#x7684;
+&#x5F20;&#x91CF; \(A^{ij}\) , &#x5B83;&#x7684; dual tensor &#x6709; \(N-2 = 3 - 2 = 1\) &#x4E2A;&#x6307;&#x6807;. \(N =3\) &#x8BF4;&#x660E;
+\(\varepsilon_{ijk}\) &#x53EA;&#x6709; \(3\) &#x4E2A;&#x6307;&#x6807;, \(2\) &#x662F;&#x8BF4; \(A^{ij}\) &#x6709;&#x4E24;&#x4E2A;&#x6307;&#x6807;.
+</p>
+
+<p>
+&#x4E0B;&#x9762;&#x8BF4;&#x660E;&#x5BF9;&#x4E8E; \(SO(3)\) , &#x9AD8;&#x9636;&#x7684;&#x5F20;&#x91CF;&#x8868;&#x793A; \(T^{i_1\cdots i_j}\) , &#x5BF9;&#x5B83;&#x4EEC;&#x8FDB;&#x884C;&#x5206;&#x89E3;, &#x53EA;&#x6709;&#x5168;&#x5BF9;&#x79F0;
+&#x5F20;&#x91CF;&#x4F1A;&#x7ED9;&#x51FA;&#x65B0;&#x7684;&#x4E0D;&#x53EF;&#x7EA6;&#x8868;&#x793A;. 
+</p>
+
+<blockquote>
+<p>
+Example:
+</p>
+
+<p>
+&#x5BF9;&#x4E8E;&#x4E8C;&#x9636;&#x5F20;&#x91CF;, &#x524D;&#x9762;&#x5DF2;&#x7ECF;&#x8BE6;&#x7EC6;&#x8BA8;&#x8BBA;&#x4E86;, &#x5206;&#x89E3;&#x540E;&#x7ED9;&#x51FA;&#x7684;&#x4E0D;&#x53EF;&#x7EA6;&#x8868;&#x793A;&#x662F; \(3 \oplus 5 \oplus 1\) , &#x5176;&#x4E2D;
+\(1\) &#x662F; trivial &#x7684;&#x8868;&#x793A;, \(3\) &#x7B49;&#x4EF7;&#x4E8E;&#x4E00;&#x9636;&#x5F20;&#x91CF;, &#x4E5F;&#x5C31;&#x662F; vector &#x7ED9;&#x51FA;&#x7684;&#x8868;&#x793A;, &#x53EA;&#x6709;&#x4E8C;&#x9636;&#x5168;
+&#x5BF9;&#x79F0;&#x65E0;&#x8FF9;&#x5F20;&#x91CF;&#x4F1A;&#x7ED9;&#x51FA; \(SO(3)\) &#x7FA4;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x4E0D;&#x53EF;&#x7EA6;&#x8868;&#x793A;
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+Example:
+</p>
+
+<p>
+&#x5BF9;&#x4E8E;&#x4E09;&#x9636;&#x5F20;&#x91CF;, &#x53EF;&#x4EE5;&#x6784;&#x9020;&#x90E8;&#x5206;&#x5BF9;&#x79F0;&#x548C;&#x53CD;&#x5BF9;&#x79F0;&#x7684;&#x5F20;&#x91CF; \(T^{\{ij\}k} \equiv (T^{ijk} + T^{jik})\) ,
+\(T^{[ij]k} \equiv (T^{ijk} - T^{jik})\)
+</p>
+
+<p>
+&#x5BF9;&#x4E8E; \(T^{[ij]k}\) , &#x56E0;&#x4E3A;&#x53EF;&#x4EE5;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x4E8C;&#x9636;&#x5F20;&#x91CF; \(B^{lk} \equiv
+\varepsilon^{ijl}T^{[ij]k}\) &#x6240;&#x4EE5;&#x5B83;&#x751F;&#x6210;&#x7684;&#x8868;&#x793A;&#x5728;&#x4E8C;&#x9636;&#x5F20;&#x91CF;&#x4E2D;&#x5C31;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x4E86;
+</p>
+
+<p>
+&#x5BF9;&#x4E8E; \(T^{\{ij\}k}\) , &#x53EF;&#x4EE5;&#x5C06;&#x5B83;&#x5206;&#x89E3;&#x6210;&#x5168;&#x5BF9;&#x79F0;&#x548C;&#x90E8;&#x5206;&#x53CD;&#x5BF9;&#x79F0;&#x7684;&#x90E8;&#x5206;, &#x4E5F;&#x5C31;&#x662F; \(3T^{\{ij\}k} =
+(T^{\{ij\}k} + T^{\{jk\}i} + T^{\{ki\}j}) + (T^{\{ij\}k} - T^{\{jk\}i}) + (T^{\{ij\}k} -
+T^{\{ki\}j})\)
+&#x7B2C;&#x4E00;&#x4E2A;&#x5C0F;&#x62EC;&#x53F7;&#x4E2D;&#x662F;&#x5168;&#x5BF9;&#x79F0;&#x7684;, &#x540E;&#x4E24;&#x4E2A;&#x5C0F;&#x62EC;&#x53F7;&#x5206;&#x522B;&#x662F;&#x5173;&#x4E8E; \(ik, jk\) &#x53CD;&#x5BF9;&#x79F0;&#x7684;. &#x5BF9;&#x4E8E;&#x53CD;&#x5BF9;&#x79F0;&#x7684;
+&#x90E8;&#x5206;, &#x5B83;&#x4EEC;&#x751F;&#x6210;&#x7684;&#x8868;&#x793A;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x5728;&#x66F4;&#x4F4E;&#x9636;&#x7684;&#x5F20;&#x91CF;&#x4E2D;&#x627E;&#x5230;. &#x6240;&#x4EE5;&#x4E09;&#x9636;&#x5F20;&#x91CF;&#x53EA;&#x6709;&#x5168;&#x5BF9;&#x79F0;&#x90E8;&#x5206;&#x624D;&#x4F1A;
+&#x751F;&#x6210; \(SO(3)\) &#x7FA4;&#x65B0;&#x7684;&#x8868;&#x793A;.
+</p>
+</blockquote>
+
+<p>
+&#x5BF9;&#x4E8E;&#x66F4;&#x9AD8;&#x9636;&#x7684;&#x5F20;&#x91CF;, &#x6BD4;&#x5982;&#x56DB;&#x9636;&#x5F20;&#x91CF; \(T^{ijkl}\) , &#x53EF;&#x4EE5;&#x505A;&#x7C7B;&#x4F3C;&#x7684;&#x5206;&#x89E3;, &#x6700;&#x7EC8;&#x4E5F;&#x53EA;&#x6709;&#x5168;&#x5BF9;&#x79F0;&#x90E8;
+&#x5206;&#x4E2D;&#x4F1A;&#x6709;&#x65B0;&#x7684;&#x8868;&#x793A;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc0fe7fe" class="outline-3">
+<h3 id="orgc0fe7fe">Dimension of the irreducible representations of \(SO(3)\)</h3>
+<div class="outline-text-3" id="text-orgc0fe7fe">
+<p>
+&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x5206;&#x6790;, &#x5F97;&#x51FA;&#x7684;&#x7ED3;&#x8BBA;&#x5C31;&#x662F;, &#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x66F4;&#x9AD8;&#x7EF4;&#x7684;&#x5F20;&#x91CF;, &#x53EA;&#x6709;&#x5168;&#x5BF9;&#x79F0;&#x7684;&#x90E8;&#x5206;&#x4F1A;&#x7ED9;&#x51FA;&#x65B0;&#x7684;
+&#x8868;&#x793A;, &#x6240;&#x4EE5;&#x901A;&#x8FC7;&#x8003;&#x8651;&#x5404;&#x9636;&#x7684;&#x5168;&#x5BF9;&#x79F0;&#x5F20;&#x91CF;, &#x4F1A;&#x7ED9;&#x51FA; \(SO(3)\) &#x7FA4;&#x7684;&#x8BB8;&#x591A;&#x4E0D;&#x53EF;&#x7EA6;&#x8868;&#x793A;, &#x4E0B;&#x9762;&#x6C42;&#x5B83;
+&#x4EEC;&#x7684;&#x7EF4;&#x5EA6;&#x662F;&#x591A;&#x5C11;.
+</p>
+
+<p>
+&#x8003;&#x8651; \(j\) &#x9636;&#x5168;&#x5BF9;&#x79F0;&#x5F20;&#x91CF; \(S^{i_1i_2\cdots i_j}\) , &#x5B83;&#x603B;&#x5171;&#x6709; 
+</p>
+\begin{align}
+  \sum_{k=0}^j(k+1) = \frac{1}{2}( j + 1)(j + 2)
+\end{align}
+<p>
+\(SO(3)\) &#x7FA4;&#x7684;&#x6307;&#x6807;&#x53EA;&#x6709;&#x4E09;&#x79CD;&#x53EF;&#x80FD;&#x7684;&#x503C;, &#x5047;&#x8BBE;&#x7B2C;&#x4E00;&#x4E2A;&#x6307;&#x6807;&#x6709; \(j - k\) &#x4E2A;, &#x90A3;&#x4E48;&#x5269;&#x4E0B;&#x7684;&#x4E24;&#x6307;&#x6807;&#x603B;&#x5171;&#x6709;
+\(k\) &#x4E2A;. &#x8FD9; \(k\) &#x4E2A;&#x6307;&#x6807;, &#x6709; \(k+1\) &#x79CD;&#x5206;&#x914D;&#x53EF;&#x80FD;.
+</p>
+
+<p>
+&#x7136;&#x540E;&#x53BB;&#x6389;&#x5B83;&#x4EEC;&#x7684; trace \(\delta^{i_1i_2}S^{i_1i_2\cdots i_j}\) , &#x8FD9;&#x4E2A; trace &#x662F;&#x4E2A; \(j - 2\) &#x9636;&#x5168;&#x5BF9;&#x79F0;
+&#x5F20;&#x91CF;, &#x56E0;&#x6B64;&#x6839;&#x636E;&#x4E0A;&#x9762;&#x7684;&#x8BA8;&#x8BBA;&#x6709; \(\frac{1}{2}(j - 2 + 1)(j - 2 + 2) = \frac{1}{2}j(j -
+1)\) &#x4E2A;&#x8FF9;. &#x6240;&#x4EE5; \(j\) &#x9636;&#x5F20;&#x91CF;&#x7ED9;&#x51FA;&#x7684; \(SO(3)\) &#x7684;&#x65B0;&#x7684;&#x4E0D;&#x53EF;&#x7EA6;&#x8868;&#x793A;&#x7684;&#x7EF4;&#x5EA6;&#x662F;
+</p>
+\begin{align}
+  \frac{1}{2}(j + 1)(j + 2) - \frac{1}{2}j(j - 1) = 2j + 1
+\end{align}
+</div>
+</div>
+
+
+<div id="outline-container-org77f113e" class="outline-3">
+<h3 id="org77f113e">The tensors of \(SO(2)\)</h3>
+</div>
+
+<div id="outline-container-orgc8d6c9e" class="outline-3">
+<h3 id="orgc8d6c9e">Polar decomposition</h3>
+</div>
+
+<div id="outline-container-org092a30c" class="outline-3">
+<h3 id="org092a30c">Roations in higher-dimensional space</h3>
+</div>
+
+<div id="outline-container-org6a7206e" class="outline-3">
+<h3 id="org6a7206e">Self-dual and antiself-dual</h3>
+</div>
+
+<div id="outline-container-org78abda6" class="outline-3">
+<h3 id="org78abda6">Restriction to a subgroup</h3>
+</div>
+
+<div id="outline-container-org31e46f2" class="outline-3">
+<h3 id="org31e46f2">The adjoint representation and the Jacobi identity</h3>
+</div>
+
+<div id="outline-container-orgee17e92" class="outline-3">
+<h3 id="orgee17e92">The adjoint of \(SO(N)\)</h3>
+</div>
+</div>
+
+<div id="outline-container-org214eb95" class="outline-2">
+<h2 id="org214eb95">Reference</h2>
+<div class="outline-text-2" id="text-org214eb95">
+<ul class="org-ul">
+<li>A. Zee, Group Theory in a Nutshell for Physicists, 2016, Princeton University Press</li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/02/rfcurrent_linear_respons/" rel="next" title="由 rf current 的定义推导其格林函数的表达形式">
+                <i class="fa fa-chevron-left"></i> 由 rf current 的定义推导其格林函数的表达形式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/18/Functional/" rel="prev" title="从此不再恐惧变分和高阶泛函导数(update 23/Sept/2020)">
+                从此不再恐惧变分和高阶泛函导数(update 23/Sept/2020) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd06e579"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgcfc317e"><span class="nav-text">IV.1 Tensor and Representations of Rotation Groups \(SO(N)\)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd92d132"><span class="nav-text">Representing the rotation groups</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org22cd57c"><span class="nav-text">Several questions and some flying guesses</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd637e8d"><span class="nav-text">Constructing the irreducible representations of \(SO(N)\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgbfe1ec6"><span class="nav-text">Fear of tensors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org3228a08"><span class="nav-text">Representation Theory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org9076436"><span class="nav-text">Reducible or irreducible?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org56a50c5"><span class="nav-text">An advanced tidbit(花絮)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org21a5874"><span class="nav-text">Invariant symbols</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org3693fe8"><span class="nav-text">Dual tensors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgb2fb0b3"><span class="nav-text">Constructing larger irreducible representations of \(SO(N)\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgdb94e3f"><span class="nav-text">Contraction indices</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org47e5aaf"><span class="nav-text">Why SO(3) is special</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgc0fe7fe"><span class="nav-text">Dimension of the irreducible representations of \(SO(3)\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org77f113e"><span class="nav-text">The tensors of \(SO(2)\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgc8d6c9e"><span class="nav-text">Polar decomposition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org092a30c"><span class="nav-text">Roations in higher-dimensional space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org6a7206e"><span class="nav-text">Self-dual and antiself-dual</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org78abda6"><span class="nav-text">Restriction to a subgroup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org31e46f2"><span class="nav-text">The adjoint representation and the Jacobi identity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgee17e92"><span class="nav-text">The adjoint of \(SO(N)\)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org214eb95"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

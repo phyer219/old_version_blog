@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从此不再恐惧变分和高阶泛函导数(update 23&#x2F;Sept&#x2F;2020)">
+<meta property="og:url" content="https://zqw.ink/2020/05/18/Functional/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:49.110Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从此不再恐惧变分和高阶泛函导数(update 23&#x2F;Sept&#x2F;2020)">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2020/05/18/Functional/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>从此不再恐惧变分和高阶泛函导数(update 23/Sept/2020) | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2020/05/18/Functional/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">从此不再恐惧变分和高阶泛函导数(update 23/Sept/2020)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-18 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-18T00:00:00+08:00">2020-05-18</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/18/Functional/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/05/18/Functional/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-org495d9ed" class="outline-2">
+<h2 id="org495d9ed">&#x524D;&#x8A00;</h2>
+<div class="outline-text-2" id="text-org495d9ed">
+<p>
+&#x7ECF;&#x5E38;&#x78B0;&#x5230;, &#x5C06;&#x5BF9;&#x6CDB;&#x7684;&#x4E00;&#x4E9B;&#x8BA4;&#x8BC6;&#x6574;&#x7406;&#x5728;&#x8FD9;&#x91CC;, &#x4EE5;&#x4FBF;&#x67E5;&#x627E;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4a2af2b" class="outline-2">
+<h2 id="org4a2af2b">Definition</h2>
+<div class="outline-text-2" id="text-org4a2af2b">
+<p>
+&#x901A;&#x4FD7;&#x5730;&#x8BB2;, function &#x7684;&#x8F93;&#x5165;&#x662F;&#x4E00;&#x4E2A;&#x6570;, &#x8F93;&#x51FA;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x6570;. functional &#x8F93;&#x5165;&#x7684;&#x662F;&#x4E00;&#x4E2A;
+function, &#x8F93;&#x51FA;&#x662F;&#x4E00;&#x4E2A;&#x6570;
+</p>
+\begin{align}
+\mathrm{Function:}&amp;\quad\quad  \mathrm{number: 3} 
+\Rightarrow \mathrm{number: 27} \\
+\mathrm{Functional:}&amp;\quad\quad \mathrm{function:} \frac{e^xx^2}{3}
+\Rightarrow \mathrm{number: 29}
+\end{align}
+<p>
+&#x66F4;&#x52A0;&#x5F62;&#x8C61;&#x7684;&#x662F; Blundell &#x4E66;&#x4E0A;&#x7684;&#x6F2B;&#x753B;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc86d1ca" class="outline-2">
+<h2 id="orgc86d1ca">Example</h2>
+<div class="outline-text-2" id="text-orgc86d1ca">
+<p>
+functional \(G[f]\) &#x505A;&#x7528;&#x5230;&#x4E00;&#x4E2A; funciton \(f\) &#x4E0A;&#x7684;&#x7ED3;&#x679C;&#x5982;&#x4E0B;
+</p>
+\begin{align}
+  G[f] = \int_{-a}^a 5[f(x)]^2 \mathrm{d}x
+\end{align}
+<p>
+&#x90A3;&#x4E48;&#x5982;&#x679C;&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A; function \(f(x) = x^2\) , &#x90A3;&#x4E48; functional &#x5C06;&#x4F1A;&#x8FD4;&#x56DE;&#x4E0B;&#x9762;&#x7684; number 
+</p>
+\begin{align}
+  G[f] = \int_{-a}^a 5x^4 \mathrm{d}x = 2a^5
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org6a6a918" class="outline-2">
+<h2 id="org6a6a918">Functional Derivative</h2>
+<div class="outline-text-2" id="text-org6a6a918">
+<p>
+&#x7C7B;&#x4F3C; function &#x7684;&#x5BFC;&#x6570;&#x7684;&#x5B9A;&#x4E49;, functional &#x7684;&#x5BFC;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;
+</p>
+\begin{align}
+  \frac{\delta F}{\delta f(x)} = \lim_{\epsilon\to 0} \frac{F[f(x&apos;) + \epsilon \delta(x - x&apos;)] - F[f(x&apos;)]}{\epsilon} 
+\end{align}
+
+<blockquote>
+<p>
+Example:
+</p>
+
+<p>
+&#x5BF9;&#x4E8E; functional \(J[f] = \int [f(y)]^p\varphi(y) \mathrm{d}y\) ,&#x5B83;&#x7684;&#x6CDB;&#x51FD;&#x5BFC;&#x6570;&#x4E3A;
+</p>
+\begin{align}
+  \frac{\delta J[f]}{\delta f(x)} = \lim_{\epsilon\to 0}\frac{1}{\epsilon}\left[  
+    \int [f(y) + \epsilon \delta(y-x)]^p\varphi(y) \mathrm{d}y - \int [f(y)]^p\varphi(y) \mathrm{d}y
+   \right]
+\end{align}
+<p>
+&#x662F;&#x4E00;&#x4E2A; \(\frac{0}{0}\) &#x578B;&#x7684;&#x6781;&#x9650;, &#x4E0A;&#x4E0B;&#x5BF9; \(\epsilon\) &#x6C42;&#x5BFC;&#x5F97;
+</p>
+\begin{align}
+  \frac{\delta J[f]}{\delta f(x)} =&amp; \lim_{\epsilon\to 0}\frac{1}{1}\left[  
+    p\int [f(y) + \epsilon \delta(y-x)]^{p-1}\varphi(y)\delta(y - x) \mathrm{d}y 
+   \right] \\
+=&amp; \left[  
+    p\int f(y) ^{p-1}\varphi(y)\delta(y - x) \mathrm{d}y 
+   \right] \\
+=&amp; p f(x) ^{p-1}\varphi(x)
+\end{align}
+<p>
+&#x4E0E;&#x5E42;&#x6307;&#x6570;&#x578B;&#x7684; function &#x6C42;&#x5BFC;&#x6709;&#x7C7B;&#x4F3C;&#x7684;&#x7ED3;&#x679C;.
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+Example:
+</p>
+
+<p>
+&#x5BF9;&#x4E8E; functional \(F[f(x)] = \int_a^b g(f&apos;) \mathrm{d}x\) , &#x5B83;&#x7684;&#x6CDB;&#x51FD;&#x5BFC;&#x6570;&#x4E3A;
+</p>
+\begin{align}
+  \frac{\delta F[f]}{\delta f(x)} =&amp; \lim_{\epsilon\to 0}
+  \frac{1}{\epsilon}\left[  
+    \int_a^b g[f&apos;(y) + \epsilon \delta&apos;(y-x)] \mathrm{d}y - \int_a^b g[f&apos;(y)] \mathrm{d}y 
+   \right] \\
+  =&amp; \lim_{\epsilon\to 0}
+    \frac{\mathrm{d}}{\mathrm{d}\epsilon}\left[  
+    \int_a^b g[f&apos;(y) + \epsilon \delta&apos;(y-x)] \mathrm{d}y 
+   \right] \\
+=&amp;    \int_a^b \frac{\mathrm{d}g }{\mathrm{d}f&apos;}
+     \delta&apos;(y-x) \mathrm{d}y  \\
+\end{align}
+<p>
+&#x4E0A;&#x5F0F;&#x4E2D; \(\delta&apos;(y-x)\) &#x662F;&#x6CA1;&#x6CD5;&#x5904;&#x7406;&#x7684;, &#x4F46;&#x662F;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x5206;&#x90E8;&#x79EF;&#x5206;&#x6CD5;
+</p>
+\begin{align}
+  \frac{\delta F[f]}{\delta f(x)} =&amp;  \int_a^b \frac{\mathrm{d}g }{\mathrm{d}f&apos;}
+     \delta&apos;(y-x) \mathrm{d}y  \\
+   = &amp; \left.\frac{\mathrm{d}g }{\mathrm{d}f&apos;}
+     \delta(y-x)\right|_{y=a}^{y=b} - 
+ \int_a^b\mathrm{d}y \cdot \frac{\mathrm{d}}{\mathrm{d}x}\left( \frac{\mathrm{d}g }{\mathrm{d}f&apos;} \right)
+   \delta(y-x)
+\end{align}
+<p>
+&#x7531;&#x4E8E;&#x539F;&#x6765;&#x6CDB;&#x51FD;&#x4E2D;&#x7684;&#x79EF;&#x5206;&#x533A;&#x95F4;&#x662F; \((a, b)\) , &#x6240;&#x4EE5; \(y\in(a, b)\) &#x624D;&#x6709;&#x610F;&#x4E49;, &#x4E0D;&#x7136;&#x53D8;&#x5206;&#x6052;&#x4E3A;&#x96F6;.
+&#x56E0;&#x6B64; \(\delta(a-x) = \delta(b-x) = 0\) . &#x6700;&#x7EC8;&#x7684;&#x6CDB;&#x51FD;&#x5BFC;&#x6570;&#x4E3A;
+</p>
+\begin{align}
+  \frac{\delta F[f]}{\delta f(x)} =&amp; - 
+ \int_a^b\mathrm{d}y \cdot \frac{\mathrm{d}}{\mathrm{d}x}\left( \frac{\mathrm{d}g }{\mathrm{d}f&apos;} \right)
+   \delta(y-x) \\
+  =&amp; - \frac{\mathrm{d}}{\mathrm{d}x}\left( \frac{\mathrm{d}g }{\mathrm{d}f&apos;} \right)
+\end{align}
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org4d94ddd" class="outline-2">
+<h2 id="org4d94ddd">High Order Derivative</h2>
+<div class="outline-text-2" id="text-org4d94ddd">
+<p>
+functional &#x6700; general &#x7684;&#x5BFC;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x6765;&#x6765;&#x81EA;&#x4E8E;&#x5B83;&#x7684; Taylor &#x5C55;&#x5F00;.
+</p>
+
+<p>
+&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x7ED9;&#x5B9A;&#x7684;&#x4EFB;&#x610F;&#x51FD;&#x6570; \(f(x)\) , &#x5B83;&#x7684;&#x4EFB;&#x610F;&#x65E0;&#x7A77;&#x5C0F;&#x7684; variation \(\delta f(x)\) &#x53EF;&#x4EE5;&#x8BB0;&#x4E3A;
+</p>
+\begin{align}
+  \delta f(x) = \epsilon \eta (x)
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\epsilon\) &#x662F;&#x4E00;&#x4E2A;&#x65E0;&#x7A77;&#x5C0F;&#x7684;&#x6570;, \(\eta(x)\) &#x662F;&#x4E00;&#x4E2A;&#x4EFB;&#x610F;&#x7684;&#x51FD;&#x6570;. 
+</p>
+
+<p>
+&#x8FDB;&#x800C;, &#x5B9A;&#x4E49;&#x4E00;&#x4E2A; functional \(F[f]\) &#x7684; variation \(\delta F\) &#x4E3A;
+</p>
+\begin{align}
+  \delta F \equiv F[f + \delta f] - F[f]
+\end{align}
+<p>
+&#x53EF;&#x4EE5;&#x770B;&#x51FA;, \(F[f + \delta f]\) &#x5173;&#x4E8E; \(\epsilon\) &#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A; \(\epsilon\) , &#x5C31;&#x4F1A;&#x5F97;&#x5230;&#x4E00;
+&#x4E2A;&#x6570;. &#x56E0;&#x6B64;, &#x53EF;&#x4EE5;&#x5BF9;&#x8FD9;&#x4E2A;&#x5173;&#x4E8E; \(\epsilon\) &#x7684;&#x51FD;&#x6570;&#x5728; \(\epsilon = 0\) &#x5904;&#x505A; Taylor &#x5C55;&#x5F00;
+</p>
+\begin{align}
+  F[f + \epsilon \eta] = F[f] + \left.\frac{\mathrm{d} F[f + \epsilon \eta]}{\mathrm{d}\epsilon}\right|_{\epsilon=0}\epsilon
+  + \frac{1}{2}\left.\frac{\mathrm{d}^2 F[f + \epsilon \eta]}{\mathrm{d}\epsilon^2}\right|_{\epsilon=0}\epsilon^2
+  + \cdots
+\end{align}
+<p>
+&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x5C55;&#x5F00;, &#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x6CDB;&#x51FD;&#x7684;&#x4E00;&#x9636;&#x5BFC;&#x6570;&#x4E3A;
+</p>
+\begin{align}
+  \left.\frac{\mathrm{d} F[f + \epsilon \eta]}{\mathrm{d}\epsilon}\right|_{\epsilon=0}
+  \equiv \int \mathrm{d}x_1 \frac{\delta F[f]}{\delta f(x_1)} \eta (x_1)
+\end{align}
+<p>
+&#x53D1;&#x73B0;&#x5982;&#x679C;&#x8FD9;&#x91CC;&#x53D6; \(\eta(x_1) = \delta x - x_{1}\) , &#x90A3;&#x4E48;&#x5C31;&#x4E0E;&#x4E4B;&#x524D;&#x5B9A;&#x4E49;&#x7684;&#x6CDB;&#x51FD;&#x5BFC;&#x6570; \(\frac{\delta F}{\delta
+f(x)}\) &#x662F;&#x4E00;&#x81F4;&#x7684;.
+</p>
+
+<p>
+&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5C06;&#x5BF9; \(\epsilon\) &#x7684;&#x4E00;&#x9636;&#x9879;&#x5B9A;&#x4E49;&#x4E3A;&#x6CDB;&#x51FD;&#x5BFC;&#x6570;&#x7684;&#x79EF;&#x5206;, &#x800C;&#x4E0D;&#x662F;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;&#x6210;&#x6CDB;&#x51FD;&#x5C42;&#x6570;, &#x53EF;&#x4EE5;&#x501F;
+&#x52A9; Simons &#x4E66;&#x4E2D;&#x5C06;&#x6CDB;&#x51FD;&#x7406;&#x89E3;&#x6210;&#x591A;&#x53D8;&#x91CF;&#x51FD;&#x6570;&#x5728;&#x53D8;&#x91CF;&#x65E0;&#x7A77;&#x591A;&#x65F6;&#x7684;&#x6781;&#x9650;, &#x6CDB;&#x51FD;&#x5BFC;&#x6570;&#x5BF9;&#x5E94;&#x6210;&#x591A;&#x53D8;&#x91CF;&#x51FD;
+&#x6570;&#x5BF9;&#x67D0;&#x4E2A;&#x53D8;&#x91CF;&#x7684;&#x504F;&#x5FAE;&#x5206;. &#x4E5F;&#x5C31;&#x662F;
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&#x591A;&#x53D8;&#x91CF;&#x51FD;&#x6570;</td>
+<td class="org-left">functional</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+
+<tr>
+<td class="org-left">\(F(f_1, f_2, \cdots , f_n)\)</td>
+<td class="org-left">\(F[f(x)]\)</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\frac{\partial F}{\partial f_i}\)</td>
+<td class="org-left">\(\frac{\delta F}{\delta f(x)}\)</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\mathrm{d}F = \sum_{i=1}^n \frac{\partial F}{\partial f_i}\mathrm{d}f\)</td>
+<td class="org-left">\(\left[\frac{\mathrm{d} F[f + \epsilon \eta]}{\mathrm{d}\epsilon}\right] _{\epsilon=0} = \int  \frac{\delta F[f]}{\delta f(x_1)} \eta (x_1)\mathrm{d}x_1\)</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+&#x56E0;&#x6B64;, &#x7C7B;&#x6BD4;&#x4E00;&#x9636;&#x5BFC;&#x6570;, &#x53EF;&#x4EE5;&#x6839;&#x636E; Taylor &#x5C55;&#x5F00;&#x7684; \(\epsilon\) &#x7684;&#x4E8C;&#x9636;&#x9879;&#x5B9A;&#x4E49;&#x6CDB;&#x51FD;&#x7684;&#x4E8C;&#x9636;&#x5BFC;&#x6570;
+\(\frac{\delta^2 F[f]}{\delta f(x_1)\delta f(x_2)}\) &#x4E3A;
+</p>
+\begin{align}
+  \left.\frac{\mathrm{d}^2 F[f + \epsilon \eta]}{\mathrm{d}\epsilon^2}\right|_{\epsilon=0}
+  \equiv \int \mathrm{d}x_1 \int\mathrm{d}x_2 \frac{\delta^2 F[f]}{\delta f(x_1)\delta f(x_2)} \eta (x_1) \eta(x_2)
+\end{align}
+<p>
+&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x66F4;&#x9AD8;&#x9636;&#x7684;&#x5BFC;&#x6570;, &#x4E0D;&#x518D;&#x591A;&#x8BF4;. 
+</p>
+
+<p>
+&#x6C42;&#x6CDB;&#x51FD;&#x5BFC;&#x6570;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x6781;&#x9650;&#x7684;&#x5B9A;&#x4E49;&#x6C42;, &#x5982;&#x524D;&#x9762;&#x51E0;&#x4E2A;&#x6C42;&#x4E00;&#x9636;&#x5BFC;&#x6570;&#x7684;&#x4F8B;&#x5B50;. &#x8FD8;&#x6709;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x6309;&#x7167;
+\(\epsilon\) Taylor &#x5C55;&#x5F00;, &#x7136;&#x540E;&#x5BF9;&#x5E94;&#x5F97;&#x5230;&#x5BFC;&#x6570;, &#x4E0B;&#x9762;&#x4E3E;&#x51E0;&#x4E2A;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x6C42;&#x9AD8;&#x9636;&#x5BFC;&#x6570;&#x7684;&#x4F8B;&#x5B50;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org997af84" class="outline-2">
+<h2 id="org997af84">Example of High Order Derivative</h2>
+<div class="outline-text-2" id="text-org997af84">
+</div>
+<div id="outline-container-orgf36ba44" class="outline-3">
+<h3 id="orgf36ba44">Thomas-Fermi kinetic energy</h3>
+<div class="outline-text-3" id="text-orgf36ba44">
+<p>
+&#x53C2;&#x8003; Ref[4] &#x4E2D;&#x7684;&#x4F8B;&#x5B50;, The energy functional of the simplest DFT, the
+Thomas-Fermi kinetic energy 
+</p>
+\begin{align}
+  F_{\mathrm{TF}} [n] \equiv T^{\mathrm{TF}}_{\mathrm{s}}[n] = C_{\mathrm{TF}} 
+    \int \mathrm{d}^3r\cdot  n^{5/3} (\vec{r})
+\end{align}
+<p>
+&#x56E0;&#x6B64;
+</p>
+\begin{align}
+  \delta F_{\mathrm{TF}} =&amp; F_{\mathrm{TF}}[n + \epsilon \eta] - F_{\mathrm{TF}}[n] \\
+    =&amp; C_{\mathrm{TF}} \int \mathrm{d}r^3\cdot [(n + \epsilon \eta)^{5/3} - n^{5/3}] \\
+    =&amp; C_{\mathrm{TF}} \int \mathrm{d}r^3\cdot \left[\frac{5}{3}n^{2/3}\epsilon \eta 
+       + \frac{1}{2}\cdot \frac{10}{9}n^{-1/3}\epsilon^2\eta^2 + \cdots \right]
+\end{align}
+<p>
+&#x5BF9;&#x6BD4;&#x5B9A;&#x4E49;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x6CDB;&#x51FD;&#x7684;&#x4E00;&#x9636;&#x5BFC;&#x6570;
+</p>
+\begin{align}
+  \frac{\delta F_{\mathrm{TF}}}{\delta n(\vec{r}) } = \frac{5}{3}C_{\mathrm{TF}} n(\vec{r})^{2/3}
+\end{align}
+<p>
+&#x6CDB;&#x51FD;&#x7684;&#x4E8C;&#x9636;&#x5BFC;&#x6570;
+</p>
+\begin{align}
+  \frac{\delta^2 F_{\mathrm{TF}}}{\delta n(\vec{r}_1)\delta n(\vec{r}_2) } 
+   = \frac{10}{9}C_{\mathrm{TF}} n(\vec{r})^{-1/3}\delta^3\left(\vec{r_1} - \vec{r_2}\right)
+\end{align}
+<p>
+&#x4ECE;&#x4E0A;&#x5F0F;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x6CDB;&#x51FD;&#x7684;&#x4E8C;&#x9636;&#x5BFC;&#x6570;&#x662F;&#x5BF9;&#x89D2;&#x7684;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org49688e2" class="outline-3">
+<h3 id="org49688e2">Stationary Phase Approximation of a Single Particle Path Integral</h3>
+<div class="outline-text-3" id="text-org49688e2">
+<p>
+&#x6B64;&#x4F8B;&#x5B50;&#x5728; Simons &#x4E66;&#x7684;&#x7684;&#x7B2C; 110 &#x9875;.
+</p>
+
+<p>
+&#x5355;&#x7C92;&#x5B50;&#x5728;&#x52BF; \(V(r)\) &#x4E2D;, &#x5B83;&#x7684;&#x4F20;&#x64AD;&#x5B50;&#x4E3A;
+</p>
+\begin{align}
+  \langle q_f | e^{-\frac{\mathrm{i}}{\hbar}\hat{H}t}|q_i\rangle = \int_{q(t)=q_f, q(0)= q_i} Dq\cdot
+    e^{\frac{\mathrm{i}}{\hbar}S[q]}
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(S[q] = \int_0^t \mathrm{d}t&apos;L(q, \dot{q})\) , \(L(q, \dot{q})
+=\frac{m\dot{q}^2}{2} - V(q)\) 
+</p>
+
+<p>
+&#x5BF9;&#x5B83;&#x5728;&#x7ECF;&#x5178;&#x8DEF;&#x5F84; \(q_{\mathrm{cl}}(t)\) &#x9644;&#x8FD1;&#x505A; stationary phase approximation , &#x5E76;&#x8BB0;
+\(r(t) = q(t) - q_{\mathrm{cl}}(t)\) , &#x5B83;&#x7684;&#x4F20;&#x64AD;&#x5B50;&#x53EF;&#x8FD1;&#x4F3C;&#x4E3A;
+</p>
+\begin{align}
+  \langle q_f | e^{-\frac{\mathrm{i}}{\hbar}\hat{H}t}|q_i\rangle \approx e^{\frac{\mathrm{i}}{\hbar}S[q_{\mathrm{cl}}]}
+    \int_{r(t)=r(0)=0} Dq\cdot    e^{\frac{\mathrm{i}}{2\hbar}\int_0^t\mathrm{d}_{1}\int_0^t\mathrm{d}_2 r(t_{1})
+      \frac{\delta^2 S[q]}{\delta q(t_1)\delta q(t_2)} r(t_2)}
+\end{align}
+<p>
+&#x5176;&#x4E2D;, &#x4F5C;&#x7528;&#x91CF;&#x6CDB;&#x51FD;&#x7684;&#x4E8C;&#x9636;&#x5BFC;&#x6570; \(\frac{\delta^2 S[q]}{\delta q(t_1)\delta q(t_2)}\) &#x53EF;&#x4EE5;&#x7528;&#x4E0A;&#x9762;
+&#x7684; Taylor &#x5C55;&#x5F00;&#x6CD5;&#x6C42;.
+</p>
+\begin{align}
+\delta S =&amp; S[q_{\mathrm{cl}} + r(t)] - S[q_{\mathrm{cl}}(t)] \\
+   =&amp; \int_0^t\mathrm{d}t&apos; \cdot\left\{ \frac{m}{2}\left[\partial_{t&apos;}( q_{\mathrm{cl}} + r)\right]^2 - V(q_{\mathrm{cl}} + r) 
+    -\frac{m}{2}\left[\partial_{t&apos;} q_{\mathrm{cl}} \right]^2 + V(q_{\mathrm{cl}}) \right\} \\
+   = &amp; \int_0^t\mathrm{d}t&apos; \cdot\left\{O(r) + \frac{m}{2} (\partial_{t&apos;}r)^2 - \frac{1}{2}V&apos;&apos;(q_{\mathrm{cl}})r^2
+    + O(r^{3}) + \cdots\right\}
+
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(O(r^n)\) &#x8868;&#x793A; \(r^n\) &#x9636;&#x9879;. &#x53EF;&#x4EE5;&#x7528;&#x5206;&#x90E8;&#x79EF;&#x5206;&#x6CD5;&#x505A;&#x5982;&#x4E0B;&#x53D8;&#x6362;
+</p>
+\begin{align}
+  \int_0^t \mathrm{d}t&apos;\cdot \left[\partial_{t&apos;}r(t&apos;)\right] \left[\partial_{t&apos;}r(t&apos;)\right]
+  =&amp; \left.r(t&apos;)\partial_{t&apos;}r(t&apos;)\right|_0^t - \int_0^t \mathrm{d}t&apos;\cdot r(t&apos;)\partial_{t&apos;}^{2}r(t&apos;) \\
+  = &amp; - \int_0^t \mathrm{d}t&apos;\cdot r(t&apos;)\partial_{t&apos;}^{2}r(t&apos;)
+\end{align}
+<p>
+&#x6700;&#x7EC8;&#x5F97;&#x5230;&#x4F5C;&#x7528;&#x91CF;&#x6CDB;&#x51FD;&#x7684;&#x4E8C;&#x9636;&#x5BFC;&#x6570; \(\frac{\delta^2 S[q]}{\delta q(t_1)\delta q(t_2)}\) &#x4E3A;
+</p>
+\begin{align}
+  \frac{\delta^2 S[q]}{\delta q(t_1)\delta q(t_2)} 
+    = -\delta(r_1 - r_2)\left[m\partial_{t_2}^2 + V&apos;&apos;q_{\mathrm{cl}}(t_2)\right]
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0545a8a" class="outline-2">
+<h2 id="org0545a8a">Chain Rule for Functions to Functionals</h2>
+<div class="outline-text-2" id="text-org0545a8a">
+<p>
+&#x5BF9;&#x4E8E;&#x6CDB;&#x51FD;&#x5BFC;&#x6570;&#x7684;&#x94FE;&#x5F0F;&#x6CD5;&#x5219;, &#x9996;&#x5148;&#x8981;&#x8BF4;&#x660E;&#x7684;&#x662F;, &#x5982; Ref[2] &#x4E2D;&#x6307;&#x51FA;&#x7684;, &#x5E76;&#x4E0D;&#x5B58;&#x5728; the
+functional of a functional, &#x5B58;&#x5728;&#x7684;&#x662F;  functions to functional. 
+</p>
+
+<p>
+&#x6BD4;&#x5982; functional \(F\) &#x4F9D;&#x8D56;&#x4E8E; function \(G(y)\) . &#x800C; \(G\) &#x662F; \(f(x)\) &#x7684; functional, &#x8BB0;
+&#x505A; \(G[f](y)\) . &#x8FD9;&#x6837;&#x7684;&#x8BDD;, \(F\) &#x4E5F;&#x662F; \(f(x)\) &#x7684; functinal, &#x6839;&#x636E;&#x5B9A;&#x4E49;, &#x5B83;&#x5BF9; \(f\) &#x7684;&#x53D8;&#x5206;
+&#x5C31;&#x4E3A;
+</p>
+\begin{align}
+      \left.\frac{\mathrm{d}F[G[f(x) + \epsilon \eta(x)](y)]}{\mathrm{d}\epsilon}\right|_{\epsilon=0}
+     = \int \frac{\delta F[f]}{\delta f(x)}  \eta (x) \mathrm{d}x 
+\end{align}
+<p>
+&#x5982;&#x679C;&#x6211;&#x4EEC;&#x628A; \(G[f(x) + \epsilon \eta(x)](y)\) &#x5C55;&#x6210; \(G\) &#x5BF9; \(f\) &#x7684;&#x6CDB;&#x51FD;&#x5BFC;&#x6570;
+</p>
+\begin{align}
+  G[f(x) + \epsilon \eta(x)](y) =&amp; G[f(x)](y) + \int \frac{\delta G[f](y)}{\delta f(x)} \epsilon \eta(x) \mathrm{d}x +\mathcal{O}(\epsilon^2) \\
+     =&amp; G[f(x)](y) + \epsilon\bar{\eta}(y) +\mathcal{O}(\epsilon^2)
+\end{align}
+<p>
+&#x4E0A;&#x5F0F;&#x4E2D;&#x7B2C;&#x4E8C;&#x4E2A;&#x7B49;&#x53F7;&#x662F;&#x5BF9; \(\bar{\eta}(y)\) &#x7684;&#x5B9A;&#x4E49;. &#x628A;&#x4E0A;&#x5F0F;&#x5E26;&#x56DE;&#x5230; \(F\) &#x5BF9; \(f(x)\) &#x7684;&#x6CDB;&#x51FD;&#x5BFC;&#x6570;&#x5B9A;
+&#x4E49;&#x4E2D;, &#x5C31;&#x4F1A;&#x53D1;&#x73B0;&#x5B83;&#x662F; \(F\) &#x5BF9; \(G(y)\) &#x7684;&#x6CDB;&#x51FD;&#x5BFC;&#x6570;&#x7684;&#x5F62;&#x5F0F;
+</p>
+\begin{align}
+      \left.\frac{\mathrm{d}F[G[f(x)](y) + \epsilon \bar{\eta}(y)]}{\mathrm{d}\epsilon}\right|_{\epsilon=0}
+     = \int \frac{\delta F[f]}{\delta G(y)}  \bar{\eta} (y) \mathrm{d}y
+\end{align}
+<p>
+&#x5BF9;&#x6BD4;&#x5C31;&#x53EF;&#x4EE5;&#x77E5;&#x9053; \(F\) &#x5BF9; \(f(x)\) &#x7684;&#x6CDB;&#x51FD;&#x5BFC;&#x6570; \(\frac{\delta F}{\delta f(x)}\) &#x4E0E;  \(F\) &#x5BF9; \(G(y)\)
+&#x7684;&#x6CDB;&#x51FD;&#x5BFC;&#x6570; \(\frac{\delta F}{\delta G(y)}\) &#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x4E86; 
+</p>
+\begin{align}
+  \int \frac{\delta F[f]}{\delta f(x)}  \eta (x) \mathrm{d}x  =&amp; \int \frac{\delta F[f]}{\delta G(y)}  \bar{\eta} (y) \mathrm{d}y \\
+  =&amp; \int \int \frac{\delta F[f]}{\delta G(y)}  \frac{\delta G[f](y)}{\delta f(x)} \eta(x) \mathrm{d}x     \mathrm{d}y
+\end{align}
+<p>
+&#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+   \frac{\delta F[f]}{\delta f(x)} = \int \frac{\delta F[f]}{\delta G(y)}  \frac{\delta G[f](y)}{\delta f(x)}  \mathrm{d}y
+\end{align}
+<p>
+&#x8FD9;&#x5C31;&#x662F;&#x6CDB;&#x51FD;&#x5BFC;&#x6570;&#x7684;&#x94FE;&#x5F0F;&#x6CD5;&#x5219;. &#x4E0A;&#x5F0F;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; Simons &#x4E66;&#x4E2D;&#x5C06;&#x6CDB;&#x51FD;&#x770B;&#x6210;&#x662F;&#x591A;&#x5143;&#x51FD;&#x6570;&#x7684;&#x6781;&#x9650;&#x6765;
+&#x7528;&#x591A;&#x5143;&#x51FD;&#x6570;&#x6C42;&#x5BFC;&#x7684;&#x94FE;&#x5F0F;&#x6CD5;&#x5219;&#x6765;&#x7406;&#x89E3;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6d4768f" class="outline-2">
+<h2 id="org6d4768f">Product Rule of Functional differentiation</h2>
+<div class="outline-text-2" id="text-org6d4768f">
+<p>
+&#x76F4;&#x63A5;&#x7528;&#x6CDB;&#x51FD;&#x5BFC;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;
+</p>
+\begin{align}
+  &amp;\left. \frac{\mathrm{d}\left( F_1[f + \epsilon \eta] F_2[f + \epsilon \eta] \right) }{\mathrm{d}\epsilon} \right|_{\epsilon = 0} \\
+  =&amp; \left. \frac{\mathrm{d} F_1[f + \epsilon \eta] }{\mathrm{d}\epsilon}  F_2[f + \epsilon \eta] \right|_{\epsilon = 0}
+    +\left. F_1[f + \epsilon \eta] \frac{\mathrm{d} F_2[f + \epsilon \eta] }{\mathrm{d}\epsilon}  \right|_{\epsilon = 0}
+\end{align}
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;
+</p>
+\begin{align}
+  \frac{\delta(F_1F_2)}{\delta f(x)} = \frac{\delta F_1}{\delta f(x)} F_2 + F_1\frac{\delta F_2}{\delta f(x)} 
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org174ea23" class="outline-2">
+<h2 id="org174ea23">Reference</h2>
+<div class="outline-text-2" id="text-org174ea23">
+<ul class="org-ul">
+<li>[1] Tom Lancaster, Stephen J. Blundell, Quantum Field Theory for the Gifted
+Amateur, 2014, Oxford University Press</li>
+
+<li>[2] <a href="https://math.stackexchange.com/questions/235769/is-there-a-chain-rule-for-functional-derivatives" target="_blank" rel="noopener">https://math.stackexchange.com/questions/235769/is-there-a-chain-rule-for-functional-derivatives</a></li>
+
+<li>[3] Appendix A of Density Functional Theory An Advanced Course by Eberhard
+Engel, Reiner M. Dreizler:
+<a href="https://link.springer.com/content/pdf/bbm%3A978-3-642-14090-7%2F1.pdf" target="_blank" rel="noopener">https://link.springer.com/content/pdf/bbm%3A978-3-642-14090-7%2F1.pdf</a></li>
+
+<li>[4] Altland Alexander, Simons Ben D., Condensed Matter Field Theory, Second
+Edition-Cambridge University Press (2010)</li>
+
+<li>[5]
+<a href="https://physics.stackexchange.com/questions/251265/how-to-calculate-the-second-functional-derivative-of-the-action-of-a-one-particl/581476#581476" target="_blank" rel="noopener">https://physics.stackexchange.com/questions/251265/how-to-calculate-the-second-functional-derivative-of-the-action-of-a-one-particl/581476#581476</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/14/TensorI/" rel="next" title="读书笔记: Tensors and Representations of the Rotation Groups SO(N)">
+                <i class="fa fa-chevron-left"></i> 读书笔记: Tensors and Representations of the Rotation Groups SO(N)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/19/SUN/" rel="prev" title="读书笔记: IV.4 Tensors and Representations of Special Unitary Groups">
+                读书笔记: IV.4 Tensors and Representations of Special Unitary Groups <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org495d9ed"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org4a2af2b"><span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc86d1ca"><span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6a6a918"><span class="nav-text">Functional Derivative</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org4d94ddd"><span class="nav-text">High Order Derivative</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org997af84"><span class="nav-text">Example of High Order Derivative</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgf36ba44"><span class="nav-text">Thomas-Fermi kinetic energy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org49688e2"><span class="nav-text">Stationary Phase Approximation of a Single Particle Path Integral</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org0545a8a"><span class="nav-text">Chain Rule for Functions to Functionals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6d4768f"><span class="nav-text">Product Rule of Functional differentiation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org174ea23"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

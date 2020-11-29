@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="python,matplotlib">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象, 花式作图">
+<meta property="og:url" content="https://zqw.ink/2019/10/25/objectPlot/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2019/10/25/objectPlot/myFigure.jpg">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.930Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象, 花式作图">
+<meta name="twitter:image" content="https://zqw.ink/2019/10/25/objectPlot/myFigure.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2019/10/25/objectPlot/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>面向对象, 花式作图 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2019/10/25/objectPlot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">面向对象, 花式作图
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-25 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-25T00:00:00+08:00">2019-10-25</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件使用/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/25/objectPlot/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/10/25/objectPlot/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-orgfdf8666" class="outline-2">
+<h2 id="orgfdf8666">&#x9762;&#x5411;&#x5BF9;&#x8C61;</h2>
+<div class="outline-text-2" id="text-orgfdf8666">
+<p>
+&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x5199;&#x7A0B;&#x5E8F;, &#x662F;&#x4E00;&#x76F4;&#x5728;&#x5BF9;&#x4E00;&#x4E9B;&#x5BF9;&#x8C61;&#x4F5C;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;.
+</p>
+
+<p>
+&#x603B;&#x7684;&#x6765;&#x8BF4;, Figure &#x7C7B;&#x76F8;&#x5F53;&#x4E8E;&#x753B;&#x677F;, Axes &#x76F8;&#x5F53;&#x4E8E;&#x753B;&#x7EB8;
+</p>
+
+<blockquote>
+<p>
+figure : Figure
+The Figure instance returned will also be passed to new<sub>figure</sub><sub>manager</sub> in the backends, which allows to hook custom Figure classes into the pyplot interface. Additional kwargs will be passed to the Figure init function.
+</p>
+</blockquote>
+
+<p>
+plt.figure()&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; matplotlib.figure.Figure, &#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x7C7B;, 
+</p>
+<blockquote>
+<p>
+The top level container for all the plot elements.
+&#x5B83;&#x662F;&#x6240;&#x6709; plot &#x5143;&#x7D20;&#x7684;&#x6700;&#x4E0A;&#x7EA7;&#x5BB9;&#x5668;
+</p>
+</blockquote>
+
+<p>
+plt.subplot() &#x8FD4;&#x56DE;&#x4E00;&#x4E2A; Axes &#x7C7B;
+</p>
+<blockquote>
+<p>
+The Axes contains most of the figure elements: Axis, Tick, Line2D, Text, Polygon, etc., and sets the coordinate system.
+Axes &#x5305;&#x542B;&#x5927;&#x90E8;&#x5206; figure &#x5143;&#x7D20;, &#x6BD4;&#x5982; Axis, Tick, Line2D, Text, Polygon, &#x7B49;&#x7B49;, &#x4EE5;&#x53CA; sets the coordinate system.
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgfb8172a" class="outline-2">
+<h2 id="orgfb8172a">&#x793A;&#x4F8B;</h2>
+<div class="outline-text-2" id="text-orgfb8172a">
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x753B;&#x677F;(&#x753B;&#x677F;&#x662F;&#x4E00;&#x4E2A; Figure &#x7C7B;), &#x7ED9;&#x5B83;&#x53D6;&#x540D;&#x4E3A; myFigure</span></span><br><span class="line">myFigure = plt.figure(facecolor=<span class="string">&apos;pink&apos;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x5BF9; myFigure &#x8FDB;&#x884C;&#x64CD;&#x4F5C;, &#x5B83;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x7684;&#x64CD;&#x4F5C;, &#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x753B;&#x677F;(Figure) &#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x5B98;&#x65B9;&#x6587;&#x6863;:</span></span><br><span class="line"><span class="comment"># https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure</span></span><br><span class="line"><span class="comment"># &#x8FD9;&#x91CC;&#x5BF9;&#x5B83;&#x8FDB;&#x884C;&#x4E00;&#x4E2A; add_subplot &#x7684;&#x64CD;&#x4F5C;. &#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;(&#x6216;&#x8005;&#x51FD;&#x6570;)&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x4E00;&#x5F20;&#x753B;&#x7EB8;(Axes</span></span><br><span class="line"><span class="comment"># &#x7C7B;), &#x7ED9;&#x5B83;&#x53D6;&#x540D;&#x4E3A; myAxesTom. </span></span><br><span class="line"><span class="comment"># &#x5177;&#x4F53;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x4E3A; axes : axes.SubplotBase, or another subclass of Axes</span></span><br><span class="line">myAxesTom = myFigure.add_subplot(<span class="number">4</span>, <span class="number">3</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x518D;&#x653E;&#x4E00;&#x5F20;&#x53EB; myAxesBob &#x7684;&#x753B;&#x7EBF;&#x5230;&#x753B;&#x677F;&#x4E0A;. &#x73B0;&#x5728; myFigure &#x4E0A;&#x6709;&#x4E86; myAxesTom &#x548C;</span></span><br><span class="line"><span class="comment"># myAxesBob &#x4E24;&#x5F20;&#x753B;&#x7EB8;. </span></span><br><span class="line">myAxesBob = myFigure.add_subplot(<span class="number">4</span>, <span class="number">3</span>, <span class="number">12</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x5BF9; myFigure &#x8FDB;&#x884C;&#x53E6;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C; add_axes. </span></span><br><span class="line"><span class="comment"># &#x5B83;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x662F; axes : Axes (or a subclass of Axes), &#x662F;&#x53E6;&#x4E00;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x753B;&#x7EB8;.</span></span><br><span class="line"><span class="comment"># &#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x6DFB;&#x52A0;&#x753B;&#x7EB8;, &#x4F4D;&#x7F6E;&#x548C;&#x5927;&#x5C0F;&#x6BD4;&#x8F83;&#x7075;&#x6D3B;</span></span><br><span class="line"><span class="comment"># &#x62EC;&#x53F7;&#x4E2D;&#x7684;&#x53C2;&#x6570;&#x662F; rect &#x7684;&#x503C;, &#x662F;&#x5FC5;&#x987B;&#x7ED9;&#x7684;, &#x6CA1;&#x6709;&#x9ED8;&#x8BA4;&#x503C;. &#x56DB;&#x4E2A;&#x53C2;&#x6570;&#x5206;&#x522B;&#x662F; [left,</span></span><br><span class="line"><span class="comment"># bottom, width, height] </span></span><br><span class="line"><span class="comment"># &#x6709;&#x4E86;&#x753B;&#x677F;, &#x548C;&#x753B;&#x7EB8;, &#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;&#x5728;&#x753B;&#x7EB8;&#x4E0A;&#x753B;&#x753B;, &#x5BF9;&#x753B;&#x7EB8;&#x6709;&#x54EA;&#x4E9B;&#x64CD;&#x4F5C;&#x53EF;&#x4EE5;&#x67E5;&#x9605;&#x5B98;&#x65B9;&#x6587;&#x6863;:</span></span><br><span class="line"><span class="comment"># https://matplotlib.org/3.1.1/api/axes_api.html#matplotlib.axes.Axes</span></span><br><span class="line"><span class="comment"># &#x8FD9;&#x4E9B;&#x753B;&#x7EB8;&#x4E0A;&#x53EF;&#x4EE5;&#x653E; Axis, Tick, Line2D, Text, Polygon &#x7B49;&#x7B49;</span></span><br><span class="line">myAxesAlice = myFigure.add_axes([<span class="number">.2</span>, <span class="number">.5</span>, <span class="number">.5</span>, <span class="number">.4</span>]) </span><br><span class="line">myAxesAlice.grid()              <span class="comment"># &#x518D;&#x52A0;&#x4E0A;&#x7F51;&#x683C;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x6700;&#x57FA;&#x672C;&#x7684;&#x662F;&#x753B;&#x51FD;&#x6570;&#x56FE;&#x50CF;, &#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x5C31;&#x662F; plot. &#x6BD4;&#x5982;&#x5728; myAxesAlice &#x4E0A;&#x753B;&#x4E00;&#x4E2A;&#x6B63;&#x5F26;&#x51FD;&#x6570;&#x548C;</span></span><br><span class="line"><span class="comment"># &#x4F59;&#x5F26;&#x51FD;&#x6570;. </span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">1</span>, <span class="number">100</span>)</span><br><span class="line">y1 = np.sin(<span class="number">2</span>*np.pi*x)</span><br><span class="line">y2 = np.cos(<span class="number">2</span>*np.pi*x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># plot &#x64CD;&#x4F5C;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x4E00;&#x7CFB;&#x5217; Line2D &#x7C7B;&#x7EC4;&#x6210;&#x7684;&#x6570;&#x7EC4;. &#x662F;&#x6211;&#x4EEC;&#x5728;&#x753B;&#x7EB8;&#x4E0A;&#x753B;&#x7684;&#x8BB8;&#x591A;&#x4E8C;&#x7EF4;&#x7EBF;.</span></span><br><span class="line"><span class="comment"># &#x5B83;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;, &#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x64CD;&#x4F5C;:</span></span><br><span class="line"><span class="comment"># https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D</span></span><br><span class="line"><span class="comment"># print(&quot;Color is&quot;, sinFun[1].get_color()) # &#x5BF9; 2D &#x7EBF;&#x8FDB;&#x884C;&#x64CD;&#x4F5C; get_color, &#x5F97;&#x5230;&#x5B83;</span></span><br><span class="line"><span class="comment"># &#x7684;&#x989C;&#x8272; </span></span><br><span class="line">sinFun = myAxesAlice.plot(x, y1, x, y2) </span><br><span class="line">sinFun[<span class="number">0</span>].set_color(<span class="string">&apos;y&apos;</span>)         <span class="comment"># &#x5BF9; 2D &#x7EBF;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;, &#x8BBE;&#x7F6E;&#x5B83;&#x7684;&#x989C;&#x8272;&#x4E3A;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x989C;</span></span><br><span class="line">				 <span class="comment"># &#x8272;. </span></span><br><span class="line">sinFun[<span class="number">0</span>].set_label(<span class="string">r&apos;$sin(x)$&apos;</span>) <span class="comment"># &#x4E3A; 2D &#x7EBF;&#x6DFB;&#x52A0;&#x56FE;&#x4F8B;.</span></span><br><span class="line">sinFun[<span class="number">1</span>].set_label(<span class="string">r&apos;$cos(x)$&apos;</span>)</span><br><span class="line"><span class="comment"># &#x8FD8;&#x53EF;&#x4EE5;&#x5BF9;&#x8FD9;&#x6761;&#x7EBF;&#x505A;&#x8BB8;&#x591A;&#x7684;&#x64CD;&#x4F5C;, &#x9700;&#x8981;&#x4EC0;&#x4E48;&#x5C31;&#x76F4;&#x63A5;&#x67E5;&#x6587;&#x6863;&#x4E86;.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x7136;&#x540E;&#x5728;&#x753B;&#x7EB8;&#x4E0A;&#x505A;&#x4E00;&#x4E9B;&#x5176;&#x5B83;&#x64CD;&#x4F5C;. &#x5B9E;&#x9645;&#x4E0A;, &#x753B;&#x7EB8;&#x4E0A;&#x5DF2;&#x7ECF;&#x9ED8;&#x8BA4;&#x6709; x &#x8F74;, y&#x8F74;&#x4E86;. &#x73B0;&#x5728;&#x53EF;&#x4EE5;&#x5BF9;&#x8FD9;</span></span><br><span class="line"><span class="comment"># &#x4E24;&#x4E2A;&#x90E8;&#x4EF6;&#x6765;&#x4FEE;&#x6539;. </span></span><br><span class="line">myAxesAlice.set_xlabel(<span class="string">r&apos;$x$&apos;</span>)</span><br><span class="line">myAxesAlice.set_ylabel(<span class="string">r&apos;$f(x)$&apos;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x6DFB;&#x52A0;&#x6807;&#x9898;&#x548C;&#x56FE;&#x4F8B;</span></span><br><span class="line">myAxesAlice.set_title(<span class="string">r&apos;sin and cos function&apos;</span>)</span><br><span class="line">myAxesAlice.legend()</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x5728;&#x7EB8;&#x4E0A;&#x5199;&#x5B57;</span></span><br><span class="line">Alice = myAxesAlice.text(<span class="number">.5</span>, <span class="number">.5</span>, <span class="string">&quot;Alice&quot;</span>, fontsize=<span class="number">20</span>)</span><br><span class="line">Tom = myAxesTom.text(<span class="number">.2</span>, <span class="number">.5</span>, <span class="string">&quot;Tom&quot;</span>, fontsize=<span class="number">20</span>)</span><br><span class="line">Bob = myAxesBob.text(<span class="number">.2</span>, <span class="number">.5</span>, <span class="string">&quot;Bob&quot;</span>, fontsize=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># text &#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A; text &#x7C7B;. &#x4E5F;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x5B83;&#x7684;&#x5C5E;&#x6027;</span></span><br><span class="line">Tom.set_backgroundcolor(<span class="string">&apos;r&apos;</span>)</span><br><span class="line">Bob.set_color(<span class="string">&apos;y&apos;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x8FD8;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x5B57;&#x4F53;</span></span><br><span class="line"><span class="comment"># &#x7528;&#x8FD9;&#x4E24;&#x53E5;&#x67E5;&#x8BE2;&#x5DF2;&#x6709;&#x7684;&#x5B57;&#x4F53;</span></span><br><span class="line"><span class="comment">#from matplotlib.font_manager import fontManager</span></span><br><span class="line"><span class="comment">#fontManager.ttflist</span></span><br><span class="line"><span class="keyword">from</span> matplotlib.font_manager <span class="keyword">import</span> FontProperties</span><br><span class="line">font0=FontProperties()</span><br><span class="line">font0.set_size(<span class="string">&apos;20&apos;</span>)</span><br><span class="line">font0.set_family(<span class="string">&apos;Constantia&apos;</span>)</span><br><span class="line">font0.set_style(<span class="string">&apos;normal&apos;</span>)</span><br><span class="line">font0.set_variant(<span class="string">&apos;normal&apos;</span>)</span><br><span class="line">font0.set_stretch(<span class="string">&apos;normal&apos;</span>)</span><br><span class="line">Alice.set_fontproperties(font0)</span><br><span class="line"></span><br><span class="line">myFigure.show()</span><br><span class="line"><span class="comment"># &#x4FDD;&#x5B58;&#x56FE;&#x7247;&#x6709;&#x4E00;&#x4E9B;&#x95EE;&#x9898;, &#x5728;&#x753B;&#x677F;&#x4E0A;&#x8BBE;&#x7F6E;&#x7684; facecolor &#x8981;&#x91CD;&#x65B0;&#x8BBE;&#x7F6E;&#x624D;&#x80FD;&#x4FDD;&#x5B58;&#x4E0B;&#x6765;.</span></span><br><span class="line"><span class="comment"># &#x6CA1;&#x6709; bbox_inches = &apos;tight&apos; &#x53EF;&#x80FD;&#x4F1A;&#x4FDD;&#x5B58;&#x4E0D;&#x5168;&#x56FE;&#x7247;</span></span><br><span class="line">myFigure.savefig(<span class="string">&apos;myFigure.jpg&apos;</span>, bbox_inches = <span class="string">&apos;tight&apos;</span>, facecolor=<span class="string">&apos;pink&apos;</span>)</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc757b3a" class="outline-2">
+<h2 id="orgc757b3a">Results</h2>
+<div class="outline-text-2" id="text-orgc757b3a">
+
+<div id="orgf03edc1" class="figure">
+<p><img src="/2019/10/25/objectPlot/myFigure.jpg">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2c5185a" class="outline-2">
+<h2 id="org2c5185a">Code</h2>
+<div class="outline-text-2" id="text-org2c5185a">
+<p>
+<a href="objectPlot.py">objectPlot.py</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9009323" class="outline-2">
+<h2 id="org9009323">Reference:</h2>
+<div class="outline-text-2" id="text-org9009323">
+<p>
+<a href="https://www.zhihu.com/question/51745620" target="_blank" rel="noopener">https://www.zhihu.com/question/51745620</a>
+</p>
+
+<p>
+<a href="https://zhuanlan.zhihu.com/p/35983270" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/35983270</a>
+</p>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/matplotlib/" rel="tag"># matplotlib</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/18/Thomas-FermiTheory/" rel="next" title="Thomas-Fermi Theory">
+                <i class="fa fa-chevron-left"></i> Thomas-Fermi Theory
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/27/347Homework/" rel="prev" title="347 第一次作业">
+                347 第一次作业 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgfdf8666"><span class="nav-text">面向对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgfb8172a"><span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc757b3a"><span class="nav-text">Results</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2c5185a"><span class="nav-text">Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org9009323"><span class="nav-text">Reference:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

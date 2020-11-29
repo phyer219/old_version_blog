@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="数学,物理,格林函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="松原频率求和(update 11&#x2F;Aug&#x2F;2020)">
+<meta property="og:url" content="https://zqw.ink/2019/11/27/Matsubara/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:49.103Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="松原频率求和(update 11&#x2F;Aug&#x2F;2020)">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2019/11/27/Matsubara/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>松原频率求和(update 11/Aug/2020) | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2019/11/27/Matsubara/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">松原频率求和(update 11/Aug/2020)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-27 00:00:00" itemprop="dateCreated datePublished" datetime="2019-11-27T00:00:00+08:00">2019-11-27</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/27/Matsubara/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/11/27/Matsubara/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-orgb32e325" class="outline-2">
+<h2 id="orgb32e325">&#x95EE;&#x9898;</h2>
+<div class="outline-text-2" id="text-orgb32e325">
+<p>
+&#x5728;&#x591A;&#x4F53;&#x7684;&#x683C;&#x6797;&#x51FD;&#x6570;&#x4E2D;, &#x7ECF;&#x5E38;&#x9047;&#x5230;&#x7C7B;&#x4F3C;&#x5982;&#x4E0B;&#x7684;&#x6C42;&#x548C;
+</p>
+\begin{align}
+  \sum_{\omega_n = \frac{(2n+1)\pi}{\beta}} 
+  \frac{1}{\mathrm{i}\omega_n - \xi_{\vec{k}}}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org9f85f90" class="outline-2">
+<h2 id="org9f85f90">Counter Integral</h2>
+<div class="outline-text-2" id="text-org9f85f90">
+<p>
+&#x53EF;&#x4EE5;&#x53D1;&#x73B0;, \(\omega_n\) &#x53D6;&#x7684;&#x503C;&#x6070;&#x597D;&#x662F;
+</p>
+\begin{align}
+  \frac{1}{e^{\mathrm{i}\omega_n\beta} + 1}
+\end{align}
+<p>
+&#x7684; pole . &#x90A3;&#x4E48;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x79EF;&#x5206;
+</p>
+\begin{align}
+  \oint_C \frac{1}{z - \xi_{\vec{k}}} 
+  \frac{1}{e^{z\beta} + 1} \mathrm{d}z
+  = 0
+\end{align}
+<p>
+\(C\) &#x662F;&#x6CBF;&#x65E0;&#x7A77;&#x8FDC;&#x7ED5;&#x4E86;&#x4E00;&#x5708;&#x7684;&#x5927;&#x5706;. &#x5B83;&#x7684;&#x79EF;&#x5206;&#x503C;&#x4E3A;&#x96F6;&#x53EF;&#x7531; Jordan&apos;s lemma &#x5F97;&#x5230;. 
+&#x7531;&#x7559;&#x6570;&#x5B9A;&#x7406;&#x53EF;&#x5F97;
+</p>
+\begin{align}
+  \oint_C \frac{1}{z - \xi_{\vec{k}}} 
+  \frac{1}{e^{z\beta} + 1} \mathrm{d}z
+  = 0 = 2\pi \mathrm{i} \left(\mathrm{Res}_1 + \sum \mathrm{Res}_2 \right)
+\end{align}
+<p>
+&#x7531;&#x6B64;&#x5F97;&#x5230;
+</p>
+\begin{align}
+  \sum \mathrm{Res}_2 = \mathrm{Res}_1 
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\mathrm{Res}_{1}\) &#x8868;&#x793A;&#x7531;&#x7B2C;&#x4E00;&#x9879;&#x7684; pole &#x8D21;&#x732E;&#x7684;&#x7559;&#x6570;, &#x4E3A;
+</p>
+\begin{align}
+  \mathrm{Res}_{1} =&amp; \lim_{z\to\xi_{\vec{k}}} (z - \xi_{\vec{k}})
+  \frac{1}{z - \xi_{\vec{k}}} \frac{1}{e^{z\beta} + 1} \\
+  =&amp; \frac{1}{e^{\xi_{\vec{k}}\beta} + 1} \\
+  =&amp; n_{\mathrm{F}}(\xi_{\vec{k}})
+\end{align}
+<p>
+&#x5B83;&#x5C31;&#x662F;&#x8D39;&#x7C73;&#x5206;&#x5E03;&#x51FD;&#x6570;. 
+ \(\sum\mathrm{Res}_{2}\) &#x8868;&#x793A;&#x7531;&#x7B2C;&#x4E8C;&#x9879;&#x7684; pole &#x8D21;&#x732E;&#x7684;&#x7559;&#x6570;, &#x4E3A;
+</p>
+\begin{align}
+  \sum\mathrm{Res}_{2} = \sum_{\omega_n = \frac{(2n+1)\pi}{\beta}} 
+  \frac{1}{\mathrm{i}\omega_n - \xi_{\vec{k}}}
+  \lim_{z\to\omega_n}\frac{z - \omega_n}{e^{z\beta} + 1}
+\end{align}
+<p>
+&#x800C;&#x7531;&#x6D1B;&#x5FC5;&#x8FBE;&#x6CD5;&#x5219;&#x6709;
+</p>
+\begin{align}
+  \lim_{z\to\omega_n}\frac{z - \omega_n}{e^{z\beta} + 1} 
+  = \lim_{z\to\omega_n}\frac{1}{\beta e^{z\beta}}
+  = -\frac{1}{\beta}
+\end{align}
+<p>
+&#x6240;&#x4EE5;
+</p>
+\begin{align}
+  \sum\mathrm{Res}_{2} = -\frac{1}{\beta}
+   \sum_{\omega_n = \frac{(2n+1)\pi}{\beta}} 
+  \frac{1}{\mathrm{i}\omega_n - \xi_{\vec{k}}}
+\end{align}
+<p>
+&#x6700;&#x7EC8;&#x6709;
+</p>
+\begin{align}
+  \sum_{\omega_n = \frac{(2n+1)\pi}{\beta}} 
+  \frac{1}{\mathrm{i}\omega_n - \xi_{\vec{k}}}
+  = \beta n_{\mathrm{F}}
+\end{align}
+<p>
+&#x8D39;&#x7C73;&#x5206;&#x5E03;&#x51FD;&#x6570;&#x7684; pole , &#x6070;&#x597D;&#x5C31;&#x662F;&#x8D39;&#x7C73;&#x5B50; Matsubara frequency &#x7684;&#x53D6;&#x503C;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org421682c" class="outline-2">
+<h2 id="org421682c">Another View</h2>
+<div class="outline-text-2" id="text-org421682c">
+<p>
+&#x6709;&#x7684;&#x4E66;&#x4E0A;&#x4EE5;&#x53E6;&#x4E00;&#x79CD;&#x89C2;&#x70B9;&#x6765;&#x8BF4;&#x660E;&#x8FD9;&#x4E2A;&#x4E8B;&#x60C5;, &#x4F46;&#x672C;&#x8D28;&#x662F;&#x4E00;&#x6837;&#x7684;. &#x9996;&#x5148;, &#x5C06;&#x6700;&#x539F;&#x59CB;&#x7684;&#x6C42;&#x548C;&#x5F62;&#x5F0F;&#x5316;&#x6210;
+&#x4E00;&#x4E2A; counter integral , counter &#x662F;&#x7ED5;&#x7740;&#x6240;&#x6709;&#x7684; \(\mathrm{i}\omega_n\) &#x5B83;&#x4EEC;&#x90FD;&#x5728;&#x865A;&#x8F74;&#x4E0A;,
+&#x5176;&#x5B83;&#x5730;&#x65B9;&#x4E00;&#x6B63;&#x4E00;&#x8D1F;&#x5C31;&#x62B5;&#x6D88;&#x4E86;. &#x5373; 
+</p>
+\begin{align}
+  \frac{1}{\beta} \sum_{\omega_n} F(\mathrm{i}\omega_n) 
+   = \oint \frac{\mathrm{d}z}{2\pi \mathrm{i}} F(z) \frac{1}{e^{\beta z} + 1}
+\end{align}
+<p>
+&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x7684;&#x56DE;&#x8DEF;&#x6CA1;&#x6709;&#x5305;&#x62EC; \(F(z)\) &#x7684; pole &#x6216;&#x8005; branch cut , &#x800C;&#x4E14; \(F(z)\) &#x7684; pole &#x6216;&#x8005;
+branch cut &#x90FD;&#x5728;&#x5B9E;&#x8F74;&#x4E0A;. &#x7136;&#x540E;&#x52A0;&#x4E0A; null contours , &#x8FD9;&#x5305;&#x62EC;&#x65E0;&#x7A77;&#x8FDC;&#x548C;&#x6CBF;&#x5B9E;&#x8F74;&#x4E0A;&#x4E0B;&#x53CA;&#x865A;&#x8F74;&#x5DE6;
+&#x53F3;&#x7684;&#x79EF;&#x5206;, &#x4E4B;&#x540E;&#x53BB;&#x6389;&#x6CA1;&#x6709;&#x8D21;&#x732E;&#x7684;&#x70B9;, &#x5C31;&#x53EA;&#x5269;&#x4E0B; \(F(z)\) &#x7684; pole &#x548C; branch cut. &#x6700;&#x7EC8;&#x7ED3;&#x679C;
+&#x4E0A;&#x4E4B;&#x524D;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x4E00;&#x6837;&#x7684;. &#x5177;&#x4F53;&#x53EF;&#x4EE5;&#x53C2;&#x8003; Reference[1]
+</p>
+
+<p>
+&#x8FD8;&#x6709;&#x5C31;&#x662F;, &#x8FD9;&#x6837;&#x7406;&#x89E3;&#x7684;&#x7ED3;&#x679C;&#x6BD4;&#x8F83;&#x4FBF;&#x4E8E;, &#x5C31;&#x662F;&#x628A; \(F(z)\) &#x7684; pole &#x548C; branch cut &#x7684;&#x503C;&#x4EE3;&#x5165;&#x5230;
+&#x8D39;&#x7C73;&#x5206;&#x5E03;&#x51FD;&#x6570;&#x4E2D;&#x6C42;&#x548C;, &#x5C31;&#x5F97;&#x5230;&#x4E86;&#x6700;&#x7EC8;&#x7684;&#x7ED3;&#x679C;, &#x5F53;&#x7136;&#x5F97;&#x518D;&#x4E58;&#x4E0A;&#x4E00;&#x4E2A; \(\beta\) &#x8FD9;&#x662F;&#x7531;&#x4E8E;&#x8D39;&#x7C73;&#x5206;
+&#x5E03;&#x51FD;&#x6570;&#x7684; pole &#x7684;&#x8D21;&#x732E;, &#x4E58;&#x5230;&#x8FD9;&#x8FB9;&#x5C31;&#x4ECE; \(\frac{1}{\beta}\) &#x53D8;&#x6210;&#x4E86; \(\beta\) . &#x8D1F;&#x53F7;&#x7531;&#x4E8E;
+contour &#x7684;&#x7ED5;&#x5411;&#x76F8;&#x53CD;&#x4E5F;&#x62B5;&#x6D88;&#x4E86;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb9ff7a9" class="outline-2">
+<h2 id="orgb9ff7a9">Summary</h2>
+<div class="outline-text-2" id="text-orgb9ff7a9">
+<p>
+&#x56E0;&#x6B64;&#x8D39;&#x7C73;&#x5B50;&#x7684;&#x9891;&#x7387;&#x6C42;&#x548C;
+</p>
+\begin{align}
+  \sum_{\omega_n = \frac{(2n+1)\pi}{\beta}} 
+  \frac{1}{\mathrm{i}\omega_n - \xi_{\vec{k}}}
+  = \beta n_{\mathrm{F}}(\xi_{\vec{k}})
+\end{align}
+<p>
+&#x7C7B;&#x4F3C;&#x5730;&#x6709;&#x73BB;&#x8272;&#x5B50;&#x7684;&#x9891;&#x7387;&#x6C42;&#x548C;
+</p>
+\begin{align}
+  \sum_{\omega_m = \frac{2m\pi}{\beta}} 
+  \frac{1}{\mathrm{i}\omega_m - \xi_{\vec{k}}}
+  = -\beta n_{\mathrm{B}}(\xi_{\vec{k}})
+\end{align}
+<p>
+&#x4EE5;&#x53CA;&#x5BF9;&#x4E8E;&#x8D39;&#x7C73;&#x5B50;&#x4E3A;&#x88AB;&#x51CF;&#x6570;&#x7684;&#x6C42;&#x548C;
+</p>
+\begin{align}
+   \sum_{\omega_n=\frac{(2n+1)\pi}{\beta}} \frac{1}{\mathrm{i}\Omega_m - \mathrm{i}\omega_n - \xi_{\vec{k}}} 
+  = \beta\left[n_{\mathrm{F}}(\xi_{\vec{k}})-1\right]
+    \quad,\quad \mathrm{where} \quad \Omega_m =\frac{2m\pi}{\beta} 
+\end{align}
+<p>
+&#x5BF9;&#x4E8E;&#x73BB;&#x8272;&#x5B50;&#x4E3A;&#x88AB;&#x51CF;&#x6570;&#x7684;&#x6C42;&#x548C;
+</p>
+\begin{align}
+   \sum_{\omega_m=\frac{2m\pi}{\beta}} \frac{1}{\mathrm{i}\Omega_n - \mathrm{i}\omega_m - \xi_{\vec{k}}} 
+  = -\beta\left[n_{\mathrm{B}}(\xi_{\vec{k}})+1\right]
+    \quad,\quad \mathrm{where} \quad \Omega_n =\frac{2n\pi}{\beta} 
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org2965fda" class="outline-2">
+<h2 id="org2965fda">Supplementary</h2>
+<div class="outline-text-2" id="text-org2965fda">
+</div>
+<div id="outline-container-org6715bdd" class="outline-3">
+<h3 id="org6715bdd">Intro</h3>
+<div class="outline-text-3" id="text-org6715bdd">
+<p>
+&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x6CBF;&#x65E0;&#x7A77;&#x8FDC;&#x7ED5;&#x4E00;&#x5708; \(C\) &#x7684; counter integral , &#x5982;&#x679C;&#x5B83;&#x5728;&#x65E0;&#x7A77;&#x8FDC;&#x4EE5;&#x5FEB;&#x4E8E;
+\(\frac{1}{|z|}\) &#x7684;&#x901F;&#x5EA6;&#x8D8B;&#x4E8E; \(0\) , &#x90A3;&#x4E48;&#x5B83;&#x7684;&#x79EF;&#x503C;&#x4E3A; \(0\) . &#x5373;
+</p>
+\begin{align}
+  \oint_C f(z) \mathrm{d}z = 0 , \quad\quad
+  \mathrm{if} \quad \lim_{|z|\to\infty}f(z) |z| = 0
+\end{align}
+<p>
+&#x66F4;&#x4E00;&#x822C;&#x5730;&#x8BF4;, &#x4E0D;&#x5FC5;&#x662F;&#x6CBF;&#x7740;&#x6574;&#x4E2A;&#x5706;&#x5708;&#x79EF;&#x5206;, &#x6CBF;&#x65E0;&#x7A77;&#x8FDC;&#x7684;&#x4EFB;&#x610F;&#x4E00;&#x6BB5;&#x5F27;&#x7684;&#x79EF;&#x5206;&#x90FD;&#x4E3A; \(0\) . 
+</p>
+
+<p>
+&#x56E0;&#x4E3A;&#x79EF;&#x5206;&#x53D8;&#x91CF;&#x5728;&#x65E0;&#x7A77;&#x8FDC;&#x4F1A;&#x4EE5; \(|z|\) &#x7684;&#x5F62;&#x5F0F;&#x8D8B;&#x4E8E;&#x65E0;&#x7A77;&#x5927;. &#x5177;&#x4F53;&#x6765;&#x8BF4;, &#x5982;&#x679C;&#x628A;&#x88AB;&#x79EF;&#x51FD;&#x6570; \(z\) 
+&#x5199;&#x6210;&#x8F90;&#x89D2;&#x7684;&#x5F62;&#x5F0F; \(|z|e^{\mathrm{i}\theta}\) , &#x5C31;&#x6709;
+</p>
+\begin{align}
+  \oint_C f(z) \mathrm{d}z = \lim_{R\to\infty}\int_0^{2\pi} 
+  f(R e^{\mathrm{i}\theta}) \mathrm{i}Re^{\mathrm{i}\theta} \mathrm{d}\theta
+\end{align}
+<p>
+&#x53EF;&#x4EE5;&#x770B;&#x51FA;, &#x5982;&#x679C; f(z) &#x5728;&#x65E0;&#x7A77;&#x8FDC;&#x4EE5; \(\frac{1}{|z|}\) &#x7684;&#x5F62;&#x5F0F;&#x8D8B;&#x4E8E; 0, &#x90A3;&#x4E48;
+</p>
+\begin{align}
+  \lim_{R\to\infty}f(R e^{\mathrm{i}\theta}) \mathrm{i}Re^{\mathrm{i}\theta}
+  = \mathrm{const.}
+\end{align}
+<p>
+&#x79EF;&#x5206;&#x503C;&#x662F;&#x6709;&#x9650;&#x7684;&#x503C;. &#x4F46;&#x662F;&#x5982;&#x679C;
+f(z) &#x5728;&#x65E0;&#x7A77;&#x8FDC;&#x4EE5;&#x5FEB;&#x4E8E; \(\frac{1}{|z|}\) &#x7684;&#x5F62;&#x5F0F;&#x8D8B;&#x4E8E; 0 , &#x90A3;&#x4E48;
+&#x53EF;&#x4EE5;&#x770B;&#x51FA;, &#x5982;&#x679C; f(z) &#x5728;&#x65E0;&#x7A77;&#x8FDC;&#x4EE5; \(\frac{1}{|z|}\) &#x7684;&#x5F62;&#x5F0F;&#x8D8B;&#x4E8E; 0, &#x90A3;&#x4E48;
+</p>
+\begin{align}
+  \lim_{R\to\infty}f(R e^{\mathrm{i}\theta}) \mathrm{i}Re^{\mathrm{i}\theta}
+  = 0
+\end{align}
+<p>
+&#x79EF;&#x5206;&#x503C;&#x4E3A; \(0\) . 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc1dc560" class="outline-3">
+<h3 id="orgc1dc560">Jordan&apos;s Lemma</h3>
+<div class="outline-text-3" id="text-orgc1dc560">
+<p>
+Jordan&apos;s Lemma &#x662F;&#x8BF4;, &#x5982;&#x679C;&#x51FD;&#x6570; \(f(z)\) &#x5728;&#x4E0A;&#x534A;&#x5E73;&#x9762;&#x7684;&#x65E0;&#x7A77;&#x8FDC;&#x5904;&#x4E3A; \(0\) ,&#x90A3;&#x4E48;&#x6709;
+</p>
+\begin{align}
+  \int_{C_1} e^{\mathrm{i}az}f(z) \mathrm{d}z = 0 , \quad\quad \mathrm{if} \quad a&gt;0
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(C_1\) &#x662F;&#x65E0;&#x7A77;&#x8FDC;&#x5904;&#x7684;&#x4E0A;&#x534A;&#x5E73;&#x9762;&#x7684;&#x534A;&#x5706;&#x5F27;.
+</p>
+
+<p>
+&#x6309;&#x7167;&#x524D;&#x9762;&#x662F;&#x601D;&#x8DEF;, &#x53EA;&#x8981;&#x8BC1;&#x660E;
+</p>
+\begin{align}
+  \int_0^{\pi} e^{-aR\sin\theta} \mathrm{d}\theta
+\end{align}
+<p>
+&#x5728; \(R\to \infty\) &#x65F6;&#x4EE5;&#x5FEB;&#x4E8E;&#x6216;&#x7B49;&#x4E8E; \(\frac{1}{R}\) &#x7684;&#x5F62;&#x5F0F;&#x8D8B;&#x4E8E; \(0\) &#x5373;&#x53EF;. &#x56E0;&#x4E3A;&#x628A;&#x6307;&#x6570;&#x4E0A;&#x7684; \(z\)
+&#x5199;&#x6210; \(z = R\cos \theta + \mathrm{i}\sin \theta\) , &#x518D;&#x4E58;&#x4E0A;&#x6307;&#x6570;&#x4E0A;&#x7684; \(\mathrm{i}\) ,
+&#x53EA;&#x9700;&#x8981;&#x8003;&#x8651;&#x6B63;&#x5F26;&#x90E8;&#x5206;&#x5373;&#x53EF;, &#x56E0;&#x4E3A;&#x4F59;&#x5F26;&#x90E8;&#x5206;&#x662F;&#x865A;&#x6570;, &#x6307;&#x6570;&#x4E0A;&#x7684;&#x865A;&#x6570;&#x53EA;&#x4EE3;&#x8868;&#x76F8;&#x4F4D;. 
+</p>
+
+<p>
+&#x6307;&#x6570;&#x4E0A;&#x7684;&#x4E09;&#x89D2;&#x51FD;&#x6570;&#x4E0D;&#x597D;&#x79EF;, &#x8FD9;&#x91CC;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x51C6;&#x786E;&#x79EF;&#x51FA;&#x6765;, &#x53EA;&#x8981;&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x79EF;&#x5206;&#x7684;&#x4E0A;&#x9650;&#x5373;&#x53EF;. &#x4ECE;&#x4E09;
+&#x89D2;&#x51FD;&#x6570;&#x7684;&#x56FE;&#x50CF;&#x4E0A;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684;&#x8FD1;&#x4F3C;. &#x5728; \([0, np.pi]\) &#x4E4B;&#x95F4;, &#x6B63;&#x5F26;&#x51FD;&#x6570;&#x662F;&#x5BF9;&#x79F0;&#x7684;, &#x6240;
+&#x4EE5;&#x53EA;&#x9700;&#x8981;&#x8003;&#x8651;&#x5DE6;&#x8FB9;&#x4E00;&#x534A;, &#x90A3;&#x76F4;&#x63A5;&#x53D6;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x7684;&#x4E0A;&#x9650;&#x8FD1;&#x4F3C;, &#x5373; \((0, 0)\) &#x4E0E;
+\((\frac{\pi}{2}, 1)\) &#x4E24;&#x70B9;&#x7684;&#x8FDE;&#x7EBF;, &#x5C0F;&#x4E8E;&#x6B63;&#x5F26;&#x51FD;&#x6570;, &#x518D;&#x7B97;&#x4E0A;&#x6307;&#x6570;&#x4E0A;&#x7684;&#x8D1F;&#x53F7;, &#x8FD9;&#x6837;&#x8FD1;&#x4F3C;&#x7684;&#x79EF;
+&#x5206;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x8981;&#x5927;&#x4E8E;&#x539F;&#x79EF;&#x5206;&#x7684;, &#x4E5F;&#x5C31;&#x627E;&#x5230;&#x4E86;&#x79EF;&#x5206;&#x7684;&#x4E0A;&#x9650;. &#x5373;
+</p>
+\begin{align}
+  \int_0^{\pi} e^{-aR\sin\theta} \mathrm{d}\theta \geq
+  2\int_0^{\frac{2}{\pi}} e^{-aR \frac{2}{\pi}\theta} \mathrm{d}\theta 
+  = \frac{\pi}{aR}(1 - e^{-aR})
+\end{align}
+<p>
+&#x5B83;&#x5728; \(R\to \infty\) &#x65F6;, &#x6070;&#x597D;&#x662F;&#x4EE5; \(\frac{1}{R}\) &#x7684;&#x5F62;&#x5F0F;&#x8D8B;&#x4E8E;&#x96F6;. &#x8FD9;&#x6837; Jordan&apos;s Lemma
+&#x5C31;&#x5F97;&#x5230;&#x4E86;&#x8BC1;&#x660E;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org636cdd1" class="outline-3">
+<h3 id="org636cdd1">Summary of Jordan&apos;s Lemma</h3>
+<div class="outline-text-3" id="text-org636cdd1">
+<p>
+Jordan&apos;s Lemma &#x4E2D;&#x7684;&#x6761;&#x4EF6;&#x8981;&#x5F31;&#x4E8E; intro &#x4E2D;&#x63D0;&#x5230;&#x7684;&#x6761;&#x4EF6;. &#x56E0;&#x4E3A;&#x4ECE;&#x8BC1;&#x660E;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;, Jordan&apos;s
+Lemma &#x7684;&#x6574;&#x4E2A;&#x88AB;&#x79EF;&#x51FD;&#x6570;&#x662F;&#x4EE5;&#x5F31;&#x4E8E; \(\frac{1}{|z|}\) &#x7684;&#x5F62;&#x5F0F;&#x8D8B;&#x4E8E; \(0\) &#x7684;. &#x56E0;&#x4E3A;
+\(e^{\mathrm{i}az}\) &#x662F; exponential &#x7684;&#x5F62;&#x5F0F;&#x8D8B;&#x4E8E; \(0\) , &#x800C; \(f(z)\) &#x8D8B;&#x4E8E; \(0\) &#x7684;&#x901F;&#x5EA6;&#x662F;&#x6CA1;
+&#x6709;&#x9650;&#x5236;&#x7684;, &#x6574;&#x4F53;&#x662F;&#x4EE5;&#x6BD4;&#x6700;&#x6162;&#x7684;&#x8D8B;&#x4E8E; \(0\) &#x7684;&#x901F;&#x5EA6;, &#x4E5F;&#x5C31;&#x662F; exponential &#x7684;&#x901F;&#x5EA6;, &#x7A0D;&#x5FEB;&#x4E00;&#x70B9;&#x7684;
+&#x901F;&#x5EA6;&#x8D8B;&#x4E8E; \(0\) .
+</p>
+
+<p>
+&#x540C;&#x6837;&#x7684;, Jordan&apos;s Lemma &#x4E2D;&#x7684;&#x6761;&#x4EF6;&#x5F31;, &#x540C;&#x6837;&#x5C31;&#x5BFC;&#x81F4;&#x4E86;&#x5BF9;&#x5B83;&#x7684;&#x7ED3;&#x679C;&#x7684;&#x6BD4;&#x8F83;&#x5F3A;&#x7684;&#x9650;&#x5236;, &#x5B83;&#x8981;&#x5728;
+&#x6574;&#x4E2A;&#x4E0A;&#x534A;&#x5706;&#x4E0A;&#x79EF;&#x5206;, &#x800C; intro &#x4E2D;&#x4EFB;&#x610F;&#x4E00;&#x6BB5;&#x5F27;&#x90FD;&#x53EF;&#x4EE5;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcfc3f58" class="outline-3">
+<h3 id="orgcfc3f58">Supplementary of Contour Integral</h3>
+<div class="outline-text-3" id="text-orgcfc3f58">
+<p>
+&#x4E0B;&#x9762;&#x8BF4;&#x660E;
+</p>
+\begin{align}
+  \oint_C \frac{1}{z - \xi_{\vec{k}}} 
+  \frac{1}{e^{z\beta} + 1} \mathrm{d}z
+  = 0
+\end{align}
+<p>
+&#x5B83;&#x4E3A;&#x4EC0;&#x4E48;&#x6210;&#x7ACB;. &#x5B9E;&#x9645;&#x4E0A;&#x5B83;&#x662F;&#x6709;&#x6761;&#x4EF6;&#x7684;, &#x56E0;&#x4E3A;&#x5B83;&#x7684;&#x7B2C;&#x4E00;&#x9879;&#x5F88;&#x660E;&#x663E;&#x5728;&#x65E0;&#x7A77;&#x8FDC;&#x662F;&#x4EE5;
+\(\frac{1}{|z|}\) &#x7684;&#x5F62;&#x5F0F;&#x8D8B;&#x4E8E; \(0\) . &#x4F46;&#x7B2C;&#x4E8C;&#x9879;&#x5728;&#x65E0;&#x7A77;&#x8FDC;&#x5904;&#x53EA;&#x5728;&#x53F3;&#x534A;&#x5E73;&#x9762;&#x662F;&#x8D8B;&#x4E8E; \(0\) , &#x5728;&#x8D1F;
+&#x534A;&#x5E73;&#x9762;&#x662F;&#x4E2A;&#x5E38;&#x6570;, &#x6240;&#x4EE5;&#x8981;&#x52A0;&#x4E00;&#x9879;&#x4F7F;&#x5B83;&#x5728;&#x8D1F;&#x534A;&#x5E73;&#x9762;&#x4E5F;&#x8D8B;&#x4E8E; \(0\) , &#x5373;
+</p>
+\begin{align}
+  \oint_C \frac{e^{z0^+}}{z - \xi_{\vec{k}}} 
+  \frac{1}{e^{z\beta} + 1} \mathrm{d}z
+  = 0
+\end{align}
+<p>
+&#x56E0;&#x4E3A;
+</p>
+\begin{align}
+  e^z \propto e^{R\cos\theta}
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbea2b39" class="outline-2">
+<h2 id="orgbea2b39">Reference</h2>
+<div class="outline-text-2" id="text-orgbea2b39">
+<ul class="org-ul">
+<li>[1] Chap 8.3 Piers Coleman, Introduction to Many-Body Physics</li>
+<li>[2] Arfken, Weber, Harris, Mathematical Methods for Physicists 7ed</li>
+<li>[3] Mahan, Many-Particle Physics 3ed</li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/格林函数/" rel="tag"># 格林函数</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/25/UnitaryTrans/" rel="next" title="厄米矩阵及其幺正对角化">
+                <i class="fa fa-chevron-left"></i> 厄米矩阵及其幺正对角化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/08/BCSII/" rel="prev" title="BCS Theory 课堂笔记整理 II">
+                BCS Theory 课堂笔记整理 II <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgb32e325"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org9f85f90"><span class="nav-text">Counter Integral</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org421682c"><span class="nav-text">Another View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgb9ff7a9"><span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2965fda"><span class="nav-text">Supplementary</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org6715bdd"><span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgc1dc560"><span class="nav-text">Jordan&#39;s Lemma</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org636cdd1"><span class="nav-text">Summary of Jordan&#39;s Lemma</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgcfc3f58"><span class="nav-text">Supplementary of Contour Integral</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgbea2b39"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="物理,path integral">
+<meta property="og:type" content="article">
+<meta property="og:title" content="d-wave (dissuasion)">
+<meta property="og:url" content="https://zqw.ink/2019/12/19/dwaveRF/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2019/12/19/dwaveRF/imSigma.jpg">
+<meta property="og:image" content="https://zqw.ink/2019/12/19/dwaveRF/imSigma2.jpg">
+<meta property="og:image" content="https://zqw.ink/2019/12/19/dwaveRF/bigInteraction.jpg">
+<meta property="og:image" content="https://zqw.ink/2019/12/19/dwaveRF/fig1.jpg">
+<meta property="og:image" content="https://zqw.ink/2019/12/19/dwaveRF/fig2.jpg">
+<meta property="og:image" content="https://zqw.ink/2019/12/19/dwaveRF/fig3.jpg">
+<meta property="og:updated_time" content="2020-11-29T02:17:49.106Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="d-wave (dissuasion)">
+<meta name="twitter:image" content="https://zqw.ink/2019/12/19/dwaveRF/imSigma.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2019/12/19/dwaveRF/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>d-wave (dissuasion) | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2019/12/19/dwaveRF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">d-wave (dissuasion)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-19 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-19T00:00:00+08:00">2019-12-19</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/19/dwaveRF/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/12/19/dwaveRF/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+
+<div id="outline-container-orgda3c3f6" class="outline-2">
+<h2 id="orgda3c3f6">fig</h2>
+<div class="outline-text-2" id="text-orgda3c3f6">
+
+<div id="orgf960f77" class="figure">
+<p><img src="/2019/12/19/dwaveRF/imSigma.jpg">
+</p>
+</div>
+
+
+<div id="org91f0212" class="figure">
+<p><img src="/2019/12/19/dwaveRF/imSigma2.jpg">
+</p>
+</div>
+
+
+<div id="orgee537f9" class="figure">
+<p><img src="/2019/12/19/dwaveRF/bigInteraction.jpg">
+</p>
+</div>
+
+
+<div id="org442b2be" class="figure">
+<p><img src="/2019/12/19/dwaveRF/fig1.jpg">
+</p>
+</div>
+
+
+<div id="org161519c" class="figure">
+<p><img src="/2019/12/19/dwaveRF/fig2.jpg">
+</p>
+</div>
+
+
+<div id="org14ab898" class="figure">
+<p><img src="/2019/12/19/dwaveRF/fig3.jpg">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1b6759e" class="outline-2">
+<h2 id="org1b6759e">code</h2>
+<div class="outline-text-2" id="text-org1b6759e">
+<p>
+<a href="p-WaveSinglePole.f90">fortran code download</a>
+</p>
+
+<div class="org-src-container">
+<figure class="highlight fortran"><table><tr><td class="code"><pre><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : pWaveSinglePole</span></span><br><span class="line"><span class="comment">! version  : 02-Dec-2019</span></span><br><span class="line"><span class="comment">! author   : Zeqing Wang</span></span><br><span class="line"><span class="comment">! purpose  : calculate the RF spectrum of p-wave sue single pole approximation </span></span><br><span class="line"><span class="comment">! reference: </span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : param</span></span><br><span class="line"><span class="comment">! type     : module</span></span><br><span class="line"><span class="comment">! version  : 05-Dec-2019</span></span><br><span class="line"><span class="comment">! purpose  : set the precision</span></span><br><span class="line"><span class="comment">! comment  : </span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="keyword">module</span> prec</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">  <span class="keyword">integer</span>, <span class="keyword">parameter</span> :: rkind=<span class="number">16</span>   <span class="comment">! the precision</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">module</span> prec</span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : param</span></span><br><span class="line"><span class="comment">! type     : module</span></span><br><span class="line"><span class="comment">! version  : 05-Dec-2019</span></span><br><span class="line"><span class="comment">! purpose  : set the precision</span></span><br><span class="line"><span class="comment">! comment  : </span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="keyword">module</span> param</span><br><span class="line">  <span class="keyword">use</span> prec</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind), <span class="keyword">parameter</span> :: pi=<span class="built_in">acos</span>(-<span class="number">1.0_rkind</span>)</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind), <span class="keyword">parameter</span> :: beta=<span class="number">1_rkind</span>, mu=-<span class="number">1_rkind</span>, rkv=&amp;</span><br><span class="line">       &amp;-<span class="number">1.0_rkind</span>, rp=<span class="number">1.0</span>/<span class="number">30.0</span></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind), <span class="keyword">parameter</span> :: phi_k=<span class="number">0.0</span> <span class="comment">! phi_k &#x662F;&#x65E0;&#x5173;&#x7684;&#x91CF;, &#x4E0D;&#x5F71;&#x54CD;&#x7ED3;&#x679C;</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">module</span> param</span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : pWavesinglePole</span></span><br><span class="line"><span class="comment">! type     : program</span></span><br><span class="line"><span class="comment">! version  : 19-Dec-2019</span></span><br><span class="line"><span class="comment">! comment  : the main program</span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="function"><span class="keyword">program</span></span> pWaveSinglePole</span><br><span class="line">  <span class="keyword">use</span> prec</span><br><span class="line">  <span class="keyword">use</span> param</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">integer</span>, <span class="keyword">parameter</span> :: <span class="built_in">dim</span>=<span class="number">50</span> <span class="comment">! &#x753B;&#x56FE;&#x53D6;&#x70B9;&#x7684;&#x4E2A;&#x6570;</span></span><br><span class="line">  <span class="keyword">integer</span> :: i                  <span class="comment">! &#x5FAA;&#x73AF;&#x53D8;&#x91CF;</span></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: x(<span class="built_in">dim</span>) ,y(<span class="built_in">dim</span>)    <span class="comment">! &#x7EB5;&#x5750;&#x6807;</span></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: sigma, spectrum_k_thetak <span class="comment">! &#x753B;&#x56FE;&#x7528;&#x5230;&#x7684;&#x51FD;&#x6570;</span></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: k=<span class="number">2.0</span>, theta_k = pi/<span class="number">2</span> <span class="comment">! &#x7ED9;&#x5B9A; k &#x548C; theta_k &#x753B;&#x56FE;</span></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: start, <span class="keyword">end</span>        <span class="comment">! &#x7528;&#x4E8E;&#x8BA1;&#x65F6;&#x7684;&#x53D8;&#x91CF;</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">interface</span></span><br><span class="line">     <span class="function"><span class="keyword">function</span></span> linspace(a, b, <span class="built_in">dim</span>) result(list)</span><br><span class="line">       <span class="keyword">use</span> prec</span><br><span class="line">       <span class="keyword">integer</span> :: <span class="built_in">dim</span></span><br><span class="line">       <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: a, b, list(<span class="built_in">dim</span>)</span><br><span class="line">     <span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> linspace</span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">interface</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">! &#x8BA1;&#x65F6;&#x5F00;&#x59CB;</span></span><br><span class="line">  <span class="keyword">call</span> <span class="built_in">cpu_time</span>(start)</span><br><span class="line"></span><br><span class="line">  x = linspace(-<span class="number">20.0_rkind</span>, <span class="number">10.0_rkind</span>, <span class="built_in">dim</span>)</span><br><span class="line"><span class="comment">!  x = linspace(0.0_rkind, pi, dim)</span></span><br><span class="line">  <span class="keyword">do</span> i = <span class="number">1</span>, <span class="built_in">dim</span></span><br><span class="line">	  y(i) = sigma(x(i), k, theta_k)</span><br><span class="line">     <span class="comment">!     y(i) = spectrum_k_thetak(x(i), k, theta_k)</span></span><br><span class="line">     <span class="built_in">print</span> *, <span class="string">&apos;calculating...&apos;</span>, i, <span class="string">&apos;of&apos;</span>, <span class="built_in">dim</span></span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">! &#x8BA1;&#x65F6;&#x7ED3;&#x675F;</span></span><br><span class="line">  <span class="keyword">call</span> <span class="built_in">cpu_time</span>(<span class="keyword">end</span>)</span><br><span class="line">  <span class="built_in">print</span> *, <span class="string">&apos;calculate finish! time is &apos;</span>, <span class="keyword">end</span> - start, <span class="string">&apos;seconds&apos;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">! &#x5C06;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#x5230;&#x6587;&#x4EF6;, &#x7528;&#x4E8E;&#x753B;&#x56FE;</span></span><br><span class="line">  open(<span class="number">1</span>, <span class="keyword">file</span>=<span class="string">&apos;./data/datax.csv&apos;</span>)</span><br><span class="line">  <span class="built_in">write</span>(<span class="number">1</span>, *) x</span><br><span class="line">  close(<span class="number">1</span>)</span><br><span class="line">  open(<span class="number">2</span>, <span class="keyword">file</span>=<span class="string">&apos;./data/datay.csv&apos;</span>)</span><br><span class="line">  <span class="built_in">write</span>(<span class="number">2</span>, *) y</span><br><span class="line">  close(<span class="number">2</span>)</span><br><span class="line">  <span class="built_in">print</span> *, <span class="string">&apos;save data finish!&apos;</span>  </span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> pWaveSinglePole</span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : spectrum</span></span><br><span class="line"><span class="comment">! type     : function</span></span><br><span class="line"><span class="comment">! version  : 19-Dec-2019</span></span><br><span class="line"><span class="comment">! purpose  : calculate spectrum function</span></span><br><span class="line"><span class="comment">! comment  : &#x8FD8;&#x662F;&#x53EA;&#x6709;&#x865A;&#x90E8;</span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> spectrum_k_thetak(omega, k, theta_k)</span><br><span class="line">  <span class="keyword">use</span> prec</span><br><span class="line">  <span class="keyword">use</span> param</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: omega, k, theta_k</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: spectrum_k_thetak</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: sigma, sigma_real, sigma_imag</span><br><span class="line">  sigma_imag = sigma(omega, k, theta_k)</span><br><span class="line"><span class="comment">!  print *, sigma_imag</span></span><br><span class="line">  sigma_real = <span class="number">0.0_rkind</span></span><br><span class="line"></span><br><span class="line">  spectrum_k_thetak = -<span class="number">2</span>*sigma_imag / ((omega - k**<span class="number">2</span> - sigma_real)**<span class="number">2</span> +&amp;</span><br><span class="line">       &amp; sigma_imag**<span class="number">2</span>) </span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> spectrum_k_thetak</span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : sigma</span></span><br><span class="line"><span class="comment">! type     : function</span></span><br><span class="line"><span class="comment">! version  : 18-Dec-2019</span></span><br><span class="line"><span class="comment">! purpose  : calculate self energy</span></span><br><span class="line"><span class="comment">! comment  : &#x79EF;&#x6389; phi_q . &#x8FD8;&#x662F;&#x53EA;&#x6709;&#x865A;&#x90E8;</span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> sigma(omega, k, theta_k)</span><br><span class="line">  <span class="keyword">use</span> prec</span><br><span class="line">  <span class="keyword">use</span> param</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: sigma</span><br><span class="line"></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: omega, k, theta_k, theta_q, phi_q</span><br><span class="line"></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: gaussQuad, r1, r2, x, cos_theta_kq, deltapart</span><br><span class="line">  <span class="keyword">integer</span>, <span class="keyword">parameter</span> :: n=<span class="number">50</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">! &#x5C06;&#x6CA1;&#x6709;&#x79EF;&#x6389; phi_q &#x65F6;&#x7684;&#x81EA;&#x80FD;&#x63A5;&#x53E3;&#x8FDB;&#x6765;</span></span><br><span class="line">  <span class="keyword">interface</span></span><br><span class="line">     <span class="function"><span class="keyword">function</span></span> sigma_phiq(omega, k, theta_k, phi_q)</span><br><span class="line">       <span class="keyword">use</span> prec</span><br><span class="line">       <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">       <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: omega, k, theta_k, phi_q</span><br><span class="line">       <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: sigma_phiq</span><br><span class="line">     <span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> sigma_phiq</span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">interface</span></span><br><span class="line"></span><br><span class="line">  sigma = gaussQuad(fun, <span class="number">0.0_rkind</span>, <span class="number">50.0_rkind</span>, n)</span><br><span class="line"></span><br><span class="line"><span class="keyword">contains</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span></span> fun(phi_q)</span><br><span class="line">    <span class="keyword">use</span> prec</span><br><span class="line">    <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">    <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: phi_q, fun</span><br><span class="line">    fun = sigma_phiq(omega, k, theta_k, phi_q)</span><br><span class="line">  <span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> fun</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> sigma</span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : sigma_phiq</span></span><br><span class="line"><span class="comment">! type     : function</span></span><br><span class="line"><span class="comment">! version  : 18-Dec-2019</span></span><br><span class="line"><span class="comment">! purpose  : calculate self energy</span></span><br><span class="line"><span class="comment">! comment  : &#x8FD9;&#x91CC;&#x628A; q &#x79EF;&#x6389;&#x4E86;, &#x8FD8;&#x4E58;&#x4E0B; theta_q, phi_q &#x6CA1;&#x6709;&#x79EF;</span></span><br><span class="line"><span class="comment">!            &#x518D;&#x79EF;&#x6389; theta_q, &#x8FD8;&#x4E58;&#x4E0B; phi_q &#x6CA1;&#x6709;&#x79EF;</span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> sigma_phiq(omega, k, theta_k, phi_q)</span><br><span class="line">  <span class="keyword">use</span> prec</span><br><span class="line">  <span class="keyword">use</span> param</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: omega, k, theta_k, theta_q, phi_q</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: sigma_phiq, sp</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: gaussQuad, r1, r2, x, cos_theta_kq, deltapart</span><br><span class="line">  <span class="keyword">integer</span>, <span class="keyword">parameter</span> :: n=<span class="number">50</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">! &#x5C06;&#x6CA1;&#x6709;&#x79EF;&#x6389; theta_q &#x65F6;&#x7684;&#x81EA;&#x80FD;&#x63A5;&#x53E3;&#x8FDB;&#x6765;</span></span><br><span class="line">  <span class="keyword">interface</span></span><br><span class="line">     <span class="function"><span class="keyword">function</span></span> sigma_thetaq_phiq(omega, k, theta_k, theta_q, phi_q)</span><br><span class="line">       <span class="keyword">use</span> prec</span><br><span class="line">       <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">       <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: omega, k, theta_k, theta_q, phi_q</span><br><span class="line">       <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: sigma_thetaq_phiq</span><br><span class="line">     <span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> sigma_thetaq_phiq</span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">interface</span></span><br><span class="line"></span><br><span class="line">  sigma_phiq = gaussQuad(fun, <span class="number">0.0_rkind</span>, <span class="number">50.0_rkind</span>, n)</span><br><span class="line"></span><br><span class="line">  <span class="comment">! &#x5C06;&#x6CA1;&#x6709;&#x79EF;&#x6389; theta_q &#x7684;&#x81EA;&#x80FD;&#x5B9A;&#x4E49;&#x6210;&#x4E00;&#x4E2A; theta_q &#x7684;&#x51FD;&#x6570;</span></span><br><span class="line"><span class="keyword">contains</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span></span> fun(theta_q)</span><br><span class="line">    <span class="keyword">use</span> prec</span><br><span class="line">    <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">    <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: theta_q, fun</span><br><span class="line">    fun = sigma_thetaq_phiq(omega, k, theta_k, theta_q, phi_q)</span><br><span class="line">  <span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> fun</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> sigma_phiq</span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : sigma_thetaq_phiq</span></span><br><span class="line"><span class="comment">! type     : function</span></span><br><span class="line"><span class="comment">! version  : 18-Dec-2019</span></span><br><span class="line"><span class="comment">! purpose  : calculate self energy</span></span><br><span class="line"><span class="comment">! comment  : &#x8FD9;&#x91CC;&#x628A; q &#x79EF;&#x6389;&#x4E86;, &#x8FD8;&#x4E58;&#x4E0B; theta_q, phi_q &#x6CA1;&#x6709;&#x79EF;</span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> sigma_thetaq_phiq(omega, k, theta_k, theta_q, phi_q)</span><br><span class="line">  <span class="keyword">use</span> prec</span><br><span class="line">  <span class="keyword">use</span> param</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: omega, k, theta_k, theta_q, phi_q</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: sigma_thetaq_phiq, sp</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: cauthyGaussQuad, r1, r2, x, cos_theta_kq, deltapart</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: delta <span class="comment">! b^2 - 4*a*c</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">! &#x5C06;&#x6CA1;&#x6709;&#x79EF;&#x6389; q &#x65F6;&#x7684;&#x81EA;&#x80FD;&#x63A5;&#x53E3;&#x8FDB;&#x6765;</span></span><br><span class="line">  <span class="keyword">interface</span></span><br><span class="line">     <span class="function"><span class="keyword">function</span></span> numerator_of_sigma(omega, k, q, theta_k,  theta_q, phi_q)</span><br><span class="line">       <span class="keyword">use</span> prec</span><br><span class="line">       <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">       <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: omega, k, q, theta_k,  theta_q, phi_q</span><br><span class="line">       <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: numerator_of_sigma</span><br><span class="line">     <span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> numerator_of_sigma</span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">interface</span></span><br><span class="line"></span><br><span class="line">  x = cos_theta_kq(theta_k, theta_q, phi_k, phi_q)</span><br><span class="line"><span class="comment">!  x=0</span></span><br><span class="line">  delta = <span class="number">4</span>*k**<span class="number">2</span>*x**<span class="number">2</span> - <span class="number">2</span>*(omega + k**<span class="number">2</span> +mu + rkv)</span><br><span class="line">  <span class="keyword">if</span> (delta <span class="number">.</span>gt<span class="number">.</span> <span class="number">0.0_rkind</span>) <span class="keyword">then</span></span><br><span class="line">     r1 = <span class="number">2</span>*k*x - <span class="built_in">sqrt</span>(delta)</span><br><span class="line">     r2 = <span class="number">2</span>*k*x + <span class="built_in">sqrt</span>(delta)</span><br><span class="line">     sigma_thetaq_phiq = deltapart(fun, r1, r2) <span class="comment">! &#x8BA1;&#x7B97;&#x51FA;&#x865A;&#x90E8;</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">     sigma_thetaq_phiq = <span class="number">0</span>      <span class="comment">! &#x8BA1;&#x7B97;&#x51FA;&#x865A;&#x90E8;</span></span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">! &#x5C06;&#x6CA1;&#x6709;&#x79EF;&#x6389; q &#x7684;&#x81EA;&#x80FD;&#x5B9A;&#x4E49;&#x6210;&#x4E00;&#x4E2A; q &#x7684;&#x51FD;&#x6570;(&#x4FBF;&#x4E8E;&#x8BA1;&#x7B97;&#x865A;&#x90E8;, &#x53BB;&#x6389;&#x4E86;&#x5206;&#x6BCD;)</span></span><br><span class="line"><span class="keyword">contains</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span></span> fun(q)</span><br><span class="line">    <span class="keyword">use</span> prec</span><br><span class="line">    <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">    <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: q, fun</span><br><span class="line">    fun = numerator_of_sigma(omega, k, q, theta_k,  theta_q, phi_q)</span><br><span class="line">  <span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> fun</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> sigma_thetaq_phiq</span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : sigma_q_thetaq_phiq</span></span><br><span class="line"><span class="comment">! type     : function</span></span><br><span class="line"><span class="comment">! version  : 05-Dec-2019</span></span><br><span class="line"><span class="comment">! purpose  : calculate self energy</span></span><br><span class="line"><span class="comment">! comment  : &#x8FD9;&#x91CC;&#x6709;&#x4E09;&#x4E2A;&#x5F85;&#x79EF;&#x53D8;&#x91CF;, q, theta_q, phi_q</span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> sigma_q_thetaq_phiq(omega, k, q, theta_k,  theta_q, phi_q)</span><br><span class="line">  <span class="keyword">use</span> prec</span><br><span class="line">  <span class="keyword">use</span> param</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) ::  omega, k, theta_k, q, theta_q, phi_q</span><br><span class="line"><span class="comment">!  real(kind=rkind) :: phi_k=0_rkind</span></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: <span class="keyword">real</span>, imag</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: sigma_q_thetaq_phiq</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: kp2       <span class="comment">!square of k&apos;</span></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: cos_theta_kq, bose, cos_theta_kprime, sylm10</span><br><span class="line"></span><br><span class="line">  kp2 = <span class="number">4</span>*k**<span class="number">2</span> + q**<span class="number">2</span> - <span class="number">4</span>*k*q*cos_theta_kq(theta_k, theta_q, phi_k, phi_q) <span class="comment">!k&apos;^2</span></span><br><span class="line"></span><br><span class="line">  sigma_q_thetaq_phiq = bose(k**<span class="number">2</span> + q**<span class="number">2</span> - <span class="number">2</span>*cos_theta_kq(theta_k, theta_q, phi_k&amp;</span><br><span class="line">		      &amp;, phi_q) - mu, beta)&amp;</span><br><span class="line">		      &amp; - bose(q**<span class="number">2</span>/<span class="number">2</span> - <span class="number">2</span>*mu - rkv, beta)</span><br><span class="line">  sigma_q_thetaq_phiq = sigma_q_thetaq_phiq / (omega + k**<span class="number">2</span> + q**<span class="number">2</span>/<span class="number">2</span> -<span class="number">2</span>*k*q&amp;</span><br><span class="line">		      &amp;*cos_theta_kq(theta_k, theta_q, phi_k, phi_q) + mu +&amp;</span><br><span class="line">		      &amp; rkv)</span><br><span class="line">  sigma_q_thetaq_phiq = sigma_q_thetaq_phiq * q**<span class="number">2</span> * kp2 * <span class="built_in">sin</span>(theta_q) *&amp;</span><br><span class="line">       &amp; sylm10(cos_theta_kprime(k, q, cos_theta_kq(theta_k, theta_q, phi_k,&amp;</span><br><span class="line">       &amp; phi_q))) * rp * <span class="number">2</span> / (pi**<span class="number">2</span>)</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> sigma_q_thetaq_phiq</span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : numerator_of_sigma</span></span><br><span class="line"><span class="comment">! type     : function</span></span><br><span class="line"><span class="comment">! version  : 24-Dec-2019</span></span><br><span class="line"><span class="comment">! purpose  : calculate self energy</span></span><br><span class="line"><span class="comment">! comment  : &#x8FD9;&#x91CC;&#x6709;&#x4E09;&#x4E2A;&#x5F85;&#x79EF;&#x53D8;&#x91CF;, q, theta_q, phi_q</span></span><br><span class="line"><span class="comment">!            function sigma_q_thetaq_phiq &#x53BB;&#x6389;&#x5206;&#x6BCD;, &#x7528;&#x4E8E;&#x8BA1;&#x7B97;&#x865A;&#x90E8;</span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> numerator_of_sigma(omega, k, q, theta_k,  theta_q, phi_q)</span><br><span class="line">  <span class="keyword">use</span> prec</span><br><span class="line">  <span class="keyword">use</span> param</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) ::  omega, k, theta_k, q, theta_q, phi_q</span><br><span class="line"><span class="comment">!  real(kind=rkind) :: phi_k=0_rkind</span></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: <span class="keyword">real</span>, imag</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: numerator_of_sigma</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: kp2       <span class="comment">!square of k&apos;</span></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: cos_theta_kq, bose, cos_theta_kprime, sylm10</span><br><span class="line"></span><br><span class="line">  kp2 = k**<span class="number">2</span> + q**<span class="number">2</span>/<span class="number">4</span> - k*q*cos_theta_kq(theta_k, theta_q, phi_k, phi_q) <span class="comment">!k&apos;^2</span></span><br><span class="line"></span><br><span class="line">  numerator_of_sigma = bose(k**<span class="number">2</span> + q**<span class="number">2</span> - <span class="number">2</span>*cos_theta_kq(theta_k, theta_q, phi_k&amp;</span><br><span class="line">		      &amp;, phi_q) - mu, beta)&amp;</span><br><span class="line">		      &amp; - bose(q**<span class="number">2</span>/<span class="number">2</span> - <span class="number">2</span>*mu - rkv, beta)</span><br><span class="line"></span><br><span class="line">  numerator_of_sigma = numerator_of_sigma * q**<span class="number">2</span> * kp2  * <span class="built_in">sin</span>(theta_q) *&amp;</span><br><span class="line">	&amp; sylm10(cos_theta_kprime(k, q, cos_theta_kq(theta_k, theta_q, phi_k,&amp;</span><br><span class="line">	&amp; phi_q))) * rp * <span class="number">2</span> / (pi**<span class="number">2</span>)</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> numerator_of_sigma</span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : cos_theta_kprime</span></span><br><span class="line"><span class="comment">! type     : function</span></span><br><span class="line"><span class="comment">! version  : 05-Dec-2019</span></span><br><span class="line"><span class="comment">! purpose  : known k, q, and the angle between k and q, calculate cos(k&apos;),</span></span><br><span class="line"><span class="comment">!            where k&apos; is the angle between k and -k+q</span></span><br><span class="line"><span class="comment">! comment  : </span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> cos_theta_kprime(k, q, cos_theta_kq)</span><br><span class="line">  <span class="keyword">use</span> prec</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind), <span class="keyword">intent</span>(<span class="keyword">in</span>) :: k, q, cos_theta_kq</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: cos_theta_kprime</span><br><span class="line"></span><br><span class="line">  cos_theta_kprime =  (<span class="number">2</span>*k*q*cos_theta_kq - <span class="number">2</span>*k**<span class="number">2</span>) / (<span class="number">2</span>*k*<span class="built_in">sqrt</span>(k**<span class="number">2</span> + q**<span class="number">2</span> -&amp;</span><br><span class="line">       &amp; <span class="number">2</span>*k*q*cos_theta_kq))   </span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> cos_theta_kprime</span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : cos_theta_kq</span></span><br><span class="line"><span class="comment">! type     : function</span></span><br><span class="line"><span class="comment">! version  : 05-Dec-2019</span></span><br><span class="line"><span class="comment">! purpose  : known theta_k, theta_q, phi_k, phi_q, calculate the cosine of</span></span><br><span class="line"><span class="comment">!            angle between k and q</span></span><br><span class="line"><span class="comment">! comment  : </span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> cos_theta_kq(theta_k, theta_q, phi_k, phi_q)</span><br><span class="line">  <span class="keyword">use</span> prec</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind), <span class="keyword">intent</span>(<span class="keyword">in</span>) :: theta_k, theta_q, phi_k, phi_q</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: cos_theta_kq</span><br><span class="line"></span><br><span class="line">  cos_theta_kq = <span class="built_in">sin</span>(theta_k)*<span class="built_in">sin</span>(theta_q)*<span class="built_in">cos</span>(phi_k - phi_q) + <span class="built_in">cos</span>(theta_k)&amp;</span><br><span class="line">       &amp;*<span class="built_in">cos</span>(theta_q) </span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> cos_theta_kq</span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : bose</span></span><br><span class="line"><span class="comment">! type     : function</span></span><br><span class="line"><span class="comment">! version  : 05-Dec-2019</span></span><br><span class="line"><span class="comment">! purpose  : Bose-Einstein function</span></span><br><span class="line"><span class="comment">! comment  : n(x, beta) = 1 / (e^(beta*x) - 1)</span></span><br><span class="line"><span class="comment">!            beta: 1/Temperature  x: energy</span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> bose(energy, beta)</span><br><span class="line">  <span class="keyword">use</span> prec</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind), <span class="keyword">intent</span>(<span class="keyword">in</span>) :: energy, beta</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: bose</span><br><span class="line">  <span class="keyword">if</span> (energy <span class="number">.</span>lt<span class="number">.</span> <span class="number">0.0_rkind</span>) <span class="keyword">then</span></span><br><span class="line">     <span class="built_in">print</span> *, <span class="string">&apos;=======Energy is negtive, Unphysical!======&apos;</span></span><br><span class="line">     <span class="keyword">stop</span></span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line"></span><br><span class="line">  bose = <span class="built_in">exp</span>(-beta*energy) / (<span class="number">1</span> - <span class="built_in">exp</span>(- beta*energy))</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> bose</span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : sylm10</span></span><br><span class="line"><span class="comment">! type     : function</span></span><br><span class="line"><span class="comment">! version  : 05-Dec-2019</span></span><br><span class="line"><span class="comment">! purpose  : square of spherical harmonica function</span></span><br><span class="line"><span class="comment">! comment  : |Y_l=1 m=0(x)|^2</span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> sylm10(x)</span><br><span class="line">  <span class="keyword">use</span> prec</span><br><span class="line">  <span class="keyword">use</span> param</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind), <span class="keyword">intent</span>(<span class="keyword">in</span>) :: x</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: sylm10</span><br><span class="line"></span><br><span class="line">  sylm10 = <span class="number">3</span>/(<span class="number">4</span>*pi) * <span class="built_in">cos</span>(x)**<span class="number">2</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> sylm10</span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : cauthyGaussQuad</span></span><br><span class="line"><span class="comment">! type     : function</span></span><br><span class="line"><span class="comment">! version  : 05-Dec-2019</span></span><br><span class="line"><span class="comment">! purpose  : calculate the cauthy principal value integral of function &quot;fun&quot;</span></span><br><span class="line"><span class="comment">!            from a to b with singlarity sp</span></span><br><span class="line"><span class="comment">! comment  : </span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> cauthyGaussQuad(fun, a, b, n, sp)</span><br><span class="line">  <span class="keyword">use</span> prec</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">integer</span>, <span class="keyword">intent</span>(<span class="keyword">in</span>) :: n</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind), <span class="keyword">intent</span>(<span class="keyword">in</span>) :: a, b, sp</span><br><span class="line"></span><br><span class="line">  <span class="comment">! &#x88AB;&#x79EF;&#x51FD;&#x6570;&#x63A5;&#x53E3;</span></span><br><span class="line">  <span class="keyword">interface</span></span><br><span class="line">     <span class="function"><span class="keyword">function</span></span> fun(x)</span><br><span class="line">       <span class="keyword">use</span> prec</span><br><span class="line">       <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">       <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: x, fun</span><br><span class="line">     <span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> fun</span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">interface</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">integer</span> :: j</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: cauthyGaussQuad, diffa, diffb, ff, sgq1, sgq2, gaussQuad</span><br><span class="line"></span><br><span class="line">  diffa = sp - a</span><br><span class="line">  diffb = b - sp</span><br><span class="line"></span><br><span class="line"><span class="comment">! &#x8BA1;&#x7B97;&#x79EF;&#x5206;</span></span><br><span class="line">  <span class="keyword">if</span> (diffa <span class="number">.</span>lt<span class="number">.</span> diffb) <span class="keyword">then</span></span><br><span class="line">     sgq1 = gaussQuad(ffun, <span class="number">0.0_rkind</span>, sp-a, n)</span><br><span class="line">     sgq2 = gaussQuad(fun, <span class="number">2</span>*sp-a, b, n)</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">     sgq1 = gaussQuad(ffun, <span class="number">0.0_rkind</span>, b-sp, n)</span><br><span class="line">     sgq2 = gaussQuad(fun, a, <span class="number">2</span>*sp-b, n)</span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line"></span><br><span class="line">  cauthyGaussQuad = sgq1 + sgq2</span><br><span class="line"><span class="keyword">contains</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span></span> ffun(t)</span><br><span class="line">    <span class="keyword">use</span> prec</span><br><span class="line">    <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">    <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: t, ffun</span><br><span class="line">    ffun = fun(t+sp) + fun(-t+sp)</span><br><span class="line">  <span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> ffun</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> cauthyGaussQuad</span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : gaussQuad</span></span><br><span class="line"><span class="comment">! type     : function</span></span><br><span class="line"><span class="comment">! version  : 03-Dec-2019</span></span><br><span class="line"><span class="comment">! purpose  : calculate the integral of function &quot;fun&quot; from a to b</span></span><br><span class="line"><span class="comment">! comment  : </span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> gaussQuad(fun, a, b, n)</span><br><span class="line">  <span class="keyword">use</span> prec</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">integer</span>, <span class="keyword">intent</span>(<span class="keyword">in</span>) :: n</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind), <span class="keyword">intent</span>(<span class="keyword">in</span>) :: a, b</span><br><span class="line"></span><br><span class="line">  <span class="comment">! &#x88AB;&#x79EF;&#x51FD;&#x6570;&#x63A5;&#x53E3;</span></span><br><span class="line">  <span class="keyword">interface</span></span><br><span class="line">     <span class="function"><span class="keyword">function</span></span> fun(x)</span><br><span class="line">       <span class="keyword">use</span> prec</span><br><span class="line">       <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">       <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: x, fun</span><br><span class="line">     <span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> fun</span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">interface</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">integer</span> :: j</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: gaussQuad, r(<span class="number">2</span>, n), fxi(n)</span><br><span class="line"></span><br><span class="line">  <span class="comment">! &#x6839;&#x4E0E;&#x6743;&#x91CD;&#x63A5;&#x53E3;</span></span><br><span class="line">  <span class="keyword">interface</span></span><br><span class="line">     <span class="function"><span class="keyword">function</span></span> node_weight(n) result(r)</span><br><span class="line">       <span class="keyword">use</span> prec</span><br><span class="line">       <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">       <span class="keyword">integer</span> :: n</span><br><span class="line">       <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: r(<span class="number">2</span>, n)</span><br><span class="line">     <span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> node_weight</span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">interface</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">! &#x8BA1;&#x7B97;&#x79EF;&#x5206;</span></span><br><span class="line">  r = node_weight(n)</span><br><span class="line">  <span class="keyword">do</span> j = <span class="number">1</span>, n</span><br><span class="line">     fxi(j) = fun((r(<span class="number">1</span>, j)*(b - a) + a + b) / <span class="number">2</span>)</span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line">  gaussQuad = <span class="built_in">dot_product</span>(r(<span class="number">2</span>, :), fxi)</span><br><span class="line">  gaussQuad = gaussQuad * (b - a) / <span class="number">2</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> gaussQuad</span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : node_weight</span></span><br><span class="line"><span class="comment">! type     : function</span></span><br><span class="line"><span class="comment">! version  : 02-Dec-2019</span></span><br><span class="line"><span class="comment">! purpose  : calculate the root of n-order Legendre polynomial, and weight</span></span><br><span class="line"><span class="comment">! comment  : use the method in reference</span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> node_weight(n) result(r)</span><br><span class="line">  <span class="keyword">use</span> prec</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">  <span class="keyword">integer</span> :: n, i, iter, k</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: r(<span class="number">2</span>, n), x, f, df, dx</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind), <span class="keyword">parameter</span> :: pi = <span class="built_in">acos</span>(-<span class="number">1._rkind</span>)</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind), <span class="keyword">allocatable</span> :: p0(:), p1(:)</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind), <span class="keyword">allocatable</span> :: tmp(:)</span><br><span class="line"></span><br><span class="line">  <span class="comment">! &#x5229;&#x7528;&#x9012;&#x63A8;&#x516C;&#x5F0F;&#x6C42; n &#x9636; Legendre &#x591A;&#x9879;&#x5F0F;&#x7684;&#x7CFB;&#x6570;, &#x5E42;&#x6B21;&#x4ECE;&#x9AD8;&#x5230;&#x4F4E;&#x6392;&#x5217;, &#x7ED3;&#x679C;&#x5C31;&#x662F;&#x6570;&#x7EC4; p1 </span></span><br><span class="line">  p0 = [<span class="number">1.0_rkind</span>]</span><br><span class="line">  p1 = [<span class="number">1._rkind</span>, <span class="number">0._rkind</span>]</span><br><span class="line">  <span class="keyword">do</span> i = <span class="number">2</span>, n</span><br><span class="line">     tmp = ((<span class="number">2</span>*i - <span class="number">1</span>)*[p1, <span class="number">0._rkind</span>] - (i - <span class="number">1</span>)*[<span class="number">0._rkind</span>, <span class="number">0._rkind</span>, p0]) / i</span><br><span class="line">     p0 = p1; p1 = tmp</span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">! &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5C06; n &#x9636;&#x7684;&#x60C5;&#x51B5;&#x7684; &#x6839;&#x5B58;&#x5728; r(1,:) &#x4E2D;, &#x6743;&#x91CD;&#x5B58;&#x5728; r(2, :) &#x4E2D;</span></span><br><span class="line">  <span class="keyword">do</span> i = <span class="number">1</span>, n</span><br><span class="line">     x = <span class="built_in">cos</span>(pi*(i - <span class="number">.25_rkind</span>) / (n + <span class="number">.5_rkind</span>))</span><br><span class="line">     <span class="keyword">do</span> iter = <span class="number">1</span>, <span class="number">10</span></span><br><span class="line">	f = p1(<span class="number">1</span>); df = <span class="number">0._rkind</span></span><br><span class="line">	<span class="keyword">do</span> k = <span class="number">2</span>, <span class="built_in">size</span>(p1)</span><br><span class="line">	   df = f + x*df        <span class="comment">! &#x5F97;&#x5230;&#x7684;&#x662F; P_n&apos;(x_0) &#x7684;&#x503C;</span></span><br><span class="line">	   f = p1(k) + x*f      <span class="comment">! &#x5F97;&#x5230;&#x7684;&#x662F; P_n(x_0) &#x7684;&#x503C;</span></span><br><span class="line">	<span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line">	dx = f/df</span><br><span class="line">	x = x - dx</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">abs</span>(dx)&lt;<span class="number">10</span>*<span class="built_in">epsilon</span>(dx)) <span class="keyword">exit</span></span><br><span class="line">     <span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line">     r(<span class="number">1</span>, i) = x</span><br><span class="line">     r(<span class="number">2</span>, i) = <span class="number">2</span>/((<span class="number">1</span> - x**<span class="number">2</span>)*df**<span class="number">2</span>)</span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> node_weight</span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : linspace</span></span><br><span class="line"><span class="comment">! type     : function</span></span><br><span class="line"><span class="comment">! version  : 19-Dec-2019</span></span><br><span class="line"><span class="comment">! purpose  : similar to &apos;numpy.linspace&apos; in python</span></span><br><span class="line"><span class="comment">! comment  : </span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> linspace(a, b, <span class="built_in">dim</span>) result(list)</span><br><span class="line">  <span class="keyword">use</span> prec</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: a, b</span><br><span class="line">  <span class="keyword">integer</span> :: <span class="built_in">dim</span></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: list(<span class="built_in">dim</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">integer</span> :: i</span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: diff</span><br><span class="line"></span><br><span class="line">  <span class="keyword">do</span> i = <span class="number">1</span>, <span class="built_in">dim</span></span><br><span class="line">     list(i) = i - <span class="number">1</span>            <span class="comment">! i-1 instead of i, in order to be the same as</span></span><br><span class="line">				<span class="comment">! numpy.linspace </span></span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">  diff = b - a</span><br><span class="line">  list = a + list * diff/<span class="built_in">dim</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> linspace</span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="comment">! program  : deltapart</span></span><br><span class="line"><span class="comment">! type     : function</span></span><br><span class="line"><span class="comment">! version  : 18-Dec-2019</span></span><br><span class="line"><span class="comment">! purpose  : get the delta part of  \int_0 ^\inf f(x) / ((x-r1)(x-r2) + i0) dx</span></span><br><span class="line"><span class="comment">! comment  : the result is -pi * (f(r1) - f(r2)) / (r1 - r2)</span></span><br><span class="line"><span class="comment">!            &#x6CE8;&#x610F;, &#x8FD9;&#x4E2A;&#x7A0B;&#x5E8F;&#x6CA1;&#x6709;&#x5F97;&#x5230;&#x9A8C;&#x8BC1;!</span></span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> deltapart(fun, r1, r2)</span><br><span class="line">  <span class="keyword">use</span> prec</span><br><span class="line">  <span class="keyword">use</span> param</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">  <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: r1, r2, deltapart</span><br><span class="line"></span><br><span class="line">    <span class="comment">! &#x51FD;&#x6570; f(x) &#x7684;&#x63A5;&#x53E3;</span></span><br><span class="line">  <span class="keyword">interface</span></span><br><span class="line">     <span class="function"><span class="keyword">function</span></span> fun(x)</span><br><span class="line">       <span class="keyword">use</span> prec</span><br><span class="line">       <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">       <span class="keyword">real</span>(<span class="keyword">kind</span>=rkind) :: x, fun</span><br><span class="line">     <span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> fun</span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">interface</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> ((r1 <span class="number">.</span>lt<span class="number">.</span> <span class="number">0</span>) <span class="number">.</span>and<span class="number">.</span> (r2 <span class="number">.</span>lt<span class="number">.</span> <span class="number">0</span>)) <span class="keyword">then</span> <span class="comment">! &#x4E24;&#x4E2A;&#x6839;&#x90FD;&#x5C0F;&#x4E8E;&#x96F6;, &#x6CA1;&#x6709;&#x865A;&#x90E8;</span></span><br><span class="line">     deltapart = <span class="number">0</span></span><br><span class="line">     <span class="comment">! print *, &apos;no root&apos;</span></span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (r1 <span class="number">.</span>lt<span class="number">.</span> <span class="number">0</span>) <span class="keyword">then</span>          <span class="comment">! r1&lt;0, r1&gt;0, &#x53D6; r2</span></span><br><span class="line">     deltapart = pi * fun(r2) / (r1-r2)</span><br><span class="line">     <span class="comment">! print *, &apos;root2&apos;</span></span><br><span class="line">     <span class="comment">! print *, fun(r2)</span></span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (r2 <span class="number">.</span>lt<span class="number">.</span> <span class="number">0</span>) <span class="keyword">then</span>          <span class="comment">! r1&lt;0, r2&gt;0, &#x53D6; r1</span></span><br><span class="line">     deltapart = -pi * fun(r1)  / (r1-r2)</span><br><span class="line">     <span class="comment">! print *, &apos;root1&apos;</span></span><br><span class="line">  <span class="keyword">else</span>                          <span class="comment">! &#x4E24;&#x4E2A;&#x6839;&#x90FD;&#x5927;&#x4E8E;0</span></span><br><span class="line">     deltapart = -pi * (fun(r1) - fun(r2)) / (r1-r2)</span><br><span class="line">     <span class="comment">! print *, &apos;2 roots&apos;</span></span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> deltapart</span><br><span class="line"><span class="comment">! ==============================================================================</span></span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/path-integral/" rel="tag"># path integral</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/08/BCSII/" rel="next" title="BCS Theory 课堂笔记整理 II">
+                <i class="fa fa-chevron-left"></i> BCS Theory 课堂笔记整理 II
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/27/summary_grade_3_1/" rel="prev" title="研三上学期总结">
+                研三上学期总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgda3c3f6"><span class="nav-text">fig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org1b6759e"><span class="nav-text">code</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="物理,格林函数,多体物理读书会,contraction,Feynman graphs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多体物理读书会: 5.2和5.3节 contraction-Grenn&#39;s Function-Feynman graphs三者之间的对应">
+<meta property="og:url" content="https://zqw.ink/2018/12/03/多体物理读书会:5.2和5.3节 contraction-Grenn's Function-Feynman graphs三者之间的对应/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.850Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多体物理读书会: 5.2和5.3节 contraction-Grenn&#39;s Function-Feynman graphs三者之间的对应">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2018/12/03/多体物理读书会:5.2和5.3节 contraction-Grenn's Function-Feynman graphs三者之间的对应/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>多体物理读书会: 5.2和5.3节 contraction-Grenn's Function-Feynman graphs三者之间的对应 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2018/12/03/多体物理读书会:5.2和5.3节 contraction-Grenn's Function-Feynman graphs三者之间的对应/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">多体物理读书会: 5.2和5.3节 contraction-Grenn's Function-Feynman graphs三者之间的对应
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-03 00:00:00" itemprop="dateCreated datePublished" datetime="2018-12-03T00:00:00+08:00">2018-12-03</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/03/多体物理读书会:5.2和5.3节 contraction-Grenn's Function-Feynman graphs三者之间的对应/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/12/03/多体物理读书会:5.2和5.3节 contraction-Grenn's Function-Feynman graphs三者之间的对应/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/jquery.feyn-1.0.1.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+$('#container').feyn({
+description: 'Four-gluon vertex for QCD',
+width: 480,
+height: 140,
+incoming: {i1: '40,120', i2: '140,120', i3: '40,20', i4: '140,20'},
+vertex: {v1: '90,70'},
+gluon: {line: 'v1-i1,v1-i2,v1-i3,v1-i4'},
+node: {show: 'v', type: 'dot', fill: 'black', radius: 2},
+label: {t1: ['15,110', '$c,\\rho$', 30], t2: ['140,110', '$d,\\sigma$', 30],
+t3: ['15,10', '$b,\\nu$', 30], t4: ['140,10', '$a,\\mu$', 30],
+t5: ['190,15', '$=-ig^2\\big[\\!f^{abe}f^{cde}(\\eta^{\\mu\\rho}\\eta^{\\nu\\sigma}-\\eta^{\\mu\\sigma}\\eta^{\\nu\\rho})\\\\\\qquad+f^{ace}f^{bde}(\\eta^{\\mu\\nu}\\eta^{\\rho\\sigma}-\\eta^{\\mu\\sigma}\\eta^{\\nu\\rho})\\\\\\qquad+f^{ade}f^{bce}(\\eta^{\\mu\\nu}\\eta^{\\rho\\sigma}-\\eta^{\\mu\\rho}\\eta^{\\nu\\sigma})\\big]$', 290, 100]},
+mathjax: true
+});
+});
+</script>
+
+<div id="outline-container-orgeaae950" class="outline-2">
+<h2 id="orgeaae950">contraction &#x4E0E;&#x56E0;&#x679C;&#x683C;&#x6797;&#x51FD;&#x6570;&#x5BF9;&#x5E94;</h2>
+<div class="outline-text-2" id="text-orgeaae950">
+</div>
+<div id="outline-container-orgd40d75f" class="outline-3">
+<h3 id="orgd40d75f">&#x56E0;&#x679C;&#x683C;&#x6797;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x5F0F;</h3>
+<div class="outline-text-3" id="text-orgd40d75f">
+<p>
+&#x7B2C;&#x4E09;&#x7AE0;&#x4E2D;&#x56E0;&#x679C;&#x683C;&#x6797;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x4E3A;
+</p>
+
+\begin{align*}
+G_{AB}^c (t-t&apos;) \equiv - \mathrm{i} \langle T_{\varepsilon} (A(t)B(t&apos;))\rangle 
+\end{align*}
+
+<p>
+&#x5982;&#x679C;&#x7CFB;&#x7EDF;&#x53D6;&#x4E3A;&#x96F6;&#x6E29;&#x65E0;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x8D39;&#x7C73;&#x6C14;&#x4F53;, &#x7B97;&#x7B26; \(A(t),B(t&apos;)\) &#x53D6;&#x4E3A; \(a_k(t),a_l^{\dagger}(t&apos;)\) ,&#x4E0A;&#x5F0F;&#x5C31;&#x53D8;&#x4E3A;
+</p>
+
+\begin{align}
+\label{eq:contraction}
+G_{kl}^{0,c}(t-t&apos;) = -\mathrm{i} \langle T_{\varepsilon}(a_k(t)a_l(t&apos;)) \rangle 
+= - \mathrm{i} \langle \eta_0 \mid T_{\varepsilon}\left\{ a_k(t)a_l^{\dagger}(t&apos;) \right\}  \mid \eta_0 \rangle
+\end{align}
+
+<p>
+&#x5176;&#x4E2D;&#x76EE;&#x6807; \(0\) &#x4EE3;&#x8868;&#x65E0;&#x76F8;&#x4E92;&#x4F5C;&#x7528;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org075db22" class="outline-3">
+<h3 id="org075db22">contraction &#x7684;&#x5B9A;&#x4E49;</h3>
+<div class="outline-text-3" id="text-org075db22">
+<p>
+&#x6839;&#x636E; contraction &#x7684;&#x5B9A;&#x4E49;, &#x53EF;&#x5F97; ( &#x6536;&#x7F29;&#x7B26;&#x53F7;&#x4E0D;&#x597D;&#x5728;&#x8FD9;&#x6253;, &#x7528;&#x5927;&#x62EC;&#x53F7;&#x4EE3;&#x66FF;&#x4E86; )
+</p>
+
+\begin{equation}
+\begin{split}
+\underbrace{a_k(t)a_l^{\dagger}(t&apos;)} =&amp; \langle \eta_0 \mid \underbrace{a_k(t)a_l^{\dagger}(t&apos;)} \mid \eta_0 \rangle \\
+=&amp; \langle \eta_0 \mid T_{\varepsilon}\left\{ a_k(t)a_l^{\dagger}(t&apos;) \right\} - N \left\{\mid a_k(t)a_l^{\dagger}(t&apos;) \right\} \mid \eta_0 \rangle \\
+=&amp; \langle \eta_0 \mid T_{\varepsilon}\left\{ a_k(t)a_l^{\dagger}(t&apos;) \right\}  \mid \eta_0 \rangle \\
+=&amp; \langle \eta_0 \mid T_{\varepsilon}\left\{ a_k(t)a_l^{\dagger}(t&apos;) \right\}  \mid \eta_0 \rangle  \delta_{kl}
+\end{split}
+\end{equation}
+
+<p>
+&#x5176;&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;&#x7B49;&#x53F7;&#x662F;&#x56E0;&#x4E3A;&#x6536;&#x7F29;&#x662F;&#x4E00;&#x4E2A;&#x6570;, &#x7B2C;&#x4E8C;&#x4E2A;&#x7B49;&#x53F7;&#x662F; contraction &#x7684;&#x5B9A;&#x4E49;, &#x7B2C;&#x4E09;&#x4E2A;&#x7B49;&#x53F7;&#x662F;&#x56E0;&#x4E3A;&#x6B63;&#x89C4; normal product &#x5728;&#x57FA;&#x6001;&#x4E0B;&#x7684;&#x671F;&#x671B;&#x662F; \(0\) .
+</p>
+
+<p>
+&#x6839;&#x636E; contraction &#x7684;&#x5B9A;&#x4E49;, &#x5BF9;&#x4E8E;&#x8D39;&#x7C73;&#x5B50;&#x4E5F;&#x53EF;&#x76F4;&#x63A5;&#x5F97;&#x5230;
+</p>
+
+\begin{align}
+\underbrace{a_k(t)a_l^{\dagger}(t&apos;)} = - \underbrace{a_l^{\dagger}(t&apos;)a_k(t)}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgfb7eeb6" class="outline-3">
+<h3 id="orgfb7eeb6">&#x7ED3;&#x8BBA;</h3>
+<div class="outline-text-3" id="text-orgfb7eeb6">
+<p>
+&#x5BF9;&#x6BD4; (\ref{eq:contraction}) &#x548C; \((2)\) &#x53EF;&#x5F97;
+</p>
+
+\begin{align}
+\underbrace{a_k(t)a_l^{\dagger}(t&apos;)} = \mathrm{i} G_{kl}^{0,c}(t-t&apos;) \delta_{kl} =  \mathrm{i} G_{k}^{0,c}(t-t&apos;) \delta_{kl}
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga23fef0" class="outline-2">
+<h2 id="orga23fef0">time-ordering &#x7B97;&#x7B26;&#x7684; convention</h2>
+<div class="outline-text-2" id="text-orga23fef0">
+<p>
+&#x5F53; time-ordering &#x7B97;&#x7B26;&#x4F5C;&#x7528;&#x7684;&#x4E24;&#x4E2A;&#x7B97;&#x7B26;&#x76F8;&#x7B49;&#x65F6;,&#x901A;&#x5E38;&#x53D6;&#x6D88;&#x706D;&#x7B97;&#x7B26;&#x7684;&#x65F6;&#x95F4;&#x8981;&#x7A0D;&#x5C0F;&#x4E8E;&#x4EA7;&#x751F;&#x7B97;&#x7B26;, &#x4E5F;&#x5C31;&#x662F;
+</p>
+
+\begin{align}
+t_{\mathrm{annihilation operator}} - t_{\mathrm{creation operation}} = 0^-
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org6644d03" class="outline-2">
+<h2 id="org6644d03">&#x56E0;&#x679C;&#x683C;&#x6797;&#x51FD;&#x6570;&#x4E0E;&#x7C92;&#x5B50;&#x6570;&#x5E73;&#x5747;&#x503C;&#x7684;&#x5173;&#x7CFB;</h2>
+<div class="outline-text-2" id="text-org6644d03">
+<p>
+&#x4E66;&#x4E2D;&#x7B2C;&#x4E09;&#x7AE0;&#x4E2D;&#x6709;&#x7ED3;&#x8BBA;
+</p>
+
+\begin{align}
+\mathrm{i}G_k^c(t-t&apos;=0^-) = - \langle n_k \rangle
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgf8d6c23" class="outline-2">
+<h2 id="orgf8d6c23">Feynman graphs &#x7684;&#x6B63;&#x8D1F;&#x53F7;&#x95EE;&#x9898;</h2>
+<div class="outline-text-2" id="text-orgf8d6c23">
+<p>
+&#x56FE;&#x7684;&#x6B63;&#x8D1F;&#x53F7;&#x4E0E;&#x6536;&#x7F29;&#x4E2D;&#x5E26; &quot;\(\prime\)&quot; &#x7684; \(t\) &#x5728;&#x53F3;&#x8FB9;&#x65F6;&#x7684;&#x7B26;&#x53F7;&#x76F8;&#x540C;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf5619b1" class="outline-2">
+<h2 id="orgf5619b1">&#x603B;&#x7ED3;</h2>
+<div class="outline-text-2" id="text-orgf5619b1">
+<p>
+&#x7EFC;&#x5408;&#x4E0A;&#x9762;&#x7684;&#x8003;&#x8651;, &#x6211;&#x53D1;&#x73B0;&#x53EA;&#x8981;&#x7528;&#x4EE5;&#x4E0B;&#x4E94;&#x6761;&#x89C4;&#x5219;&#x5C31;&#x53EF;&#x4EE5;&#x628A; contraction-Grenn&apos;s Function-Feynman graphs &#x4EE5;&#x53CA;&#x7C92;&#x5B50;&#x6570;&#x7B97;&#x7B26;&#x5728;&#x57FA;&#x6001;&#x4E0A;&#x7684;&#x671F;&#x671B;&#x76F8;&#x8054;&#x7CFB;
+</p>
+
+<ul class="org-ul">
+<li></li>
+</ul>
+\begin{align*}
+\boxed{
+t_{\mathrm{annihilation operator}} - t_{\mathrm{creation operation}} = 0^-
+}
+\end{align*}
+<ul class="org-ul">
+<li></li>
+</ul>
+\begin{align*}
+\boxed{
+\underbrace{a_k(t)a_l^{\dagger}(t&apos;)} = \mathrm{i} G_{k}^{0,c}(t-t&apos;) \delta_{kl}
+}
+\end{align*}
+<ul class="org-ul">
+<li></li>
+</ul>
+\begin{align*}
+\boxed{
+\underbrace{a_k(t)a_l^{\dagger}(t&apos;)} = - \underbrace{a_l^{\dagger}(t&apos;)a_k(t)}
+}
+\end{align*}
+<ul class="org-ul">
+<li></li>
+</ul>
+\begin{align*}
+\boxed{
+\mathrm{i}G_k^c(t-t&apos;=0^-) = - \langle n_k \rangle
+}
+\end{align*}
+<ul class="org-ul">
+<li></li>
+</ul>
+\begin{align*}
+\boxed{
+\mathrm{&#x56FE;&#x7684;&#x6B63;&#x8D1F;&#x53F7;&#x4E0E;&#x6536;&#x7F29;&#x4E2D;&#x5E26; &quot;\prime&quot; &#x7684; t &#x5728;&#x53F3;&#x8FB9;&#x65F6;&#x7684;&#x7B26;&#x53F7;&#x76F8;&#x540C;.}
+}
+\end{align*}
+</div>
+</div>
+
+
+
+<div id="outline-container-org4c99544" class="outline-2">
+<h2 id="org4c99544">&#x6CE8;</h2>
+<div class="outline-text-2" id="text-org4c99544">
+<p>
+\(LaTeX\) &#x4E2D;&#x6536;&#x7F29;&#x7684;&#x6253;&#x6CD5;&#x53EF;&#x4EE5;&#x53C2;&#x8003; <a href="http://tug.ctan.org/macros/latex/contrib/simplewick/simplewick.pdf" target="_blank" rel="noopener">http://tug.ctan.org/macros/latex/contrib/simplewick/simplewick.pdf</a> &#x4F7F;&#x7528; simplewick.sty
+</p>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/格林函数/" rel="tag"># 格林函数</a>
+          
+            <a href="/tags/多体物理读书会/" rel="tag"># 多体物理读书会</a>
+          
+            <a href="/tags/contraction/" rel="tag"># contraction</a>
+          
+            <a href="/tags/Feynman-graphs/" rel="tag"># Feynman graphs</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/28/Friedel Oscillations/" rel="next" title="Friedel Oscillations疑问">
+                <i class="fa fa-chevron-left"></i> Friedel Oscillations疑问
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/11/多体物理读书会:3.1节  diagram techniques的起点/" rel="prev" title="多体物理读书会:3.1节 Dirac表象中的演化算符-diagram techniques的起点">
+                多体物理读书会:3.1节 Dirac表象中的演化算符-diagram techniques的起点 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgeaae950"><span class="nav-text">contraction 与因果格林函数对应</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd40d75f"><span class="nav-text">因果格林函数的定义式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org075db22"><span class="nav-text">contraction 的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgfb7eeb6"><span class="nav-text">结论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orga23fef0"><span class="nav-text">time-ordering 算符的 convention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6644d03"><span class="nav-text">因果格林函数与粒子数平均值的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgf8d6c23"><span class="nav-text">Feynman graphs 的正负号问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgf5619b1"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org4c99544"><span class="nav-text">注</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

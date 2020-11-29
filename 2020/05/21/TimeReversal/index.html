@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="物理,Time Reversal,Kramer&#39;s Degeneracy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读书笔记: Time Reversal and Kramer&#39;s Degeneracy">
+<meta property="og:url" content="https://zqw.ink/2020/05/21/TimeReversal/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:49.110Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="读书笔记: Time Reversal and Kramer&#39;s Degeneracy">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2020/05/21/TimeReversal/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>读书笔记: Time Reversal and Kramer's Degeneracy | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2020/05/21/TimeReversal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">读书笔记: Time Reversal and Kramer's Degeneracy
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-21 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-21T00:00:00+08:00">2020-05-21</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/21/TimeReversal/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/05/21/TimeReversal/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-orgd17d7b5" class="outline-2">
+<h2 id="orgd17d7b5">&#x5F15;&#x8A00;: &#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x6982;&#x8FF0;&#x4E0E; Kramer&apos;s Degeneracy</h2>
+<div class="outline-text-2" id="text-orgd17d7b5">
+<p>
+&#x5BF9;&#x4E8E;&#x725B;&#x987F;&#x529B;&#x5B66;
+</p>
+\begin{align}
+  m \frac{\mathrm{d}}{\mathrm{d}t} \vec{x}(t) = - \nabla V(\vec{x})
+\end{align}
+<p>
+\(x(-t)\) &#x4E5F;&#x662F;&#x5B83;&#x7684;&#x4E00;&#x4E2A;&#x89E3;.
+</p>
+
+<p>
+&#x4F46;&#x662F;&#x5BF9;&#x4E8E; Schrodinger &#x65B9;&#x7A0B;( \(H\) &#x4E0D;&#x542B;&#x65F6;)
+</p>
+\begin{align}
+  \mathrm{i} \frac{\partial}{\partial t} \psi(t) = H \psi(t)
+\end{align}
+<p>
+&#x7531;&#x4E8E;&#x4E0A;&#x5F0F;&#x4E2D;&#x6709;&#x5BF9;&#x65F6;&#x95F4;&#x7684;&#x4E00;&#x9636;&#x5BFC;&#x6570;,  \(\psi(- t)\) &#x4E0D;&#x662F;&#x5B83;&#x7684;&#x89E3;. &#x4F46;&#x662F; \(\psi^{*}(- t)\) &#x662F;&#x5B83;&#x7684;&#x89E3;.
+&#x56E0;&#x4E3A;&#x5C06;&#x4E0A;&#x5F0F;&#x53D6;&#x590D;&#x5171;&#x8F6D; 
+</p>
+\begin{align}
+  -\mathrm{i}\frac{\partial}{\partial t} \psi^{*}(t) =&amp; H \psi^{*}(t) \\
+                         \Downarrow&amp; \\
+  \mathrm{i}\frac{\partial}{\partial t&apos;} \psi^{*}(-t&apos;) =&amp; H \psi^{*}(-t&apos;)
+\end{align}
+<p>
+&#x56E0;&#x6B64; \(\psi^{*}(-t)\) &#x8FD8;&#x662F; Schrodinger &#x65B9;&#x7A0B;&#x7684;&#x89E3;. 
+</p>
+<blockquote>
+<p>
+&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x5728;&#x5E73;&#x9762;&#x6CE2;&#x6001; \(\psi(t) =
+e^{\mathrm{i} (\vec{p}\cdot \vec{x} - Et)}\) spinless &#x7684; 
+&#x7C92;&#x5B50;, \(\psi^{*}(-t) = e^{-\mathrm{i} (-\vec{p}\cdot \vec{x} - Et)}\) &#x662F;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x7684;&#x5E73;&#x9762;&#x6CE2;,
+&#x8FD8;&#x662F; Schrodinger &#x65B9;&#x7A0B;&#x7684;&#x89E3;.
+</p>
+</blockquote>
+<p>
+&#x5B9A;&#x4E49;&#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x7B97;&#x7B26; \(T \psi(t) = \psi^{*}(-t)\) , &#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x5BF9;&#x79F0;&#x64CD;&#x4F5C;. &#x5982;&#x679C;&#x6CE2;&#x51FD;&#x6570;&#x7834;&#x7F3A;&#x4E86;&#x8FD9;&#x79CD;
+&#x5BF9;&#x79F0;&#x6027;, &#x5B83;&#x4E5F;&#x4F1A;&#x5F15;&#x8D77;&#x7B80;&#x5E76;. &#x5177;&#x4F53;&#x5730;&#x8BF4;:
+</p>
+
+<p>
+&#x5982;&#x679C; \([H, T] = 0\) , &#x4E5F;&#x5C31;&#x662F;&#x8BF4; Hamiltonian &#x5177;&#x6709;&#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x5BF9;&#x79F0;&#x6027;, &#x90A3;&#x4E48;
+</p>
+\begin{align}
+  HT\psi = TH\psi = TE\Psi = E T\psi
+\end{align}
+<p>
+&#x4ECE;&#x4E0A;&#x5F0F;&#x53EF;&#x4EE5;&#x770B;&#x51FA;, &#x5982;&#x679C; \(\psi\) &#x4E0D;&#x5177;&#x6709;&#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x5BF9;&#x79F0;&#x6027;, &#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x6709;&#x7B80;&#x5E76;.
+</p>
+
+<blockquote>
+<p>
+Example: 
+</p>
+
+<p>
+&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x9759;&#x7535;&#x573A;&#x4E2D;&#x7684;&#x7535;&#x5B50;, &#x5B83;&#x7684; Hamiltonian &#x4E2D;&#x6709;&#x5173;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x7684;&#x90E8;&#x5206;&#x4E3A;
+</p>
+\begin{align}
+  H = e\phi(\vec{x})
+\end{align}
+<p>
+\(\phi(\vec{x})\) &#x662F;&#x4F4D;&#x7F6E; \(\vec{x}\) &#x7684;&#x5B9E;&#x51FD;&#x6570;, &#x7531;&#x4E8E; \(\vec{x}\) &#x5728;&#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x4E0B;&#x662F;&#x4E0D;&#x53D8;&#x7684;, &#x6240;
+&#x4EE5;&#x8FD9;&#x4E2A;&#x7CFB;&#x7EDF;&#x7684; Hamiltonian \([H, T] = 0\) . 
+</p>
+
+<p>
+&#x540C;&#x65F6;, &#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x5BF9; spin \(1/2\) &#x4F5C;&#x7528;&#x7684;&#x7ED3;&#x679C;&#x4E3A;
+\(T^2 |\rangle = - |\rangle\)
+&#x6240;&#x4EE5; \(T\) &#x4F5C;&#x7528;&#x5728;&#x81EA;&#x65CB;&#x4E0A;&#x4F1A;&#x4F7F;&#x539F;&#x6765;&#x7684;&#x6001;&#x53D8;&#x6210;&#x53E6;&#x4E00;&#x4E2A;&#x6001;. &#x5982;&#x679C; \(T\) &#x4F5C;&#x7528;&#x7684;&#x7ED3;&#x679C;&#x4EC5;&#x4EC5;&#x662F;&#x4E00;&#x4E2A;&#x76F8;&#x4F34;
+&#x7684;&#x5316;, &#x5C31;&#x4F1A;&#x6709; \(T^2 = 1\) .
+</p>
+
+<p>
+&#x56E0;&#x6B64;, &#x5728;&#x8FD9;&#x4E2A;&#x7CFB;&#x7EDF;&#x4E2D;, Hamiltonian &#x5177;&#x6709;&#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x5BF9;&#x79F0;&#x6027;, &#x800C;&#x7CFB;&#x7EDF;&#x7684;&#x6001;&#x4E0D;&#x5177;&#x6709;&#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x5BF9;&#x79F0;
+&#x6027;, &#x6240;&#x4EE5;&#x4F1A;&#x4EA7;&#x751F;&#x7B80;&#x5E76;, &#x8FD9;&#x5C31;&#x662F; Kramer&apos;s Degeneracy
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgc52b20a" class="outline-2">
+<h2 id="orgc52b20a">&#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x7684;&#x542B;&#x4E49;</h2>
+<div class="outline-text-2" id="text-orgc52b20a">
+<p>
+&#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x7684;&#x542B;&#x4E49;, &#x5C31;&#x662F;&#x4F7F;&#x8FD0;&#x52A8;&#x5F80;&#x65F6;&#x95F4;&#x51CF;&#x5C0F;&#x7684;&#x65B9;&#x5411;&#x6F14;&#x5316;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9f54e51" class="outline-2">
+<h2 id="org9f54e51">&#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x7B97;&#x7B26;&#x662F; antiunitary &#x7684;</h2>
+<div class="outline-text-2" id="text-org9f54e51">
+<p>
+&#x5047;&#x8BBE;&#x4E00;&#x4E2A;&#x4E00;&#x7EF4;&#x81EA;&#x7531;&#x6CE2;&#x5305;, &#x52A8;&#x91CF;&#x4E3A; \(p\) , &#x65B9;&#x5411;&#x6C34;&#x5E73;&#x5411;&#x53F3;&#x4E3A;&#x6B63;. &#x5728; \(t=0\) &#x65F6;&#x523B;, &#x6CE2;&#x5305;&#x4E2D;&#x5FC3;&#x5728;
+\(x=0\) &#x5904;, &#x5C06;&#x6B64;&#x65F6;&#x7684;&#x6001;&#x8BB0;&#x4E3A; 
+</p>
+\begin{align}
+|\alpha\rangle = |p, 0\rangle
+\end{align}
+
+<p>
+&#x8003;&#x8651;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x8FC7;&#x7A0B;.
+</p>
+<blockquote>
+<p>
+&#x6211;&#x4EEC;&#x5BF9;&#x5B83;&#x8FDB;&#x884C;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x7684;&#x64CD;&#x4F5C;, &#x6839;&#x636E;&#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x7684;&#x542B;&#x4E49;, &#x5B83;&#x5E94;&#x8BE5;&#x53D8;&#x6210;&#x5411;&#x5DE6;&#x7684;&#x52A8;&#x91CF;, &#x4E5F;&#x5C31;&#x662F;
+\(|-p, 0\rangle\) &#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+T |p, 0\rangle = |-p, 0\rangle
+\end{align}
+<p>
+&#x7136;&#x540E;&#x8BA9; \(T|-p, 0\rangle\) &#x7ECF;&#x8FC7;&#x4E00;&#x6BB5;&#x5C0F;&#x65F6;&#x95F4;&#x540E;, &#x5B83;&#x4F1A;&#x6309;&#x52A8;&#x91CF; \(-p\) &#x5411;&#x5DE6;&#x4F20;&#x64AD;, &#x8BB0;&#x7ECF;&#x8FC7;
+\(\delta t\) &#x65F6;&#x95F4;&#x540E;, &#x6CE2;&#x5305;&#x4E2D;&#x5FC3;&#x5230;&#x4E86; \(-\delta x\) , &#x8BB0;&#x4E3A;&#x6001; \(|\beta\rangle = |-p, -\delta x\rangle\) , &#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+  \left[1 - \frac{\mathrm{i}}{\hbar} H\, \delta t\right] T |p, 0\rangle = |-p, -\delta x\rangle = |\beta \rangle
+\end{align}
+</blockquote>
+<p>
+&#x518D;&#x8003;&#x8651;&#x53E6;&#x4E00;&#x4E2A;&#x8FC7;&#x7A0B;
+</p>
+<blockquote>
+<p>
+&#x5148;&#x8BA9;&#x8FD9;&#x4E2A;&#x7C92;&#x5B50;&#x6F14;&#x5316; \(- \delta t\) &#x7684;&#x65F6;&#x95F4;, &#x76F8;&#x5F53;&#x4E8E;&#x5F80;&#x5DE6;&#x540E;&#x9000;, &#x5B83;&#x5E94;&#x8BE5;&#x53D8;&#x6210;&#x6001; \(| p , -\delta x\rangle\) ,
+&#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+  \left[1 - \frac{\mathrm{i}}{\hbar} H\, (-\delta t)\right] |p, 0\rangle = |p, -\delta x\rangle
+\end{align}
+<p>
+&#x518D;&#x505A;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x64CD;&#x4F5C;, &#x4F7F;&#x5B83;&#x7684;&#x52A8;&#x91CF;&#x53CD;&#x5411;, &#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+  T\left[1 - \frac{\mathrm{i}}{\hbar} H\, (-\delta t)\right] |p, 0\rangle = |-p, -\delta x\rangle = |\beta\rangle
+\end{align}
+</blockquote>
+<p>
+&#x5BF9;&#x6BD4;&#x4E24;&#x4E2A;&#x8FC7;&#x7A0B;, &#x5B83;&#x4EEC;&#x7684;&#x521D;&#x672B;&#x6001;&#x662F;&#x4E00;&#x6837;&#x7684;, &#x6240;&#x4EE5;&#x4E24;&#x4E2A;&#x6F14;&#x5316;&#x8FC7;&#x7A0B;&#x662F;&#x7B49;&#x4EF7;&#x7684;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;
+</p>
+\begin{align}
+  T\left[1 - \frac{\mathrm{i}}{\hbar} H\, (-\delta t)\right] = \left[1 - \frac{\mathrm{i}}{\hbar} H\, \delta t\right]T
+\end{align}
+<p>
+&#x5373;
+</p>
+\begin{align}
+T \,\mathrm{i}H = - \mathrm{i}H\, T
+\end{align}
+<p>
+&#x5982;&#x679C; \(T\) &#x662F;&#x5E7A;&#x6B63;&#x7684;, &#x4E00;&#x5B9A;&#x6709;
+</p>
+\begin{align}
+  H T = - T H
+\end{align}
+<p>
+&#x8FD9;&#x662F;&#x975E;&#x7269;&#x7406;&#x7684;, &#x56E0;&#x4E3A;&#x5BF9;&#x4E8E;&#x80FD;&#x91CF;&#x672C;&#x5F81;&#x6001; \(H|n\rangle = E_n|n\rangle\) &#x4E00;&#x5B9A;&#x6709;
+</p>
+\begin{align}
+    H T |n\rangle= - T H|n\rangle= (-E_n) T |n\rangle
+\end{align}
+<p>
+&#x5F97;&#x51FA;&#x7684;&#x7ED3;&#x8BBA;&#x662F;&#x6001; \(T |n\rangle\) &#x5177;&#x6709;&#x8D1F;&#x80FD;&#x91CF;, &#x4F46;&#x8FD9;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x81EA;&#x7531;&#x6CE2;&#x5305;&#x6765;&#x8BF4;&#x662F;&#x975E;&#x7269;&#x7406;&#x7684;.
+</p>
+
+<p>
+&#x56E0;&#x6B64;, \(T\) &#x53EA;&#x80FD;&#x662F;&#x53CD;&#x5E7A;&#x6B63;&#x7684;, &#x5C31;&#x4E5F;&#x662F; $T\mathrm{i} = -\mathrm{i}T $ &#x90A3;&#x4E48;&#x5C31;&#x6709; \(TH =
+HT\) , &#x8FD9;&#x624D;&#x662F;&#x7269;&#x7406;&#x7684;.
+</p>
+<blockquote>
+<p>
+&#x5173;&#x4E8E; antiunitary &#x7684;&#x5B9A;&#x4E49;, &#x9AD8;&#x91CF;&#x4E66;&#x4E0A;&#x7ED9;&#x51FA;&#x4E86;&#x4E24;&#x4E2A;&#x6761;&#x4EF6;.
+</p>
+
+<p>
+&#x53CD;&#x5E7A;&#x6B63;&#x7B97;&#x7B26;&#x4F5C;&#x7528;&#x5728;&#x6001; \(|\alpha\rangle, |\beta\rangle\) &#x4E0A;
+</p>
+\begin{align}
+|\alpha\rangle \to |\tilde{\alpha}\rangle = \theta |\alpha\rangle, \quad |\beta\rangle \to |\tilde{\beta}\rangle = \theta |\beta\rangle
+\end{align}
+<p>
+&#x6709;&#x4E24;&#x4E2A;&#x6027;&#x8D28;
+</p>
+\begin{align}
+\langle \tilde{\beta} | \tilde{\alpha} \rangle &amp;= \langle \beta|\alpha \rangle^{*} \\
+\theta \left(c_1|\alpha\rangle + c_2|\beta\rangle  \right) &amp;= c^{*}_1\theta|\alpha\rangle + c^{*}_2\theta|\beta\rangle 
+\end{align}
+<p>
+&#x7B2C;&#x4E8C;&#x6761;&#x5355;&#x5217;&#x51FA;&#x6765;&#x53EB;&#x505A; antilinear. 
+</p>
+</blockquote>
+<p>
+&#x6709;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7684; identity:
+</p>
+<blockquote>
+<p>
+Exercise: &#x8BC1;&#x660E;&#x5BF9;&#x4E8E;&#x7EBF;&#x6027;&#x7B97;&#x7B26; \(A\) &#x6709;
+</p>
+\begin{align}
+  \langle \beta | \hat{A} | \alpha \rangle = \langle \tilde{\alpha} | T \hat{A}^{\dagger} T^{-1} | \tilde{\beta} \rangle
+\end{align}
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org57765fd" class="outline-2">
+<h2 id="org57765fd">&#x53EF;&#x89C2;&#x6D4B;&#x91CF;&#x5728;&#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x4E0B;&#x7684;&#x5947;&#x5076;</h2>
+<div class="outline-text-2" id="text-org57765fd">
+<p>
+&#x5B9A;&#x4E49;&#x5728; time reversal &#x4F5C;&#x7528;&#x4E0B; observables &#x7684; odd &#x4E0E; even. &#x5982;&#x679C; observeral &#x6EE1;&#x8DB3;
+</p>
+\begin{align}
+  \langle \alpha | \hat{A} |\alpha\rangle = \pm \langle \tilde{\alpha} | \hat{A} | \tilde{\alpha}\rangle
+\end{align}
+<p>
+&#x90A3;&#x4E48; \(+\) &#x4E3A; even, \(-\) &#x4E3A; odd. &#x6839;&#x636E;&#x90A3;&#x4E2A;&#x91CD;&#x8981;&#x7684; identity, &#x5E76;&#x4E14; observable \(\hat{A}\) &#x662F;&#x5384;
+&#x7C73;&#x7684;, &#x4E0A;&#x8FF0;&#x5B9A;&#x4E49;&#x7B49;&#x4EF7;&#x4E8E; \(T \hat{A} T^{-1} = \pm \hat{A}\)
+</p>
+\begin{align}
+  \langle \alpha | \hat{A} |\alpha\rangle =&amp; \langle \tilde{\alpha} |T \hat{A}T^{-1} | \tilde{\alpha}\rangle\\
+   \Downarrow&amp; \\
+  \langle \alpha | \hat{A} |\alpha\rangle = \pm \langle \tilde{\alpha} | \hat{A} | \tilde{\alpha}\rangle\quad \Leftrightarrow&amp; \quad 
+  T \hat{A} T^{-1} = \pm \hat{A} 
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org0c766dc" class="outline-2">
+<h2 id="org0c766dc">&#x5BF9;&#x6613;&#x5173;&#x7CFB;&#x4E0E;&#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x7684;&#x5947;&#x5076;</h2>
+<div class="outline-text-2" id="text-org0c766dc">
+<p>
+&#x89D2;&#x52A8;&#x91CF;&#x7684;&#x5BF9;&#x6613;&#x5173;&#x7CFB;&#x4E3A;
+</p>
+\begin{align}
+  [J_i, J_j] = \mathrm{i}\hbar\epsilon_{ijk}J_k
+\end{align}
+<p>
+&#x90A3;&#x4E48;
+</p>
+\begin{align} 
+  T[J_i, J_j]T^{-1} =&amp;T \,\mathrm{i}\hbar\epsilon_{ijk}J_kT^{-1} \\
+  \Downarrow&amp; \\
+  [(TJ_iT^{-1}), (TJ_jT^{-1})] =&amp;-\mathrm{i}\hbar\epsilon_{ijk} (T J_kT^{-1}) \\
+  \Downarrow&amp; \\
+  T \vec{J} T^{-1} = - \vec{J}
+\end{align}
+<p>
+&#x89D2;&#x52A8;&#x91CF;&#x5728;&#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x4E0B;&#x53CD;&#x53F7;, &#x8FD9;&#x662F;&#x7B26;&#x5408;&#x7269;&#x7406;&#x7684;.
+</p>
+<blockquote>
+<p>
+Exercise: &#x7531; \(\vec{x}\) &#x662F;&#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x4E0D;&#x53D8;&#x7684;, &#x4EE5;&#x53CA;&#x4F4D;&#x7F6E;&#x4E0E;&#x52A8;&#x91CF;&#x7684;&#x5BF9;&#x6613;&#x5173;&#x7CFB;, &#x5F97;&#x51FA;&#x52A8;&#x91CF;&#x5728;&#x65F6;
+&#x95F4;&#x53CD;&#x6F14;&#x4E0B;&#x662F;&#x53CD;&#x53F7;&#x7684;.
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org8461013" class="outline-2">
+<h2 id="org8461013">&#x89D2;&#x52A8;&#x91CF;&#x65F6;&#x95F4;&#x53CD;&#x6F14;&#x4F5C;&#x7528;&#x4E0B;&#x7684;&#x7ED3;&#x679C;</h2>
+</div>
+
+<div id="outline-container-org27d5507" class="outline-2">
+<h2 id="org27d5507">&#x6574;&#x6570;&#x89D2;&#x52A8;&#x91CF;</h2>
+<div class="outline-text-2" id="text-org27d5507">
+<p>
+&#x6001; \(|\alpha\rangle\) &#x5728;&#x5750;&#x6807;&#x8868;&#x8C61;&#x4E0B;&#x7684;&#x6CE2;&#x51FD;&#x6570; \(\psi_{\alpha}(x) = \langle x|\alpha\rangle\)
+</p>
+\begin{align}
+T \psi_{\alpha}(x) \equiv \langle x |T|\alpha\rangle = \langle \tilde{x}|T|\alpha\rangle =\langle \tilde{x} |\tilde{\alpha}\rangle = \langle x |\alpha\rangle^{*} =  \psi_{\alpha}(x)^{*}
+\end{align}
+<p>
+&#x56E0;&#x6B64;, &#x5BF9;&#x4E8E; \(l\in \mathbb{N}\) &#x89D2;&#x52A8;&#x91CF;, &#x672C;&#x5F81;&#x51FD;&#x6570;
+</p>
+\begin{align}
+ T Y^m_l(\theta, \phi) =  Y^{m*}_l(\theta, \phi) = (-1)^mY^{-m}_l(\theta, \phi)
+\end{align}
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;
+</p>
+\begin{align}
+  T | l , m \rangle = (-1)^m |l, -m\rangle
+\end{align}
+<p>
+&#x5B83;&#x4F1A;&#x51FA;&#x73B0;&#x4E00;&#x4E2A;&#x76F8;&#x4F4D;. &#x5982;&#x679C;&#x4F5C;&#x7528;&#x4E24;&#x6B21;, &#x4F1A;&#x6709;
+</p>
+\begin{align}
+  T | l , m \rangle =  |l, m\rangle
+\end{align}
+<p>
+&#x5C31;&#x4F1A;&#x56DE;&#x5230;&#x539F;&#x6765;&#x7684;&#x6001;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfd10584" class="outline-2">
+<h2 id="orgfd10584">&#x534A;&#x6574;&#x6570;&#x89D2;&#x52A8;&#x91CF;</h2>
+<div class="outline-text-2" id="text-orgfd10584">
+<p>
+&#x5BF9;&#x4E8E; \(l\) &#x662F;&#x534A;&#x6574;&#x6570;&#x7684;&#x60C5;&#x51B5;, &#x4EE5; spin \(1/2\) &#x4E3A;&#x4F8B;, &#x5B83;&#x4E5F;&#x4F1A;&#x51FA;&#x73B0;&#x4E00;&#x4E2A;&#x76F8;&#x4F4D;. &#x6211;&#x4EEC;&#x5E76;&#x4E0D;&#x77E5;
+&#x9053;&#x76F8;&#x4F4D;&#x662F;&#x591A;&#x5C11;, &#x53EA;&#x77E5;&#x9053;&#x5B83;&#x4F1A;&#x4F7F; \(m\) &#x91CF;&#x5B50;&#x6570;&#x53CD;&#x53F7;, &#x56E0;&#x6B64;&#x5047;&#x8BBE;&#x5B83;&#x4EA7;&#x751F;&#x7684;&#x76F8;&#x4F4D;&#x662F; \(\eta\) . &#x4E5F;&#x5C31;&#x662F;
+&#x8BF4; 
+</p>
+\begin{align}
+  T |\uparrow\rangle = \eta |\downarrow \rangle
+\end{align}
+<p>
+&#x540C;&#x65F6;&#x6839;&#x636E;&#x81EA;&#x65CB;&#x7684;&#x5B9A;&#x4E49;, &#x7FFB;&#x8F6C;&#x81EA;&#x65CB;&#x76F8;&#x5F53;&#x4E8E;&#x7ED5; \(y\) &#x8F74;&#x8F6C; \(pi\) &#x7684;&#x89D2;&#x5EA6;, &#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+  e^{-\mathrm{i}\pi S_y/\hbar}|\downarrow\rangle = |\uparrow\rangle
+\end{align}
+<p>
+&#x5C06; \(T\) &#x5199;&#x6210; \(T=UK\) &#x7684;&#x5F62;&#x5F0F;( Supplementary &#x4E2D;&#x8BC1;&#x660E; ), &#x5176;&#x4E2D; \(U\) &#x662F;&#x4E00;&#x4E2A;&#x5E7A;&#x6B63;&#x7B97;&#x7B26;, \(U\) &#x662F;&#x53D6;&#x5171;&#x8F6D;. &#x518D;&#x7ED3;&#x5408;&#x4EE5;&#x4E0A;&#x4E24;&#x5F0F;
+&#x53EF;&#x5F97;
+</p>
+\begin{align}
+  \eta |\downarrow \rangle = UK |\uparrow\rangle =&amp; UK e^{-\mathrm{i}\pi S_y/\hbar} |\downarrow\rangle = e^{\mathrm{i}\pi S_y/\hbar} U|\downarrow\rangle\\
+  \Downarrow &amp; \\
+  U =&amp; \eta e^{-\mathrm{i}\pi S_y/\hbar}\\
+  \Downarrow &amp; \\
+  T =&amp; \eta e^{-\mathrm{i}\pi S_y/\hbar} K = -\mathrm{i}\eta \left( \frac{2S_y}{\hbar} \right)K
+\end{align}
+<p>
+&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x627E;&#x5230;&#x4E86; \(T\) &#x7684;&#x5177;&#x4F53;&#x5F62;&#x5F0F;. &#x4F46;&#x662F;&#x76F8;&#x4F4D; \(\eta\) &#x662F;&#x672A;&#x77E5;&#x7684;. &#x5982;&#x679C;&#x4F5C;&#x7528;&#x4E24;&#x6B21;
+</p>
+\begin{align}
+  T^2 |\uparrow\rangle = T\eta |\downarrow\rangle = \eta^{*}T|\downarrow\rangle = \eta^{*} (-\mathrm{i})\cdot \eta \left( \frac{2S_y}{\hbar} \right)K  |\downarrow\rangle
+  = \eta^{*}\cdot(-\mathrm{i})\eta \left( \frac{2S_y}{\hbar} \right) |\downarrow\rangle = -|\uparrow\rangle
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org8db1d1f" class="outline-2">
+<h2 id="org8db1d1f">Supplementary</h2>
+<div class="outline-text-2" id="text-org8db1d1f">
+<p>
+\(T\) &#x53EF;&#x4EE5;&#x5199;&#x6210; \(T=UK\) ,&#x90A3;&#x4E48; \(UK\) &#x5E94;&#x8BE5;&#x6EE1;&#x8DB3;&#x5B83;&#x7684;&#x4E24;&#x4EBA;&#x6761;&#x4EF6;
+</p>
+\begin{align}
+\langle \tilde{\beta} | \tilde{\alpha} \rangle &amp;= \langle \beta|\alpha \rangle^{*} \\
+\theta \left(c_1|\alpha\rangle + c_2|\beta\rangle  \right) &amp;= c^{*}_1\theta|\alpha\rangle + c^{*}_2\theta|\beta\rangle 
+\end{align}
+<p>
+&#x7B2C;&#x4E8C;&#x6761;&#x6BD4;&#x8F83;&#x660E;&#x663E;&#x662F;&#x6EE1;&#x8DB3;&#x7684;. &#x4E0B;&#x9762;&#x8BF4;&#x660E;&#x7B2C;&#x4E00;&#x6761;.
+</p>
+
+<p>
+&#x5C06; \(|\alpha\rangle\) &#x5728;&#x4E00;&#x7EC4;&#x57FA;&#x5E95;&#x4E0B;&#x5C55;&#x5F00;
+</p>
+\begin{align}
+  |\alpha\rangle = \sum_a|a\rangle\langle a|\alpha\rangle
+\end{align}
+<p>
+&#x90A3;&#x4E48;
+</p>
+\begin{align}
+  |\tilde{\alpha}\rangle = \sum_aUK|a\rangle\langle a|\alpha\rangle = \sum_aU|a\rangle\langle a|\alpha\rangle^{*}
+\end{align}
+<p>
+&#x540C;&#x7406;
+</p>
+\begin{align}
+  |\tilde{\beta}\rangle =&amp;  \sum_b U|b\rangle\langle b|\beta\rangle^{*} \\
+  \Downarrow&amp;\mathrm{D.C.}\\
+  \langle \tilde{\beta} | =&amp; \sum_b \langle b|\beta \rangle \langle b| U^{\dagger}
+\end{align}
+<p>
+&#x6240;&#x4EE5;
+</p>
+\begin{align}
+  \langle \tilde{\beta} |\tilde{\alpha}\rangle = \sum_a\sum_b \langle b|\beta \rangle \langle b| U^{\dagger}U|a\rangle\langle a|\alpha\rangle^{*} 
+  = \langle \tilde{\beta} |\tilde{\alpha}\rangle^{*}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org732035e" class="outline-2">
+<h2 id="org732035e">Reference</h2>
+<div class="outline-text-2" id="text-org732035e">
+<ul class="org-ul">
+<li>Jun John Sakurai, Jim Napolitano, Modern Quantum Mechanics, 2017, Cambridge
+University Press, Chap 4.4</li>
+
+<li>A. Zee, Group Theory in a Nutshell for Physicists, 2016, Princeton University
+Press</li>
+
+<li><a href="https://en.wikipedia.org/wiki/Kramers_theorem" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Kramers_theorem</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/Time-Reversal/" rel="tag"># Time Reversal</a>
+          
+            <a href="/tags/Kramer-s-Degeneracy/" rel="tag"># Kramer's Degeneracy</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/20/SU2/" rel="next" title="读书笔记: SU(2) 群">
+                <i class="fa fa-chevron-left"></i> 读书笔记: SU(2) 群
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/22/ListteningToMusic/" rel="prev" title="Listening to music 笔记">
+                Listening to music 笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd17d7b5"><span class="nav-text">引言: 时间反演概述与 Kramer&#39;s Degeneracy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc52b20a"><span class="nav-text">时间反演的含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org9f54e51"><span class="nav-text">时间反演算符是 antiunitary 的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org57765fd"><span class="nav-text">可观测量在时间反演下的奇偶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org0c766dc"><span class="nav-text">对易关系与时间反演的奇偶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org8461013"><span class="nav-text">角动量时间反演作用下的结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org27d5507"><span class="nav-text">整数角动量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgfd10584"><span class="nav-text">半整数角动量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org8db1d1f"><span class="nav-text">Supplementary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org732035e"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

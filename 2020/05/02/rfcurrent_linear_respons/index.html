@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="物理,rf current,linear repsonse,Green&#39;s Function">
+<meta property="og:type" content="article">
+<meta property="og:title" content="由 rf current 的定义推导其格林函数的表达形式">
+<meta property="og:url" content="https://zqw.ink/2020/05/02/rfcurrent_linear_respons/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:49.110Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="由 rf current 的定义推导其格林函数的表达形式">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2020/05/02/rfcurrent_linear_respons/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>由 rf current 的定义推导其格林函数的表达形式 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2020/05/02/rfcurrent_linear_respons/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">由 rf current 的定义推导其格林函数的表达形式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-02 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-02T00:00:00+08:00">2020-05-02</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/02/rfcurrent_linear_respons/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/05/02/rfcurrent_linear_respons/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-orgd3de273" class="outline-2">
+<h2 id="orgd3de273">&#x95EE;&#x9898;&#x63CF;&#x8FF0;</h2>
+<div class="outline-text-2" id="text-orgd3de273">
+<p>
+&#x901A;&#x8FC7;&#x8BA1;&#x7B97;, &#x63A2;&#x7A76; rf current, &#x4E5F;&#x5C31;&#x662F;&#x7C92;&#x5B50;&#x6570;&#x5BF9;&#x65F6;&#x95F4;&#x7684;&#x5BFC;&#x6570;, &#x4E0E; Green&apos;s function &#x7684;&#x5173;&#x7CFB;. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdd43785" class="outline-2">
+<h2 id="orgdd43785">Hamiltonian</h2>
+<div class="outline-text-2" id="text-orgdd43785">
+<p>
+&#x8003;&#x8651;&#x4E0D;&#x540C; hyperfine state &#x4E0A;&#x7684; Fermi &#x539F;&#x5B50;. &#x4E0D;&#x540C;&#x7684; hyperfine state &#x7528;&#x5E0C;&#x814A;&#x5B57;&#x6BCD;&#x4E0B;
+&#x6807;&#x8868;&#x793A;( e.g. \(\sigma, \alpha, \beta\) ) &#x5B83;&#x7684; internal nergy &#x4E3A; \(E_{\sigma}\) , &#x53D7;&#x5230;&#x7684; external
+trapping potential &#x4E3A; \(V_{T,\sigma}(\vec{r})\) &#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x52BF;&#x4E3A; \(V_{\alpha,
+\beta}(\vec{r}, \vec{r}&apos;)\). &#x5176;&#x4E2D;&#x4E24;&#x4E2A; hyperfine state \(e, g\) &#x7531;&#x5916;&#x573A; \(\Omega(\vec{r}, t)\)
+couple. &#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x7684; Hamiltonia &#x4E3A;
+</p>
+\begin{align}
+  \hat{H}_{C} = \hat{H}_{0C} + \hat{H}_{L}(t)
+\end{align}
+<p>
+&#x7B2C;&#x4E00;&#x9879;&#x662F;&#x7CFB;&#x7EDF;&#x672C;&#x8EAB;&#x7684;&#x9879;
+</p>
+\begin{align}
+  \hat{H}_{0C} =&amp; \int \mathrm{d}^3r \sum_{\sigma} \hat{\psi}_{\sigma}^{\dagger}(\vec{r})\left( 
+    -\frac{\hbar^2\nabla^2}{2m_{\sigma}} + E_{\sigma} + V_{T,\sigma}(\vec{r})
+  \right)\hat{\psi}_{\sigma}(\vec{r}) \\
+  &amp;+ \frac{1}{2}\sum_{\alpha,\beta} \int \mathrm{d}^3r \int \mathrm{d}^3r&apos;\cdot
+   \hat{\psi}_{\alpha}^{\dagger}(\vec{r})\hat{\psi}_{\beta}^{\dagger}(\vec{r}&apos;)
+   V_{\alpha,\beta}(\vec{r},\vec{r}&apos;)
+   \hat{\psi}_{\beta}(\vec{r}&apos;)\hat{\psi}_{\alpha}(\vec{r})
+\end{align}
+<p>
+&#x7B2C;&#x4E8C;&#x9879;&#x662F;&#x5916;&#x573A;&#x5BF9; \(e, g\) &#x7684; couple
+</p>
+\begin{align}
+  \hat{H}&apos;_{L}(t) = \int \mathrm{d}^3 r \left[ 
+   \hbar\Omega(\vec{r}, t) \hat{\psi}_{e}^{\dagger}(\vec{r})\hat{\psi}_{g}(\vec{r}) + \mathrm{h.c.} 
+  \right]
+\end{align}
+<p>
+&#x8FD9;&#x91CC;&#x7684;&#x4E8C;&#x6B21;&#x91CF;&#x5B50;&#x5316;&#x5F62;&#x5F0F;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x6210;, &#x5BF9; \(e, g\) &#x6765;&#x8BF4;, &#x5B83;&#x662F;&#x975E;&#x672C;&#x5F81;&#x8868;&#x8C61;&#x7684;&#x5355;&#x4F53;&#x7B97;&#x7B26;, &#x800C;&#x5BF9;
+\(\vec{r}\) &#x6765;&#x8BF4;&#x5B83;&#x662F;&#x672C;&#x5F81;&#x8868;&#x8C61;&#x7684;&#x5355;&#x4F53;&#x7B97;&#x7B26;.
+</p>
+
+<p>
+&#x4E0B;&#x6807; \(C\) &#x4EE3;&#x8868; canonical ,&#x6B63;&#x5219;&#x7CFB;&#x5B97;, &#x56E0;&#x4E3A; \(H&apos;_{L}(t)\) &#x4F7F;&#x5F97;&#x7C92;&#x5B50;&#x6570;&#x4E0D;&#x5B88;&#x6052;.
+</p>
+
+<p>
+&#x628A;&#x65F6;&#x95F4;&#x6F14;&#x5316;&#x5168;&#x90FD;&#x653E;&#x5230;&#x7B97;&#x7B26;&#x4E0A;, &#x4E5F;&#x5C31;&#x662F;&#x5728; Heisenberg picture, rf current &#x5B9A;&#x4E49;&#x4E3A; \(e\) &#x6001;
+&#x4E0A;&#x7684;&#x7C92;&#x5B50;&#x6570;&#x968F;&#x65F6;&#x95F4;&#x7684;&#x53D8;&#x5316;
+</p>
+\begin{align}
+  \frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi|\hat{N}_{e}(t)|\Psi\rangle
+\end{align}
+<p>
+&#x5176;&#x4E2D;&#x7C92;&#x5B50;&#x6570;&#x7B97;&#x7B26;&#x4E3A;&#x5BF9;&#x7C92;&#x5B50;&#x6570;&#x5BC6;&#x5EA6;&#x7B97;&#x7B26;&#x7684;&#x79EF;&#x5206;
+</p>
+\begin{align}
+  \hat{N}_e(t) = \int \mathrm{d}^3r \cdot \hat{\psi}_e^{\dagger}(\vec{r}, t) \hat{\psi}_e(\vec{r}, t)
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org23e7a39" class="outline-2">
+<h2 id="org23e7a39">Heisenberg &#x8FD0;&#x52A8;&#x65B9;&#x7A0B;</h2>
+<div class="outline-text-2" id="text-org23e7a39">
+<p>
+&#x6839;&#x636E; Heisenberg picture &#x7684;&#x8FD0;&#x52A8;&#x65B9;&#x7A0B;
+</p>
+\begin{align}
+  \mathrm{i}\hbar\frac{\mathrm{d}}{\mathrm{d}t}\left[\hat{\psi}_e^{\dagger}(\vec{r}, t) \hat{\psi}_e(\vec{r}, t)\right]
+  = \left[\hat{\psi}_e^{\dagger}(\vec{r}) \hat{\psi}_e(\vec{r}) , \hat{H}_{0C} + \hat{H}&apos;_{L}(t)\right](t)
+\end{align}
+<p>
+&#x5176;&#x4E2D;&#x5173;&#x4E8E; \(\hat{H}_{0C}\) &#x7684;&#x5BF9;&#x6613;&#x5B50;&#x4E3A;&#x96F6;, &#x53EA;&#x6709; couple &#x9879; \(\hat{H}&apos;_{L}\) &#x624D;&#x4F1A;&#x5BF9;&#x7C92;&#x5B50;&#x6570;
+&#x5BC6;&#x5EA6;&#x7684;&#x6F14;&#x5316;&#x6709;&#x5F71;&#x54CD;. &#x4E0B;&#x9762;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;
+</p>
+\begin{align}
+  &amp;\left[\hat{\psi}_e^{\dagger}(\vec{r}) \hat{\psi}_e(\vec{r}) , \hat{H}&apos;_{L}(t)\right] \\
+ =&amp;\int \mathrm{d}^3 r&apos;\left\{ \hbar\Omega(\vec{r}&apos;,t)\left[\hat{\psi}_e^{\dagger}(\vec{r}) \hat{\psi}_e(\vec{r}) , \hat{\psi}_{e}^{\dagger}(\vec{r}&apos;)\hat{\psi}_{g}(\vec{r}&apos;)  \right]
+  + \hbar\Omega^{*}(\vec{r}&apos;,t)\left[\hat{\psi}_e^{\dagger}(\vec{r}) \hat{\psi}_e(\vec{r}) , \hat{\psi}_g^{\dagger}(\vec{r}&apos;)\hat{\psi}_e(\vec{r}&apos;)  \right]\right\}
+\end{align}
+<p>
+&#x5148;&#x7B97;&#x7B2C;&#x4E00;&#x9879;
+</p>
+\begin{align}
+  \hbar\Omega(\vec{r}&apos;,t)\left[\hat{\psi}_e^{\dagger}(\vec{r}) \hat{\psi}_e(\vec{r}) , \hat{\psi}_{e}^{\dagger}(\vec{r}&apos;)\hat{\psi}_{g}(\vec{r}&apos;)  \right]
+  = \hbar\Omega(\vec{r}&apos;,t)&amp;\left\{\left[\hat{\psi}_e^{\dagger}(\vec{r}) \hat{\psi}_e(\vec{r}) , \hat{\psi}_{e}^{\dagger}(\vec{r}&apos;)  \right]\hat{\psi}_{g}(\vec{r}&apos;)\right. \\
+   &amp;\left. +\hat{\psi}_{e}^{\dagger}(\vec{r}&apos;) \left[\hat{\psi}_e^{\dagger}(\vec{r}) \hat{\psi}_e(\vec{r}) , \hat{\psi}_{g}(\vec{r}&apos;)  \right] \right\}
+\end{align}
+<p>
+&#x5BF9;&#x4E8E; Fermion &#x6709;
+</p>
+\begin{align}
+  \left[\hat{\psi}_e^{\dagger}(\vec{r}) \hat{\psi}_e(\vec{r}) , \hat{\psi}_{e}^{\dagger}(\vec{r}&apos;)  \right]
+  =&amp;  \hat{\psi}_e^{\dagger}(\vec{r}) \left\{ \hat{\psi}_e(\vec{r}) , \hat{\psi}_{e}^{\dagger}(\vec{r}&apos;)  \right\}
+    -\left\{\hat{\psi}_e^{\dagger}(\vec{r})  , \hat{\psi}_{e}^{\dagger}(\vec{r}&apos;)  \right\}\hat{\psi}_e(\vec{r}) \\
+  =&amp;  \hat{\psi}_e^{\dagger}(\vec{r}) \cdot \delta(\vec{r}-\vec{r}&apos;) - 0\cdot \hat{\psi}_e(\vec{r})  
+  = \hat{\psi}_e^{\dagger}(\vec{r})\delta(\vec{r}-\vec{r}&apos;)
+\end{align}
+<p>
+&#x5F0F;&#x4E2D; \(\{ A,B \} = AB + BA\) &#x4E3A;&#x53CD;&#x5BF9;&#x6613;&#x5B50;.
+</p>
+\begin{align}
+  \left[\hat{\psi}_e^{\dagger}(\vec{r}) \hat{\psi}_e(\vec{r}) , \hat{\psi}_{g}(\vec{r})  \right]
+  = 0
+\end{align}
+<p>
+&#x6240;&#x4EE5;
+</p>
+\begin{align}
+  \hbar\Omega(\vec{r}&apos;,t)\left[\hat{\psi}_e^{\dagger}(\vec{r}) \hat{\psi}_e(\vec{r}) , \hat{\psi}_{e}^{\dagger}(\vec{r}&apos;)\hat{\psi}_{g}(\vec{r}&apos;)  \right]
+  = \hbar\Omega(\vec{r}&apos;,t)\hat{\psi}_e^{\dagger}(\vec{r})\hat{\psi}_{g}(\vec{r}&apos;)\delta(\vec{r} - \vec{r}&apos;)
+\end{align}
+<p>
+&#x540C;&#x7406;
+</p>
+\begin{align}
+  \hbar\Omega^{ * }(\vec{r}&apos;,t)\left[\hat{\psi}_e^{\dagger}(\vec{r}) \hat{\psi}_e(\vec{r}) , \hat{\psi}_g^{\dagger}(\vec{r}&apos;)\hat{\psi}_e(\vec{r}&apos;)  \right]
+  = - \hbar\Omega^{ * }(\vec{r}&apos;,t)\hat{\psi}_g^{\dagger}(\vec{r}&apos;)\hat{\psi}_e(\vec{r})\delta(\vec{r} - \vec{r}&apos;)
+\end{align}
+<p>
+&#x90A3;&#x4E48;&#x7B97;&#x5F97;&#x6240;&#x9700;&#x8981;&#x7684;&#x5BF9;&#x6613;&#x5173;&#x7CFB;&#x4E3A;
+</p>
+\begin{align}
+  &amp;\left[\hat{\psi}_e^{\dagger}(\vec{r}) \hat{\psi}_e(\vec{r}) , \hat{H}&apos;_{L}(t)\right] \\
+ =&amp;\int \mathrm{d}^3 r&apos;\left\{ \hbar\Omega(\vec{r}&apos;,t)\hat{\psi}_e^{\dagger}(\vec{r})\hat{\psi}_{g}(\vec{r}&apos;)\delta(\vec{r} - \vec{r}&apos;) 
+  - \hbar\Omega^{*}(\vec{r}&apos;,t)\hat{\psi}_g^{\dagger}(\vec{r}&apos;)\hat{\psi}_e(\vec{r})\delta(\vec{r} - \vec{r}&apos;) \right\} \\
+ = &amp;\hbar\Omega(\vec{r},t)\hat{\psi}_e^{\dagger}(\vec{r})\hat{\psi}_{g}(\vec{r})
+  - \hbar\Omega^{*}(\vec{r},t)\hat{\psi}_g^{\dagger}(\vec{r})\hat{\psi}_e(\vec{r})
+\end{align}
+<p>
+&#x6240;&#x4EE5; \(e\) &#x6001;&#x4E0A;&#x7C92;&#x5B50;&#x6570;&#x968F;&#x65F6;&#x95F4;&#x7684;&#x53D8;&#x5316;&#x5728; Heisenberg &#x8868;&#x8C61;&#x4E2D;&#x4E3A;
+</p>
+\begin{align}
+  \frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi|\hat{N}_{e}(t)|\Psi\rangle
+  =&amp; \int \mathrm{d}^3r\langle \Psi \left|\frac{\mathrm{d}}{\mathrm{d}t}\left[\hat{\psi}_e^{\dagger}(\vec{r}, t)  \hat{\psi}_e(\vec{r}, t)\right]\right|\Psi\rangle \\
+  =&amp; \frac{1}{\mathrm{i}\hbar}\int \mathrm{d}^3r\langle \Psi \left|\left[\hat{\psi}_e^{\dagger}(\vec{r}) \hat{\psi}_e(\vec{r}) , \hat{H}&apos;_{L}(t)\right](t)\right|\Psi\rangle \\
+  =&amp; \frac{1}{\mathrm{i}\hbar}\int \mathrm{d}^3r\cdot
+     \left[ \hbar\Omega(\vec{r},t)\langle\hat{\psi}_e^{\dagger}(\vec{r}, t)\hat{\psi}_{g}(\vec{r}, t)\rangle
+    - \hbar\Omega^{*}(\vec{r},t)\langle\hat{\psi}_g^{\dagger}(\vec{r}, t)\hat{\psi}_e(\vec{r}, t)\rangle \right]
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\langle \rangle\) &#x662F; \(\langle\Psi||\Psi\rangle\) &#x7684;&#x7B80;&#x5199;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org765e3e1" class="outline-2">
+<h2 id="org765e3e1">&#x7EBF;&#x6027;&#x54CD;&#x5E94;</h2>
+<div class="outline-text-2" id="text-org765e3e1">
+<p>
+&#x73B0;&#x5728;&#x5DF2;&#x7ECF;&#x901A;&#x8FC7; Heisenberg &#x8FD0;&#x52A8;&#x65B9;&#x7A0B;, &#x5C06;&#x539F;&#x6765;&#x95EE;&#x9898;&#x4E2D;&#x7B97;&#x7B26;&#x5BFC;&#x6570;&#x7684;&#x5E73;&#x5747;, &#x53D8;&#x6210;&#x4E86;&#x5BF9;&#x5173;&#x8054;&#x51FD;&#x6570;&#x7684;
+&#x5E73;&#x5747;. &#x63A5;&#x4E0B;&#x6765;&#x5DF2;&#x7ECF;&#x4E0D;&#x80FD;&#x4E25;&#x683C;&#x6C42;&#x89E3;&#x4E86;, &#x8981;&#x5C06; couple \(\hat{H}&apos;_{L}(t)\) &#x4F5C;&#x4E3A;&#x5FAE;&#x6270;, &#x5728;&#x76F8;&#x4E92;&#x4F5C;&#x7528;
+&#x8868;&#x8C61;&#x4E2D;&#x8FDB;&#x884C;&#x7EBF;&#x6027;&#x8FD1;&#x4F3C;.
+</p>
+
+<p>
+&#x4EE5;&#x4E0B;&#x8BA8;&#x8BBA;&#x90FD;&#x662F;&#x5728;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x8868;&#x8C61;.
+</p>
+
+<p>
+&#x5728;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x8868;&#x8C61;&#x4E2D;, &#x4E00;&#x4E2A;&#x6001;&#x77E2;&#x7684;&#x6F14;&#x5316;&#x7531;&#x6F14;&#x5316;&#x7B97;&#x7B26;&#x7ED9;&#x51FA;(&#x53D6; \(t_0=0\) )
+</p>
+\begin{align}
+  |\Psi(t)\rangle = U(t) |\Psi\rangle
+\end{align}
+<p>
+&#x5176;&#x4E2D;
+</p>
+\begin{align}
+  U(t) = T \left\{ e^{\frac{1}{\mathrm{i}\hbar}\int_0^t \mathrm{d}t&apos;\cdot \hat{H}_{L}(t&apos;)} \right\}
+\end{align}
+<p>
+&#x8FD9;&#x91CC; \(\hat{H}_L(t) = e^{\frac{\mathrm{i}}{\hbar}\hat{H}_{0C}(t)} \hat{H}&apos;_L(t)
+e^{-\frac{\mathrm{i}}{\hbar}\hat{H}_{0C}(t)}\) , &#x4E5F;&#x5C31;&#x662F; \(\hat{H}&apos;_L(t)\) &#x53BB;&#x6389; \(&apos;\) &#x540E;,
+&#x8868;&#x793A;&#x5B83;&#x5728;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x8868;&#x8C61;&#x4E2D;.
+</p>
+
+<p>
+&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x8868;&#x8C61;&#x4E2D;&#x7684;&#x7B97;&#x7B26; \(\hat{O}(t) =
+e^{\frac{\mathrm{i}}{\hbar}\hat{H}_{0C}(t)} \hat{O}
+e^{-\frac{\mathrm{i}}{\hbar}\hat{H}_{0C}(t)}\) , &#x5B83;&#x5728; \(t\) &#x65F6;&#x523B;&#x7684;&#x671F;&#x671B;&#x4E3A; 
+</p>
+\begin{align}
+  \langle\Psi(t)| \hat{O} |\Psi(t)\rangle = \langle U^{\dagger} (t) \hat{O}(t) U(t)\rangle
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\langle \rangle\) &#x662F; \(\langle\Psi(0)| |\Psi(0)\rangle\) &#x7684;&#x7B80;&#x5199;. &#x628A;&#x6F14;&#x5316;&#x7B97;&#x7B26;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x4EE3;&#x5165;, &#x6309; \(\hat{H}_{L}(t)\) &#x7684;&#x5C55;&#x5F00;, &#x5F97;
+</p>
+\begin{align}
+  \langle\Psi(t)| \hat{O}(t)|\Psi(t) \rangle = \langle \hat{O}(t) \rangle + \langle \hat{O} \rangle_{1\mathrm{st}} +
+  \langle \hat{O} \rangle_{2\mathrm{nd}} + \cdots
+\end{align}
+<p>
+&#x5176;&#x4E2D;
+</p>
+\begin{align}
+  \langle \hat{O} \rangle_{1\mathrm{st}} =&amp; \frac{1}{\mathrm{i}\hbar}\int_0^t\mathrm{d}t&apos;
+  \langle\left[\hat{O}(t), \hat{H}_L(t&apos;)  \right]\rangle \\
+  = &amp; \frac{1}{\mathrm{i}\hbar}\int_0^{\infty}\mathrm{d}t&apos; \cdot
+   \theta(t - t&apos;)\langle\left[\hat{O}(t), \hat{H}_L(t&apos;)  \right]\rangle \\
+  =&amp; \int_0^{\infty} \mathrm{d}t&apos; \cdot \chi(t, t&apos;)
+\end{align}
+<p>
+&#x8FD9;&#x91CC;&#x5B9A;&#x4E49;&#x4E86;
+</p>
+\begin{align}
+  \chi(t, t&apos;) = \frac{1}{i\hbar}\theta(t - t&apos;)\langle\left[\hat{O}(t), \hat{H}_L(t&apos;)  \right]\rangle
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org044efa4" class="outline-2">
+<h2 id="org044efa4">&#x5E94;&#x7528;&#x7EBF;&#x6027;&#x54CD;&#x5E94;, &#x5E76;&#x6254;&#x6389;&#x4E24;&#x9879;</h2>
+<div class="outline-text-2" id="text-org044efa4">
+<p>
+rf current &#x5728;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x8868;&#x8C61;&#x4E2D;&#x53EF;&#x4EE5;&#x5199;&#x6210;
+</p>
+\begin{align}
+  &amp;\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle \\
+  =&amp; \frac{1}{\mathrm{i}\hbar}\int \mathrm{d}^3r\cdot
+     \left[ \hbar\Omega(\vec{r},t)\langle\Psi(t)|\hat{\psi}_e^{\dagger}(\vec{r}, t)\hat{\psi}_{g}(\vec{r},t)|\Psi(t)\rangle
+    - \hbar\Omega^{*}(\vec{r},t)\langle\Psi(t)|\hat{\psi}_g^{\dagger}(\vec{r}, t)\hat{\psi}_e(\vec{r}, t)|\Psi(t)\rangle \right]
+\end{align}
+<p>
+&#x5229;&#x7528;&#x7EBF;&#x6027;&#x54CD;&#x5E94;&#x7684;&#x7ED3;&#x679C;&#x8BA1;&#x7B97;&#x4E24;&#x9879;&#x5747;&#x503C;. &#x7B2C;&#x4E00;&#x9879;
+</p>
+\begin{align}
+  &amp;\hbar\Omega(\vec{r},t)\langle\Psi(t)|\hat{\psi}_e^{\dagger}(\vec{r}, t)\hat{\psi}_{g}(\vec{r}, t)|\Psi(t)\rangle_{1\mathrm{st}} \\
+ =&amp; \frac{1}{\mathrm{i}\hbar} \int_0^{\infty}\mathrm{d}t&apos;\cdot \hbar\Omega(\vec{r}, t)\theta(t - t&apos;)
+    \langle\left[\hat{\psi}_e^{\dagger}(\vec{r}, t)\hat{\psi}_{g}(\vec{r}, t), \hat{H}_L(t&apos;)  \right]\rangle 
+\end{align}
+<p>
+&#x5C06; \(\hat{H}_{L}(t&apos;)\) &#x7684;&#x5177;&#x4F53;&#x5F62;&#x5F0F;
+</p>
+\begin{align}
+  \hat{H}_{L}(t&apos;) = \int \mathrm{d}^3 r&apos; \left[ 
+   \hbar\Omega(\vec{r}&apos;, t&apos;) \hat{\psi}_{e}^{\dagger}(\vec{r}&apos;, t&apos;)\hat{\psi}_{g}(\vec{r}&apos;, t&apos;) + \mathrm{h.c.} 
+  \right]
+\end{align}
+<p>
+&#x4EE3;&#x5165;&#x540E;
+</p>
+\begin{align}
+  &amp;\hbar\Omega(\vec{r},t)\langle\Psi(t)|\hat{\psi}_e^{\dagger}(\vec{r}, t)\hat{\psi}_{g}(\vec{r}, t)|\Psi(t)\rangle_{1\mathrm{st}} \\
+ =&amp; \frac{\hbar}{\mathrm{i}} \int_0^{\infty}\mathrm{d}t&apos;\int \mathrm{d}^3 r&apos;\cdot \theta(t - t&apos;)\Omega(\vec{r}, t)\Omega(\vec{r}&apos;, t&apos;)
+    \langle\left[\hat{\psi}_e^{\dagger}(\vec{r}, t)\hat{\psi}_{g}(\vec{r}, t),  \hat{\psi}_{e}^{\dagger}(\vec{r}&apos;, t&apos;)\hat{\psi}_{g}(\vec{r}&apos;, t&apos;) \right]\rangle \\
++&amp; \frac{\hbar}{\mathrm{i}} \int_0^{\infty}\mathrm{d}t&apos;\int \mathrm{d}^3 r&apos;\cdot \theta(t - t&apos;)\Omega(\vec{r}, t)\Omega^{*}(\vec{r}&apos;, t&apos;)
+    \langle\left[\hat{\psi}_e^{\dagger}(\vec{r}, t)\hat{\psi}_{g}(\vec{r}, t),  \hat{\psi}_g^{\dagger}(\vec{r}&apos;, t&apos;)\hat{\psi}_e(\vec{r}&apos;, t&apos;) \right]\rangle 
+\end{align}
+<p>
+&#x540C;&#x7406;, &#x7B2C;&#x4E8C;&#x9879;
+</p>
+\begin{align}
+  &amp;-\hbar\Omega(\vec{r},t)\langle\Psi(t)|\hat{\psi}_e^{\dagger}(\vec{r}, t)\hat{\psi}_{g}(\vec{r}, t)|\Psi(t)\rangle_{1\mathrm{st}} \\
+ =&amp;- \frac{\hbar}{\mathrm{i}} \int_0^{\infty}\mathrm{d}t&apos;\int \mathrm{d}^3 r&apos;\cdot \theta(t - t&apos;)\Omega^{*}(\vec{r}, t)\Omega(\vec{r}&apos;, t&apos;)
+    \langle\left[\hat{\psi}_g^{\dagger}(\vec{r}, t)\hat{\psi}_e(\vec{r}, t),  \hat{\psi}_{e}^{\dagger}(\vec{r}&apos;, t&apos;)\hat{\psi}_{g}(\vec{r}&apos;, t&apos;) \right]\rangle \\
+-&amp; \frac{\hbar}{\mathrm{i}} \int_0^{\infty}\mathrm{d}t&apos;\int \mathrm{d}^3 r&apos;\cdot \theta(t - t&apos;)\Omega^{ * }(\vec{r}, t)\Omega^{*}(\vec{r}&apos;, t&apos;)
+    \langle\left[\hat{\psi}_g^{\dagger}(\vec{r}, t)\hat{\psi}_e(\vec{r}, t),  \hat{\psi}_g^{\dagger}(\vec{r}&apos;, t&apos;)\hat{\psi}_e(\vec{r}&apos;, t&apos;) \right]\rangle 
+\end{align}
+<p>
+&#x6240;&#x4EE5; \(\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle\) &#x4E2D;&#x7684;&#x4E00;&#x9636;&#x9879;&#x4E2D;&#x51FA;&#x73B0;
+&#x4E86;&#x5982;&#x4E0B;&#x56DB;&#x9879;
+</p>
+\begin{align}
+  &amp;\Omega(\vec{r}, t)\Omega(\vec{r}&apos;, t&apos;)
+    \langle\left[\hat{\psi}_e^{\dagger}(\vec{r}, t)\hat{\psi}_{g}(\vec{r}, t),  \hat{\psi}_{e}^{\dagger}(\vec{r}&apos;, t&apos;)\hat{\psi}_{g}(\vec{r}&apos;, t&apos;) \right]\rangle \\
+  &amp;\Omega(\vec{r}, t)\Omega^{*}(\vec{r}&apos;, t&apos;)
+    \langle\left[\hat{\psi}_e^{\dagger}(\vec{r}, t)\hat{\psi}_{g}(\vec{r}, t),  \hat{\psi}_g^{\dagger}(\vec{r}&apos;, t&apos;)\hat{\psi}_e(\vec{r}&apos;, t&apos;) \right]\rangle \\
+  -&amp;\Omega^{*}(\vec{r}, t)\Omega(\vec{r}&apos;, t&apos;)
+    \langle\left[\hat{\psi}_g^{\dagger}(\vec{r}, t)\hat{\psi}_e(\vec{r}, t),  \hat{\psi}_{e}^{\dagger}(\vec{r}&apos;, t&apos;)\hat{\psi}_{g}(\vec{r}&apos;, t&apos;) \right]\rangle \\
+  -&amp;\Omega^{ * }(\vec{r}, t)\Omega^{*}(\vec{r}&apos;, t&apos;)
+    \langle\left[\hat{\psi}_g^{\dagger}(\vec{r}, t)\hat{\psi}_e(\vec{r}, t),  \hat{\psi}_g^{\dagger}(\vec{r}&apos;, t&apos;)\hat{\psi}_e(\vec{r}&apos;, t&apos;) \right]\rangle 
+\end{align}
+<p>
+&#x4E0A;&#x9762;&#x56DB;&#x9879;&#x4E2D;, &#x7B2C;&#x4E00;&#x9879;&#x548C;&#x7B2C;&#x56DB;&#x9879;&#x4E92;&#x4E3A;&#x590D;&#x5171;&#x8F6D;, &#x7B2C;&#x4E8C;&#x9879;&#x548C;&#x7B2C;&#x4E09;&#x9879;&#x4E92;&#x4E3A;&#x590D;&#x5171;&#x8F6D;. 
+</p>
+
+<p>
+&#x5728;&#x7B2C;&#x4E00;&#x9879;&#x548C;&#x7B2C;&#x56DB;&#x9879;&#x4E2D;&#x51FA;&#x73B0;&#x4E86;&#x540C;&#x4E00;&#x4E2A;&#x6001;&#x4E0A;&#x6709;&#x4E24;&#x4E2A;&#x4EA7;&#x751F;&#x6216;&#x6E6E;&#x706D;&#x7B97;&#x7B26;&#x7684;&#x5F62;&#x5F0F;, &#x6BD4;&#x5982;
+\(\hat{\psi}_e\hat{\psi}_e\) . &#x4E66;&#x4E0A;&#x7684;&#x63A8;&#x5BFC;&#x628A;&#x5B83;&#x4EEC;&#x6254;&#x6389;&#x4E86;, &#x5B83;&#x8BF4;
+</p>
+<blockquote>
+<p>
+become zero unless the state possesses some special correlations requiring a
+non-trivial many-body state. 
+</p>
+</blockquote>
+<p>
+&#x5728; rf &#x8C31;&#x4E2D;, &#x5B83;&#x5C31;&#x662F;&#x96F6;
+</p>
+<blockquote>
+<p>
+when taking the expectation values,RF spectroscopy where the species labeled by e is in the normal state:
+then this type of terms is certainly zero. 
+</p>
+</blockquote>
+<p>
+&#x4F46;&#x662F;
+</p>
+<blockquote>
+<p>
+But in general one should keep in mind that terms of the form
+\(\hat{\psi}^{\dagger}_{\sigma}(\vec{r}, t)\hat{\psi}^{\dagger}_{\sigma}(\vec{r}, t)\) exist as well and
+might be relevant since they basically describe correlations within each
+species. 
+</p>
+</blockquote>
+<p>
+&#x6254;&#x6389;&#x8FD9;&#x4E24;&#x9879;&#x540E;, &#x5C31;&#x53D8;&#x6210;&#x4E86;
+</p>
+\begin{align}
+  &amp;\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle_{1\mathrm{st}} \\
+  =&amp; -\int \mathrm{d}^3r \int \mathrm{d}r&apos;\int_0^{\infty} \mathrm{d}t&apos; \cdot\theta(t - t&apos;)
+    \left\{\Omega(\vec{r}, t)\Omega^{*}(\vec{r}&apos;, t&apos;)
+    \langle\left[\hat{\psi}_e^{\dagger}(\vec{r}, t)\hat{\psi}_{g}(\vec{r}, t),  \hat{\psi}_g^{\dagger}(\vec{r}&apos;, t&apos;)\hat{\psi}_e(\vec{r}&apos;, t&apos;) \right]\rangle 
+    + \mathrm{h.c.} \right\}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org1f26e3e" class="outline-2">
+<h2 id="org1f26e3e">Rotating Wave Approximation</h2>
+<div class="outline-text-2" id="text-org1f26e3e">
+<p>
+&#x73B0;&#x5728;&#x505A;&#x4E00;&#x4E2A; trick. &#x539F;&#x56E0;&#x5728;&#x4E66;&#x4E0A;(&#x5F85;&#x4F1A;&#x8865;&#x5145;)
+</p>
+
+<p>
+&#x4E0A;&#x9762;&#x5728;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x8868;&#x8C61;&#x4E2D;&#x7684;&#x7B97;&#x7B26;, &#x90FD;&#x662F;&#x7531; \(\hat{H}_{0C}\) &#x6F14;&#x5316;&#x7684;. &#x662F;&#x5DE8;&#x6B63;&#x5219;&#x7CFB;&#x7EDF;, &#x6CA1;&#x6709;&#x5316;&#x5B66;
+&#x52BF;. &#x73B0;&#x5728;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65B0;&#x7684; \(\hat{H}_{0}\) , &#x8BA9;&#x5B83;&#x5305;&#x542B;&#x5316;&#x5B66;&#x52BF;, &#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+  \hat{H}_{0} = \hat{H}_{0C} - \hat{H}_{\mu}
+\end{align}
+<p>
+&#x5176;&#x4E2D;
+</p>
+\begin{align}
+  \hat{H}_{\mu} = \int \mathrm{d}^3r\sum_{\sigma}\hat{\psi}_{\sigma}^{\dagger}(\vec{r})( \mu_{\sigma} + E_{\sigma})\hat{\psi}_{\sigma}(\vec{r})
+\end{align}
+\begin{align}
+  \hat{H}_{0} =&amp; \int \mathrm{d}^3r \sum_{\sigma} \hat{\psi}_{\sigma}^{\dagger}(\vec{r})\left( 
+    -\frac{\hbar^2\nabla^2}{2m_{\sigma}} - \mu_{\sigma} + V_{T,\sigma}(\vec{r})
+  \right)\hat{\psi}_{\sigma}(\vec{r}) \\
+  &amp;+ \frac{1}{2}\sum_{\alpha,\beta} \int \mathrm{d}^3r \int \mathrm{d}^3r&apos;\cdot
+   \hat{\psi}_{\alpha}^{\dagger}(\vec{r})\hat{\psi}_{\beta}^{\dagger}(\vec{r}&apos;)
+   V_{\alpha,\beta}(\vec{r},\vec{r}&apos;)
+   \hat{\psi}_{\beta}(\vec{r}&apos;)\hat{\psi}_{\alpha}(\vec{r})
+\end{align}
+<p>
+&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#x5C31;&#x6709;
+</p>
+\begin{align}
+  \hat{\psi}_{\sigma}^{\dagger}(\vec{r}, t) =  e^{\frac{\mathrm{i}}{\hbar}\hat{H}_0t}
+    \left[ e^{\frac{\mathrm{i}}{\hbar}\hat{H}_{\mu}t} \hat{\psi}_{\sigma}^{\dagger}(\vec{r}) 
+    e^{\frac{-\mathrm{i}}{\hbar}\hat{H}_{\mu}t} \right] e^{\frac{-\mathrm{i}}{\hbar}\hat{H}_0t}
+\end{align}
+<p>
+&#x7531; Heisenberg &#x8FD0;&#x52A8;&#x65B9;&#x7A0B;&#x53EF;&#x77E5;
+</p>
+\begin{align}
+   \mathrm{i}\hbar \frac{\mathrm{d}}{\mathrm{d}t}\left[ 
+   e^{\frac{\mathrm{i}}{\hbar}\hat{H}_{\mu}t} \hat{\psi}_{\sigma}^{\dagger}(\vec{r}) 
+    e^{\frac{-\mathrm{i}}{\hbar}\hat{H}_{\mu}t} \right] 
+  = \left[\hat{\psi}_{\sigma}^{\dagger}(\vec{r}) , \hat{H}_{\mu} \right] 
+  = -(\mu_{\sigma} + E_{\sigma})\hat{\psi}_{\sigma}^{\dagger}(\vec{r})
+\end{align}
+<p>
+&#x6240;&#x4EE5;
+</p>
+\begin{align}
+   e^{\frac{\mathrm{i}}{\hbar}\hat{H}_{\mu}t} \hat{\psi}_{\sigma}^{\dagger}(\vec{r}) 
+    e^{\frac{-\mathrm{i}}{\hbar}\hat{H}_{\mu}t} 
+  = \hat{\psi}_{\sigma}^{\dagger} e^{\frac{\mathrm{i}}{\hbar}(\mu_{\sigma} + E_{\sigma} )t}
+\end{align}
+<p>
+&#x4E0B;&#x9762;&#x7684; \(\hat{\psi}_{\sigma}^{\dagger}(\vec{r}, t)\) &#x91CD;&#x65B0;&#x5B9A;&#x4E49;&#x4E3A;
+</p>
+\begin{align}
+  \hat{\psi}_{\sigma}^{\dagger}(\vec{r}, t) \equiv e^{\frac{\mathrm{i}}{\hbar}(\mu_{\sigma}+ E_{\sigma} )t}
+     e^{\frac{\mathrm{i}}{\hbar}\hat{H}_0t}
+     \hat{\psi}_{\sigma}^{\dagger}(\vec{r}) 
+\end{align}
+<p>
+&#x90A3;&#x4E48; (&#x4E4B;&#x524D;&#x7684;&#x4EA7;&#x751F;&#x7159;&#x706D;&#x7B97;&#x7B26;&#x90FD;&#x5E94;&#x8BE5;&#x5E26;&#x4E0B;&#x6807; \(C\) &#x7684;, &#x4E0B;&#x6B21;&#x590D;&#x4E60;&#x7684;&#x65F6;&#x5019;&#x518D;&#x6DFB;&#x5427;) 
+</p>
+\begin{align}
+  \hat{\psi}_{\sigma C}^{\dagger}(\vec{r}, t) = e^{\frac{\mathrm{i}}{\hbar}(\mu_{\sigma} + E_{\sigma} )t}
+     \hat{\psi}_{\sigma}^{\dagger}(\vec{r}, t)
+\end{align}
+<p>
+&#x5BF9;&#x4E8E;&#x5076;&#x5408;, &#x5047;&#x8BBE;&#x662F;&#x5982;&#x4E0B;&#x632F;&#x52A8;
+</p>
+\begin{align}
+  \Omega(\vec{r}, t) = \Omega(\vec{r}) \sin (\omega_Lt) = \Omega(\vec{r}) 
+              \frac{e^{\mathrm{i}\omega_Lt} - e^{-\mathrm{i}\omega_Lt}}{2 \mathrm{i}}
+\end{align}
+<p>
+&#x5C06;&#x8FD9;&#x4E9B;&#x7ED3;&#x679C;&#x5E26;&#x5165;&#x4E4B;&#x524D;&#x5F97;&#x5230;&#x7684; rf current &#x7684;&#x7EBF;&#x6027;&#x54CD;&#x5E94;&#x8FD1;&#x4F3C;&#x7684;&#x7ED3;&#x679C;
+</p>
+\begin{align}
+  &amp;\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle_{1\mathrm{st}} \\
+  =&amp; -\int \mathrm{d}^3r \int \mathrm{d}r&apos;\int_0^{\infty} \mathrm{d}t&apos; \cdot\theta(t - t&apos;)
+    \left\{\Omega(\vec{r}, t)\Omega^{*}(\vec{r}&apos;, t&apos;)
+    \langle\left[\hat{\psi}_{eC}^{\dagger}(\vec{r}, t)\hat{\psi}_{gC}(\vec{r}, t),  \hat{\psi}_{gC}^{\dagger}(\vec{r}&apos;, t&apos;)\hat{\psi}_{eC}(\vec{r}&apos;, t&apos;) \right]\rangle 
+    + \mathrm{h.c.} \right\}
+\end{align}
+<p>
+&#x4E2D;, &#x4F1A;&#x51FA;&#x73B0;&#x4EE5;&#x4E0B;&#x5173;&#x4E8E; \(t\) &#x7684;&#x632F;&#x52A8;&#x9879;
+</p>
+\begin{align}
+  \left(e^{\mathrm{i}\omega_Lt} - e^{-\mathrm{i}\omega_Lt} \right) 
+e^{\frac{\mathrm{i}}{\hbar}[(E_e - E_g) - (\mu_g  - \mu_e)]t}
+ = e^{\mathrm{i}[\omega_L + \frac{E_e - E_g}{\hbar} - \frac{\mu_g  - \mu_e}{\hbar}]t} 
+  - e^{-\mathrm{i}[\omega_L - \frac{E_e - E_g}{\hbar} + \frac{\mu_g  - \mu_e}{\hbar}]t}
+\end{align}
+<p>
+&#x505A;&#x65CB;&#x6CE2;&#x8FD1;&#x4F3C;, &#x7565;&#x53BB; \(\omega_L + \frac{E_e - E_g}{\hbar}\) &#x7684;&#x9AD8;&#x9891;&#x7387;, &#x5C06; detuning &#x8BB0;&#x4E3A;
+</p>
+\begin{align}
+  \tilde{\delta} = \delta + \frac{\mu_g  - \mu_e}{\hbar} = \omega_L - \frac{E_e - E_g}{\hbar} + \frac{\mu_g  - \mu_e}{\hbar}
+\end{align}
+<p>
+&#x505A;&#x5B8C;&#x65CB;&#x6CE2;&#x8FD1;&#x4F3C;&#x540E;, &#x5173;&#x4E8E; \(t\) &#x7684;&#x632F;&#x52A8;&#x9879;&#x53EA;&#x5269;&#x4E0B;
+</p>
+\begin{align}
+  - e^{-\mathrm{i}\tilde{\delta}t}
+\end{align}
+<p>
+&#x540C;&#x6837;&#x5BF9;&#x5173;&#x4E8E; \(t&apos;\) &#x7684;&#x632F;&#x52A8;&#x9879;&#x505A;&#x5B8C;&#x65CB;&#x6CE2;&#x8FD1;&#x4F3C;&#x540E;&#x5269;&#x4E0B;
+</p>
+\begin{align}
+  - e^{\mathrm{i}\tilde{\delta}t&apos;}
+\end{align}
+<p>
+&#x8FD8;&#x6709;&#x4E24;&#x4E2A; \(\frac{1}{2\mathrm{i}}\) , &#x6240;&#x4EE5;&#x505A;&#x5B8C;&#x65CB;&#x6CE2;&#x8FD1;&#x4F3C;&#x540E;
+</p>
+\begin{align}
+  &amp;\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle_{1\mathrm{st}, \mathrm{rwa}} \\
+  =&amp; -\frac{1}{4}\int \mathrm{d}^3r \int \mathrm{d}^3r&apos;\int_0^{\infty} \mathrm{d}t&apos; \cdot\theta(t - t&apos;)
+    \left\{\Omega(\vec{r})\Omega^{*}(\vec{r}&apos;)e^{ - \mathrm{i}\tilde{\delta}(t - t&apos;)}
+    \langle\left[\hat{\psi}_{e}^{\dagger}(\vec{r}, t)\hat{\psi}_{g}(\vec{r}, t),  \hat{\psi}_{g}^{\dagger}(\vec{r}&apos;, t&apos;)\hat{\psi}_{e}(\vec{r}&apos;, t&apos;) \right]\rangle 
+    + \mathrm{h.c.} \right\}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org0f925a5" class="outline-2">
+<h2 id="org0f925a5">rf &#x8C31;&#x52A8;&#x91CF;&#x5B88;&#x6052;</h2>
+<div class="outline-text-2" id="text-org0f925a5">
+<blockquote>
+<p>
+The speciality of RF spectroscopy is that the wavelength of the RF field is
+large compared to other length scales in the system, typically much larger than
+the cloud of atoms. Related to this, the corresponding momentum is negligible
+compared to, e.g., typical scales of the Fermi momentum, and in the above
+formulas can be set to zero. Furthermore, the intensity of the RF field over the
+cloud can be taken as uniform in the scale of the cloud, which makes the
+coupling parameter to be simply a constant.
+</p>
+</blockquote>
+
+<p>
+&#x5BF9;&#x4E8E; rf &#x8109;&#x51B2;, &#x5B83;&#x7684;&#x52A8;&#x91CF;&#x76F8;&#x5BF9;&#x539F;&#x5B50;&#x7684;&#x52A8;&#x91CF;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;. rf &#x573A;&#x7684;&#x6CE2;&#x957F;&#x76F8;&#x5BF9;&#x539F;&#x5B50;&#x4E91;&#x7684;&#x6CE2;&#x957F;&#x5F88;&#x5927;,
+&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x5B83;&#x7684;&#x5747;&#x5300;&#x7684;. &#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+  \Omega (\vec{r}) = \Omega
+\end{align}
+
+<p>
+&#x53D8;&#x6362;&#x5230;&#x52A8;&#x91CF;&#x8868;&#x8C61;
+</p>
+\begin{align}
+  \hat{\psi}(\vec{r}) = \frac{1}{\sqrt{\mathcal{V}}}
+    \sum_{\vec{k}}\hat{c}_{\vec{k}}^{\dagger} e^{\mathrm{i}\vec{k}\cdot \vec{r}}
+\end{align}
+<p>
+&#x8FD9;&#x6837;&#x5C31;&#x6709;
+</p>
+\begin{align}
+  &amp;\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle_{1\mathrm{st}, \mathrm{rwa}} \\
+  =&amp; -\frac{|\Omega|^2}{4}\int \mathrm{d}^3r \int \mathrm{d}^3r&apos;\int_0^{t} \mathrm{d}t&apos; 
+    \sum_{\vec{k}\vec{k}&apos;\vec{l}\vec{l}&apos;}
+    e^{\mathrm{i}(\vec{l} - \vec{k})\cdot \vec{r}}
+    e^{\mathrm{i}(\vec{k}&apos; - \vec{l}&apos;)\cdot \vec{r}&apos;}
+    \left\{e^{ - \mathrm{i}\tilde{\delta}(t - t&apos;)}
+    \langle\left[\hat{c}_{ke}^{\dagger}(t)\hat{c}_{lg}(t), \hat{c}_{l&apos;g}^{\dagger}(t&apos;)\hat{c}_{k&apos;e}(t&apos;) \right]\rangle 
+    + \mathrm{h.c.} \right\}
+\end{align}
+<p>
+&#x5C06;&#x7A7A;&#x95F4;&#x90E8;&#x5206;&#x79EF;&#x6389;&#x662F; \(\delta\) &#x51FD;&#x6570;, &#x7136;&#x540E;&#x6C42;&#x548C;&#x6389; \(\vec{l}&apos;, \vec{l}&apos;\) &#x7ED3;&#x679C;&#x4E3A;
+</p>
+\begin{align}
+  &amp;\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle_{1\mathrm{st}, \mathrm{rwa}} \\
+  =&amp; -\frac{|\Omega|^2}{4}\int_0^{t} \mathrm{d}t&apos; 
+    \sum_{\vec{k}\vec{k}&apos;}
+      \left\{e^{ - \mathrm{i}\tilde{\delta}(t - t&apos;)}
+    \langle\left[\hat{c}_{ke}^{\dagger}(t)\hat{c}_{kg}(t), \hat{c}_{k&apos;g}^{\dagger}(t&apos;)\hat{c}_{k&apos;e}(t&apos;) \right]\rangle 
+    + \mathrm{h.c.} \right\}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org334ba84" class="outline-2">
+<h2 id="org334ba84">&#x5199;&#x6210;&#x683C;&#x6797;&#x51FD;&#x6570;</h2>
+<div class="outline-text-2" id="text-org334ba84">
+<blockquote>
+<p>
+The correlators above could in principle be non-zero for \(k \neq k&apos;\) and/or \(l\neq
+l&apos;\) if the state possesses some non-trivial correlations between different
+momentum states of the same species. However, this is not the case, for
+instance, for the normal state or for the BCS state, and many other typical
+many-body states. So, in our example that aims to treat such states, we
+assume \(k=k&apos;\) and \(l=l&apos;\) .
+</p>
+</blockquote>
+
+<p>
+&#x5BF9;&#x4E8E; normal state &#x548C; BCS &#x6001;&#x6765;&#x8BF4;,  \(k \neq k&apos;\) &#x7684;&#x6001;&#x662F;&#x4E0D;&#x5B58;&#x5728;&#x7684;, &#x6240;&#x4EE5;&#x5C31;&#x6709; 
+</p>
+\begin{align}
+  &amp;\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle_{1\mathrm{st}, \mathrm{rwa}} \\
+  =&amp; -\frac{|\Omega|^2}{4}\int_0^{t} \mathrm{d}t&apos; 
+    \sum_{\vec{k}}
+      \left\{e^{ - \mathrm{i}\tilde{\delta}(t - t&apos;)}
+    \langle\left[\hat{c}_{ke}^{\dagger}(t)\hat{c}_{kg}(t), \hat{c}_{kg}^{\dagger}(t&apos;)\hat{c}_{ke}(t&apos;) \right]\rangle 
+    + \mathrm{h.c.} \right\}
+\end{align}
+<p>
+&#x63A8;&#x8FDF;&#x683C;&#x6797;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;
+</p>
+\begin{align*}
+G_{AB}^{\mathrm{ret}}(t,t&apos;) =-\mathrm{i}\theta(t-t&apos;)\langle [A(t),B(t&apos;)]_{-\varepsilon}\rangle
+\end{align*}
+<p>
+&#x56E0;&#x6B64; \(|e\rangle,|g\rangle\) &#x4E4B;&#x95F4;&#x7684;&#x63A8;&#x8FDF;&#x683C;&#x6797;&#x51FD;&#x6570;&#x4E3A;
+</p>
+\begin{align}
+  G_{eg}(k, t - t&apos;) = -\mathrm{i}\theta(t-t&apos;)\langle\left[\hat{c}_{ke}^{\dagger}(t)\hat{c}_{kg}(t), \hat{c}_{kg}^{\dagger}(t&apos;)\hat{c}_{ke}(t&apos;)\right]\rangle
+\end{align}
+<p>
+&#x6240;&#x4EE5;
+</p>
+\begin{align}
+  &amp;\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle_{1\mathrm{st}, \mathrm{rwa}} \\
+  =&amp; -\frac{|\Omega|^2}{4}\int_0^{+\infty} \mathrm{d}t&apos; 
+    \sum_{\vec{k}}
+      \left\{e^{ - \mathrm{i}\tilde{\delta}(t - t&apos;)}
+      \mathrm{i} G_{eg}(k, t - t&apos;) 
+    + \mathrm{h.c.} \right\}
+\end{align}
+<p>
+&#x505A;&#x53D8;&#x91CF;&#x4EE3;&#x6362; \(t - t&apos; \to t\) , \(\mathrm{d}t&apos;\to -\mathrm{d}t\) ,
+ \(t&apos;\in[0, +\infty] \to t\in[t, -\infty]\) &#x6709;
+</p>
+\begin{align}
+  &amp;\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle_{1\mathrm{st}, \mathrm{rwa}} \\
+  =&amp; -\frac{|\Omega|^2}{4}\int_{-\infty}^{t} \mathrm{d}t 
+    \sum_{\vec{k}}
+      \left\{e^{ - \mathrm{i}\tilde{\delta}t}
+      \mathrm{i} G_{eg}(k, t) 
+    + \mathrm{h.c.} \right\}
+\end{align}
+<p>
+&#x800C;&#x683C;&#x6797;&#x51FD;&#x6570;&#x5728;&#x80FD;&#x91CF;&#x8868;&#x8C61;&#x4E3A;
+</p>
+\begin{align}
+  G_{AB}(\omega) = \int_{-\infty}^{+\infty} \mathrm{d}(t - t&apos;) G_{AB}(t - t&apos;)e^{\mathrm{i}\omega(t - t&apos;)}
+\end{align}
+<p>
+&#x6240;&#x4EE5;, &#x5F53;&#x53D6;&#x6781;&#x9650;&#x65F6; \(t\to\infty\) &#x65F6;
+</p>
+\begin{align}
+  &amp;\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle_{1\mathrm{st}, \mathrm{rwa}, t\to\infty} \\
+  =&amp; -\frac{|\Omega|^2}{4}\int_{-\infty}^{+\infty} \mathrm{d}t 
+    \sum_{\vec{k}}
+      \left\{e^{ - \mathrm{i}\tilde{\delta}t}
+      \mathrm{i} G_{eg}(k, t) 
+    + \mathrm{h.c.} \right\} \\
+  =&amp; -\frac{|\Omega|^2}{4}
+    \sum_{\vec{k}}
+      \left\{
+      \mathrm{i} G_{eg}(k, -\tilde{\delta}) 
+    + \mathrm{h.c.} \right\} 
+\end{align}
+<p>
+&#x800C;
+</p>
+\begin{align}
+  \mathrm{i} G_{eg}(k, -\tilde{\delta}) 
+    + \mathrm{h.c.}
+  =&amp;   \mathrm{i} G_{eg}(k, -\tilde{\delta}) 
+    -\mathrm{i} G_{eg}^{*}(k, -\tilde{\delta}) 
+  = \mathrm{i}\left[ 2\mathrm{i} \mathrm{Im}G_{eg}(k, -\tilde{\delta})  \right] \\
+  =&amp; -2\mathrm{Im}G_{eg}(k, -\tilde{\delta})
+\end{align}
+<p>
+&#x6240;&#x4EE5;
+</p>
+\begin{align}
+  &amp;\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle_{1\mathrm{st}, \mathrm{rwa}, t\to\infty} \\
+  =&amp; \frac{|\Omega|^2}{2}
+    \sum_{\vec{k}}
+    \mathrm{Im}G_{eg}(k, -\tilde{\delta})
+\end{align}
+<p>
+&#x8FD9;&#x91CC; \(\tilde{\delta} = \delta + \frac{\mu_g  - \mu_e}{\hbar} = \omega_L - \frac{E_e - E_g}{\hbar} +
+\frac{\mu_g  - \mu_e}{\hbar}\) . &#x5982;&#x679C; \(E_e - E_g = \mu_g - \mu_e\) , &#x90A3;&#x4E48; \(\tilde{\delta} = \omega_L\) .
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orga0eb779" class="outline-2">
+<h2 id="orga0eb779">&#x521D;&#x672B;&#x4E24;&#x4E2A;&#x6001;&#x6CA1;&#x6709;&#x76F8;&#x4E92;&#x4F5C;&#x7528;</h2>
+<div class="outline-text-2" id="text-orga0eb779">
+<blockquote>
+<p>
+e and g are only coupled by the field. In this case, the state of the system
+before the perturbation is a product of states for the species e and g which
+means the four-operator correlators can be factorized to parts that contain only
+e operators or g operators.
+</p>
+</blockquote>
+<p>
+&#x5728;&#x5C06; rf &#x8109;&#x51B2;&#x4F5C;&#x4E3A;&#x5FAE;&#x6270;&#x5F15;&#x5165;&#x524D;, \(|e\rangle ,|g\rangle\) &#x4E24;&#x4E2A;&#x6001;&#x6CA1;&#x6709;&#x76F8;&#x4E92;&#x4F5C;&#x7528;, &#x56E0;&#x6B64;&#x56DB;&#x7B97;&#x7B26;&#x7684;&#x5173;&#x8054;&#x51FD;&#x6570;
+&#x53EF;&#x4EE5;&#x62C6;&#x6210;&#x4E24;&#x4E2A;&#x4E8C;&#x7B97;&#x7B26;&#x5173;&#x8054;&#x51FD;&#x6570;&#x7684;&#x4E58;&#x79EF;, &#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+  \langle \hat{c}_{ke}^{\dagger}(t)\hat{c}_{kg}(t) \hat{c}_{k&apos;g}^{\dagger}(t&apos;)\hat{c}_{k&apos;e}(t&apos;) \rangle
+ =   \langle \hat{c}_{ke}^{\dagger}(t)\hat{c}_{k&apos;e}(t&apos;) \rangle
+     \langle \hat{c}_{kg}(t) \hat{c}_{k&apos;g}^{\dagger}(t&apos;) \rangle
+\end{align}
+
+<blockquote>
+<p>
+The correlators above could in principle be non-zero for \(k \neq k&apos;\) and/or \(l\neq
+l&apos;\) if the state possesses some non-trivial correlations between different
+momentum states of the same species. However, this is not the case, for
+instance, for the normal state or for the BCS state, and many other typical
+many-body states. So, in our example that aims to treat such states, we
+assume \(k=k&apos;\) and \(l=l&apos;\) .
+</p>
+</blockquote>
+
+<p>
+&#x5BF9;&#x4E8E; normal state &#x548C; BCS &#x6001;&#x6765;&#x8BF4;,  \(k \neq k&apos;\) &#x7684;&#x6001;&#x662F;&#x4E0D;&#x5B58;&#x5728;&#x7684;, &#x6240;&#x4EE5;&#x5C31;&#x6709; 
+</p>
+\begin{align}
+  &amp;\frac{\mathrm{d}}{\mathrm{d}t}\langle\Psi(t)|\hat{N}_{e}(t)|\Psi(t)\rangle_{1\mathrm{st}, \mathrm{rwa}} \\
+  =&amp; -\frac{|\Omega|^2}{4}\int_0^{t} \mathrm{d}t&apos; 
+    \sum_{\vec{k}}
+      \left\{e^{ - \mathrm{i}\tilde{\delta}(t - t&apos;)}
+    \left[
+   \langle \hat{c}_{ke}^{\dagger}(t)\hat{c}_{ke}(t&apos;) \rangle\langle \hat{c}_{kg}(t) \hat{c}_{kg}^{\dagger}(t&apos;) \rangle
+-  \langle \hat{c}_{kg}^{\dagger}(t&apos;)\hat{c}_{kg}(t) \rangle \langle \hat{c}_{ke}(t&apos;)\hat{c}_{ke}^{\dagger}(t) \rangle
+  \right]
+      + \mathrm{h.c.} \right\}
+\end{align}
+</div>
+</div>
+
+
+
+<div id="outline-container-org3b54bcf" class="outline-2">
+<h2 id="org3b54bcf">Reference</h2>
+<div class="outline-text-2" id="text-org3b54bcf">
+<ul class="org-ul">
+<li>Phys. Scr. 91 (2016) 043006 ,P&#xE4;ivi T&#xF6;rm&#xE4; ,Physics of ultracold Fermi gases revealed by spectroscopies</li>
+
+<li>Torma P.,Klaus Sengstock K, Quantum Gas Experiments Exploring Many-Body States</li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/rf-current/" rel="tag"># rf current</a>
+          
+            <a href="/tags/linear-repsonse/" rel="tag"># linear repsonse</a>
+          
+            <a href="/tags/Green-s-Function/" rel="tag"># Green's Function</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/22/RotatingWaveApprox/" rel="next" title="Rotating Wave Approximation">
+                <i class="fa fa-chevron-left"></i> Rotating Wave Approximation
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/14/TensorI/" rel="prev" title="读书笔记: Tensors and Representations of the Rotation Groups SO(N)">
+                读书笔记: Tensors and Representations of the Rotation Groups SO(N) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd3de273"><span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgdd43785"><span class="nav-text">Hamiltonian</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org23e7a39"><span class="nav-text">Heisenberg 运动方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org765e3e1"><span class="nav-text">线性响应</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org044efa4"><span class="nav-text">应用线性响应, 并扔掉两项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org1f26e3e"><span class="nav-text">Rotating Wave Approximation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org0f925a5"><span class="nav-text">rf 谱动量守恒</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org334ba84"><span class="nav-text">写成格林函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orga0eb779"><span class="nav-text">初末两个态没有相互作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org3b54bcf"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

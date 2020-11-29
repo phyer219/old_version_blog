@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="Carl Bender,Mathematical Physics">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Carl Bender Mathematical Physics Lecture2 Note">
+<meta property="og:url" content="https://zqw.ink/2020/10/01/CarlBenderMathematicalPhysicsLecture2/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2020/10/01/CarlBenderMathematicalPhysicsLecture2/unharmonic.gif">
+<meta property="og:image" content="https://zqw.ink/2020/10/01/CarlBenderMathematicalPhysicsLecture2/singularities.png">
+<meta property="og:updated_time" content="2020-11-29T02:17:49.113Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Carl Bender Mathematical Physics Lecture2 Note">
+<meta name="twitter:image" content="https://zqw.ink/2020/10/01/CarlBenderMathematicalPhysicsLecture2/unharmonic.gif">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2020/10/01/CarlBenderMathematicalPhysicsLecture2/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Carl Bender Mathematical Physics Lecture2 Note | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2020/10/01/CarlBenderMathematicalPhysicsLecture2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Carl Bender Mathematical Physics Lecture2 Note
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-01T00:00:00+08:00">2020-10-01</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/10/01/CarlBenderMathematicalPhysicsLecture2/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/10/01/CarlBenderMathematicalPhysicsLecture2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-org644f762" class="outline-2">
+<h2 id="org644f762">Information</h2>
+<div class="outline-text-2" id="text-org644f762">
+<ul class="org-ul">
+<li>&#x539F;&#x51FA;&#x5904;: <a href="https://www.perimeterinstitute.ca/video-library/collection/11/12-psi-mathematical-physics" target="_blank" rel="noopener">https://www.perimeterinstitute.ca/video-library/collection/11/12-psi-mathematical-physics</a></li>
+
+<li>&#x53EF;&#x4EE5;&#x770B;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x5B57;&#x5E55;: <a href="https://www.youtube.com/playlist?list=PLzcd6SoIscwjHuWRE38UXWG92uq0Sy4UF" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PLzcd6SoIscwjHuWRE38UXWG92uq0Sy4UF</a></li>
+
+<li>Bilibili:
+<a href="https://www.bilibili.com/video/BV1w4411q7x6?from=search&amp;seid=7852838902448285010" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1w4411q7x6?from=search&amp;seid=7852838902448285010</a></li>
+
+<li>Book: Carl M. Bender, Steven A. Orszag, Advanced Mathematical Methods for Scientists and
+Engineers I Asympotic Methods and Perturbation Theory, 1999</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgab46c18" class="outline-2">
+<h2 id="orgab46c18">Keywords</h2>
+<div class="outline-text-2" id="text-orgab46c18">
+<p>
+The Schrodinger equation. Riccati equation. Initial value problem. Perturbation
+series approach to solving the Schrodinger equation. The eigenvalue problem 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org49641b1" class="outline-2">
+<h2 id="org49641b1">Really Really Hard Probles</h2>
+<div class="outline-text-2" id="text-org49641b1">
+<p>
+&#x4EFB;&#x4F55;&#x5F62;&#x5982;
+</p>
+\begin{align}
+\label{eq:2ndODE}
+  y&apos;&apos; + a(x)y&apos; + b(x) y = 0
+\end{align}
+<p>
+&#x7684;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#x90FD;&#x53EF;&#x4EE5;&#x5316;&#x4E3A;
+</p>
+\begin{align}
+\label{eq:SchEQ}
+  y&apos;&apos; + Q(x) y = 0
+\end{align}
+<blockquote>
+<p>
+&#x8BC1;&#x660E;:
+</p>
+
+<p>
+&#x4EE4; \(y = U(x)z(x)\) . &#x4EE3;&#x5165; (\ref{eq:2ndODE}) &#x5F97;
+</p>
+\begin{align}
+  U&apos;&apos;z + U z&apos;&apos; + 2 U&apos;z&apos; + a U&apos;z + aUz&apos; + bUz = 0
+\end{align}
+<p>
+find a \(U\) &#x4F7F;&#x5F97; \(z&apos;\) &#x7684;&#x9879;&#x6D88;&#x5931;, &#x4E5F;&#x5C31;&#x662F; \(U\) &#x6EE1;&#x8DB3;
+</p>
+\begin{align}
+  \frac{U&apos;}{U} + \frac{a}{2} = 0
+\end{align}
+<p>
+&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x4E00;&#x9636;, separable &#x65B9;&#x7A0B;, &#x4E00;&#x5B9A;&#x662F;&#x53EF;&#x89E3;&#x7684;. &#x89E3;&#x5F97;
+</p>
+\begin{align}
+  U(x) = e^{-\int^x \frac{a(s)}{2}\mathrm{d}s}
+\end{align}
+<p>
+&#x53EF;&#x4EE5;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x5E38;&#x6570;, &#x4F46;&#x662F;&#x662F;&#x65E0;&#x6240;&#x8C13;.
+</p>
+</blockquote>
+<p>
+&#x800C; (\ref{eq:SchEQ}) &#x662F;&#x4E00;&#x4E2A; very very hard problem. &#x4E3A;&#x4EC0;&#x4E48; very very hard?
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6e89307" class="outline-2">
+<h2 id="org6e89307">Why So Hard?</h2>
+<div class="outline-text-2" id="text-org6e89307">
+<p>
+first order linear equation \(y&apos; + a(x)y = b(x)\) &#x662F;&#x4E00;&#x4E2A; routine standard EASY
+problem, &#x56E0;&#x4E3A;&#x5B83;&#x53EF;&#x4EE5; &#x7528; integrating factor &#x6765;&#x89E3;. &#x4E0B;&#x9762;&#x8BF4;&#x660E;, (\ref{eq:SchEQ})&#x4E3A;&#x4EC0;&#x4E48;
+&#x5B83; so hard
+</p>
+<blockquote>
+<p>
+&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x597D;&#x89E3;&#x7684;&#x8BDD;, &#x53EA;&#x6709;&#x4E0B;&#x9762;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;.
+</p>
+
+<p>
+&#x91C7;&#x7528;&#x7B80;&#x5316;&#x7684;&#x7B26;&#x53F7; \(D\equiv \frac{\mathrm{d}}{\mathrm{d}x}\) .
+&#x56E0;&#x6B64; $y&apos; + a(x)y = b(x) &#x53D8;&#x4E3A;
+</p>
+\begin{align}
+\label{eq:unfactored}
+[D^{2} + a(x)D +b(x) ] y(x) = 0
+\end{align}
+<p>
+&#x65B9;&#x62EC;&#x53F7;&#x4E2D;&#x662F;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x5FAE;&#x5206;&#x7B97;&#x7B26;. &#x5206;&#x6790;&#x56E0;&#x5F0F;(&#x7EBF;&#x6027;&#x7B97;&#x7B26;&#x7684;&#x5206;&#x89E3;&#x4E0D;&#x662F;&#x552F;&#x4E00;&#x7684;)
+</p>
+\begin{align}
+\label{eq:factor}
+[D + A(x)][D +B(x) ] y(x) = 0
+\end{align}
+<p>
+&#x5982;&#x679C;&#x4E0A;&#x5F0F;&#x53EF;&#x4EE5;&#x505A;&#x5230;, &#x5C31;&#x5DF2;&#x7ECF;&#x89E3;&#x51B3;&#x4E86;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;, &#x56E0;&#x4E3A;&#x5B83;&#x5206;&#x89E3;&#x6210;&#x4E86;&#x4E24;&#x4E2A;&#x4E00;&#x9636;&#x7684;&#x95EE;&#x9898;. &#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x95EE;
+&#x9898;&#x96BE;&#x7684;&#x90E8;&#x5206;&#x5728;&#x4E8E;&#x5206;&#x6790;&#x56E0;&#x5F0F;, &#x4E5F;&#x5C31;&#x662F;&#x5BFB;&#x627E;&#x51FD;&#x6570; \(A(x)\) &#x548C; \(B(x)\).
+</p>
+
+<p>
+&#x628A; (\ref{eq:factor}) &#x5C55;&#x5F00;
+</p>
+\begin{align}
+  (D^2 +AD + AB + B&apos; + BD)y = 0
+\end{align}
+<p>
+&#x5E76;&#x4E0E; (\ref{eq:unfactored}) &#x6BD4;&#x8F83;, &#x4F1A;&#x5F97;&#x5230; \(A(x)\) &#x548C; \(B(x)\) &#x9700;&#x8981;&#x6EE1;&#x8DB3;&#x7684;&#x65B9;&#x7A0B;
+</p>
+\begin{align}
+A + B =&amp; a \\
+AB + B&apos; =&amp; b
+\end{align}
+<p>
+&#x901A;&#x8FC7;&#x6D88;&#x5143;&#x89E3;&#x4E0A;&#x8FF0;&#x65B9;&#x7A0B;&#x7EC4;
+</p>
+\begin{align}
+  aB - B^2 + B&apos; = b
+\end{align}
+<p>
+&#x53D8;&#x6210;&#x4E86;&#x4E00;&#x9636;&#x65B9;&#x7A0B;, great progress! &#x4F46;&#x5B83;&#x6709; \(B^{2}\) , &#x4E0D;&#x662F;&#x7EBF;&#x6027;&#x7684;. &#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x6709;&#x540D;&#x7684;&#x65B9;&#x7A0B;:
+Riccati. &#x53EA;&#x6709;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x89E3; Riccati &#x65B9;&#x7A0B;
+</p>
+\begin{align}
+  y&apos; = \alpha y^2 + \beta y + \gamma
+\end{align}
+<p>
+&#x4EE4; \(y = Q \frac{W&apos;}{W}\) (This is a very standard substitution for linearing
+nonlinear equations) , &#x90A3;&#x4E48;
+</p>
+\begin{align}
+  Q&apos; \frac{W&apos;}{W} + Q \frac{W&apos;&apos;}{W} - Q \frac{W&apos;^2}{W^2}
+ = \alpha Q^2 \frac{W&apos;^2}{W^2} - \beta Q \frac{W&apos;}{W} + \gamma
+\end{align}
+<p>
+&#x5176;&#x4E2D;&#x7684;&#x4E8C;&#x6B21;&#x9879;&#x53EF;&#x4EE5;&#x53D6;&#x9002;&#x5F53;&#x7684; \(Q\) &#x4F7F;&#x5176;&#x6D88;&#x6389;
+</p>
+\begin{align}
+  Q = -\frac{1}{\alpha}
+\end{align}
+<p>
+&#x7136;&#x540E;&#x4E24;&#x8FB9;&#x4E58;&#x4E0A; \(W\)
+</p>
+\begin{align}
+  Q&apos; W&apos; + Q W&apos;&apos; = \beta Q W&apos; + \gamma W
+\end{align}
+<p>
+&#x5B83;&#x662F; linear homogeneous &#x7684;. &#x5B83;&#x5F97;&#x5F62;&#x5F0F;&#x53EF;&#x4EE5;&#x5728;&#x4E66;&#x4E0A;&#x627E;&#x5230;, &#x6BD4;&#x5982;&#x5B83;&#x662F; Bessel &#x65B9;&#x7A0B;&#x7684;&#x5F62;&#x5F0F;.
+&#x56E0;&#x6B64;&#x4E4B;&#x524D;&#x5173;&#x4E8E; \(B\) &#x7684; quadratic &#x7684; Riccati &#x65B9;&#x7A0B;&#x53EF;&#x4EE5;&#x53D8;&#x4E3A;
+</p>
+\begin{align}
+  -W&apos;&apos; = aW&apos; +  bW 
+\end{align}
+<p>
+&#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+   W&apos;&apos; + aW&apos; +  bW = 0
+\end{align}
+<p>
+&#x7ED3;&#x679C;&#x53C8;&#x56DE;&#x5230;&#x4E86;&#x6700;&#x521D;&#x7684;&#x5F62;&#x5F0F;. &#x56E0;&#x6B64;&#x8FD9;&#x4E2A;&#x95EE;&#x9898; really really hard!
+</p>
+
+<p>
+&#x7528;&#x79EF;&#x5206;&#x53D8;&#x6362;&#x4E5F;&#x6CA1;&#x6709;&#x529E;&#x6CD5;, &#x56E0;&#x4E3A;&#x5B83;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;&#x95EE;&#x9898;&#x7684;&#x96BE;&#x5EA6;, &#x53EA;&#x4F1A;&#x6539;&#x53D8;&#x95EE;&#x9898;&#x7684;&#x5F62;&#x5F0F;, principle of conservation of
+effort :)
+</p>
+
+<p>
+&#x53EA;&#x6709;&#x5F53;&#x4F60;&#x653E;&#x5F03;&#x7B49;&#x53F7;&#x7684;&#x65F6;&#x5019;, &#x624D;&#x4F1A; reduce the problem!
+</p>
+</blockquote>
+<p>
+(Bender &#x5728;&#x89C6;&#x9891;&#x7684; 8:15 &#x65F6;&#x8BF4; I should take sort of 5 minutes and explain to you
+why it&apos;s diffcult, &#x7136;&#x540E;&#x5728; 26:43 &#x65F6;&#x8BF4;&#x5B8C;&#x4E86; &#x1F923; )
+</p>
+</div>
+</div>
+
+<div id="outline-container-org242c660" class="outline-2">
+<h2 id="org242c660">Perturbation</h2>
+<div class="outline-text-2" id="text-org242c660">
+<p>
+&#x653E;&#x5F03;&#x7B49;&#x53F7;, reduce the problem to powers! &#x6765;&#x7ED9; (\ref{eq:SchEQ}) &#x52A0;&#x4E0A;&#x5FAE;&#x6270;
+</p>
+\begin{align}
+\label{eq:SchEQPerturb}
+  y&apos;&apos; + \epsilon Q(x) y = 0
+\end{align}
+<p>
+(&#x4E3A;&#x4EC0;&#x4E48;&#x52A0;&#x5728;&#x8FD9;&#x91CC;? &#x56E0;&#x4E3A; uperburbed problem &#x662F;&#x53EF;&#x89E3;&#x7684;.) &#x8003;&#x8651;&#x8FB9;&#x754C;&#x6761;&#x4EF6;
+</p>
+\begin{align}
+  y(0) =&amp; \alpha \\
+  y&apos;(0) =&amp; \beta
+\end{align}
+<p>
+unpert: \(y_0(x) = \alpha + \beta x\)
+</p>
+
+<p>
+Assuming \(y(x) = \sum_{n=0}^{\infty} a_n(x)\epsilon^n\) &#x4EE3;&#x52A0; (\ref{eq:SchEQPerturb})
+</p>
+\begin{align}
+  \sum_{n=0}^{\infty} a_n&apos;&apos;(x)\epsilon^n + \sum_{n=1}^{\infty} Q(x) a_{n-1}(x) \epsilon^n = 0
+\end{align}
+<p>
+&#x6BD4;&#x8F83; \(\epsilon\) &#x7684;&#x7CFB;&#x6570;.
+</p>
+<ul class="org-ul">
+<li>\(\epsilon^0\) : \(a_0&apos;&apos; = 0\) , &#x8FD9;&#x65F6;&#x65E0;&#x5FAE;&#x6270;&#x65F6;&#x7684;&#x89E3; \(a_0(x) = \alpha + \beta x\)</li>
+<li>\(\epsilon^n\) : \(a_n&apos;&apos; = -Q(x)a_{n-1}\)</li>
+</ul>
+<p>
+&#x56E0;&#x4E3A; \(a_0\) &#x5DF2;&#x7ECF;&#x6EE1;&#x8DB3;&#x8FB9;&#x754C;&#x6761;&#x4EF6;&#x4E86;, &#x6240;&#x4EE5;&#x66F4;&#x9AD8;&#x9636;&#x7684;&#x8FB9;&#x754C;&#x6761;&#x4EF6;&#x5168;&#x90E8;&#x4E3A; \(0\) , &#x4E5F;&#x5C31;&#x662F; \(a_n(0) =
+a_n&apos;(x) = 0\) , &#x90A3;&#x4E48;&#x79EF;&#x5206;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x5168;&#x90E8;&#x7684;&#x7CFB;&#x6570;
+</p>
+\begin{align}
+  a_n&apos;(x) =&amp; -\int_0^x \mathrm{d}s\cdot Q(s)a_{n-1}(s) \\
+  a_n(x) =&amp; -\int_0^x\mathrm{d}t \int_0^t \mathrm{d}s Q(s)a_{n-1}(s)
+\end{align}
+<p>
+&#x90A3;&#x4E48;&#x5F97;&#x5230; \(a_n(x)\) &#x7684;&#x901A;&#x8FC7;
+</p>
+\begin{align}
+  a_n(x) = (-1)^n \int \int Q\int \int Q \cdots \int \int Q (\alpha + \beta x)
+\end{align}
+<p>
+&#x4E00;&#x5171;&#x6709; \(2n\) &#x91CD;&#x79EF;&#x5206;. &#x4E0B;&#x9762;&#x8BC1;&#x660E;&#x8FD9;&#x4E2A;&#x79EF;&#x5206;&#x662F;&#x6536;&#x655B;&#x7684;.
+</p>
+<blockquote>
+<p>
+&#x8BC1;&#x660E;: 
+</p>
+
+<p>
+&#x6709;&#x5B9A;&#x7406;
+if \(| f(x) | &lt; M\) when \(M\in(a, b)\) , then \(| \int_a^b f(x) \mathrm{d}x |\le | a - b |
+M\)
+</p>
+
+<p>
+&#x56E0;&#x6B64;, &#x5982;&#x679C; \(\mathrm{Max}|Q| = M, \mathrm{Max}|\alpha + \beta x| = m\) , &#x90A3;&#x4E48;
+</p>
+\begin{align}
+  |a_n(x)| \le M^n m\underbrace{\int_0^x \mathrm{d}t \int_0^t \mathrm{d}u\int_0^u \mathrm{d}v\cdots \int}_{2n}
+   = M^n m \frac{x^{2n}}{(2n)!}
+\end{align}
+<p>
+&#x56E0;&#x6B64;&#x8FD9;&#x4E2A; series converges faster than 
+</p>
+\begin{align}
+  \sum \frac{k^n}{(2n)!}\epsilon^n
+\end{align}
+<p>
+&#x5B83;&#x7684;&#x6536;&#x655B;&#x534A;&#x5F84; radius of convergence &#x662F;&#x65E0;&#x7A77;&#x5927;(&#x5FD8;&#x4E86;&#x600E;&#x4E48;&#x6C42;&#x6536;&#x655B;&#x534A;&#x5F84;&#x4E86;).
+</p>
+</blockquote>
+<p>
+&#x8BB2;&#x5230;&#x8FD9;&#x91CC;, Bender &#x5047;&#x88C5;&#x5F88;&#x6FC0;&#x52A8;&#x5730;&#x8BF4;:
+</p>
+<blockquote>
+<p>
+Boys, we are powerful! We can do anything! :)
+</p>
+</blockquote>
+
+<p>
+&#x4F46;&#x662F;, \(x\) &#x4E0D;&#x80FD;&#x662F;&#x65E0;&#x7A77;&#x5927;, &#x4E5F;&#x5C31;&#x662F; we can&apos;t solve the Schrodinger equation on an
+infinite domain.  We can only solve it on a finite domain for finite \(x\) . &#x4F46;&#x5B9E;
+&#x9645;&#x6C42;&#x89E3;&#x65F6;, &#x8981;&#x6C42;&#x672C;&#x5F81;&#x51FD;&#x6570;&#x662F;&#x5F52;&#x4E00;&#x7684;, &#x5728;&#x5168;&#x7A7A;&#x95F4;.
+</p>
+
+<p>
+&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x5728; finite domain &#x91CC;&#x5F97;&#x5230;&#x4E86; Schrodinger equation &#x7684;&#x89E3;!
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd57cd83" class="outline-2">
+<h2 id="orgd57cd83">Eigenvalue Problem</h2>
+<div class="outline-text-2" id="text-orgd57cd83">
+<p>
+&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x611F;&#x89C9;&#x81EA;&#x5DF1;&#x5F88;&#x5F3A;&#x5927;&#x4E86;, &#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x89E3;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x95EE;&#x9898;: &#x672C;&#x5F81;&#x503C;&#x95EE;&#x9898;. &#x5E26;&#x6709;&#x975E;&#x7B80;&#x8C10;&#x52BF;&#x7684;&#x4E00;
+&#x4E2A;&#x672C;&#x5F81;&#x503C;&#x95EE;&#x9898;, &#x7528;&#x5FAE;&#x6270;
+</p>
+\begin{align}
+  \left(-\frac{\mathrm{d}^2}{\mathrm{d}x^2} + \frac{x^2}{4} + \epsilon \frac{x^4}{4} \right)\psi
+   = E( \epsilon )\psi
+\end{align}
+<p>
+&#x8FD9;&#x8282;&#x8BFE;&#x6CA1;&#x65F6;&#x95F4;&#x4E86;, Bender &#x8BF4; I don&apos;t want to spoil the climax by rushing it. &#x76F4;&#x63A5;&#x7ED9;
+&#x4E86;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x7ED3;&#x679C;
+</p>
+\begin{align}
+  E_{\mathrm{ground state}} = \frac{1}{2} + \frac{3}{4}\epsilon 
+               - \frac{21}{8}\epsilon^2 - \frac{333}{16}\epsilon^3 + \cdots
+\end{align}
+<p>
+&#x5B83;(&#x770B;&#x4F3C;)&#x4E0D;&#x6536;&#x655B;. &#x662F;&#x7684;, &#x5B83;&#x786E;&#x5B9E;&#x4E0D;&#x6536;&#x655B;, &#x6536;&#x655B;&#x534A;&#x5F84;&#x662F; \(0\) . &#x4E4B;&#x540E;&#x7528;&#x63D0;&#x5230;&#x7528;&#x8D39;&#x66FC;&#x56FE;&#x4F5C;&#x5FAE;&#x6270;&#x548C;
+&#x8FD9;&#x4E2A;&#x662F;&#x4E00;&#x6837;&#x7684;, &#x5B83;&#x4E0D;&#x6536;&#x655B;
+</p>
+<blockquote>
+<p>
+You&apos;ve been cheated! &#x2026; Everything you&apos;ve been taught is garbage unless we can
+make sense out of this.
+</p>
+</blockquote>
+<p>
+&#x5B83;&#x4E0D;&#x6536;&#x655B;&#x7684;&#x539F;&#x56E0;&#x662F; \(\epsilon=0\) &#x5904;&#x6709; singularity. \(\epsilon\) &#x7531;&#x6B63;&#x53D8;&#x8D1F;&#x65F6;, &#x4F1A;&#x4F7F;&#x9631;&#x539F;&#x6709;&#x7684; bound
+states &#x6D88;&#x5931;(&#x5982;&#x56FE;), &#x90FD; tunnels &#x51FA;&#x53BB;&#x4E86;. We have Hawking radiation. Something abrupt.
+<img src="/2020/10/01/CarlBenderMathematicalPhysicsLecture2/unharmonic.gif">
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1d0098d" class="outline-2">
+<h2 id="org1d0098d">What the Nature of the Singularity Is?</h2>
+<div class="outline-text-2" id="text-org1d0098d">
+<p>
+&#x8003;&#x8651;&#x4E8C;&#x80FD;&#x7EA7;&#x7CFB;&#x7EDF;
+</p>
+\begin{align}
+  H = \left( 
+     \begin{array}{cc}
+             a &amp; 0 \\
+             0 &amp; b 
+     \end{array}
+   \right) 
+  + \epsilon\left( 
+     \begin{array}{cc}
+             0 &amp; c \\
+             c &amp; 0 
+     \end{array}
+   \right)
+\end{align}
+<blockquote>
+<p>
+I look at this problem and I say &apos;oh, god! That&apos;s a hard problem to sovle! I
+think I&apos;ll use perturbation theory.&apos;
+</p>
+</blockquote>
+\begin{align}
+  E_{\mp}(\epsilon) = \frac{a + b \pm\sqrt{(a - b)^2 + 4 \epsilon^2 c^2}}{2}
+\end{align}
+<p>
+&#x5B83;&#x6709;&#x4E24;&#x4E2A; singularities \(\epsilon = \pm \mathrm{i}\frac{a - b}{2c}\) ,&#x7531;&#x4E00;&#x6761; branch cut
+&#x8FDE;&#x63A5;. &#x5F53; \(\epsilon\) &#x4ECE; \(1\) &#x51FA;&#x53D1;, &#x7ECF;&#x8FC7;&#x4E00;&#x4E2A; singularites, &#x8DE8;&#x8D8A;&#x4E00;&#x6B21; branch cut &#x56DE;&#x5230; \(1\)
+(&#x5982;&#x56FE;),&#x5B83;&#x5C31;&#x4ECE;&#x4E00;&#x4E2A;&#x672C;&#x5F81;&#x80FD;&#x91CF;&#x5230;&#x4E86;&#x53E6;&#x4E00;&#x4E2A;&#x672C;&#x5F81;&#x80FD;&#x91CF;.
+<img src="/2020/10/01/CarlBenderMathematicalPhysicsLecture2/singularities.png">
+</p>
+<blockquote>
+<p>
+Remember this: quantum mechanics is not quantized. Because if I&apos;am allowed to
+vary \(\epsilon\) into the complexs plane, you smoothly go from one energy level to the
+other energy level.
+</p>
+</blockquote>
+<blockquote>
+<p>
+Quantizations comes from counting the sheets in a Riemann surface.
+</p>
+</blockquote>
+<blockquote>
+<p>
+Different energy levels are not independent numbers like you know.
+</p>
+</blockquote>
+<blockquote>
+<p>
+If we enlarge our way of thinking about problem by doing perturbation theory and
+by introducing this magnificient parameter because, it gives a whole new way of
+thinking about the world!
+</p>
+</blockquote>
+<p>
+&#x4E0D;&#x540C;&#x7684;&#x57FA;&#x672C;&#x7C92;&#x5B50;(&#x5982;&#x7535;&#x5B50;, \(\mu\) &#x5B50;), &#x5B83;&#x4EEC;&#x90FD;&#x662F;&#x5BF9;&#x540C;&#x4E00;&#x5FAE;&#x6270;&#x53C2;&#x6570;&#x7684; analytic continuation.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga9f8ede" class="outline-2">
+<h2 id="orga9f8ede">Summary</h2>
+<div class="outline-text-2" id="text-orga9f8ede">
+<p>
+&#x4EFB;&#x4F55;&#x5F62;&#x5982;
+</p>
+\begin{align}
+  y&apos;&apos; + Q(x)y&apos; + b(x) y = 0
+\end{align}
+<p>
+&#x7684;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#x90FD;&#x53EF;&#x4EE5;&#x5316;&#x4E3A;
+</p>
+\begin{align}
+  y&apos;&apos; + Q(x) y = 0
+\end{align}
+<p>
+&#x4E0A;&#x5F0F;&#x662F; Schrodinger &#x65B9;&#x7A0B;&#x7684;&#x5F62;&#x5F0F;. 
+&#x800C;&#x4E0A;&#x5F0F;&#x5728;&#x6709;&#x9650;&#x533A;&#x95F4;&#x5185;&#x9650;&#x5B9A;&#x8FB9;&#x754C;&#x6761;&#x4EF6;&#x65F6;&#x662F;&#x53EF;&#x89E3;&#x7684;. &#x4F46;&#x91CF;&#x5B50;&#x529B;&#x5B66;&#x8003;&#x8651;&#x7684;&#x90FD;&#x662F;&#x8FB9;&#x754C;&#x6761;&#x4EF6;&#x5728;&#x65E0;&#x7A77;&#x8FDC;&#x7684;
+&#x60C5;&#x51B5;, &#x4E00;&#x822C;&#x65E0;&#x6CD5;&#x6C42;&#x89E3;. &#x56E0;&#x800C;&#x9700;&#x8981;&#x7528;&#x5FAE;&#x6270;&#x6765;&#x5904;&#x7406;. &#x4F46;&#x4F1A;&#x53D1;&#x73B0;, &#x901A;&#x8FC7;&#x5FAE;&#x6270;&#x5F97;&#x5230;&#x7684;&#x7EA7;&#x6570;&#x5F62;&#x5F0F;&#x7684;&#x89E3;&#x662F;
+&#x53D1;&#x6563;&#x7684;.
+</p>
+
+<p>
+Quantizations comes from counting the sheets in a Riemann surface.
+</p>
+
+<p>
+Different energy levels are not independent numbers like you know.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org62304fb" class="outline-2">
+<h2 id="org62304fb">Reference</h2>
+<div class="outline-text-2" id="text-org62304fb">
+<ul class="org-ul">
+<li>&#x5F88;&#x597D;&#x7684;&#x8BB2;&#x89E3; integrating factor &#x7684;&#x89C6;&#x9891; First Order Linear Differential Equation
+&amp; Integrating Factor (idea/strategy/example) by  blackpenredpen</li>
+</ul>
+<p>
+, &#x6709;&#x65F6;&#x95F4;&#x53EF;&#x4EE5;&#x6574;&#x7406;&#x4E00;&#x4E0B; note: <a href="https://www.youtube.com/watch?v=DJsjZ5aYK_g" target="_blank" rel="noopener">https://www.youtube.com/watch?v=DJsjZ5aYK_g</a> 
+</p>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Carl-Bender/" rel="tag"># Carl Bender</a>
+          
+            <a href="/tags/Mathematical-Physics/" rel="tag"># Mathematical Physics</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/23/StationaryPhaseApprox/" rel="next" title="Stationary Phase Approx, Laplace's Method">
+                <i class="fa fa-chevron-left"></i> Stationary Phase Approx, Laplace's Method
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/10/07/CarlBenderMathematicalPhysicsLecture3and4/" rel="prev" title="Carl Bender Mathematical Physics Lecture3 & Lecture4 Note">
+                Carl Bender Mathematical Physics Lecture3 & Lecture4 Note <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org644f762"><span class="nav-text">Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgab46c18"><span class="nav-text">Keywords</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org49641b1"><span class="nav-text">Really Really Hard Probles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6e89307"><span class="nav-text">Why So Hard?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org242c660"><span class="nav-text">Perturbation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd57cd83"><span class="nav-text">Eigenvalue Problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org1d0098d"><span class="nav-text">What the Nature of the Singularity Is?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orga9f8ede"><span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org62304fb"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

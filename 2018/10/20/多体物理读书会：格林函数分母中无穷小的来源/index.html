@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="数学,物理,格林函数,多体物理读书会">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多体物理读书会：格林函数分母中无穷小的来源">
+<meta property="og:url" content="https://zqw.ink/2018/10/20/多体物理读书会：格林函数分母中无穷小的来源/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.850Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多体物理读书会：格林函数分母中无穷小的来源">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2018/10/20/多体物理读书会：格林函数分母中无穷小的来源/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>多体物理读书会：格林函数分母中无穷小的来源 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2018/10/20/多体物理读书会：格林函数分母中无穷小的来源/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">多体物理读书会：格林函数分母中无穷小的来源
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-20 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-20T00:00:00+08:00">2018-10-20</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/20/多体物理读书会：格林函数分母中无穷小的来源/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/10/20/多体物理读书会：格林函数分母中无穷小的来源/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+<div id="outline-container-org27926a7" class="outline-2">
+<h2 id="org27926a7">&#x95EE;&#x9898;&#x9648;&#x8FF0;</h2>
+<div class="outline-text-2" id="text-org27926a7">
+<p>
+&#x5728;&#x683C;&#x6797;&#x51FD;&#x6570;&#x7684;&#x8C31;&#x8868;&#x793A;&#x4E2D;&#xFF0C;&#x5206;&#x6BCD;&#x4E2D;&#x51FA;&#x73B0;&#x4E86; \( \mathrm{i}0^{+}\) &#xFF0C;&#x5982;
+</p>
+<ul class="org-ul">
+<li>&#x63A8;&#x8FDF;&#x683C;&#x6797;&#x51FD;&#x6570;&#x7684;&#x8C31;&#x8868;&#x793A;</li>
+</ul>
+\begin{align*}
+  G_{AB}^{\mathrm{ret}}(E) = \int _{-\infty}^{+\infty} \mathrm{d}E&apos; \frac{S_{AB}(E&apos;)}{E-E&apos;+\mathrm{i}0^{+}}
+\end{align*}
+<ul class="org-ul">
+<li>&#x8D85;&#x524D;&#x683C;&#x6797;&#x51FD;&#x6570;&#x7684;&#x8C31;&#x8868;&#x793A;</li>
+</ul>
+\begin{align*}
+  G_{AB}^{\mathrm{ret}}(E) = \int _{-\infty}^{+\infty} \mathrm{d}E&apos; \frac{S_{AB}(E&apos;)}{E-E&apos;-\mathrm{i}0^{+}}
+\end{align*}
+<ul class="org-ul">
+<li>&#x56E0;&#x679C;&#x683C;&#x6797;&#x51FD;&#x6570;&#x7684;&#x8C31;&#x8868;&#x793A;</li>
+</ul>
+\begin{align*}
+  G_{AB}^{\mathcal{c}} =&amp; \frac{\hbar}{\Xi} \sum_{n,m} \langle E_{n}\mid B \mid E_{m}\rangle\langle E_{m} \mid A \mid E_{n} \rangle e^{-\beta E_{n}}\cdot\\
+  &amp;\cdot \left[ \frac{e^{\beta(E_{n}-E_{m})}}{E-(E_{n}-E_{m})+\mathrm{i}0^{+}} - \frac{\varepsilon}{E-(E_{n}-E_{m})-\mathrm{i}0^{+}} \right]
+\end{align*}
+<p>
+&#x9664;&#x4E86;&#x683C;&#x6797;&#x51FD;&#x6570;&#x7684;&#x8C31;&#x8868;&#x793A;&#xFF0C;\( \mathrm{i}0^{+}\) &#x4E5F;&#x5728;&#x7269;&#x7406;&#x8BA1;&#x7B97;&#x4E2D;&#x7684;&#x5176;&#x5B83;&#x5730;&#x65B9;&#x51FA;&#x73B0;&#xFF0C;&#x6BD4;&#x5982;&#xFF0C;&#x5E93;&#x4ED1;&#x52BF;&#x7684;Fourier Transform &#x7684;&#x63A8;&#x5BFC;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E5F;&#x9700;&#x8981;&#x5F15;&#x5165;\( \mathrm{i}0^{+}\) &#x6765;&#x5F97;&#x5230;&#x6700;&#x540E;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5373;&#x4F7F;&#x5728;&#x5F00;&#x59CB;&#x548C;&#x7ED3;&#x679C;&#x4E2D;&#x6CA1;&#x6709;&#x51FA;&#x73B0;\( \mathrm{i}0^{+}\) &#x3002;<br>
+&#x4EE5;&#x4E0B;&#x5C06;&#x5BF9;\( \mathrm{i}0^{+}\) &#x51FA;&#x73B0;&#x7684;&#x5408;&#x7406;&#x6027;&#x548C;&#x5FC5;&#x8981;&#x6027;&#x505A;&#x51FA;&#x8BBA;&#x8BC1;&#x3002;
+</p>
+</div>
+</div>
+<div id="outline-container-org4555a34" class="outline-2">
+<h2 id="org4555a34">&#x95EE;&#x9898;&#x7684;&#x7531;&#x6765;</h2>
+<div class="outline-text-2" id="text-org4555a34">
+<p>
+&#x5047;&#x4F7F;\(f(t)\) &#x662F;&#x4E00;&#x4E2A;&#x4EFB;&#x610F;&#x5F62;&#x5F0F;&#x7684;&#x5916;&#x573A;&#x8109;&#x51B2;&#xFF0C;&#x5B83;&#x5728;$t&lt;0$&#x65F6;&#x4E3A;&#x96F6;&#xFF0C;&#x5728;$t&gt;0$&#x65F6;&#x4E3A;&#x6709;&#x9650;&#x503C;&#xFF0C;&#x5728;$t&#x2192;&#x221E;$&#x65F6;&#x4E3A;&#x96F6;&#x3002;&#x5B83;&#x7CFB;&#x7EDF;&#x7684;&#x67D0;&#x4E2A;&#x91CF;$G(t)$&#x8026;&#x5408;&#xFF0C;&#x5728;$t$&#x65F6;&#x523B;&#x7ED9;&#x7CFB;&#x7EDF;&#x7684;&#x5F71;&#x54CD;&#x4E3A;$f(t)G(t)$&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x5F53;$t&#x2192;&#x221E;$&#x65F6;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5916;&#x573A;&#x8109;&#x51B2;&#x4F5C;&#x7528;&#x7ED3;&#x675F;&#x65F6;&#xFF0C;&#x5BF9;&#x7CFB;&#x7EDF;&#x7684;&#x5F71;&#x54CD;&#x7684;&#x79EF;&#x7D2F;&#x4E3A;
+</p>
+<ul class="org-ul">
+<li></li>
+</ul>
+\begin{equation}
+  \label{eq:1}
+  A = \int_{-\infty}^{+\infty}\mathrm{d}t\,f(t)G(t) = \int_{0}^{+\infty}\mathrm{d}t\,f(t)G(t)
+\end{equation}
+<p>
+&#x8FD9;&#x4E2A;&#x79EF;&#x5206;&#x662F;&#x6536;&#x655B;&#x7684;&#x3002;<br>
+&#x6211;&#x4EEC;&#x60F3;&#x901A;&#x8FC7;&#x65BD;&#x52A0;&#x5916;&#x573A;&#x8109;&#x51B2;&#x7684;&#x65B9;&#x5F0F;&#x5F97;&#x5230;&#x7CFB;&#x7EDF;&#x672C;&#x8EAB;&#x666E;&#x904D;&#x7684;&#x6027;&#x8D28;&#xFF0C;&#x8FD9;&#x4E2A;&#x6027;&#x8D28;&#x4E0E;&#x65BD;&#x52A0;&#x7684;&#x5916;&#x573A;&#x8109;&#x51B2;&#x7684;&#x5F62;&#x5F0F;&#x65E0;&#x5173;&#xFF0C;&#x56E0;&#x6B64;&#x5C06;(\ref{eq:1})&#x4F5C;Fouriter Transform
+</p>
+<ul class="org-ul">
+<li></li>
+</ul>
+\begin{equation}
+  \label{eq:2}
+  A = \int_{0}^{+\infty} \mathrm{d}t \cdot \int_{-\infty}^{+\infty}\mathrm{d}\omega e^{\mathrm{i}\omega t}f(\omega) \cdot\int_{-\infty}^{+\infty}\mathrm{d}\omega &apos;e^{\mathrm{i}\omega &apos;t }G(\omega &apos;)
+\end{equation}
+<p>
+&#x6B64;&#x65F6;&#xFF0C;&#x6240;&#x6709;&#x7684;$t$&#x90FD;&#x5728;$e$&#x6307;&#x6570;&#x4E0A;&#xFF0C;&#x4E0E;&#x5916;&#x573A;&#x8109;&#x51B2;$f$&#x548C;&#x7CFB;&#x7EDF;&#x7684;&#x67D0;&#x4E2A;&#x91CF;$G$&#x65E0;&#x5173;&#xFF0C;&#x81EA;&#x7136;&#x60F3;&#x8981;&#x5148;&#x628A;$t$&#x79EF;&#x6389;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5C06;(\ref{eq:2})&#x53D8;&#x4E3A;
+</p>
+\begin{equation}
+  \label{eq:3}
+  A =\int_{-\infty}^{+\infty}\mathrm{d}\omega f(\omega) \cdot\int_{-\infty}^{+\infty}\mathrm{d}\omega &apos; G(\omega &apos;) \cdot  \int_{0}^{+\infty} \mathrm{d}t e^{\mathrm{i}(\omega +\omega &apos;)t}
+\end{equation}
+<p>
+&#x4F46;&#x662F;
+</p>
+\begin{align*}
+  e^{\mathrm{i}(\omega+\omega&apos;)t} = \cos [(\omega+\omega&apos;)t]+ \mathrm{i}\sin[(\omega+\omega&apos;)t]
+\end{align*}
+<p>
+&#x662F;&#x4E00;&#x4E2A;&#x632F;&#x8361;&#x7684;&#x4E09;&#x89D2;&#x51FD;&#x6570;&#x51FD;&#x6570;&#xFF0C;&#x5BF9;$t$&#x7684;&#x79EF;&#x5206;&#x662F;&#x4E0D;&#x6536;&#x655B;&#x7684;&#x3002;&#x539F;&#x6765;&#x7684;&#x79EF;&#x5206;&#x987A;&#x5E8F;&#x662F;&#x5148;&#x5BF9;\(\omega\) &#x548C;\(\omega&apos;\) &#x79EF;&#x5206;&#xFF0C;&#x518D;&#x5BF9; \(t\) &#x79EF;&#x5206;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x60F3;&#x4EA4;&#x6362;&#x79EF;&#x5206;&#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x60F3;&#x5148;&#x5BF9;$t$&#x79EF;&#x5206;&#x3002;&#x4F46;&#x662F;&#x4EA4;&#x6362;&#x987A;&#x5E8F;&#x540E;&#x53D1;&#x73B0;&#xFF0C;&#x5BF9;$t$&#x7684;&#x79EF;&#x5206;&#x4E0D;&#x6536;&#x655B;&#xFF0C;&#x4F46;&#x65E9;&#x5C31;&#x5DF2;&#x77E5;&#x6574;&#x4E2A;&#x79EF;&#x5206;&#x662F;&#x6536;&#x655B;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x76F4;&#x63A5;&#x4EA4;&#x6362;&#x79EF;&#x5206;&#x662F;&#x4E0D;&#x88AB;&#x5141;&#x8BB8;&#x7684;&#xFF0C;&#x5B83;&#x4F1A;&#x5BFC;&#x81F4;&#x53D1;&#x6563;&#x7684;&#x9519;&#x8BEF;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x662F;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x4E0D;&#x4E00;&#x81F4;&#x6536;&#x655B;&#x4E0D;&#x80FD;&#x4EA4;&#x6362;&#x79EF;&#x5206;&#x987A;&#x5E8F;&#x7684;&#x4F8B;&#x5B50;&#x3002;<br>
+&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5BF9;&#x5176;&#x6539;&#x9020;&#xFF0C;&#x4F7F;&#x5F97;&#x5176;&#x6EE1;&#x8DB3;&#x4E00;&#x81F4;&#x6536;&#x655B;&#xFF0C;&#x800C;&#x4E14;&#x6539;&#x9020;&#x540E;&#x7684;&#x79EF;&#x5206;&#x4E0E;&#x539F;&#x6765;&#x7684;&#x79EF;&#x5206;&#x7684;&#x503C;&#x662F;&#x76F8;&#x7B49;&#x7684;&#x3002;&#x8FD9;&#x6837;&#xFF0C;&#x7ECF;&#x8FC7;&#x6539;&#x9020;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x4EA4;&#x6362;&#x79EF;&#x5206;&#x987A;&#x5E8F;&#xFF0C;&#x4ECE;&#x800C;&#x628A;$t$&#x7ED9;&#x79EF;&#x6389;&#x3002;
+</p>
+</div>
+</div>
+<div id="outline-container-org8e4cfb6" class="outline-2">
+<h2 id="org8e4cfb6">&#x65E0;&#x7A77;&#x5C0F;&#x7684;&#x5F15;&#x5165;</h2>
+<div class="outline-text-2" id="text-org8e4cfb6">
+</div>
+<div id="outline-container-org2a4976f" class="outline-3">
+<h3 id="org2a4976f">&#x5B9A;&#x7406;</h3>
+<div class="outline-text-3" id="text-org2a4976f">
+<p>
+&#x5148;&#x4E0D;&#x52A0;&#x8BC1;&#x660E;&#x5730;&#x8BF4;&#x660E;&#x4E00;&#x4E2A;&#x7ED3;&#x8BBA;&#x3002;
+&#x5982;&#x679C;&#x79EF;&#x5206;
+</p>
+\begin{align*}
+  \int_{0}^{+\infty}\mathrm{d}tf(t)
+\end{align*}
+<p>
+&#x6536;&#x655B;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x6709;&#x4E0B;&#x9762;&#x7684;&#x7ED3;&#x8BBA;
+</p>
+\begin{equation}
+  \label{eq:4}
+  \int_{0}^{+\infty}\mathrm{d}t\,f(t) = \lim_{\eta\rightarrow0^{+}}\int_{0}^{+\infty}\mathrm{d}t\,f(t)e^{-\eta t}
+\end{equation}
+</div>
+</div>
+<div id="outline-container-org43cc89c" class="outline-3">
+<h3 id="org43cc89c">&#x6539;&#x9020;&#x539F;&#x6765;&#x7684;&#x79EF;&#x5206;&#x4F46;&#x4F7F;&#x5176;&#x7ED3;&#x679C;&#x4E0D;&#x53D8;</h3>
+<div class="outline-text-3" id="text-org43cc89c">
+<p>
+&#x6211;&#x4EEC;&#x8981;&#x6C42;&#x7684;&#x79EF;&#x5206;(\ref{eq:2})&#x662F;&#x6536;&#x655B;&#x5730;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x7528;(\ref{eq:4})&#xFF0C;&#x6240;&#x4EE5;&#x79EF;&#x5206;(\ref{eq:2})&#x53D8;&#x4E3A;
+</p>
+\begin{equation}
+  \label{eq:5}
+ A = \lim_{\eta\rightarrow0^{+}}\int_{0}^{+\infty} \mathrm{d}t \cdot \int_{-\infty}^{+\infty}\mathrm{d}\omega e^{\mathrm{i}\omega t}f(\omega) \cdot\int_{-\infty}^{+\infty}\mathrm{d}\omega &apos;e^{\mathrm{i}\omega &apos; t }G(\omega &apos;)e^{-\eta t}
+\end{equation}
+<p>
+&#x8FD9;&#x65F6;&#xFF0C;&#x79EF;&#x5206;&#x5C31;&#x6EE1;&#x8DB3;&#x4E00;&#x81F4;&#x6536;&#x655B;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x53EF;&#x4EE5;&#x4EA4;&#x6362;&#x79EF;&#x5206;&#x987A;&#x5E8F;&#xFF0C;&#x4EA4;&#x6362;&#x79EF;&#x5206;&#x987A;&#x5E8F;&#x540E;&#x4E5F;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x53D1;&#x6563;&#x7684;&#x60C5;&#x51B5;
+</p>
+\begin{equation}
+  \label{eq:6}
+  A = \int_{-\infty}^{+\infty}\mathrm{d}\omega f(\omega) \cdot\int_{-\infty}^{+\infty}\mathrm{d}\omega &apos; G(\omega &apos;)\cdot \lim_{\eta\rightarrow0^{+}}\int_{0}^{+\infty} \mathrm{d}t\, e^{\mathrm{i}(\omega +\omega &apos;)t-\eta t}
+\end{equation}
+<p>
+&#x52A0;&#x5165;&#x8FD9;&#x4E00;&#x56E0;&#x5B50;&#x6539;&#x9020;&#x7684;&#x672C;&#x8D28;&#x662F;&#x52A0;&#x5165;&#x4E00;&#x4E2A;&#x8870;&#x51CF;&#x56E0;&#x5B50;&#xFF0C;&#x5F53;\(\eta\rightarrow0^{+}\) &#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x8870;&#x51CF;&#x56E0;&#x5B50;decay&#x5730;&#x975E;&#x5E38;&#x6162;&#xFF0C;&#x800C;&#x539F;&#x6765;&#x7684;&#x79EF;&#x5206;&#x662F;&#x6536;&#x655B;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5728;&#x65E0;&#x7A77;&#x8FDC;&#x5904;&#x7684;&#x503C;&#x5E94;&#x8BE5;&#x8D8B;&#x8FD1;&#x4E8E;&#x96F6;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;&#x4E00;&#x4E2A;&#x6CE2;&#x5305;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x5728;&#x6CE2;&#x5305;&#x7684;&#x503C;&#x4E0D;&#x4E3A;&#x96F6;&#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;decay&#x5BF9;&#x4E8E;&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;&#x7684;&#x3002;&#x5C06;$t$&#x7684;&#x79EF;&#x5206;&#x7B97;&#x51FA;
+</p>
+\begin{align*}
+  \lim_{\eta\rightarrow0^{+}}\int_{0}^{+\infty} \mathrm{d}t e^{\mathrm{i}(\omega +\omega &apos;)t-\eta t} = \lim_{\eta\rightarrow0^{+}}\frac{-1}{\mathrm{i}(\omega+\omega&apos;+\mathrm{i}\eta)}
+\end{align*}
+<p>
+&#x4E00;&#x822C;&#x5C31;&#x7B80;&#x8BB0;&#x4E3A;
+</p>
+\begin{align*}
+  \lim_{\eta\rightarrow0^{+}}\frac{-1}{\mathrm{i}(\omega+\omega&apos;+\mathrm{i}\eta)} \equiv\frac{-1}{\mathrm{i}(\omega+\omega&apos;+\mathrm{i}0^{+})}
+\end{align*}
+</div>
+</div>
+</div>
+<div id="outline-container-orgb719377" class="outline-2">
+<h2 id="orgb719377">&#x7ED3;&#x8BBA;</h2>
+<div class="outline-text-2" id="text-orgb719377">
+<p>
+&#x6240;&#x4EE5;&#x6700;&#x7EC8;&#x628A;&#x539F;&#x6765;&#x7684;&#x79EF;&#x5206;(\ref{eq:1})&#x5316;&#x4E3A;
+</p>
+\begin{equation}
+  \label{eq:7}
+  \begin{split}
+  A =&amp;  \int_{0}^{+\infty}\mathrm{d}t\,f(t)G(t) \\
+  =&amp;  \int_{0}^{+\infty} \mathrm{d}t \cdot \int_{-\infty}^{+\infty}\mathrm{d}\omega e^{\mathrm{i}\omega t}f(\omega) \cdot\int_{-\infty}^{+\infty}\mathrm{d}\omega &apos;e^{\mathrm{i}\omega &apos;t }G(\omega &apos;) \\
+  =&amp;\int_{-\infty}^{+\infty}\mathrm{d}\omega f(\omega) \cdot\int_{-\infty}^{+\infty}\mathrm{d}\omega &apos; G(\omega &apos;)\frac{-1}{\mathrm{i}(\omega+\omega&apos;+\mathrm{i}0^{+})}
+  \end{split}
+\end{equation}
+<p>
+&#x5206;&#x6BCD;&#x4E2D;&#x5C31;&#x51FA;&#x73B0;&#x4E86;&#x65E0;&#x7A77;&#x5C0F;&#x3002;
+</p>
+</div>
+</div>
+<div id="outline-container-org449c5ae" class="outline-2">
+<h2 id="org449c5ae">&#x9644;&#x5F55;</h2>
+<div class="outline-text-2" id="text-org449c5ae">
+</div>
+<div id="outline-container-org06c951e" class="outline-3">
+<h3 id="org06c951e">(\ref{eq:4})&#x5F0F;&#x7684;&#x8BC1;&#x660E;</h3>
+</div>
+<div id="outline-container-orgf6733cf" class="outline-3">
+<h3 id="orgf6733cf">(\ref{eq:3})&#x5F0F;&#x4E0D;&#x4E00;&#x81F4;&#x6536;&#x655B;&#x7684;&#x8BF4;&#x660E;</h3>
+</div>
+</div>
+<div id="outline-container-org6363115" class="outline-2">
+<h2 id="org6363115">&#x603B;&#x7ED3;</h2>
+<div class="outline-text-2" id="text-org6363115">
+<p>
+\( \mathrm{i}0^{+}\) &#x5728;&#x4E2D;&#x95F4;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x51FA;&#x73B0;&#x539F;&#x56E0;&#x6709;&#x4E24;&#x70B9;&#xFF1A;
+</p>
+<ol class="org-ol">
+<li>&#x6570;&#x5B66;&#x4E0A;&#x7684;&#x4E8B;&#x5B9E;&#xFF1A; \( \mathrm{i}0^{+}\) &#x7684;&#x51FA;&#x73B0;&#x662F;&#x6B63;&#x786E;&#x7684;&#xFF0C;&#x4E0D;&#x4F1A;&#x4F7F;&#x5F97;&#x539F;&#x79EF;&#x5206;&#x7684;&#x503C;&#x53D1;&#x751F;&#x6539;&#x53D8;&#x3002;</li>
+<li>&#x64CD;&#x4F5C;&#x4E0A;&#x7684;&#x4FBF;&#x5229;&#x6027;&#xFF1A; \( \mathrm{i}0^{+}\) &#x7684;&#x51FA;&#x73B0;&#x80FD;&#x591F;&#x4F7F;&#x5F97;&#x6211;&#x4EEC;&#x4EA4;&#x6362;&#x79EF;&#x5206;&#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x4ECE;&#x800C;&#x5148;&#x628A;$t$&#x79EF;&#x5206;&#x6389;&#x3002;</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org3696d35" class="outline-2">
+<h2 id="org3696d35">&#x81F4;&#x8C22;</h2>
+<div class="outline-text-2" id="text-org3696d35">
+<p>
+&#x611F;&#x8C22;Peng Zhang &#x8001;&#x5E08;&#x5BF9;&#x4E8E;&#x6B64;&#x95EE;&#x9898;&#x591A;&#x6B21;&#x8010;&#x5FC3;&#x5730;&#x8BB2;&#x89E3;&#x3002;</p>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/格林函数/" rel="tag"># 格林函数</a>
+          
+            <a href="/tags/多体物理读书会/" rel="tag"># 多体物理读书会</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/19/多体物理读书会：3.2节 双时格林函数/" rel="next" title="多体物理读书会：3.2节 双时格林函数">
+                <i class="fa fa-chevron-left"></i> 多体物理读书会：3.2节 双时格林函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/20/多体物理读书会：3.1节习题/" rel="prev" title="多体物理读书会：3.1节习题">
+                多体物理读书会：3.1节习题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org27926a7"><span class="nav-text">问题陈述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org4555a34"><span class="nav-text">问题的由来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org8e4cfb6"><span class="nav-text">无穷小的引入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org2a4976f"><span class="nav-text">定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org43cc89c"><span class="nav-text">改造原来的积分但使其结果不变</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgb719377"><span class="nav-text">结论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org449c5ae"><span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org06c951e"><span class="nav-text">(\ref{eq:4})式的证明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgf6733cf"><span class="nav-text">(\ref{eq:3})式不一致收敛的说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6363115"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org3696d35"><span class="nav-text">致谢</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

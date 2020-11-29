@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="物理,NSR Calculate">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NSR Calculate">
+<meta property="og:url" content="https://zqw.ink/2019/07/03/NSRcal/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2019/07/03/NSRcal/gaussianQuadrature.png">
+<meta property="og:image" content="https://zqw.ink/2019/07/03/NSRcal/large.png">
+<meta property="og:image" content="https://zqw.ink/2019/07/03/NSRcal/densityResult.png">
+<meta property="og:image" content="https://zqw.ink/2019/07/03/NSRcal/integralResult.png">
+<meta property="og:image" content="https://zqw.ink/2019/07/03/NSRcal/densityResult2.png">
+<meta property="og:image" content="https://zqw.ink/2019/07/03/NSRcal/integralResult2.png">
+<meta property="og:image" content="https://zqw.ink/2019/07/03/NSRcal/p-wave.png">
+<meta property="og:image" content="https://zqw.ink/2019/07/03/NSRcal/weakCoupling.png">
+<meta property="og:image" content="https://zqw.ink/2019/07/03/NSRcal/strongCoupling.png">
+<meta property="og:image" content="https://zqw.ink/2019/07/03/NSRcal/Tmatrix.png">
+<meta property="og:updated_time" content="2020-11-29T02:17:48.893Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NSR Calculate">
+<meta name="twitter:image" content="https://zqw.ink/2019/07/03/NSRcal/gaussianQuadrature.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2019/07/03/NSRcal/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>NSR Calculate | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2019/07/03/NSRcal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">NSR Calculate
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-03 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-03T00:00:00+08:00">2019-07-03</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/03/NSRcal/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/07/03/NSRcal/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-org01e87c2" class="outline-2">
+<h2 id="org01e87c2">Free Energy vs. Renormalize Paramaters</h2>
+<div class="outline-text-2" id="text-org01e87c2">
+</div>
+<div id="outline-container-orgcc2a627" class="outline-3">
+<h3 id="orgcc2a627">p-wave</h3>
+<div class="outline-text-3" id="text-orgcc2a627">
+</div>
+<div id="outline-container-org06d998f" class="outline-4">
+<h4 id="org06d998f">cal</h4>
+<div class="outline-text-4" id="text-org06d998f">
+\begin{align}
+  \delta^p(\vec{q}, z) =&amp; \mathrm{Arg}\left[ \frac{Mk_{n^2}}{2}\frac{1}{R}
+                 \left(
+             \frac{1}{4\pi}\cdot \frac{2R}{k_n^2 v}
+            + \tilde{z}\cdot\frac{1}{4\pi} 
+           + \frac{2 R}{M k_n^2}\Pi_r(\vec{q},z) 
+                 \right)
+                \right] \\
+       =&amp; \mathrm{Arg}\left[
+             \frac{1}{4\pi}\cdot \frac{2R}{k_n^2 v}
+            + \tilde{z}\cdot\frac{1}{4\pi} 
+           + \frac{2 R}{M k_n^2}\Pi_r(\vec{q},z + \mathrm{i}0^+) 
+                \right]
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\tilde{z}=z/E_n\) , \(E_n = k_n^2/(2M)\) , \(k_n^3 = 6\pi^2n\) , \(n =
+N/V\)
+</p>
+\begin{align}
+  \frac{2 R}{M k_n^2}\Pi_r(\vec{q},z) =&amp; (k_n R)\cdot\Pi_r \cdot \frac{2}{Mk_n^3}\\
+  =&amp; \tilde{R}\left[
+     \frac{2}{Mk_n^3}\left( -\frac{M}{V} \right)\sum_{\vec{k}}1
+     - \tilde{z}E_n \frac{M^2}{V}\frac{2}{Mk_n^3}\sum_{\vec{k}}\frac{1}{k^2}
+     + \frac{2}{Mk_n^3}\Pi^{l=1}(\vec{q},z)
+    \right] \\
+  =&amp; \tilde{R}\left[ 
+           -\frac{1}{\pi^2}\int \mathrm{d}\tilde{k}\cdot \tilde{k}^2
+           -\tilde{z} \frac{1}{2\pi^2}\int \mathrm{d}\tilde{k}
+           +\tilde{\Pi}^{l=1}
+          \right]
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\tilde{R} = k_nR\) , \(\tilde{k} = k/k_n\)
+</p>
+\begin{align}
+  \tilde{\Pi}^{l=1} = &amp;\frac{2}{Mk_n^3}\Pi^{l=1}(\vec{q},\omega) \\
+   =&amp; \frac{2}{Mk_n^3}\frac{1}{V}\frac{V}{(2\pi)^3}\int \mathrm{d}\tilde{k}
+    \left[
+       k^2 \cdot 4\pi |Y_{lm}(\hat{k})|^2 
+       \frac{1+n(\xi_{\vec{k}+\vec{q}/2}) + n(\xi_{-\vec{k}+\vec{q}/2})}
+          {\xi_{\vec{k}+\vec{q}/2} + \xi_{-\vec{k}+\vec{q}/2} - \omega}
+    \right] \\
+   =&amp; \frac{2}{\pi^2}\int \mathrm{d}\tilde{k}\cdot\tilde{k}^4\left[
+           \frac{1+n(\xi_{\vec{k}+\vec{q}/2}) + n(\xi_{-\vec{k}+\vec{q}/2})}
+          {\tilde{\xi}_{\vec{k}+\vec{q}/2} + \tilde{\xi}_{-\vec{k}+\vec{q}/2} - \tilde{\omega}}
+             \right]
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\tilde{\xi} = \xi/E_n\) , \(\tilde{\omega} = \omega/E_n\) , \(n(\xi)
+= \frac{1}{e^{\beta \xi}-1}\)
+</p>
+
+<p>
+&#x6700;&#x7EC8;
+</p>
+\begin{align}
+  \frac{\tilde{\Omega}}{N E_n} =&amp; \frac{1}{N E_n}
+    \frac{V}{(2\pi^3)}\int \mathrm{d}^3\vec{q}
+   \cdot \int \frac{\mathrm{d}\omega}{\pi}\cdot \frac{1}{e^{\beta\omega}-1} \delta^p \\
+   =&amp; \frac{3}{\pi} \int \mathrm{d}\tilde{q}\cdot \tilde{q}^2
+     \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}
+      \cdot \frac{1}{e^{\tilde{\beta}\tilde{\omega}}-1} \tilde{\delta}^p(\vec{q},z)
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\tilde{\beta} = \beta E_n\) . &#x5F97;&#x81EA;&#x7531;&#x80FD;
+</p>
+\begin{align}
+  \frac{F}{NE_n} = \frac{\tilde{\Omega}}{N E_n} -\frac{\mu}{E_n}
+\end{align}
+<p>
+&#x5373;
+</p>
+\begin{align}
+   f(\tilde{\mu}, \tilde{R}) = \tilde{\Omega}&apos;(\tilde{\mu}, \tilde{R})-\tilde{\mu}
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\tilde{\mu} = \mu/E_n\).
+</p>
+
+<p>
+\(\mu\) &#x7531; 
+</p>
+\begin{align}
+  N = - \frac{\partial\Omega}{\partial \mu}
+\end{align}
+<p>
+&#x51B3;&#x5B9A;.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org804dfb2" class="outline-3">
+<h3 id="org804dfb2">&#x4EE5; \(\varepsilon\) &#x4E3A;&#x5355;&#x4F4D;</h3>
+<div class="outline-text-3" id="text-org804dfb2">
+<p>
+&#x82E5;&#x4EE5;&#x67D0;&#x4E00;&#x80FD;&#x91CF; \(\varepsilon\) &#x4E3A;&#x5355;&#x4F4D;, &#x5BF9;&#x5E94;&#x7684;&#x957F;&#x5EA6;&#x5355;&#x4F4D; \(k_{\varepsilon} =
+\sqrt{2M\varepsilon}\)  , &#x5BC6;&#x5EA6;&#x5355;&#x4F4D; \(n_{\varepsilon} =
+k_{\varepsilon}^3/(6\pi^2)\) , &#x90A3;&#x4E48;
+</p>
+\begin{align}
+\frac{\Omega}{N \varepsilon} = &amp; \frac{n_{\varepsilon}}{n}\int 
+        \mathrm{d}\tilde{q}\cdot \tilde{q}^2
+     \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}
+      \cdot\frac{3}{\pi}\cdot \frac{1}{e^{\tilde{\beta}\tilde{\omega}}-1} 
+       \tilde{\delta}^p(\vec{q},z) \\
+= &amp; \frac{n_{\varepsilon}}{n}\int 
+        \mathrm{d}\tilde{q}\cdot \tilde{q}^2
+     \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}
+      \cdot f(\tilde{q}, \tilde{\omega}, \tilde{\mu}, \tilde{\beta})
+\end{align}
+<p>
+&#x5176;&#x4E2D;
+</p>
+\begin{align}
+  f(\tilde{q}, \tilde{\omega}, \tilde{\mu}, \tilde{\beta}) = 
+    \frac{3}{\pi}\cdot \frac{1}{e^{\tilde{\beta}\tilde{\omega}}-1} 
+       \tilde{\delta}^p(\vec{q},z)
+\end{align}
+<p>
+&#x800C;
+</p>
+\begin{align}
+  \frac{n}{n_{\varepsilon}} =&amp; - \frac{1}{n_{\varepsilon}V}
+        \frac{\partial\Omega}{\partial\mu} 
+  =- \frac{1}{n_{\varepsilon}V}
+        \frac{\partial\Omega/\mu}{\partial\tilde{\mu}}\\
+  =&amp; - \frac{1}{n_{\varepsilon}V}
+        \frac{\partial}{\partial\tilde{\mu}}\left[
+    V n_{\varepsilon} \int 
+        \mathrm{d}\tilde{q}\cdot \tilde{q}^2
+     \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}
+      \cdot f(\tilde{q}, \tilde{\omega}, \tilde{\mu}, \tilde{\beta})
+    \right] \\
+ =&amp; - \frac{\partial}{\partial\tilde{\mu}}\left[
+     \int \mathrm{d}\tilde{q}\cdot \tilde{q}^2
+     \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}
+      \cdot f(\tilde{q}, \tilde{\omega}, \tilde{\mu}, \tilde{\beta})
+    \right]
+\end{align}
+<p>
+&#x6240;&#x4EE5;&#x6700;&#x7EC8;&#x8981;&#x6C42;&#x7684;&#x4E3A;
+</p>
+\begin{align}
+  \frac{\Delta F}{NE_n} =&amp; \frac{\Omega}{NE_n} + \frac{\mu}{E_n} \\
+   =&amp;\frac{\Omega}{N\varepsilon}\left( \frac{\varepsilon}{E_n} \right)
+     + \tilde{\mu} \left( \frac{\varepsilon}{E_n} \right) \\
+  =&amp;  \left( \frac{n_{\varepsilon}}{n} \right)^{5/3}
+      \int\mathrm{d}\tilde{q}\cdot \tilde{q}^2
+     \int_{-\infty}^{+\infty}\mathrm{d}\tilde{\omega}
+      \cdot f(\tilde{q}, \tilde{\omega}, \tilde{\mu}, \tilde{\beta})
+     + \tilde{\mu} \left( \frac{n_{\varepsilon}}{n} \right)^{2/3} \\
+\end{align}
+<p>
+&#x6A2A;&#x5750;&#x6807;&#x4E3A;
+</p>
+\begin{align}
+  \frac{2R}{k_n^2v} = \frac{2R}{k_{\varepsilon v}}\cdot
+  \left( \frac{n_{\varepsilon}}{n} \right)^{2/3}
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdacdab7" class="outline-2">
+<h2 id="orgdacdab7">result</h2>
+<div class="outline-text-2" id="text-orgdacdab7">
+
+<div id="org83508db" class="figure">
+<p><img src="/2019/07/03/NSRcal/gaussianQuadrature.png">
+</p>
+</div>
+
+
+<div id="org0ff8990" class="figure">
+<p><img src="/2019/07/03/NSRcal/large.png">
+</p>
+</div>
+
+
+<div id="orgb326c35" class="figure">
+<p><img src="/2019/07/03/NSRcal/densityResult.png">
+</p>
+</div>
+
+
+<div id="org8add8c6" class="figure">
+<p><img src="/2019/07/03/NSRcal/integralResult.png">
+</p>
+</div>
+
+
+<div id="orgb78b8c4" class="figure">
+<p><img src="/2019/07/03/NSRcal/densityResult2.png">
+</p>
+</div>
+
+
+<div id="org116c815" class="figure">
+<p><img src="/2019/07/03/NSRcal/integralResult2.png">
+</p>
+</div>
+
+
+<div id="orgdf5739c" class="figure">
+<p><img src="/2019/07/03/NSRcal/p-wave.png">
+</p>
+</div>
+
+
+<div id="org51e8d5a" class="figure">
+<p><img src="/2019/07/03/NSRcal/weakCoupling.png">
+</p>
+</div>
+
+
+<div id="org8adce27" class="figure">
+<p><img src="/2019/07/03/NSRcal/strongCoupling.png">
+</p>
+</div>
+
+
+<div id="org6b354f0" class="figure">
+<p><img src="/2019/07/03/NSRcal/Tmatrix.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbd5fcf3" class="outline-2">
+<h2 id="orgbd5fcf3">code</h2>
+<div class="outline-text-2" id="text-orgbd5fcf3">
+<p>
+&#x8BA1;&#x7B97; \(\Delta F\)
+</p>
+
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> integrate</span><br><span class="line"><span class="comment">#from scipy.misc import derivative</span></span><br><span class="line"><span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> fixed_quad</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">start = time.process_time()</span><br><span class="line"></span><br><span class="line">nn = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">beta = <span class="number">1</span></span><br><span class="line">er = <span class="number">1e-6</span></span><br><span class="line">R = <span class="number">1</span>/<span class="number">30</span></span><br><span class="line">epsabs = <span class="number">1e-1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xi</span>(<span class="params">k, mu</span>):</span></span><br><span class="line">    <span class="keyword">return</span> k**<span class="number">2</span> - mu</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">n</span>(<span class="params">k, mu</span>):</span></span><br><span class="line">    x = xi(k,mu)</span><br><span class="line"><span class="comment">#    print(x)</span></span><br><span class="line">    n =  <span class="number">1</span> / (np.exp(beta*x) - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> n</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">z</span>(<span class="params">omega, q, mu</span>):</span></span><br><span class="line">    <span class="keyword">return</span> omega - q**<span class="number">2</span>/<span class="number">2</span> + <span class="number">2</span>*mu</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pi</span>(<span class="params">omega, q, k, mu</span>):</span></span><br><span class="line">    pi = <span class="number">1</span> + n(k+q/<span class="number">2</span>, mu) + n(-k+q/<span class="number">2</span>, mu)</span><br><span class="line">    pi = pi / (xi(k+q/<span class="number">2</span>, mu) + xi(-k+q/<span class="number">2</span>, mu) -omega)</span><br><span class="line">    pi = pi * k**<span class="number">4</span></span><br><span class="line">    pi = pi -k**<span class="number">2</span>/<span class="number">2</span> - z(omega, q, mu)/<span class="number">4</span></span><br><span class="line">    pi = pi*<span class="number">2</span> / np.pi**<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> pi</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">PI</span>(<span class="params">omega, q, mu</span>):</span></span><br><span class="line">    zz = z(omega, q, mu)</span><br><span class="line">    <span class="keyword">if</span> zz&lt;<span class="number">0</span>:</span><br><span class="line">	PI, err = fixed_quad(<span class="keyword">lambda</span> x: pi(omega, q, x, mu), er, <span class="number">10</span>,</span><br><span class="line">			     n=nn) </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">	a = np.sqrt(zz/<span class="number">2</span>)</span><br><span class="line">	PI1, err = fixed_quad(<span class="keyword">lambda</span> x: pi(omega, q, x, mu), er, a-er,</span><br><span class="line">			      n=nn) </span><br><span class="line">	PI2, err = fixed_quad(<span class="keyword">lambda</span> x: pi(omega, q, x, mu), a+er,</span><br><span class="line">			      <span class="number">10</span>, n=nn)</span><br><span class="line">	PI = PI1 + PI2</span><br><span class="line">    PI = PI * R</span><br><span class="line">    <span class="keyword">return</span> PI</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delta</span>(<span class="params">omega, q, rkv, mu</span>):</span></span><br><span class="line">    zz = z(omega, q, mu)</span><br><span class="line">    <span class="keyword">if</span> zz&lt;<span class="number">0</span>:</span><br><span class="line">	img = <span class="number">0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">	k = np.sqrt(zz/<span class="number">2</span>)</span><br><span class="line">	img = <span class="number">1</span> + n(k+q/<span class="number">2</span>, mu) + n(-k+q/<span class="number">2</span>, mu)</span><br><span class="line">	img = img * R/(<span class="number">2</span>*np.pi)</span><br><span class="line">	img = img * k**<span class="number">3</span></span><br><span class="line">    rel = PI(omega, q, mu)</span><br><span class="line">    rel = rel + rkv/(<span class="number">4</span>*np.pi)</span><br><span class="line">    rel = rel +zz/(<span class="number">4</span>*np.pi)</span><br><span class="line">    delta = np.angle(rel + <span class="number">1j</span>*img) - np.pi</span><br><span class="line">    <span class="keyword">return</span> delta</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">omega, q, rkv, mu</span>):</span></span><br><span class="line">    f = <span class="number">1</span> / (np.exp(beta*omega) - <span class="number">1</span>)</span><br><span class="line">    f = f * delta(omega, q, rkv, mu)</span><br><span class="line">    f = <span class="number">3</span> * f /np.pi</span><br><span class="line">    <span class="keyword">return</span> f</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">F</span>(<span class="params">rkv, mu</span>):</span></span><br><span class="line">    ff = <span class="keyword">lambda</span> y, x: f(y, x, rkv, mu)</span><br><span class="line">    F, err = integrate.dblquad(ff, er, <span class="number">3</span>, <span class="keyword">lambda</span> x:er, <span class="keyword">lambda</span> x:<span class="number">10</span>, epsabs</span><br><span class="line">			       = epsabs)</span><br><span class="line">    <span class="keyword">return</span> F</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">M = <span class="number">1000</span></span><br><span class="line">N = <span class="number">10</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>, M)</span><br><span class="line">y = np.zeros(M*N)</span><br><span class="line">y.shape = (M, N)</span><br><span class="line"></span><br><span class="line">mu = np.linspace(-<span class="number">2.1</span>, -<span class="number">1.2</span>, N)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">	y[i, j] = F(x[i], mu[j])</span><br><span class="line">	print(<span class="string">&apos;mu_&apos;</span>, j, <span class="string">&apos;y_&apos;</span>, i, <span class="string">&apos;=&apos;</span>, y[i, j])</span><br><span class="line"></span><br><span class="line">np.savetxt(<span class="string">&apos;y.txt&apos;</span>, y)</span><br><span class="line">print(y)</span><br><span class="line"></span><br><span class="line">density = np.zeros(M*(N-<span class="number">2</span>))</span><br><span class="line">density.shape = (M, N-<span class="number">2</span>)</span><br><span class="line">dd = mu[<span class="number">1</span>] - mu[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(N-<span class="number">2</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">	density[i, j] = y[i, j+<span class="number">2</span>] - y[i, j]</span><br><span class="line">	density[i, j] = - density[i, j] / (<span class="number">2</span>*dd)</span><br><span class="line">	print(<span class="string">&apos;mu_&apos;</span>, j, <span class="string">&apos;density_&apos;</span>, i, <span class="string">&apos;=&apos;</span>, density[i, j])</span><br><span class="line"></span><br><span class="line">np.savetxt(<span class="string">&apos;density.txt&apos;</span>, density)</span><br><span class="line">print(density)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    plt.plot(x, y[:, i], label=<span class="string">r&apos;$\mu/\epsilon$=%.2f&apos;</span> %mu[i])</span><br><span class="line">plt.legend()</span><br><span class="line"></span><br><span class="line">end = time.process_time()</span><br><span class="line">print(<span class="string">&apos;time=&apos;</span>, end-start, <span class="string">&apos;seconds&apos;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x8BA1;&#x7B97; \(T_{C}\)
+</p>
+
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">N = <span class="number">100</span></span><br><span class="line">rkv = np.linspace(-<span class="number">10</span>, -<span class="number">.1</span>, N)</span><br><span class="line"></span><br><span class="line">f0 = np.zeros(N)</span><br><span class="line">f1 = np.zeros(N)</span><br><span class="line">density = np.zeros(N)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    print(<span class="string">&apos;rkv_&apos;</span>, i, <span class="string">&apos;=&apos;</span>, rkv[i])</span><br><span class="line">    f0[i] = F(rkv[i], -<span class="number">1e-3</span>)</span><br><span class="line">    print(<span class="string">&apos;f0_&apos;</span>, i, <span class="string">&apos;=&apos;</span>, f0[i])</span><br><span class="line">    f1[i] = F(rkv[i], -<span class="number">.1</span>)</span><br><span class="line">    print(<span class="string">&apos;f1_&apos;</span>, i, <span class="string">&apos;=&apos;</span>, f1[i])</span><br><span class="line">    density[i] = - (f0[i] - f1[i]) / <span class="number">.1</span></span><br><span class="line">    print(<span class="string">&apos;density_&apos;</span>, i, <span class="string">&apos;=&apos;</span>, density[i])</span><br><span class="line"></span><br><span class="line">np.savetxt(<span class="string">&apos;f0.txt&apos;</span>, f0)</span><br><span class="line">np.savetxt(<span class="string">&apos;f1.txt&apos;</span>, f1)</span><br><span class="line">np.savetxt(<span class="string">&apos;density.txt&apos;</span>, density)</span><br><span class="line"></span><br><span class="line">x = np.zeros(N)</span><br><span class="line">y = np.zeros(N)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    x[i] = rkv[i]/(density[i]**(<span class="number">2</span>/<span class="number">3</span>))</span><br><span class="line">    y[i] = <span class="number">1</span>/(density[i]**(<span class="number">2</span>/<span class="number">3</span>))</span><br><span class="line">plt.plot(x, y)</span><br><span class="line"></span><br><span class="line">end = time.process_time()</span><br><span class="line">print(<span class="string">&apos;time=&apos;</span>, end-start, <span class="string">&apos;seconds&apos;</span>)</span><br><span class="line">plt.xlabel(<span class="string">r&apos;$2R/(k_n^2 v)$&apos;</span>)</span><br><span class="line">plt.ylabel(<span class="string">r&apos;$k_BT_C/E_n$&apos;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+</div>
+
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tm</span>(<span class="params">omega, q, rkv, mu</span>):</span></span><br><span class="line">    zz = z(omega, q, mu)</span><br><span class="line">    rel = PI(omega, q, mu)</span><br><span class="line">    rel = rel + rkv/(<span class="number">4</span>*np.pi)</span><br><span class="line">    rel = rel +zz/(<span class="number">4</span>*np.pi)</span><br><span class="line">    <span class="keyword">return</span> rel</span><br><span class="line">N = <span class="number">1000</span></span><br><span class="line">M = <span class="number">20</span></span><br><span class="line">mu = np.linspace(-<span class="number">80</span>, -<span class="number">1e-2</span>, N)</span><br><span class="line">y = np.zeros(N)</span><br><span class="line">rkv = np.linspace(<span class="number">2</span>, <span class="number">100</span>, M)</span><br><span class="line">muRoot = np.zeros(M)</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">    c = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">	y[i] = tm(<span class="number">0</span>, <span class="number">0</span>, rkv[j], mu[i])</span><br><span class="line">	<span class="keyword">if</span> np.<span class="built_in">abs</span>(y[i])&lt;np.<span class="built_in">abs</span>(y[c]):</span><br><span class="line">	    c = i</span><br><span class="line">    print(<span class="string">&apos;y_&apos;</span>, c, <span class="string">&apos;=&apos;</span>, y[c])</span><br><span class="line">    muRoot[j] = mu[c]</span><br><span class="line"></span><br><span class="line">    plt.plot(mu, y, label=<span class="string">r&apos;$2R/(k_{\epsilon}^2v)=%.1f$&apos;</span>%rkv[j])</span><br><span class="line">plt.legend()</span><br><span class="line">plt.xlabel(<span class="string">r&apos;$\mu/\epsilon$&apos;</span>)</span><br><span class="line">plt.ylabel(<span class="string">r&apos;$T^{-1}$&apos;</span>)</span><br><span class="line">print(muRoot)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">Tc = np.zeros(M)</span><br><span class="line">Rn = np.zeros(M)</span><br><span class="line"></span><br><span class="line">dens = np.zeros(M)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">    print(i)</span><br><span class="line">    dd = np.<span class="built_in">abs</span>(muRoot[i]) * <span class="number">.1</span></span><br><span class="line">    print(<span class="string">&apos;dd=&apos;</span>, dd)</span><br><span class="line">    f1 = F(rkv[i], muRoot[i]+dd)</span><br><span class="line">    print(<span class="string">&apos;f1=&apos;</span>, f1)</span><br><span class="line">    f2 = F(rkv[i], muRoot[i]-dd)</span><br><span class="line">    print(<span class="string">&apos;f2=&apos;</span>, f2)</span><br><span class="line">    nnn = - (f1 - f2) / (<span class="number">2</span>*dd)</span><br><span class="line">    print(<span class="string">&apos;nnn=&apos;</span>, nnn)</span><br><span class="line">    Tc[i] = <span class="number">1</span> / (nnn**<span class="number">2</span>/<span class="number">3</span>)</span><br><span class="line">    print(<span class="string">&apos;Tc=&apos;</span>, Tc[i])</span><br><span class="line">    Rn[i] = rkv[i] / (nnn**<span class="number">2</span>/<span class="number">3</span>)</span><br><span class="line">    print(<span class="string">&apos;Rn=&apos;</span>, Rn[i])</span><br><span class="line">    dens[i] = nnn</span><br><span class="line">    print(<span class="string">&apos;dens=&apos;</span>, dens[i])</span><br><span class="line">end = time.process_time()</span><br><span class="line">print(<span class="string">&apos;time is&apos;</span>, end-start, <span class="string">&apos;secends&apos;</span>)</span><br><span class="line">np.savetxt(<span class="string">&apos;density.txt&apos;</span>, dens)</span><br><span class="line">plt.plot(Rn, Tc)</span><br><span class="line">plt.xlabel(<span class="string">r&apos;$2R/(k_n^2 v)$&apos;</span>)</span><br><span class="line">plt.ylabel(<span class="string">r&apos;$k_BT_C/E_n$&apos;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/物理/" rel="tag"># 物理</a>
+          
+            <a href="/tags/NSR-Calculate/" rel="tag"># NSR Calculate</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/02/FermiLiquid/" rel="next" title="费米液体(冷原子作业)">
+                <i class="fa fa-chevron-left"></i> 费米液体(冷原子作业)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/01/xian/" rel="prev" title="西安青年冷原子">
+                西安青年冷原子 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org01e87c2"><span class="nav-text">Free Energy vs. Renormalize Paramaters</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgcc2a627"><span class="nav-text">p-wave</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org06d998f"><span class="nav-text">cal</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org804dfb2"><span class="nav-text">以 \(\varepsilon\) 为单位</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgdacdab7"><span class="nav-text">result</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgbd5fcf3"><span class="nav-text">code</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
