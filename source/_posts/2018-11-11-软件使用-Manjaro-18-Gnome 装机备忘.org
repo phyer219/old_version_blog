@@ -40,6 +40,11 @@ sudo pacman -Syy
 Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 #+END_SRC
 
+刷新
+#+begin_src shell
+sudo pacman -Syy
+#+end_src
+
 之后安装 archlinuxcn-keyring 包导入 GPG key.
 
 
