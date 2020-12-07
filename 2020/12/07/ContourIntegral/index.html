@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="数学,留数定理,复变函数,contour integral">
+<meta property="og:type" content="article">
+<meta property="og:title" content="围道积分进阶">
+<meta property="og:url" content="https://zqw.ink/2020/12/07/ContourIntegral/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2020/12/07/ContourIntegral/I1.png">
+<meta property="og:image" content="https://zqw.ink/2020/12/07/ContourIntegral/I2.png">
+<meta property="og:updated_time" content="2020-12-07T06:46:49.213Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="围道积分进阶">
+<meta name="twitter:image" content="https://zqw.ink/2020/12/07/ContourIntegral/I1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2020/12/07/ContourIntegral/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>围道积分进阶 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2020/12/07/ContourIntegral/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">围道积分进阶
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-12-07 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-07T00:00:00+08:00">2020-12-07</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/12/07/ContourIntegral/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/12/07/ContourIntegral/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-org0455e33" class="outline-2">
+<h2 id="org0455e33">&#x51C6;&#x5907;</h2>
+<div class="outline-text-2" id="text-org0455e33">
+</div>
+<div id="outline-container-org6ccce38" class="outline-3">
+<h3 id="org6ccce38">High Order Residue</h3>
+<div class="outline-text-3" id="text-org6ccce38">
+<p>
+Cauchy Integral Formula
+</p>
+\begin{align}
+  f(z) = \frac{1}{2\pi \mathrm{i}} \oint_C \frac{f(\xi)}{\xi - z} \mathrm{d}\xi
+\end{align}
+<p>
+&#x6C42; \(n\) &#x9636;&#x5BFC;&#x6570;
+</p>
+\begin{align}
+  f^{(n)}(z) = \frac{\mathrm{d}^n f}{\mathrm{d} z^n} 
+  = \frac{n!}{2\pi \mathrm{i}} \oint_C \frac{f(\xi)}{(\xi - z)^{n+1}} \mathrm{d}\xi
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org5d536f7" class="outline-3">
+<h3 id="org5d536f7">&#x590D;&#x6570;&#x7684;&#x65B9;&#x6839;</h3>
+<div class="outline-text-3" id="text-org5d536f7">
+<p>
+&#x5BF9;&#x4E8E; \(z = re^{\mathrm{i}\phi}\)
+</p>
+\begin{align}
+  z^{ \frac{1}{n} } = r^{\frac{1}{n}} e^{\mathrm{i} \left(\frac{\theta_0}{n} + k \frac{2\pi}{n}\right)}
+\end{align}
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x6709; \(n\) &#x4E2A;&#x65B9;&#x6839;, \(k = 0, 1, \cdots , n-1\)
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org0a9cbb2" class="outline-2">
+<h2 id="org0a9cbb2">Contour Integral I</h2>
+<div class="outline-text-2" id="text-org0a9cbb2">
+\begin{align}
+  I_1&amp;\int \frac{\mathrm{d}^3q}{(2 \pi)^3} \frac{1}{(q^2 - p^2 - \mathrm{i}\epsilon)^2} \\
+  = &amp; \frac{4\pi}{(2\pi)^3}\int_0^{\infty} \mathrm{d}q \frac{q^2}{(q^2 - p^2 - \mathrm{i}\epsilon)^2}
+\end{align}
+<p>
+&#x5B83;&#x6709;&#x4E24;&#x4E2A;&#x4E8C;&#x9636;&#x5947;&#x70B9; \(R\) &#x548C; \(-R\) , &#x5E76;&#x4E14;&#x662F;&#x5076;&#x51FD;&#x6570;.
+<img src="/2020/12/07/ContourIntegral/I1.png">
+&#x5B83;&#x5728;&#x8FDC;&#x5904;&#x662F; \(\frac{1}{q^2} \to 0\) , &#x6240;&#x4EE5;&#x91C7;&#x7528;&#x56FE;&#x4E2D;&#x7684;&#x56F4;&#x9053;. &#x53EA;&#x8981;&#x8BA1;&#x7B97; \(z = R\) &#x5904;&#x7684;&#x7559;&#x6570;&#x5373;
+&#x53EF;.
+</p>
+\begin{align}
+  I_1 =&amp; \frac{1}{2} \frac{4\pi}{(2\pi)^3}\int_{-\infty}^{\infty} \mathrm{d}q \frac{q^2}{(q^2 - p^2 - \mathrm{i}\epsilon)^2} \\
+     =&amp; \frac{1}{2} \frac{4\pi}{(2\pi)^3}\oint_C \mathrm{d}q \frac{q^2}{(q^2 - p^2 - \mathrm{i}\epsilon)^2} \\
+     =&amp; \frac{1}{2} \frac{4\pi}{(2\pi)^3} 2\pi \mathrm{i} \lim_{q\to R} \left\{
+        \frac{\mathrm{d}}{\mathrm{d}q} \left[\frac{q^2(q - R)^2}{(q - R)^2(q + R)^2}\right] \right\} \\
+     =&amp; \frac{1}{2} \frac{4\pi}{(2\pi)^3} 2\pi \mathrm{i} \frac{1}{4R} \\
+     =&amp; \frac{\mathrm{i}}{8\pi p}
+\end{align}
+<p>
+&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x7B49;&#x53F7;&#x53D6;&#x4E86; \(\epsilon \to 0\) .
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9ff98c2" class="outline-2">
+<h2 id="org9ff98c2">Contour Integral II</h2>
+<div class="outline-text-2" id="text-org9ff98c2">
+\begin{align}
+  I_2 =&amp; \int \frac{\mathrm{d}^3q}{(2\pi)^3} 
+         \frac{e^{\mathrm{i}\vec{q}\cdot \vec{r}}}{(q^2 - p^2 - \mathrm{i}\epsilon)^2} \\
+     =&amp; \frac{2\pi}{(2\pi)^3}\frac{1}{\mathrm{i}r} \int_0^{\infty}\mathrm{d}q
+      \frac{q (e^{\mathrm{i}qr} - e^{-\mathrm{i}qr})}{(q^2 - p^2 - \mathrm{i}\epsilon)^2}
+\end{align}
+<p>
+&#x4E0E; \(I_1\) &#x7C7B;&#x4F3C;, &#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5076;&#x51FD;&#x6570;, &#x6709;&#x4E24;&#x4E2A;&#x4E8C;&#x9636; pole. &#x4E0D;&#x540C;&#x4E4B;&#x5904;&#x5728;&#x4E8E;, &#x5B83;&#x5728;&#x65E0;&#x7A77;&#x8FDC;&#x5904;&#x7684;&#x79EF;&#x5206;
+&#x4E3A;&#x96F6;&#x9700;&#x8981;&#x7531; Jordan&apos;s Lemma &#x6765;&#x5224;&#x5B9A;.
+</p>
+\begin{align}
+  I_2 =&amp; \frac{2\pi}{(2\pi)^3}\frac{1}{\mathrm{i}r} \frac{1}{2} 
+         \left[\int_{-\infty}^{\infty}\mathrm{d}q \frac{q e^{\mathrm{i}qr} }{(q^2 - p^2 - \mathrm{i}\epsilon)^2}
+            + \int_{-\infty}^{\infty}\mathrm{d}q \frac{-q e^{\mathrm{-i}qr} }{(q^2 - p^2 - \mathrm{i}\epsilon)^2}
+        \right]
+\end{align}
+
+<p>
+<img src="/2020/12/07/ContourIntegral/I2.png">
+&#x6839;&#x636E; Jordan&apos;s Lemma, &#x7B2C;&#x4E00;&#x9879;&#x5728;&#x4E0A;&#x534A;&#x5E73;&#x9762;&#x65E0;&#x7A77;&#x8FDC;&#x7684;&#x5706;&#x5F27;&#x4E0A;&#x79EF;&#x5206;&#x4E3A;&#x4E3A;, &#x7B2C;&#x4E8C;&#x9879;&#x662F;&#x4E0B;&#x534A;&#x5E73;&#x9762;,
+&#x56E0;&#x6B64;&#x53D6;&#x4E0D;&#x540C;&#x7684;&#x56F4;&#x9053;&#x8BA1;&#x7B97;&#x4E24;&#x4E2A;&#x79EF;&#x5206;. 
+</p>
+
+<p>
+&#x7B2C;&#x4E00;&#x9879;
+</p>
+\begin{align}
+   &amp;\int_{-\infty}^{\infty}\mathrm{d}q \frac{q e^{\mathrm{i}qr} }{(q^2 - p^2 - \mathrm{i}\epsilon)^2} \\
+    = &amp;\oint_{C_+}\mathrm{d}q \frac{q e^{\mathrm{i}qr} }{(q^2 - p^2 - \mathrm{i}\epsilon)^2} \\
+    = &amp;2\pi \mathrm{i} \lim_{q\to R}\left\{ \frac{\mathrm{d}}{\mathrm{d}q}\left[
+               \frac{q e^{\mathrm{i}qr }(q - R)^2 }{(q - R)^2(q + R)^2} \right]
+             \right\}   \\
+   = &amp; 2\pi \mathrm{i} \frac{i r e^{\mathrm{i}Rr}}{4R}
+\end{align}
+
+<p>
+&#x7B2C;&#x4E8C;&#x9879; (&#x6CE8;&#x610F;&#x6B64;&#x56F4;&#x9053;&#x7ED5;&#x5411;&#x4E3A;&#x987A;&#x65F6;&#x9488;)
+</p>
+\begin{align}
+   &amp;\int_{-\infty}^{\infty}\mathrm{d}q \frac{- q e^{-\mathrm{i}qr} }{(q^2 - p^2 - \mathrm{i}\epsilon)^2} \\
+    = &amp;-\oint_{C_-}\mathrm{d}q \frac{-q e^{-\mathrm{i}qr} }{(q^2 - p^2 - \mathrm{i}\epsilon)^2} \\
+    = &amp;2\pi \mathrm{i} \lim_{q\to -R}\left\{ \frac{\mathrm{d}}{\mathrm{d}q}\left[
+               \frac{ q e^{-\mathrm{i}qr }(q + R)^2 }{(q - R)^2(q + R)^2} \right]
+             \right\}   \\
+   = &amp; 2\pi \mathrm{i} \frac{i r e^{\mathrm{i}Rr}}{4R}
+\end{align}
+<p>
+&#x53D6; \(\epsilon \to 0, \Rightarrow R \to p\) , &#x5F97;
+</p>
+\begin{align}
+  I_2 =&amp; \frac{2\pi}{(2\pi)^3}\frac{1}{\mathrm{i}r} \frac{1}{2} 
+           \times \left(2\pi \mathrm{i} \frac{i r e^{\mathrm{i}Rr}}{4R}
+              + 2\pi \mathrm{i} \frac{i r e^{\mathrm{i}Rr}}{4R} \right) \\
+     =&amp; \frac{\mathrm{i} e^{\mathrm{i} p r}}{8\pi p}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org6b7a73f" class="outline-2">
+<h2 id="org6b7a73f">Reference</h2>
+<div class="outline-text-2" id="text-org6b7a73f">
+<ul class="org-ul">
+<li>PhysRevA.78.053606, Eqn A13(b), A14(b)</li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/留数定理/" rel="tag"># 留数定理</a>
+          
+            <a href="/tags/复变函数/" rel="tag"># 复变函数</a>
+          
+            <a href="/tags/contour-integral/" rel="tag"># contour integral</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/11/29/newSSD/" rel="next" title="SSD 备忘与趣事">
+                <i class="fa fa-chevron-left"></i> SSD 备忘与趣事
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org0455e33"><span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org6ccce38"><span class="nav-text">High Order Residue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org5d536f7"><span class="nav-text">复数的方根</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org0a9cbb2"><span class="nav-text">Contour Integral I</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org9ff98c2"><span class="nav-text">Contour Integral II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6b7a73f"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
