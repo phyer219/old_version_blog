@@ -46,7 +46,7 @@ $$
 
 $$
 = \lim_{\mu\rightarrow 0}\frac{2\pi}{ik}\left[\frac{-1}{ik-\mu }-\frac{-1}{-ik-\mu }\right] \\\\
-=\lim_{\mu\rightarrow 0}\frac{2\pi}{ik}\frac{2ik}{k^2-\mu ^2} =\lim_{\mu\rightarrow 0}\frac{4\pi}{k^2-\mu ^2} \\\\
+=\lim_{\mu\rightarrow 0}\frac{2\pi}{ik}\frac{2ik}{k^2+\mu ^2} =\lim_{\mu\rightarrow 0}\frac{4\pi}{k^2+\mu ^2} \\\\
 =\frac{4\pi}{k^2}
 $$
 

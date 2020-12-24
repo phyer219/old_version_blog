@@ -62,7 +62,7 @@ problem, 因为它可以 用 integrating factor 来解. 下面说明, (\ref{eq:S
 如果这个问题好解的话, 只有下面一种方法.
 
 采用简化的符号 $D\equiv \frac{\mathrm{d}}{\mathrm{d}x}$ .
-因此 $y' + a(x)y = b(x) 变为
+因此 $y' + a(x)y = b(x)$ 变为
 \begin{align}
 \label{eq:unfactored}
 [D^{2} + a(x)D +b(x) ] y(x) = 0
