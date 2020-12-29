@@ -112,13 +112,13 @@
 
   <meta name="keywords" content="数学,物理,库仑势,Fourier">
 <meta property="og:type" content="article">
-<meta property="og:title" content="库仑势的Fourier transform">
+<meta property="og:title" content="库仑势的Fourier transform(update 16&#x2F;Nov&#x2F;2020)">
 <meta property="og:url" content="https://zqw.ink/2018/09/24/库仑势的Fourier transform/index.html">
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-12-22T02:53:15.275Z">
+<meta property="og:updated_time" content="2020-12-28T03:03:46.046Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="库仑势的Fourier transform">
+<meta name="twitter:title" content="库仑势的Fourier transform(update 16&#x2F;Nov&#x2F;2020)">
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>库仑势的Fourier transform | 从冰上的水</title>
+  <title>库仑势的Fourier transform(update 16/Nov/2020) | 从冰上的水</title>
   
 
 
@@ -332,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">库仑势的Fourier transform
+          <h1 class="post-title" itemprop="name headline">库仑势的Fourier transform(update 16/Nov/2020)
               
             
           </h1>
@@ -438,8 +438,17 @@ V(\vec{r}) = \frac{1}{r} = \lim_{\mu\rightarrow 0} \frac{e^{-\mu r}}{r}</script>
 V{(\vec{k})}  = \lim_{\mu\rightarrow 0} 2\pi\int_0^{+\infty}\mathrm{d}r\cdot \left[(e^{(ik-\mu)r}-e^{(-ik-\mu)r})\frac{1}{ik}\right] \\\\
 = \lim_{\mu\rightarrow 0}\frac{2\pi}{ik}\left[\frac{e^{(ik-\mu)r}}{ik-\mu r}-\frac{e^{(-ik-\mu)r}}{-ik-\mu r}\right] _0^{+\infty} \\\\</script><script type="math/tex; mode=display">
 = \lim_{\mu\rightarrow 0}\frac{2\pi}{ik}\left[\frac{-1}{ik-\mu }-\frac{-1}{-ik-\mu }\right] \\\\
-=\lim_{\mu\rightarrow 0}\frac{2\pi}{ik}\frac{2ik}{k^2+\mu ^2} =\lim_{\mu\rightarrow 0}\frac{4\pi}{k^2+\mu ^2} \\\\
-=\frac{4\pi}{k^2}</script><h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><p>函数满足一致收敛，积分与极限才可交换顺序。</p>
+=\lim_{\mu\rightarrow 0}\frac{2\pi}{ik}\frac{2ik}{k^2 + \mu ^2} =\lim_{\mu\rightarrow 0}\frac{4\pi}{k^2 + \mu ^2} \\\\
+=\frac{4\pi}{k^2}</script><h3 id="注"><a href="#注" class="headerlink" title="注"></a>注</h3><p>函数满足一致收敛，积分与极限才可交换顺序。</p>
+<h2 id="类似的变换"><a href="#类似的变换" class="headerlink" title="类似的变换"></a>类似的变换</h2><p>用同样的方法, 可以得到</p>
+<script type="math/tex; mode=display">
+\lim_{\eta \to 0^+}\int \mathrm{d}^3\vec{r} . e^{\mathrm{i}\vec{k}\cdot\vec{r}} r e^{-r\eta}
+ = \frac{8 \pi}{k^4}</script><script type="math/tex; mode=display">
+\lim_{\eta \to 0^+}\int \mathrm{d}^3\vec{r} . e^{\mathrm{i}\vec{k}\cdot\vec{r}} e^{-r\eta}
+ = 0</script><p>用 Mathematica 可以验证.</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li>关于使其收敛的说明, 分别从物理的角度, 数学的角度阐述这样做的合理性和必要性: <a href="https://physics.stackexchange.com/questions/7462/fourier-transform-of-the-coulomb-potential" target="_blank" rel="noopener">https://physics.stackexchange.com/questions/7462/fourier-transform-of-the-coulomb-potential</a></li>
+</ul>
 
       
     </div>
@@ -601,7 +610,7 @@ V{(\vec{k})}  = \lim_{\mu\rightarrow 0} 2\pi\int_0^{+\infty}\mathrm{d}r\cdot \le
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求解"><span class="nav-text">求解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使其收敛"><span class="nav-text">使其收敛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注"><span class="nav-text">注</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求解"><span class="nav-text">求解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使其收敛"><span class="nav-text">使其收敛</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注"><span class="nav-text">注</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类似的变换"><span class="nav-text">类似的变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
