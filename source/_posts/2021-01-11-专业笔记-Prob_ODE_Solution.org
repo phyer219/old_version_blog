@@ -1,0 +1,16 @@
+#+TITLE: 关于微分方程的解的问题
+#+DATE: <2021-01-11>
+#+CATEGORIES: 专业笔记
+#+TAGS: 问题, 微分方程
+#+HTML: <!-- toc -->
+#+HTML: <!-- more -->
+
+将微分方程 
+\begin{align}
+  \mathcal{L} \psi(x) = k^2 \psi(x)
+\end{align}
+的通解 $\phi(k, x)$ , 取 $k\to 0$ 时的极限, 能否得
+\begin{align}
+  \mathcal{L} \psi(x) = \psi(x)
+\end{align}
+的全部解?

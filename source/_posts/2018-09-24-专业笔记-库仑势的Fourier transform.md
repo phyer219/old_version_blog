@@ -1,5 +1,5 @@
 ---
-title: 库仑势的Fourier transform
+title: 库仑势的Fourier transform(update 16/Nov/2020)
 date: 2018/09/24
 categories: 专业笔记
 tags: [数学, 物理, 库仑势, Fourier]
@@ -46,12 +46,32 @@ $$
 
 $$
 = \lim_{\mu\rightarrow 0}\frac{2\pi}{ik}\left[\frac{-1}{ik-\mu }-\frac{-1}{-ik-\mu }\right] \\\\
-=\lim_{\mu\rightarrow 0}\frac{2\pi}{ik}\frac{2ik}{k^2+\mu ^2} =\lim_{\mu\rightarrow 0}\frac{4\pi}{k^2+\mu ^2} \\\\
+=\lim_{\mu\rightarrow 0}\frac{2\pi}{ik}\frac{2ik}{k^2 + \mu ^2} =\lim_{\mu\rightarrow 0}\frac{4\pi}{k^2 + \mu ^2} \\\\
 =\frac{4\pi}{k^2}
 $$
 
 
 
-## 注
+### 注
 
 函数满足一致收敛，积分与极限才可交换顺序。
+
+
+
+## 类似的变换
+
+用同样的方法, 可以得到
+$$
+\lim_{\eta \to 0^+}\int \mathrm{d}^3\vec{r} . e^{\mathrm{i}\vec{k}\cdot\vec{r}} r e^{-r\eta}
+ = \frac{8 \pi}{k^4}
+$$
+$$
+\lim_{\eta \to 0^+}\int \mathrm{d}^3\vec{r} . e^{\mathrm{i}\vec{k}\cdot\vec{r}} e^{-r\eta}
+ = 0
+$$
+
+用 Mathematica 可以验证.
+
+## Reference
+
+- 关于使其收敛的说明, 分别从物理的角度, 数学的角度阐述这样做的合理性和必要性: https://physics.stackexchange.com/questions/7462/fourier-transform-of-the-coulomb-potential
