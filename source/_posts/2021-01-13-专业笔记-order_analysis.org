@@ -28,7 +28,7 @@
 比较直接的思路, 是直接把 $F(\kappa r)$ 在 $\kappa = 0$ 处展开, 再把 $r$ 积掉. 但是 $F$
 形式如果未知就行不通了. 
 
-此法当然要求 $\frac{1}{\kappa^3} \int_0^{\infty} x^2 F(x) \mathrm{d}x$ 收敛于一个常数, 也要
+此法当然要求 $\int_0^{\infty} x^2 F(x) \mathrm{d}x$ 收敛于一个常数, 也要
 求积分限在做换元后也趋于一个常数( $\kappa r_c \to 0$ as $\kappa\to 0$ )
 
 * 数值验证
@@ -69,7 +69,6 @@ plt.ylabel(r'$\log(I)$')
 plt.legend()
 plt.savefig('fig.png')
 #+end_src
-
 
 * 致谢
 

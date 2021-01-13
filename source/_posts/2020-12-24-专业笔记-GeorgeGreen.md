@@ -169,6 +169,66 @@ $$
 
 恢复磨坊的计划最初是由谣言引起的, 谣传它将被拆除以进行重新开发. 这导致了诺丁汉大学物理学家和其他人士组建了乔治·格林纪念基金, 最终, 作为对格林的纪念馆, 诺丁汉市对该磨坊进行了修复. 现在是诺丁汉的主要博物馆和旅游景点之一. 格林的第二个主要纪念馆是伦敦的威斯敏斯特大教堂. 那是英国国王和王后的安息之地, 也是最近许多人回想起著名文学和科学人物的地方. 1993年, 在格林诞辰200周年之际, 皇家学会主席迈克尔·阿蒂亚（Michael Atiyah）揭幕了纪念馆. 如图 5 所示, 该牌匾位于修道院的地板上, 毗邻牛顿, 迈克尔·法拉第, 麦克斯韦和开尔文的纪念馆. 会众包括格林的许多后裔以及包括史温格和戴森在内的许多其他科学家和数学家. 开尔文（Kelvin）的纪念馆必须向侧面移动才能容纳格林（Green）的纪念碑. 但是他肯定不会反对. 
 
+# Box1
+
+假设希望得到一个粒子的速度 $v(t)$ . 初始时刻粒子静止, 受到粘滞力 $\alpha v$ 和任意力 $F(t)$ 的作用. 那么它的运动方程为
+$$
+\begin{align}
+    m \frac{\mathrm{d}v}{\mathrm{d}t} + \alpha v = F(t)
+\end{align}
+$$
+
+
+对于在时间 $t=t'$ 时施加的一个单位冲量, 它的解是格林函数 $G(t, t')$ . 施加冲量后的一瞬间, 它的速度是 $1/m$ , 然后随时间指数衰减, 所以对于 $t > t'$ ,
+$$
+\begin{align}
+    G(t, t') = \frac{1}{m} e^{-\alpha (t - t')/m} \quad (t\ge t') .
+\end{align}
+$$
+
+对于 $t < t'$ 时, 格林函数为零.
+
+因此, 这个问题对于任意力的通解为
+$$
+\begin{align}
+    v(t) = \int_0^t \frac{1}{m} e^{-\alpha (t - t')/m} 
+        F(t') \mathrm{d}t' \, .
+\end{align}
+$$
+对于这个简单的例子, 也可以直接将运动方程用常数变易法积分, 从而得到问题的解. 
+
+# Box2
+
+格林函数通常用来求解一个经典场的偏微分方程
+$$
+\begin{align}
+    \nabla^2 \phi(\mathbf{r}) + k^2 \phi(\mathbf{r}) = \rho(\mathbf{r}) 
+\end{align}
+$$
+其中对于静电场 $k=0$ , 但对于波动场不为零. 格林函数 $G(\mathbf{r}, \mathbf{r}')$ 
+是一个在 $\mathbf{r}'$ 处, 由 Dirac Delta 函数 $\delta(\mathbf{r} - \mathbf{r}')$ 表示的点源的解. 也就是说, 格林函数满足方程
+$$
+\begin{align}
+    \nabla^2 G(\mathbf{r}, \mathbf{r}') + k^2 G(\mathbf{r}, \mathbf{r}')
+    = \delta(\mathbf{r} - \mathbf{r}') 
+\end{align}
+$$
+对 $\phi$ 和 $G$ 用格林第二公式,
+$$
+\begin{align}
+    \int_\tau (\phi \nabla^2 G - G\nabla^2 \phi) \mathrm{d}\tau
+    = \int_S (\phi \nabla G - G\nabla \phi) \cdot \mathrm{d}\mathbf{S}
+    \, ,
+\end{align}
+$$
+交换 $\mathbf{r}$ 和 $\mathbf{r}'$ 并利用 $G(\mathbf{r}, \mathbf{r}')$ 的对称性后, 可以得到式 ( \ref{eq:2} )
+
+为了唯一确定 $\phi(\mathbf{r})$ 的解, 我们必须给定边界条件. 也必须给 $G(\mathbf{r}, \mathbf{r}')$ 选定合适的边界条件. 因此, 格林函数是由一个点源产生, 并由边界上的影响进修正, 得到的场. 在静电场中, 边界上的影响来自于表面电荷. 在波动问题中, 边界产生反射波, 反射波可以通过求解适当的无源方程来得到.
+
+在格林函数对粒子运动的处理中, 单位冲量由一个力 $F(t) = \delta(t - t')$ 表示, 可以与空间中的单位点源类比. 初始条件与这里的边界条件扮演同样的角色.
+
+在散射问题中, 格林函数由式 ( \ref{eq:3} ) 的变形得到, 将式 ( \ref{eq:3} ) 中的 $V\psi$ 移到右边, 并由的一个 delta 函数源 $\delta (\mathbf{r} - \mathbf{r}')$ 替换. 对于这样的问题, 边界条件要求解在离源很远的地方是出射波, 因为入射波意味着在无穷远的反射, 这是不物理的.
+
 # 扩展阅读
 
 - The Scientific Papers of George Green, compiled in 1995 into three volumes, available on the George Green Society Web site at http://www.nottingham.ac.uk/physics/gg. Click on “The George Green Memorial Fund” for ordering information.
