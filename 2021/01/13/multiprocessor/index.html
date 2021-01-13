@@ -110,24 +110,24 @@
 
 
 
-  <meta name="keywords" content="奇技淫巧">
+  <meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="积分阶数的分析技巧">
-<meta property="og:url" content="https://zqw.ink/2021/01/13/order_analysis/index.html">
+<meta property="og:title" content="python 并行的简单例子">
+<meta property="og:url" content="https://zqw.ink/2021/01/13/multiprocessor/index.html">
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://zqw.ink/2021/01/13/order_analysis/fig.png">
-<meta property="og:updated_time" content="2021-01-13T07:57:55.566Z">
+<meta property="og:image" content="https://zqw.ink/2021/01/13/multiprocessor/fig.png">
+<meta property="og:updated_time" content="2021-01-13T08:30:39.959Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="积分阶数的分析技巧">
-<meta name="twitter:image" content="https://zqw.ink/2021/01/13/order_analysis/fig.png">
+<meta name="twitter:title" content="python 并行的简单例子">
+<meta name="twitter:image" content="https://zqw.ink/2021/01/13/multiprocessor/fig.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zqw.ink/2021/01/13/order_analysis/"/>
+  <link rel="canonical" href="https://zqw.ink/2021/01/13/multiprocessor/"/>
 
 
 
@@ -137,7 +137,7 @@
   };
 </script>
 
-  <title>积分阶数的分析技巧 | 从冰上的水</title>
+  <title>python 并行的简单例子 | 从冰上的水</title>
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/01/13/order_analysis/">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/01/13/multiprocessor/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZQW">
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">积分阶数的分析技巧
+          <h1 class="post-title" itemprop="name headline">python 并行的简单例子
               
             
           </h1>
@@ -377,7 +377,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件使用/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a></span>
 
                 
                 
@@ -392,8 +392,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/01/13/order_analysis/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/01/13/order_analysis/" itemprop="commentCount"></span>
+                <a href="/2021/01/13/multiprocessor/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/01/13/multiprocessor/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -425,87 +425,26 @@
 <!-- toc -->
 <a id="more"></a>
 
-<div id="outline-container-org05c06aa" class="outline-2">
-<h2 id="org05c06aa">&#x95EE;&#x9898;</h2>
-<div class="outline-text-2" id="text-org05c06aa">
-<p>
-&#x5DF2;&#x77E5;&#x79EF;&#x5206; 
-</p>
-\begin{align}
-  I(\kappa) = \int_{r_c}^{\infty} r^2 F(\kappa r) \mathrm{d}r
-\end{align}
-<p>
-&#x5176;&#x4E2D; \(F(\kappa r)\) &#x662F;&#x4E00;&#x4E2A;&#x65E0;&#x91CF;&#x7EB2;&#x7684;&#x51FD;&#x6570;, \(r_c\) &#x662F;&#x5E38;&#x6570;. &#x95EE; \(I(\kappa)\) &#x5728; \(\kappa \to 0\) &#x65F6;&#x7684;&#x884C;
-&#x4E3A;.
-</p>
-</div>
+
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> multiprocessing <span class="keyword">as</span> mp</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timer</span>(<span class="params">func</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Print the runtime of the decorated function.</span></span><br><span class="line"><span class="string">    &#x53C2;&#x8003;&#x81EA;: https://realpython.com/primer-on-python-decorators/</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"><span class="meta">    @functools.wraps(<span class="params">func</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper_timer</span>(<span class="params">*args, **kwargs</span>):</span></span><br><span class="line">	start_time = time.perf_counter()</span><br><span class="line">	value = func(*args, **kwargs)</span><br><span class="line">	end_time = time.perf_counter()</span><br><span class="line">	run_time = end_time - start_time</span><br><span class="line">	print(<span class="string">f&quot;Finished <span class="subst">{func.__name__!r}</span> in <span class="subst">{run_time:<span class="number">.14</span>f}</span> secs&quot;</span>)</span><br><span class="line">	<span class="keyword">return</span> value</span><br><span class="line">    <span class="keyword">return</span> wrapper_timer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&apos;&apos;&apos;</span></span><br><span class="line"><span class="string">    &#x6D4B;&#x8BD5;&#x51FD;&#x6570;, &#x7B80;&#x5355;&#x5730;&#x8BA1;&#x7B97; sin(x), &#x91CD;&#x590D; 1e5 &#x6B21;</span></span><br><span class="line"><span class="string">    &apos;&apos;&apos;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(<span class="number">1e5</span>)):</span><br><span class="line">	a = np.sin(x)    </span><br><span class="line">    a = np.sin(x)</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line">n = <span class="built_in">int</span>(<span class="number">96</span>)</span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, n)</span><br><span class="line"></span><br><span class="line"><span class="meta">@timer</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loop_single_processing</span>(<span class="params">x, n</span>):</span></span><br><span class="line">    y_l_s_p = np.zeros(n)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">	<span class="comment"># &#x5355;&#x6838;&#x8FD0;&#x884C; n &#x6B21; foo(x) &#x51FD;&#x6570;</span></span><br><span class="line">	y_l_s_p[i] = foo(x[i])</span><br><span class="line">    y_l_s_p = foo(x)</span><br><span class="line">    <span class="keyword">return</span> y_l_s_p</span><br><span class="line"></span><br><span class="line"><span class="meta">@timer</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loop_multi_processing</span>(<span class="params">x, n</span>):</span></span><br><span class="line">    pool = mp.Pool()</span><br><span class="line">    y_m_s_p = pool.<span class="built_in">map</span>(foo, x)</span><br><span class="line">    pool.close()</span><br><span class="line">    pool.join()</span><br><span class="line">    <span class="keyword">return</span> np.array(y_m_s_p)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">lsp = loop_single_processing(x, n)</span><br><span class="line">lmp = loop_multi_processing(x, n)</span><br><span class="line"></span><br><span class="line">plt.plot(x, lsp, <span class="string">&apos;.&apos;</span>, label=<span class="string">&apos;loop single processing&apos;</span>)</span><br><span class="line">plt.plot(x, lmp+<span class="number">1</span>, <span class="string">&apos;.&apos;</span>, label=<span class="string">&apos;loop multi processing&apos;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.savefig(<span class="string">&apos;fig.png&apos;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 </div>
 
-<div id="outline-container-orge3d0411" class="outline-2">
-<h2 id="orge3d0411">&#x65B9;&#x6CD5;</h2>
-<div class="outline-text-2" id="text-orge3d0411">
 <p>
-&#x4EE4; \(x = \kappa r\) , &#x5219; 
-</p>
-\begin{align}
-  I = \frac{1}{\kappa^3}\int_{\kappa r_c} ^{\infty} x^2 F(x) \mathrm{d}x 
-   \sim \frac{1}{\kappa^3} \int_0^{\infty} x^2 F(x) \mathrm{d}x 
-   = \frac{\sharp}{\kappa^3} \quad \mathrm{as} \quad \kappa \to 0
-\end{align}
-<p>
-&#x5373; \(I(\kappa)\) &#x5728; \(\kappa \to 0\) &#x65F6;&#x4EE5; \(1/\kappa^3\) &#x7684;&#x901F;&#x5EA6;&#x53D1;&#x6563;.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org3ef0b20" class="outline-2">
-<h2 id="org3ef0b20">&#x8BC4;&#x8FF0;</h2>
-<div class="outline-text-2" id="text-org3ef0b20">
-<p>
-&#x6BD4;&#x8F83;&#x76F4;&#x63A5;&#x7684;&#x601D;&#x8DEF;, &#x662F;&#x76F4;&#x63A5;&#x628A; \(F(\kappa r)\) &#x5728; \(\kappa = 0\) &#x5904;&#x5C55;&#x5F00;, &#x518D;&#x628A; \(r\) &#x79EF;&#x6389;. &#x4F46;&#x662F; \(F\)
-&#x5F62;&#x5F0F;&#x5982;&#x679C;&#x672A;&#x77E5;&#x5C31;&#x884C;&#x4E0D;&#x901A;&#x4E86;. 
-</p>
-
-<p>
-&#x6B64;&#x6CD5;&#x5F53;&#x7136;&#x8981;&#x6C42; \(\int_0^{\infty} x^2 F(x) \mathrm{d}x\) &#x6536;&#x655B;&#x4E8E;&#x4E00;&#x4E2A;&#x5E38;&#x6570;, &#x4E5F;&#x8981;
-&#x6C42;&#x79EF;&#x5206;&#x9650;&#x5728;&#x505A;&#x6362;&#x5143;&#x540E;&#x4E5F;&#x8D8B;&#x4E8E;&#x4E00;&#x4E2A;&#x5E38;&#x6570;( \(\kappa r_c \to 0\) as \(\kappa\to 0\) )
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgfdda891" class="outline-2">
-<h2 id="orgfdda891">&#x6570;&#x503C;&#x9A8C;&#x8BC1;</h2>
-<div class="outline-text-2" id="text-orgfdda891">
-<p>
-&#x5BF9;&#x4E8E; 
-</p>
-\begin{align}
-  I(\kappa) = \int_{ - \infty}^{ + \infty} r^{2} e^{ - (\kappa r - 5)^2} \mathrm{d}r
-\end{align}
-<p>
-&#x7528; sage &#x9A8C;&#x8BC1; \(I(\kappa) \sim \sharp/\kappa^3\) , &#x5176;&#x4E2D; \(\sharp = \int_{ - \infty}^{ + \infty} r^{2} e^{ - (r - 5)^2}
-\mathrm{d}r\) &#x662F;&#x4E00;&#x4E2A;&#x5E38;&#x6570;:
-</p>
-
-<p>
-<img src="/2021/01/13/order_analysis/fig.png">
-code: <a href="plot.ipynb">plot.ipynb</a> (&#x7B2C;&#x4E00;&#x6B21;&#x7528; Sage, &#x6709;&#x4E9B;&#x51FD;
-&#x6570;&#x4E0D;&#x77E5;&#x9053;&#x600E;&#x4E48;&#x5B9E;&#x73B0;, &#x53EA;&#x80FD;&#x548C; numpy, pyplot &#x6DF7;&#x7740;&#x7528;&#x4E86; ^_^%)
+&#x7ED3;&#x679C;
+<img src="/2021/01/13/multiprocessor/fig.png">
 </p>
 <div class="org-src-container">
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># sage file</span></span><br><span class="line"><span class="comment"># sage file</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">x = SR.var(<span class="string">&apos;x&apos;</span>)</span><br><span class="line">r = SR.var(<span class="string">&apos;r&apos;</span>)</span><br><span class="line">&#x3BA; = SR.var(<span class="string">&apos;&#x3BA;&apos;</span>)</span><br><span class="line">F = exp(-(x - <span class="number">5</span>)**<span class="number">2</span>)</span><br><span class="line">I(&#x3BA;) = integrate(r**<span class="number">2</span> * F(&#x3BA;*r), r, -infinity, infinity)</span><br><span class="line"></span><br><span class="line">n = <span class="number">5</span></span><br><span class="line">yy = []</span><br><span class="line">xx = np.linspace(<span class="number">1e-3</span>, <span class="number">3e-3</span>, n)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    yy.append(I(xx[i]))</span><br><span class="line"></span><br><span class="line">k = integrate(r**<span class="number">2</span> * F(r), r, -infinity, infinity) <span class="comment"># analytical slope</span></span><br><span class="line"></span><br><span class="line">plt.plot(log(xx), -<span class="number">3</span>*log(xx) + log(k), label=<span class="string">&apos;analytical&apos;</span>)</span><br><span class="line">plt.plot(np.log(xx), np.log(yy), <span class="string">&apos;o&apos;</span>, label=<span class="string">&apos;numerical&apos;</span>)</span><br><span class="line">plt.xlabel(<span class="string">r&apos;$\log(\kappa)$&apos;</span>)</span><br><span class="line">plt.ylabel(<span class="string">r&apos;$\log(I)$&apos;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.savefig(<span class="string">&apos;fig.png&apos;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Finished <span class="string">&apos;loop_single_processing&apos;</span> <span class="keyword">in</span> <span class="number">9.28632830292918</span> secs</span><br><span class="line">Finished <span class="string">&apos;loop_multi_processing&apos;</span> <span class="keyword">in</span> <span class="number">3.00595757691190</span> secs</span><br></pre></td></tr></table></figure>
 </div>
-</div>
-</div>
-
-<div id="outline-container-orgf7a307a" class="outline-2">
-<h2 id="orgf7a307a">&#x81F4;&#x8C22;</h2>
-<div class="outline-text-2" id="text-orgf7a307a">
 <p>
-Qi
+code: <a href="mp.py">mp.py</a>
 </p>
-</div>
-</div>
+
+<p>
+&#x4ECE;&#x7ED3;&#x679C;&#x4E0A;&#x770B;, &#x4E32;&#x884C;&#x4E0E;&#x5E76;&#x884C;&#x5F53;&#x7136;&#x7ED9;&#x51FA;&#x76F8;&#x540C;&#x7684;&#x7ED3;&#x679C;. &#x7535;&#x8111;&#x4E0A;&#x6709; 8 &#x6838;, &#x4F46;&#x901F;&#x5EA6;&#x53EA;&#x63D0;&#x5347;&#x4E86;&#x7EA6; 3 &#x500D;,
+&#x800C;&#x4E0D;&#x662F; 8 &#x500D;, &#x662F;&#x6838;&#x4E4B;&#x95F4;&#x7684;&#x4EFB;&#x52A1;&#x5206;&#x914D;&#x4E0E;&#x6570;&#x636E;&#x4EA4;&#x6362;&#x8017;&#x65F6;&#x8FD8;&#x662F;&#x6211;&#x7684;&#x7A0B;&#x5E8F;&#x6709;&#x95EE;&#x9898;, &#x76EE;&#x524D;&#x5E76;&#x4E0D;&#x6E05;&#x695A;.
+</p>
 </div>
 
       
@@ -527,7 +466,7 @@ Qi
       
         <div class="post-tags">
           
-            <a href="/tags/奇技淫巧/" rel="tag"># 奇技淫巧</a>
+            <a href="/tags/python/" rel="tag"># python</a>
           
         </div>
       
@@ -540,8 +479,8 @@ Qi
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/01/13/multiprocessor/" rel="next" title="python 并行的简单例子">
-                <i class="fa fa-chevron-left"></i> python 并行的简单例子
+              <a href="/2021/01/13/setup_tools/" rel="next" title="如何将 python 程序打包成一个 package">
+                <i class="fa fa-chevron-left"></i> 如何将 python 程序打包成一个 package
               </a>
             
           </div>
@@ -549,6 +488,10 @@ Qi
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/01/13/order_analysis/" rel="prev" title="积分阶数的分析技巧">
+                积分阶数的分析技巧 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -596,17 +539,8 @@ Qi
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -648,22 +582,6 @@ Qi
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org05c06aa"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orge3d0411"><span class="nav-text">方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org3ef0b20"><span class="nav-text">评述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgfdda891"><span class="nav-text">数值验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgf7a307a"><span class="nav-text">致谢</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
