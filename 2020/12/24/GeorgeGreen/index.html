@@ -116,7 +116,7 @@
 <meta property="og:url" content="https://zqw.ink/2020/12/24/GeorgeGreen/index.html">
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-12-24T13:31:21.472Z">
+<meta property="og:updated_time" content="2021-01-13T08:04:52.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="格林函数的格林(翻译)The Green of Green Functions">
 
@@ -506,6 +506,40 @@ S(t) = \int_{t_0}^t G(t, t') F(t') \mathrm{d}t'
 <p>在 1950 年代和 1960 年代, 物理学家开始使用格林函数方法来描述凝聚态物理学的多体相互作用. 固体的电导率实质上是对外部电场的线性响应. 因此, 可以如久保亮五等人所展示的那样, 用格林函数表示. 固体中的电阻的来源是散射过程, 其自然地通过格林函数来描述. 但是与粒子物理学中通常描述的过程不同, 凝聚态过程在有限的温度下发生. 该理论的推广导致热或者有限温格林函数. 但值得注意的是, 在引入了虚部与温度倒数成正比的复数时间坐标后, 可以使用与普通零温度格林函数几乎相同的技术来计算非零温格林函数. 如今, 物理学家将格林函数应用了到许多领域, 这些领域在格林的时代是难以想像的, 并且有可能继续这样做. 将来什么都有可能发生. </p>
 <h1 id="在自己国家的荣誉"><a href="#在自己国家的荣誉" class="headerlink" title="在自己国家的荣誉"></a>在自己国家的荣誉</h1><p>蒸汽机结束了风车的时代, 格林的磨坊渐渐失修了. 1920年, 工厂由当地商人和慈善家奥利弗·辛德买下, 后者修理了木帽. 同年, 霍尔布鲁克捐赠了磨坊的纪念牌匾. 有一段时间, 这个磨坊像是被重新上光的家具一样焕然一新, 但在1947年, 它起火并被完全毁坏. Hind 通过登上门窗并用混凝土板代替盖子来密封外壳. 多年来, 当地对格林的兴趣一直保持在中等水平, 这主要是由于诺丁汉大学成员的活动所致. 1945年, 大学数学系成员H. Gwynedd Green（不是乔治格林的亲戚）撰写了格林的传记. 玛丽·坎内尔（Mary Cannell）在1993年发表了更长的著作. 扩充的第二版于2001年出版. </p>
 <p>恢复磨坊的计划最初是由谣言引起的, 谣传它将被拆除以进行重新开发. 这导致了诺丁汉大学物理学家和其他人士组建了乔治·格林纪念基金, 最终, 作为对格林的纪念馆, 诺丁汉市对该磨坊进行了修复. 现在是诺丁汉的主要博物馆和旅游景点之一. 格林的第二个主要纪念馆是伦敦的威斯敏斯特大教堂. 那是英国国王和王后的安息之地, 也是最近许多人回想起著名文学和科学人物的地方. 1993年, 在格林诞辰200周年之际, 皇家学会主席迈克尔·阿蒂亚（Michael Atiyah）揭幕了纪念馆. 如图 5 所示, 该牌匾位于修道院的地板上, 毗邻牛顿, 迈克尔·法拉第, 麦克斯韦和开尔文的纪念馆. 会众包括格林的许多后裔以及包括史温格和戴森在内的许多其他科学家和数学家. 开尔文（Kelvin）的纪念馆必须向侧面移动才能容纳格林（Green）的纪念碑. 但是他肯定不会反对. </p>
+<h1 id="Box1"><a href="#Box1" class="headerlink" title="Box1"></a>Box1</h1><p>假设希望得到一个粒子的速度 $v(t)$ . 初始时刻粒子静止, 受到粘滞力 $\alpha v$ 和任意力 $F(t)$ 的作用. 那么它的运动方程为</p>
+<script type="math/tex; mode=display">
+\begin{align}
+    m \frac{\mathrm{d}v}{\mathrm{d}t} + \alpha v = F(t)
+\end{align}</script><p>对于在时间 $t=t’$ 时施加的一个单位冲量, 它的解是格林函数 $G(t, t’)$ . 施加冲量后的一瞬间, 它的速度是 $1/m$ , 然后随时间指数衰减, 所以对于 $t &gt; t’$ ,</p>
+<script type="math/tex; mode=display">
+\begin{align}
+    G(t, t') = \frac{1}{m} e^{-\alpha (t - t')/m} \quad (t\ge t') .
+\end{align}</script><p>对于 $t &lt; t’$ 时, 格林函数为零.</p>
+<p>因此, 这个问题对于任意力的通解为</p>
+<script type="math/tex; mode=display">
+\begin{align}
+    v(t) = \int_0^t \frac{1}{m} e^{-\alpha (t - t')/m} 
+        F(t') \mathrm{d}t' \, .
+\end{align}</script><p>对于这个简单的例子, 也可以直接将运动方程用常数变易法积分, 从而得到问题的解. </p>
+<h1 id="Box2"><a href="#Box2" class="headerlink" title="Box2"></a>Box2</h1><p>格林函数通常用来求解一个经典场的偏微分方程</p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \nabla^2 \phi(\mathbf{r}) + k^2 \phi(\mathbf{r}) = \rho(\mathbf{r}) 
+\end{align}</script><p>其中对于静电场 $k=0$ , 但对于波动场不为零. 格林函数 $G(\mathbf{r}, \mathbf{r}’)$<br>是一个在 $\mathbf{r}’$ 处, 由 Dirac Delta 函数 $\delta(\mathbf{r} - \mathbf{r}’)$ 表示的点源的解. 也就是说, 格林函数满足方程</p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \nabla^2 G(\mathbf{r}, \mathbf{r}') + k^2 G(\mathbf{r}, \mathbf{r}')
+    = \delta(\mathbf{r} - \mathbf{r}') 
+\end{align}</script><p>对 $\phi$ 和 $G$ 用格林第二公式,</p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \int_\tau (\phi \nabla^2 G - G\nabla^2 \phi) \mathrm{d}\tau
+    = \int_S (\phi \nabla G - G\nabla \phi) \cdot \mathrm{d}\mathbf{S}
+    \, ,
+\end{align}</script><p>交换 $\mathbf{r}$ 和 $\mathbf{r}’$ 并利用 $G(\mathbf{r}, \mathbf{r}’)$ 的对称性后, 可以得到式 ( \ref{eq:2} )</p>
+<p>为了唯一确定 $\phi(\mathbf{r})$ 的解, 我们必须给定边界条件. 也必须给 $G(\mathbf{r}, \mathbf{r}’)$ 选定合适的边界条件. 因此, 格林函数是由一个点源产生, 并由边界上的影响进修正, 得到的场. 在静电场中, 边界上的影响来自于表面电荷. 在波动问题中, 边界产生反射波, 反射波可以通过求解适当的无源方程来得到.</p>
+<p>在格林函数对粒子运动的处理中, 单位冲量由一个力 $F(t) = \delta(t - t’)$ 表示, 可以与空间中的单位点源类比. 初始条件与这里的边界条件扮演同样的角色.</p>
+<p>在散射问题中, 格林函数由式 ( \ref{eq:3} ) 的变形得到, 将式 ( \ref{eq:3} ) 中的 $V\psi$ 移到右边, 并由的一个 delta 函数源 $\delta (\mathbf{r} - \mathbf{r}’)$ 替换. 对于这样的问题, 边界条件要求解在离源很远的地方是出射波, 因为入射波意味着在无穷远的反射, 这是不物理的.</p>
 <h1 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h1><ul>
 <li>The Scientific Papers of George Green, compiled in 1995 into three volumes, available on the George Green Society Web site at <a href="http://www.nottingham.ac.uk/physics/gg" target="_blank" rel="noopener">http://www.nottingham.ac.uk/physics/gg</a>. Click on “The George Green Memorial Fund” for ordering information.</li>
 <li>N. M. Ferrers, ed., Mathematical Papers of George Green, (1871; reprint, Chelsea, New York, 1970).</li>
@@ -671,7 +705,7 @@ S(t) = \int_{t_0}^t G(t, t') F(t') \mathrm{d}t'
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#格林函数的格林"><span class="nav-text">格林函数的格林</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#早期生活和教育"><span class="nav-text">早期生活和教育</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#格林在-1828-年的论文"><span class="nav-text">格林在 1828 年的论文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#格林的论文的二次发掘"><span class="nav-text">格林的论文的二次发掘</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#格林对科学的贡献"><span class="nav-text">格林对科学的贡献</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#格林定理和格林函数"><span class="nav-text">格林定理和格林函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#散射理论中的格林函数"><span class="nav-text">散射理论中的格林函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#之后的发展"><span class="nav-text">之后的发展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在自己国家的荣誉"><span class="nav-text">在自己国家的荣誉</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#扩展阅读"><span class="nav-text">扩展阅读</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识背景"><span class="nav-text">知识背景</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#格林函数的格林"><span class="nav-text">格林函数的格林</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#早期生活和教育"><span class="nav-text">早期生活和教育</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#格林在-1828-年的论文"><span class="nav-text">格林在 1828 年的论文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#格林的论文的二次发掘"><span class="nav-text">格林的论文的二次发掘</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#格林对科学的贡献"><span class="nav-text">格林对科学的贡献</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#格林定理和格林函数"><span class="nav-text">格林定理和格林函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#散射理论中的格林函数"><span class="nav-text">散射理论中的格林函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#之后的发展"><span class="nav-text">之后的发展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在自己国家的荣誉"><span class="nav-text">在自己国家的荣誉</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Box1"><span class="nav-text">Box1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Box2"><span class="nav-text">Box2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#扩展阅读"><span class="nav-text">扩展阅读</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识背景"><span class="nav-text">知识背景</span></a></li></ol></div>
             
 
           </div>
