@@ -110,22 +110,24 @@
 
 
 
-  <meta name="keywords" content="问题,微分方程">
+  <meta name="keywords" content="奇技淫巧">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于微分方程的解的问题">
-<meta property="og:url" content="https://zqw.ink/2021/01/11/Prob_ODE_Solution/index.html">
+<meta property="og:title" content="积分阶数的分析技巧">
+<meta property="og:url" content="https://zqw.ink/2021/01/13/order_analysis/index.html">
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-01-11T02:41:58.043Z">
+<meta property="og:image" content="https://zqw.ink/2021/01/13/order_analysis/fig.png">
+<meta property="og:updated_time" content="2021-01-13T07:54:57.998Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于微分方程的解的问题">
+<meta name="twitter:title" content="积分阶数的分析技巧">
+<meta name="twitter:image" content="https://zqw.ink/2021/01/13/order_analysis/fig.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zqw.ink/2021/01/11/Prob_ODE_Solution/"/>
+  <link rel="canonical" href="https://zqw.ink/2021/01/13/order_analysis/"/>
 
 
 
@@ -135,7 +137,7 @@
   };
 </script>
 
-  <title>关于微分方程的解的问题 | 从冰上的水</title>
+  <title>积分阶数的分析技巧 | 从冰上的水</title>
   
 
 
@@ -315,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/01/11/Prob_ODE_Solution/">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/01/13/order_analysis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZQW">
@@ -332,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">关于微分方程的解的问题
+          <h1 class="post-title" itemprop="name headline">积分阶数的分析技巧
               
             
           </h1>
@@ -357,7 +359,7 @@
                 
               
 
-              <time title="创建时间：2021-01-11 00:00:00" itemprop="dateCreated datePublished" datetime="2021-01-11T00:00:00+08:00">2021-01-11</time>
+              <time title="创建时间：2021-01-13 00:00:00" itemprop="dateCreated datePublished" datetime="2021-01-13T00:00:00+08:00">2021-01-13</time>
             
 
             
@@ -390,8 +392,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/01/11/Prob_ODE_Solution/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/01/11/Prob_ODE_Solution/" itemprop="commentCount"></span>
+                <a href="/2021/01/13/order_analysis/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/01/13/order_analysis/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -423,21 +425,88 @@
 <!-- toc -->
 <a id="more"></a>
 
+<div id="outline-container-org3549cbd" class="outline-2">
+<h2 id="org3549cbd">&#x95EE;&#x9898;</h2>
+<div class="outline-text-2" id="text-org3549cbd">
 <p>
-&#x5C06;&#x5FAE;&#x5206;&#x65B9;&#x7A0B; 
+&#x5DF2;&#x77E5;&#x79EF;&#x5206; 
 </p>
 \begin{align}
-  \mathcal{L} \psi(x) = k^2 \psi(x)
+  I(\kappa) = \int_{r_c}^{\infty} r^2 F(\kappa r) \mathrm{d}r
 \end{align}
 <p>
-&#x7684;&#x901A;&#x89E3; \(\phi(k, x)\) , &#x53D6; \(k\to 0\) &#x65F6;&#x7684;&#x6781;&#x9650;, &#x80FD;&#x5426;&#x5F97;
+&#x5176;&#x4E2D; \(F(\kappa r)\) &#x662F;&#x4E00;&#x4E2A;&#x65E0;&#x91CF;&#x7EB2;&#x7684;&#x51FD;&#x6570;, \(r_c\) &#x662F;&#x5E38;&#x6570;. &#x95EE; \(I(\kappa)\) &#x5728; \(\kappa \to 0\) &#x65F6;&#x7684;&#x884C;
+&#x4E3A;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaa5022b" class="outline-2">
+<h2 id="orgaa5022b">&#x65B9;&#x6CD5;</h2>
+<div class="outline-text-2" id="text-orgaa5022b">
+<p>
+&#x4EE4; \(x = \kappa r\) , &#x5219; 
 </p>
 \begin{align}
-  \mathcal{L} \psi(x) = \psi(x)
+  I = \frac{1}{\kappa^3}\int_{\kappa r_c} ^{\infty} x^2 F(x) \mathrm{d}x 
+   \sim \frac{1}{\kappa^3} \int_0^{\infty} x^2 F(x) \mathrm{d}x 
+   = \frac{\sharp}{\kappa^3} \quad \mathrm{as} \quad \kappa \to 0
 \end{align}
 <p>
-&#x7684;&#x5168;&#x90E8;&#x89E3;?
+&#x5373; \(I(\kappa)\) &#x5728; \(\kappa \to 0\) &#x65F6;&#x4EE5; \(1/\kappa^3\) &#x7684;&#x901F;&#x5EA6;&#x53D1;&#x6563;.
 </p>
+</div>
+</div>
+
+<div id="outline-container-org7d12aad" class="outline-2">
+<h2 id="org7d12aad">&#x8BC4;&#x8FF0;</h2>
+<div class="outline-text-2" id="text-org7d12aad">
+<p>
+&#x6BD4;&#x8F83;&#x76F4;&#x63A5;&#x7684;&#x601D;&#x8DEF;, &#x662F;&#x76F4;&#x63A5;&#x628A; \(F(\kappa r)\) &#x5728; \(\kappa = 0\) &#x5904;&#x5C55;&#x5F00;, &#x518D;&#x628A; \(r\) &#x79EF;&#x6389;. &#x4F46;&#x662F; \(F\)
+&#x5F62;&#x5F0F;&#x5982;&#x679C;&#x672A;&#x77E5;&#x5C31;&#x884C;&#x4E0D;&#x901A;&#x4E86;. 
+</p>
+
+<p>
+&#x6B64;&#x6CD5;&#x5F53;&#x7136;&#x8981;&#x6C42; \(\frac{1}{\kappa^3} \int_0^{\infty} x^2 F(x) \mathrm{d}x\) &#x6536;&#x655B;&#x4E8E;&#x4E00;&#x4E2A;&#x5E38;&#x6570;, &#x4E5F;&#x8981;
+&#x6C42;&#x79EF;&#x5206;&#x9650;&#x5728;&#x505A;&#x6362;&#x5143;&#x540E;&#x4E5F;&#x8D8B;&#x4E8E;&#x4E00;&#x4E2A;&#x5E38;&#x6570;( \(\kappa r_c \to 0\) as \(\kappa\to 0\) )
+</p>
+</div>
+</div>
+
+<div id="outline-container-org97637f9" class="outline-2">
+<h2 id="org97637f9">&#x6570;&#x503C;&#x9A8C;&#x8BC1;</h2>
+<div class="outline-text-2" id="text-org97637f9">
+<p>
+&#x5BF9;&#x4E8E; 
+</p>
+\begin{align}
+  I(\kappa) = \int_{ - \infty}^{ + \infty} r^{2} e^{ - (\kappa r - 5)^2} \mathrm{d}r
+\end{align}
+<p>
+&#x7528; sage &#x9A8C;&#x8BC1; \(I(\kappa) \sim \sharp/\kappa^3\) , &#x5176;&#x4E2D; \(\sharp = \int_{ - \infty}^{ + \infty} r^{2} e^{ - (r - 5)^2}
+\mathrm{d}r\) &#x662F;&#x4E00;&#x4E2A;&#x5E38;&#x6570;:
+</p>
+
+<p>
+<img src="/2021/01/13/order_analysis/fig.png">
+code: <a href="plot.ipynb">plot.ipynb</a> (&#x7B2C;&#x4E00;&#x6B21;&#x7528; Sage, &#x6709;&#x4E9B;&#x51FD;
+&#x6570;&#x4E0D;&#x77E5;&#x9053;&#x600E;&#x4E48;&#x5B9E;&#x73B0;, &#x53EA;&#x80FD;&#x548C; numpy, pyplot &#x6DF7;&#x7740;&#x7528;&#x4E86; ^_^%)
+</p>
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># sage file</span></span><br><span class="line"><span class="comment"># sage file</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">x = SR.var(<span class="string">&apos;x&apos;</span>)</span><br><span class="line">r = SR.var(<span class="string">&apos;r&apos;</span>)</span><br><span class="line">&#x3BA; = SR.var(<span class="string">&apos;&#x3BA;&apos;</span>)</span><br><span class="line">F = exp(-(x - <span class="number">5</span>)**<span class="number">2</span>)</span><br><span class="line">I(&#x3BA;) = integrate(r**<span class="number">2</span> * F(&#x3BA;*r), r, -infinity, infinity)</span><br><span class="line"></span><br><span class="line">n = <span class="number">5</span></span><br><span class="line">yy = []</span><br><span class="line">xx = np.linspace(<span class="number">1e-3</span>, <span class="number">3e-3</span>, n)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    yy.append(I(xx[i]))</span><br><span class="line"></span><br><span class="line">k = integrate(r**<span class="number">2</span> * F(r), r, -infinity, infinity) <span class="comment"># analytical slope</span></span><br><span class="line"></span><br><span class="line">plt.plot(log(xx), -<span class="number">3</span>*log(xx) + log(k), label=<span class="string">&apos;analytical&apos;</span>)</span><br><span class="line">plt.plot(np.log(xx), np.log(yy), <span class="string">&apos;o&apos;</span>, label=<span class="string">&apos;numerical&apos;</span>)</span><br><span class="line">plt.xlabel(<span class="string">r&apos;$\log(\kappa)$&apos;</span>)</span><br><span class="line">plt.ylabel(<span class="string">r&apos;$\log(I)$&apos;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.savefig(<span class="string">&apos;fig.png&apos;</span>)</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org6dad65d" class="outline-2">
+<h2 id="org6dad65d">&#x81F4;&#x8C22;</h2>
+<div class="outline-text-2" id="text-org6dad65d">
+<p>
+Qi
+</p>
+</div>
+</div>
 </div>
 
       
@@ -459,9 +528,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/问题/" rel="tag"># 问题</a>
-          
-            <a href="/tags/微分方程/" rel="tag"># 微分方程</a>
+            <a href="/tags/奇技淫巧/" rel="tag"># 奇技淫巧</a>
           
         </div>
       
@@ -474,8 +541,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/12/24/GeorgeGreen/" rel="next" title="格林函数的格林(翻译)The Green of Green Functions">
-                <i class="fa fa-chevron-left"></i> 格林函数的格林(翻译)The Green of Green Functions
+              <a href="/2021/01/11/Prob_ODE_Solution/" rel="next" title="关于微分方程的解的问题">
+                <i class="fa fa-chevron-left"></i> 关于微分方程的解的问题
               </a>
             
           </div>
@@ -483,10 +550,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/01/13/order_analysis/" rel="prev" title="积分阶数的分析技巧">
-                积分阶数的分析技巧 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -534,8 +597,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -577,6 +649,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org3549cbd"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgaa5022b"><span class="nav-text">方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org7d12aad"><span class="nav-text">评述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org97637f9"><span class="nav-text">数值验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6dad65d"><span class="nav-text">致谢</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
