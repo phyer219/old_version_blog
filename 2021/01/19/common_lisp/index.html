@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="emacs,lisp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="欢迎来到 Emacs 主义至上教室(Common lisp note -_-)">
+<meta property="og:url" content="https://zqw.ink/2021/01/19/common_lisp/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-01-20T13:00:15.274Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="欢迎来到 Emacs 主义至上教室(Common lisp note -_-)">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2021/01/19/common_lisp/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>欢迎来到 Emacs 主义至上教室(Common lisp note -_-) | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/01/19/common_lisp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">欢迎来到 Emacs 主义至上教室(Common lisp note -_-)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-01-19 00:00:00" itemprop="dateCreated datePublished" datetime="2021-01-19T00:00:00+08:00">2021-01-19</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件使用/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/01/19/common_lisp/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/01/19/common_lisp/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-org0c94483" class="outline-2">
+<h2 id="org0c94483">Intro</h2>
+<div class="outline-text-2" id="text-org0c94483">
+<div class="org-src-container">
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo</span><br><span class="line">  I I I I I I I      <span class="number">8</span>     <span class="number">8</span>   <span class="number">8</span>           <span class="number">8</span>     <span class="number">8</span>     o  <span class="number">8</span>    <span class="number">8</span></span><br><span class="line">  I  \ `+&apos; /  I      8         8           8     8        8    8</span><br><span class="line">   \  `-+-&apos;  /       8         8           8      ooooo   8oooo</span><br><span class="line">    `-__|__-&apos;        8         8           8           8  8</span><br><span class="line">	|            8     o   8           8     o     8  8</span><br><span class="line">  ------+------       ooooo    <span class="number">8</span>oooooo  ooo8ooo   ooooo   <span class="number">8</span></span><br><span class="line"></span><br><span class="line">Welcome to GNU CLISP 2.49.93+ (2018-02-18) &lt;http://clisp.org/&gt;</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x4EA4;&#x4E92;&#x5F0F;&#x7684;(&#x7C7B;&#x4F3C; ipython), &#x5728; terminal &#x4E2D;&#x8F93;&#x5165; <code>ecl</code> (Embeddable Common Lisp) . &#x6CA1;&#x6709;
+&#x7684;&#x8BDD;&#x5219;&#x9700;&#x8981;&#x5B89;&#x88C5;. &#x4E5F;&#x53EF;&#x4EE5;&#x7528; <code>clisp</code>
+</p>
+
+<p>
+&#x6B64;&#x4E3A;&#x5FEB;&#x901F;&#x5165;&#x95E8;&#x7B14;&#x8BB0;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2a91f62" class="outline-2">
+<h2 id="org2a91f62">Syntax</h2>
+<div class="outline-text-2" id="text-org2a91f62">
+</div>
+<div id="outline-container-org5a07e75" class="outline-3">
+<h3 id="org5a07e75">Form</h3>
+<div class="outline-text-3" id="text-org5a07e75">
+<p>
+lisp &#x7684;&#x8BED;&#x6CD5;&#x6BD4;&#x8F83;&#x7279;&#x522B;, &#x8868;&#x8FBE;&#x5F0F;&#x7528;&#x62EC;&#x53F7;&#x62EC;&#x8D77;&#x6765;, &#x62EC;&#x53F7;&#x4E2D;&#x7B2C;&#x4E00;&#x90E8;&#x5206;&#x662F;&#x51FD;&#x6570;, &#x5269;&#x4F59;&#x90E8;&#x5206;&#x662F;&#x51FD;&#x6570;&#x7684;
+&#x53C2;&#x6570;. &#x5F53;&#x7136;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x662F;&#x4E00;&#x4E2A; data. &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span></span><br><span class="line">&gt; (<span class="name">+</span> <span class="number">2</span> <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">5</span></span><br><span class="line">&gt; (<span class="name">+</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">9</span></span><br><span class="line">&gt; (<span class="name">+</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">0</span></span><br><span class="line">&gt; (<span class="name">/</span> (<span class="name">-</span> <span class="number">7</span> <span class="number">1</span>) (<span class="name">-</span> <span class="number">4</span> <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3d8aa0a" class="outline-3">
+<h3 id="org3d8aa0a">Evaluation</h3>
+<div class="outline-text-3" id="text-org3d8aa0a">
+<p>
+lisp &#x9ED8;&#x8BA4;&#x5BF9; <code>(+ 1 1)</code> &#x662F;&#x8981;&#x6C42;&#x503C;&#x7684;. &#x5982;&#x679C;&#x8981;&#x907F;&#x514D;&#x6C42;&#x503C;, &#x53EF;&#x4EE5;&#x7528; <code>quote</code> .
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">quote</span> (+ <span class="number">3</span> <span class="number">5</span>))</span><br><span class="line"></span><br><span class="line">(<span class="name">+</span> <span class="number">3</span> <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+</div>
+<p>
+<code>&apos;</code> &#x4E3A; <code>quote</code> &#x7684;&#x7B80;&#x5199;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; &apos;(+ <span class="number">3</span> <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">(<span class="name">+</span> <span class="number">3</span> <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org95b15b7" class="outline-3">
+<h3 id="org95b15b7">Data</h3>
+<div class="outline-text-3" id="text-org95b15b7">
+</div>
+<div id="outline-container-orgfa004d7" class="outline-4">
+<h4 id="orgfa004d7">integer, string</h4>
+<div class="outline-text-4" id="text-orgfa004d7">
+<p>
+&#x5728;&#x5176;&#x5B83;&#x8BED;&#x8A00;&#x4E2D;&#x5E38;&#x89C1;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org76ccaf1" class="outline-4">
+<h4 id="org76ccaf1">symbol</h4>
+<div class="outline-text-4" id="text-org76ccaf1">
+<p>
+&#x65E0;&#x8BBA;&#x600E;&#x8F93;&#x5165;, &#x90FD;&#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#x6210;&#x5927;&#x5199;. symbol &#x4E0D;&#x5BF9;&#x81EA;&#x8EAB;&#x6C42;&#x503C;, &#x4E00;&#x822C;&#x52A0; <code>&apos;</code> &#x5F15;&#x7528;
+</p>
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; &apos;Good</span><br><span class="line"></span><br><span class="line">GOOD</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfde6379" class="outline-4">
+<h4 id="orgfde6379">list</h4>
+<div class="outline-text-4" id="text-orgfde6379">
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">list</span> &apos;hello (<span class="name">+</span> <span class="number">3</span> <span class="number">6</span>) <span class="string">&quot;good&quot;</span>)</span><br><span class="line"></span><br><span class="line">(<span class="name">HELLO</span> <span class="number">9</span> <span class="string">&quot;good&quot;</span>)</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+<code>list</code> &#x51FD;&#x6570;&#x6765;&#x521B;&#x5EFA;&#x5217;&#x8868;. build lists
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">list</span> &apos;(+ <span class="number">1</span> <span class="number">1</span>) (<span class="name">+</span> <span class="number">1</span> <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">((<span class="name">+</span> <span class="number">1</span> <span class="number">1</span>) <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x7A7A;&#x5217;&#x8868;&#x6709;&#x4E24;&#x79CD;&#x8868;&#x793A;&#x65B9;&#x5F0F;
+</p>
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; ()</span><br><span class="line"></span><br><span class="line">NIL</span><br><span class="line">&gt; <span class="literal">nil</span></span><br><span class="line"></span><br><span class="line">NIL </span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4c99b55" class="outline-3">
+<h3 id="org4c99b55">List Operations</h3>
+<div class="outline-text-3" id="text-org4c99b55">
+<p>
+<code>cons</code> build lists
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">cons</span> &apos;a &apos;(b c d))</span><br><span class="line"></span><br><span class="line">(<span class="name">A</span> B C D)</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x4E0A;&#x8FF0;&#x4F8B;&#x5B50;&#x7B2C;&#x4E8C;&#x4E2A;&#x5B9E;&#x53C2;&#x662F;&#x4E00;&#x4E2A; list . 
+</p>
+
+<p>
+list &#x662F;&#x5C06;&#x51E0;&#x4E2A;&#x5143;&#x7D20;&#x52A0;&#x5230; <code>nil</code> &#x7A7A;&#x8868;&#x7684;&#x5FEB;&#x6377;&#x65B9;&#x5F0F;, &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">cons</span> &apos;a (<span class="name">cons</span> &apos;b <span class="literal">nil</span>))</span><br><span class="line"></span><br><span class="line">(<span class="name">A</span> B)</span><br><span class="line">&gt; (<span class="name">list</span> &apos;a &apos;b)</span><br><span class="line"></span><br><span class="line">(<span class="name">A</span> B)</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+<code>car</code> &#x8FD4;&#x56DE; list &#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;, <code>cdr</code> &#x8FD4;&#x56DE;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4E4B;&#x540E;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;, &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">car</span> &apos;(a b c))</span><br><span class="line"></span><br><span class="line">A</span><br><span class="line">&gt; (<span class="name">cdr</span> &apos;(a b c))</span><br><span class="line"></span><br><span class="line">(<span class="name">B</span> C)</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x53D6;&#x7B2C;&#x4E09;&#x4E2A;&#x5143;&#x7D20;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;, &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">car</span> (<span class="name">cdr</span> (<span class="name">cdr</span> &apos;(a b c d))))</span><br><span class="line"></span><br><span class="line">C</span><br><span class="line">&gt; (<span class="name">third</span> &apos;(a b c d))</span><br><span class="line"></span><br><span class="line">C</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org29f2942" class="outline-3">
+<h3 id="org29f2942">Truth</h3>
+<div class="outline-text-3" id="text-org29f2942">
+</div>
+<div id="outline-container-orgf3e3720" class="outline-4">
+<h4 id="orgf3e3720">True and False</h4>
+<div class="outline-text-4" id="text-orgf3e3720">
+<p>
+symbol <code>t</code> &#x8868;&#x793A;&#x903B;&#x8F91;&#x771F;&#x7684;&#x9ED8;&#x8BA4;&#x503C;. &#x5B83;&#x662F;&#x4E00;&#x4E2A; symbol, &#x56E0;&#x6B64;&#x5B83;&#x4F1A;&#x81EA;&#x8EAB;&#x6C42;&#x503C;. &#x903B;&#x8F91;&#x5047;&#x7531; <code>nil</code>
+&#x6765;&#x8868;&#x793A;.
+</p>
+
+<p>
+The function <code>listp</code> returns true if its argument is a list:
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">listp</span> &apos;(a b c))</span><br><span class="line"></span><br><span class="line">T</span><br><span class="line">&gt; (<span class="name">listp</span> <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">NIL</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x50CF; <code>listp</code> &#x8FD9;&#x6837;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E3A;&#x771F;&#x6216;&#x5047;&#x7684;&#x51FD;&#x6570;, &#x79F0;&#x4E3A; predicate, &#x8FD9;&#x7C7B;&#x51FD;&#x6570;&#x901A;&#x5E38;&#x4EE5; p &#x7ED3;&#x5C3E;.
+</p>
+
+<p>
+The function <code>null</code> returns true of the empty list. The function <code>not</code> returns
+true if its argument is false. &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">null</span> <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line">T</span><br><span class="line">&gt; (<span class="name">not</span> <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line">T</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x4E0A;&#x8FF0;&#x4F8B;&#x5B50;&#x4E2D;, &#x7B2C;&#x4E00;&#x4E2A; <code>nil</code> &#x8868;&#x793A; empty list, &#x56E0;&#x6B64;&#x8FD4;&#x56DE; True. &#x7B2C;&#x4E8C;&#x4E2A; <code>nil</code> &#x8868;&#x793A;&#x903B;&#x8F91;&#x5047;,
+&#x56E0;&#x6B64;&#x8FD4;&#x56DE; True. &#x4F46;&#x7531;&#x4E8E; <code>nil</code> &#x65E2;&#x53EF;&#x8868;&#x793A; empty list, &#x4E5F;&#x53EF;&#x8868;&#x793A;&#x903B;&#x8F91;&#x5047;, &#x56E0;&#x6B64;&#x4E0A;&#x8FF0;&#x4E24;&#x4E2A;&#x8868;
+&#x8FBE;&#x5F0F;&#x5728;&#x529F;&#x80FD;&#x4E0A;&#x7B49;&#x4EF7;&#x7684;. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaf761b4" class="outline-4">
+<h4 id="orgaf761b4">if</h4>
+<div class="outline-text-4" id="text-orgaf761b4">
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">if</span> (<span class="name">listp</span> &apos;(a b c))</span><br><span class="line">      (<span class="name">+</span> <span class="number">1</span> <span class="number">2</span>)</span><br><span class="line">      (<span class="name">+</span> <span class="number">5</span> <span class="number">6</span>))</span><br><span class="line"></span><br><span class="line"><span class="number">3</span></span><br><span class="line">&gt; (<span class="name">if</span> (<span class="name">listp</span> <span class="number">2</span>)</span><br><span class="line">      (<span class="name">+</span> <span class="number">1</span> <span class="number">2</span>)</span><br><span class="line">      (<span class="name">+</span> <span class="number">5</span> <span class="number">6</span>))</span><br><span class="line"></span><br><span class="line"><span class="number">11</span></span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+if &#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x91CF;&#x662F; test &#x8868;&#x8FBE;&#x5F0F;, &#x5373;&#x8981;&#x5224;&#x65AD;&#x771F;&#x5047;&#x7684;&#x5BF9;&#x8C61;. &#x7B2C;&#x4E8C;&#x4E2A; then &#x8868;&#x8FBE;&#x5F0F;. &#x7B2C;&#x4E09;
+&#x4E2A;&#x662F; else &#x8868;&#x8FBE;&#x5F0F;, &#x662F;&#x53EF;&#x9009;&#x53C2;&#x6570;, &#x9ED8;&#x8BA4;&#x662F; <code>nil</code> . &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">if</span> (<span class="name">listp</span> <span class="number">27</span>)</span><br><span class="line">      (<span class="name">+</span> <span class="number">1</span> <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">NIL</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x9664;&#x4E86; <code>nil</code> &#x4EE5;&#x5916;&#x7684;&#x6240;&#x6709;&#x4E1C;&#x897F;, &#x90FD;&#x89C6;&#x4E3A; True, &#x5982;
+</p>
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">if</span> <span class="number">27</span> <span class="number">1</span> <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org504aa5a" class="outline-4">
+<h4 id="org504aa5a">AND and OR</h4>
+<div class="outline-text-4" id="text-org504aa5a">
+<p>
+&#x903B;&#x8F91;&#x4E0E;, &#x6216;. <code>and</code> , &#x6C42;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x4E3A; False &#x540E;, &#x5C31;&#x4E0D;&#x5BF9;&#x540E;&#x9762;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x6C42;&#x503C;&#x4E86;, &#x76F4;&#x63A5;&#x8FD4;&#x56DE;
+<code>nil</code> &#x5982;&#x679C;&#x6240;&#x6709;&#x503C;&#x4E3A;&#x771F;, &#x90A3;&#x4E48;&#x5B83;&#x5C31;&#x4F1A;&#x8FD4;&#x56DE;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x53C2;&#x6570;(&#x800C;&#x4E0D;&#x662F;&#x8FD4;&#x56DE; True). &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5B83;&#x6BD4;
+&#x8F83;&#x61D2;, &#x77E5;&#x9053;&#x7ED3;&#x679C;&#x4E86;, &#x5C31;&#x4E0D;&#x7EE7;&#x7EED;&#x6C42;&#x503C;&#x4E86;. 
+. or &#x8FD0;&#x7B97;&#x65F6;, &#x6709;&#x4E00;&#x4E2A; False &#x540E;, &#x5C31;&#x4E0D;&#x5BF9;&#x540E;&#x9762;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x6C42;&#x503C;&#x4E86;.
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">and</span> <span class="literal">t</span> (<span class="name">+</span> <span class="number">1</span> <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeb75a90" class="outline-3">
+<h3 id="orgeb75a90">Functions</h3>
+<div class="outline-text-3" id="text-orgeb75a90">
+<p>
+&#x5B9A;&#x4E49; function, &#x7B2C;&#x4E00;&#x4E2A;&#x5B9E;&#x53C2;&#x662F;&#x51FD;&#x6570;&#x540D;&#x5B57;, &#x7B2C;&#x4E8C;&#x4E2A;&#x662F;&#x7528;&#x5217;&#x8868;&#x8868;&#x793A;&#x7684;&#x53C2;&#x6570;, &#x7B2C;&#x4E09;&#x4E2A;&#x662F;&#x4E00;&#x4E2A;&#x6216;&#x591A;
+&#x4E2A;&#x7EC4;&#x6210;&#x51FD;&#x6570;&#x4F53;&#x7684;&#x8868;&#x8FBE;&#x5F0F;. &#x5982;
+</p>
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">and</span> <span class="literal">t</span> (<span class="name">+</span> <span class="number">1</span> <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="number">3</span></span><br><span class="line">&gt; (<span class="name">defun</span> our-third (<span class="name">x</span>)</span><br><span class="line">   (<span class="name">car</span> (<span class="name">cdr</span> (<span class="name">cdr</span> x))))</span><br><span class="line"></span><br><span class="line">OUR-THIRD</span><br><span class="line">&gt; (<span class="name">our-third</span> &apos;(a b c d e f))</span><br><span class="line"></span><br><span class="line">C</span><br></pre></td></tr></table></figure>
+</div>
+<p>
+&#x53C8;&#x5982;
+</p>
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">defun</span> sum-greater (<span class="name">x</span> y z)</span><br><span class="line">   (<span class="name">&gt;</span> (<span class="name">+</span> x y) z))</span><br><span class="line"></span><br><span class="line">SUM-GREATER</span><br><span class="line">&gt; (<span class="name">sum-greater</span> <span class="number">1</span> <span class="number">4</span> <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">T</span><br><span class="line">&gt; (<span class="name">sum-greater</span> <span class="number">2</span> <span class="number">5</span> <span class="number">9</span>)</span><br><span class="line"></span><br><span class="line">NIL</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org787b2ce" class="outline-3">
+<h3 id="org787b2ce">Recursion</h3>
+<div class="outline-text-3" id="text-org787b2ce">
+<p>
+&#x4E0B;&#x9762;&#x7684;&#x51FD;&#x6570;&#x662F;&#x9012;&#x5F52;&#x7684;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">defun</span> our-member (<span class="name">obj</span> lst)</span><br><span class="line">   (<span class="name">if</span> (<span class="name">null</span> lst)</span><br><span class="line">       <span class="literal">nil</span></span><br><span class="line">   (<span class="name">if</span> (<span class="name">eql</span> (<span class="name">car</span> lst) obj)</span><br><span class="line">       lst</span><br><span class="line">       (<span class="name">our-member</span> obj (<span class="name">cdr</span> lst)))))</span><br><span class="line"></span><br><span class="line">OUR-MEMBER</span><br><span class="line">&gt; (<span class="name">our-member</span> &apos;b &apos;(a b c))</span><br><span class="line"></span><br><span class="line">(<span class="name">B</span> C)</span><br><span class="line">&gt; (<span class="name">our-member</span> &apos;z &apos;(a b c))</span><br><span class="line"></span><br><span class="line">NIL</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x51FD;&#x6570; <code>our-member</code> &#x7528;&#x6765;&#x5224;&#x65AD; <code>obj</code> &#x662F;&#x5426;&#x662F;&#x5217;&#x8868; <code>lst</code> &#x4E2D;&#x7684;&#x6210;&#x5458;.
+</p>
+
+<p>
+&#x9996;&#x5148;&#x5224;&#x65AD; <code>lst</code> &#x662F;&#x5426;&#x4E3A;&#x7A7A;, &#x5982;&#x679C;&#x4E3A;&#x7A7A;, &#x90A3;&#x5F53;&#x7136;&#x5C31;&#x8FD4;&#x56DE; <code>nil</code> . &#x5982;&#x679C;&#x4E0D;&#x7A7A;, &#x90A3;&#x4E48;&#x5C31;&#x7528;&#x51FD;&#x6570;
+<code>eql</code> &#x5224;&#x65AD; <code>lst</code> &#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x6210;&#x5458;&#x662F;&#x5426;&#x4E0E; <code>obj</code> &#x76F8;&#x540C;, &#x76F8;&#x540C;&#x7684;&#x8BDD;&#x8F93;&#x51FA;&#x5F53;&#x524D;&#x7684; <code>lst</code> , &#x5982;&#x679C;
+&#x4E0D;&#x540C;, &#x53EA;&#x6709;&#x5F53; <code>obj</code> &#x662F;&#x5176;&#x5B83;&#x5217;&#x8868;&#x6210;&#x5458;&#x65F6;, &#x5B83;&#x624D;&#x53EF;&#x80FD;&#x662F; <code>lst</code> &#x7684;&#x6210;&#x5458;, &#x4E8E;&#x662F;&#x5C31;&#x5C31;&#x9012;&#x5F52;&#x8C03;&#x7528;,
+&#x5E76;&#x628A;&#x9664;&#x6389;&#x7B2C;&#x4E00;&#x4E2A;&#x6210;&#x5458;&#x540E;&#x7684; <code>lst</code> &#x4F20;&#x9012;&#x7ED9;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x7684;&#x81EA;&#x5DF1;. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcd14c3a" class="outline-3">
+<h3 id="orgcd14c3a">Input and Output</h3>
+<div class="outline-text-3" id="text-orgcd14c3a">
+</div>
+<div id="outline-container-org9df81e2" class="outline-4">
+<h4 id="org9df81e2">output</h4>
+<div class="outline-text-4" id="text-org9df81e2">
+<p>
+common lisp &#x6700;&#x666E;&#x904D;&#x7684;&#x8F93;&#x51FA;&#x51FD;&#x6570;&#x662F; <code>format</code> . &#x7B2C;&#x4E00;&#x4E2A;&#x5B9E;&#x53C2;&#x662F;&#x8F93;&#x51FA;&#x5230;&#x54EA;&#x91CC;, <code>t</code> &#x8868;&#x793A;&#x9ED8;&#x8BA4;&#x7684;
+&#x7684;&#x5730;&#x65B9;. &#x7B2C;&#x4E8C;&#x4E2A;&#x5B9E;&#x53C2;&#x662F;&#x5B57;&#x7B26;&#x6A21;&#x677F;, &#x5269;&#x4E0B;&#x7684;&#x5B9E;&#x53C2;&#x662F;&#x8981;&#x63D2;&#x5165;&#x5230;&#x6A21;&#x677F;&#x7684;&#x5BF9;&#x8C61;. &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">format</span> <span class="literal">t</span> <span class="string">&quot;~A plus ~A equals ~A. ~%&quot;</span> <span class="number">2</span> <span class="number">3</span> (<span class="name">+</span> <span class="number">2</span> <span class="number">3</span>))</span><br><span class="line">2 plus 3 equals 5. </span><br><span class="line">NIL</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+<code>~A</code> &#x8868;&#x793A;&#x88AB;&#x586B;&#x5165;&#x7684;&#x4F4D;&#x7F6E;, <code>~%</code> &#x8868;&#x793A;&#x6362;&#x884C;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0223d23" class="outline-4">
+<h4 id="org0223d23">input</h4>
+<div class="outline-text-4" id="text-org0223d23">
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">defun</span> askem (<span class="name">string</span>)</span><br><span class="line">   (<span class="name">format</span> <span class="literal">t</span> <span class="string">&quot;~A&quot;</span> string)</span><br><span class="line">   (<span class="name">read</span>))</span><br><span class="line"></span><br><span class="line">ASKEM</span><br><span class="line">&gt; (<span class="name">askem</span> <span class="string">&quot;How old are you?&quot;</span>)</span><br><span class="line">How old are you?15</span><br><span class="line"></span><br><span class="line"><span class="number">15</span></span><br></pre></td></tr></table></figure>
+</div>
+<p>
+&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x9996;&#x5148;&#x8F93;&#x51FA;&#x53C2;&#x91CF; <code>string</code> , &#x8FD4;&#x56DE;&#x901A;&#x8FC7; <code>read</code> &#x8F93;&#x5165;&#x5F97;&#x5230;&#x7684;&#x503C;. &#x5F53;&#x51FD;&#x6570; <code>read</code> &#x6CA1;&#x6709;
+&#x5B9E;&#x53C2;&#x65F6;, &#x5B83;&#x4F1A;&#x8BFB;&#x53D6;&#x9ED8;&#x8BA4;&#x7684;&#x4F4D;&#x7F6E;. &#x51FD;&#x6570; <code>askem</code> &#x6709;&#x4E24;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;, &#x5B83;&#x4F1A;&#x8FD4;&#x56DE;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x7684;
+&#x503C;. 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb0102c2" class="outline-3">
+<h3 id="orgb0102c2">Variables</h3>
+<div class="outline-text-3" id="text-orgb0102c2">
+</div>
+<div id="outline-container-org8474e3f" class="outline-4">
+<h4 id="org8474e3f">local variable</h4>
+<div class="outline-text-4" id="text-org8474e3f">
+<p>
+<code>let</code> &#x53EF;&#x4EE5;&#x5F15;&#x5165;&#x5C40;&#x90E8;&#x53D8;&#x91CF;, &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">let</span> ((<span class="name">x</span> <span class="number">1</span>) (<span class="name">y</span> <span class="number">2</span>))</span><br><span class="line">     (<span class="name">+</span> x y))</span><br><span class="line"></span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x4E0A;&#x8FF0;&#x4F8B;&#x5B50;&#x5206;&#x522B;&#x628A; <code>1</code> &#x548C; <code>2</code> &#x8D4B;&#x503C;&#x7ED9; <code>x</code> &#x548C; <code>y</code> , &#x8D4B;&#x503C;&#x53EA;&#x5728; <code>let</code> &#x51FD;&#x6570;&#x503C;&#x5185;&#x6709;&#x6548;. &#x4E4B;&#x540E;
+&#x662F;&#x8868;&#x8FBE;&#x5F0F;, &#x6C42;&#x503C;&#x7684;&#x7ED3;&#x679C;&#x4F5C;&#x4E3A; <code>let</code> &#x7684;&#x8FD4;&#x56DE;&#x503C;.
+</p>
+
+<div class="org-src-container">
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;  (<span class="name">defun</span> ask-number ()</span><br><span class="line">   (<span class="name">format</span> <span class="literal">t</span> <span class="string">&quot;Please enter a number. &quot;</span>)</span><br><span class="line">   (<span class="name">let</span> ((<span class="name">val</span> (<span class="name">read</span>)))</span><br><span class="line">     (<span class="name">if</span> (<span class="name">numberp</span> val)</span><br><span class="line">	 val</span><br><span class="line">	  (<span class="name">ask-number</span>))))</span><br><span class="line"></span><br><span class="line">ASK-NUMBER</span><br><span class="line">&gt; (<span class="name">ask-number</span>)</span><br><span class="line">Please enter a number. a</span><br><span class="line">Please enter a number. (ho hum)</span><br><span class="line">Please enter a number. 19</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+<code>numberp</code> &#x662F;&#x4E00;&#x4E2A; predicate, &#x5224;&#x65AD;&#x662F;&#x5426;&#x662F;&#x4E00;&#x4E2A;&#x6570;. &#x8FD9;&#x4E5F;&#x662F;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x7684;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org00be108" class="outline-4">
+<h4 id="org00be108">global variable</h4>
+<div class="outline-text-4" id="text-org00be108">
+<p>
+&#x7531; <code>defparameter</code> &#x6765;&#x5B9A;&#x4E49;&#x5168;&#x5C40;&#x53D8;&#x91CF;, &#x7531; <code>defconstant</code> &#x5B9A;&#x4E49;&#x5168;&#x5C40;&#x5E38;&#x91CF;, &#x7531; <code>boundp</code> &#x5224;
+&#x65AD;&#x67D0;&#x4E2A;&#x7B26;&#x53F7;&#x662F;&#x5426;&#x4E3A;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x6216;&#x5E38;&#x91CF;. &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">defparameter</span> *glob* <span class="number">99</span>)</span><br><span class="line"></span><br><span class="line">*GLOB*</span><br><span class="line">&gt; (<span class="name">defconstant</span> limit (<span class="name">+</span> *glob* <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">LIMIT</span><br><span class="line">&gt; (<span class="name">boundp</span> &apos;*glob*)</span><br><span class="line"></span><br><span class="line">T</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org878a6d9" class="outline-3">
+<h3 id="org878a6d9">Assignment</h3>
+<div class="outline-text-3" id="text-org878a6d9">
+<p>
+<code>setf</code> &#x6765;&#x7ED9;&#x53D8;&#x91CF;&#x8D4B;&#x503C;. &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">setf</span> *glob* <span class="number">98</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">98</span></span><br><span class="line">&gt; (<span class="name">let</span> ((<span class="name">n</span> <span class="number">10</span>))</span><br><span class="line">    (<span class="name">setf</span> n <span class="number">2</span>)</span><br><span class="line">    n)</span><br><span class="line"></span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x5982;&#x679C;&#x4E00;&#x4E2A; symbol &#x4E0D;&#x662F;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x7684;&#x540D;&#x5B57;, &#x90A3;&#x4E48; <code>setf</code> &#x628A;&#x8FD9;&#x4E2A; symbol &#x8BBE;&#x7F6E;&#x4E3A;&#x5168;&#x5C40;&#x53D8;&#x91CF;. &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">setf</span> x (<span class="name">list</span> &apos;a &apos;b &apos;c))</span><br><span class="line"></span><br><span class="line">(<span class="name">A</span> B C)</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4; <code>setf</code> &#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x5168;&#x5C40;&#x53D8;&#x91CF;, &#x4E0D;&#x8FC7;&#x8FD8;&#x662F;&#x63A8;&#x8350;&#x7528; <code>defparameter</code> &#x6765;&#x521B;&#x5EFA;, &#x8FD9;
+&#x6837;&#x6BD4;&#x8F83;&#x660E;&#x786E;.
+</p>
+
+<p>
+<code>setf</code> &#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x7528;&#x6CD5;. &#x7B2C;&#x4E00;&#x4E2A;&#x5B9E;&#x53C2;&#x53EF;&#x4EE5;&#x662F;&#x8868;&#x8FBE;&#x5F0F;, &#x8FD9;&#x6837;&#x7B2C;&#x4E8C;&#x4E2A;&#x5B9E;&#x53C2;&#x76F4;&#x63A5;&#x4F20;&#x7ED9;&#x8868;&#x8FBE;&#x5F0F;&#x4E2D;. &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">setf</span> (<span class="name">car</span> x) &apos;n)</span><br><span class="line"></span><br><span class="line">N</span><br><span class="line">&gt; x</span><br><span class="line"></span><br><span class="line">(<span class="name">N</span> B C)</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x8868;&#x8FBE;&#x65B9;&#x5F0F;&#x662F;&#x7B49;&#x4EF7;&#x7684;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">setf</span> a &apos;b</span><br><span class="line">	c &apos;d</span><br><span class="line">	e &apos;f)</span><br><span class="line"></span><br><span class="line">F</span><br><span class="line">&gt; a</span><br><span class="line"></span><br><span class="line">B</span><br><span class="line">&gt; c</span><br><span class="line"></span><br><span class="line">D</span><br><span class="line">&gt; e</span><br><span class="line"></span><br><span class="line">F</span><br></pre></td></tr></table></figure>
+</div>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">setf</span> a &apos;b)</span><br><span class="line"></span><br><span class="line">B</span><br><span class="line">&gt; (<span class="name">setf</span> c &apos;d)</span><br><span class="line"></span><br><span class="line">D</span><br><span class="line">&gt; (<span class="name">setf</span> e &apos;f)</span><br><span class="line"></span><br><span class="line">F</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgacfe86e" class="outline-3">
+<h3 id="orgacfe86e">Functional Programming</h3>
+<div class="outline-text-3" id="text-orgacfe86e">
+<p>
+Lisp &#x7684;&#x4E3B;&#x6D41;&#x8303;&#x5F0F;&#x662F;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;. &#x4E2D;&#x5FC3;&#x601D;&#x60F3;&#x662F;: &#x6267;&#x884C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x662F;&#x5F97;&#x5230;&#x5B83;&#x7684;&#x8FD4;&#x56DE;&#x503C;. &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">setf</span> lst &apos;(c a r a t))</span><br><span class="line"></span><br><span class="line">(<span class="name">C</span> A R A T)</span><br><span class="line">&gt; (<span class="name">remove</span> &apos;a lst)</span><br><span class="line"></span><br><span class="line">(<span class="name">C</span> R T)</span><br><span class="line">&gt; lst</span><br><span class="line"></span><br><span class="line">(<span class="name">C</span> A R A T)</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+<code>remove</code> &#x51FD;&#x6570;&#x662F;&#x79FB;&#x9664;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x6307;&#x5B9A;&#x5143;&#x7D20;. &#x4F46;&#x53EA;&#x662F;&#x8FD4;&#x56DE;&#x79FB;&#x9664;&#x4E4B;&#x540E;&#x7684;&#x7ED3;&#x679C;, &#x539F;&#x6765;&#x7684;&#x5217;&#x8868;&#x8FD8;&#x662F;&#x539F;
+&#x6765;&#x7684;&#x5217;&#x8868;. &#x5982;&#x679C;&#x771F;&#x7684;&#x60F3;&#x8981;&#x79FB;&#x9664;, &#x53EF;&#x4EE5;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">setf</span> lst (<span class="name">remove</span> &apos;a lst))</span><br><span class="line"></span><br><span class="line">(<span class="name">C</span> R T)</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x610F;&#x5473;&#x7740;&#x907F;&#x514D;&#x4F7F;&#x7528;&#x5982; <code>setf</code> &#x4E00;&#x6837;&#x7684;&#x51FD;&#x6570;. &#x5B83;&#x7684;&#x4F18;&#x70B9;&#x4E4B;&#x4E00;&#x662F;&#x5141;&#x8BB8; interactive
+testing. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org276a329" class="outline-3">
+<h3 id="org276a329">Iteration</h3>
+<div class="outline-text-3" id="text-org276a329">
+<p>
+&#x5982;
+</p>
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">defun</span> show-squares (<span class="name">start</span> end)</span><br><span class="line">    (<span class="name">do</span> ((<span class="name">i</span> start (<span class="name">+</span> i <span class="number">1</span>)))</span><br><span class="line">	((<span class="name">&gt;</span> i end) &apos;done)</span><br><span class="line">      (<span class="name">format</span> <span class="literal">t</span> <span class="string">&quot;~A ~A~%&quot;</span> i (<span class="name">*</span> i i)))) </span><br><span class="line"></span><br><span class="line">SHOW-SQUARES</span><br><span class="line">&gt; (<span class="name">show-squares</span> <span class="number">2</span> <span class="number">5</span>)</span><br><span class="line"><span class="number">2</span> <span class="number">4</span></span><br><span class="line"><span class="number">3</span> <span class="number">9</span></span><br><span class="line"><span class="number">4</span> <span class="number">16</span></span><br><span class="line"><span class="number">5</span> <span class="number">25</span></span><br><span class="line">DONE</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+<code>do</code> &#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x662F; <code>(variable initial update)</code> , &#x6807;&#x660E;&#x53D8;&#x91CF; <code>i</code> , &#x521D;&#x503C;, &#x66F4;&#x65B0;&#x89C4;
+&#x5219;. &#x7B2C;&#x4E8C;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x662F;&#x7ED3;&#x675F;&#x7684;&#x6761;&#x4EF6;. &#x5269;&#x4E0B;&#x7684;&#x662F;&#x5FAA;&#x73AF;&#x4F53;.
+</p>
+
+<p>
+&#x4E0A;&#x8FF0;&#x51FD;&#x6570;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x9012;&#x5F52;&#x6765;&#x5199;, &#x4F46;&#x662F;&#x4E0D;&#x592A;&#x81EA;&#x7136;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">defun</span> show-squares (<span class="name">i</span> end)</span><br><span class="line">     (<span class="name">if</span> (<span class="name">&gt;</span> i end)</span><br><span class="line">       &apos;done</span><br><span class="line">       (<span class="name">progn</span></span><br><span class="line">	 (<span class="name">format</span> <span class="literal">t</span> <span class="string">&quot;~A ~A~%&quot;</span> i (<span class="name">*</span> i i))</span><br><span class="line">	 (<span class="name">show-squares</span> (<span class="name">+</span> i <span class="number">1</span>) end))))</span><br><span class="line"></span><br><span class="line">SHOW-SQUARES</span><br><span class="line">&gt; (<span class="name">show-squares</span> <span class="number">2</span> <span class="number">5</span>)</span><br><span class="line"><span class="number">2</span> <span class="number">4</span></span><br><span class="line"><span class="number">3</span> <span class="number">9</span></span><br><span class="line"><span class="number">4</span> <span class="number">16</span></span><br><span class="line"><span class="number">5</span> <span class="number">25</span></span><br><span class="line">DONE</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x65B0;&#x7684;&#x51FD;&#x6570; <code>progn</code> &#x63A5;&#x53D7;&#x4EFB;&#x610F;&#x6570;&#x91CF;&#x7684;&#x8868;&#x8FBE;&#x5F0F;, &#x4F9D;&#x6B21;&#x6C42;&#x503C;, &#x5E76;&#x8FD4;&#x56DE;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x503C;.
+</p>
+
+<p>
+&#x7528; <code>dolist</code> &#x6765;&#x904D;&#x5386;&#x5217;&#x8868;&#x5143;&#x7D20;&#x4F1A;&#x66F4;&#x52A0;&#x7B80;&#x5355;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">defun</span> our-length (<span class="name">lst</span>)</span><br><span class="line">    (<span class="name">let</span> ((<span class="name">len</span> <span class="number">0</span>))</span><br><span class="line">      (<span class="name">dolist</span> (<span class="name">obj</span> lst)</span><br><span class="line">	(<span class="name">setf</span> len (<span class="name">+</span> len <span class="number">1</span>)))</span><br><span class="line">     len))</span><br><span class="line"></span><br><span class="line">OUR-LENGTH</span><br><span class="line">&gt; (<span class="name">our-length</span> (<span class="name">list</span> &apos;a &apos;b &apos;c))</span><br><span class="line"></span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x4E0A;&#x8FF0;&#x4F8B;&#x5B50;&#x7684;&#x9012;&#x5F52;&#x7248;&#x672C;&#x4E3A;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">defun</span> our-length (<span class="name">lst</span>)</span><br><span class="line">    (<span class="name">if</span> (<span class="name">null</span> lst)</span><br><span class="line">	<span class="number">0</span></span><br><span class="line">	(<span class="name">+</span> (<span class="name">our-length</span> (<span class="name">cdr</span> lst)) <span class="number">1</span>)))</span><br><span class="line"></span><br><span class="line">OUR-LENGTH</span><br><span class="line">&gt; (<span class="name">our-length</span> (<span class="name">list</span> &apos;a &apos;b &apos;c &apos;d))</span><br><span class="line"></span><br><span class="line"><span class="number">4</span></span><br><span class="line">&gt; (<span class="name">our-length</span> &apos;nil)</span><br><span class="line"></span><br><span class="line"><span class="number">0</span></span><br><span class="line">&gt; (<span class="name">our-length</span> &apos;(a b c))          </span><br><span class="line"></span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x5B83;&#x66F4;&#x5BB9;&#x6613;&#x7406;&#x89E3;, &#x4F46;&#x7531;&#x4E8E;&#x4E0D;&#x662F; tail-recursive &#x7684;&#x5F62;&#x5F0F;, &#x6548;&#x7387;&#x4E0D;&#x662F;&#x90A3;&#x4E48;&#x9AD8;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd1f5530" class="outline-3">
+<h3 id="orgd1f5530">Functions as Objects</h3>
+<div class="outline-text-3" id="text-orgd1f5530">
+<p>
+<code>function</code> &#x662F;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x64CD;&#x4F5C;&#x7B26;&#x53F7;, &#x5982;&#x679C;&#x628A;&#x51FD;&#x6570;&#x7684;&#x540D;&#x5B57;&#x4F20;&#x7ED9;function, &#x5B83;&#x4F1A;&#x8FD4;&#x56DE;&#x76F8;&#x5173;&#x5173;&#x8054;
+&#x7684;&#x5BF9;&#x8C61;, &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">function</span> +)</span><br><span class="line"></span><br><span class="line">#&lt;compiled-function + <span class="number">0</span>x55e01ee95b10&gt;</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+<code>#&apos;</code> (sharp-quote)&#x4F5C;&#x4E3A; function &#x7684;&#x7F29;&#x5199;, &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; #&apos; +</span><br><span class="line"></span><br><span class="line">#&lt;compiled-function + <span class="number">0</span>x55e01ee95b10&gt;</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+<code>apply</code> &#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x5B9E;&#x53C2;, &#x7B2C;&#x4E8C;&#x4E2A;&#x5217;&#x8868;&#x4F5C;&#x4E3A;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x53C2;. &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">apply</span> #&apos;+ &apos;(<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+<code>funcall</code> &#x505A;&#x76F8;&#x540C;&#x7684;&#x4E8B;&#x60C5;, &#x4F46;&#x4E0D;&#x9700;&#x8981;&#x628A;&#x5B9E;&#x53C2;&#x5305;&#x88C5;&#x6210;&#x5217;&#x8868;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">funcall</span> #&apos;+ <span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+</div>
+</div>
+
+<div id="outline-container-org0876831" class="outline-4">
+<h4 id="org0876831">lambda</h4>
+<div class="outline-text-4" id="text-org0876831">
+<p>
+<code>lambda</code> &#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x7B26;, &#x800C;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x7B26;&#x53F7;. &#x65E9;&#x671F;&#x7531;&#x4E8E;&#x51FD;&#x6570;&#x5728;&#x5185;&#x90E8;&#x662F;&#x7528;&#x5217;&#x8868;&#x8868;&#x793A;&#x7684;, &#x56E0;&#x6B64;
+&#x5C06;&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x6807;&#x8BB0;&#x4E3A; <code>lambda</code> &#x52A0;&#x4EE5;&#x533A;&#x5206;. &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">lambda</span> (<span class="name">x</span>) (<span class="name">+</span> x <span class="number">100</span>))</span><br><span class="line"></span><br><span class="line">#&lt;bytecompiled-function <span class="number">0</span>x55726dfbe0f0&gt;</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+(&#x4E66;&#x4E0A;&#x8BF4;&#x73B0;&#x5728;&#x53EF;&#x4EE5;&#x7701;&#x7565; <code>lambda</code> , &#x4F46;&#x662F;&#x6211;&#x8FD9;&#x91CC;&#x7701;&#x7565;&#x4E86;&#x4F1A;&#x62A5;&#x9519;, &#x6216;&#x8BB8;&#x6211;&#x7684;&#x7248;&#x672C;&#x4E0D;&#x591F;&#x65B0;?)
+</p>
+
+<p>
+<code>lambda</code> &#x8868;&#x8FBE;&#x5F0F;&#x662F;&#x4E00;&#x4E2A;&#x5217;&#x8868;, &#x5305;&#x542B;&#x7B26;&#x53F7; <code>lambda</code> , &#x63A5;&#x7740;&#x662F;&#x5F62;&#x53C2;&#x5217;&#x8868;, &#x4EE5;&#x53CA;&#x7531;&#x96F6;&#x4E2A;&#x6216;&#x591A;&#x4E2A;
+&#x8868;&#x8FBE;&#x5F0F;&#x6240;&#x7EC4;&#x6210;&#x7684;&#x51FD;&#x6570;&#x4F53;. &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">lambda</span> (<span class="name">x</span> y))</span><br><span class="line"></span><br><span class="line">#&lt;bytecompiled-function <span class="number">0</span>x5652ca53c0f0&gt;</span><br><span class="line">&gt; (<span class="name">lambda</span> (<span class="name">x</span> y)</span><br><span class="line">    (<span class="name">+</span> x y))</span><br><span class="line"></span><br><span class="line">#&lt;bytecompiled-function <span class="number">0</span>x5652ca53c050&gt;</span><br><span class="line">&gt; ((<span class="name">lambda</span> (<span class="name">x</span>) (<span class="name">+</span> x <span class="number">100</span>)) <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">101</span></span><br><span class="line">&gt; (<span class="name">funcall</span> #&apos;(lambda (x) (+ x <span class="number">100</span>)) </span><br><span class="line">	  <span class="number">1</span>) </span><br><span class="line"></span><br><span class="line"><span class="number">101</span></span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7bb4779" class="outline-3">
+<h3 id="org7bb4779">Types</h3>
+<div class="outline-text-3" id="text-org7bb4779">
+<p>
+&#x53D8;&#x91CF;&#x6CA1;&#x6709;&#x7C7B;&#x578B;, &#x6570;&#x503C;&#x624D;&#x6709;&#x7C7B;&#x578B;, &#x4E14;&#x53EF;&#x6709;&#x591A;&#x4E2A;&#x7C7B;&#x578B;. &#x5982; <code>27</code> &#x7684;&#x7C7B;&#x578B;, &#x4F9D;&#x666E;&#x904D;&#x6027;&#x589E;&#x52A0;&#x987A;&#x5E8F;&#x4E3A;
+<code>fixnum</code> , <code>integer</code> , <code>rational</code> , <code>real</code> , <code>number</code> , <code>atom</code> , <code>t</code> . <code>t</code> &#x662F;&#x6240;
+&#x6709;&#x7C7B;&#x578B;&#x7684; supertype, &#x6240;&#x4EE5;&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x90FD;&#x5C5E;&#x4E8E; <code>t</code> &#x7C7B;&#x578B;. &#x5982;&#x7528; <code>typep</code> &#x6765;&#x5224;&#x65AD;&#x67D0;&#x4E2A;&#x6570;&#x503C;&#x662F;&#x5426;
+&#x4E3A;&#x67D0;&#x4E2A;&#x7C7B;&#x578B;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">&gt; (<span class="name">typep</span> <span class="number">27</span> &apos;integer)</span><br><span class="line"></span><br><span class="line">T</span><br><span class="line">&gt; (<span class="name">typep</span> <span class="number">27</span> &apos;t)</span><br><span class="line"></span><br><span class="line">T</span><br><span class="line">&gt; (<span class="name">typep</span> <span class="number">27</span> &apos;rational)</span><br><span class="line"></span><br><span class="line">T</span><br><span class="line">&gt; (<span class="name">typep</span> <span class="number">27</span> &apos;fixnum)</span><br><span class="line"></span><br><span class="line">T</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org51e1382" class="outline-2">
+<h2 id="org51e1382">&#x2026;</h2>
+<div class="outline-text-2" id="text-org51e1382">
+<p>
+&#x8D76;&#x5728;&#x56E0;&#x75AB;&#x60C5;&#x7A81;&#x7136;&#x51B3;&#x5B9A;&#x660E;&#x5929;&#x56DE;&#x5BB6;&#x4E4B;&#x524D;&#x6574;&#x7406;&#x5B8C;&#x6B64;&#x7BC7;. &#x4E0D;&#x7981;&#x611F;&#x53F9;&#x4E16;&#x4E8B;&#x65E0;&#x5E38;, &#x8FD8;&#x662F;&#x8981;&#x597D;&#x597D;&#x73CD;&#x60DC;&#x773C;&#x524D;&#x7684;
+&#x4EBA;&#x548C;&#x4E8B;&#x554A;! 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org170c3b2" class="outline-2">
+<h2 id="org170c3b2">Reference</h2>
+<div class="outline-text-2" id="text-org170c3b2">
+<ul class="org-ul">
+<li>Book: ANSI Common LISP by Paul Graham (z-lib.org)</li>
+
+<li><a href="https://acl.readthedocs.io/en/latest/zhCN/ch2-cn.html#id5" target="_blank" rel="noopener">https://acl.readthedocs.io/en/latest/zhCN/ch2-cn.html#id5</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/emacs/" rel="tag"># emacs</a>
+          
+            <a href="/tags/lisp/" rel="tag"># lisp</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/01/18/radial_symmetric_potential/" rel="next" title="Radial symmetric potential and special functions summary">
+                <i class="fa fa-chevron-left"></i> Radial symmetric potential and special functions summary
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org0c94483"><span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2a91f62"><span class="nav-text">Syntax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org5a07e75"><span class="nav-text">Form</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org3d8aa0a"><span class="nav-text">Evaluation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org95b15b7"><span class="nav-text">Data</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orgfa004d7"><span class="nav-text">integer, string</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org76ccaf1"><span class="nav-text">symbol</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgfde6379"><span class="nav-text">list</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org4c99b55"><span class="nav-text">List Operations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org29f2942"><span class="nav-text">Truth</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orgf3e3720"><span class="nav-text">True and False</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgaf761b4"><span class="nav-text">if</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org504aa5a"><span class="nav-text">AND and OR</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgeb75a90"><span class="nav-text">Functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org787b2ce"><span class="nav-text">Recursion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgcd14c3a"><span class="nav-text">Input and Output</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org9df81e2"><span class="nav-text">output</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org0223d23"><span class="nav-text">input</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgb0102c2"><span class="nav-text">Variables</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org8474e3f"><span class="nav-text">local variable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org00be108"><span class="nav-text">global variable</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org878a6d9"><span class="nav-text">Assignment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgacfe86e"><span class="nav-text">Functional Programming</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org276a329"><span class="nav-text">Iteration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd1f5530"><span class="nav-text">Functions as Objects</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org0876831"><span class="nav-text">lambda</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org7bb4779"><span class="nav-text">Types</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org51e1382"><span class="nav-text">…</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org170c3b2"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
