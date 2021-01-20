@@ -1,0 +1,105 @@
+#+TITLE: Radial symmetric potential and special functions summary
+#+DATE: <2021-01-18>
+#+CATEGORIES: 专业笔记
+#+TAGS: symmetric potential, special functions, summary
+#+HTML: <!-- toc -->
+#+HTML: <!-- more -->
+
+| Angular | Spherical harmonics $Y_{l,m}(\theta, \phi)$ |   |
+| Radial  |                                      | - |
+|         |                                      |   |
+
+
+
++---------------------------------+
+|                                 |
++----------+----------------+-----+
+| Angular  |Spherical       |     |
+|          |harmonics       |     |
+|          |$Y_{l,m}(\theta,|     |
+|          |\phi)$          |     |
++----------+----------------+-----+
+|    Radial|Zero potential }|Bound|
+|          |                |state|
+|          +----------------+     |
+|          |  Radially      |     |
+|          |symmetric       +-----+
+|          |harmonic        |     |
+|          |oscillator      |     |
+|          |                |     |
++----------+----------------+-----+
+
+
+
+
+* table.el
+
+https://blog.csdn.net/csfreebird/article/details/51168138
+
+- create table: =C-c= =~=
+- edit table: =C-c= ='=
+- 合并: =C-c= =C-c= =*=
+- 切分: =C-c= =C-c= =|= , =C-c= =C-c= =-=
+
+
+spacemacs中转换org-table和table.el
+
+M-m m t c 可以在两者之间来回转换
+
+ 
+在org中使用table.el
+
+table.el支持创建复杂的ASCII 表格，功能比org table强大，写文档表格是十分重要的，现在就来试一下。
+
+注意
+
+1. 表格不能对齐的原因是没有采用等宽字体
+
+2. 取消自动换行，用M-x toggle-truncate-line命令取消
+在org中创建table.el表格
+
+使用快捷键C-c ~ 回答四个问题，column/row number and width
+name 	age  	city              
+dean 
+     
+     	old  
+     
+     	1.shanghai        
+2.beijing         
+3.yangzhou        
+li   
+     
+     	young
+     
+     	 beijing          
+shanghai          
+zhang	young	 beijing	shanghai 
+3 编辑表格
+
+不能直接编辑，需要使用快捷键C-c ' 打开另一个buffer, 编辑完后用C-c '保存退出，放弃编辑用 C-c k 退出
+
+spacemacs中保存和放弃退出为: M-Enter c和 M-Enter k
+cell操作
+文字换行
+
+直接在编辑时用回车换行就好，导出为HTML表格时也换行了，这一点比org-table方便太多，因为我总是要不断的用
+标记。
+水平切分
+
+C-c C-c | 就可以在当前光标所在的cell里增加一个竖线。这里要记住水平指的是用竖线在一个水平面上切分，结果是还是一层。
+4.3 垂直切分
+
+C-c C-c - 可以在当前光标所在的cell里增加一个横线。这里要注意cell中必须已经存在多行字符串才有效。
+
+上面三个操作导出的HTML结果如图
+
+合并单元格
+
+C-c C-c *
+
+会提示向哪个方向合并
+减少高度
+
+C-c C-c ={=
+
+ 
