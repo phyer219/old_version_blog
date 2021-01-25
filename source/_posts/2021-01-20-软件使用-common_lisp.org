@@ -1,5 +1,5 @@
 #+TITLE: 欢迎来到 Emacs 主义至上教室(Common lisp note -_-)
-#+DATE: <2021-01-19>
+#+DATE: <2021-01-20>
 #+CATEGORIES: 软件使用
 #+TAGS: lisp, emacs
 #+HTML: <!-- toc -->
