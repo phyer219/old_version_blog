@@ -1,4 +1,4 @@
-#+TITLE: 欢迎来到 Emacs 主义至上教室(Common lisp note -_-)
+#+TITLE: 欢迎来到 Emacs 主义至上教室(lisp note -_-)
 #+DATE: <2021-01-20>
 #+CATEGORIES: 软件使用
 #+TAGS: lisp, emacs
@@ -24,7 +24,7 @@ Welcome to GNU CLISP 2.49.93+ (2018-02-18) <http://clisp.org/>
 
 此为快速入门笔记.
 
-* Syntax
+* Common Lisp Syntax
 
 ** Form
 
@@ -642,9 +642,86 @@ T
 赶在因疫情突然决定明天回家之前整理完此篇. 不禁感叹世事无常, 还是要好好珍惜眼前的
 人和事啊! 
 
+* Elisp
+
+** Hello wolrd
+
+elisp 要在 emacs 中执行. 一个 hello world 的例子. 在 emacs 中 =M-x=
+=lisp-interaction-mode= 切换到 lisp 交互主模式, 写入 
+
+#+begin_src elisp
+(message "hello world")
+#+end_src
+
+光标切到行尾, =C-j= 即可运行. 另外也可以在 =org-mode= 中, 插入 =elisp= 代码块,
+然后 =C-c= =C-c= 运行. (原 org 文件可以显示结果, hexo 不渲染执行结果) .
+
+#+begin_src elisp
+(message "hello world")
+#+end_src
+
+#+RESULTS:
+: hello world
+
+** Doc string
+
+函数可以加 doc string, 将光标移到函数上, 用 =C-h= =f= 查看. 如 
+
+#+begin_src elisp
+(defun hello-world (name)
+"Say hello to user whose name is NAME"
+(message "Hello, %s!" name))
+
+(hello-world 'Emacser)
+#+end_src
+
+#+RESULTS:
+: Hello, Emacser!
+
+变量也可以加 doc string, 可用 =C-h=  =v= 查看. 如声明变量
+#+begin_src elisp
+(defvar foo "I'm foo!"
+  "A demo variable")
+foo
+#+end_src
+
+#+RESULTS:
+: I'm foo
+
+** Some functions
+
+函数 =eq= 用来判断变量是否为某个值. 如( =elisp= 和 =lisp= 语法还是有些不同, 如
+=format= ) 
+
+#+begin_src elisp
+(defun eq-example()
+  "A demo for function eq"
+  (let ((a 1) (b 'x)) 
+   (format "%s, %s, %s, %s" 
+    (eq a 1) (eq a 2) (eq b 'x) (eq b 'y))))
+
+(eq-example)
+#+end_src
+
+#+RESULTS:
+: t, nil, t, nil
+
+
+#+begin_src elisp
+system-type
+#+end_src
+
+#+RESULTS:
+: gnu/linux
+
+
+
 * Reference
 
 - Book: ANSI Common LISP by Paul Graham (z-lib.org)
 
-- https://acl.readthedocs.io/en/latest/zhCN/ch2-cn.html#id5
+- https://acl.readthedocs.io/en/latest/zhCN/ch2-cn.html
 
+- http://smacs.github.io/elisp/01-hello-world.html
+
+- https://www.emacswiki.org/emacs/
