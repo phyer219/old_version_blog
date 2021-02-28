@@ -1,105 +1,155 @@
-#+TITLE: Radial symmetric potential and special functions summary
+#+TITLE: Radial symmetric potential and special functions summary(update 28/Feb/2021)
 #+DATE: <2021-01-18>
 #+CATEGORIES: 专业笔记
 #+TAGS: symmetric potential, special functions, summary
 #+HTML: <!-- toc -->
 #+HTML: <!-- more -->
 
-| Angular | Spherical harmonics $Y_{l,m}(\theta, \phi)$ |   |
-| Radial  |                                      | - |
-|         |                                      |   |
+* SO(3) Symmetric potential
+
+粒子在具有 SO(3) 球对称性的势中运动的定态 Schrodinger 方程为
+\begin{align}
+  \left( -\frac{\hbar^2}{2\mu} \nabla^2 + V(r) \right)\psi(\vec{r}) = E \psi(\vec{r})
+\end{align}
+其中 $\nabla^2$ 为
+\begin{align}
+  \nabla^2 = \frac{\partial^2}{\partial r^2} + \frac{2}{r} \frac{\partial}{\partial r} - \frac{1}{r^2} \frac{\hat{L}^2}{\hbar^2}
+\end{align}
+SO(3) 群有 $2l + 1$ 维的不可约表示. 由不可约表示的维度, 可得出它的能级至少有
+$2l + 1$ 重的简并. $Y_{l,m}(\theta, \phi)$ 给出了 $SO(3)$ 群的所有不可约表示. 波函数可
+以写成
+\begin{align}
+\psi(\vec{r}) = f_l(r) Y_{l,m} (\theta, \phi)
+\end{align}
+其中 $Y_{l,m}(\theta, \phi)$ 满足
+\begin{align}
+\hat{\Pi} Y_{l,m}(\theta, \phi) = ( - 1)^l Y_{l,m}(\theta, \phi)
+\end{align}
+代回原来的方程有
+\begin{align}
+\left[ -\frac{\hbar^2}{2\mu}\left(
+        \frac{\mathrm{d}^2}{\mathrm{d}r^2} + \frac{2}{r} \frac{\mathrm{d}}{\mathrm{d}r} \right)
+       + \frac{l(l + 1)}{r^2} \frac{\hbar^2}{2\mu} + V(r)
+\right] f_l (r) = E f_l (r)
+\end{align}
+如果做代换
+\begin{align}
+  \psi(\vec{r}) = \frac{\phi_l(r)}{r} Y_{l,m}(\theta, \phi)
+\end{align}
+那么径向的方程就等价成了一个一维问题
+\begin{align}
+  \left( -\frac{\hbar^2}{2\mu}\frac{\mathrm{d}^2}{\mathrm{d}r^2}
+   + \frac{l(l + 1)}{r^2} \frac{\hbar^2}{2\mu} + V(r) \right) \phi_l(r) = E \phi_l(r)
+\end{align}
+不用说, 径向方程是正交归一的, 也可以验证
+\begin{align}
+  \langle \psi_{l,m} | \psi_{l', m'} \rangle = \delta_{l,l'} \delta_{m, m'} \int_0^{\infty} r^2 \mathrm{d}r\cdot
+   \frac{\phi_l^{ * }(r)}{r} \frac{\phi_{l'}(r)}{r}
+  = \delta_{l,l'} \delta_{m, m'} \int_0^{\infty} \mathrm{d}r\cdot
+   \phi_l^{ * }(r) \phi_{l'}(r)
+\end{align}
+
+* Boundary Condition
+
+假设 $\phi$ 在 $r \to 0$ 时的行为为 $r^{\alpha}$ . 如果 $V(r)$ 趋于 $0$ 的速度比
+$r^{-2}$ 要慢, 那么将 $\phi_l (r) \propto r^{\alpha}$ 代回径向方程就可以得到
+\begin{align}
+  -\frac{\mathrm{d}^2}{\mathrm{d}r^2} + l(l + 1) r^{\alpha - 2} = k^2 r^{\alpha} \\
+  \left[ - \alpha(\alpha - 1) + l(l + 1)\right] r^{\alpha - 2} = k^2r^a
+\end{align}
+等式右边相对于左边在 $r\to 0$ 时可以忽略, 可得 $\alpha = l + 1$ 或者 $\alpha = - l$ . 但
+$\alpha = -l $ 时, $\psi\propto r^{-l-1}$ 会使得波函数发散, 无法归一化, 因此
+\begin{align}
+  \phi_l(0) = 0 \quad\mathrm{for}\quad  \mathrm{all} \quad l\\
+  \phi_l(r) \propto r^{l+1} \quad \mathrm{for} \quad r \to 0
+\end{align}
+
+* Radially Symmetric Harmonic Oscillator
+
+此时的势能为
+\begin{align}
+  V(r) = \frac{\mu}{2} \omega^2 r^2
+\end{align}
+由于 $r \to \infty$ 时, $V(r) \to \infty$ , 所以解只存在 bound states
+\begin{align}
+E_{n, l} = \left( 2n + l +\frac{3}{2} \right)\hbar\omega
+\end{align}
+波函数是 generalized Laguerre $L_n^{\alpha}(x)$ 多项式的形式
+\begin{align}
+\phi_{n, l} = 2(\sqrt{\pi}\beta)^{-1/2} \left[ \frac{2^{n + l} n!}{(2n + 2l + 1)!!} \right]
+  \left( \frac{r}{\beta} \right)^{l+1} L_n^{l + 1/2} \left(\frac{r^2}{\beta^2}\right) e^{-\frac{r^2}{2\beta^2}}
+\end{align}
+其中
+\begin{align}
+  \beta = \sqrt{\frac{\hbar}{\mu\omega}}
+\end{align}
+
+* Short ranged
+
+短程力, 也就是说当 $r > r_0$ 时, $V(r) = 0$
+
+** Bound states
+
+当 $E < 0$ 时, 在 $r > r_0$ 处的解为 modified Bessel functions, 舍去发散的解, 只
+剩下
+\begin{align}
+  \phi_-(r) = \sqrt{\kappa r} K_{l+1/2}(\kappa r)
+\end{align}
+如果在 $r > r_0$ 处为 Coulomb 势, 也就是
+\begin{align}
+V(r) = - \frac{C}{r}, \quad r > r_0
+\end{align}
+那么它在 $r > r_0$ 处的解是 Whittaker functions
+\begin{align}
+  \phi_-(r) = W_{\gamma, l+1/2}(2 \kappa r)
+\end{align}
+其中 $\gamma = \frac{\mu C}{\hbar^2\kappa}$
+
+** Unbound states
+
+当 $E > 0$ 时, 在 $r > r_0$ 处的解有两个, 是 Spherical Bessel 和 Neumann
+functions
+\begin{align}
+\phi_s(r) = k r j_l(kr) \\
+\phi_c(r) = kr n_l(kr)
+\end{align}
+它们的渐近行为为
+\begin{align}
+\phi_s(r) = \sin \left(kr - \frac{l \pi}{2} \right) \left[ 1 + \mathcal{O}\left( \frac{1}{r} \right) \right] \\
+\phi_c(r) = \cos \left(kr - \frac{l \pi}{2} \right) \left[ 1 + \mathcal{O}\left( \frac{1}{r} \right) \right]
+\end{align}
+可以写成相移的形式
+\begin{align}
+  \phi(r) \propto \sin \left( kr - \frac{l\pi}{2} + \delta_l \right)
+\end{align}
+相称表征了波函数相对于 regular 解的 shift.
+如果在 $r > r_0$ 处为 Coulomb 势, 也就是
+\begin{align}
+V(r) = - \frac{C}{r}, \quad r > r_0
+\end{align}
+那么对应的结果为 regular Coulomb function 和 irregular Coulomb function
+\begin{align}
+\phi_s(r) = F_l(\eta, kr) \\
+\phi_c(r) = G_l(\eta, kr), \quad r > r_0
+\end{align}
+其中
+\begin{align}
+\eta = - \frac{\mu C}{\hbar^2 k}
+\end{align}
+渐近行为为
+\begin{align}
+F_l(\eta, kr) \to \sin\left( kr - \eta \ln 2kr - \frac{l\pi}{2} + \sigma_l \right),\quad \mathrm{for} \quad r\to\infty \\
+G_l(\eta, kr) \to \cos\left( kr - \eta \ln 2kr - \frac{l\pi}{2} + \sigma_l \right),\quad \mathrm{for} \quad r\to\infty
+\end{align}
+类似地, 也可以写成相移的形式.
+
+* Reference
+
+- Harald Siegfried Friedrich, Theoretical Atomic Physics-Springer (2005) Chap
+  1.2, 1.3
+
+* 后记
+
+昨天返校, 今天终于把从上学期就想整理的东西草草整理了.
 
 
-
-+---------------------------------+
-|                                 |
-+----------+----------------+-----+
-| Angular  |Spherical       |     |
-|          |harmonics       |     |
-|          |$Y_{l,m}(\theta,|     |
-|          |\phi)$          |     |
-+----------+----------------+-----+
-|    Radial|Zero potential }|Bound|
-|          |                |state|
-|          +----------------+     |
-|          |  Radially      |     |
-|          |symmetric       +-----+
-|          |harmonic        |     |
-|          |oscillator      |     |
-|          |                |     |
-+----------+----------------+-----+
-
-
-
-
-* table.el
-
-https://blog.csdn.net/csfreebird/article/details/51168138
-
-- create table: =C-c= =~=
-- edit table: =C-c= ='=
-- 合并: =C-c= =C-c= =*=
-- 切分: =C-c= =C-c= =|= , =C-c= =C-c= =-=
-
-
-spacemacs中转换org-table和table.el
-
-M-m m t c 可以在两者之间来回转换
-
- 
-在org中使用table.el
-
-table.el支持创建复杂的ASCII 表格，功能比org table强大，写文档表格是十分重要的，现在就来试一下。
-
-注意
-
-1. 表格不能对齐的原因是没有采用等宽字体
-
-2. 取消自动换行，用M-x toggle-truncate-line命令取消
-在org中创建table.el表格
-
-使用快捷键C-c ~ 回答四个问题，column/row number and width
-name 	age  	city              
-dean 
-     
-     	old  
-     
-     	1.shanghai        
-2.beijing         
-3.yangzhou        
-li   
-     
-     	young
-     
-     	 beijing          
-shanghai          
-zhang	young	 beijing	shanghai 
-3 编辑表格
-
-不能直接编辑，需要使用快捷键C-c ' 打开另一个buffer, 编辑完后用C-c '保存退出，放弃编辑用 C-c k 退出
-
-spacemacs中保存和放弃退出为: M-Enter c和 M-Enter k
-cell操作
-文字换行
-
-直接在编辑时用回车换行就好，导出为HTML表格时也换行了，这一点比org-table方便太多，因为我总是要不断的用
-标记。
-水平切分
-
-C-c C-c | 就可以在当前光标所在的cell里增加一个竖线。这里要记住水平指的是用竖线在一个水平面上切分，结果是还是一层。
-4.3 垂直切分
-
-C-c C-c - 可以在当前光标所在的cell里增加一个横线。这里要注意cell中必须已经存在多行字符串才有效。
-
-上面三个操作导出的HTML结果如图
-
-合并单元格
-
-C-c C-c *
-
-会提示向哪个方向合并
-减少高度
-
-C-c C-c ={=
-
- 
