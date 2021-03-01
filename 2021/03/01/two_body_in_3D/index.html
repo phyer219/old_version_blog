@@ -110,22 +110,22 @@
 
 
 
-  <meta name="keywords" content="数学,矩阵">
+  <meta name="keywords" content="two body,bound state">
 <meta property="og:type" content="article">
-<meta property="og:title" content="特殊二阶矩阵的本征值求解">
-<meta property="og:url" content="https://zqw.ink/2018/09/07/特殊二阶矩阵的本征值求解/index.html">
+<meta property="og:title" content="两体束缚态">
+<meta property="og:url" content="https://zqw.ink/2021/03/01/two_body_in_3D/index.html">
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-11-29T02:17:48.843Z">
+<meta property="og:updated_time" content="2021-03-01T06:47:15.512Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="特殊二阶矩阵的本征值求解">
+<meta name="twitter:title" content="两体束缚态">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zqw.ink/2018/09/07/特殊二阶矩阵的本征值求解/"/>
+  <link rel="canonical" href="https://zqw.ink/2021/03/01/two_body_in_3D/"/>
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>特殊二阶矩阵的本征值求解 | 从冰上的水</title>
+  <title>两体束缚态 | 从冰上的水</title>
   
 
 
@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2018/09/07/特殊二阶矩阵的本征值求解/">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/03/01/two_body_in_3D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZQW">
@@ -332,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">特殊二阶矩阵的本征值求解
+          <h1 class="post-title" itemprop="name headline">两体束缚态
               
             
           </h1>
@@ -357,7 +357,7 @@
                 
               
 
-              <time title="创建时间：2018-09-07 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-07T00:00:00+08:00">2018-09-07</time>
+              <time title="创建时间：2021-03-01 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-01T00:00:00+08:00">2021-03-01</time>
             
 
             
@@ -390,8 +390,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/07/特殊二阶矩阵的本征值求解/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/09/07/特殊二阶矩阵的本征值求解/" itemprop="commentCount"></span>
+                <a href="/2021/03/01/two_body_in_3D/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/03/01/two_body_in_3D/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -421,22 +421,98 @@
       
         <!-- toc -->
 <a id="more"></a>
-<h2 id="对角矩阵元相等"><a href="#对角矩阵元相等" class="headerlink" title="对角矩阵元相等"></a>对角矩阵元相等</h2><p>形如</p>
+<h1 id="any"><a href="#any" class="headerlink" title="any"></a>any</h1><p>$r &gt; r_0$ 时, $V(r) = 0$ , 径向 Schrodinger 方程为</p>
 <script type="math/tex; mode=display">
-H = \left( \begin{array}{cc}
-        a    &    b\\\\
-        b    &    c
-        \end{array}\right)</script><p>与以下自旋问题类比：</p>
-<p>在 $x-z$ 平面内任意方向加磁场 $\vec{a} = (a_1, 0, a_3)$ 求解能量本征值，Hamiltonian写为</p>
+\label{eq:sq}
+-\chi'' + \frac{l(l+1)}{r^2}\chi = k^2 \chi</script><p>将 $\chi$ 在 $k=0$ 处做低能展开</p>
 <script type="math/tex; mode=display">
-H = a_0 + \vec{\sigma}\cdot\vec{a} = \left(\begin{array}{cc}
-                                a_0+a_3    &    a_1\\\\
-                                a_1        &    a_0-a_3
-                            \end{array}\right)</script><p>沿 $y$ 轴转动坐标系，将 $z$ 轴转到磁场的方向，由物理意义直接解得能量本征值为</p>
+\chi(r) = \phi(r) + k^2 f(r) +k^4 g(r) + \mathcal{O}(k^6)</script><p>将展开代回到 $(\ref{eq:sq})$ , 对比 $k$ 的系数得到:</p>
+<p>零能时, 也就是 $\phi$ 满足的方程为</p>
 <script type="math/tex; mode=display">
-E = a_0 \pm \sqrt{a_1^2 +a_3^2}</script><p>所以原问题的本征值可直接写出为</p>
+\label{eq:phi}
+- \phi '' + \frac{l(l+1)}{r^2}\phi = 0</script><p>$f$ 满足的方程为</p>
 <script type="math/tex; mode=display">
-\lambda = \frac{a+c}{2} \pm \sqrt{b^2 +\frac{(a - c)^2}{4}}</script>
+\label{eq:f}
+- f '' + \frac{l(l+1)}{r^2}f = \phi</script><p>$g$ 满足的方程为</p>
+<script type="math/tex; mode=display">
+\label{eq:g}
+- g'' + \frac{l(l+1)}{r^2}g = f</script><h1 id="s-wave"><a href="#s-wave" class="headerlink" title="s-wave"></a>s-wave</h1><p>$l = 0$ 代入 $(\ref{eq:phi})$ 零能解为</p>
+<script type="math/tex; mode=display">
+\phi \propto \sharp_1  + \sharp_2 r</script><p>舍去一个归一化因子, 相对系数可定义散射长度</p>
+<script type="math/tex; mode=display">
+\label{eq:phi_s}
+\phi = 1 - \frac{r}{a}</script><script type="math/tex; mode=display">
+\psi(r)|_{k=0} = \frac{\chi(r)}{r} \propto \frac{1}{r} - \frac{1}{a}</script><p>$(\ref{eq:phi_s})$ 代入 $(\ref{eq:f})$ 解得</p>
+<script type="math/tex; mode=display">
+f = -\frac{r^2}{2} + \frac{r^3}{6a} + C_1 + C_2 r</script><p>重新定义 $f \to f - C_1\phi$ (这总是可以做到的, 因为相当于直接在展开的时候令 $\chi = \phi + k^2 (f-C_1\phi) + k^4 g$ , $f - C_1 \phi$ 也可以做一到是任意函数 ) ,并用系数定义 effective range</p>
+<script type="math/tex; mode=display">
+\label{eq:f_s}
+f = -\frac{r^2}{2} + \frac{r^3}{6a} + \frac{r_s}{2} r</script><p>$(\ref{eq:f_s})$ 代入 $(\ref{eq:f})$ ,并做类似地处理 ( $g\to g - \cdots$ , 定义 $r_s’$ ) 得到 (  $r_s’$ <strong>的系数why?1/24??</strong> ) </p>
+<script type="math/tex; mode=display">
+g = \frac{r^4}{24} - \frac{r^5}{120a} - \frac{r_s}{12}r^3 +\frac{r_s'}{24}r</script><p>s-wave 非零能的径向方程实际是严格可解的, 舍去一个归一化系数, 另一个系数定义相移( 是 $k$ 的函数 ), 形式为</p>
+<script type="math/tex; mode=display">
+\psi(r) = \frac{\sin (k r + \delta_k)}{r\sin\delta_k}</script><p>$\psi(r)$ 也做低能 $k\to 0$ 的展开</p>
+<script type="math/tex; mode=display">
+\psi(r) = \frac{\chi(r)}{r} = \cot\delta_k \sin(kr)\frac{1}{r} + \cos(kr)\frac{1}{r} 
+= \frac{1}{r} + k\cot\delta_k + \mathcal{O}(r^2)</script><p> $k\cot\delta_k$ 为 $r^0$ 的系数, 因此得到 $k\cot\delta_k$ 低能展开</p>
+<script type="math/tex; mode=display">
+k\cot \delta_k = -\frac{1}{a} + k^2\frac{r_s}{2} + k^4 \frac{r_s'}{24} + \mathcal{O}(k^6)</script><h1 id="p-wave"><a href="#p-wave" class="headerlink" title="p-wave"></a>p-wave</h1><p> $l = 1$ 代入 $(\ref{eq:phi})$ 零能解为零能时</p>
+<script type="math/tex; mode=display">
+-\phi'' + \frac{1\times(1+1)}{r^2}\phi = 0</script><p>解为</p>
+<script type="math/tex; mode=display">
+\phi(r) \propto \sharp_1 r^2 + \sharp_2 \frac{1}{r}</script><p>舍去一个归一化因子, 相对系数可定义 $v$ </p>
+<script type="math/tex; mode=display">
+\label{eq:phi_p}
+\phi(r) = \frac{1}{r} - \frac{r^2}{3v}</script><p>$(\ref{eq:phi_p})$ 代入 $(\ref{eq:f})$ 解得</p>
+<script type="math/tex; mode=display">
+f = \frac{r}{2} + \frac{r^4}{30v} + \sharp_1 r^2 +\sharp_2 \frac{1}{r}</script><p>与 s-wave 类似的处理, 用系数定义 $R$ , 重新定义后的 $f$ 为</p>
+<script type="math/tex; mode=display">
+f = \frac{r}{2} + \frac{r^4}{30v} - \frac{r^2}{3R}</script><p>所以</p>
+<script type="math/tex; mode=display">
+\psi(r) = \frac{\chi(r)}{r} = \left( \frac{1}{r^2} - \frac{r}{3v} \right)
+         + k^2 \left( \frac{1}{2} - \frac{r}{3R} + \frac{r^3}{30v}  \right) + \mathcal{O}(k^4)</script><p><del>p-wave 非零能的径向方程的严格解是求 Bessel 函数, 舍去一个归一化系数, 另一个系数定义相移( 是 $k$ 的函数 ), 在 $r\to\infty$ 的渐近形式为</del></p>
+<blockquote>
+<script type="math/tex; mode=display">
+\begin{align}
+\psi(r) = \frac{\chi(r)}{r} \sim& \frac{1}{r\sin\delta_k}\sin\left(kr - \frac{1}{2}\pi + \delta_k  \right) \\
+ =& -\frac{1}{r}\cot \delta_k  + k + r\frac{k^2}{2}\cot\delta_k+\mathcal{O}(r^2)\quad, \quad \mathrm{as}\, r \to\infty
+ \end{align}</script></blockquote>
+<p>将严格解也在低能展开 ( <strong>此式的来源???</strong> )</p>
+<script type="math/tex; mode=display">
+\psi(r) = \frac{\chi(r)}{r} \propto \cot\delta_k j_1(kr) - y_1(kr) = \frac{1}{k^2 r^2} + \frac{1}{2} 
+             + \frac{r}{3}k \cot\delta_k + \mathcal{O}(r^2)</script><p>对比 $\frac{1}{r^2}$ 及 $r$ 的系数可得</p>
+<script type="math/tex; mode=display">
+\cot \delta_k = -\frac{1}{v k^3} - \frac{1}{kR} + \mathcal{O}(k)</script><h1 id="d-wave"><a href="#d-wave" class="headerlink" title="d-wave"></a>d-wave</h1><p> $l = 2$ 代入 $(\ref{eq:phi})$ 零能解为零能时</p>
+<script type="math/tex; mode=display">
+-\phi'' + \frac{2(2+1)}{r^2}\phi = 0</script><p>解为</p>
+<script type="math/tex; mode=display">
+\phi(r) = \sharp_1 r^3 + \sharp_2 \frac{1}{r^2}</script><p>舍去一个归一化因子, 相对系数可定义 $D$ </p>
+<script type="math/tex; mode=display">
+\label{eq:phi_d}
+\phi(r) = \frac{1}{r^2} - \frac{r^3}{45 D}</script><p>$(\ref{eq:phi_d})$ 代入 $(\ref{eq:f})$ 解得</p>
+<script type="math/tex; mode=display">
+f = \frac{1}{6} + \frac{r^5}{630 D} + \sharp_1 r^3 + \frac{\sharp_2}{r^2}</script><p>与 s-wave 类似的处理, 用系数定义 $v$ , 重新定义后的 $f$ 为</p>
+<script type="math/tex; mode=display">
+\label{eq:f_d}
+f = \frac{1}{6} + \frac{r^5}{630 D} - \frac{r^3}{45v}</script><p>$(\ref{eq:f_d})$ 代入 $(\ref{eq:g})$ ,并做类似地处理 ( $g\to g - \cdots$ , 定义 $r_s’$ ) 得到</p>
+<script type="math/tex; mode=display">
+\begin{align}
+g =& \frac{r^5}{630 v} + \frac{r^2}{24} - \frac{r^7}{22680 D} + \sharp_1 r^3 + \frac{\sharp_2}{r^2} \\
+\Rightarrow g =& \frac{r^5}{630 v} + \frac{r^2}{24} - \frac{r^7}{22680 D} -\frac{r^3}{45R}  
+\end{align}</script><p>所以</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\psi(r) =& \frac{\chi(r)}{r} = \frac{\phi(r) + k^2 f(r) +k^4 g(r) + \mathcal{O}(k^6)}{r} \\
+        =&  \left(\frac{1}{r^3} - \frac{r^2}{45 D} \right)
+         +k^2\left( \frac{1}{6} + \frac{r^5}{630 D} - \frac{r^3}{45v} \right)
+         +k^4\left( \frac{r^5}{630 v} + \frac{r^2}{24} - \frac{r^7}{22680 D} -\frac{r^3}{45R} \right)
+\end{align}</script><p>将严格解也在低能展开</p>
+<script type="math/tex; mode=display">
+\psi(r) = \frac{\chi(r)}{r} \propto \cot\delta_k j_2(kr) - y_2(kr) 
+        = \frac{3}{k^3 r^3} + \frac{1}{2kr} + \frac{kr}{8} 
+             + \frac{r^2}{15}k^2 \cot\delta_k + \mathcal{O}(r^3)</script><p>对比系数得</p>
+<script type="math/tex; mode=display">
+\cot \delta_k = - \frac{1}{Dk^5} - \frac{1}{vk^3} - \frac{1}{kR} + \mathcal{O}(k)</script>
       
     </div>
 
@@ -456,9 +532,9 @@ E = a_0 \pm \sqrt{a_1^2 +a_3^2}</script><p>所以原问题的本征值可直接�
       
         <div class="post-tags">
           
-            <a href="/tags/数学/" rel="tag"># 数学</a>
+            <a href="/tags/two-body/" rel="tag"># two body</a>
           
-            <a href="/tags/矩阵/" rel="tag"># 矩阵</a>
+            <a href="/tags/bound-state/" rel="tag"># bound state</a>
           
         </div>
       
@@ -471,8 +547,8 @@ E = a_0 \pm \sqrt{a_1^2 +a_3^2}</script><p>所以原问题的本征值可直接�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/07/Typora使用笔记/" rel="next" title="Typora使用笔记">
-                <i class="fa fa-chevron-left"></i> Typora使用笔记
+              <a href="/2021/03/01/two_body_density_matrix/" rel="next" title="two body density matrix">
+                <i class="fa fa-chevron-left"></i> two body density matrix
               </a>
             
           </div>
@@ -480,10 +556,6 @@ E = a_0 \pm \sqrt{a_1^2 +a_3^2}</script><p>所以原问题的本征值可直接�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/07/Emacs使用笔记/" rel="prev" title="Emacs使用笔记">
-                Emacs使用笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -593,7 +665,7 @@ E = a_0 \pm \sqrt{a_1^2 +a_3^2}</script><p>所以原问题的本征值可直接�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对角矩阵元相等"><span class="nav-text">对角矩阵元相等</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#any"><span class="nav-text">any</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#s-wave"><span class="nav-text">s-wave</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#p-wave"><span class="nav-text">p-wave</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#d-wave"><span class="nav-text">d-wave</span></a></li></ol></div>
             
 
           </div>
