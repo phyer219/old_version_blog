@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="Carl Bender,Mathematical Physics,asymptotic series,Frobenius series,method of dominant balance">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Carl Bender Mathematical Physics Lecture7 Note">
+<meta property="og:url" content="https://zqw.ink/2021/03/02/CarlBenderMathematicalPhysicsLecture7/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2021/03/02/CarlBenderMathematicalPhysicsLecture7/bender.png">
+<meta property="og:updated_time" content="2021-03-03T12:52:25.263Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Carl Bender Mathematical Physics Lecture7 Note">
+<meta name="twitter:image" content="https://zqw.ink/2021/03/02/CarlBenderMathematicalPhysicsLecture7/bender.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2021/03/02/CarlBenderMathematicalPhysicsLecture7/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Carl Bender Mathematical Physics Lecture7 Note | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/03/02/CarlBenderMathematicalPhysicsLecture7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Carl Bender Mathematical Physics Lecture7 Note
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-03-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-02T00:00:00+08:00">2021-03-02</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/03/02/CarlBenderMathematicalPhysicsLecture7/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/03/02/CarlBenderMathematicalPhysicsLecture7/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-orgc345466" class="outline-2">
+<h2 id="orgc345466">Information</h2>
+<div class="outline-text-2" id="text-orgc345466">
+<ul class="org-ul">
+<li>&#x539F;&#x51FA;&#x5904;: <a href="https://www.perimeterinstitute.ca/video-library/collection/11/12-psi-mathematical-physics" target="_blank" rel="noopener">https://www.perimeterinstitute.ca/video-library/collection/11/12-psi-mathematical-physics</a></li>
+
+<li>&#x53EF;&#x4EE5;&#x770B;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x5B57;&#x5E55;: <a href="https://www.youtube.com/playlist?list=PLzcd6SoIscwjHuWRE38UXWG92uq0Sy4UF" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PLzcd6SoIscwjHuWRE38UXWG92uq0Sy4UF</a></li>
+
+<li>Bilibili:
+<a href="https://www.bilibili.com/video/BV1w4411q7x6?from=search&amp;seid=7852838902448285010" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1w4411q7x6?from=search&amp;seid=7852838902448285010</a></li>
+
+<li>Book: Carl M. Bender, Steven A. Orszag, Advanced Mathematical Methods for Scientists and
+Engineers I Asymptotic Methods and Perturbation Theory, 1999</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4dea629" class="outline-2">
+<h2 id="org4dea629">Keywords</h2>
+<div class="outline-text-2" id="text-org4dea629">
+<p>
+Pade technique for summing a series.  Asymptotic series.  Fuchs&apos; theorem.  Frobenius series.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org530e6c0" class="outline-2">
+<h2 id="org530e6c0">Pade</h2>
+<div class="outline-text-2" id="text-org530e6c0">
+<p>
+Poles are &quot;mocking up&quot; the cut.
+</p>
+
+<p>
+&#x5C55;&#x793A;&#x4E86; \(\frac{\ln (1 + x)}{x}\) Pade &#x8FD1;&#x4F3C;&#x7684;&#x7ED3;&#x679C;. Mathematican &#x4E2D;&#x53EF;&#x4EE5;&#x7528;&#x51FD;&#x6570;
+<code>PadeApproximant</code> &#x6765;&#x5B9E;&#x73B0;.
+</p>
+
+<p>
+&#x8FD9;&#x662F;&#x4E0A;&#x8282;&#x8BFE;&#x5C3E;&#x5DF4;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org419e5d7" class="outline-2">
+<h2 id="org419e5d7">Stirling&apos;s Series</h2>
+<div class="outline-text-2" id="text-org419e5d7">
+\begin{align}
+  \Gamma(x) \sim x^{x-1/2} e^{-x}\sqrt{2\pi}
+    \left(1 + \frac{1}{12 x} + \frac{1}{288 z^2} - \cdots \right)
+\end{align}
+<p>
+&#x5B83;&#x6536;&#x655B;&#x5F88;&#x6162;. &#x4F46;&#x662F;&#x53D8;&#x6210; Pade &#x540E;, &#x5C31;&#x6536;&#x655B;&#x5F88;&#x5FEB;. &#x4F46;&#x662F; no idea why it works.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9c0af3c" class="outline-2">
+<h2 id="org9c0af3c">What is Asymptotic Series?</h2>
+<div class="outline-text-2" id="text-org9c0af3c">
+\begin{align}
+  f(x) - \sum_{n = 0}^N a_n x^n \sim a_{N + 1} x^{N + 1}
+   \quad \mathrm{as} \quad x\to 0
+\end{align}
+<p>
+means that
+</p>
+\begin{align}
+  f(x) - \sum_{n=0}^N a_n x^n \sim a_{N + 1} x^{N + 1}
+   \quad \mathrm{as} \quad x\to 0  \quad \mathrm{for}
+  \quad  \mathrm{all} \quad N
+\end{align}
+<p>
+also
+</p>
+\begin{align}
+ \lim_{x \to \infty} \frac{f(x) - \sum_{n=0}^N a_n x^n}{x^{N + 1}} = a_{N + 1}
+  \quad \mathrm{for} \quad  \mathrm{all} \quad N
+\end{align}
+<p>
+&#x53EA;&#x6709;&#x8BF4;&#x4E00;&#x4E2A; series asymptotic to &#x67D0;&#x4E2A;&#x51FD;&#x6570;&#x65F6;, &#x624D;&#x6709;&#x610F;&#x4E49;. &#x76F4;&#x63A5;&#x8BF4;&#x67D0;&#x4E2A; series &#x662F;&#x4E0D;&#x662F;
+asymptotic series &#x662F;&#x6CA1;&#x6709;&#x610F;&#x4E49;&#x7684;.
+</p>
+
+<p>
+&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A; series, &#x603B;&#x6709;&#x4E00;&#x4E2A; function &#x662F;&#x6B64;&#x7EA7;&#x6570; asymptotic to &#x7684;.
+</p>
+
+<p>
+&#x4F46;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A; function &#x53EA;&#x6709;&#x4E00;&#x4E2A; series &#x662F; asymptotic to &#x5B83;&#x7684;.
+</p>
+
+<p>
+A function has an unique asymptotic series. But a series could be asymptotic to
+many different functions.
+</p>
+
+<p>
+asymptotic series &#x4E5F;&#x53EF;&#x4EE5;&#x6709;&#x5176;&#x5B83;&#x7684;&#x5F62;&#x5F0F;, &#x5982;
+</p>
+\begin{align}
+  f(x) - \sum_{n = 0}^N (a_n - a) x^n \sim a_{N + 1} x^{N + 1}
+   \quad \mathrm{as} \quad x\to a
+\end{align}
+<p>
+&#x540C;&#x6837;, \(n\) &#x4E5F;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x6574;&#x6570;. &#x53EF;&#x4EE5;&#x662F;&#x5206;&#x6570;&#x7B49;&#x7B49;.
+</p>
+
+<p>
+&#x5982;
+</p>
+\begin{align}
+  \frac{\Gamma(x)}{x^{x-1/2} e^{-x}\sqrt{2\pi}} \sim
+    1 + \frac{1}{12 x} + \frac{1}{288 z^2} - \cdots \quad \mathrm{as} \quad x \to \infty
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org2b41664" class="outline-2">
+<h2 id="org2b41664">An Example about &quot;How do asymptotic series arise?&quot;</h2>
+<div class="outline-text-2" id="text-org2b41664">
+<p>
+&#x5BF9;
+</p>
+\begin{align}
+  x^3 y&apos;&apos; = y
+\end{align}
+<p>
+&#x5728; near \(x=0\) &#x5904;&#x8FDB;&#x884C; local analysis.
+</p>
+</div>
+
+<div id="outline-container-org0bf7758" class="outline-3">
+<h3 id="org0bf7758">&#x504F;&#x9898;: &#x5982;&#x4F55;&#x5206;&#x6790;&#x4E00;&#x4E2A; second order linear DE?</h3>
+<div class="outline-text-3" id="text-org0bf7758">
+<p>
+&#x62FF;&#x5230;&#x5F62;&#x5982;
+</p>
+\begin{align}
+  a(x) y&apos;&apos; + b(x) y&apos; + c(x)y = 0
+\end{align}
+<p>
+&#x7684;&#x65B9;&#x7A0B;, &#x9996;&#x5148;&#x5316;&#x6210; normal form. &#x4E24;&#x8FB9;&#x540C;&#x65F6;&#x9664;&#x4EE5; \(a(x)\) , &#x53D8;&#x6210;&#x4E86;&#x5982;&#x4E0B;&#x5F62;&#x5F0F;
+</p>
+\begin{align}
+  y&apos;&apos; + A(x) y&apos; + B(x)y = 0
+\end{align}
+<p>
+&#x8981;&#x5206;&#x6790;&#x5B83;&#x5728; \(x\to x_0\) &#x5904;&#x7684;&#x884C;&#x4E3A;. How does \(y(x)\) behave near \(x = x_0\) ?
+</p>
+
+<p>
+There are exactly three possibilities there.
+</p>
+</div>
+
+<div id="outline-container-org8c79075" class="outline-4">
+<h4 id="org8c79075">case 1</h4>
+<div class="outline-text-4" id="text-org8c79075">
+<p>
+\(A(x)\) , \(B(x)\) analytic near \(x = x_0\) ( \(x_0\) is a regular point)
+</p>
+
+<p>
+&#x6B64;&#x65F6;&#x6709;&#x5B9A;&#x7406;, Fuchs&apos; theorem. (Lazarus Immanuel Fuchs (5 May 1833 &#x2013; 26 April 1902)
+was a Jewish-German[1] mathematician who contributed important research in the
+field of linear differential equations)
+</p>
+
+<p>
+All solutions have a Taylor series about \(x = x_0\)
+</p>
+\begin{align}
+  y(x) = \sum_0^{\infty} (x - x_0)^n a_n
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgc9a828a" class="outline-4">
+<h4 id="orgc9a828a">case 2</h4>
+<div class="outline-text-4" id="text-orgc9a828a">
+<p>
+Not both \(A\) and \(B\) are analytical. But \((x - x_0) A(x)\) and \((x - x_0) B(x)\)
+are analytical. ( \(x_0\) is a regular singular point)
+</p>
+
+<p>
+At least one solution has the form (Frobenius series)
+</p>
+\begin{align}
+  y(x) = \sum_0^{\infty} (x - x_0)^{n + \alpha} a_n
+\end{align}
+<p>
+others
+</p>
+\begin{align}
+  y(x) = \sum_0^{\infty} (x - x_0)^{n + \alpha} a_n \ln(x - x_0)
+\end{align}
+
+<p>
+case 1 and case 2 solutions&apos; converge radius is often the distance from \(x_0\) to
+the nearest singularity.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga07b6d7" class="outline-4">
+<h4 id="orga07b6d7">case 3</h4>
+<div class="outline-text-4" id="text-orga07b6d7">
+<p>
+\(x_0\) is an irregular point.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf3b7e7f" class="outline-3">
+<h3 id="orgf3b7e7f">local analysis</h3>
+<div class="outline-text-3" id="text-orgf3b7e7f">
+<p>
+&#x5BF9;&#x4E8E;
+</p>
+\begin{align}
+  x^3 y&apos;&apos; = y
+\end{align}
+<p>
+&#x6765;&#x8BF4;
+</p>
+\begin{align}
+  A = 0, \quad B = \frac{1}{x^3}
+\end{align}
+
+<p>
+&#x5B83;&#x5C5E;&#x4E8E; case 3. &#x5982;&#x679C;&#x5F3A;&#x884C;&#x5199;&#x4E00;&#x4E2A; Frobenius series &#x7684;&#x89E3;
+</p>
+\begin{align}
+  y(x) = \sum_{n = 0}^{\infty} a_n x^{n + \alpha} \quad(a_n \neq 0)
+\end{align}
+<p>
+&#x90A3;&#x4E48;&#x4EE3;&#x56DE;&#x539F;&#x65B9;&#x7A0B;&#x53EF;&#x4EE5;&#x5F97;&#x5230;
+</p>
+\begin{align}
+  \sum_{n = 1}^{\infty} (n - 1 + \alpha)(n - 2 + \alpha) a_{n - 1} x^{n + \alpha}
+   = \sum_{n = 0}^{\infty} a_n x^{n + \alpha}
+\end{align}
+<p>
+&#x7ED3;&#x679C;&#x662F; \(a_0 = 0\) , \(a_n = 0\) . &#x4E5F;&#x5C31;&#x662F;&#x5B83;&#x6CA1;&#x6709; Frobenius series &#x7684;&#x89E3;.
+</p>
+
+<p>
+&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x592A;&#x96BE;&#x4E86;, &#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x4E00;&#x4E0B;&#x4E00;&#x9636;&#x7684;&#x95EE;&#x9898;, &#x80FD;&#x4E0D;&#x80FD;&#x731C;&#x4E00;&#x4E0B;&#x5B83;&#x7684;&#x89E3;.
+</p>
+</div>
+
+<div id="outline-container-orga2dcf71" class="outline-4">
+<h4 id="orga2dcf71">\(y&apos; = \frac{y}{2}\)</h4>
+<div class="outline-text-4" id="text-orga2dcf71">
+<p>
+&#x5B83;&#x7684; case 1, &#x5728; \(x = 0\) &#x5904;&#x662F; regular point. &#x90A3;&#x4E48;&#x5B83;&#x6709; Taylor series &#x5F62;&#x5F0F;&#x7684;&#x89E3;. &#x5F53;
+&#x7136;&#x7684;, &#x5B83;&#x7684;&#x89E3;&#x662F;
+</p>
+\begin{align}
+  y(x) = C e^{\frac{x}{2}} = C \sum_{n = 0}^{\infty} \frac{(x/2)^n}{n!}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgfd421b5" class="outline-4">
+<h4 id="orgfd421b5">\(y&apos; = \frac{y}{2x}\)</h4>
+<div class="outline-text-4" id="text-orgfd421b5">
+<p>
+&#x5B83;&#x662F; case 2, &#x5728; \(x = 0\) &#x5904;&#x662F; regular singular point. &#x5B83;&#x7684;&#x89E3;&#x4E3A;
+</p>
+\begin{align}
+  y(x) = C \sqrt{x}
+\end{align}
+<p>
+&#x8FD9;&#x662F; Frobenius series, \(\alpha = 1/2\) , &#x53EA;&#x6709;&#x4E00;&#x9879;. Frobenius was right!
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4ac7dfe" class="outline-4">
+<h4 id="org4ac7dfe">\(y&apos; = \frac{y}{2x^2}\)</h4>
+<div class="outline-text-4" id="text-org4ac7dfe">
+<p>
+&#x5B83;&#x662F; case 3, irregular point. &#x4F46;&#x662F;&#x5B83;&#x7684;&#x53EF;&#x89E3;&#x7684;, &#x7ED3;&#x679C;&#x662F;
+</p>
+\begin{align}
+  y = C e^{- \frac{1}{2x}}
+\end{align}
+<p>
+&#x5B83;&#x7684;&#x5F62;&#x5F0F;&#x662F;
+</p>
+\begin{align}
+  y = e^{s(x)}
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdc55d0c" class="outline-3">
+<h3 id="orgdc55d0c">How do asymptotic series arise?</h3>
+<div class="outline-text-3" id="text-orgdc55d0c">
+<p>
+&#x56E0;&#x6B64;, Green (&#x662F; George Green?)&#x7ED9;&#x51FA;&#x4E86;&#x8FD9;&#x6837;&#x7684; suggested, &#x4E00;&#x4E2A; \(y = e^{s(x)}\) &#x5F62;&#x5F0F;&#x7684;
+&#x8BD5;&#x63A2;&#x89E3;( \(s(x)\) is singular, blowing up at \(x = 0\) )
+</p>
+\begin{align}
+ y(x) = e^{a x^b}, \quad b<0 \end{align}="" <p="">
+&#x5982;&#x679C;&#x76F4;&#x63A5;&#x5C06; \(y = e^{s(x)}\) &#x4EE3;&#x56DE; \(x^3 y&apos;&apos; = y\) , &#x4F1A;&#x5F97;&#x5230; Riccati
+<p></p>
+\begin{align}
+  x^3(s&apos;&apos; + s&apos;^2) &amp;= 1 \\
+    \Downarrow&amp; \\
+x^3(T&apos; + T^2) &amp;= 1
+\end{align}
+<p>
+&#x5982;&#x679C; \(s = a x^b\)
+&#x90A3;&#x4E48;&#x4F1A;&#x5F97;&#x5230;
+</p>
+\begin{align}
+  s&apos;  =&amp; b a x^{b - 1}\\
+  s&apos;&apos; =&amp; b(b - 1) a x^{b-2}\\
+  s&apos;^2 =&amp; b^2a^2 x^{2b - 2}
+\end{align}
+<p>
+Mr. Green noticed that if \(b &lt; 0\) which of \(s&apos;&apos;, s&apos;^2\) is more important as \(x\to
+0\) ? (Its an issue of 2b or not 2b. That&apos;s the point! -_- !!! Bender &#x8BB2;&#x4E86;&#x8FD9;&#x4E48;&#x591A;&#x5C31;
+&#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x73A9; shakespeare &#x7684;&#x6897;&#x2026;&#x5F53;&#x7136;&#x4E0D;&#x662F;&#x2026;) &#x5F53;&#x7136;&#x662F;
+</p>
+\begin{align}
+  s&apos;&apos; \ll (s&apos;)^2 \quad \mathrm{as} \quad x \to 0
+\end{align}
+<p>
+&#x6240;&#x4EE5;&#x7528;&#x4E86; the method of dominant balance( &#x7B2C;&#x4E00;&#x8282;&#x8BFE;&#x8BB2;&#x7684; ), &#x5C06;&#x7B49;&#x53F7;&#x7684;&#x6362;&#x6210; \(\sim\) , &#x95EE;&#x9898;
+&#x6709;&#x4E86;&#x8FDB;&#x5C55;. &#x8FD9;&#x4E5F;&#x518D;&#x6B21;&#x8BF4;&#x660E; equal sign make no progress! Replace this equation by an
+asymptotic relations
+</p>
+\begin{align}
+  x^3(s&apos;&apos; + s&apos;^2) &amp;= 1 \\
+        \Downarrow&amp; \\
+  x^3 s&apos;^2 &amp;\sim 1 \quad \mathrm{as} \quad x\to 0\\
+\end{align}
+<p>
+ha! I can solve that equation. It&apos;s only a first order euqation.
+<img src="/2021/03/02/CarlBenderMathematicalPhysicsLecture7/bender.png">
+</p>
+\begin{align}
+s \sim \mp C\frac{2}{\sqrt{x}}\quad \mathrm{as} \quad x\to 0
+\end{align}
+<p>
+Just like that! We cracked into the equation!
+</p>
+
+<p>
+We know what \(s\) is asymptotic to. &#x4F46;&#x662F;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x662F; \(y(x) = e^{s(x)}\) . &#x90A3;&#x4E48;&#x95EE;&#x9898;
+&#x6765;&#x4E86;. If \(f(x)\sim g(x)\) as \(x\to x_0\) , is it true \(e^{f(x)}\sim e^{g(x)}\) as \(x\to
+x_0\) ? (&#x56E0;&#x4E3A; asymptotic &#x5E76;&#x4E0D;&#x610F;&#x5473;&#x7740; \(f(x) - g(x)\) &#x5F88;&#x5C0F;, &#x5B83;&#x53EF;&#x4EE5;&#x5F88;&#x5927;, &#x6BD4;&#x5982; \(x^2 + x
+\sim x^{2}\) as \(x\to \infty\) , &#x4F46;&#x5B83;&#x4EEC;&#x76F8;&#x5DEE;&#x65E0;&#x7A77;&#x5927;!)
+</p>
+
+<p>
+Only true when \(f(x) - g(x) \ll 1\) as \(x \to x_0\) . The one thing that you cannot
+do both sides of an asymptotic approximation is to exponent it.
+</p>
+
+<p>
+\(\mp \frac{2}{\sqrt{x}}\quad \mathrm{as}\) &#x53EB;&#x505A; controlling factor. &#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x53EA;&#x80FD;
+<b>roughly</b> speaking
+</p>
+\begin{align}
+  y(x) \sim e^{\frac{2}{\sqrt{x}}} \quad \mathrm{or} \quad e^{-\frac{2}{\sqrt{x}}}
+   \quad \mathrm{as} \quad x\to 0
+\end{align}
+<p>
+&#x6709;&#x4E00;&#x4E2A;&#x89E3;&#x5728; \(x \to 0\) &#x65F6;&#x5F88;&#x5FEB;&#x5730; blow up. &#x53E6;&#x4E00;&#x4E2A;&#x8D8B;&#x4E8E; \(0\) . &#x8FD9;&#x4E24;&#x4E2A;&#x89E3;&#x90FD;&#x6CA1;&#x6709; Frobenius
+&#x6216;&#x8005; Taylor series.
+</p>
+
+<p>
+Bender &#x6700;&#x540E;&#x603B;&#x7ED3;, &#x65B0;&#x7684;&#x6982;&#x5FF5;&#x5C31;&#x662F;&#x8FD9;&#x6837;&#x88AB;&#x53D1;&#x660E;&#x7684;. &#x8FD9;&#x4E2A;&#x65B9;&#x7A0B;&#x7684;&#x89E3;&#x4E00;&#x5B9A;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;, &#x4F46;&#x662F;&#x901A;&#x5E38;
+&#x7684;&#x65B9;&#x6CD5;&#x90FD;&#x6CA1;&#x6CD5;&#x8868;&#x793A;, &#x6240;&#x4EE5; we&apos;re forced to a new way to represent the function.
+</p>
+
+<p>
+&#x6700;&#x7EC8;&#x7684;&#x7ED3;&#x679C;&#x662F;
+</p>
+\begin{align}
+  y(x) \sim e^{\mp \frac{2}{\sqrt{x}}} x^{3/4} \sum_{n = 0}^{\infty} a_n x^{n/2} \quad
+  \mathrm{as} \quad x \to 0
+\end{align}
+<p>
+&#x4E4B;&#x540E;&#x4F1A;&#x53D1;&#x73B0;&#x8FD9;&#x662F;&#x4E2A; divergent series. &#x6240;&#x4EE5;&#x8BF4;, divergent series are forced upon
+us. This is the only way to represent the solution. We don&apos;t have a convergent
+series representation.
+</p>
+
+<p>
+&#x4E4B;&#x540E;&#x4F1A;&#x8BB2;&#x5982;&#x4F55; sum that series and actually write down the answer.
+</p>
+</0></div>
+</div>
+</div>
+
+<div id="outline-container-org02a9ae6" class="outline-2">
+<h2 id="org02a9ae6">Summary</h2>
+<div class="outline-text-2" id="text-org02a9ae6">
+<p>
+&#x4ECB;&#x7ECD;&#x4E86; asymptotic series &#x7684;&#x5B9A;&#x4E49;, &#x4E4B;&#x540E;&#x91CD;&#x70B9;&#x7528;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x8BF4;&#x660E;&#x6211;&#x4EEC;&#x662F;&#x5982;&#x4F55;&#x6709;&#x4E86; asymptotic
+series &#x8FD9;&#x4E2A;&#x6982;&#x5FF5;&#x7684;: &#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x4E86;&#x4E00;&#x4E9B;&#x65B9;&#x7A0B;, &#x5B83;&#x7684;&#x89E3;&#x7684;&#x5F62;&#x5F0F;&#x53EA;&#x80FD;&#x7528; asymptotic series &#x6765;&#x8868;
+&#x793A;. &#x8FD9;&#x5C31;&#x50CF; \(x^2 = -1\) &#x7684;&#x89E3;&#x8BA9;&#x6211;&#x4EEC;&#x4E0D;&#x5F97;&#x4E0D;&#x62E5;&#x6709;&#x4E86;&#x590D;&#x6570;&#x7684;&#x6982;&#x5FF5;&#x4E00;&#x6837;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org208d7f3" class="outline-2">
+<h2 id="org208d7f3">Reference</h2>
+<div class="outline-text-2" id="text-org208d7f3">
+<ul class="org-ul">
+<li><a href="https://mathworld.wolfram.com/StirlingsSeries.html" target="_blank" rel="noopener">Stirling&apos;s Series</a></li>
+
+<li><a href="https://arxiv.org/pdf/0912.2069.pdf" target="_blank" rel="noopener">Stokes&apos; wedges</a> (&#x53EA;&#x6709; Bender &#x8FD9;&#x4E48;&#x53EB;?)</li>
+
+<li><a href="https://en.wikipedia.org/wiki/Fuchs%27_theorem" target="_blank" rel="noopener">Fuchs&apos; theorem</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Carl-Bender/" rel="tag"># Carl Bender</a>
+          
+            <a href="/tags/Mathematical-Physics/" rel="tag"># Mathematical Physics</a>
+          
+            <a href="/tags/asymptotic-series/" rel="tag"># asymptotic series</a>
+          
+            <a href="/tags/Frobenius-series/" rel="tag"># Frobenius series</a>
+          
+            <a href="/tags/method-of-dominant-balance/" rel="tag"># method of dominant balance</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/03/01/two_body_density_matrix/" rel="next" title="two body density matrix">
+                <i class="fa fa-chevron-left"></i> two body density matrix
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc345466"><span class="nav-text">Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org4dea629"><span class="nav-text">Keywords</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org530e6c0"><span class="nav-text">Pade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org419e5d7"><span class="nav-text">Stirling&#39;s Series</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org9c0af3c"><span class="nav-text">What is Asymptotic Series?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2b41664"><span class="nav-text">An Example about &quot;How do asymptotic series arise?&quot;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org0bf7758"><span class="nav-text">偏题: 如何分析一个 second order linear DE?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org8c79075"><span class="nav-text">case 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgc9a828a"><span class="nav-text">case 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orga07b6d7"><span class="nav-text">case 3</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgf3b7e7f"><span class="nav-text">local analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orga2dcf71"><span class="nav-text">\(y&#39; = \frac{y}{2}\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgfd421b5"><span class="nav-text">\(y&#39; = \frac{y}{2x}\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org4ac7dfe"><span class="nav-text">\(y&#39; = \frac{y}{2x^2}\)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgdc55d0c"><span class="nav-text">How do asymptotic series arise?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org02a9ae6"><span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org208d7f3"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
