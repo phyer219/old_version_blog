@@ -110,22 +110,22 @@
 
 
 
-  <meta name="keywords" content="Email:zeqing6688@126.com">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="https://zqw.ink/categories/index.html">
+  <meta name="keywords" content="propagator,free particle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个简单的积分: 自由粒子的传播子">
+<meta property="og:url" content="https://zqw.ink/2021/03/03/non_relativity_free_particle_propgator/index.html">
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-11-29T02:17:49.150Z">
+<meta property="og:updated_time" content="2021-03-03T13:41:01.043Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
+<meta name="twitter:title" content="一个简单的积分: 自由粒子的传播子">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zqw.ink/categories/"/>
+  <link rel="canonical" href="https://zqw.ink/2021/03/03/non_relativity_free_particle_propgator/"/>
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>分类 | 从冰上的水</title>
+  <title>一个简单的积分: 自由粒子的传播子 | 从冰上的水</title>
   
 
 
@@ -295,96 +295,252 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/03/03/non_relativity_free_particle_propgator/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">分类</h1>
+        
+        
+          <h1 class="post-title" itemprop="name headline">一个简单的积分: 自由粒子的传播子
+              
+            
+          </h1>
+        
 
-<div class="post-meta">
-  
-  
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
 
+              
+                
+              
+
+              <time title="创建时间：2021-03-03 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-03T00:00:00+08:00">2021-03-03</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/03/03/non_relativity_free_particle_propgator/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/03/03/non_relativity_free_particle_propgator/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+\begin{align}
+  U(t) =&amp; \langle \vec{x} | e^{-\mathrm{i} H t} | \vec{x}_0\rangle \\
+    =&amp; \int \frac{\mathrm{d}^3\vec{p}}{(2\pi)^3}
+      \langle \vec{x}| e^{-\mathrm{i} \frac{p^2}{2m}t}|\vec{p}\rangle
+          \langle \vec{p} | \vec{x}_0\rangle \\
+    =&amp; \int \frac{\mathrm{d}^3\vec{p}}{(2\pi)^3}
+       e^{-\mathrm{i} \frac{p^2}{2m}t} e^{\mathrm{i}\vec{p}\cdot(\vec{x} - \vec{x}_0)} \\
+    =&amp; \left( \frac{m}{2\pi \mathrm{i}t} \right)^{3/2}
+            e^{\mathrm{i}m\frac{(\vec{x} - \vec{x}_0)^2}{2t}}
+\end{align}
+<p>
+&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x7B49;&#x53F7;&#x7684;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;. &#x8BB0; \(|\vec{x} - \vec{x}_0| = \Delta x\)
+</p>
+\begin{align}
+U(t) =&amp; \frac{1}{(2\pi)^2} \int_0^{\infty}\mathrm{d}p\cdot p^2\int_{-1}^1\mathrm{d}\cos\theta\cdot
+       e^{-\mathrm{i} \frac{p^2}{2m}t}e^{\mathrm{i} p\Delta x \cos\theta} \\
+=&amp; \frac{1}{(2\pi)^2} \int_0^{\infty}\mathrm{d}p\cdot p
+       e^{-\mathrm{i} \frac{p^2}{2m}t} \frac{1}{\mathrm{i}\Delta x}
+        [e^{\mathrm{i} p\Delta x} - e^{-\mathrm{i} p\Delta x}]\\
+=&amp; \frac{1}{(2\pi)^2} \int_{-\infty}^{\infty}\mathrm{d}p\cdot p
+       e^{-\mathrm{i} \frac{p^2}{2m}t} \frac{1}{\mathrm{i}\Delta x}
+        e^{\mathrm{i} p\Delta x} \\
+=&amp; \frac{1}{(2\pi)^2} \int_{-\infty}^{\infty}\mathrm{d}p
+       e^{-\mathrm{i} \frac{p^2}{2m}t} \frac{p}{\mathrm{i}\Delta x}\cdot
+          \frac{1}{\mathrm{i}p} \frac{\partial}{\partial\Delta x}
+        e^{\mathrm{i} p\Delta x} \\
+=&amp; \frac{1}{(2\pi)^2} \frac{-1}{\mathrm{i}\Delta x}\frac{\partial}{\partial\Delta x}
+           \int_{-\infty}^{\infty}\mathrm{d}p
+       e^{-\mathrm{i} \frac{p^2}{2m}t} e^{\mathrm{i} p\Delta x} \\
+=&amp; \frac{1}{(2\pi)^2} \frac{-1}{\mathrm{i}\Delta x}\frac{\partial}{\partial\Delta x}
+            \sqrt{\frac{2\pi m}{\mathrm{i}t}} e^{-\frac{\Delta x^{2} m}{2it}}\\
+=&amp; \left( \frac{m}{2\pi \mathrm{i}t} \right)^{3/2}
+            e^{\mathrm{i}m\frac{\Delta x^2}{2t}}
+\end{align}
+
+<div id="outline-container-org2fa8d43" class="outline-2">
+<h2 id="org2fa8d43">&#x6CE8;</h2>
+<div class="outline-text-2" id="text-org2fa8d43">
+<p>
+&#x8BB0;&#x4F4F;&#x8FD9;&#x4E2A;&#x8FD8;&#x4E0D;&#x662F;&#x9519;&#x7684;, &#x4E0D;&#x7528;&#x8001;&#x914D;&#x65B9;&#x4E86;&#x2026;
+</p>
+\begin{align}
+\int_{-\infty}^{\infty} e^{-a x^2 + bx} = \sqrt{\frac{\pi}{a}}e^{\frac{b^2}{4a}}
+\end{align}
+</div>
 </div>
 
-</header>
+<div id="outline-container-orgfb99ff0" class="outline-2">
+<h2 id="orgfb99ff0">Reference</h2>
+<div class="outline-text-2" id="text-orgfb99ff0">
+<ul class="org-ul">
+<li>Michael E. Peskin, Daniel V. Schroeder - An Introduction To Quantum Field
+Theory (2018, Westview Press<sub>CRC</sub> Press) Chap 2.1</li>
 
-      
-      
-      
-      <div class="post-body">
-        
-        
-          <div class="category-all-page">
-            <div class="category-all-title">
-                
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                目前共计 4 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/专业笔记/">专业笔记</a><span class="category-list-count">90</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/想说/">想说</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/故事/">故事</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件使用/">软件使用</a><span class="category-list-count">13</span></li></ul>
-            </div>
-          </div>
-        
-      </div>
-      
-      
+<li><a href="https://physics.stackexchange.com/questions/424587/peskin-schroeder-free-particle-propagation" target="_blank" rel="noopener">https://physics.stackexchange.com/questions/424587/peskin-schroeder-free-particle-propagation</a></li>
+</ul>
+</div>
+</div>
+</div>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/propagator/" rel="tag"># propagator</a>
+          
+            <a href="/tags/free-particle/" rel="tag"># free particle</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/03/02/CarlBenderMathematicalPhysicsLecture7/" rel="next" title="Carl Bender Mathematical Physics Lecture7 Note">
+                <i class="fa fa-chevron-left"></i> Carl Bender Mathematical Physics Lecture7 Note
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -417,8 +573,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -460,6 +625,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org2fa8d43"><span class="nav-text">注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgfb99ff0"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
