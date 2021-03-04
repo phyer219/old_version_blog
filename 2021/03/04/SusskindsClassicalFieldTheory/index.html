@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="physics,classical field theory,field theory,least action,Lagrangian">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Susskind&#39;s Classical Field Theory Note">
+<meta property="og:url" content="https://zqw.ink/2021/03/04/SusskindsClassicalFieldTheory/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2021/03/04/SusskindsClassicalFieldTheory/space_time.png">
+<meta property="og:image" content="https://zqw.ink/2021/03/04/SusskindsClassicalFieldTheory/string.png">
+<meta property="og:updated_time" content="2021-03-04T13:44:02.461Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Susskind&#39;s Classical Field Theory Note">
+<meta name="twitter:image" content="https://zqw.ink/2021/03/04/SusskindsClassicalFieldTheory/space_time.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2021/03/04/SusskindsClassicalFieldTheory/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Susskind's Classical Field Theory Note | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/03/04/SusskindsClassicalFieldTheory/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Susskind's Classical Field Theory Note
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-03-04 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-04T00:00:00+08:00">2021-03-04</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/03/04/SusskindsClassicalFieldTheory/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/03/04/SusskindsClassicalFieldTheory/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-orgcb4a923" class="outline-2">
+<h2 id="orgcb4a923">Information</h2>
+<div class="outline-text-2" id="text-orgcb4a923">
+<ul class="org-ul">
+<li>&#x89C6;&#x9891;&#x5217;&#x8868;&#x5730;&#x5740;: <a href="https://www.youtube.com/playlist?list=PL4D780620B14F1568" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PL4D780620B14F1568</a> ( &#x6BCF;&#x4E00;
+&#x96C6;&#x7684;&#x6807;&#x9898;&#x90FD;&#x662F; Special Relativity, &#x611F;&#x89C9;&#x4E0D;&#x6001;&#x6070;&#x5F53;, &#x4E3B;&#x8981;&#x5185;&#x5BB9;&#x8FD8;&#x662F; Classical Field
+Theory)</li>
+
+<li>Book: Leonard Susskind Art Friedman, Special Relativity and Classical Field
+Theory</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org583ea18" class="outline-2">
+<h2 id="org583ea18">Lecture 1: Special Relativity</h2>
+<div class="outline-text-2" id="text-org583ea18">
+</div>
+<div id="outline-container-org5cba540" class="outline-3">
+<h3 id="org5cba540">Galileo Trans</h3>
+<div class="outline-text-3" id="text-org5cba540">
+<p>
+&#x8003;&#x8651;&#x4E00;&#x7EF4;&#x7684;&#x8FD0;&#x52A8;, &#x9009;&#x53D6;&#x5750;&#x6807;&#x7CFB; \(xOt\) . &#x53E6;&#x4E00;&#x5750;&#x6807;&#x7CFB; \(x&apos;O&apos;t&apos;\) &#x76F8;&#x5BF9; \(xOt\) &#x4EE5; \(v\) &#x5411;&#x53F3;&#x8FD0;
+&#x52A8;. &#x5982;&#x56FE;
+<img src="/2021/03/04/SusskindsClassicalFieldTheory/space_time.png">
+&#x5728;&#x7EA2;&#x70B9;&#x5904;&#x53D1;&#x751F;&#x67D0;&#x4E2A;&#x4E8B;&#x4EF6;, &#x5728; \(xOt\) &#x5750;&#x6807;&#x7CFB;&#x4E2D;&#x7684;&#x5750;&#x6807;&#x662F; \(x, t\) . &#x5728;&#x84DD;&#x8272;&#x7EBF;&#x7684;&#x6240;&#x6709;&#x7684;&#x70B9;&#x7684;&#x5750;
+&#x6807;&#x5728;&#x4E24;&#x4E2A;&#x5750;&#x6807;&#x7CFB;&#x4E2D;&#x5206;&#x522B;&#x4E3A; \(x = vt\) , \(x&apos;=0\) .
+</p>
+
+<p>
+&#x6240;&#x4EE5;&#x5728; Galileo &#x53D8;&#x6362;&#x4E0B;, &#x5B83;&#x7684;&#x65F6;&#x95F4;&#x662F;&#x4E00;&#x6837;&#x7684;, &#x6240;&#x4EE5;&#x7EA2;&#x70B9;&#x5728; \(x&apos;O&apos;t&apos;\) &#x7CFB;&#x4E2D;&#x7684;&#x5750;&#x6807;&#x662F; \(x&apos; =
+x - vt, t&apos; = t\) .
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9212332" class="outline-3">
+<h3 id="org9212332">Lorentz Trans</h3>
+<div class="outline-text-3" id="text-org9212332">
+<p>
+&#x4F46;&#x662F; Maxwell &#x65B9;&#x7A0B;&#x7ED9;&#x51FA;&#x5149;&#x675F; \(c\) &#x5728;&#x4E0D;&#x540C;&#x7684;&#x60EF;&#x6027;&#x7CFB;&#x4E2D;&#x5E94;&#x8BE5;&#x662F;&#x76F8;&#x540C;&#x7684;. &#x90A3;&#x5047;&#x8BBE;&#x5728;&#x6240;&#x6709;&#x60EF;&#x6027;&#x7CFB;&#x4E2D;
+&#x90FD;&#x53D6; \(c = 1\) . &#x63CF;&#x8FF0;&#x5149;&#x7684;&#x8FD0;&#x52A8;&#x7684;&#x65B9;&#x7A0B;&#x4E3A;, \(x = t\) &#x6216;&#x8005; \(x = -t\) &#x4E24;&#x79CD;&#x53EF;&#x80FD;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;,
+\(x^2 = t^2\) . &#x5728; \(x&apos;O&apos;t&apos;\) &#x7CFB;&#x4E2D;&#x4E3A; \(x&apos; = t&apos;\) &#x6216;&#x8005; \(x&apos; = - t&apos;\) , &#x4E5F;&#x5C31;&#x662F; \(x^2 = t^2\)
+. &#x4E5F;&#x5C31;&#x662F;&#x8BF4;
+</p>
+\begin{align}
+  x^2 - t^2 = x&apos;^2 - t&apos;^2
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgbcfcacf" class="outline-3">
+<h3 id="orgbcfcacf">Hyperbolic</h3>
+<div class="outline-text-3" id="text-orgbcfcacf">
+<p>
+&#x5BF9;&#x4E8E;&#x666E;&#x901A;&#x7684;&#x4E8C;&#x7EF4;&#x7684;&#x65CB;&#x8F6C;, &#x5750;&#x6807;&#x7684;&#x53D8;&#x6362;&#x4E3A;
+</p>
+\begin{align}
+  x&apos; =&amp; x \cos\theta + y\sin\theta \\
+  y&apos; =&amp;-x \sin\theta + y\cos\theta
+\end{align}
+<p>
+&#x5728;&#x8FD9;&#x79CD;&#x53D8;&#x6362;&#x4E0B;&#x957F;&#x5EA6; \(s^2= x^2 + y^2\) &#x662F;&#x4E0D;&#x53D8;&#x7684;.
+</p>
+
+<p>
+&#x53D7;&#x6B64;&#x542F;&#x53D1;, &#x5E0C;&#x671B;&#x627E;&#x4E00;&#x4E2A;&#x53D8;&#x6362;&#x4F7F;&#x5F97; \(x^2 - t^2\) &#x662F;&#x4E0D;&#x53D8;&#x91CF;, &#x5E76;&#x4E14;&#x5728;&#x4F4E;&#x901F;&#x4E0B;&#x56DE;&#x5230; Galileo &#x53D8;&#x6362;&#x7684;
+&#x5F62;&#x5F0F;. &#x5B83;&#x5C31;&#x662F; hyperbolic
+</p>
+\begin{align}
+x&apos; =&amp;  x \cosh \omega - t \sinh \omega \\
+t&apos; =&amp; -x \sinh \omega + t \cosh \omega
+\end{align}
+<p>
+&#x53EF;&#x4EE5;&#x9A8C;&#x8BC1; \(x^2 - t^2 = x&apos;^2 - t&apos;^2\)
+</p>
+
+<p>
+&#x8FD9;&#x5C31;&#x662F; Lorentz &#x53D8;&#x6362;. Susskind &#x8FD8;&#x89E3;&#x91CA;&#x4E86;&#x4E3A;&#x4EC0;&#x4E48;&#x53EB; Hyperbolic functions. &#x56E0;&#x4E3A; \(\sin
+^2\theta + \cos^2\theta = 1\) , &#x4EE5; \(\sin \theta, \cos \theta\) &#x4E3A;&#x5750;&#x6807;, &#x90A3;&#x753B;&#x51FA;&#x6765;&#x5C31;&#x662F;&#x4E2A;&#x5706;. &#x800C; \(\cosh
+^2\omega - \sinh^2\omega = 1\) , &#x76F8;&#x5E94;&#x7684;&#x753B;&#x51FA;&#x6765;&#x5C31;&#x662F;&#x53CC;&#x66F2;&#x7EBF;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1ec7eae" class="outline-3">
+<h3 id="org1ec7eae">Represent by Velocity</h3>
+<div class="outline-text-3" id="text-org1ec7eae">
+<p>
+&#x4E0A;&#x8FF0;&#x7684;&#x53D8;&#x6362;&#x662F;&#x7528; \(\omega\) &#x8868;&#x793A;&#x7684;. &#x90A3;&#x5B83;&#x4E0E;&#x901F;&#x5EA6; \(v\) &#x7684;&#x5173;&#x7CFB;&#x5462;?
+</p>
+
+<p>
+&#x8FD8;&#x662F;&#x56DE;&#x5230;&#x672C;&#x8282;&#x6700;&#x5F00;&#x59CB;&#x90A3;&#x5F20;&#x56FE;. &#x7531;&#x5B9A;&#x4E49;&#x77E5;&#x9053;&#x84DD;&#x7EBF;&#x4E0A;&#x7684;&#x5750;&#x6807;&#x4E3A; \(x = vt, x&apos; = 0\) (&#x5B9A;&#x4E49;, &#x4E24;&#x4E2A;
+&#x5750;&#x6807;&#x7CFB;&#x4EE5;&#x901F;&#x5EA6; \(v\) &#x76F8;&#x5BF9;&#x8FD0;&#x52A8;). &#x800C; \(x&apos; =  x \cosh \omega - t \sinh \omega\) &#x6240;&#x4EE5; \(v =
+\frac{\sinh \omega}{\cosh \omega}\) &#x90A3;&#x4E48;
+</p>
+\begin{align}
+  v^2 = \frac{\sinh^2\omega}{\cosh^2\omega} =&amp; \frac{\cosh^2\omega - 1}{\cosh^2\omega}
+               = 1 - \frac{1}{\cosh^2\omega}\\
+           \Downarrow&amp;\\
+\cosh\omega =&amp; \frac{1}{\sqrt{1 - v^2}} \\
+           \Downarrow&amp;\\
+\sinh\omega =&amp; v\cosh \omega = \frac{v}{\sqrt{1 - v^2}}
+\end{align}
+<p>
+&#x5149;&#x901F; \(c\) &#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x91CF;&#x7EB2;&#x5206;&#x6790;&#x627E;&#x56DE;, &#x5C31;&#x5F97;&#x5230;&#x4E86;&#x6700;&#x719F;&#x6089;&#x7684;&#x5F62;&#x5F0F;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb7e2e3e" class="outline-3">
+<h3 id="orgb7e2e3e">Proper Time</h3>
+<div class="outline-text-3" id="text-orgb7e2e3e">
+<p>
+&#x5BF9;&#x4E8E; \(xOt\) &#x5750;&#x6807;&#x7CFB;&#x4E2D;&#x4EFB;&#x610F;&#x4E00;&#x6761;&#x66F2;&#x7EBF;, &#x5B9A;&#x4E49;&#x7684; proper time
+</p>
+\begin{align}
+  \mathrm{d}\tau = \sqrt{\mathrm{d}t^2 - \mathrm{d}x^2}
+\end{align}
+<p>
+&#x5B83;&#x5728;&#x4E0D;&#x540C;&#x5750;&#x6807;&#x7CFB;&#x4E2D;&#x662F;&#x76F8;&#x540C;&#x7684;.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org116fd54" class="outline-2">
+<h2 id="org116fd54">Lecture 2: From Particles to Field: a String</h2>
+<div class="outline-text-2" id="text-org116fd54">
+</div>
+<div id="outline-container-org2d63648" class="outline-3">
+<h3 id="org2d63648">Euler-Lagrange Equation</h3>
+<div class="outline-text-3" id="text-org2d63648">
+<p>
+&#x56DE;&#x987E;&#x7ECF;&#x5178;&#x529B;&#x5B66;&#x4E2D;&#x7684; Euler-Lagrange Equation.
+</p>
+
+<p>
+&#x6BD4;&#x5982;&#x8BB8;&#x4E00;&#x7EF4;&#x591A;&#x7C92;&#x5B50;&#x5728;&#x52BF; \(U(q)\) &#x4E2D;&#x8FD0;&#x52A8;, &#x90A3;&#x4E48; Lagrangian &#x4E3A;
+</p>
+\begin{align}
+  L = T - U = \sum_i \frac{1}{2}m_i\dot{q}_i^2 - U(q)
+\end{align}
+<p>
+index \(i\) &#x8868;&#x793A;&#x7B2C; \(i\) &#x4E2A;&#x7C92;&#x5B50;. &#x5B83;&#x4EEC;&#x7684;&#x8FD0;&#x52A8;&#x6EE1;&#x8DB3; Euler-Lagrange Equation
+</p>
+\begin{align}
+  \frac{\mathrm{d}}{\mathrm{d}t} \frac{\partial L}{\partial \dot{q}_i} - \frac{\partial L}{\partial q_i} = 0
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgf364842" class="outline-3">
+<h3 id="orgf364842">A String</h3>
+<div class="outline-text-3" id="text-orgf364842">
+<p>
+&#x8003;&#x8651;&#x7531;&#x5F39;&#x7C27;&#x8FDE;&#x63A5;&#x7684;&#x8BB8;&#x591A;&#x8D28;&#x70B9;. &#x5B83;&#x4EEC;&#x53EA;&#x80FD;&#x5782;&#x76F4;&#x4E8E; \(x\) &#x8FD0;&#x52A8;. &#x8BB0;&#x5B83;&#x4EEC;&#x79BB; \(x\) &#x8F74;&#x7684;&#x8DDD;&#x79BB;&#x4E3A; \(\phi_i\)
+.
+<img src="/2021/03/04/SusskindsClassicalFieldTheory/string.png">
+&#x76F8;&#x90BB;&#x7684;&#x70B9;&#x95F4;&#x9694; \(\epsilon\) . \(\epsilon\) &#x662F;&#x4E0E;&#x6BCF;&#x4E2A;&#x70B9;&#x7684;&#x8D28;&#x91CF;&#x6210;&#x6B63;&#x6BD4;&#x7684;, &#x56E0;&#x4E3A;&#x603B;&#x8D28;&#x91CF;&#x4E00;&#x5B9A;&#x7684;&#x524D;&#x63D0;&#x4E0B;, &#x5206;&#x5F97;
+&#x8D8A;&#x7EC6;, &#x6BCF;&#x4E2A;&#x70B9;&#x7684;&#x8D28;&#x91CF;&#x5C31;&#x8D8A;&#x5C0F;. &#x56E0;&#x6B64;&#x52A8;&#x80FD;&#x4E3A;&#x5982;&#x4E0B;&#x5F62;&#x5F0F;
+</p>
+\begin{align}
+  T = \sum_i \frac{1}{2}\epsilon \dot{\phi}_i^2
+\end{align}
+<p>
+&#x5F39;&#x7C27;&#x8D8A;&#x77ED;&#x7684;&#x8BDD;, &#x5C31;&#x8D8A;&#x786C;, &#x4E5F;&#x5C31;&#x662F;&#x52B2;&#x5EA6;&#x7CFB;&#x6570;&#x4E0E; \(\epsilon\) &#x6210;&#x53CD;&#x6BD4;. &#x518D;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x7CFB;&#x6570; \(c^2\) , &#x5B83;&#x7684;&#x52BF;
+&#x80FD;&#x4E3A;&#x5982;&#x4E0B;&#x5F62;&#x5F0F;
+</p>
+\begin{align}
+  U = \frac{c^2}{2\epsilon} \sum_i \left(\phi_{i + 1} - \phi_i \right)^2
+\end{align}
+<p>
+&#x6240;&#x4EE5; Lagrangian &#x4E3A;
+</p>
+\begin{align}
+  L = \frac{\epsilon}{2}\sum_i \dot{\phi}_i^2 - \frac{c^2}{2\epsilon} \sum_i \left(\phi_{i + 1} - \phi_i \right)^2
+\end{align}
+<p>
+&#x53D6;&#x65E0;&#x7A77;&#x591A;&#x5206;&#x7684;&#x8BDD;, &#x505A;&#x8FDE;&#x7EED;&#x8FD1;&#x4F3C; \(\epsilon\to \mathrm{d}x, \sum_i \to \int\) &#x5C31;&#x53D8;&#x6210;&#x4E86;
+</p>
+\begin{align}
+  L\left[\phi, \frac{\partial\phi(x, t)}{\partial t}, \frac{\partial \phi(x, t)}{\partial x}\right]
+     = \frac{1}{2}\int \left[\left(\frac{\partial\phi}{\partial t} \right)^2  - c^2 \left(\frac{\partial\phi}{\partial x} \right)^2
+      \right] \mathrm{d}x
+\end{align}
+<p>
+&#x6B64;&#x65F6;&#x7684; \(\phi\) &#x5C31;&#x662F;&#x573A;( \(\phi\) &#x662F; f, &#x4EE3;&#x8868; field). action &#x5C31;&#x662F;&#x518D;&#x5BF9;&#x65F6;&#x95F4;&#x79EF;&#x5206;(&#x7ED9;&#x5B9A;&#x8FB9;&#x754C;)
+</p>
+\begin{align}
+  A = \frac{1}{2}\int \left[\left(\frac{\partial\phi}{\partial t} \right)^2  - c^2 \left(\frac{\partial\phi}{\partial x} \right)^2
+      \right] \mathrm{d}x \mathrm{d}t
+\end{align}
+<p>
+&#x7B2C;&#x4E00;&#x9879;&#x662F; field &#x5728; field space &#x4E2D;&#x7684;&#x52A8;&#x80FD;. &#x901A;&#x8FC7; least action &#x5F97;&#x5230;&#x5B83;&#x7684;
+Euler-Lagrange Equation &#x4E3A;
+</p>
+\begin{align}
+  \frac{\partial L}{\partial\phi} - \frac{\partial}{\partial x} \frac{\partial L}{\partial\frac{\partial\phi}{\partial x}}
+      - \frac{\partial}{\partial t} \frac{\partial L}{\partial\frac{\partial\phi}{\partial t}} =0
+\end{align}
+<p>
+&#x5C06; Lagrangian &#x4EE3;&#x5165;&#x53EF;&#x5F97;&#x8FD0;&#x52A8;&#x65B9;&#x7A0B;
+</p>
+\begin{align}
+  \frac{\partial^2\phi}{\partial t^2} - c^2 \frac{\partial^2\phi}{\partial x^2} = 0
+\end{align}
+<p>
+&#x8FD9;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x6CE2;&#x4F20;&#x64AD;&#x7684;&#x65B9;&#x7A0B;.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga19a28f" class="outline-2">
+<h2 id="orga19a28f">Lecture 3: Four vector &amp; Lorentz invariant</h2>
+<div class="outline-text-2" id="text-orga19a28f">
+<p>
+&#x4E4B;&#x540E;&#x4E0D;&#x505A;&#x8BF4;&#x660E;, &#x4E00;&#x822C;&#x7EDF;&#x4E00;&#x5C06;&#x5149;&#x675F;&#x53D6;&#x4E3A; \(1\)
+</p>
+
+<p>
+&#x5C06;&#x65F6;&#x95F4;&#x4E0E;&#x7A7A;&#x95F4;&#x5199;&#x5728;&#x4E00;&#x8D77;, &#x5B9A;&#x4E49;&#x6210; four vector, &#x6BD4;&#x5982;
+</p>
+\begin{align}
+  \mathrm{d}x^{\mu} \equiv (\mathrm{d}t, \mathrm{d}x, \mathrm{d}y, \mathrm{d}z)
+  \quad \mu = 0, 1, 2, 3
+\end{align}
+<p>
+four vector &#x6700;&#x5173;&#x952E;&#x7684;&#x662F;&#x5B83;&#x6309;&#x7167; Lorentz &#x53D8;&#x6362;&#x8FDB;&#x884C;&#x53D8;&#x6362;. &#x5982;&#x679C;&#x6362;&#x6210;&#x4E0B;&#x6807;, &#x90A3;&#x5C31;&#x628A;&#x7B2C; 0 &#x4E2A;&#x5206;
+&#x91CF;&#x52A0;&#x4E00;&#x4E2A;&#x8D1F;&#x53F7;( &#x4E0B;&#x6807;&#x662F;&#x534F;&#x53D8;, co is low).  &#x5982;
+</p>
+\begin{align}
+  \mathrm{d}x_{\mu} \equiv (-\mathrm{d}t, \mathrm{d}x, \mathrm{d}y, \mathrm{d}z)
+\end{align}
+<p>
+&#x7528;&#x8FD9;&#x79CD;&#x8BB0;&#x53F7;, &#x5E76;&#x91C7;&#x53D6;&#x6C42;&#x548C;&#x7EA6;&#x5B9A;, &#x90A3;&#x4E48; Lorentz &#x53D8;&#x6362;&#x4E0B;&#x7684;&#x4E0D;&#x53D8;&#x91CF;&#x5C31;&#x53EF;&#x4EE5;&#x5199;&#x6210;
+</p>
+\begin{align}
+  \mathrm{d}x^{\mu}\mathrm{d}x_{\mu}
+    = - \mathrm{d}t^{2} + \mathrm{d}x^2 + \mathrm{d}y^2 + \mathrm{d}z^2
+\end{align}
+<p>
+&#x5185;&#x79EF; \(A_\mu B^{\mu}\) &#x548C; \(A^{\mu} B_{\mu}\) &#x662F;&#x4E00;&#x6837;&#x7684;. &#x5C31;&#x50CF;&#x5728;&#x4E09;&#x7EF4;&#x65CB;&#x8F6C;&#x4E0B;, &#x4EFB;&#x610F;&#x4E24;&#x4E2A;&#x77E2;&#x91CF;&#x7684;
+&#x5185;&#x79EF;(&#x56E0;&#x5185;&#x79EF;&#x662F;&#x4E00;&#x4E2A;&#x6807;&#x91CF;)&#x662F;&#x4E0D;&#x53D8;&#x7684;&#x4E00;&#x6837;, four vector &#x7684; inner product &#x662F;&#x4E00;&#x4E2A; scaler,
+&#x5B83;&#x5728; Lorentz &#x53D8;&#x6362;&#x4E0B;&#x662F;&#x4E0D;&#x53D8;&#x7684;.
+</p>
+
+<p>
+&#x56E0;&#x6B64;&#x5C31;&#x6709;&#x4E86;&#x4E00;&#x79CD;&#x5224;&#x65AD; four vertor &#x7684;&#x65B9;&#x6CD5;
+</p>
+<blockquote>
+<p>
+&#x5DF2;&#x77E5; \(A^{\mu}\) &#x662F; four vector, &#x4E0D;&#x77E5;&#x9053; \(B_{\mu}\) &#x662F;&#x4E0D;&#x662F; four vector. &#x90A3;&#x4E48;&#x8BA1;&#x7B97;
+\(A^{\mu}B_{\mu}\) &#x5728;&#x4E0D;&#x540C;&#x5750;&#x6807;&#x7CFB;&#x4E0B;&#x662F;&#x5426;&#x90FD;&#x4E00;&#x6837;&#x5373;&#x53EF;.
+</p>
+</blockquote>
+<p>
+&#x518D;&#x505A;&#x4E00;&#x7B26;&#x53F7;&#x7EA6;&#x5B9A;
+</p>
+\begin{align}
+  \frac{\partial \phi}{\partial x^{\mu}}
+  = ( \frac{\partial\phi}{\partial t}, \frac{\partial\phi}{\partial x}, \frac{\partial\phi}{\partial y}, \frac{\partial\phi}{\partial z})
+   \equiv \partial_{\mu}\phi \equiv \phi_{\mu}\\
+\quad , \mathrm{where} \quad
+   \mu = 0, 1, 2, 3 \quad \mathrm{or} \quad t, x, y, z
+\end{align}
+<p>
+&#x81F3;&#x4E8E;&#x4E3A;&#x4EC0;&#x4E48;&#x662F; \(\phi_{\mu}\) &#x800C;&#x4E0D;&#x662F; \(\phi^{\mu}\) . &#x662F;&#x56E0;&#x4E3A;
+</p>
+\begin{align}
+  \frac{\partial \phi}{\partial x^{\mu}} \mathrm{d}x^{\mu} = \Delta \phi
+\end{align}
+<p>
+\(\phi\) &#x662F;&#x4E00;&#x4E2A; scaler, &#x800C; scaler &#x7684;&#x5DEE; \(\Delta\phi\) &#x4E00;&#x5B9A;&#x8FD8;&#x662F;&#x4E00;&#x4E2A; scaler. &#x6240;&#x4EE5;
+\(\frac{\partial \phi}{\partial x^{\mu}}\) &#x4E00;&#x5B9A;&#x662F; covariant &#x7684;.
+</p>
+
+<p>
+Lecture 2 &#x4E2D;&#x5F97;&#x5230;&#x7684; string &#x7684; action
+</p>
+\begin{align}
+  A = \frac{1}{2}\int \left[\left(\frac{\partial\phi}{\partial t} \right)^2  - c^2 \left(\frac{\partial\phi}{\partial x} \right)^2
+      \right] \mathrm{d}x \mathrm{d}t
+\end{align}
+<p>
+&#x5982;&#x679C; \(c=1\) &#x90A3;&#x4E48;, &#x5B83;&#x53EF;&#x4EE5;&#x5199;&#x4E3A;
+</p>
+\begin{align}
+  A = -\frac{1}{2}\int \mathrm{d}x^4 \cdot \partial_{\mu}\phi \partial^{\mu}\phi
+\end{align}
+<p>
+&#x5B83;&#x662F;&#x4E00;&#x4E2A; scaler, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5B83;&#x662F; Lorentz invariant &#x7684;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org50c0830" class="outline-2">
+<h2 id="org50c0830">Lecture 4: Symmetry and Conservation Laws</h2>
+</div>
+
+<div id="outline-container-org19daa8a" class="outline-2">
+<h2 id="org19daa8a">Summary</h2>
+</div>
+
+<div id="outline-container-orgb6d8f8f" class="outline-2">
+<h2 id="orgb6d8f8f">&#x611F;&#x60F3;</h2>
+</div>
+
+<div id="outline-container-orgc165fc3" class="outline-2">
+<h2 id="orgc165fc3">Reference</h2>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/physics/" rel="tag"># physics</a>
+          
+            <a href="/tags/classical-field-theory/" rel="tag"># classical field theory</a>
+          
+            <a href="/tags/field-theory/" rel="tag"># field theory</a>
+          
+            <a href="/tags/least-action/" rel="tag"># least action</a>
+          
+            <a href="/tags/Lagrangian/" rel="tag"># Lagrangian</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/03/03/non_relativity_free_particle_propgator/" rel="next" title="一个简单的积分: 自由粒子的传播子">
+                <i class="fa fa-chevron-left"></i> 一个简单的积分: 自由粒子的传播子
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgcb4a923"><span class="nav-text">Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org583ea18"><span class="nav-text">Lecture 1: Special Relativity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org5cba540"><span class="nav-text">Galileo Trans</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org9212332"><span class="nav-text">Lorentz Trans</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgbcfcacf"><span class="nav-text">Hyperbolic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org1ec7eae"><span class="nav-text">Represent by Velocity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgb7e2e3e"><span class="nav-text">Proper Time</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org116fd54"><span class="nav-text">Lecture 2: From Particles to Field: a String</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org2d63648"><span class="nav-text">Euler-Lagrange Equation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgf364842"><span class="nav-text">A String</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orga19a28f"><span class="nav-text">Lecture 3: Four vector &amp; Lorentz invariant</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org50c0830"><span class="nav-text">Lecture 4: Symmetry and Conservation Laws</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org19daa8a"><span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgb6d8f8f"><span class="nav-text">感想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc165fc3"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
