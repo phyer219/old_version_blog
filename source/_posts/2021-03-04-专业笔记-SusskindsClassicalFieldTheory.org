@@ -1,7 +1,7 @@
 #+TITLE: Susskind's Classical Field Theory Note
 #+DATE: <2021-03-04>
 #+CATEGORIES: 专业笔记
-#+TAGS: physics, classical field theory, field theory, least action, Lagrangian
+#+TAGS: physics, classical field theory, field theory, least action, Lagrangian, Special Relativity
 #+HTML: <!-- toc -->
 #+HTML: <!-- more -->
 
@@ -196,10 +196,190 @@ Lecture 2 中得到的 string 的 action
 
 * Lecture 4: Symmetry and Conservation Laws
 
+** Proof of Euler-Lagrange Equation
+
+从 least action 出发证明 Euler-Lagrange Equation.
+\begin{align}
+ A = \int L(x, \dot{x}) \mathrm{d}t
+\end{align}
+least action 意味着给 $x(t)$ 一个微小的扰动 $x(t) \to x(t) + \delta x(t) = x(t) +
+\epsilon f(t)$ , $\dot{x}(t) \to \dot{x}(t) + \epsilon \dot{f}(t)$ 有
+\begin{align}
+   0 = \epsilon \int \left[ \frac{\partial L}{\partial x}f(t)
+           + \frac{\partial L}{\partial \dot{x}} \dot{f}(t)\right] \mathrm{d}t
+\end{align}
+integration by parts 得(因为积分是固定边界的, 所以
+$f(t)$ 在边界上的结果为 $0$, 所以 no contribution from boundary)
+\begin{align}
+   0 = \epsilon \int \left[ \frac{\partial L}{\partial x}
+           - \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \dot{x}} \right]f(t)
+          \mathrm{d}t
+\end{align}
+因为上式 for every possible $f(t)$ 都成立, 所以有
+\begin{align}
+   \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \dot{x}}
+      - \frac{\partial L}{\partial x} = 0
+\end{align}
+
+** Generalize Euler-Lagrange Equation to Field Theory
+
+\begin{align}
+  L = \int\mathrm{d}x \mathcal{L}\left[\phi(x), \partial_t\phi, \phi_x, \phi_y, \phi_z\right]
+\end{align}
+$\mathcal{L}$ is Lagrangian density, 也通常直接叫做 Lagrangian.
+\begin{align}
+  \frac{\partial L}{\partial\phi} - \frac{\partial}{\partial x} \frac{\partial L}{\partial\frac{\partial\phi}{\partial x}}
+      - \frac{\partial}{\partial t} \frac{\partial L}{\partial\frac{\partial\phi}{\partial t}} =0
+\end{align}
+
+** Noether's Theorem
+在 ordinary mechanics 中, canonical momentum 的定义为
+\begin{align}
+  p_i = \frac{\partial L}{\partial \dot{q}_i}
+\end{align}
+如果 $L$ 在 $q_i \to q_i + \epsilon f_i(q)$ 下是 invariant 的. 注意 $f_i(q)$ has no
+dependence on time, $\dot{q}_i$ and depends on all $q_i$, 也就是说给了坐标一个不随
+时间变化的, 与速度无关的位移. , 那么就对应一个 convervation law
+\begin{align}
+  0 =\delta L = \sum_i \frac{\partial L}{\partial q_i} f_i(q)\epsilon
+  = \epsilon\sum_if_i(q) \frac{\mathrm{d}}{\mathrm{d}t} p_i
+\end{align}
+第二个等号利用了 Euler-Lagrange Equation 以及 $p_i$ 的定义. 由上式可知
+\begin{align}
+   \frac{\mathrm{d}}{\mathrm{d}t} \left[\sum_{i}f_i(q) p_i\right] = 0
+\end{align}
+所以有守恒量
+\begin{align}
+ \sum_{i}f_i(q) p_i = \mathrm{const.}
+\end{align}
+
+* Lecture 5: Conservation Laws & Complex Fields
+
+** Three Kinds of Momentum
+
+*** Mechanical Momentum
+
+\begin{align}
+  \vec{p} = m \vec{v}
+\end{align}
+
+*** Canonical Momentum
+
+\begin{align}
+ p_i = \frac{\partial L}{\partial q_i}
+\end{align}
+
+*** Noether Momentum
+
+Noether momentum is related to symmetries.
+\begin{align}
+Q = \sum_i p_i f_i(q)
+\end{align}
+if $f$ is trivially just $1$ . 那么
+\begin{align}
+Q = \sum_i p_i
+\end{align}
+
+** Field Momentum
+
+field momentum
+\begin{align}
+\Pi = \frac{\partial \mathcal{L}}{\partial \dot{\phi}}
+\end{align}
+is not a vector, is a scaler.
+
+if $q_i \to q_i + \epsilon f_i(q), \quad \delta L =0$ 那么
+\begin{align}
+\sum_{i} p_i f_i(q)
+\end{align}
+is conserved charge. 取连续极限到场( $f = 1$ )
+\begin{align}
+ \int \mathrm{d}x\cdot\Pi(x) = \mathrm{conserved}
+\end{align}
+
+** Complex Fields & Charged particles
+
+\begin{align}
+\phi = \phi_1 + \mathrm{i}\phi_2
+\end{align}
+Lagrangian
+\begin{align}
+  L =& \int\mathrm{d}x^3 \cdot \left[
+             \frac{\dot{\phi}_1^2}{2} - \frac{(\partial_x\phi_1)^2}{2} - \frac{\mu}{2}\phi_1^2 \right.\\
+             & + \left.\frac{\dot{\phi}_2^2}{2} - \frac{(\partial_x\phi_2)^2}{2} - \frac{\mu}{2}\phi_2^2\right] \\
+    =& \int \mathrm{d}x^3\cdot \left[ \frac{\dot{\phi}^{*} \dot{\phi}}{2} - \frac{\partial_x\phi^{ *} \partial_x\phi}{2}
+             - \frac{\mu}{2}  \phi^{* } \phi\right]
+\end{align}
+has a new symmetry, $\phi \to \phi e^{\mathrm{i}\epsilon}$ . When $\epsilon$ is small, we have
+$\delta\phi = \mathrm{i}\epsilon\phi, \delta\phi^{* } = -i\epsilon\phi^{*}$ . So conserved charge is
+\begin{align}
+&\int \left[ \Pi_{\phi}f_{\phi} + \Pi_{\phi*} f_{\phi*} \right] \mathrm{d}x \\
+=&\mathrm{i}\int \left[ \frac{\dot{\phi}^{* }}{2}\phi - \frac{\dot{\phi}}{2}\phi^{* } \right] \mathrm{d}x
+\end{align}
+and charge density (also angular momentum) is
+\begin{align}
+        \rho = \frac{\dot{\phi}^{* }}{2}\phi - \frac{\dot{\phi}}{2}\phi^{* }
+\end{align}
+Charged particles are always described by complex fields.
+
+* Lecture 6: Conservation of Charge, Relativity Relation Between $E$ and $\vec{p}$
+
+** Continuity Equation
+
+从物理图像上得到 continuity equation
+\begin{align}
+  \dot{\rho} + \nabla\cdot \vec{j} = 0
+\end{align}
+也可以写为 (define $\rho\equiv j^0$)
+\begin{align}
+  \partial_{\mu} j^{\mu} = 0
+\end{align}
+
+** Ordinary Relativity Theory of Moumentum and Particles
+
+proper time
+\begin{align}
+  \mathrm{d}\tau = \sqrt{\mathrm{d}t^2 - \mathrm{d}x^2}
+      = \mathrm{d}t\sqrt{1 - v^2}
+\end{align}
+so
+\begin{align}
+  \frac{\mathrm{d}t}{\mathrm{d}\tau} = \frac{1}{\sqrt{1 - v^2}}
+\end{align}
+we get
+\begin{align}
+  m\frac{\mathrm{d}x^{\mu}}{d\tau} = (\frac{m}{\sqrt{1 - v^2}}
+             , \frac{m\vec{v}}{\sqrt{1 - v^2}})
+\end{align}
+so
+\begin{align}
+ E \equiv p^0 = \frac{m}{\sqrt{1 - v^2}},
+      \quad \vec{p} = \frac{m\vec{v}}{\sqrt{1 - v^2}}
+\end{align}
+we get
+\begin{align}
+  E^2 - p^2 = m^{2}
+\end{align}
+we can also expand energy $E$ in the low velocity limit( put speed of light $c$
+by dimension analysis)
+\begin{align}
+  E = \left(1 - \frac{v^2}{c^2}\right)mc^2 = mc^2 + \frac{mv^2}{2} + \cdots
+\end{align}
+It's a familiar result.
+
+* Lecture 7: $\star$ Gauge Theory $\star$
+
+
+
+* Lecture 8: $\star$ Electromagnetic & Maxwell's Equations $\star$
+
 * Summary
 
 * 感想
 
 * Reference
 
+- [[https://en.wikipedia.org/wiki/Noether%27s_theorem][Noether's theorem]]
 
+- Michael E. Peskin, Daniel V. Schroeder - An Introduction To Quantum Field
+  Theory (2018, Westview PressCRC Press)
