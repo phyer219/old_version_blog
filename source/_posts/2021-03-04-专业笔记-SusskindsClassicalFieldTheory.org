@@ -14,6 +14,8 @@
 - Book: Leonard Susskind Art Friedman, Special Relativity and Classical Field
   Theory
 
+- 把主要内容整理一下.
+
 * Lecture 1: Special Relativity
 
 ** Galileo Trans
@@ -369,13 +371,116 @@ It's a familiar result.
 
 * Lecture 7: $\star$ Gauge Theory $\star$
 
+Gauge transformation is position dependent phase rotations, i.e.
+\begin{align}
+  \phi\to &\phi' = e^{\mathrm{i}\theta(x)}\phi \\
+  \phi^{* } \to& \phi'^{* }= e^{-\mathrm{i}\theta(x)}\phi^{* }
+\end{align}
+Let's see how
+\begin{align}
+  L = \int\left[ \partial_{\mu}\phi^{* } \partial^{\mu}\phi - m^2\phi^{* } \phi \right] \mathrm{d}^4x
+\end{align}
+Obviously, term $m^2\phi^{* } \phi$ is invariant under gauge transformation.
+\begin{align}
+  \frac{\partial\phi'}{\partial x^{\mu}} &= \frac{\partial\phi}{\partial x^{\mu}}e^{\mathrm{i}\theta(x)}
+                 + \mathrm{i}\frac{\partial\theta}{\partial x^{\mu}}e^{\mathrm{i}\theta(x)}\phi\\
+  \frac{\partial\phi'^{* }}{\partial x^{\mu}} &= \frac{\partial\phi^{* }}{\partial x^{\mu}}e^{-\mathrm{i}\theta(x)}
+                 - \mathrm{i}\frac{\partial\theta}{\partial x^{\mu}}e^{-\mathrm{i}\theta(x)}\phi^{* }
+\end{align}
+We get
+\begin{align}
+   \partial_{\mu}\phi'^{* } \partial^{\mu}\phi' = \partial_{\mu}\phi^{* } \partial^{\mu}\phi -\mathrm{i}\frac{\partial\theta}{\partial x^{\mu}}
+     \left[ \phi\partial_{\mu}\phi^{* } - \phi^{* }\partial_{\mu}\phi \right]
+             + \partial_{\mu}\theta\partial^{\mu}\theta \phi^{* }\phi
+\end{align}
+So, the Lagrangian is not invariant under such a transformation. Let's see if we
+can force it to be invariant. But to do so we have to add some other collection
+of fields into the brew. We invent some new fields(electromagnetic) $A_{\mu}$ ,
+create a new Lagrangian
+\begin{align}
+  L =& \int\left[ \left(\partial_{\mu}\phi + \mathrm{i}e A_{\mu}\phi\right)^{* }
+             \left(\partial^{\mu}\phi + \mathrm{i}e A^{\mu}\phi\right)
+                         - m^2\phi^{* } \phi \right] \mathrm{d}^4x \\
+  =& \int\left[ \partial_{\mu}\phi^{* } \partial^{\mu}\phi -\mathrm{i}eA^{\mu}
+     \left[ \phi\partial_{\mu}\phi^{* } - \phi^{* }\partial_{\mu}\phi \right]
+             + e^2A_{\mu} A^{\mu}  \phi^{* }\phi
+           - m^2\phi^{* } \phi \right] \mathrm{d}^4x
+\end{align}
+the second equal uses $A_{\mu} \partial^{\mu}\phi = A^{\mu}\partial_{\mu}\phi$ .under transformation
+\begin{align}
+ L \to \int \left[\left(\partial_{\mu}\phi^{* } - \mathrm{i}\partial_{\mu}\theta\phi^{* } - \mathrm{i}e A'_{\mu}\phi^{* }\right)
+          \left(\partial_{\mu}\phi + \mathrm{i}\partial_{\mu}\theta\phi + \mathrm{i}e A'_{\mu}\phi  \right)
+          - m^2\phi^{* }\phi  \right]\mathrm{d}^4x
+\end{align}
+If we let $\frac{1}{e}\partial_{\mu}\theta + A'_{\mu} \equiv A$ , i.e. $A_{\mu}$ transform like
+\begin{align}
+ A_{\mu} \to A'_{\mu} = A_{\mu} - \frac{1}{e}\partial_{\mu}\theta(x)
+\end{align}
+then Lagrangian is invariant.
 
+The only real symmetries of nature are gauge symmetries. All others are not
+really symmetries of nature.
+
+Let's forget charges( $\phi$ ). There are electromagnetic waves through empty
+space. So, there must be some dynamics to the electromagnetic fields even in the
+absence of charges. Lagrangian's most important thing is the dependence of
+velocity(the derivative of $A_{\mu}$ ). And we want it gauge invariance.
+
+There are 16 difference of derivatives $\partial_{\nu} A_{\mu}$ . Under gauge transformation
+\begin{align}
+  \partial_{\nu}A_{\mu} \to \partial_{\nu}A_{\mu} - \frac{1}{e} \partial_{\nu}\partial\mu\theta(x)
+\end{align}
+the extra term $\frac{1}{e} \partial_{\nu}\partial\mu\theta(x)$ is invariant when we exchange $\nu$
+and $\mu$ . So
+\begin{align}
+  \partial_{\nu}A_{\mu} - \partial_{\mu} A_{\nu}
+\end{align}
+is invariant under gauge transformation.
+
+Define
+\begin{align}
+  F_{\mu\nu} = \partial_{\mu}A_{\nu} - \partial_{\nu}A_{\mu}
+\end{align}
+and it is an anti-symmetric tnesor. So there are 6 independent components. 3
+electric electric fields, 3 magnetic fields.
+
+We also want Lagrangian quadratic and Lorentz invariant. As long as all indices
+are contracted correctly, then the Lorentz transformation will be a symmetry of
+anything that we make. So We make
+\begin{align}
+  \mathcal{L} = F_{\nu\mu} F^{\nu\mu}
+\end{align}
 
 * Lecture 8: $\star$ Electromagnetic & Maxwell's Equations $\star$
 
-* Summary
+Lagrangian(add a factor $-1/4$ )
+\begin{align}
+  \mathrm{Action} = - \frac{1}{4}\int \mathrm{d}^4x \cdot F_{\nu\mu} F^{\nu\mu}
+\end{align}
+from Euler-Lagrange equation we get
+\begin{align}
+ \frac{\partial}{\partial x^{\nu}} \frac{\partial \mathcal{L}}{\partial \frac{\partial A^{\mu}}{\partial x^{\nu}}}
+ = \frac{\partial \mathcal{L}}{\partial A^{\nu}} = 0
+\end{align}
+the second equal is because $\mathcal{L}$ is independent of $A$, only depends on
+the derivative of $A$ .
 
-* 感想
+So, the equation of motion is
+\begin{align}
+\frac{\partial}{\partial x^{\mu}} F^{\mu\nu} = 0
+\end{align}
+and Maxwell's equation is
+\begin{align}
+  \nabla \cdot \vec{E} &= \rho, \quad \mathrm{equation} \quad \mathrm{of} \quad
+                   \mathrm{motion} \quad \mathrm{about}\quad j^0\\
+  \nabla \cdot \vec{B} &=0, \quad \mathrm{consequence} \quad \mathrm{of}\quad
+                  \mathrm{definition} \quad \mathrm{of} \quad \vec{B}\\
+  \nabla \times \vec{E} &= -\dot{B}, \quad \mathrm{consequence} \quad \mathrm{of}\quad
+                  \mathrm{definition} \quad \mathrm{of} \quad \vec{B}
+                    \quad \mathrm{and} \quad \vec{E}\\
+  \nabla \times \vec{B} &= \dot{\vec{E}} + \vec{\jmath}  , \quad \mathrm{equation}
+                   \quad \mathrm{of} \quad \mathrm{motion}
+\end{align}
 
 * Reference
 
@@ -383,3 +488,5 @@ It's a familiar result.
 
 - Michael E. Peskin, Daniel V. Schroeder - An Introduction To Quantum Field
   Theory (2018, Westview PressCRC Press)
+
+- [[https://en.wikipedia.org/wiki/Electromagnetic_tensor][Electromagnetic tnesor]]
