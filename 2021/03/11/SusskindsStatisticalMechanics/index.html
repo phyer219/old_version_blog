@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="Statistical Mechanics,physics,Susskind">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Susskind&#39;s Statistical Mechanics">
+<meta property="og:url" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/die.png">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/ring1.png">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/ring2.png">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/ring_bad.png">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/entropy_phase_space.png">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/P_i_E.png">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/ensemble.png">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/piston.png">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/adiabatic.png">
+<meta property="og:updated_time" content="2021-03-11T14:42:35.227Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Susskind&#39;s Statistical Mechanics">
+<meta name="twitter:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/die.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Susskind's Statistical Mechanics | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Susskind's Statistical Mechanics
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-03-11 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-11T00:00:00+08:00">2021-03-11</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/03/11/SusskindsStatisticalMechanics/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/03/11/SusskindsStatisticalMechanics/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-org31dd88c" class="outline-2">
+<h2 id="org31dd88c">Information</h2>
+<div class="outline-text-2" id="text-org31dd88c">
+<ul class="org-ul">
+<li>&#x5B98;&#x65B9;&#x4ECB;&#x7ECD;: <a href="https://theoreticalminimum.com/courses/statistical-mechanics/2013/spring" target="_blank" rel="noopener">https://theoreticalminimum.com/courses/statistical-mechanics/2013/spring</a></li>
+
+<li>&#x89C6;&#x9891;&#x5217;&#x8868;&#x5730;&#x5740;: <a href="https://www.youtube.com/watch?v=D1RzvXDXyqA&amp;list=PL_IkS0viawhr3HcKH607rXbVqy28W_gB7" target="_blank" rel="noopener">https://www.youtube.com/watch?v=D1RzvXDXyqA&amp;list=PL_IkS0viawhr3HcKH607rXbVqy28W_gB7</a></li>
+
+<li>&#x53C2;&#x8003; Note: <a href="https://www.lapasserelle.com/statistical_mechanics/index.html" target="_blank" rel="noopener">https://www.lapasserelle.com/statistical_mechanics/index.html</a></li>
+
+<li>&#x628A;&#x4E3B;&#x8981;&#x5185;&#x5BB9;&#x6574;&#x7406;&#x4E00;&#x4E0B;.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org14ec2db" class="outline-2">
+<h2 id="org14ec2db">Lecture 1: Entropy and conservation of information</h2>
+<div class="outline-text-2" id="text-org14ec2db">
+</div>
+<div id="outline-container-org14c6dbe" class="outline-3">
+<h3 id="org14c6dbe">Conservation of Information</h3>
+<div class="outline-text-3" id="text-org14c6dbe">
+<p>
+&#x4E00;&#x4E2A;&#x516D;&#x9762; die, &#x516D;&#x4E2A;&#x9762;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x989C;&#x8272; blue, red, green, purple, yellow, orange, &#x5982;&#x56FE;
+<img src="/2021/03/11/SusskindsStatisticalMechanics/die.png">
+&#x5982;&#x679C;&#x5B83;&#x4EE5;&#x67D0;&#x79CD;&#x89C4;&#x5F8B;&#x8FD0;&#x52A8;, &#x6BD4;&#x5982;&#x4E0B;&#x56FE;&#x4E2D;&#x7EA2;&#x8272;&#x7684;&#x7BAD;&#x5934;
+<img src="/2021/03/11/SusskindsStatisticalMechanics/ring1.png">
+&#x90A3;&#x4E48;&#x65E0;&#x8BBA;&#x4F55;&#x65F6;, &#x53D1;&#x73B0;&#x5B83;&#x5904;&#x4E8E;&#x67D0;&#x4E00;&#x9762;&#x7684;&#x6982;&#x7387;&#x90FD;&#x662F;&#x76F8;&#x7B49;&#x7684;
+</p>
+\begin{align}
+P(i) = \frac{1}{6}
+\end{align}
+<p>
+\(i\) &#x4EE3;&#x8868;&#x7B2C; \(i\) &#x9762;&#x671D;&#x4E0A;&#x7684;&#x4E8B;&#x4EF6;.
+&#x5982;&#x679C;&#x5B83;&#x6309;&#x84DD;&#x8272;&#x7BAD;&#x5934;, &#x7ED3;&#x679C;&#x662F;&#x4E00;&#x6837;&#x7684;, \(P(i) = \frac{1}{6}\) . &#x53C8;&#x6BD4;&#x5982;, &#x5B83;&#x6309;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x5F0F;&#x8FD0;
+&#x52A8;
+<img src="/2021/03/11/SusskindsStatisticalMechanics/ring2.png">
+&#x5B83;&#x4F1A;&#x6709;&#x4E24;&#x79CD;&#x72B6;&#x6001;. &#x5C31;&#x662F;&#x8BF4;, &#x5B83;&#x53EF;&#x4EE5;&#x5904;&#x4E8E;&#x4E0A;&#x9762;&#x7684;&#x5FAA;&#x73AF;&#x4E2D;, &#x8BB0;&#x8FD9;&#x4E2A;&#x72B6;&#x6001;&#x4E3A; \(+1\) , &#x90A3;&#x4E48;&#x5728;&#x8FD9;&#x4E2A;&#x72B6;
+&#x6001;&#x4E2D;, &#x67D0;&#x4E2A;&#x9762;&#x5411;&#x4E0A;&#x7684;&#x6982;&#x7387;&#x662F; \(P(+1) = \frac{1}{3}\) , &#x5B83;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x8DF3;&#x5230;&#x4E0B;&#x9762;&#x7684;&#x6001;.
+</p>
+
+<p>
+&#x5B83;&#x4E5F;&#x53EF;&#x4EE5;&#x5904;&#x4E0B;&#x9762;&#x7684;&#x6001;, &#x8BB0;&#x4E3A; \(+1\) , &#x540C;&#x6837;&#x7684; \(P(+1) = \frac{1}{3}\) .
+</p>
+
+<p>
+&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x90FD;&#x662F;&#x4E00;&#x4E9B;&#x597D;&#x7684;&#x8FD0;&#x52A8;&#x89C4;&#x5F8B;, good laws, &#x56E0;&#x4E3A;&#x5B83;&#x7684; infromation conserved. &#x4E5F;&#x5C31;&#x662F;&#x8BF4;, &#x4E0D;&#x8BBA;&#x8FC7;&#x4E86;&#x591A;
+&#x4E45;, &#x6211;&#x4EEC;&#x77E5;&#x9053;&#x7CFB;&#x7EDF;&#x7684;&#x4FE1;&#x606F;&#x4E00;&#x6837;&#x7684;.
+</p>
+
+<p>
+&#x4F46;&#x662F;&#x4E5F;&#x6709;&#x4E00;&#x4E9B;&#x4E0D;&#x597D;&#x7684;&#x4F8B;&#x5B50;, bad laws, &#x6BD4;&#x5982;&#x4E0B;&#x56FE;
+<img src="/2021/03/11/SusskindsStatisticalMechanics/ring_bad.png">
+&#x5B83;&#x5728;&#x6F14;&#x5316;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x4F1A; lose information , &#x8FD9;&#x4E2A; information &#x6307;&#x521D;&#x6001;&#x7684; infromation. &#x6BD4;
+&#x5982;&#x4E00;&#x5F00;&#x59CB;&#x5904;&#x4E8E; orange, &#x8FC7;&#x4E86;&#x4E00;&#x4F1A;, &#x5B83;&#x4E00;&#x5B9A;&#x4F1A;&#x5230; red. &#x5B83;&#x662F;&#x4E0D;&#x53EF;&#x9006;&#x7684;.
+</p>
+
+<p>
+&#x8FD9;&#x79CD; bad laws &#x5728;&#x5B9E;&#x9645;&#x7684;&#x8FD0;&#x52A8;&#x4E2D;&#x53EF;&#x4EE5;&#x5BF9;&#x5E94;&#x6BD4;&#x5982;
+</p>
+\begin{align}
+  \frac{\mathrm{d}^2x_n}{\mathrm{d}t^2} = -\gamma \frac{\mathrm{d}x_n}{\mathrm{d}t}
+\end{align}
+<p>
+&#x5B83;&#x6700;&#x7EC8;&#x7684;&#x7ED3;&#x679C;&#x662F; erery particles come to rest.
+</p>
+
+<p>
+conservation of information , minus first law.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2db6817" class="outline-3">
+<h3 id="org2db6817">Entropy</h3>
+<div class="outline-text-3" id="text-org2db6817">
+<p>
+\(N\) is TOTAL number of STATES. &#x5176;&#x4E2D; \(M &lt; N\) &#x4E2A;&#x6001;&#x4E0A;&#x7684;&#x5360;&#x636E;&#x6982;&#x7387;&#x76F8;&#x7B49;, &#x4E3A;
+\(P=\frac{1}{M}\) , &#x5176;&#x5B83;&#x6001;&#x4E0A;&#x7684;&#x5360;&#x636E;&#x6982;&#x7387;&#x662F; \(0\) . &#x90A3;&#x4E48;&#x5B9A;&#x4E49; entropy
+</p>
+\begin{align}
+  S = \log M
+\end{align}
+<p>
+Entropy: Measures approximately the number of states which have non-zero
+probability. The bigger it, the less you know.
+</p>
+
+<p>
+In space of states(phase space) of real mechanics, the volume of phase space
+will stay the same.(Liouville&apos;s theorem) i.e. the same number of states.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf8fd0c8" class="outline-3">
+<h3 id="orgf8fd0c8">How to define entropy for a complex probability distribution?</h3>
+<div class="outline-text-3" id="text-orgf8fd0c8">
+\begin{align}
+  S = - \sum_iP(i) \log P(i)
+\end{align}
+<p>
+&#x5B83;&#x53EF;&#x4EE5;&#x56DE;&#x5230;&#x7B80;&#x5355;&#x7684;&#x60C5;&#x51B5;. &#x5BF9;&#x4E8E; \(P(i) = \frac{1}{M}\) , others zero
+</p>
+\begin{align}
+  S = -\sum_i \frac{1}{M}\log \frac{1}{M} = \log M
+\end{align}
+<p>
+&#x7279;&#x4F8B;, \(M = 1\) , \(S = 0\) , Complete knowledge, Entropy zero.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgae08a80" class="outline-3">
+<h3 id="orgae08a80">Definition of Entropy in Phase Space</h3>
+<div class="outline-text-3" id="text-orgae08a80">
+<p>
+<img src="/2021/03/11/SusskindsStatisticalMechanics/entropy_phase_space.png">
+&#x5982;&#x679C;&#x50CF;&#x4E0A;&#x56FE;&#x4E00;&#x6837;, &#x6982;&#x7387;&#x662F;&#x5747;&#x5300;&#x7684;, &#x90A3;&#x4E48;
+</p>
+\begin{align}
+  S = \log V_{PH}
+\end{align}
+<p>
+\(V_{PH}\) is volume of phase space.
+</p>
+
+<p>
+&#x5982;&#x679C;&#x6982;&#x7387;&#x4E0D;&#x5747;&#x5300;, &#x90A3;&#x4E48;&#x4E5F;&#x53EF;&#x4EE5;&#x6269;&#x5C55;&#x6210;
+</p>
+\begin{align}
+ S = - \int \mathrm{d}p\mathrm{d}x P(p, x) \log P(p, x)
+\end{align}
+<p>
+&#x5B83;&#x6EE1;&#x8DB3;
+</p>
+\begin{align}
+  \int P(p, x)\mathrm{d}p \mathrm{d}x = 1
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf2f8c13" class="outline-2">
+<h2 id="orgf2f8c13">Lecture 2: Units &amp; Temperature</h2>
+<div class="outline-text-2" id="text-orgf2f8c13">
+</div>
+<div id="outline-container-orge93ac98" class="outline-3">
+<h3 id="orge93ac98">Units declaration</h3>
+<div class="outline-text-3" id="text-orge93ac98">
+<p>
+\(c = \hbar = G = k_{\mathrm{B}} = 1\) . Temperature change is a human construct that
+was invented for convenience.
+</p>
+\begin{align}
+  T = k_{\mathrm{B}}t_{\mathrm{K}}
+\end{align}
+<p>
+\(t_{\mathrm{K}}\) is temperature in Kelvin.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf1ec610" class="outline-3">
+<h3 id="orgf1ec610">What temperature is?</h3>
+<div class="outline-text-3" id="text-orgf1ec610">
+<p>
+The average energy in state \(i\) which average energy is \(E\) is
+</p>
+\begin{align}
+  \sum_iP(i, E) E_i = \langle E\rangle
+\end{align}
+<p>
+the entropy is
+</p>
+\begin{align}
+  S(E) = -\sum_i P(i, E)\log P(i, E)
+\end{align}
+<p>
+&#x7531;&#x4E8E;
+</p>
+\begin{align}
+  \sum_iP(i, E) = 1
+\end{align}
+<p>
+&#x6240;&#x4EE5;&#x5F53;&#x6BD4;&#x8F83;&#x5927;&#x7684; \(E(i)\) &#x6982;&#x7387;&#x53D8;&#x5927;&#x7684;&#x5316;, &#x6574;&#x4E2A;&#x6982;&#x7387;&#x5206;&#x5E03;&#x770B;&#x8D77;&#x6765;&#x4F1A;&#x66F4;&#x5E73;. &#x5982;&#x4E0B;&#x56FE;
+<img src="/2021/03/11/SusskindsStatisticalMechanics/P_i_E.png">
+&#x84DD;&#x7EBF;&#x5230;&#x6A59;&#x7EBF;&#x5230;&#x65F6;&#x7EA2;&#x7EBF;&#x5B83;&#x4EEC;&#x7684;&#x5E73;&#x5747;&#x80FD;&#x91CF; \(E\) &#x662F;&#x53D8;&#x5927;&#x7684;, &#x540C;&#x65F6;&#x6982;&#x7387;&#x5206;&#x5E03;&#x53D8;&#x5F97;&#x7406;&#x5E73;, &#x610F;&#x5473;&#x7740;
+entropy &#x4E5F;&#x589E;&#x5927;.
+</p>
+
+<p>
+Consider: How much do you have to change the average energy in order to change
+the entropy by \(1\) bit( \(\log 2\) )? We define temperature like this
+</p>
+\begin{align}
+\Delta E = \frac{\partial E}{\partial S} \Delta S
+\end{align}
+
+\begin{align}
+\mathrm{d}E = T \mathrm{d}S
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgc43c294" class="outline-3">
+<h3 id="orgc43c294">It is temperature</h3>
+<div class="outline-text-3" id="text-orgc43c294">
+<p>
+&#x4E0B;&#x9762;&#x8BC1;&#x660E;&#x5B83;&#x5C31;&#x662F;&#x6E29;&#x5EA6;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x4E24;&#x4E2A;&#x7CFB;&#x7EDF;&#x8FBE;&#x5230;&#x70ED;&#x5E73;&#x8861;&#x65F6;, &#x4E0A;&#x9762;&#x5B9A;&#x4E49;&#x7684;&#x6E29;&#x5EA6;&#x662F;&#x76F8;&#x540C;&#x7684;.
+</p>
+
+<p>
+&#x8003;&#x8651;&#x4E24;&#x4E2A;&#x7CFB;&#x7EDF; \(A, B\) , &#x521D;&#x59CB;&#x65F6;&#x5B83;&#x4EEC;&#x7684;&#x6E29;&#x5EA6;&#x5206;&#x522B;&#x4E3A; \(T_A, T_B\) &#x5E76;&#x4E14; \(T_B &gt; T_A\) . First
+law says
+</p>
+\begin{align}
+  \mathrm{d}E_A + \mathrm{d}E_B =0
+\end{align}
+<p>
+second law says
+</p>
+\begin{align}
+  \mathrm{d}S_A + \mathrm{d}S_B &gt; 0
+\end{align}
+<p>
+combine them and use our definition of temperature we get
+</p>
+\begin{align}
+ \mathrm{d}S_B =&amp; \frac{\mathrm{d}E_B}{T_B} = - \frac{T_A}{T_B}\mathrm{d}S_A \\
+          \Downarrow &amp;\\
+ 0 &lt; &amp; \mathrm{d}S_A + \mathrm{d}S_B = \left(1 - \frac{T_A}{T_B}\right) \mathrm{d}S_A
+\end{align}
+<p>
+becasue \(T_B &gt; T_A\) , so
+</p>
+\begin{align}
+ \mathrm{d}S_A &gt; &amp; 0\\
+          \Downarrow &amp;\\
+ T_A \mathrm{d} S_A &gt; &amp; 0 \\
+          \Downarrow &amp;\\
+ \mathrm{d}E_A &gt; &amp; 0
+\end{align}
+<p>
+so energy flowed from B to A.
+</p>
+
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x80FD;&#x91CF;&#x4F1A;&#x4ECE;&#x6E29;&#x5EA6;&#x9AD8;&#x7684;&#x5730;&#x65B9;&#x5411;&#x6E29;&#x5EA6;&#x4F4E;&#x7684;&#x5730;&#x65B9;&#x6D41;&#x52A8;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x53EA;&#x6709;&#x6E29;&#x5EA6;&#x76F8;&#x540C;&#x7684;, &#x624D;&#x6CA1;&#x6709;&#x80FD;
+&#x91CF;&#x6D41;&#x52A8;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x8FBE;&#x5230;&#x4E86;&#x70ED;&#x5E73;&#x8861;.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5b885a7" class="outline-2">
+<h2 id="org5b885a7">Lecture 3: Maximizing entropy</h2>
+<div class="outline-text-2" id="text-org5b885a7">
+<p>
+Zeroth law: there is a notion of temperature which way energy flows. Ultimately
+equilibrium.
+</p>
+</div>
+
+<div id="outline-container-org383c5f9" class="outline-3">
+<h3 id="org383c5f9">A Trick (Canonical Ensemble)</h3>
+<div class="outline-text-3" id="text-org383c5f9">
+<p>
+Imagine that the system in question is one of a very large number of identical
+systems which are connected together by little pipes that allow heat to flow
+back and forth. One of them is the system we&apos;re studying. The rest of them
+simply provide the heat bath.
+<img src="/2021/03/11/SusskindsStatisticalMechanics/ensemble.png">
+We&apos;re going to let them get a large number \(N\) of them. Large enough that we can
+think of the heat bath is very big.
+</p>
+
+<p>
+Each one of the systems is in a state. Call the number of systems in the
+\(i\mathrm{th}\) state \(n_i = (n_1, n_2, n_3, \cdots)\)
+Constrains
+</p>
+\begin{align}
+\sum_in_i =&amp; N \\
+\sum_in_i E_i =&amp; N E
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgd6b4aae" class="outline-3">
+<h3 id="orgd6b4aae">Maximizing entropy</h3>
+<div class="outline-text-3" id="text-orgd6b4aae">
+<p>
+What is the probability that a given one of these systems is in the
+\(i\mathrm{th}\) state? It is
+</p>
+\begin{align}
+P(i) = \frac{n_i}{N}
+\end{align}
+<p>
+use this to rewrite the constrains
+</p>
+\begin{align}
+  \sum_iP(i) =&amp; 1 \\
+  \sum_iP(i) E_i =&amp; E
+\end{align}
+<p>
+Given the occupation numbers, how many ways of redistributing
+the states?(most of occupation number is zero) That is
+</p>
+\begin{align}
+  \mathrm{Number}\quad \mathrm{of} \quad\mathrm{arrangements}
+    =\frac{N!}{\Pi _in_i!}
+\end{align}
+<p>
+use Stirling&apos;s Approximation \(N! \sim N^Ne^{- N}\) as \(N\to\infty\)
+</p>
+\begin{align}
+\log\frac{N!}{\Pi _in_i!} \approx&amp; \log \frac{N^N}{\sum_in_i^{n_i}}
+  = N\log N - \sum_in_i\log n_i \\
+  =&amp; N\log N - \sum_iN P(i)\log [NP(i)] \\
+  =&amp; - N \sum_i P(i) \log P(i)
+\end{align}
+<p>
+It&apos;s entropy. If we want to find out the occupation numbers which maximize the
+number of ways that you can rearrange the system keep the occupation numbers
+fixed. It simply corresponds to maximizing the entropy.
+</p>
+
+<p>
+The most probable distribution of occupation numbers corresponds to
+probabilities which maximize the entropy.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0b58b6e" class="outline-2">
+<h2 id="org0b58b6e">Lecture 4: The Boltzmann distribution</h2>
+<div class="outline-text-2" id="text-org0b58b6e">
+</div>
+<div id="outline-container-orgaf21a1c" class="outline-3">
+<h3 id="orgaf21a1c">Partition function</h3>
+<div class="outline-text-3" id="text-orgaf21a1c">
+<p>
+Use Lagrange Multiplier to maximize the entropy
+</p>
+\begin{align}
+  F&apos;(P) = - \sum_iP_i \log P_i  - \alpha \left[\sum_i P_i - 1 \right] - \beta\left[\sum_iE_iP_i - E\right]
+\end{align}
+<p>
+let \(\frac{\partial F&apos;}{\partial P_i} = 0\), we get
+</p>
+\begin{align}
+  P_i = e^{-(1 + \alpha)} e^{- \beta E_i}
+\end{align}
+<p>
+call \(e^{-(1 + \alpha)} = Z\) partition function, then
+</p>
+\begin{align}
+  P_i = \frac{1}{Z} e^{- \beta E_i}
+\end{align}
+<p>
+&#x8FD9;&#x4E2A;&#x5206;&#x5E03;&#x662F;&#x5728;&#x7ED9;&#x5B9A;&#x5E73;&#x5747;&#x80FD;&#x91CF;&#x4E0B;&#x6700;&#x6709;&#x53EF;&#x80FD;&#x7684;&#x5206;&#x5E03;.
+</p>
+
+<p>
+so partition function is
+</p>
+\begin{align}
+  Z = \sum_i e^{- \beta E_i}
+\end{align}
+<p>
+Tuning \(\beta\) , tuning average energy. &#x9650;&#x5236;&#x6E29;&#x5EA6;&#x76F8;&#x5F53;&#x4E8E;&#x9650;&#x5236;&#x5E73;&#x5747;&#x80FD;&#x91CF;.
+</p>
+
+<p>
+\(E_{i}\) &#x662F;&#x7CFB;&#x7EDF;&#x7ED9;&#x5B9A;&#x7684;.
+</p>
+
+<p>
+&#x5173;&#x4E8E; \(E, \alpha, \beta\) &#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;. \(\alpha, \beta\) &#x662F;&#x62C9;&#x6C0F;&#x4E58;&#x5B50;, &#x5B83;&#x5BF9;&#x5E94;&#x4E24;&#x4E2A;&#x7EA6;&#x675F;, &#x4E00;&#x4E2A;&#x662F;&#x6982;&#x7387;&#x5F52;&#x4E00;,
+&#x4E00;&#x4E2A;&#x662F;&#x80FD;&#x91CF;&#x7ED9;&#x5B9A;. &#x7ED3;&#x679C;&#x5C31;&#x662F;, &#x7531;&#x6982;&#x7387;&#x5F52;&#x4E00;&#x548C;&#x80FD;&#x91CF;&#x7ED9;&#x5B9A;, &#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x51FA; \(\alpha, \beta\) . &#x800C;&#x6982;&#x7387;&#x5F52;&#x4E00;
+&#x662F;&#x6C38;&#x8FDC;&#x77E5;&#x9053;&#x7684;, &#x6240;&#x4EE5;&#x5269;&#x4E0B;&#x7684;&#x4E09;&#x4E2A;&#x91CF; \(E, \alpha, \beta\) &#x4E4B;&#x4E2D;&#x7ED9;&#x5B9A;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;, &#x5C31;&#x53EF;&#x4EE5;&#x7ED3;&#x5408;&#x6982;&#x7387;&#x5F52;&#x4E00;
+&#x5F97;&#x51FA;&#x4EFB;&#x5269;&#x4E0B;&#x7684;&#x4E24;&#x4E2A;, &#x4E5F;&#x5C31;&#x662F; \(E(\alpha), E(\beta), \alpha(E), \alpha(\beta), \beta(E), \beta(\alpha)\) . &#x800C; \(\beta\)
+&#x662F;&#x4E00;&#x4E2A;&#x6211;&#x4EEC;&#x975E;&#x5E38;&#x5173;&#x5FC3;&#x7684;&#x7269;&#x7406;&#x91CF;, &#x4E0B;&#x9762;&#x5C06;&#x4F1A;&#x8BF4;&#x660E;&#x5B83;&#x662F;&#x6E29;&#x5EA6;&#x7684;&#x5012;&#x6570;, &#x6240;&#x4EE5;&#x5E38;&#x7528;&#x7684;&#x5173;&#x7CFB;&#x5C31;&#x662F;
+\(E(\beta)\) &#x548C; \(\alpha(\beta)\) , &#x4E5F;&#x5C31;&#x662F; \(Z(\beta)\) , &#x56E0;&#x4E3A; \(Z\) &#x548C; \(\alpha\) &#x53EA;&#x662F;&#x505A;&#x4E86;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x66FF;&#x6362;&#x800C;&#x5DF2;.
+&#x5F97;&#x5230;&#x4E86; \(Z(\beta)\) &#x5C31;&#x5F97;&#x5230;&#x4E86;&#x7CFB;&#x7EDF;&#x6240;&#x6709;&#x7684;&#x5176;&#x5B83;&#x70ED;&#x529B;&#x5B66;&#x91CF;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgee74627" class="outline-3">
+<h3 id="orgee74627">Average Energy \(E\)</h3>
+<div class="outline-text-3" id="text-orgee74627">
+<p>
+&#x5982;&#x679C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x4E86; \(Z(\beta)\) , &#x5F53;&#x7136;&#x53EF;&#x4EE5;&#x5F97;&#x5230; \(E\) , &#x56E0;&#x4E3A; \(E(Z) = E(Z(\beta)) = E(\beta)\) . &#x4E5F;
+&#x5C31;&#x662F;&#x8BF4;&#x5229;&#x7528;&#x5173;&#x7CFB; \(E(Z)\) , \(Z(\beta)\) &#x5F97;&#x5230; \(E(\beta)\)
+</p>
+\begin{align}
+  E = \sum_i P_iE_i = \sum_i \frac{1}{Z(\beta)} e^{-\beta E_i}E_i
+        = - \frac{1}{Z(\beta)}\frac{\partial Z(\beta)}{\partial\beta}
+        = - \frac{\partial}{\partial\beta}\log Z(\beta)
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgea6fdc6" class="outline-3">
+<h3 id="orgea6fdc6">Entropy</h3>
+<div class="outline-text-3" id="text-orgea6fdc6">
+\begin{align}
+S = -\sum_i P_i\log P_i
+\end{align}
+<p>
+&#x800C;
+</p>
+\begin{align}
+ P_i = \frac{1}{Z(\beta)}e^{-\beta E_i}
+\end{align}
+<p>
+so
+</p>
+\begin{align}
+S =&amp; -\sum_i P_i\left[ -\beta E_i - \log Z \right] \\
+  =&amp; \beta \sum_i P_iE_i + \sum_iP_i\log Z \\
+  =&amp; \beta E(\beta) +\log Z(\beta)
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org45ddf74" class="outline-3">
+<h3 id="org45ddf74">Temperature</h3>
+<div class="outline-text-3" id="text-org45ddf74">
+\begin{align}
+\mathrm{d}S = \beta \mathrm{d}E + E \mathrm{d}\beta +\frac{\partial \log Z}{\partial \beta}\mathrm{d}\beta
+    = \beta \mathrm{d}E + E \mathrm{d}\beta -E \mathrm{d}\beta = \beta \mathrm{d}E
+\end{align}
+<p>
+so
+</p>
+\begin{align}
+ T = \frac{\mathrm{d}E}{\mathrm{d}S} = \frac{1}{\beta}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org218c0d2" class="outline-3">
+<h3 id="org218c0d2">Summary</h3>
+<div class="outline-text-3" id="text-org218c0d2">
+\begin{align}
+P_i =&amp; \frac{1}{Z} e^{-\beta E_i} \\
+Z =&amp; \sum_i e^{- \beta E_i} \\
+E =&amp; - \frac{\partial}{\partial\beta} \log Z \\
+T =&amp; \frac{1}{\beta} \\
+S =&amp; \beta E + \log Z
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgb64c117" class="outline-3">
+<h3 id="orgb64c117">Example: the Ideal Gas</h3>
+<div class="outline-text-3" id="text-orgb64c117">
+<p>
+&#x5728;&#x4F53;&#x79EF; \(V\) &#x5185;&#x7684; \(N\) &#x4E2A;&#x7C92;&#x5B50;. States: collection \(x_1, \cdots, x_{3N}, p_1, p_{3N}\)
+. \(6N\) &#x7EF4;&#x7684;&#x76F8;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x70B9;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A; state. &#x6BCF;&#x4E2A; state &#x7684;&#x80FD;&#x91CF;&#x4E3A; \(\sum_{n=1}^{3N}
+\frac{p^2_n}{2m}\) .
+</p>
+\begin{align}
+ Z =&amp; \frac{1}{N!} \int \mathrm{d}^{3N}x \int \mathrm{d}^{3N}p\cdot e^{- \beta\sum_{n=1}^{3N}
+          \frac{p^2_n}{2m}} \\
+   =&amp; \frac{V^N}{N!} \left(\frac{2\pi m}{\beta} \right)^{3N/2}
+\end{align}
+<p>
+(&#x56E0;&#x5B50; \(\frac{1}{N!}\) &#x662F;&#x56E0;&#x4E3A;&#x5047;&#x8BBE;&#x7C92;&#x5B50;&#x4E0D;&#x53EF;&#x5206;&#x8FA8;, &#x4F46;&#x5BF9;&#x7ED3;&#x679C;&#x65E0;&#x5F71;&#x54CD;)
+</p>
+\begin{align}
+\log Z = - \frac{3N}{2} \log\beta + \mathrm{const.}
+\end{align}
+\begin{align}
+E = - \frac{\partial}{\partial\beta}\log Z = \frac{3}{2}NT
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1eb8bba" class="outline-2">
+<h2 id="org1eb8bba">Lecture 5: Pressure of an Ideal Gas &amp; Fluctuations</h2>
+<div class="outline-text-2" id="text-org1eb8bba">
+</div>
+<div id="outline-container-org28804da" class="outline-3">
+<h3 id="org28804da">Helmholtz free energy</h3>
+<div class="outline-text-3" id="text-org28804da">
+\begin{align}
+S =&amp; \frac{1}{T} E + \log Z
+\end{align}
+<p>
+First define a very useful variable Helmholtz free energy
+</p>
+\begin{align}
+  A = E - TS = -T \log Z
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org2ce5787" class="outline-3">
+<h3 id="org2ce5787">Maxwell&apos; Relation</h3>
+<div class="outline-text-3" id="text-org2ce5787">
+<p>
+&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x7EAF;&#x6570;&#x5B66;&#x7684;&#x5173;&#x7CFB;. &#x5047;&#x8BBE; \(E, S\) &#x548C; \(T, V\) &#x662F;&#x4E24;&#x7EC4;&#x72EC;&#x7ACB;&#x7684;&#x53D8;&#x91CF;, &#x90A3;&#x4E48;
+</p>
+\begin{align}
+\left.\frac{\partial E}{\partial V}\right|_S = \left.\frac{\partial E}{\partial V}\right|_T
+    - \left.\frac{\partial E}{\partial S}\right|_V \left.\frac{\partial S}{\partial V}\right|_T
+\end{align}
+
+<p>
+&#x4ECE;&#x7269;&#x7406;&#x7684;&#x89D2;&#x5EA6;&#x7406;&#x89E3;, &#x8003;&#x8651;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x4F53;&#x79EF;&#x53EF;&#x53D8;, &#x5982;&#x4E0B;&#x56FE;, &#x52A0;&#x4E00;&#x4E2A;&#x6D3B;&#x585E;
+<img src="/2021/03/11/SusskindsStatisticalMechanics/piston.png">
+&#x90A3;&#x6B64;&#x65F6;, &#x6211;&#x4EEC;&#x4E0D;&#x53D8;&#x91CF;&#x7531;&#x539F;&#x6765;&#x53EA;&#x6709; \(T\) , &#x53D8;&#x6210;&#x4E86;&#x4E24;&#x4E2A;&#x53D8;&#x91CF; \(T, V\) . &#x90A3;&#x4EE5; \(T, V\) &#x4E3A;&#x5750;&#x6807;,
+&#x753B;&#x51FA;&#x4E00;&#x6761; entropy &#x7684;&#x7B49;&#x9AD8;&#x7EBF;, &#x5728;&#x8FD9;&#x4E2A;&#x7EBF;&#x4E0A; entropy &#x662F;&#x4E0D;&#x53D8;&#x7684;.
+<img src="/2021/03/11/SusskindsStatisticalMechanics/adiabatic.png">
+&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4ECE;&#x8FD9;&#x6761;&#x7EBF;&#x4E0A;&#x7684;&#x4E00;&#x70B9;&#x79FB;&#x5230;&#x53E6;&#x4E00;&#x70B9;, &#x6709;
+</p>
+\begin{align}
+  \Delta S  = \left.\frac{\partial S}{\partial V}\right|_T \Delta V
+              +\left.\frac{\partial S}{\partial T}\right|_V \Delta T = 0
+\end{align}
+<p>
+&#x540C;&#x65F6;, &#x80FD;&#x91CF;&#x7684;&#x6539;&#x53D8;&#x4E3A;
+</p>
+\begin{align}
+  \Delta E  = \left.\frac{\partial E}{\partial V}\right|_T \Delta V
+              +\left.\frac{\partial E}{\partial T}\right|_V \Delta T
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4393f7d" class="outline-2">
+<h2 id="org4393f7d">Interlude</h2>
+<div class="outline-text-2" id="text-org4393f7d">
+</div>
+<div id="outline-container-org6c3ea31" class="outline-3">
+<h3 id="org6c3ea31">Stirling&apos;s Approximation</h3>
+</div>
+
+<div id="outline-container-orgf6f1baa" class="outline-3">
+<h3 id="orgf6f1baa">Lagrange Multiplier</h3>
+</div>
+</div>
+
+
+<div id="outline-container-orgde5413e" class="outline-2">
+<h2 id="orgde5413e">Reference</h2>
+<div class="outline-text-2" id="text-orgde5413e">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Statistical-Mechanics/" rel="tag"># Statistical Mechanics</a>
+          
+            <a href="/tags/physics/" rel="tag"># physics</a>
+          
+            <a href="/tags/Susskind/" rel="tag"># Susskind</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/03/04/SusskindsClassicalFieldTheory/" rel="next" title="Susskind's Classical Field Theory Note">
+                <i class="fa fa-chevron-left"></i> Susskind's Classical Field Theory Note
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org31dd88c"><span class="nav-text">Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org14ec2db"><span class="nav-text">Lecture 1: Entropy and conservation of information</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org14c6dbe"><span class="nav-text">Conservation of Information</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org2db6817"><span class="nav-text">Entropy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgf8fd0c8"><span class="nav-text">How to define entropy for a complex probability distribution?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgae08a80"><span class="nav-text">Definition of Entropy in Phase Space</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgf2f8c13"><span class="nav-text">Lecture 2: Units &amp; Temperature</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orge93ac98"><span class="nav-text">Units declaration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgf1ec610"><span class="nav-text">What temperature is?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgc43c294"><span class="nav-text">It is temperature</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org5b885a7"><span class="nav-text">Lecture 3: Maximizing entropy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org383c5f9"><span class="nav-text">A Trick (Canonical Ensemble)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd6b4aae"><span class="nav-text">Maximizing entropy</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org0b58b6e"><span class="nav-text">Lecture 4: The Boltzmann distribution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgaf21a1c"><span class="nav-text">Partition function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgee74627"><span class="nav-text">Average Energy \(E\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgea6fdc6"><span class="nav-text">Entropy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org45ddf74"><span class="nav-text">Temperature</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org218c0d2"><span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgb64c117"><span class="nav-text">Example: the Ideal Gas</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org1eb8bba"><span class="nav-text">Lecture 5: Pressure of an Ideal Gas &amp; Fluctuations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org28804da"><span class="nav-text">Helmholtz free energy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org2ce5787"><span class="nav-text">Maxwell&#39; Relation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org4393f7d"><span class="nav-text">Interlude</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org6c3ea31"><span class="nav-text">Stirling&#39;s Approximation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgf6f1baa"><span class="nav-text">Lagrange Multiplier</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgde5413e"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
