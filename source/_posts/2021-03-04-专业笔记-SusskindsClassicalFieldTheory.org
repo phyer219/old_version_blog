@@ -1,7 +1,7 @@
 #+TITLE: Susskind's Classical Field Theory Note
 #+DATE: <2021-03-04>
 #+CATEGORIES: 专业笔记
-#+TAGS: physics, classical field theory, field theory, least action, Lagrangian, Special Relativity
+#+TAGS: Susskind, physics, classical field theory, field theory, least action, Lagrangian, Special Relativity
 #+HTML: <!-- toc -->
 #+HTML: <!-- more -->
 
