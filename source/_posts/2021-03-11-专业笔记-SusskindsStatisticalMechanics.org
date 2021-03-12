@@ -1,7 +1,7 @@
 #+TITLE: Susskind's Statistical Mechanics
 #+DATE: <2021-03-11>
 #+CATEGORIES: 专业笔记
-#+TAGS: physics, Statistical Mechanics, Susskind
+#+TAGS: physics, Statistical Mechanics, Susskind, Entropy, Ising Model, Magnetic
 #+HTML: <!-- toc -->
 #+HTML: <!-- more -->
 
@@ -152,7 +152,7 @@ combine them and use our definition of temperature we get
           \Downarrow &\\
  0 < & \mathrm{d}S_A + \mathrm{d}S_B = \left(1 - \frac{T_A}{T_B}\right) \mathrm{d}S_A
 \end{align}
-becasue $T_B > T_A$ , so
+because $T_B > T_A$ , so
 \begin{align}
  \mathrm{d}S_A > & 0\\
           \Downarrow &\\
@@ -335,25 +335,392 @@ First define a very useful variable Helmholtz free energy
 
 它是一个纯数学的关系. 假设 $E, S$ 和 $T, V$ 是两组独立的变量, 那么
 \begin{align}
+\label{eq:maxwell_relation}
 \left.\frac{\partial E}{\partial V}\right|_S = \left.\frac{\partial E}{\partial V}\right|_T
     - \left.\frac{\partial E}{\partial S}\right|_V \left.\frac{\partial S}{\partial V}\right|_T
 \end{align}
 
-从物理的角度理解, 考虑一个系统体积可变, 如下图, 加一个活塞
-[[file:2021-03-11-专业笔记-SusskindsStatisticalMechanics/piston.png]]
-那此时, 我们不变量由原来只有 $T$ , 变成了两个变量 $T, V$ . 那以 $T, V$ 为坐标,
-画出一条 entropy 的等高线, 在这个线上 entropy 是不变的.
+如何理解, 或者说如何证明它?
+
+便于直观地看出它的意义, 我们以独立变量 $T, V$ 为坐标, 画出一条$S$ 的等高线. 也就
+是说在这条线上的 $A, B$ 两点, 它的 $S$ 是相等的.
 [[file:2021-03-11-专业笔记-SusskindsStatisticalMechanics/adiabatic.png]]
-如果我们从这条线上的一点移到另一点, 有
-\begin{align}
-  \Delta S  = \left.\frac{\partial S}{\partial V}\right|_T \Delta V
-              +\left.\frac{\partial S}{\partial T}\right|_V \Delta T = 0
-\end{align}
-同时, 能量的改变为
+让我们从一个常规的式子出发
 \begin{align}
   \Delta E  = \left.\frac{\partial E}{\partial V}\right|_T \Delta V
               +\left.\frac{\partial E}{\partial T}\right|_V \Delta T
 \end{align}
+上式的第一项和 $(\ref{eq:maxwell_relation})$ 的第一项是相同的. 我们限定它是在 $S$
+不变的这条线上走的, 看它会发生什么. 让两边除以 $\Delta V$ 那么
+
+\begin{align}
+\label{eq:dedv}
+  \frac{\Delta E}{\Delta V}  = \left.\frac{\partial E}{\partial V}\right|_T
+              +\left.\frac{\partial E}{\partial T}\right|_V \frac{\Delta T}{\Delta V}
+\end{align}
+在 $S$ 不变的线上
+\begin{align}
+  \Delta S  = \left.\frac{\partial S}{\partial V}\right|_T \Delta V
+              +\left.\frac{\partial S}{\partial T}\right|_V \Delta T = 0
+\end{align}
+那么就可以得到这条线的斜率
+\begin{align}
+\frac{\Delta T}{\Delta V} = - \left.\frac{\partial S}{\partial V}\right|_{T}
+                    \left/\frac{\partial S}{\partial T}\right|_{V}
+\end{align}
+把它带到 $(\ref{eq:dedv})$ 里面就得到
+\begin{align}
+  \frac{\Delta E}{\Delta V}  =& \left.\frac{\partial E}{\partial V}\right|_T
+              -\left.\frac{\partial E}{\partial T}\right|_V \cdot
+                    \left.\frac{\partial S}{\partial V}\right|_{T}
+                    \left/\frac{\partial S}{\partial T}\right|_{V} \\
+             =& \left.\frac{\partial E}{\partial V}\right|_T
+    - \left.\frac{\partial E}{\partial S}\right|_V \left.\frac{\partial S}{\partial V}\right|_T
+\end{align}
+在 $S$ 不变的线上, $\frac{\Delta E}{\Delta V}$ 就是 $\left.\frac{\partial E}{\partial V}\right|_S$
+. 所以问题得证.
+
+** Pressure & Adiabatic
+
+考虑一个系统体积可变, 如下图, 加一个活塞
+[[file:2021-03-11-专业笔记-SusskindsStatisticalMechanics/piston.png]]
+此时系统有了两个可以控制的参量, $T$ 和 $V$ . 然后考虑一个 adiabatic 的过程.
+adiabatic 的意思有两个
+- slow. 比如活塞右移, 如果移动的很慢, 那么气体的压强会有对外界的做功, 但是如果突
+  然右移, 气体还没来得及充满整个容器, 所以就没有对外界做功. adiabatic 意味着很慢,
+  整个过程中, 系统都始终处于平衡态.
+- no energy comes into the system from outside. 也就是说它是绝热的.
+活塞右移的过程中, 没有能量注入, 也就是说能量的改变就是压强对外做的功
+\begin{align}
+  \mathrm{d}E = -P A\mathrm{d}x = - P\mathrm{d}V
+\end{align}
+因此压强可以由上式定义出
+\begin{align}
+ P = - \frac{\partial E}{\partial V}
+\end{align}
+但是, 如何体现 adiabatic 这个过程. 其实等熵的过程就是一个 adiabatic 的过程.
+second law 说熵会增加或者不变. 其中不变的过程就是一个 adiabatic 的过程. 这可以从
+量子力学的角度来理解. 整个系统是被限制在一个 box 中, 那么它的能级将会是分立的.
+而我们绝热地右移活塞, 它们的能级会改变, 但是不会交叉, 还是各自保持独立, 如下图
+file:2021-03-11-专业笔记-SusskindsStatisticalMechanics/adiabatic_quantum.png
+也就是说如果系统原来处在某个能级上, 它还是在某个能级上. 进一步说, 就是它的处在某
+个能级上的概率不会改变, 它的概率分布不会改变. 而 熵就是概率分布的函数, 所以熵不
+会改变.
+
+所以压强的定义就可以写为
+\begin{align}
+ P = - \left.\frac{\partial E}{\partial V}\right|_S
+\end{align}
+但是控制 entropy 不是那么容易, 我们容易控制的是温度. 所以根据之前的
+$(\ref{eq:maxwell_relation})$ , 它可以写为
+\begin{align}
+ P = - \left.\frac{\partial E}{\partial V}\right|_S
+  =  - \left( \left.\frac{\partial E}{\partial V}\right|_T
+    - \left.\frac{\partial E}{\partial S}\right|_V \left.\frac{\partial S}{\partial V}\right|_T\right)
+\end{align}
+根据温度的定义, 上式中的 $\left.\frac{\partial E}{\partial S}\right|_V$ 就是温度. 之前我们定义
+温度的时候, 是一个 closed system, 它的体积给定, 正好这是里的定义.
+
+因此
+\begin{align}
+ P  =  -  \left.\frac{\partial (E - TS)}{\partial V}\right|_T
+\end{align}
+而 $E - TS$ 就是之前定义的 Helmholtz free energy, 这里就可以看出它是很有用的, 它
+可以用来求压强.
+\begin{align}
+ P  =&  -  \left.\frac{\partial A}{\partial V}
+    \right|_T \\
+   =& \left. T \frac{\partial}{\partial V}\log Z\right|_T
+\end{align}
+这个定义里的偏导数是给定温度的. 而之前的一节课的热力学量公式中的偏导数实际上就是
+导数, 因为那时只有一个独立变量, 我们常取的就是 $\beta$ . 而此时的系统, 多了另外一个
+独立变量, 也就是体积. 因此这里对体积求偏导时, 就要注明温度不变.
+
+** Example: Ideal Gas
+
+现在就用它来计算一下理想气体的压强! 我们甚至都不需要完全计算出配分函数.
+\begin{align}
+  Z = \frac{1}{N!}\int \mathrm{d}^{3N}x \mathrm{d}^{3N}p e^{- \beta \frac{p^2}{2m}}
+    = \frac{V^N}{N!} f(\beta)
+\end{align}
+因为压强是给定 $\beta$ 后, 对 $V$ 的导数, 所以我们不关心 $f(\beta)$ 的形式, 只要知道
+$Z\propto V^N$ 就足够了
+\begin{align}
+  P = T \left.\frac{\partial \log Z}{\partial V}\right|_T = T \frac{N}{V}
+\end{align}
+这就是理想气体的 equation of state
+\begin{align}
+ PV = NT
+\end{align}
+
+** Fluctuation & Heat Capacity
+
+fluctuation is defined as
+\begin{align}
+  \Delta x  \equiv \sqrt{\langle(x - \langle x\rangle)^2\rangle} = \sqrt{\langle x^2\rangle-\langle x\rangle^2}
+\end{align}
+fluctuation of energy is
+\begin{align}
+ (\Delta E)^2 = \langle E^2\rangle - \langle E\rangle^2
+\end{align}
+其中 $\langle E\rangle$ 就是之前的 $E$ , 可以从 partition function 得到
+\begin{align}
+  \langle E\rangle = - \frac{\partial \log Z}{\partial \beta}
+\end{align}
+而 $\langle E^2\rangle$ 可以根据定义来求
+\begin{align}
+   \langle E^2\rangle = \sum_iP_iE_i^2 = \frac{1}{Z(\beta)}\sum_ie^{- \beta E_i} E_i^2
+     = \frac{1}{Z}\frac{\partial^2 Z}{\partial\beta^2}
+\end{align}
+so
+\begin{align}
+ (\Delta E)^2 = \frac{1}{Z}\frac{\partial^2 Z}{\partial\beta^2}
+        - \frac{1}{Z^2}\left(\frac{\partial Z}{\partial \beta} \right)^2
+        = \frac{\partial}{\partial\beta}\left( \frac{1}{Z} \frac{\partial Z}{\partial \beta} \right)
+\end{align}
+而括号中的恰好就是 $- E$ , 那么
+\begin{align}
+ (\Delta E)^2 = - \frac{\partial E}{\partial\beta} = - \frac{\partial T}{\partial\beta} \frac{\partial E}{\partial T}
+         = T^2 \frac{\partial E}{\partial T} = T^2C_V(T)
+\end{align}
+where
+\begin{align}
+  C_V(T) \equiv \left.\frac{\partial E}{\partial T}\right|_V
+\end{align}
+is heat capacity.
+
+* Lecture 6: Weakly interacting gases, heat, and work
+
+考虑分子之间有两体相互作用能
+\begin{align}
+  E = \sum_n \frac{p_n^2}{2M} + \sum_{n>m}U(|x_n - x_m|)
+\end{align}
+先考虑两个粒子之间的相互作用能
+\begin{align}
+  \int \mathrm{d}^3x_1 \mathrm{d}^3x_2 \cdot U(|x_2 - x_1|)
+  = \int \mathrm{d}^3x_1 \mathrm{d}^3(x_1 + x')\cdot  U(|x'|)
+  = \int \mathrm{d}^3x_1 \mathrm{d}^3(x') \cdot U(|x'|)
+  = V U_0
+\end{align}
+where $\int \mathrm{d}^3x_1 = V$ , $\int\mathrm{d}^3(x')  U(|x'|) = U_0$ . 记
+$\sum_{n>m}U(|x_n - x_m|) \equiv U(x)$ 那么
+\begin{align}
+  E = \sum_n \frac{p_n^2}{2M} + \frac{N(N - 1)}{2}VU_0
+\end{align}
+计算配分函数
+\begin{align}
+  Z &= \frac{1}{N!} \int \mathrm{d}^{3N}x\int \mathrm{d}^{3N}p\cdot
+         e^{-\beta\sum_n \frac{p_n^2}{2M}} e^{- \beta U(x)}\\
+   &= \left(\frac{V^N}{N!}\int \mathrm{d}^{3N}p\cdot
+         e^{-\beta\sum_n \frac{p_n^2}{2M}}\right)
+         \frac{1}{V^N}\int \mathrm{d}^{3N}x \cdot e^{- \beta U(x)} \\
+   &= Z_0(\beta) \frac{1}{V^N}\int \mathrm{d}^{3N}x \cdot e^{- \beta U(x)} \\
+\end{align}
+其中 $Z_0$ 是 ideal gas 的配分函数. 如果相互作用很小, 那么我们可以对它展开, 只取
+到一阶项
+\begin{align}
+  e^{- \beta U(x)} \approx 1 - \beta U(x)
+\end{align}
+那么
+\begin{align}
+  \frac{1}{V^N}\int \mathrm{d}^{3N}x \cdot e^{- \beta U(x)}
+  &\approx \frac{1}{V^N}\int \mathrm{d}^{3N}x \cdot [1 -  \beta U(x)] \\
+  &= 1 - \frac{\beta}{V^N} \frac{N(N - 1)}{2} \int \mathrm{d}x_1\mathrm{d}x_2\cdot U(x_1 - x_2)
+      \int \mathrm{d}^3x_{3}\cdots \mathrm{d}^{3}x_N \\
+  &\approx 1 - \frac{N^2}{2}\frac{\beta}{V^{N - (N - 2)}} U_0 V\\
+  &= 1 - \frac{\beta N^2}{2V}U_0
+\end{align}
+配分函数的对数为
+\begin{align}
+  \log Z \approx \log Z_0 + \log\left[1 -\frac{\beta N^2}{2V}U_0 \right]
+        \approx \log Z_0 - \frac{\beta N^2}{2V}U_0
+\end{align}
+其中利用了 $\log(1 - x) = - x + \cdots$
+
+之后我们可以计算一些热力学量的修正. 比如能量
+\begin{align}
+  E = -\frac{\partial \log Z}{\partial\beta} = \frac{3}{2}NT + \frac{N^2}{2V}U_0
+        = \left( \frac{3}{2}T + \frac{\rho}{2}U_0 \right)N
+\end{align}
+压强
+\begin{align}
+P = - \left. \frac{\partial A}{\partial V}\right|_V = T \frac{\partial \log Z}{\partial V}
+  = \rho T + \frac{1}{2}\rho^2U_0
+\end{align}
+
+* Lecture 7: Harmonic Oscillators ( & Entropy vs. reversibility)
+
+** Single Classical Harmonic Oscillators
+
+考虑如图的单个弹簧
+[[file:2021-03-11-专业笔记-SusskindsStatisticalMechanics/spring.png]]
+它的 partition function 是
+\begin{align}
+  Z = \int \mathrm{d}p \mathrm{d}x\cdot e^{-\beta \frac{p^2}{2m}} e^{-\beta \frac{kx^2}{2}}
+    = \frac{2\pi}{\omega} \frac{1}{\beta}
+\end{align}
+where $\frac{1}{\omega} = \sqrt{\frac{m}{k}}$ . so
+\begin{align}
+  \log Z = \sharp - \log \beta
+\end{align}
+and
+\begin{align}
+ E = - \frac{\partial \log Z}{\partial\beta} = T
+\end{align}
+
+** Single Quantum Harmonic Oscillators
+
+量子与经典不同的地方仅在于能级是分立的(Susskind 在此没有计入零点能). So
+partition functino is
+\begin{align}
+  Z = \sum_n e^{- \beta n\hbar\omega} = \sum_n \left(e^{-\beta\hbar\omega} \right)^n
+    = \frac{1}{1 - e^{- \beta\hbar\omega}}
+\end{align}
+so
+\begin{align}
+  E = - \frac{1}{Z}\frac{\partial Z}{\partial\beta} = \frac{\hbar\omega e^{- \beta\hbar\omega}}{1 - e^{- \beta\hbar\omega}}
+\end{align}
+as $\beta \to 0$ (high temperature), the leading order of energy behaves like
+\begin{align}
+  E \to T
+\end{align}
+which is the result of classical case.
+as $\beta \to\infty$ (low temperature), the leading oreder of energy behaves like
+\begin{align}
+ E \to \hbar\omega e^{- \beta\hbar\omega}
+\end{align}
+it exponentially goes to zero.
+
+* Lecture 8: Magnetic & 1D Ising Model (Entropy, reversibility, and magnetism)
+
+Consider 1 D spin chain, $N$ spins can be either $\sigma(i)= + 1$ or $\sigma(i) =
+-1$.
+[[file:2021-03-11-专业笔记-SusskindsStatisticalMechanics/1d_ising_pic.png]]
+Suppose there is a magnetic field, the energy is
+\begin{align}
+  E = (n - m) \mu H
+\end{align}
+where $n$ is the number of ups, $m$ is the number of downs, and satisfy $n + m
+= N$ . So partition function
+\begin{align}
+  Z = \sum_{n, m}e^{-\beta \mu H(n - m)}
+\end{align}
+where sum is meant over all configurations. For each value of $(n−m)$ , there
+is going to be a certainnumber of configurations. And that number of
+configurations is
+\begin{align}
+\frac{N!}{n! m!}
+\end{align}
+so
+\begin{align}
+  Z = \sum_{n}\frac{N!}{n! (N - n)!} \left(e^{-\beta\mu H}\right)^n
+            \left(e^{\beta\mu H}\right)^{N - n}
+    = (e^{-\beta\mu H} + e^{\beta\mu H})^N
+\end{align}
+(The sum in the partition functions is over microstates. If there is
+ degeneracy, we need to multiply a degeneracy factor). And we rewrite the
+ partition function
+\begin{align}
+ Z = 2^N \cosh^N (\beta \mu H)
+\end{align}
+Define magnetization as
+\begin{align}
+  M = \frac{\langle n - m\rangle}{N}
+\end{align}
+so
+\begin{align}
+  M = \frac{E}{\mu H N} = - \frac{1}{\mu H N} \frac{\partial \log Z}{\partial \beta} = -\tanh (\beta\mu H)
+\end{align}
+It behaves like
+[[file:2021-03-11-专业笔记-SusskindsStatisticalMechanics/1d_ising_solution.png]]
+There is no phase transition.
+
+* Lecture 9: The Ising model & Phase transition
+
+** 1D case
+
+Let's use new notion
+\begin{align}
+ E = - \mu B \sigma \equiv -J \sigma
+\end{align}
+(He changed $H$ to $B$ and changed the direction of magnetic field!)
+so the solution is
+\begin{align}
+ \langle \sigma\rangle = \tanh (\beta J)
+\end{align}
+现在考虑不加磁场了, 但是考虑相邻的 spin 之间有相互作用能, 也就是说能量为
+\begin{align}
+E = -J \sum \sigma_i \sigma_{i + 1}
+\end{align}
+for $J > 0$ , spin parallel is favored(lower energy).
+
+Now we define correlation function as
+\begin{align}
+\langle \sigma_i \sigma_{i + n}\rangle
+\end{align}
+and we call $\sigma_1\sigma_2 = \mu_1 \sigma_2\sigma_3= \mu_2, \cdots$ . So
+\begin{align}
+E = -J \sum \mu_i
+\end{align}
+it has the same form of 1 dimension Ising model without interaction energy in a
+magnetic field. So we can right now get
+\begin{align}
+\langle \mu \rangle = \tanh \beta J
+\end{align}
+We can calculate correlation function by add some pairs in it (because $\sigma_i \sigma_i
+=1$ )
+\begin{align}
+\langle \sigma_i \sigma_{i + n}\rangle = \langle \sigma_i \sigma_{i + 1}\sigma_{i + 1} \sigma_{i + 2}\sigma_{i + 2}\cdots
+         \sigma_{i + n - 1}\sigma_{i + n-1}\sigma_{i + n}\sigma_{i + n}\rangle
+   = \langle\mu_1 \mu_2 \cdots \mu_n \rangle = \tanh^N\beta J
+\end{align}
+the last equivalent is because differnt $\mu_i$ is independent.
+
+So, it is a boring system, because the correlation function decays when increase
+the distance except temperature is zero which $\tanh \beta J = 1$ . It is the same
+idea of the game of telephone. The signal decays.
+
+Why it is borig? because its dimension is too low. We will see in 2 dimension,
+there will be something like error correction.
+
+** High Dimension Case & Mean Field Approximation (Self-Consistent Field)
+
+In $d$ dimension, there are $2d$ neighbors. Mean field means we approximate the
+neighbor spin as the average spin which labeled as $\bar{\sigma}$. So the energy in
+a site is
+\begin{align}
+E = -J \sigma \sum_{\mathrm{neighbor}} \sigma \approx -\left(2 d J \bar{\sigma}\right) \sigma
+\end{align}
+the higher the dimension, the better the approximation is. It seems like if one
+neighbor pass the information wrong, there are other neighbors may pass it
+right, the more the neighbors, the larger the chance which pass the information
+right.
+
+This approximation is also called self-consistent field, because we can write
+the average spin as the form (just transform $J \to 2 dJ\bar{\sigma}$)
+\begin{align}
+ \bar{\bar{\sigma}} = \tanh(2 \beta d J \bar{\sigma})
+\end{align}
+we can solve it consistently, so the name. We write it in another form (let
+$\bar{\bar{\sigma}} = \bar{\sigma}$)
+\begin{align}
+T \frac{y}{2dj} = \tanh y, \quad \mathrm{where} \quad y = 2\beta d J \bar{\sigma}
+\end{align}
+[[file:2021-03-11-专业笔记-SusskindsStatisticalMechanics/nd_ising_solution.png]]
+
+** + External Magnetic Field $B$
+
+Energy is
+\begin{align}
+  E = -[2 d J \bar{\sigma} + B]\sigma
+\end{align}
+and
+\begin{align}
+T \frac{y}{2 d J} = \tanh (y + B\beta)
+\end{align}
+there is just a shift.
+
+* Lecture 10: Liquid-Gas Phase Transition
 
 * Interlude
 
@@ -361,6 +728,13 @@ First define a very useful variable Helmholtz free energy
 
 ** Lagrange Multiplier
 
+
+* ...about
+
+我之前一直很模糊, 不清晰的概念, 都跟 Susskind 搞明白了. 比如什么是 adiabatic, 为
+什么压强要在等熵下定义.
+
+Susskind, U GREAT!
 
 * Reference
 
