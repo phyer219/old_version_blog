@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="Statistical Mechanics,physics,Susskind">
+  <meta name="keywords" content="Statistical Mechanics,physics,Susskind,Entropy,Ising Model,Magnetic,Liquid-Gas Transition,Spontaneous Symmetry">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Susskind&#39;s Statistical Mechanics">
 <meta property="og:url" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/index.html">
@@ -123,9 +123,17 @@
 <meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/entropy_phase_space.png">
 <meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/P_i_E.png">
 <meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/ensemble.png">
-<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/piston.png">
 <meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/adiabatic.png">
-<meta property="og:updated_time" content="2021-03-11T14:42:35.227Z">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/piston.png">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/adiabatic_quantum.png">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/spring.png">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/1d_ising_pic.png">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/1d_ising_solution.png">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/nd_ising_solution.png">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/nd_ising_shift_solution.png">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/magnetic_phase.png">
+<meta property="og:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/liquid-gas.png">
+<meta property="og:updated_time" content="2021-03-13T12:53:05.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Susskind&#39;s Statistical Mechanics">
 <meta name="twitter:image" content="https://zqw.ink/2021/03/11/SusskindsStatisticalMechanics/die.png">
@@ -433,9 +441,9 @@
 <!-- toc -->
 <a id="more"></a>
 
-<div id="outline-container-org31dd88c" class="outline-2">
-<h2 id="org31dd88c">Information</h2>
-<div class="outline-text-2" id="text-org31dd88c">
+<div id="outline-container-org12db1f2" class="outline-2">
+<h2 id="org12db1f2">Information</h2>
+<div class="outline-text-2" id="text-org12db1f2">
 <ul class="org-ul">
 <li>&#x5B98;&#x65B9;&#x4ECB;&#x7ECD;: <a href="https://theoreticalminimum.com/courses/statistical-mechanics/2013/spring" target="_blank" rel="noopener">https://theoreticalminimum.com/courses/statistical-mechanics/2013/spring</a></li>
 
@@ -448,13 +456,13 @@
 </div>
 </div>
 
-<div id="outline-container-org14ec2db" class="outline-2">
-<h2 id="org14ec2db">Lecture 1: Entropy and conservation of information</h2>
-<div class="outline-text-2" id="text-org14ec2db">
+<div id="outline-container-org4fac2d9" class="outline-2">
+<h2 id="org4fac2d9">Lecture 1: Entropy and conservation of information</h2>
+<div class="outline-text-2" id="text-org4fac2d9">
 </div>
-<div id="outline-container-org14c6dbe" class="outline-3">
-<h3 id="org14c6dbe">Conservation of Information</h3>
-<div class="outline-text-3" id="text-org14c6dbe">
+<div id="outline-container-orgc669c34" class="outline-3">
+<h3 id="orgc669c34">Conservation of Information</h3>
+<div class="outline-text-3" id="text-orgc669c34">
 <p>
 &#x4E00;&#x4E2A;&#x516D;&#x9762; die, &#x516D;&#x4E2A;&#x9762;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x989C;&#x8272; blue, red, green, purple, yellow, orange, &#x5982;&#x56FE;
 <img src="/2021/03/11/SusskindsStatisticalMechanics/die.png">
@@ -506,9 +514,9 @@ conservation of information , minus first law.
 </div>
 </div>
 
-<div id="outline-container-org2db6817" class="outline-3">
-<h3 id="org2db6817">Entropy</h3>
-<div class="outline-text-3" id="text-org2db6817">
+<div id="outline-container-org170e98f" class="outline-3">
+<h3 id="org170e98f">Entropy</h3>
+<div class="outline-text-3" id="text-org170e98f">
 <p>
 \(N\) is TOTAL number of STATES. &#x5176;&#x4E2D; \(M &lt; N\) &#x4E2A;&#x6001;&#x4E0A;&#x7684;&#x5360;&#x636E;&#x6982;&#x7387;&#x76F8;&#x7B49;, &#x4E3A;
 \(P=\frac{1}{M}\) , &#x5176;&#x5B83;&#x6001;&#x4E0A;&#x7684;&#x5360;&#x636E;&#x6982;&#x7387;&#x662F; \(0\) . &#x90A3;&#x4E48;&#x5B9A;&#x4E49; entropy
@@ -528,9 +536,9 @@ will stay the same.(Liouville&apos;s theorem) i.e. the same number of states.
 </div>
 </div>
 
-<div id="outline-container-orgf8fd0c8" class="outline-3">
-<h3 id="orgf8fd0c8">How to define entropy for a complex probability distribution?</h3>
-<div class="outline-text-3" id="text-orgf8fd0c8">
+<div id="outline-container-orgda53048" class="outline-3">
+<h3 id="orgda53048">How to define entropy for a complex probability distribution?</h3>
+<div class="outline-text-3" id="text-orgda53048">
 \begin{align}
   S = - \sum_iP(i) \log P(i)
 \end{align}
@@ -546,9 +554,9 @@ will stay the same.(Liouville&apos;s theorem) i.e. the same number of states.
 </div>
 </div>
 
-<div id="outline-container-orgae08a80" class="outline-3">
-<h3 id="orgae08a80">Definition of Entropy in Phase Space</h3>
-<div class="outline-text-3" id="text-orgae08a80">
+<div id="outline-container-org78399c1" class="outline-3">
+<h3 id="org78399c1">Definition of Entropy in Phase Space</h3>
+<div class="outline-text-3" id="text-org78399c1">
 <p>
 <img src="/2021/03/11/SusskindsStatisticalMechanics/entropy_phase_space.png">
 &#x5982;&#x679C;&#x50CF;&#x4E0A;&#x56FE;&#x4E00;&#x6837;, &#x6982;&#x7387;&#x662F;&#x5747;&#x5300;&#x7684;, &#x90A3;&#x4E48;
@@ -576,13 +584,13 @@ will stay the same.(Liouville&apos;s theorem) i.e. the same number of states.
 </div>
 </div>
 
-<div id="outline-container-orgf2f8c13" class="outline-2">
-<h2 id="orgf2f8c13">Lecture 2: Units &amp; Temperature</h2>
-<div class="outline-text-2" id="text-orgf2f8c13">
+<div id="outline-container-org742db07" class="outline-2">
+<h2 id="org742db07">Lecture 2: Units &amp; Temperature</h2>
+<div class="outline-text-2" id="text-org742db07">
 </div>
-<div id="outline-container-orge93ac98" class="outline-3">
-<h3 id="orge93ac98">Units declaration</h3>
-<div class="outline-text-3" id="text-orge93ac98">
+<div id="outline-container-org5d5b7fe" class="outline-3">
+<h3 id="org5d5b7fe">Units declaration</h3>
+<div class="outline-text-3" id="text-org5d5b7fe">
 <p>
 \(c = \hbar = G = k_{\mathrm{B}} = 1\) . Temperature change is a human construct that
 was invented for convenience.
@@ -596,9 +604,9 @@ was invented for convenience.
 </div>
 </div>
 
-<div id="outline-container-orgf1ec610" class="outline-3">
-<h3 id="orgf1ec610">What temperature is?</h3>
-<div class="outline-text-3" id="text-orgf1ec610">
+<div id="outline-container-org9513c47" class="outline-3">
+<h3 id="org9513c47">What temperature is?</h3>
+<div class="outline-text-3" id="text-org9513c47">
 <p>
 The average energy in state \(i\) which average energy is \(E\) is
 </p>
@@ -638,9 +646,9 @@ the entropy by \(1\) bit( \(\log 2\) )? We define temperature like this
 </div>
 </div>
 
-<div id="outline-container-orgc43c294" class="outline-3">
-<h3 id="orgc43c294">It is temperature</h3>
-<div class="outline-text-3" id="text-orgc43c294">
+<div id="outline-container-org188b6c8" class="outline-3">
+<h3 id="org188b6c8">It is temperature</h3>
+<div class="outline-text-3" id="text-org188b6c8">
 <p>
 &#x4E0B;&#x9762;&#x8BC1;&#x660E;&#x5B83;&#x5C31;&#x662F;&#x6E29;&#x5EA6;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x4E24;&#x4E2A;&#x7CFB;&#x7EDF;&#x8FBE;&#x5230;&#x70ED;&#x5E73;&#x8861;&#x65F6;, &#x4E0A;&#x9762;&#x5B9A;&#x4E49;&#x7684;&#x6E29;&#x5EA6;&#x662F;&#x76F8;&#x540C;&#x7684;.
 </p>
@@ -667,7 +675,7 @@ combine them and use our definition of temperature we get
  0 &lt; &amp; \mathrm{d}S_A + \mathrm{d}S_B = \left(1 - \frac{T_A}{T_B}\right) \mathrm{d}S_A
 \end{align}
 <p>
-becasue \(T_B &gt; T_A\) , so
+because \(T_B &gt; T_A\) , so
 </p>
 \begin{align}
  \mathrm{d}S_A &gt; &amp; 0\\
@@ -688,18 +696,18 @@ so energy flowed from B to A.
 </div>
 </div>
 
-<div id="outline-container-org5b885a7" class="outline-2">
-<h2 id="org5b885a7">Lecture 3: Maximizing entropy</h2>
-<div class="outline-text-2" id="text-org5b885a7">
+<div id="outline-container-orgace2b7d" class="outline-2">
+<h2 id="orgace2b7d">Lecture 3: Maximizing entropy</h2>
+<div class="outline-text-2" id="text-orgace2b7d">
 <p>
 Zeroth law: there is a notion of temperature which way energy flows. Ultimately
 equilibrium.
 </p>
 </div>
 
-<div id="outline-container-org383c5f9" class="outline-3">
-<h3 id="org383c5f9">A Trick (Canonical Ensemble)</h3>
-<div class="outline-text-3" id="text-org383c5f9">
+<div id="outline-container-org76115f0" class="outline-3">
+<h3 id="org76115f0">A Trick (Canonical Ensemble)</h3>
+<div class="outline-text-3" id="text-org76115f0">
 <p>
 Imagine that the system in question is one of a very large number of identical
 systems which are connected together by little pipes that allow heat to flow
@@ -722,9 +730,9 @@ Constrains
 </div>
 </div>
 
-<div id="outline-container-orgd6b4aae" class="outline-3">
-<h3 id="orgd6b4aae">Maximizing entropy</h3>
-<div class="outline-text-3" id="text-orgd6b4aae">
+<div id="outline-container-orge0de63c" class="outline-3">
+<h3 id="orge0de63c">Maximizing entropy</h3>
+<div class="outline-text-3" id="text-orge0de63c">
 <p>
 What is the probability that a given one of these systems is in the
 \(i\mathrm{th}\) state? It is
@@ -770,13 +778,13 @@ probabilities which maximize the entropy.
 </div>
 </div>
 
-<div id="outline-container-org0b58b6e" class="outline-2">
-<h2 id="org0b58b6e">Lecture 4: The Boltzmann distribution</h2>
-<div class="outline-text-2" id="text-org0b58b6e">
+<div id="outline-container-org2433d0a" class="outline-2">
+<h2 id="org2433d0a">Lecture 4: The Boltzmann distribution</h2>
+<div class="outline-text-2" id="text-org2433d0a">
 </div>
-<div id="outline-container-orgaf21a1c" class="outline-3">
-<h3 id="orgaf21a1c">Partition function</h3>
-<div class="outline-text-3" id="text-orgaf21a1c">
+<div id="outline-container-orgab5fb06" class="outline-3">
+<h3 id="orgab5fb06">Partition function</h3>
+<div class="outline-text-3" id="text-orgab5fb06">
 <p>
 Use Lagrange Multiplier to maximize the entropy
 </p>
@@ -825,9 +833,9 @@ Tuning \(\beta\) , tuning average energy. &#x9650;&#x5236;&#x6E29;&#x5EA6;&#x76F
 </div>
 </div>
 
-<div id="outline-container-orgee74627" class="outline-3">
-<h3 id="orgee74627">Average Energy \(E\)</h3>
-<div class="outline-text-3" id="text-orgee74627">
+<div id="outline-container-orgdc93e8f" class="outline-3">
+<h3 id="orgdc93e8f">Average Energy \(E\)</h3>
+<div class="outline-text-3" id="text-orgdc93e8f">
 <p>
 &#x5982;&#x679C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x4E86; \(Z(\beta)\) , &#x5F53;&#x7136;&#x53EF;&#x4EE5;&#x5F97;&#x5230; \(E\) , &#x56E0;&#x4E3A; \(E(Z) = E(Z(\beta)) = E(\beta)\) . &#x4E5F;
 &#x5C31;&#x662F;&#x8BF4;&#x5229;&#x7528;&#x5173;&#x7CFB; \(E(Z)\) , \(Z(\beta)\) &#x5F97;&#x5230; \(E(\beta)\)
@@ -840,9 +848,9 @@ Tuning \(\beta\) , tuning average energy. &#x9650;&#x5236;&#x6E29;&#x5EA6;&#x76F
 </div>
 </div>
 
-<div id="outline-container-orgea6fdc6" class="outline-3">
-<h3 id="orgea6fdc6">Entropy</h3>
-<div class="outline-text-3" id="text-orgea6fdc6">
+<div id="outline-container-org9404a13" class="outline-3">
+<h3 id="org9404a13">Entropy</h3>
+<div class="outline-text-3" id="text-org9404a13">
 \begin{align}
 S = -\sum_i P_i\log P_i
 \end{align}
@@ -863,9 +871,9 @@ S =&amp; -\sum_i P_i\left[ -\beta E_i - \log Z \right] \\
 </div>
 </div>
 
-<div id="outline-container-org45ddf74" class="outline-3">
-<h3 id="org45ddf74">Temperature</h3>
-<div class="outline-text-3" id="text-org45ddf74">
+<div id="outline-container-org8b495a1" class="outline-3">
+<h3 id="org8b495a1">Temperature</h3>
+<div class="outline-text-3" id="text-org8b495a1">
 \begin{align}
 \mathrm{d}S = \beta \mathrm{d}E + E \mathrm{d}\beta +\frac{\partial \log Z}{\partial \beta}\mathrm{d}\beta
     = \beta \mathrm{d}E + E \mathrm{d}\beta -E \mathrm{d}\beta = \beta \mathrm{d}E
@@ -879,9 +887,9 @@ so
 </div>
 </div>
 
-<div id="outline-container-org218c0d2" class="outline-3">
-<h3 id="org218c0d2">Summary</h3>
-<div class="outline-text-3" id="text-org218c0d2">
+<div id="outline-container-org19ffda6" class="outline-3">
+<h3 id="org19ffda6">Summary</h3>
+<div class="outline-text-3" id="text-org19ffda6">
 \begin{align}
 P_i =&amp; \frac{1}{Z} e^{-\beta E_i} \\
 Z =&amp; \sum_i e^{- \beta E_i} \\
@@ -892,9 +900,9 @@ S =&amp; \beta E + \log Z
 </div>
 </div>
 
-<div id="outline-container-orgb64c117" class="outline-3">
-<h3 id="orgb64c117">Example: the Ideal Gas</h3>
-<div class="outline-text-3" id="text-orgb64c117">
+<div id="outline-container-org6679b10" class="outline-3">
+<h3 id="org6679b10">Example: the Ideal Gas</h3>
+<div class="outline-text-3" id="text-org6679b10">
 <p>
 &#x5728;&#x4F53;&#x79EF; \(V\) &#x5185;&#x7684; \(N\) &#x4E2A;&#x7C92;&#x5B50;. States: collection \(x_1, \cdots, x_{3N}, p_1, p_{3N}\)
 . \(6N\) &#x7EF4;&#x7684;&#x76F8;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x70B9;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A; state. &#x6BCF;&#x4E2A; state &#x7684;&#x80FD;&#x91CF;&#x4E3A; \(\sum_{n=1}^{3N}
@@ -918,13 +926,13 @@ E = - \frac{\partial}{\partial\beta}\log Z = \frac{3}{2}NT
 </div>
 </div>
 
-<div id="outline-container-org1eb8bba" class="outline-2">
-<h2 id="org1eb8bba">Lecture 5: Pressure of an Ideal Gas &amp; Fluctuations</h2>
-<div class="outline-text-2" id="text-org1eb8bba">
+<div id="outline-container-org821f750" class="outline-2">
+<h2 id="org821f750">Lecture 5: Pressure of an Ideal Gas &amp; Fluctuations</h2>
+<div class="outline-text-2" id="text-org821f750">
 </div>
-<div id="outline-container-org28804da" class="outline-3">
-<h3 id="org28804da">Helmholtz free energy</h3>
-<div class="outline-text-3" id="text-org28804da">
+<div id="outline-container-org738b1b8" class="outline-3">
+<h3 id="org738b1b8">Helmholtz free energy</h3>
+<div class="outline-text-3" id="text-org738b1b8">
 \begin{align}
 S =&amp; \frac{1}{T} E + \log Z
 \end{align}
@@ -937,59 +945,788 @@ First define a very useful variable Helmholtz free energy
 </div>
 </div>
 
-<div id="outline-container-org2ce5787" class="outline-3">
-<h3 id="org2ce5787">Maxwell&apos; Relation</h3>
-<div class="outline-text-3" id="text-org2ce5787">
+<div id="outline-container-org2558889" class="outline-3">
+<h3 id="org2558889">Maxwell&apos; Relation</h3>
+<div class="outline-text-3" id="text-org2558889">
 <p>
 &#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x7EAF;&#x6570;&#x5B66;&#x7684;&#x5173;&#x7CFB;. &#x5047;&#x8BBE; \(E, S\) &#x548C; \(T, V\) &#x662F;&#x4E24;&#x7EC4;&#x72EC;&#x7ACB;&#x7684;&#x53D8;&#x91CF;, &#x90A3;&#x4E48;
 </p>
 \begin{align}
+\label{eq:maxwell_relation}
 \left.\frac{\partial E}{\partial V}\right|_S = \left.\frac{\partial E}{\partial V}\right|_T
     - \left.\frac{\partial E}{\partial S}\right|_V \left.\frac{\partial S}{\partial V}\right|_T
 \end{align}
 
 <p>
-&#x4ECE;&#x7269;&#x7406;&#x7684;&#x89D2;&#x5EA6;&#x7406;&#x89E3;, &#x8003;&#x8651;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x4F53;&#x79EF;&#x53EF;&#x53D8;, &#x5982;&#x4E0B;&#x56FE;, &#x52A0;&#x4E00;&#x4E2A;&#x6D3B;&#x585E;
-<img src="/2021/03/11/SusskindsStatisticalMechanics/piston.png">
-&#x90A3;&#x6B64;&#x65F6;, &#x6211;&#x4EEC;&#x4E0D;&#x53D8;&#x91CF;&#x7531;&#x539F;&#x6765;&#x53EA;&#x6709; \(T\) , &#x53D8;&#x6210;&#x4E86;&#x4E24;&#x4E2A;&#x53D8;&#x91CF; \(T, V\) . &#x90A3;&#x4EE5; \(T, V\) &#x4E3A;&#x5750;&#x6807;,
-&#x753B;&#x51FA;&#x4E00;&#x6761; entropy &#x7684;&#x7B49;&#x9AD8;&#x7EBF;, &#x5728;&#x8FD9;&#x4E2A;&#x7EBF;&#x4E0A; entropy &#x662F;&#x4E0D;&#x53D8;&#x7684;.
+&#x5982;&#x4F55;&#x7406;&#x89E3;, &#x6216;&#x8005;&#x8BF4;&#x5982;&#x4F55;&#x8BC1;&#x660E;&#x5B83;?
+</p>
+
+<p>
+&#x4FBF;&#x4E8E;&#x76F4;&#x89C2;&#x5730;&#x770B;&#x51FA;&#x5B83;&#x7684;&#x610F;&#x4E49;, &#x6211;&#x4EEC;&#x4EE5;&#x72EC;&#x7ACB;&#x53D8;&#x91CF; \(T, V\) &#x4E3A;&#x5750;&#x6807;, &#x753B;&#x51FA;&#x4E00;&#x6761;\(S\) &#x7684;&#x7B49;&#x9AD8;&#x7EBF;. &#x4E5F;&#x5C31;
+&#x662F;&#x8BF4;&#x5728;&#x8FD9;&#x6761;&#x7EBF;&#x4E0A;&#x7684; \(A, B\) &#x4E24;&#x70B9;, &#x5B83;&#x7684; \(S\) &#x662F;&#x76F8;&#x7B49;&#x7684;.
 <img src="/2021/03/11/SusskindsStatisticalMechanics/adiabatic.png">
-&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4ECE;&#x8FD9;&#x6761;&#x7EBF;&#x4E0A;&#x7684;&#x4E00;&#x70B9;&#x79FB;&#x5230;&#x53E6;&#x4E00;&#x70B9;, &#x6709;
+&#x8BA9;&#x6211;&#x4EEC;&#x4ECE;&#x4E00;&#x4E2A;&#x5E38;&#x89C4;&#x7684;&#x5F0F;&#x5B50;&#x51FA;&#x53D1;
+</p>
+\begin{align}
+  \Delta E  = \left.\frac{\partial E}{\partial V}\right|_T \Delta V
+              +\left.\frac{\partial E}{\partial T}\right|_V \Delta T
+\end{align}
+<p>
+&#x4E0A;&#x5F0F;&#x7684;&#x7B2C;&#x4E00;&#x9879;&#x548C; \((\ref{eq:maxwell_relation})\) &#x7684;&#x7B2C;&#x4E00;&#x9879;&#x662F;&#x76F8;&#x540C;&#x7684;. &#x6211;&#x4EEC;&#x9650;&#x5B9A;&#x5B83;&#x662F;&#x5728; \(S\)
+&#x4E0D;&#x53D8;&#x7684;&#x8FD9;&#x6761;&#x7EBF;&#x4E0A;&#x8D70;&#x7684;, &#x770B;&#x5B83;&#x4F1A;&#x53D1;&#x751F;&#x4EC0;&#x4E48;. &#x8BA9;&#x4E24;&#x8FB9;&#x9664;&#x4EE5; \(\Delta V\) &#x90A3;&#x4E48;
+</p>
+
+\begin{align}
+\label{eq:dedv}
+  \frac{\Delta E}{\Delta V}  = \left.\frac{\partial E}{\partial V}\right|_T
+              +\left.\frac{\partial E}{\partial T}\right|_V \frac{\Delta T}{\Delta V}
+\end{align}
+<p>
+&#x5728; \(S\) &#x4E0D;&#x53D8;&#x7684;&#x7EBF;&#x4E0A;
 </p>
 \begin{align}
   \Delta S  = \left.\frac{\partial S}{\partial V}\right|_T \Delta V
               +\left.\frac{\partial S}{\partial T}\right|_V \Delta T = 0
 \end{align}
 <p>
-&#x540C;&#x65F6;, &#x80FD;&#x91CF;&#x7684;&#x6539;&#x53D8;&#x4E3A;
+&#x90A3;&#x4E48;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x8FD9;&#x6761;&#x7EBF;&#x7684;&#x659C;&#x7387;
 </p>
 \begin{align}
-  \Delta E  = \left.\frac{\partial E}{\partial V}\right|_T \Delta V
-              +\left.\frac{\partial E}{\partial T}\right|_V \Delta T
+\frac{\Delta T}{\Delta V} = - \left.\frac{\partial S}{\partial V}\right|_{T}
+                    \left/\frac{\partial S}{\partial T}\right|_{V}
+\end{align}
+<p>
+&#x628A;&#x5B83;&#x5E26;&#x5230; \((\ref{eq:dedv})\) &#x91CC;&#x9762;&#x5C31;&#x5F97;&#x5230;
+</p>
+\begin{align}
+  \frac{\Delta E}{\Delta V}  =&amp; \left.\frac{\partial E}{\partial V}\right|_T
+              -\left.\frac{\partial E}{\partial T}\right|_V \cdot
+                    \left.\frac{\partial S}{\partial V}\right|_{T}
+                    \left/\frac{\partial S}{\partial T}\right|_{V} \\
+             =&amp; \left.\frac{\partial E}{\partial V}\right|_T
+    - \left.\frac{\partial E}{\partial S}\right|_V \left.\frac{\partial S}{\partial V}\right|_T
+\end{align}
+<p>
+&#x5728; \(S\) &#x4E0D;&#x53D8;&#x7684;&#x7EBF;&#x4E0A;, \(\frac{\Delta E}{\Delta V}\) &#x5C31;&#x662F; \(\left.\frac{\partial E}{\partial V}\right|_S\)
+. &#x6240;&#x4EE5;&#x95EE;&#x9898;&#x5F97;&#x8BC1;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org54c2151" class="outline-3">
+<h3 id="org54c2151">Pressure &amp; Adiabatic</h3>
+<div class="outline-text-3" id="text-org54c2151">
+<p>
+&#x8003;&#x8651;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x4F53;&#x79EF;&#x53EF;&#x53D8;, &#x5982;&#x4E0B;&#x56FE;, &#x52A0;&#x4E00;&#x4E2A;&#x6D3B;&#x585E;
+<img src="/2021/03/11/SusskindsStatisticalMechanics/piston.png">
+&#x6B64;&#x65F6;&#x7CFB;&#x7EDF;&#x6709;&#x4E86;&#x4E24;&#x4E2A;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x7684;&#x53C2;&#x91CF;, \(T\) &#x548C; \(V\) . &#x7136;&#x540E;&#x8003;&#x8651;&#x4E00;&#x4E2A; adiabatic &#x7684;&#x8FC7;&#x7A0B;.
+adiabatic &#x7684;&#x610F;&#x601D;&#x6709;&#x4E24;&#x4E2A;
+</p>
+<ul class="org-ul">
+<li>slow. &#x6BD4;&#x5982;&#x6D3B;&#x585E;&#x53F3;&#x79FB;, &#x5982;&#x679C;&#x79FB;&#x52A8;&#x7684;&#x5F88;&#x6162;, &#x90A3;&#x4E48;&#x6C14;&#x4F53;&#x7684;&#x538B;&#x5F3A;&#x4F1A;&#x6709;&#x5BF9;&#x5916;&#x754C;&#x7684;&#x505A;&#x529F;, &#x4F46;&#x662F;&#x5982;&#x679C;&#x7A81;
+&#x7136;&#x53F3;&#x79FB;, &#x6C14;&#x4F53;&#x8FD8;&#x6CA1;&#x6765;&#x5F97;&#x53CA;&#x5145;&#x6EE1;&#x6574;&#x4E2A;&#x5BB9;&#x5668;, &#x6240;&#x4EE5;&#x5C31;&#x6CA1;&#x6709;&#x5BF9;&#x5916;&#x754C;&#x505A;&#x529F;. adiabatic &#x610F;&#x5473;&#x7740;&#x5F88;&#x6162;,
+&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E2D;, &#x7CFB;&#x7EDF;&#x90FD;&#x59CB;&#x7EC8;&#x5904;&#x4E8E;&#x5E73;&#x8861;&#x6001;.</li>
+<li>no energy comes into the system from outside. &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5B83;&#x662F;&#x7EDD;&#x70ED;&#x7684;.</li>
+</ul>
+<p>
+&#x6D3B;&#x585E;&#x53F3;&#x79FB;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;, &#x6CA1;&#x6709;&#x80FD;&#x91CF;&#x6CE8;&#x5165;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x80FD;&#x91CF;&#x7684;&#x6539;&#x53D8;&#x5C31;&#x662F;&#x538B;&#x5F3A;&#x5BF9;&#x5916;&#x505A;&#x7684;&#x529F;
+</p>
+\begin{align}
+  \mathrm{d}E = -P A\mathrm{d}x = - P\mathrm{d}V
+\end{align}
+<p>
+&#x56E0;&#x6B64;&#x538B;&#x5F3A;&#x53EF;&#x4EE5;&#x7531;&#x4E0A;&#x5F0F;&#x5B9A;&#x4E49;&#x51FA;
+</p>
+\begin{align}
+ P = - \frac{\partial E}{\partial V}
+\end{align}
+<p>
+&#x4F46;&#x662F;, &#x5982;&#x4F55;&#x4F53;&#x73B0; adiabatic &#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;. &#x5176;&#x5B9E;&#x7B49;&#x71B5;&#x7684;&#x8FC7;&#x7A0B;&#x5C31;&#x662F;&#x4E00;&#x4E2A; adiabatic &#x7684;&#x8FC7;&#x7A0B;.
+second law &#x8BF4;&#x71B5;&#x4F1A;&#x589E;&#x52A0;&#x6216;&#x8005;&#x4E0D;&#x53D8;. &#x5176;&#x4E2D;&#x4E0D;&#x53D8;&#x7684;&#x8FC7;&#x7A0B;&#x5C31;&#x662F;&#x4E00;&#x4E2A; adiabatic &#x7684;&#x8FC7;&#x7A0B;. &#x8FD9;&#x53EF;&#x4EE5;&#x4ECE;
+&#x91CF;&#x5B50;&#x529B;&#x5B66;&#x7684;&#x89D2;&#x5EA6;&#x6765;&#x7406;&#x89E3;. &#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x662F;&#x88AB;&#x9650;&#x5236;&#x5728;&#x4E00;&#x4E2A; box &#x4E2D;, &#x90A3;&#x4E48;&#x5B83;&#x7684;&#x80FD;&#x7EA7;&#x5C06;&#x4F1A;&#x662F;&#x5206;&#x7ACB;&#x7684;.
+&#x800C;&#x6211;&#x4EEC;&#x7EDD;&#x70ED;&#x5730;&#x53F3;&#x79FB;&#x6D3B;&#x585E;, &#x5B83;&#x4EEC;&#x7684;&#x80FD;&#x7EA7;&#x4F1A;&#x6539;&#x53D8;, &#x4F46;&#x662F;&#x4E0D;&#x4F1A;&#x4EA4;&#x53C9;, &#x8FD8;&#x662F;&#x5404;&#x81EA;&#x4FDD;&#x6301;&#x72EC;&#x7ACB;, &#x5982;&#x4E0B;&#x56FE;
+<img src="/2021/03/11/SusskindsStatisticalMechanics/adiabatic_quantum.png">
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5982;&#x679C;&#x7CFB;&#x7EDF;&#x539F;&#x6765;&#x5904;&#x5728;&#x67D0;&#x4E2A;&#x80FD;&#x7EA7;&#x4E0A;, &#x5B83;&#x8FD8;&#x662F;&#x5728;&#x67D0;&#x4E2A;&#x80FD;&#x7EA7;&#x4E0A;. &#x8FDB;&#x4E00;&#x6B65;&#x8BF4;, &#x5C31;&#x662F;&#x5B83;&#x7684;&#x5904;&#x5728;&#x67D0;
+&#x4E2A;&#x80FD;&#x7EA7;&#x4E0A;&#x7684;&#x6982;&#x7387;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;, &#x5B83;&#x7684;&#x6982;&#x7387;&#x5206;&#x5E03;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;. &#x800C; &#x71B5;&#x5C31;&#x662F;&#x6982;&#x7387;&#x5206;&#x5E03;&#x7684;&#x51FD;&#x6570;, &#x6240;&#x4EE5;&#x71B5;&#x4E0D;
+&#x4F1A;&#x6539;&#x53D8;.
+</p>
+
+<p>
+&#x6240;&#x4EE5;&#x538B;&#x5F3A;&#x7684;&#x5B9A;&#x4E49;&#x5C31;&#x53EF;&#x4EE5;&#x5199;&#x4E3A;
+</p>
+\begin{align}
+ P = - \left.\frac{\partial E}{\partial V}\right|_S
+\end{align}
+<p>
+&#x4F46;&#x662F;&#x63A7;&#x5236; entropy &#x4E0D;&#x662F;&#x90A3;&#x4E48;&#x5BB9;&#x6613;, &#x6211;&#x4EEC;&#x5BB9;&#x6613;&#x63A7;&#x5236;&#x7684;&#x662F;&#x6E29;&#x5EA6;. &#x6240;&#x4EE5;&#x6839;&#x636E;&#x4E4B;&#x524D;&#x7684;
+\((\ref{eq:maxwell_relation})\) , &#x5B83;&#x53EF;&#x4EE5;&#x5199;&#x4E3A;
+</p>
+\begin{align}
+ P = - \left.\frac{\partial E}{\partial V}\right|_S
+  =  - \left( \left.\frac{\partial E}{\partial V}\right|_T
+    - \left.\frac{\partial E}{\partial S}\right|_V \left.\frac{\partial S}{\partial V}\right|_T\right)
+\end{align}
+<p>
+&#x6839;&#x636E;&#x6E29;&#x5EA6;&#x7684;&#x5B9A;&#x4E49;, &#x4E0A;&#x5F0F;&#x4E2D;&#x7684; \(\left.\frac{\partial E}{\partial S}\right|_V\) &#x5C31;&#x662F;&#x6E29;&#x5EA6;. &#x4E4B;&#x524D;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;
+&#x6E29;&#x5EA6;&#x7684;&#x65F6;&#x5019;, &#x662F;&#x4E00;&#x4E2A; closed system, &#x5B83;&#x7684;&#x4F53;&#x79EF;&#x7ED9;&#x5B9A;, &#x6B63;&#x597D;&#x8FD9;&#x662F;&#x91CC;&#x7684;&#x5B9A;&#x4E49;.
+</p>
+
+<p>
+&#x56E0;&#x6B64;
+</p>
+\begin{align}
+ P  =  -  \left.\frac{\partial (E - TS)}{\partial V}\right|_T
+\end{align}
+<p>
+&#x800C; \(E - TS\) &#x5C31;&#x662F;&#x4E4B;&#x524D;&#x5B9A;&#x4E49;&#x7684; Helmholtz free energy, &#x8FD9;&#x91CC;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x5B83;&#x662F;&#x5F88;&#x6709;&#x7528;&#x7684;, &#x5B83;
+&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x6C42;&#x538B;&#x5F3A;.
+</p>
+\begin{align}
+ P  =&amp;  -  \left.\frac{\partial A}{\partial V}
+    \right|_T \\
+   =&amp; \left. T \frac{\partial}{\partial V}\log Z\right|_T
+\end{align}
+<p>
+&#x8FD9;&#x4E2A;&#x5B9A;&#x4E49;&#x91CC;&#x7684;&#x504F;&#x5BFC;&#x6570;&#x662F;&#x7ED9;&#x5B9A;&#x6E29;&#x5EA6;&#x7684;. &#x800C;&#x4E4B;&#x524D;&#x7684;&#x4E00;&#x8282;&#x8BFE;&#x7684;&#x70ED;&#x529B;&#x5B66;&#x91CF;&#x516C;&#x5F0F;&#x4E2D;&#x7684;&#x504F;&#x5BFC;&#x6570;&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;
+&#x5BFC;&#x6570;, &#x56E0;&#x4E3A;&#x90A3;&#x65F6;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x53D8;&#x91CF;, &#x6211;&#x4EEC;&#x5E38;&#x53D6;&#x7684;&#x5C31;&#x662F; \(\beta\) . &#x800C;&#x6B64;&#x65F6;&#x7684;&#x7CFB;&#x7EDF;, &#x591A;&#x4E86;&#x53E6;&#x5916;&#x4E00;&#x4E2A;
+&#x72EC;&#x7ACB;&#x53D8;&#x91CF;, &#x4E5F;&#x5C31;&#x662F;&#x4F53;&#x79EF;. &#x56E0;&#x6B64;&#x8FD9;&#x91CC;&#x5BF9;&#x4F53;&#x79EF;&#x6C42;&#x504F;&#x5BFC;&#x65F6;, &#x5C31;&#x8981;&#x6CE8;&#x660E;&#x6E29;&#x5EA6;&#x4E0D;&#x53D8;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org62fcbd9" class="outline-3">
+<h3 id="org62fcbd9">Example: Ideal Gas</h3>
+<div class="outline-text-3" id="text-org62fcbd9">
+<p>
+&#x73B0;&#x5728;&#x5C31;&#x7528;&#x5B83;&#x6765;&#x8BA1;&#x7B97;&#x4E00;&#x4E0B;&#x7406;&#x60F3;&#x6C14;&#x4F53;&#x7684;&#x538B;&#x5F3A;! &#x6211;&#x4EEC;&#x751A;&#x81F3;&#x90FD;&#x4E0D;&#x9700;&#x8981;&#x5B8C;&#x5168;&#x8BA1;&#x7B97;&#x51FA;&#x914D;&#x5206;&#x51FD;&#x6570;.
+</p>
+\begin{align}
+  Z = \frac{1}{N!}\int \mathrm{d}^{3N}x \mathrm{d}^{3N}p e^{- \beta \frac{p^2}{2m}}
+    = \frac{V^N}{N!} f(\beta)
+\end{align}
+<p>
+&#x56E0;&#x4E3A;&#x538B;&#x5F3A;&#x662F;&#x7ED9;&#x5B9A; \(\beta\) &#x540E;, &#x5BF9; \(V\) &#x7684;&#x5BFC;&#x6570;, &#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x4E0D;&#x5173;&#x5FC3; \(f(\beta)\) &#x7684;&#x5F62;&#x5F0F;, &#x53EA;&#x8981;&#x77E5;&#x9053;
+\(Z\propto V^N\) &#x5C31;&#x8DB3;&#x591F;&#x4E86;
+</p>
+\begin{align}
+  P = T \left.\frac{\partial \log Z}{\partial V}\right|_T = T \frac{N}{V}
+\end{align}
+<p>
+&#x8FD9;&#x5C31;&#x662F;&#x7406;&#x60F3;&#x6C14;&#x4F53;&#x7684; equation of state
+</p>
+\begin{align}
+ PV = NT
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgd6bede2" class="outline-3">
+<h3 id="orgd6bede2">Fluctuation &amp; Heat Capacity</h3>
+<div class="outline-text-3" id="text-orgd6bede2">
+<p>
+fluctuation is defined as
+</p>
+\begin{align}
+  \Delta x  \equiv \sqrt{\langle(x - \langle x\rangle)^2\rangle} = \sqrt{\langle x^2\rangle-\langle x\rangle^2}
+\end{align}
+<p>
+fluctuation of energy is
+</p>
+\begin{align}
+ (\Delta E)^2 = \langle E^2\rangle - \langle E\rangle^2
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\langle E\rangle\) &#x5C31;&#x662F;&#x4E4B;&#x524D;&#x7684; \(E\) , &#x53EF;&#x4EE5;&#x4ECE; partition function &#x5F97;&#x5230;
+</p>
+\begin{align}
+  \langle E\rangle = - \frac{\partial \log Z}{\partial \beta}
+\end{align}
+<p>
+&#x800C; \(\langle E^2\rangle\) &#x53EF;&#x4EE5;&#x6839;&#x636E;&#x5B9A;&#x4E49;&#x6765;&#x6C42;
+</p>
+\begin{align}
+   \langle E^2\rangle = \sum_iP_iE_i^2 = \frac{1}{Z(\beta)}\sum_ie^{- \beta E_i} E_i^2
+     = \frac{1}{Z}\frac{\partial^2 Z}{\partial\beta^2}
+\end{align}
+<p>
+so
+</p>
+\begin{align}
+ (\Delta E)^2 = \frac{1}{Z}\frac{\partial^2 Z}{\partial\beta^2}
+        - \frac{1}{Z^2}\left(\frac{\partial Z}{\partial \beta} \right)^2
+        = \frac{\partial}{\partial\beta}\left( \frac{1}{Z} \frac{\partial Z}{\partial \beta} \right)
+\end{align}
+<p>
+&#x800C;&#x62EC;&#x53F7;&#x4E2D;&#x7684;&#x6070;&#x597D;&#x5C31;&#x662F; \(- E\) , &#x90A3;&#x4E48;
+</p>
+\begin{align}
+ (\Delta E)^2 = - \frac{\partial E}{\partial\beta} = - \frac{\partial T}{\partial\beta} \frac{\partial E}{\partial T}
+         = T^2 \frac{\partial E}{\partial T} = T^2C_V(T)
+\end{align}
+<p>
+where
+</p>
+\begin{align}
+  C_V(T) \equiv \left.\frac{\partial E}{\partial T}\right|_V
+\end{align}
+<p>
+is heat capacity.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga09d201" class="outline-2">
+<h2 id="orga09d201">Lecture 6: Weakly interacting gases, heat, and work</h2>
+<div class="outline-text-2" id="text-orga09d201">
+<p>
+&#x8003;&#x8651;&#x5206;&#x5B50;&#x4E4B;&#x95F4;&#x6709;&#x4E24;&#x4F53;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x80FD;
+</p>
+\begin{align}
+  E = \sum_n \frac{p_n^2}{2M} + \sum_{n&gt;m}U(|x_n - x_m|)
+\end{align}
+<p>
+&#x5148;&#x8003;&#x8651;&#x4E24;&#x4E2A;&#x7C92;&#x5B50;&#x4E4B;&#x95F4;&#x7684;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x80FD;
+</p>
+\begin{align}
+  \int \mathrm{d}^3x_1 \mathrm{d}^3x_2 \cdot U(|x_2 - x_1|)
+  = \int \mathrm{d}^3x_1 \mathrm{d}^3(x_1 + x&apos;)\cdot  U(|x&apos;|)
+  = \int \mathrm{d}^3x_1 \mathrm{d}^3(x&apos;) \cdot U(|x&apos;|)
+  = V U_0
+\end{align}
+<p>
+where \(\int \mathrm{d}^3x_1 = V\) , \(\int\mathrm{d}^3(x&apos;)  U(|x&apos;|) = U_0\) . &#x8BB0;
+\(\sum_{n&gt;m}U(|x_n - x_m|) \equiv U(x)\) &#x90A3;&#x4E48;
+</p>
+\begin{align}
+  E = \sum_n \frac{p_n^2}{2M} + \frac{N(N - 1)}{2}VU_0
+\end{align}
+<p>
+&#x8BA1;&#x7B97;&#x914D;&#x5206;&#x51FD;&#x6570;
+</p>
+\begin{align}
+  Z &amp;= \frac{1}{N!} \int \mathrm{d}^{3N}x\int \mathrm{d}^{3N}p\cdot
+         e^{-\beta\sum_n \frac{p_n^2}{2M}} e^{- \beta U(x)}\\
+   &amp;= \left(\frac{V^N}{N!}\int \mathrm{d}^{3N}p\cdot
+         e^{-\beta\sum_n \frac{p_n^2}{2M}}\right)
+         \frac{1}{V^N}\int \mathrm{d}^{3N}x \cdot e^{- \beta U(x)} \\
+   &amp;= Z_0(\beta) \frac{1}{V^N}\int \mathrm{d}^{3N}x \cdot e^{- \beta U(x)} \\
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(Z_0\) &#x662F; ideal gas &#x7684;&#x914D;&#x5206;&#x51FD;&#x6570;. &#x5982;&#x679C;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x5F88;&#x5C0F;, &#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5BF9;&#x5B83;&#x5C55;&#x5F00;, &#x53EA;&#x53D6;
+&#x5230;&#x4E00;&#x9636;&#x9879;
+</p>
+\begin{align}
+  e^{- \beta U(x)} \approx 1 - \beta U(x)
+\end{align}
+<p>
+&#x90A3;&#x4E48;
+</p>
+\begin{align}
+  \frac{1}{V^N}\int \mathrm{d}^{3N}x \cdot e^{- \beta U(x)}
+  &amp;\approx \frac{1}{V^N}\int \mathrm{d}^{3N}x \cdot [1 -  \beta U(x)] \\
+  &amp;= 1 - \frac{\beta}{V^N} \frac{N(N - 1)}{2} \int \mathrm{d}x_1\mathrm{d}x_2\cdot U(x_1 - x_2)
+      \int \mathrm{d}^3x_{3}\cdots \mathrm{d}^{3}x_N \\
+  &amp;\approx 1 - \frac{N^2}{2}\frac{\beta}{V^{N - (N - 2)}} U_0 V\\
+  &amp;= 1 - \frac{\beta N^2}{2V}U_0
+\end{align}
+<p>
+&#x914D;&#x5206;&#x51FD;&#x6570;&#x7684;&#x5BF9;&#x6570;&#x4E3A;
+</p>
+\begin{align}
+  \log Z \approx \log Z_0 + \log\left[1 -\frac{\beta N^2}{2V}U_0 \right]
+        \approx \log Z_0 - \frac{\beta N^2}{2V}U_0
+\end{align}
+<p>
+&#x5176;&#x4E2D;&#x5229;&#x7528;&#x4E86; \(\log(1 - x) = - x + \cdots\)
+</p>
+
+<p>
+&#x4E4B;&#x540E;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8BA1;&#x7B97;&#x4E00;&#x4E9B;&#x70ED;&#x529B;&#x5B66;&#x91CF;&#x7684;&#x4FEE;&#x6B63;. &#x6BD4;&#x5982;&#x80FD;&#x91CF;
+</p>
+\begin{align}
+  E = -\frac{\partial \log Z}{\partial\beta} = \frac{3}{2}NT + \frac{N^2}{2V}U_0
+        = \left( \frac{3}{2}T + \frac{\rho}{2}U_0 \right)N
+\end{align}
+<p>
+&#x538B;&#x5F3A;
+</p>
+\begin{align}
+P = - \left. \frac{\partial A}{\partial V}\right|_V = T \frac{\partial \log Z}{\partial V}
+  = \rho T + \frac{1}{2}\rho^2U_0
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgaa269ef" class="outline-2">
+<h2 id="orgaa269ef">Lecture 7: Harmonic Oscillators ( &amp; Entropy vs. reversibility)</h2>
+<div class="outline-text-2" id="text-orgaa269ef">
+</div>
+<div id="outline-container-org1c5daf4" class="outline-3">
+<h3 id="org1c5daf4">Single Classical Harmonic Oscillators</h3>
+<div class="outline-text-3" id="text-org1c5daf4">
+<p>
+&#x8003;&#x8651;&#x5982;&#x56FE;&#x7684;&#x5355;&#x4E2A;&#x5F39;&#x7C27;
+<img src="/2021/03/11/SusskindsStatisticalMechanics/spring.png">
+&#x5B83;&#x7684; partition function &#x662F;
+</p>
+\begin{align}
+  Z = \int \mathrm{d}p \mathrm{d}x\cdot e^{-\beta \frac{p^2}{2m}} e^{-\beta \frac{kx^2}{2}}
+    = \frac{2\pi}{\omega} \frac{1}{\beta}
+\end{align}
+<p>
+where \(\frac{1}{\omega} = \sqrt{\frac{m}{k}}\) . so
+</p>
+\begin{align}
+  \log Z = \sharp - \log \beta
+\end{align}
+<p>
+and
+</p>
+\begin{align}
+ E = - \frac{\partial \log Z}{\partial\beta} = T
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org343b8e7" class="outline-3">
+<h3 id="org343b8e7">Single Quantum Harmonic Oscillators</h3>
+<div class="outline-text-3" id="text-org343b8e7">
+<p>
+&#x91CF;&#x5B50;&#x4E0E;&#x7ECF;&#x5178;&#x4E0D;&#x540C;&#x7684;&#x5730;&#x65B9;&#x4EC5;&#x5728;&#x4E8E;&#x80FD;&#x7EA7;&#x662F;&#x5206;&#x7ACB;&#x7684;(Susskind &#x5728;&#x6B64;&#x6CA1;&#x6709;&#x8BA1;&#x5165;&#x96F6;&#x70B9;&#x80FD;). So
+partition functino is
+</p>
+\begin{align}
+  Z = \sum_n e^{- \beta n\hbar\omega} = \sum_n \left(e^{-\beta\hbar\omega} \right)^n
+    = \frac{1}{1 - e^{- \beta\hbar\omega}}
+\end{align}
+<p>
+so
+</p>
+\begin{align}
+  E = - \frac{1}{Z}\frac{\partial Z}{\partial\beta} = \frac{\hbar\omega e^{- \beta\hbar\omega}}{1 - e^{- \beta\hbar\omega}}
+\end{align}
+<p>
+as \(\beta \to 0\) (high temperature), the leading order of energy behaves like
+</p>
+\begin{align}
+  E \to T
+\end{align}
+<p>
+which is the result of classical case.
+as \(\beta \to\infty\) (low temperature), the leading oreder of energy behaves like
+</p>
+\begin{align}
+ E \to \hbar\omega e^{- \beta\hbar\omega}
+\end{align}
+<p>
+it exponentially goes to zero.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfd86db9" class="outline-2">
+<h2 id="orgfd86db9">Lecture 8: Magnetic &amp; 1D Ising Model (Entropy, reversibility, and magnetism)</h2>
+<div class="outline-text-2" id="text-orgfd86db9">
+<p>
+Consider 1 D spin chain, \(N\) spins can be either \(\sigma(i)= + 1\) or \(\sigma(i) =
+-1\).
+<img src="/2021/03/11/SusskindsStatisticalMechanics/1d_ising_pic.png">
+Suppose there is a magnetic field, the energy is
+</p>
+\begin{align}
+  E = (n - m) \mu H
+\end{align}
+<p>
+where \(n\) is the number of ups, \(m\) is the number of downs, and satisfy \(n + m
+= N\) . So partition function
+</p>
+\begin{align}
+  Z = \sum_{n, m}e^{-\beta \mu H(n - m)}
+\end{align}
+<p>
+where sum is meant over all configurations. For each value of \((n&#x2212;m)\) , there
+is going to be a certainnumber of configurations. And that number of
+configurations is
+</p>
+\begin{align}
+\frac{N!}{n! m!}
+\end{align}
+<p>
+so
+</p>
+\begin{align}
+  Z = \sum_{n}\frac{N!}{n! (N - n)!} \left(e^{-\beta\mu H}\right)^n
+            \left(e^{\beta\mu H}\right)^{N - n}
+    = (e^{-\beta\mu H} + e^{\beta\mu H})^N
+\end{align}
+<p>
+(The sum in the partition functions is over microstates. If there is
+ degeneracy, we need to multiply a degeneracy factor). And we rewrite the
+ partition function
+</p>
+\begin{align}
+ Z = 2^N \cosh^N (\beta \mu H)
+\end{align}
+<p>
+Define magnetization as
+</p>
+\begin{align}
+  M = \frac{\langle n - m\rangle}{N}
+\end{align}
+<p>
+so
+</p>
+\begin{align}
+  M = \frac{E}{\mu H N} = - \frac{1}{\mu H N} \frac{\partial \log Z}{\partial \beta} = -\tanh (\beta\mu H)
+\end{align}
+<p>
+It behaves like
+<img src="/2021/03/11/SusskindsStatisticalMechanics/1d_ising_solution.png">
+There is no phase transition.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3b58e68" class="outline-2">
+<h2 id="org3b58e68">Lecture 9: The Ising model &amp; Phase transition</h2>
+<div class="outline-text-2" id="text-org3b58e68">
+</div>
+<div id="outline-container-orgee56e84" class="outline-3">
+<h3 id="orgee56e84">1D case</h3>
+<div class="outline-text-3" id="text-orgee56e84">
+<p>
+Let&apos;s use new notion
+</p>
+\begin{align}
+ E = - \mu B \sigma \equiv -J \sigma
+\end{align}
+<p>
+(He changed \(H\) to \(B\) and changed the direction of magnetic field!)
+so the solution is
+</p>
+\begin{align}
+ \langle \sigma\rangle = \tanh (\beta J)
+\end{align}
+<p>
+&#x73B0;&#x5728;&#x8003;&#x8651;&#x4E0D;&#x52A0;&#x78C1;&#x573A;&#x4E86;, &#x4F46;&#x662F;&#x8003;&#x8651;&#x76F8;&#x90BB;&#x7684; spin &#x4E4B;&#x95F4;&#x6709;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x80FD;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x80FD;&#x91CF;&#x4E3A;
+</p>
+\begin{align}
+E = -J \sum \sigma_i \sigma_{i + 1}
+\end{align}
+<p>
+for \(J &gt; 0\) , spin parallel is favored(lower energy).
+</p>
+
+<p>
+Now we define correlation function as
+</p>
+\begin{align}
+\langle \sigma_i \sigma_{i + n}\rangle
+\end{align}
+<p>
+and we call \(\sigma_1\sigma_2 = \mu_1 \sigma_2\sigma_3= \mu_2, \cdots\) . So
+</p>
+\begin{align}
+E = -J \sum \mu_i
+\end{align}
+<p>
+it has the same form of 1 dimension Ising model without interaction energy in a
+magnetic field. So we can right now get
+</p>
+\begin{align}
+\langle \mu \rangle = \tanh \beta J
+\end{align}
+<p>
+We can calculate correlation function by add some pairs in it (because \(\sigma_i \sigma_i
+=1\) )
+</p>
+\begin{align}
+\langle \sigma_i \sigma_{i + n}\rangle = \langle \sigma_i \sigma_{i + 1}\sigma_{i + 1} \sigma_{i + 2}\sigma_{i + 2}\cdots
+         \sigma_{i + n - 1}\sigma_{i + n-1}\sigma_{i + n}\sigma_{i + n}\rangle
+   = \langle\mu_1 \mu_2 \cdots \mu_n \rangle = \tanh^N\beta J
+\end{align}
+<p>
+the last equivalent is because differnt \(\mu_i\) is independent.
+</p>
+
+<p>
+So, it is a boring system, because the correlation function decays when increase
+the distance except temperature is zero which \(\tanh \beta J = 1\) . It is the same
+idea of the game of telephone. The signal decays.
+</p>
+
+<p>
+Why it is borig? because its dimension is too low. We will see in 2 dimension,
+there will be something like error correction.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaadc915" class="outline-3">
+<h3 id="orgaadc915">High Dimension Case &amp; Mean Field Approximation (Self-Consistent Field)</h3>
+<div class="outline-text-3" id="text-orgaadc915">
+<p>
+In \(d\) dimension, there are \(2d\) neighbors. Mean field means we approximate the
+neighbor spin as the average spin which labeled as \(\bar{\sigma}\). So the energy in
+a site is
+</p>
+\begin{align}
+E = -J \sigma \sum_{\mathrm{neighbor}} \sigma \approx -\left(2 d J \bar{\sigma}\right) \sigma
+\end{align}
+<p>
+the higher the dimension, the better the approximation is. It seems like if one
+neighbor pass the information wrong, there are other neighbors may pass it
+right, the more the neighbors, the larger the chance which pass the information
+right.
+</p>
+
+<p>
+This approximation is also called self-consistent field, because we can write
+the average spin as the form (just transform \(J \to 2 dJ\bar{\sigma}\))
+</p>
+\begin{align}
+ \bar{\bar{\sigma}} = \tanh(2 \beta d J \bar{\sigma})
+\end{align}
+<p>
+we can solve it consistently, so the name. We write it in another form (let
+\(\bar{\bar{\sigma}} = \bar{\sigma}\))
+</p>
+\begin{align}
+T \frac{y}{2dj} = \tanh y, \quad \mathrm{where} \quad y = 2\beta d J \bar{\sigma}
+\end{align}
+<p>
+<img src="/2021/03/11/SusskindsStatisticalMechanics/nd_ising_solution.png">
+&#x76F4;&#x7EBF;&#x7684;&#x659C;&#x7387;&#x4E0E; \(T\) &#x662F;&#x6210;&#x6B63;&#x6BD4;&#x7684;. &#x53EF;&#x4EE5;&#x53D1;&#x73B0;, &#x5F53;&#x6E29;&#x5EA6;&#x5F88;&#x9AD8;&#x65F6;, &#x6BD4;&#x5982;&#x56FE;&#x4E2D;&#x84DD;&#x7EBF;, &#x5B83;&#x4E0E; \(\tanh
+y\) &#x53EA;&#x6709; \(y = 0\) , &#x4E5F;&#x5C31;&#x662F; \(\bar{\sigma} = 0\) &#x4E00;&#x4E2A;&#x4EA4;&#x70B9;, &#x6CA1;&#x6709;&#x78C1;&#x6027;, &#x6240;&#x6709;&#x7684; spin &#x90FD;&#x968F;&#x673A;&#x6392;
+&#x5E8F;.
+</p>
+
+<p>
+&#x5F53;&#x6E29;&#x5EA6;&#x964D;&#x4F4E;&#x5230; \(T = 2d J\) , &#x4E5F;&#x5C31;&#x662F;&#x56FE;&#x4E2D;&#x6A59;&#x8272;&#x76F4;&#x7EBF;&#x65F6;, &#x5B83;&#x4E0E; \(\tanh y\) &#x76F8;&#x5207;. &#x53EA;&#x8981;&#x6E29;&#x5EA6;&#x518D;
+&#x964D;&#x4E00;&#x70B9;, &#x5230; \(T &lt; 2d J\) &#x65F6;, &#x5C31;&#x6709;&#x4E09;&#x4E2A;&#x4EA4;&#x70B9;&#x5206;&#x522B;&#x5728; \(y &lt; 0, y &gt; 0\) &#x4EE5;&#x53CA; \(y = 0\) &#x5904;. &#x4ECE;&#x80FD;&#x91CF;
+&#x4E0A;&#x770B;, \(y &gt; 0, y &lt; 0\) &#x7684;&#x4E24;&#x4E2A;&#x89E3;&#x80FD;&#x91CF;&#x662F;&#x76F8;&#x540C;&#x7684;, &#x5E76;&#x4E14;&#x90FD;&#x8981;&#x6BD4; \(y = 0\) &#x65F6;&#x7684;&#x89E3;&#x8981;&#x4F4E;. &#x4E5F;&#x5C31;&#x662F;
+&#x8BF4;&#x7CFB;&#x7EDF;&#x662F;&#x6709;&#x78C1;&#x6027;&#x7684;.
+</p>
+
+<p>
+The temperatureT= 2dj, where a transition appears, iscalled thecritical
+temperature. It is not exact. It is a meanfield approximation.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3134beb" class="outline-3">
+<h3 id="org3134beb">+ External Magnetic Field \(B\)</h3>
+<div class="outline-text-3" id="text-org3134beb">
+<p>
+&#x5982;&#x679C;&#x52A0;&#x4E0A;&#x5916;&#x78C1;&#x573A;, &#x90A3;&#x4E48; Energy is
+</p>
+\begin{align}
+  E = -[2 d J \bar{\sigma} + B]\sigma
+\end{align}
+<p>
+and
+</p>
+\begin{align}
+T \frac{y}{2 d J} = \tanh (y + B\beta)
+\end{align}
+<p>
+there is just a shift.
+<img src="/2021/03/11/SusskindsStatisticalMechanics/nd_ising_shift_solution.png">
+&#x6B64;&#x65F6;&#x6240;&#x6709;&#x6E29;&#x5EA6;&#x90FD;&#x662F;&#x6709;&#x786E;&#x5B9A;&#x7684;&#x78C1;&#x6027;.
+</p>
+
+<p>
+The tiniest little bit of stray magnetic field \(h\) will tell us which way to
+go. If $h is positive the magnetization will be positive. Right above the \(T\)
+-axis it won&#x2019;t be zero, and right below it won&#x2019;t be zero either. Spontaneous
+magnetizationhas happened.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4ff9d95" class="outline-2">
+<h2 id="org4ff9d95">Lecture 10: Liquid-Gas Phase Transition</h2>
+<div class="outline-text-2" id="text-org4ff9d95">
+</div>
+<div id="outline-container-orge4902a2" class="outline-3">
+<h3 id="orge4902a2">Phase Diagram of Ising Model</h3>
+<div class="outline-text-3" id="text-orge4902a2">
+<p>
+&#x6211;&#x4EEC;&#x5BF9;&#x5E26;&#x6709;&#x5916;&#x573A;
+</p>
+\begin{align}
+  E = -J \sum_{\mathrm{links}}\sigma(i)\sigma(j) - \sum_{\mathrm{sites}}h \sigma(i)
+\end{align}
+<p>
+&#x7684;&#x60C5;&#x51B5;&#x505A;&#x4E00;&#x4E2A;&#x603B;&#x7ED3;, &#x4ECE;&#x80FD;&#x91CF;&#x4E0A;&#x770B;, parallel, ups &#x7684;&#x80FD;&#x91CF;&#x6BD4;&#x8F83;&#x4F4E;. &#x7528; mean field &#x8FD1;&#x4F3C;&#x7684;
+&#x7ED3;&#x679C;&#x662F;
+</p>
+\begin{align}
+  \bar{\sigma} = \tanh \left[(2 d J \bar{\sigma} + h)\beta \right]
+\end{align}
+
+
+<div id="org9e5852e" class="figure">
+<p><img src="/2021/03/11/SusskindsStatisticalMechanics/magnetic_phase.png">
+</p>
+</div>
+
+<p>
+&#x6CBF;&#x4E0D;&#x540C;&#x7684;&#x8DEF;&#x5F84;&#x6765;&#x770B;&#x8FD9;&#x4E2A;&#x76F8;&#x56FE;:
+</p>
+<ul class="org-ul">
+<li>&#x6CBF; \(h = 0\) &#x6765;&#x770B;, &#x5728; \(T &lt; T_{\mathrm{C}}\) &#x65F6;, &#x5B83;&#x53EA;&#x6709;&#x4E24;&#x4E2A;&#x7B80;&#x5E76;&#x7684;&#x89E3;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5B83;&#x662F;
+&#x6709;&#x78C1;&#x6027;&#x7684;, &#x968F;&#x7740;&#x6E29;&#x5EA6;&#x7684;&#x5347;&#x9AD8;, &#x78C1;&#x6027;&#x51CF;&#x5C0F;, &#x76F4;&#x5230;&#x8DE8;&#x8FC7; \(T = T_{\mathrm{C}}\) (The
+phenomena happening there are all characterized bywhat is calledcritical
+exponents), &#x78C1;&#x6027;&#x6D88;&#x5931;.</li>
+<li>&#x5728; \(T=0\) &#x7684;&#x8F74;&#x4E0A;, &#x5F53; \(h &lt; 0\) &#x65F6;, \(\sigma = -1\) . &#x5F53; \(h&gt;0\) &#x65F6;, \(\sigma = +1\) . That
+comes from the fact thatat zero temperature the spins all choose the lowest
+energy,and there is no fluctuation.</li>
+<li>&#x6CBF; \(T &lt; T_{\mathrm{C}}\) &#x7684;&#x67D0;&#x4E2A;&#x6E29;&#x5EA6;, &#x9010;&#x6E10;&#x589E;&#x5927;&#x78C1;&#x573A;, &#x4E5F;&#x5C31;&#x662F;&#x56FE;&#x4E2D;&#x7684;&#x865A;&#x76F4;&#x7EBF;. &#x5728; \(h &lt;
+  0\) &#x65F6;, &#x5B83;&#x6709;&#x4E00;&#x4E2A; shift, &#x6709; \(\sigma &lt; 0\) &#x7684;&#x89E3;. &#x968F;&#x7740; \(h\to 0\) , &#x78C1;&#x6027;&#x51CF;&#x5C0F;, &#x4F46;&#x662F;&#x6CA1;&#x6709;&#x51CF;&#x5C0F;
+&#x5230; \(0\) , &#x7136;&#x540E;&#x4E00;&#x4E2A;&#x7A81;&#x7136;&#x7684;&#x8F6C;&#x53D8;, &#x53D8;&#x5230; \(\sigma &gt; 0\) . \(h &gt; 0\) &#x5E76;&#x9010;&#x6E10;&#x589E;&#x5927;&#x65F6;, &#x78C1;&#x6027;&#x4EE5;&#x5F00;&#x59CB;
+&#x589E;&#x5F3A;.</li>
+<li>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x6CBF;&#x56FE;&#x4E2D;&#x534A;&#x5706;&#x865A;&#x7EBF;, &#x5B83;&#x7ED5;&#x8FC7;&#x4E86; \(T_{\mathrm{C}}\) , &#x6B64;&#x65F6; \(\sigma\) &#x8FDE;&#x7EED;&#x5730;&#x7531;&#x8D1F;&#x53D8;&#x5230;&#x96F6;,
+&#x518D;&#x53D8;&#x5230;&#x6B63;.</li>
+</ul>
+
+<p>
+When we talk strictly about real magnets,Tcis also calledthe Curie
+temperature.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orge0cfe6c" class="outline-3">
+<h3 id="orge0cfe6c">Liquid-Gas Phase Transition</h3>
+<div class="outline-text-3" id="text-orge0cfe6c">
+<p>
+&#x53EF;&#x4EE5;&#x7528; Ising model &#x505A;&#x4E3A;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6570;&#x5B66;&#x6A21;&#x578B;, &#x6765; show liquid-gas phase diagram.
+</p>
+
+<p>
+liquid gas transition &#x7684;&#x53D1;&#x751F;&#x9700;&#x8981;&#x4E09;&#x4E2A;&#x6761;&#x4EF6;:
+</p>
+<ul class="org-ul">
+<li>&#x6709;&#x4E00;&#x4E2A;&#x53EF;&#x53D8;&#x7684; chemical potential (Note that \(\mu\) is called the chemical
+potential because in gen-eral it is different for different kinds of
+molecules.)</li>
+<li>&#x6709;&#x4E00;&#x4E2A; hard core potential</li>
+<li>&#x6709;&#x4E00;&#x4E2A; short range attraction potential</li>
+</ul>
+
+<p>
+&#x5982;&#x679C;&#x6211;&#x4EEC;&#x628A; Ising model &#x4E2D; up &#x770B;&#x6210;&#x662F;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x7C92;&#x5B50;, down &#x770B;&#x6210;&#x662F;&#x6CA1;&#x6709;&#x7C92;&#x5B50;. &#x4E24;&#x4E2A;&#x90BB;&#x8FD1;&#x7684;
+spin parallel &#x662F;&#x4E00;&#x4E2A; unbroken bound. &#x90A3;&#x4E48;&#x6709;&#x5916;&#x52A0;&#x78C1;&#x573A;&#x7684; Ising model &#x6070;&#x597D;&#x5C31;&#x6EE1;&#x8DB3;&#x8FD9;&#x4E09;
+&#x4E2A;&#x6761;&#x4EF6;. &#x4E0B;&#x9762;&#x8003;&#x8651;&#x4E8C;&#x7EF4; \(d=2\) &#x7684;&#x60C5;&#x51B5;.
+</p>
+<ul class="org-ul">
+<li>chemical potential &#x5BF9;&#x5E94;&#x5916;&#x52A0;&#x78C1;&#x573A;&#x518D;&#x52A0;&#x4E00;&#x4E2A; shift. chemical potential &#x5C31;&#x662F;&#x589E;&#x52A0;&#x4E00;&#x4E2A;
+&#x7C92;&#x5B50;&#x7684; energy cost. &#x6211;&#x4EEC;&#x4ECE;&#x771F;&#x7A7A;, &#x4E5F;&#x5C31;&#x662F; all down &#x72B6;&#x6001;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x7C92;&#x5B50;, &#x4E5F;&#x5C31;&#x662F; flip
+a down to up, &#x5B83;&#x4F1A;&#x6253;&#x5F00;&#x56DB;&#x4E2A; bound, &#x540C;&#x65F6;&#x52A0;&#x4E0A;&#x5916;&#x78C1;&#x573A;&#x7684;&#x80FD;&#x91CF; , energy cost &#x5C31;&#x662F; $8 J
+<ul class="org-ul">
+<li>2h$ . &#x6545; chemical potential \(\mu = 8J + 2h\)</li>
+</ul></li>
+<li>\(\sigma\) &#x53EA;&#x80FD;&#x662F; \(\pm 1\) , &#x4E0D;&#x80FD;&#x662F;&#x5176;&#x5B83;&#x6570;&#x503C;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x4E00;&#x4E2A; site &#x662F;&#x80FD;&#x662F;&#x6CA1;&#x6709;&#x7C92;&#x5B50;, &#x6216;&#x8005;&#x6709;
+&#x4E00;&#x5B50;&#x7684;&#x72B6;&#x6001;. &#x800C;&#x4E0D;&#x80FD;&#x6709;&#x591A;&#x4E2A;&#x7C92;&#x5B50;, &#x4E5F;&#x5C31;&#x662F;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A; hard core potential</li>
+<li>&#x4E24;&#x4E2A;&#x76F8;&#x8DDD;&#x6BD4;&#x8F83;&#x8FDC;&#x7684;&#x7C92;&#x5B50;, &#x5B83;&#x4EEC;&#x7684;&#x603B;&#x80FD;&#x91CF;&#x662F; \(2(8J + 2h)\) . &#x800C;&#x5B83;&#x4EEC;&#x4E92;&#x76F8;&#x63A5;&#x8FD1;, &#x76F4;&#x5230;&#x90BB;&#x65F6;,
+&#x5B83;&#x4EEC;&#x4F1A;&#x5F62;&#x6210;&#x4E00;&#x4E2A; bound , &#x4E5F;&#x5C31;&#x662F;&#x5BF9;&#x5E94;&#x5B83;&#x4EEC;&#x662F; parall &#x7684;, &#x80FD;&#x91CF;&#x4F1A;&#x51CF;&#x5C11; \(4J\) . &#x8FD9;&#x5C31;&#x5BF9;&#x5E94;
+&#x4E00;&#x4E2A; short range attraction potential.</li>
+</ul>
+
+<p>
+&#x5728;&#x6B64;&#x5BF9;&#x5E94;&#x4E0B;, &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528; Ising model &#x7684;&#x76F8;&#x56FE;&#x6765;&#x7406;&#x89E3; liquid-gas phase transition. &#x8FD9;
+&#x4E2A; transition &#x5BF9;&#x5E94; \(\sigma\) &#x7684;&#x7A81;&#x53D8;, &#x4E5F;&#x5C31;&#x662F; density &#x7684;&#x7A81;&#x53D8;. The difference between
+liquid andvapour is some discontinuity in the density, liquid beingdenser than
+vapor.
+<img src="/2021/03/11/SusskindsStatisticalMechanics/liquid-gas.png">
+</p>
+
+<p>
+We want to keep the molecular properties fixed, thereforewe are not going to
+play with \(J\). All we can vary is the chemical potential. And that is the same
+thing in our model as varying \(h\) .
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgdaaf6ff" class="outline-2">
+<h2 id="orgdaaf6ff">Interlude</h2>
+<div class="outline-text-2" id="text-orgdaaf6ff">
+</div>
+<div id="outline-container-org1081bb8" class="outline-3">
+<h3 id="org1081bb8">Stirling&apos;s Approximation</h3>
+<div class="outline-text-3" id="text-org1081bb8">
+\begin{align}
+N! \approx N^N e^{-N} ,\quad \mathrm{as}\quad N\to\infty
+\end{align}
+<p>
+Proof: as \(N \to \infty\)
+</p>
+\begin{align}
+\log (N!) = \sum_{x = 1}^N \log x \approx \int_1^N \mathrm{d}x\cdot\log x \approx N \log N - N
+\end{align}
+<p>
+Q.E.D.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1015611" class="outline-3">
+<h3 id="org1015611">Lagrange Multiplier</h3>
+<div class="outline-text-3" id="text-org1015611">
+<p>
+&#x53E6;&#x4E00;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x7406;&#x89E3;&#x65B9;&#x5F0F;, &#x4E0D;&#x662F;&#x627E; constrain &#x7684;&#x5207;&#x7EBF;, &#x800C;&#x662F; shift&#x4E86; \(F\) &#x4F7F;&#x5F97; \(F(G)\) &#x5728;&#x96F6;
+&#x5904;&#x6709;&#x6781;&#x503C;.
+</p>
+
+<p>
+&#x5177;&#x4F53;&#x6765;&#x8BB2;, function \(F(x_i)\) , constrain \(G(x_i) = 0\) , &#x90A3;&#x4E48;&#x5728; \(x_i\) (&#x5982; \(x_1 = x,
+x_2 = y\) &#x65F6;&#x53EA;&#x6709;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;)&#x5E73;&#x9762;&#x5185;, \(F(x_i)\) &#x662F;&#x4E00;&#x5708;&#x4E00;&#x5708;&#x7684;&#x7B49;&#x9AD8;&#x7EBF;, \(G(x_i)\) &#x4E5F;&#x6709;&#x4E00;&#x7CFB;&#x5217;&#x7B49;
+&#x9AD8;&#x7EBF;. &#x6781;&#x503C;&#x70B9;&#x5904;&#x4E24;&#x6761;&#x7B49;&#x9AD8;&#x7EBF;&#x76F8;&#x5207;, &#x5728;&#x5B83;&#x4EEC;&#x7684;&#x5782;&#x7EBF;&#x4E0A; \(F\) &#x53EF;&#x4EE5;&#x505A;&#x4E3A; \(G\) &#x7684;&#x51FD;&#x6570;, &#x4F46;&#x6B64;&#x51FD;&#x6570;&#x5728;
+\(G=0\) &#x5904;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x6781;&#x503C;&#x70B9;. &#x4F46;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53D8;&#x6362;&#x4E00;&#x4E0B;&#x4EE4; \(F&apos; = F +\lambda G\) &#x4F7F;&#x5F97; \(G = 0\) &#x5904;&#x4E3A;
+\(F&apos;\) &#x6781;&#x503C;&#x70B9;, &#x5F97;&#x51FA; \(x_i\) &#x540E;&#x518D; &#x4EE4; \(G(x_i) = 0\) &#x89E3;&#x51FA; \(\lambda\) .
+</p>
+
+<p>
+Exp.
+</p>
+\begin{align}
+  F(x, y) =&amp; \frac{x^2 + y^2}{2}\\
+  G(x, y) =&amp; x + y - 1 = 0 \\
 \end{align}
 </div>
 </div>
 </div>
 
-<div id="outline-container-org4393f7d" class="outline-2">
-<h2 id="org4393f7d">Interlude</h2>
-<div class="outline-text-2" id="text-org4393f7d">
+<div id="outline-container-org2ce056e" class="outline-2">
+<h2 id="org2ce056e">&#x2026;about</h2>
+<div class="outline-text-2" id="text-org2ce056e">
+<p>
+&#x6211;&#x4E4B;&#x524D;&#x4E00;&#x76F4;&#x5F88;&#x6A21;&#x7CCA;, &#x4E0D;&#x6E05;&#x6670;&#x7684;&#x6982;&#x5FF5;, &#x90FD;&#x8DDF; Susskind &#x641E;&#x660E;&#x767D;&#x4E86;. &#x6BD4;&#x5982;&#x4EC0;&#x4E48;&#x662F; adiabatic, &#x4E3A;
+&#x4EC0;&#x4E48;&#x538B;&#x5F3A;&#x8981;&#x5728;&#x7B49;&#x71B5;&#x4E0B;&#x5B9A;&#x4E49;.
+</p>
+
+<p>
+Susskind, U GREAT!
+</p>
 </div>
-<div id="outline-container-org6c3ea31" class="outline-3">
-<h3 id="org6c3ea31">Stirling&apos;s Approximation</h3>
 </div>
 
-<div id="outline-container-orgf6f1baa" class="outline-3">
-<h3 id="orgf6f1baa">Lagrange Multiplier</h3>
-</div>
-</div>
-
-
-<div id="outline-container-orgde5413e" class="outline-2">
-<h2 id="orgde5413e">Reference</h2>
-<div class="outline-text-2" id="text-orgde5413e">
+<div id="outline-container-org9cad624" class="outline-2">
+<h2 id="org9cad624">Reference</h2>
+<div class="outline-text-2" id="text-org9cad624">
 <ul class="org-ul">
-<li></li>
+<li><a href="https://en.wikipedia.org/wiki/Phase_diagram" target="_blank" rel="noopener">Phase Diagram</a></li>
+
+<li><a href="https://en.wikipedia.org/wiki/Stirling%27s_approximation" target="_blank" rel="noopener">Stirling&apos;s Approximation</a></li>
 </ul>
 </div>
 </div>
@@ -1020,6 +1757,16 @@ First define a very useful variable Helmholtz free energy
           
             <a href="/tags/Susskind/" rel="tag"># Susskind</a>
           
+            <a href="/tags/Entropy/" rel="tag"># Entropy</a>
+          
+            <a href="/tags/Ising-Model/" rel="tag"># Ising Model</a>
+          
+            <a href="/tags/Magnetic/" rel="tag"># Magnetic</a>
+          
+            <a href="/tags/Liquid-Gas-Transition/" rel="tag"># Liquid-Gas Transition</a>
+          
+            <a href="/tags/Spontaneous-Symmetry/" rel="tag"># Spontaneous Symmetry</a>
+          
         </div>
       
 
@@ -1040,6 +1787,10 @@ First define a very useful variable Helmholtz free energy
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/03/13/2nd_rubiks_cube/" rel="prev" title="Second Rubik's Cube Fun">
+                Second Rubik's Cube Fun <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -1149,7 +1900,7 @@ First define a very useful variable Helmholtz free energy
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org31dd88c"><span class="nav-text">Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org14ec2db"><span class="nav-text">Lecture 1: Entropy and conservation of information</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org14c6dbe"><span class="nav-text">Conservation of Information</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org2db6817"><span class="nav-text">Entropy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgf8fd0c8"><span class="nav-text">How to define entropy for a complex probability distribution?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgae08a80"><span class="nav-text">Definition of Entropy in Phase Space</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgf2f8c13"><span class="nav-text">Lecture 2: Units &amp; Temperature</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orge93ac98"><span class="nav-text">Units declaration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgf1ec610"><span class="nav-text">What temperature is?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgc43c294"><span class="nav-text">It is temperature</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org5b885a7"><span class="nav-text">Lecture 3: Maximizing entropy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org383c5f9"><span class="nav-text">A Trick (Canonical Ensemble)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd6b4aae"><span class="nav-text">Maximizing entropy</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org0b58b6e"><span class="nav-text">Lecture 4: The Boltzmann distribution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgaf21a1c"><span class="nav-text">Partition function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgee74627"><span class="nav-text">Average Energy \(E\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgea6fdc6"><span class="nav-text">Entropy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org45ddf74"><span class="nav-text">Temperature</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org218c0d2"><span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgb64c117"><span class="nav-text">Example: the Ideal Gas</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org1eb8bba"><span class="nav-text">Lecture 5: Pressure of an Ideal Gas &amp; Fluctuations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org28804da"><span class="nav-text">Helmholtz free energy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org2ce5787"><span class="nav-text">Maxwell&#39; Relation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org4393f7d"><span class="nav-text">Interlude</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org6c3ea31"><span class="nav-text">Stirling&#39;s Approximation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgf6f1baa"><span class="nav-text">Lagrange Multiplier</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgde5413e"><span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org12db1f2"><span class="nav-text">Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org4fac2d9"><span class="nav-text">Lecture 1: Entropy and conservation of information</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgc669c34"><span class="nav-text">Conservation of Information</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org170e98f"><span class="nav-text">Entropy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgda53048"><span class="nav-text">How to define entropy for a complex probability distribution?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org78399c1"><span class="nav-text">Definition of Entropy in Phase Space</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org742db07"><span class="nav-text">Lecture 2: Units &amp; Temperature</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org5d5b7fe"><span class="nav-text">Units declaration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org9513c47"><span class="nav-text">What temperature is?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org188b6c8"><span class="nav-text">It is temperature</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgace2b7d"><span class="nav-text">Lecture 3: Maximizing entropy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org76115f0"><span class="nav-text">A Trick (Canonical Ensemble)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orge0de63c"><span class="nav-text">Maximizing entropy</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2433d0a"><span class="nav-text">Lecture 4: The Boltzmann distribution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgab5fb06"><span class="nav-text">Partition function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgdc93e8f"><span class="nav-text">Average Energy \(E\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org9404a13"><span class="nav-text">Entropy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org8b495a1"><span class="nav-text">Temperature</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org19ffda6"><span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org6679b10"><span class="nav-text">Example: the Ideal Gas</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org821f750"><span class="nav-text">Lecture 5: Pressure of an Ideal Gas &amp; Fluctuations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org738b1b8"><span class="nav-text">Helmholtz free energy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org2558889"><span class="nav-text">Maxwell&#39; Relation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org54c2151"><span class="nav-text">Pressure &amp; Adiabatic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org62fcbd9"><span class="nav-text">Example: Ideal Gas</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd6bede2"><span class="nav-text">Fluctuation &amp; Heat Capacity</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orga09d201"><span class="nav-text">Lecture 6: Weakly interacting gases, heat, and work</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgaa269ef"><span class="nav-text">Lecture 7: Harmonic Oscillators ( &amp; Entropy vs. reversibility)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org1c5daf4"><span class="nav-text">Single Classical Harmonic Oscillators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org343b8e7"><span class="nav-text">Single Quantum Harmonic Oscillators</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgfd86db9"><span class="nav-text">Lecture 8: Magnetic &amp; 1D Ising Model (Entropy, reversibility, and magnetism)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org3b58e68"><span class="nav-text">Lecture 9: The Ising model &amp; Phase transition</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgee56e84"><span class="nav-text">1D case</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgaadc915"><span class="nav-text">High Dimension Case &amp; Mean Field Approximation (Self-Consistent Field)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org3134beb"><span class="nav-text">+ External Magnetic Field \(B\)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org4ff9d95"><span class="nav-text">Lecture 10: Liquid-Gas Phase Transition</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orge4902a2"><span class="nav-text">Phase Diagram of Ising Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orge0cfe6c"><span class="nav-text">Liquid-Gas Phase Transition</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgdaaf6ff"><span class="nav-text">Interlude</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org1081bb8"><span class="nav-text">Stirling&#39;s Approximation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org1015611"><span class="nav-text">Lagrange Multiplier</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2ce056e"><span class="nav-text">…about</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org9cad624"><span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
