@@ -14,7 +14,7 @@ AMO PhD student
 
 喜欢 Linux, 喜欢 Python, 喜欢 Latex, 喜欢折腾.
 
-喜欢上 B 站看鬼畜, 看动漫, 喜欢玩跑跑卡丁车的端游.
+喜欢看动漫, 喜欢玩跑跑卡丁车的端游.
 
 联系请 E-mail: zeqing6688@126.com
 
