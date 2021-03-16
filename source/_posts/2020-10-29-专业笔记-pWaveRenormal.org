@@ -60,7 +60,7 @@ D = D_0-D_0 \left(\frac{1}{\beta}\sum_{\vec{k}_1, \omega}\mathcal{V} G_1 G_2\mat
 =& -\sum_{\vec{k}_1}
      \frac{n(\varepsilon_{\vec{q} /2 + \vec{k}_1})+1
      + n(\varepsilon_{\vec{q}/2 - \vec{k}_1})}
-     {\mathrm{i}E- \varepsilon_{\vec{q} /2 + \vec{k}_1} + \varepsilon_{\vec{q} /2 - \vec{k}_1}}
+     {\mathrm{i}E- \varepsilon_{\vec{q} /2 + \vec{k}_1} - \varepsilon_{\vec{q} /2 - \vec{k}_1}}
     \frac{1}{V } g_m^2 k_1^2 \left|Y_{l, m}(\hat{k}_1)\right|^2\\
 \end{align}
 所以求得分子松原格林函数
@@ -68,18 +68,18 @@ D = D_0-D_0 \left(\frac{1}{\beta}\sum_{\vec{k}_1, \omega}\mathcal{V} G_1 G_2\mat
  \frac{1}{D} = \mathrm{i}E - \frac{q^2}{4M} + \nu_m -\sum_{\vec{k}_1}
      \frac{n(\varepsilon_{\vec{q} /2 + \vec{k}_1})+1
      + n(\varepsilon_{\vec{q}/2 - \vec{k}_1})}
-     {\mathrm{i}E- \varepsilon_{\vec{q} /2 + \vec{k}_1} + \varepsilon_{\vec{q} /2 - \vec{k}_1}}
+     {\mathrm{i}E- \varepsilon_{\vec{q} /2 + \vec{k}_1} - \varepsilon_{\vec{q} /2 - \vec{k}_1}}
     \frac{1}{V } g_m^2 k_1^2 \left|Y_{l=1, m}(\hat{k}_1)\right|^2
 \end{align}
 将松原格林函数解析延拓成推迟格林函数(忽粒子数是延拓的一部分?)
 \begin{align}
  \frac{1}{D^{\mathrm{ret}}} = E + \mathrm{i}0^+ - \frac{q^2}{4M} + \nu_m -\sum_{\vec{k}_1}
      \frac{1}
-     {E + \mathrm{i}0^+ - \varepsilon_{\vec{q} /2 + \vec{k}_1} + \varepsilon_{\vec{q} /2 - \vec{k}_1}}
+     {E + \mathrm{i}0^+ - \varepsilon_{\vec{q} /2 + \vec{k}_1} - \varepsilon_{\vec{q} /2 - \vec{k}_1}}
     \frac{1}{V } g_m^2 k_1^2 \left|Y_{1, m}(\hat{k}_1)\right|^2
 \end{align}
 因此可以得到 T-matrix 为(不仅加上两个顶点, 还要有个因子 $4$ ?)(以及求和项中 $4\pi$
-的来源?) 
+的来源?)
 \begin{align}
   T(k \hat{k}, k \hat{k}', E = \frac{k^2}{M})
   =& \frac{1}{V} g_m^{2}k^2 Y_{1, m}^{*}(\hat{k}) Y_{1, m}(\hat{k}') D^{\mathrm{ret}}(\vec{q} = 0, E) \\
@@ -141,7 +141,7 @@ D = D_0-D_0 \left(\frac{1}{\beta}\sum_{\vec{k}_1, \omega}\mathcal{V} G_1 G_2\mat
   T(k \hat{k}, k \hat{k}', E = \frac{k^2}{M})
   =& \frac{\frac{1}{V} R_m \frac{4\pi}{M^2}k^2 Y_{1, m}^{*}(\hat{k}) Y_{1, m}(\hat{k}')}
      {\frac{k^2}{M } + \frac{R_m}{M v_m}
-       + \mathrm{i} \frac{M}{4\pi}k^3  }
+       + \mathrm{i} \frac{R_m}{M }k^3  }
 \end{align}
 #+end_quote
 

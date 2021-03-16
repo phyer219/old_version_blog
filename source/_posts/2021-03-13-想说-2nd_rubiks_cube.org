@@ -1,4 +1,4 @@
-#+TITLE: Second Rubik's Cube Fun
+#+TITLE: Second Order Rubik's Cube Fun
 #+DATE: <2021-03-13>
 #+CATEGORIES: Rubik's Cube
 #+TAGS: 总结
