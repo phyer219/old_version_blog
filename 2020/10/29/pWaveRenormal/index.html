@@ -117,7 +117,7 @@
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://zqw.ink/2020/10/29/pWaveRenormal/diagram.png">
-<meta property="og:updated_time" content="2021-03-16T02:13:08.769Z">
+<meta property="og:updated_time" content="2021-03-16T02:38:19.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="p 波接触相互作用参数的重整化">
 <meta name="twitter:image" content="https://zqw.ink/2020/10/29/pWaveRenormal/diagram.png">
@@ -425,9 +425,9 @@
 <!-- toc -->
 <a id="more"></a>
 
-<div id="outline-container-org1344460" class="outline-2">
-<h2 id="org1344460">p-Wave Scattering Amplitude</h2>
-<div class="outline-text-2" id="text-org1344460">
+<div id="outline-container-orgd791edd" class="outline-2">
+<h2 id="orgd791edd">p-Wave Scattering Amplitude</h2>
+<div class="outline-text-2" id="text-orgd791edd">
 <p>
 &#x7531; Taylor &#x4E66; (6.14) &#x53EF;&#x5F97; \(l\) &#x5206;&#x6CE2;&#x7684;&#x6563;&#x5C04;&#x632F;&#x5E45;
 </p>
@@ -452,9 +452,9 @@
 </div>
 </div>
 
-<div id="outline-container-org5d7de9d" class="outline-2">
-<h2 id="org5d7de9d">Hamiltonian</h2>
-<div class="outline-text-2" id="text-org5d7de9d">
+<div id="outline-container-org1f9a2c2" class="outline-2">
+<h2 id="org1f9a2c2">Hamiltonian</h2>
+<div class="outline-text-2" id="text-org1f9a2c2">
 <p>
 &#x8003;&#x8651; p &#x6CE2;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x7684;&#x4E24;&#x5206;&#x91CF; Bose &#x6C14;&#x4F53;
 </p>
@@ -471,9 +471,9 @@
 </div>
 </div>
 
-<div id="outline-container-orge4e6289" class="outline-2">
-<h2 id="orge4e6289">T-matrix</h2>
-<div class="outline-text-2" id="text-orge4e6289">
+<div id="outline-container-org8ab3d9b" class="outline-2">
+<h2 id="org8ab3d9b">T-matrix</h2>
+<div class="outline-text-2" id="text-org8ab3d9b">
 <p>
 &#x4E0B;&#x56FE;&#x4E2D; \(G_0\) &#x8868;&#x793A;&#x81EA;&#x7531;&#x539F;&#x5B50;&#x7684;&#x81EA;&#x7531;&#x677E;&#x539F;&#x683C;&#x6797;&#x51FD;&#x6570;, \(D_0\) &#x8868;&#x793A;&#x4E24;&#x4E2A;&#x539F;&#x5B50;&#x5F62;&#x6210;&#x7684;&#x5206;&#x5B50;&#x7684;&#x81EA;&#x7531;
 &#x677E;&#x539F;&#x683C;&#x6797;&#x51FD;&#x6570;, \(D\) &#x8868;&#x793A;&#x8003;&#x8651;&#x5206;&#x5B50;&#x5206;&#x88C2;&#x548C;&#x5F62;&#x6210;&#x4E4B;&#x540E;&#x7684;&#x5206;&#x5B50;&#x683C;&#x6797;&#x51FD;&#x6570;
@@ -501,7 +501,7 @@ D = D_0-D_0 \left(\frac{1}{\beta}\sum_{\vec{k}_1, \omega}\mathcal{V} G_1 G_2\mat
 =&amp; -\sum_{\vec{k}_1}
      \frac{n(\varepsilon_{\vec{q} /2 + \vec{k}_1})+1
      + n(\varepsilon_{\vec{q}/2 - \vec{k}_1})}
-     {\mathrm{i}E- \varepsilon_{\vec{q} /2 + \vec{k}_1} + \varepsilon_{\vec{q} /2 - \vec{k}_1}}
+     {\mathrm{i}E- \varepsilon_{\vec{q} /2 + \vec{k}_1} - \varepsilon_{\vec{q} /2 - \vec{k}_1}}
     \frac{1}{V } g_m^2 k_1^2 \left|Y_{l, m}(\hat{k}_1)\right|^2\\
 \end{align}
 <p>
@@ -511,7 +511,7 @@ D = D_0-D_0 \left(\frac{1}{\beta}\sum_{\vec{k}_1, \omega}\mathcal{V} G_1 G_2\mat
  \frac{1}{D} = \mathrm{i}E - \frac{q^2}{4M} + \nu_m -\sum_{\vec{k}_1}
      \frac{n(\varepsilon_{\vec{q} /2 + \vec{k}_1})+1
      + n(\varepsilon_{\vec{q}/2 - \vec{k}_1})}
-     {\mathrm{i}E- \varepsilon_{\vec{q} /2 + \vec{k}_1} + \varepsilon_{\vec{q} /2 - \vec{k}_1}}
+     {\mathrm{i}E- \varepsilon_{\vec{q} /2 + \vec{k}_1} - \varepsilon_{\vec{q} /2 - \vec{k}_1}}
     \frac{1}{V } g_m^2 k_1^2 \left|Y_{l=1, m}(\hat{k}_1)\right|^2
 \end{align}
 <p>
@@ -520,12 +520,12 @@ D = D_0-D_0 \left(\frac{1}{\beta}\sum_{\vec{k}_1, \omega}\mathcal{V} G_1 G_2\mat
 \begin{align}
  \frac{1}{D^{\mathrm{ret}}} = E + \mathrm{i}0^+ - \frac{q^2}{4M} + \nu_m -\sum_{\vec{k}_1}
      \frac{1}
-     {E + \mathrm{i}0^+ - \varepsilon_{\vec{q} /2 + \vec{k}_1} + \varepsilon_{\vec{q} /2 - \vec{k}_1}}
+     {E + \mathrm{i}0^+ - \varepsilon_{\vec{q} /2 + \vec{k}_1} - \varepsilon_{\vec{q} /2 - \vec{k}_1}}
     \frac{1}{V } g_m^2 k_1^2 \left|Y_{1, m}(\hat{k}_1)\right|^2
 \end{align}
 <p>
 &#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x5F97;&#x5230; T-matrix &#x4E3A;(&#x4E0D;&#x4EC5;&#x52A0;&#x4E0A;&#x4E24;&#x4E2A;&#x9876;&#x70B9;, &#x8FD8;&#x8981;&#x6709;&#x4E2A;&#x56E0;&#x5B50; \(4\) ?)(&#x4EE5;&#x53CA;&#x6C42;&#x548C;&#x9879;&#x4E2D; \(4\pi\)
-&#x7684;&#x6765;&#x6E90;?) 
+&#x7684;&#x6765;&#x6E90;?)
 </p>
 \begin{align}
   T(k \hat{k}, k \hat{k}&apos;, E = \frac{k^2}{M})
@@ -538,9 +538,9 @@ D = D_0-D_0 \left(\frac{1}{\beta}\sum_{\vec{k}_1, \omega}\mathcal{V} G_1 G_2\mat
 </div>
 </div>
 
-<div id="outline-container-org228643e" class="outline-2">
-<h2 id="org228643e">Renormalization</h2>
-<div class="outline-text-2" id="text-org228643e">
+<div id="outline-container-org029a010" class="outline-2">
+<h2 id="org029a010">Renormalization</h2>
+<div class="outline-text-2" id="text-org029a010">
 <p>
 &#x5206;&#x6BCD;&#x4E2D;&#x7684;&#x6C42;&#x548C;&#x5316;&#x79EF;&#x5206;&#x4E3A;(&#x7403;&#x8C10;&#x51FD;&#x6570;&#x5BF9;&#x89D2;&#x5EA6;&#x79EF;&#x5206;&#x5F52;&#x4E00;)
 </p>
@@ -613,9 +613,9 @@ D = D_0-D_0 \left(\frac{1}{\beta}\sum_{\vec{k}_1, \omega}\mathcal{V} G_1 G_2\mat
 </div>
 </div>
 
-<div id="outline-container-orga5523f8" class="outline-2">
-<h2 id="orga5523f8">Reference</h2>
-<div class="outline-text-2" id="text-orga5523f8">
+<div id="outline-container-org4a452d4" class="outline-2">
+<h2 id="org4a452d4">Reference</h2>
+<div class="outline-text-2" id="text-org4a452d4">
 <ul class="org-ul">
 <li>Taylor, Scattering Theory: quantum theory of nonrelativistic collisions, 1972, 
 John Wiley &amp; Sons</li>
@@ -787,7 +787,7 @@ p-wave interactions</li>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org1344460"><span class="nav-text">p-Wave Scattering Amplitude</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org5d7de9d"><span class="nav-text">Hamiltonian</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orge4e6289"><span class="nav-text">T-matrix</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org228643e"><span class="nav-text">Renormalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orga5523f8"><span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd791edd"><span class="nav-text">p-Wave Scattering Amplitude</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org1f9a2c2"><span class="nav-text">Hamiltonian</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org8ab3d9b"><span class="nav-text">T-matrix</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org029a010"><span class="nav-text">Renormalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org4a452d4"><span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
