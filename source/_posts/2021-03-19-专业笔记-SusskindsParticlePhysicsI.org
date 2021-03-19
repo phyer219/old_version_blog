@@ -1,0 +1,72 @@
+#+TITLE: Susskind's Particle Pyhsics Note
+#+DATE: <2021-03-19>
+#+CATEGORIES: 专业笔记
+#+TAGS: physics, Particle Physics, Susskind, Entropy, Quantum Field Theory
+#+HTML: <!-- toc -->
+#+HTML: <!-- more -->
+
+* Information
+- 官方介绍: https://theoreticalminimum.com/courses/particle-physics-1-basic-concepts/2009/fall
+
+- 视频列表地址: https://www.youtube.com/watch?v=2eFvVzNF24g&list=PLaTmJYdn8i5zI1To7uSg75eNA_AKXGUl0
+
+- 把主要内容整理一下.
+
+* Lecture 1: Particles and Light
+
+** Wave Properties
+
+\begin{align}
+\boxed{\frac{\lambda}{T} = c}
+\end{align}
+\begin{align}
+f = \frac{1}{T} \quad \boxed{\lambda f = c}
+\end{align}
+\begin{align}
+\omega = 2\pi f = \boxed{2\pi \frac{c}{\lambda} = \omega}
+\end{align}
+
+** Photon Properties
+
+\begin{align}
+\boxed{E_{\mathrm{phton}} = \hbar\omega}
+\end{align}
+\begin{align}
+E_{\mathrm{ray}} = n \hbar \omega
+\end{align}
+\begin{align}
+p = \frac{E}{c}
+\end{align}
+
+* Lecture 2: Review of Quantum Mechanics & Harmonic Oscillator
+
+** Periodic Boundary Condition
+
+In order to make momentum conseved, we need periodic boundary condition, so
+\begin{align}
+\lambda = \frac{L}{N}
+\end{align}
+$\lambda$ is discrete.
+\begin{align}
+p = \frac{h}{\lambda} = \frac{h}{L}N
+\end{align}
+
+** Harmonic Oscillator
+
+\begin{align}
+  E &= n \hbar\omega\\
+  a^{+ }|n \rangle &= \sqrt{n + 1} | n+ 1 \rangle \\
+  a^{- }|n \rangle &= \sqrt{n } | n - 1\rangle \\
+  a^{+ }a^{- } \sim n
+  a^{- }a^{+ } \sim n + 1
+\end{align}
+
+* Lecture 3: Field Operators
+
+
+
+* Reference
+
+- [[https://en.wikipedia.org/wiki/Phase_diagram][Phase Diagram]]
+
+- [[https://en.wikipedia.org/wiki/Stirling%27s_approximation][Stirling's Approximation]]
