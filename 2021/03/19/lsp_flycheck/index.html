@@ -110,24 +110,22 @@
 
 
 
-  <meta name="keywords" content="总结">
+  <meta name="keywords" content="emacs,lsp,pyright,flycheck,flake8">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Second Order Rubik&#39;s Cube Fun">
-<meta property="og:url" content="https://zqw.ink/2021/03/13/2nd_rubiks_cube/index.html">
+<meta property="og:title" content="记一次折腾上头经历: lsp-pyright vs. flycheck &amp; flake8">
+<meta property="og:url" content="https://zqw.ink/2021/03/19/lsp_flycheck/index.html">
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://zqw.ink/2021/03/13/2nd_rubiks_cube/2nd_cube.png">
-<meta property="og:updated_time" content="2021-03-16T02:14:10.526Z">
+<meta property="og:updated_time" content="2021-03-19T10:32:23.165Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Second Order Rubik&#39;s Cube Fun">
-<meta name="twitter:image" content="https://zqw.ink/2021/03/13/2nd_rubiks_cube/2nd_cube.png">
+<meta name="twitter:title" content="记一次折腾上头经历: lsp-pyright vs. flycheck &amp; flake8">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zqw.ink/2021/03/13/2nd_rubiks_cube/"/>
+  <link rel="canonical" href="https://zqw.ink/2021/03/19/lsp_flycheck/"/>
 
 
 
@@ -137,7 +135,7 @@
   };
 </script>
 
-  <title>Second Order Rubik's Cube Fun | 从冰上的水</title>
+  <title>记一次折腾上头经历: lsp-pyright vs. flycheck & flake8 | 从冰上的水</title>
   
 
 
@@ -317,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/03/13/2nd_rubiks_cube/">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/03/19/lsp_flycheck/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZQW">
@@ -334,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Second Order Rubik's Cube Fun
+          <h1 class="post-title" itemprop="name headline">记一次折腾上头经历: lsp-pyright vs. flycheck & flake8
               
             
           </h1>
@@ -359,7 +357,7 @@
                 
               
 
-              <time title="创建时间：2021-03-13 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-13T00:00:00+08:00">2021-03-13</time>
+              <time title="创建时间：2021-03-19 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-19T00:00:00+08:00">2021-03-19</time>
             
 
             
@@ -377,7 +375,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Rubik-s-Cube/" itemprop="url" rel="index"><span itemprop="name">Rubik's Cube</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件使用/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a></span>
 
                 
                 
@@ -392,8 +390,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/03/13/2nd_rubiks_cube/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/03/13/2nd_rubiks_cube/" itemprop="commentCount"></span>
+                <a href="/2021/03/19/lsp_flycheck/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/03/19/lsp_flycheck/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -425,14 +423,85 @@
 <!-- toc -->
 <a id="more"></a>
 
-
-<div id="org8b1e3f2" class="figure">
-<p><img src="/2021/03/13/2nd_rubiks_cube/2nd_cube.png">
+<p>
+&#x8D77;&#x56E0;&#x4E8E;&#x6628;&#x5929;&#x4E0B;&#x5348;.
 </p>
-</div>
 
 <p>
-Draw by <a href="https://www.geogebra.org/" target="_blank" rel="noopener">Geogebra</a> : <a href="2nd_cube.ggb">2nd_cube.ggb</a>
+&#x5728;&#x79D1;&#x7814;&#x8BFE;&#x9898;&#x4E45;&#x4E45;&#x6CA1;&#x6709;&#x8FDB;&#x5C55;&#x4E4B;&#x540E;, &#x7A81;&#x7136;&#x6709;&#x4E86;&#x4E00;&#x4E9B;&#x60F3;&#x6CD5;. &#x9042;&#x5199;&#x7A0B;&#x5E8F;.
+</p>
+
+<p>
+&#x5728;&#x5BD2;&#x5047;&#x914D;&#x7F6E;&#x7684; Emacs &#x4E2A;&#x4EBA;&#x65B0;&#x7248;&#x914D;&#x7F6E;&#x7EC8;&#x4E8E;&#x6709;&#x4E86;&#x7528;&#x6B66;&#x4E4B;&#x5730;, &#x751A;&#x662F;&#x9AD8;&#x5174;.
+</p>
+
+<p>
+&#x53EF;&#x968F;&#x540E;&#x800C;&#x6765;&#x7684;&#x5374;&#x662F;&#x4E00;&#x6B21;&#x6298;&#x817E;&#x4E0A;&#x5934;.
+</p>
+
+<p>
+&#x4E4B;&#x524D;&#x5728; Emacs &#x91CC;&#x52A0;&#x4E86; lsp-pyright, &#x53EF;&#x4EE5;&#x63D0;&#x793A;&#x7A0B;&#x5E8F;&#x4E2D;&#x4E00;&#x4E9B;&#x4E0D;&#x89C4;&#x8303;&#x7684;&#x7EC6;&#x8282;. &#x6BD4;&#x5982;&#x7ED9;&#x4E00;&#x884C;&#x6CE8;&#x91CA;
+&#x7684;&#x8BDD;&#x8981;&#x5728; <code>#</code> &#x540E;&#x9762;&#x52A0;&#x81F3;&#x5C11;&#x4E24;&#x4E2A;&#x7A7A;&#x683C;, &#x8BF8;&#x5982;&#x6B64;&#x7C7B;&#x7684;&#x6839;&#x636E; PEP8 &#x7ED9;&#x51FA;&#x7684;&#x63D0;&#x793A;.
+</p>
+
+<p>
+&#x53EF;&#x662F;&#x5F88;&#x5947;&#x602A;, &#x5B83;&#x5728;&#x7B14;&#x8BB0;&#x672C;&#x4E0A;&#x53EF;&#x4EE5;, &#x5728;&#x53F0;&#x5F0F;&#x4E0A;&#x4E0D;&#x884C;. &#x5F00;&#x59CB;&#x4EE5;&#x4E3A;&#x662F;&#x8BBE;&#x7F6E;&#x5DE5;&#x7A0B;&#x524D;&#x53EF;&#x4EE5;&#x663E;&#x793A;, &#x8BBE;&#x7F6E;&#x5DE5;
+&#x7A0B;&#x8DEF;&#x5F84;&#x540E;&#x5C31;&#x4E0D;&#x663E;&#x793A;&#x4E86;. &#x8FD9;&#x4E5F;&#x5F88;&#x5947;&#x602A;. &#x641E;&#x6765;&#x641E;&#x53BB;&#x4E0D;&#x884C;, emacs &#x7684;&#x63D2;&#x4EF6;&#x5220;&#x4E86;&#x53C8;&#x91CD;&#x4E0B;, &#x597D;&#x591A;&#x6B21;, &#x5C31;
+&#x662F;&#x4E0D;&#x884C;. &#x57FA;&#x672C;&#x65AD;&#x5B9A;&#x4E0D;&#x662F; emacs &#x914D;&#x7F6E;&#x7684;&#x539F;&#x56E0;. &#x60F3;&#x7740;&#x653E;&#x5F03;&#x5427;, &#x73B0;&#x5728;&#x6CA1;&#x90A3;&#x4E48;&#x591A;&#x591A;&#x4F59;&#x7684;&#x65F6;&#x95F4;&#x641E;&#x8FD9;&#x4E9B;
+&#x4E86;. &#x4E8E;&#x662F;&#x6628;&#x5929;&#x641E;&#x4E86;&#x4E00;&#x665A;&#x4E0A;&#x540E;&#x56DE;&#x5BBF;&#x820D;&#x7761;&#x89C9;&#x4E86;.
+</p>
+
+<p>
+&#x7B2C;&#x4E8C;&#x5929;&#x4E0A;&#x81EA;&#x4E60;, &#x8FD8;&#x662F;&#x5FCD;&#x4E0D;&#x4F4F;, &#x53C8;&#x641E;&#x4E86;&#x8D77;&#x6765;, &#x53D1;&#x73B0;&#x5E76;&#x4E0D;&#x662F;&#x8BBE;&#x7F6E;&#x5DE5;&#x7A0B;&#x8DEF;&#x5F84;&#x7684;&#x539F;&#x56E0;. &#x5404;&#x79CD;&#x67E5; lsp,
+&#x539F;&#x7406;, &#x914D;&#x7F6E;&#x2026;
+</p>
+
+<p>
+&#x672A;&#x679C;.
+</p>
+
+<p>
+&#x8D8A;&#x6765;&#x8D8A;&#x4E0A;&#x5934;&#x4E86;. &#x4ECA;&#x5929;&#x4E0B;&#x5348;&#x4E3A;&#x4E86;&#x505A;&#x5BF9;&#x7167;, &#x65B0;&#x5EFA;&#x4E86;&#x7528;&#x6237;, &#x53D1;&#x73B0;&#x548C;&#x7528;&#x6237;&#x4E5F;&#x6CA1;&#x5173;&#x7CFB;, &#x770B;&#x6765;&#x4E5F;&#x4E0D;&#x662F; lsp
+&#x8BBE;&#x7F6E;&#x7684;&#x539F;&#x56E0;.
+</p>
+
+<p>
+&#x6700;&#x540E;, &#x5C1D;&#x8BD5;&#x5B89;&#x88C5; KDE &#x7248;&#x672C;&#x7684; manjaro. &#x4E00;&#x5F00;&#x59CB;&#x60F3;&#x8BD5;&#x4E00;&#x4E0B;&#x76F4;&#x63A5; arch, &#x4F46;&#x60F3;&#x60F3;&#x8FD8;&#x662F;&#x7B97;&#x4E86;. &#x6CA1;&#x60F3;
+&#x5230;&#x88C5; manjaro &#x4E5F;&#x662F;&#x51FA;&#x4E86;&#x95EE;&#x9898;, &#x7B2C;&#x4E00;&#x6B21;&#x88C5;&#x5B8C;, &#x83AB;&#x540D;&#x5176;&#x5999;&#x5730;&#x5C11;&#x4E86; libc.so , &#x8FDE; pacman &#x90FD;&#x6253;&#x4E0D;
+&#x5F00;&#x4E86;. &#x60F3;&#x4E86;&#x4E2A;&#x7B28;&#x65B9;&#x6CD5; chroot &#x76F4;&#x63A5;&#x590D;&#x5236; libc.so &#x6587;&#x4EF6;&#x76F4;&#x63A5;&#x8FC7;&#x53BB;, &#x7ED3;&#x679C;&#x8FDE; kernel &#x4E5F;&#x8FDB;&#x4E0D;&#x53BB;
+&#x4E86;.
+</p>
+
+<p>
+&#x90A3;&#x5C31;&#x518D;&#x88C5;&#x4E00;&#x6B21;&#x5427;, &#x6211;&#x5DF2;&#x7ECF;&#x65E0;&#x6CD5;&#x56DE;&#x5934;&#x4E86;. &#x671F;&#x95F4;&#x8FD8;&#x51FA;&#x73B0;&#x4E86;&#x5C11;&#x89C1;&#x7684;&#x529E;&#x516C;&#x5BA4;&#x65AD;&#x7F51;, &#x8FD9;&#x8FD0;&#x6C14;&#x2026;
+</p>
+
+<p>
+&#x7B2C;&#x4E8C;&#x6B21;&#x7EC8;&#x4E8E;&#x597D;&#x4E86;, &#x9A8C;&#x8BC1;&#x4E86;&#x6CA1;&#x6709;&#x663E;&#x793A; PEP8 &#x63D0;&#x793A;&#x7684;&#x539F;&#x56E0;&#x662F;&#x5C11;&#x88C5;&#x4E86;&#x4EC0;&#x4E48;&#x8F6F;&#x4EF6;.
+</p>
+
+<p>
+&#x6700;&#x540E;&#x7EC8;&#x4E8E;&#x53D1;&#x73B0;&#x662F; flycheck &#x8C03;&#x7528; pylint &#x7ED9;&#x7684;&#x63D0;&#x793A;, &#x548C; lsp &#x6CA1;&#x4E00;&#x70B9;&#x5173;&#x7CFB;! &#x5B89;&#x4E0A; flake8 &#x5C31;
+&#x597D;&#x4E86;.
+</p>
+
+<p>
+&#x592A;&#x4E0A;&#x5934;&#x4E86;. &#x81EA;&#x5DF1;&#x672C;&#x6765;&#x5C31;&#x662F;&#x5916;&#x884C;&#x7A0B;&#x5E8F;&#x5458;, &#x8FD8;&#x8FD9;&#x4E48;&#x559C;&#x6B22;&#x641E;&#x8FD9;&#x4E9B;, &#x4E0B;&#x573A;&#x5C31;&#x662F;&#x4E00;&#x5929;&#x534A;&#x7684;&#x65F6;&#x95F4;&#x6CA1;&#x4E86;&#x2026;
+</p>
+
+<p>
+&#x4E0D;&#x8FC7;&#x4E5F;&#x6709;&#x6536;&#x83B7;. &#x90A3;&#x5C31;&#x662F;&#x73B0;&#x5728;&#x53F0;&#x5F0F;&#x4E0A;&#x4EE5;&#x524D;&#x4E22;&#x5931;&#x7684;&#x5F15;&#x5BFC;&#x5728;&#x88C5;&#x4E86; KED manjaro &#x4E4B;&#x540E;&#x5168;&#x90E8;&#x90FD;&#x627E;&#x56DE;&#x6765;
+&#x4E86;. &#x73B0;&#x5728;&#x5F00;&#x673A;&#x6709;&#x4E94;&#x4E2A;&#x7CFB;&#x7EDF;&#x53EF;&#x9009;.
+</p>
+
+<p>
+&#x672C;&#x6765;&#x60F3;&#x5C1D;&#x8BD5; KDE &#x7684;, &#x53EF;&#x4EE5;&#x5C31;&#x8FD9;&#x4E00;&#x4E0B;&#x5348;&#x5C31;&#x51FA;&#x4E86;&#x81F4;&#x547D;&#x548C;&#x4E0D;&#x81F4;&#x547D;&#x7684;&#x95EE;&#x9898;, &#x8FD8;&#x662F;&#x7B97;&#x4E86;&#x5427;! &#x7B49;&#x6211;&#x771F;&#x6B63;
+&#x95F2;&#x7684;&#x65F6;&#x5019;&#x518D;&#x5C1D;&#x8BD5;&#x5427;.
+</p>
+
+<p>
+&#x8FD9;&#x4E00;&#x5207;&#x90FD;&#x4E0D;&#x662F;&#x56E0;&#x4E3A;&#x95EE;&#x9898;&#x6709;&#x591A;&#x590D;&#x6742;, &#x53EA;&#x662F;&#x770B;&#x95EE;&#x9898;&#x7F3A;&#x4E4F;&#x77E5;&#x8BC6;, &#x6D41;&#x4E8E;&#x8868;&#x9762;. &#x6216;&#x8BB8;&#x79D1;&#x7814;&#x4E5F;&#x662F;&#x8FD9;&#x6837;, &#x5927;
+&#x5BB6;&#x90FD;&#x8FD9;&#x6837;, &#x5C31;&#x4E60;&#x4EE5;&#x4E3A;&#x5E38;&#x4E86;.
 </p>
 </div>
 
@@ -455,7 +524,15 @@ Draw by <a href="https://www.geogebra.org/" target="_blank" rel="noopener">Geoge
       
         <div class="post-tags">
           
-            <a href="/tags/总结/" rel="tag"># 总结</a>
+            <a href="/tags/emacs/" rel="tag"># emacs</a>
+          
+            <a href="/tags/lsp/" rel="tag"># lsp</a>
+          
+            <a href="/tags/pyright/" rel="tag"># pyright</a>
+          
+            <a href="/tags/flycheck/" rel="tag"># flycheck</a>
+          
+            <a href="/tags/flake8/" rel="tag"># flake8</a>
           
         </div>
       
@@ -468,8 +545,8 @@ Draw by <a href="https://www.geogebra.org/" target="_blank" rel="noopener">Geoge
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/03/11/SusskindsStatisticalMechanics/" rel="next" title="Susskind's Statistical Mechanics">
-                <i class="fa fa-chevron-left"></i> Susskind's Statistical Mechanics
+              <a href="/2021/03/13/2nd_rubiks_cube/" rel="next" title="Second Order Rubik's Cube Fun">
+                <i class="fa fa-chevron-left"></i> Second Order Rubik's Cube Fun
               </a>
             
           </div>
@@ -478,8 +555,8 @@ Draw by <a href="https://www.geogebra.org/" target="_blank" rel="noopener">Geoge
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2021/03/19/lsp_flycheck/" rel="prev" title="记一次折腾上头经历: lsp-pyright vs. flycheck & flake8">
-                记一次折腾上头经历: lsp-pyright vs. flycheck & flake8 <i class="fa fa-chevron-right"></i>
+              <a href="/2021/03/19/SusskindsParticlePhysicsI/" rel="prev" title="Susskind's Particle Pyhsics Note">
+                Susskind's Particle Pyhsics Note <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
