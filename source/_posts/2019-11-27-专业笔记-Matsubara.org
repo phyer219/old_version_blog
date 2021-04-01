@@ -115,7 +115,7 @@ contour 的绕向相反也抵消了.
     \quad,\quad \mathrm{where} \quad \Omega_n =\frac{2n\pi}{\beta} 
 \end{align}
 
-* Supplementary 
+* Supplementary
 
 ** Intro
 
@@ -161,16 +161,16 @@ Jordan's Lemma 是说, 如果函数 $f(z)$ 在上半平面的无穷远处为 $0$
 \end{align}
 在 $R\to \infty$ 时以快于或等于 $\frac{1}{R}$ 的形式趋于 $0$ 即可. 因为把指数上的 $z$
 写成 $z = R\cos \theta + \mathrm{i}\sin \theta$ , 再乘上指数上的 $\mathrm{i}$ ,
-只需要考虑正弦部分即可, 因为余弦部分是虚数, 指数上的虚数只代表相位. 
+只需要考虑正弦部分即可, 因为余弦部分是虚数, 指数上的虚数只代表相位.
 
 指数上的三角函数不好积, 这里并不需要准确积出来, 只要找到一个积分的上限即可. 从三
-角函数的图像上可以找到我们需要的近似. 在 $[0, np.pi]$ 之间, 正弦函数是对称的, 所
+角函数的图像上可以找到我们需要的近似. 在 $[0, \pi]$ 之间, 正弦函数是对称的, 所
 以只需要考虑左边一半, 那直接取一个线性的上限近似, 即 $(0, 0)$ 与
 $(\frac{\pi}{2}, 1)$ 两点的连线, 小于正弦函数, 再算上指数上的负号, 这样近似的积
 分的结果是要大于原积分的, 也就找到了积分的上限. 即
 \begin{align}
-  \int_0^{\pi} e^{-aR\sin\theta} \mathrm{d}\theta \geq
-  2\int_0^{\frac{2}{\pi}} e^{-aR \frac{2}{\pi}\theta} \mathrm{d}\theta 
+  \int_0^{\pi} e^{-aR\sin\theta} \mathrm{d}\theta \le
+  2\int_0^{\frac{2}{\pi}} e^{-aR \frac{2}{\pi}\theta} \mathrm{d}\theta
   = \frac{\pi}{aR}(1 - e^{-aR})
 \end{align}
 它在 $R\to \infty$ 时, 恰好是以 $\frac{1}{R}$ 的形式趋于零. 这样 Jordan's Lemma
@@ -208,7 +208,7 @@ $\frac{1}{|z|}$ 的形式趋于 $0$ . 但第二项在无穷远处只在右半平
   e^z \propto e^{R\cos\theta}
 \end{align}
 
-* Reference 
+* Reference
 
 - [1] Chap 8.3 Piers Coleman, Introduction to Many-Body Physics
 - [2] Arfken, Weber, Harris, Mathematical Methods for Physicists 7ed
