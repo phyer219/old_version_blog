@@ -124,6 +124,7 @@ menu:
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   Bingo!: /zqw/ || heartbeat
+  rfp docs: /rfp/_build/html || heartbeat
   网站收藏夹: /websites || heartbeat
   about: /about/ || user
   commonweal: /404/ || heartbeat
