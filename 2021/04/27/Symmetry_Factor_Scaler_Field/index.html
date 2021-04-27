@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="physics,Quantum Field Theory,Feynman Diagram,Scaler Field,Phi-4 Theory">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Symmetry Factor of φ-4 Scaler Field">
+<meta property="og:url" content="https://zqw.ink/2021/04/27/Symmetry_Factor_Scaler_Field/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2021/04/27/Symmetry_Factor_Scaler_Field/note1.jpg">
+<meta property="og:image" content="https://zqw.ink/2021/04/27/Symmetry_Factor_Scaler_Field/note2.jpg">
+<meta property="og:image" content="https://zqw.ink/2021/04/27/Symmetry_Factor_Scaler_Field/diagrams.png">
+<meta property="og:updated_time" content="2021-04-27T11:59:39.318Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Symmetry Factor of φ-4 Scaler Field">
+<meta name="twitter:image" content="https://zqw.ink/2021/04/27/Symmetry_Factor_Scaler_Field/note1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2021/04/27/Symmetry_Factor_Scaler_Field/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Symmetry Factor of φ-4 Scaler Field | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-rfp-docs">
+    <a href="/rfp/_build/html" rel="section">rfp docs</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/04/27/Symmetry_Factor_Scaler_Field/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Symmetry Factor of φ-4 Scaler Field
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-04-27 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-27T00:00:00+08:00">2021-04-27</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/04/27/Symmetry_Factor_Scaler_Field/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/04/27/Symmetry_Factor_Scaler_Field/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-orgc69c7e6" class="outline-2">
+<h2 id="orgc69c7e6">Intro</h2>
+<div class="outline-text-2" id="text-orgc69c7e6">
+<p>
+Zee, A. Quantum field theory in a nutshell. (Princeton University Press,
+  2010). I.7 Feynman Diagrams &#x4E66;&#x4E2D; 23 &#x9875; \((23)\) &#x5F0F;&#x4E2D;&#x7684; symmetry factor
+  \(\frac{1}{2}\) , &#x81EA;&#x5DF1;&#x7B97;&#x51FA;&#x7684;&#x5374;&#x662F; \(\frac{3}{2}\) , &#x5F15;&#x53D1;&#x4E86; 2021.4.9-2021.4.10 &#x4E00;&#x5929;
+  &#x534A;&#x7684;&#x8BA1;&#x7B97;. &#x8FD8;&#x8054;&#x7CFB;&#x8BF7;&#x6559;&#x4E86;&#x672C;&#x79D1;&#x6BD5;&#x4E1A;&#x5C31;&#x6CA1;&#x518D;&#x8054;&#x7CFB;&#x7684;&#x5C0F;&#x6D6A;&#x5E95;&#x540C;&#x5B66;.
+</p>
+
+<p>
+&#x671F;&#x95F4;&#x5FD9;&#x4E8E;&#x79D1;&#x7814;&#x548C;&#x7EC4;&#x4F1A;, &#x76F4;&#x5230;&#x4ECA;&#x65E5;&#x624D;&#x5F97;&#x7A7A;&#x6574;&#x7406;!
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4f9dcdb" class="outline-2">
+<h2 id="org4f9dcdb">Symmetry Factor</h2>
+<div class="outline-text-2" id="text-org4f9dcdb">
+<p>
+&#x5176;&#x5B9E;&#x672C;&#x6765;&#x662F;&#x5F88;&#x7B80;&#x5355;&#x7684;&#x95EE;&#x9898;. &#x4F46;&#x662F;&#x8981;&#x786E;&#x4FE1;, &#x6216;&#x8005;&#x8BF4;&#x4FDD;&#x8BC1;&#x8BA1;&#x7B97;&#x7684; symmetry factor
+&#x4E00;&#x5B9A;&#x662F;&#x5BF9;&#x7684;, &#x90A3;&#x5C31;&#x53EA;&#x6709;&#x628A;&#x6240;&#x6709;&#x7684; \(J^4, \lambda^2\) (&#x4E8C;&#x9636;&#x56DB;&#x70B9;&#x683C;&#x6797;&#x51FD;&#x6570;)&#x9636;&#x7684;&#x6240;&#x6709;&#x7684;&#x56FE;&#x90FD;&#x753B;&#x51FA;&#x6765;,
+&#x624D;&#x80FD;&#x4FDD;&#x8BC1;&#x4E0D;&#x91CD;&#x4E0D;&#x6F0F;.
+&#x56E0;&#x4E3A;&#x603B;&#x7684;&#x56FE;&#x7684;&#x4E2A;&#x6570;&#x662F;&#x786E;&#x5B9A;&#x7684;, &#x56E0;&#x4E3A;&#x6839;&#x636E; wick &#x5B9A;&#x7406;, \(8\) &#x4E2A;&#x7B97;&#x7B26; contract, &#x603B;&#x5171;&#x6709; \(11!!\)
+&#x79CD; contraction, &#x4E5F;&#x5C31;&#x662F;&#x6709; \(11!!\) &#x4E2A;&#x56FE;. &#x628A;&#x8FD9;&#x4E9B;&#x56FE;&#x5206;&#x7C7B;, &#x518D;&#x8BA1;&#x7B97;&#x6BCF;&#x4E00;&#x7C7B;&#x5728; \(11!!\) &#x4E2D;&#x5360;&#x7684;&#x6BD4;
+&#x91CD;, &#x5C31;&#x80FD;&#x4E0D;&#x91CD;&#x4E0D;&#x6F0F;, &#x51C6;&#x786E;&#x65E0;&#x8BEF;&#x5730;&#x786E;&#x5B9A; symmetry factor &#x4E86;.
+</p>
+
+<p>
+&#x4E0B;&#x56FE;&#x5C31;&#x662F;&#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x5730;&#x8FDE;, &#x6BCF;&#x8FDE;&#x4E00;&#x6B65;, &#x90FD;&#x9A8C;&#x8BC1;&#x56FE;&#x7684;&#x603B;&#x4E2A;&#x6570;&#x662F;  \(11!!\) . &#x6700;&#x7EC8;&#x7684;&#x7ED3;&#x679C;&#x90FD;&#x5F52;&#x4E3A;&#x7B2C;&#x4E8C;
+&#x5F20;&#x56FE;&#x4E2D; a-n &#x4E2D;&#x7684;&#x67D0;&#x4E00;&#x7C7B;. &#x800C; a-n &#x4E2D;&#x4E9B;&#x7C7B;&#x662F;&#x4E00;&#x6837;&#x7684;, &#x6240;&#x4EE5;&#x6700;&#x7EC8;&#x7ED3;&#x679C;&#x5C31;&#x662F;&#x7B2C;&#x4E09;&#x5F20;&#x56FE;&#x4E2D; a-l &#x5341;
+&#x4E00;&#x7C7B;.
+</p>
+
+<p>
+&#x624B;&#x5DE5;&#x505A;&#x597D;&#x5206;&#x7C7B;, &#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x6765;&#x4FDD;&#x8BC1;&#x590D;&#x6742;&#x6570;&#x503C;&#x8BA1;&#x7B97;&#x7684;&#x6B63;&#x786E;&#x6027;, &#x6700;&#x7EC8; a-n &#x6BCF;&#x4E00;&#x7C7B;&#x4E2D;&#x56FE;&#x7684;&#x4E2A;
+&#x6570;&#x4E3A;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">(<span class="string">&apos;a_&apos;</span>, <span class="number">180</span>)</span><br><span class="line">(<span class="string">&apos;b_&apos;</span>, <span class="number">720</span>)</span><br><span class="line">(<span class="string">&apos;c_&apos;</span>, <span class="number">1728</span>)</span><br><span class="line">(<span class="string">&apos;d_&apos;</span>, <span class="number">1152</span>)</span><br><span class="line">(<span class="string">&apos;e_&apos;</span>, <span class="number">216</span>)</span><br><span class="line">(<span class="string">&apos;f_&apos;</span>, <span class="number">432</span>)</span><br><span class="line">(<span class="string">&apos;g_&apos;</span>, <span class="number">432</span>)</span><br><span class="line">(<span class="string">&apos;h_&apos;</span>, <span class="number">864</span>)</span><br><span class="line">(<span class="string">&apos;i_&apos;</span>, <span class="number">432</span>)</span><br><span class="line">(<span class="string">&apos;j_&apos;</span>, <span class="number">576</span>)</span><br><span class="line">(<span class="string">&apos;k_&apos;</span>, <span class="number">288</span>)</span><br><span class="line">(<span class="string">&apos;o_&apos;</span>, <span class="number">576</span>)</span><br><span class="line">(<span class="string">&apos;p_&apos;</span>, <span class="number">288</span>)</span><br><span class="line">(<span class="string">&apos;l_&apos;</span>, <span class="number">576</span>)</span><br><span class="line">(<span class="string">&apos;m_&apos;</span>, <span class="number">72</span>)</span><br><span class="line">(<span class="string">&apos;n_&apos;</span>, <span class="number">288</span>)</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x5E76;&#x9A8C;&#x8BC1;&#x603B;&#x7684;&#x4E2A;&#x6570;&#x4E3A;  \(11!! = 10395\) . &#x81F3;&#x6B64;&#x5206;&#x7C7B;&#x5B8C;&#x6210;!
+</p>
+
+
+
+<div id="org40a68da" class="figure">
+<p><img src="/2021/04/27/Symmetry_Factor_Scaler_Field/note1.jpg">
+</p>
+</div>
+
+
+<div id="orge885ddd" class="figure">
+<p><img src="/2021/04/27/Symmetry_Factor_Scaler_Field/note2.jpg">
+</p>
+</div>
+
+
+<div id="orgc43db2a" class="figure">
+<p><img src="/2021/04/27/Symmetry_Factor_Scaler_Field/diagrams.png">
+</p>
+</div>
+
+<p>
+&#x6700;&#x7EC8; a-n &#x5F52;&#x7C7B;&#x5230; a-l &#x7684;&#x7ED3;&#x679C;&#x4E3A;(&#x7B2C;&#x4E00;&#x5217;&#x6709;&#x70B9;&#x4E71;&#x4E86;,&#x4EC5;&#x53C2;&#x8003;, &#x91CD;&#x8981;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x7B2C;&#x4E8C;, &#x4E09;&#x5217;)
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-right">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">a-n</td>
+<td class="org-left">a-l</td>
+<td class="org-right">number</td>
+</tr>
+
+<tr>
+<td class="org-left">h, j, n</td>
+<td class="org-left">a</td>
+<td class="org-right">1728</td>
+</tr>
+
+<tr>
+<td class="org-left">2c/3, k, p</td>
+<td class="org-left">b</td>
+<td class="org-right">2304</td>
+</tr>
+
+<tr>
+<td class="org-left">f, g</td>
+<td class="org-left">c</td>
+<td class="org-right">864</td>
+</tr>
+
+<tr>
+<td class="org-left">c/3, d</td>
+<td class="org-left">d</td>
+<td class="org-right">1728</td>
+</tr>
+
+<tr>
+<td class="org-left">i, m</td>
+<td class="org-left">e</td>
+<td class="org-right">1728</td>
+</tr>
+
+<tr>
+<td class="org-left">12*148, l</td>
+<td class="org-left">f</td>
+<td class="org-right">1152</td>
+</tr>
+
+<tr>
+<td class="org-left">72, 72</td>
+<td class="org-left">g</td>
+<td class="org-right">144</td>
+</tr>
+
+<tr>
+<td class="org-left">27</td>
+<td class="org-left">h</td>
+<td class="org-right">27</td>
+</tr>
+
+<tr>
+<td class="org-left">12*6</td>
+<td class="org-left">i</td>
+<td class="org-right">72</td>
+</tr>
+
+<tr>
+<td class="org-left">a, 12*3</td>
+<td class="org-left">j</td>
+<td class="org-right">216</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">i(&#x7F16;&#x53F7;&#x65F6;&#x628A; i &#x7ED9;&#x6F0F;&#x4E86;&#x2026;)</td>
+<td class="org-right">&#xA0;</td>
+</tr>
+
+<tr>
+<td class="org-left">e, 3*72</td>
+<td class="org-left">l</td>
+<td class="org-right">432</td>
+</tr>
+
+<tr>
+<td class="org-left">sum</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-right">10395</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+&#x6240;&#x4EE5; a &#x56FE;&#x7684; symmetry factor &#x4E3A; \(\frac{1728}{2! (4!)^2} = \frac{3}{2}\) . &#x4F46;&#x5E94;&#x8BE5;&#x662F;
+\(\frac{1}{2}\) . &#x8FD9;&#x53EF;&#x80FD;&#x662F;&#x7531;&#x4E8E;&#x9700;&#x8981;&#x7ED9;&#x56FA;&#x5B9A;&#x5165;&#x5C04;&#x7684;&#x4E24;&#x4E2A;&#x7C92;&#x5B50;? &#x6216;&#x8BB8;&#x770B;&#x5230;&#x540E;&#x9762;&#x4F1A;&#x660E;&#x767D;&#x5427;!
+</p>
+</div>
+</div>
+
+<div id="outline-container-org777cf4d" class="outline-2">
+<h2 id="org777cf4d">Code</h2>
+<div class="outline-text-2" id="text-org777cf4d">
+<p>
+<a href="symmetry_factors.py">code</a>
+</p>
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = <span class="number">3</span></span><br><span class="line">b = <span class="number">4</span></span><br><span class="line">c = <span class="number">4</span></span><br><span class="line"><span class="comment"># ---------------------------------------------</span></span><br><span class="line">aa = <span class="number">1</span> * a</span><br><span class="line">ab = <span class="number">4</span> * a</span><br><span class="line">ac = <span class="number">4</span> * a</span><br><span class="line"></span><br><span class="line">ba = <span class="number">2</span> * b</span><br><span class="line">bb = <span class="number">3</span> * b</span><br><span class="line">bc = <span class="number">4</span> * b</span><br><span class="line"></span><br><span class="line">ca = <span class="number">2</span> * c</span><br><span class="line">cb = <span class="number">4</span> * c</span><br><span class="line">cc = <span class="number">3</span> * c</span><br><span class="line"><span class="comment"># ---------------------------------------------7</span></span><br><span class="line">ab += ba</span><br><span class="line">ac += ca</span><br><span class="line">bc += cb</span><br><span class="line"></span><br><span class="line">aaa = aa * <span class="number">7</span> * <span class="number">5</span> * <span class="number">3</span></span><br><span class="line">order11 = aaa</span><br><span class="line"></span><br><span class="line">aba = ab * <span class="number">3</span></span><br><span class="line">abb = ab * <span class="number">4</span></span><br><span class="line"></span><br><span class="line">aca = ac * <span class="number">4</span></span><br><span class="line">acb = ac * <span class="number">3</span></span><br><span class="line"></span><br><span class="line">bba = bb * <span class="number">7</span> * <span class="number">5</span> * <span class="number">3</span></span><br><span class="line">order12 = bba</span><br><span class="line"></span><br><span class="line">bca = bc * <span class="number">1</span></span><br><span class="line">bcb = bc * <span class="number">3</span></span><br><span class="line">bcc = bc * <span class="number">3</span></span><br><span class="line"></span><br><span class="line">cca = cc * <span class="number">4</span></span><br><span class="line">ccb = cc * <span class="number">1</span></span><br><span class="line">ccc = cc * <span class="number">2</span></span><br><span class="line"><span class="comment"># -----------------------------------------------</span></span><br><span class="line">abb += aca</span><br><span class="line">abb += bca</span><br><span class="line">bcb += cca</span><br><span class="line">acb += ccb</span><br><span class="line"></span><br><span class="line">abaa = aba * <span class="number">1</span> * <span class="number">3</span></span><br><span class="line">a_ = abaa</span><br><span class="line">abab = aba * <span class="number">4</span> * <span class="number">3</span></span><br><span class="line">b_ = abab</span><br><span class="line"></span><br><span class="line">abba = abb * <span class="number">3</span> * <span class="number">3</span></span><br><span class="line">c_ = abba</span><br><span class="line">abbb = abb * <span class="number">2</span> * <span class="number">3</span></span><br><span class="line">d_ = abbb</span><br><span class="line"></span><br><span class="line">acba = acb * <span class="number">3</span></span><br><span class="line">acbb = acb * <span class="number">2</span> * <span class="number">3</span></span><br><span class="line">g_ = acbb</span><br><span class="line"></span><br><span class="line">bcba = bcb * <span class="number">3</span></span><br><span class="line">bcbb = bcb * <span class="number">2</span></span><br><span class="line"></span><br><span class="line">bcca = bcc * <span class="number">2</span> * <span class="number">3</span></span><br><span class="line">l_ = bcca</span><br><span class="line">bccb = bcc * <span class="number">3</span></span><br><span class="line"></span><br><span class="line">ccca = ccc * <span class="number">1</span> * <span class="number">3</span></span><br><span class="line">o_ = ccca</span><br><span class="line">cccb = ccc * <span class="number">4</span> * <span class="number">3</span></span><br><span class="line">p_ = cccb</span><br><span class="line"><span class="comment"># --------------------------------</span></span><br><span class="line">acbaa = acba * <span class="number">1</span></span><br><span class="line">e_ = acbaa</span><br><span class="line">acbab = acba * <span class="number">2</span></span><br><span class="line">f_ = acbab</span><br><span class="line"></span><br><span class="line">bcbaa = bcba * <span class="number">2</span></span><br><span class="line">h_ = bcbaa</span><br><span class="line">bcbab = bcba * <span class="number">1</span></span><br><span class="line">i_ = bcbab</span><br><span class="line"></span><br><span class="line">bcbba = bcbb * <span class="number">2</span></span><br><span class="line">j_ = bcbba</span><br><span class="line">bcbbb = bcbb * <span class="number">1</span></span><br><span class="line">k_ = bcbbb</span><br><span class="line"></span><br><span class="line">bccba = bccb * <span class="number">1</span></span><br><span class="line">m_ = bccba</span><br><span class="line">bccbb = bccb * <span class="number">2</span></span><br><span class="line">n_ = bccbb</span><br><span class="line"><span class="comment"># --------------------------------</span></span><br><span class="line"></span><br><span class="line">di = np.array([<span class="string">&apos;a_&apos;</span>, <span class="string">&apos;b_&apos;</span>, <span class="string">&apos;c_&apos;</span>, <span class="string">&apos;d_&apos;</span>,</span><br><span class="line">	       <span class="string">&apos;e_&apos;</span>, <span class="string">&apos;f_&apos;</span>, <span class="string">&apos;g_&apos;</span>,</span><br><span class="line">	       <span class="string">&apos;h_&apos;</span>, <span class="string">&apos;i_&apos;</span>, <span class="string">&apos;j_&apos;</span>, <span class="string">&apos;k_&apos;</span>,</span><br><span class="line">	       <span class="string">&apos;o_&apos;</span>, <span class="string">&apos;p_&apos;</span>,</span><br><span class="line">	       <span class="string">&apos;l_&apos;</span>, <span class="string">&apos;m_&apos;</span>, <span class="string">&apos;n_&apos;</span>,</span><br><span class="line">	       <span class="string">&apos;order11&apos;</span>, <span class="string">&apos;order12&apos;</span>])</span><br><span class="line">sum_all = np.array([a_, b_, c_, d_,</span><br><span class="line">		    e_, f_, g_,</span><br><span class="line">		    h_, i_, j_, k_,</span><br><span class="line">		    l_, m_, n_,</span><br><span class="line">		    o_, p_,</span><br><span class="line">		    order11, order12])</span><br><span class="line"></span><br><span class="line">print(sum_all.<span class="built_in">sum</span>())</span><br><span class="line">print(<span class="number">11</span> * <span class="number">9</span> * <span class="number">105</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">zip</span>(di, sum_all):</span><br><span class="line">    print(i)</span><br><span class="line">print(h_ + j_ + n_ + <span class="number">12</span> * <span class="number">24</span>)</span><br><span class="line">print(<span class="number">12</span>*(<span class="number">24</span> + <span class="number">72</span> + <span class="number">9</span>))</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb70c07f" class="outline-2">
+<h2 id="orgb70c07f">Reference</h2>
+<div class="outline-text-2" id="text-orgb70c07f">
+<ul class="org-ul">
+<li>Zee, A. Quantum field theory in a nutshell. (Princeton University Press,
+2010). I.7 Feynman Diagrams</li>
+
+<li><a href="https://physics.stackexchange.com/questions/73382/symmetry-factor-of-a-second-order-four-point-function-term-of-the-phi4-theor" target="_blank" rel="noopener">https://physics.stackexchange.com/questions/73382/symmetry-factor-of-a-second-order-four-point-function-term-of-the-phi4-theor</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/physics/" rel="tag"># physics</a>
+          
+            <a href="/tags/Quantum-Field-Theory/" rel="tag"># Quantum Field Theory</a>
+          
+            <a href="/tags/Feynman-Diagram/" rel="tag"># Feynman Diagram</a>
+          
+            <a href="/tags/Scaler-Field/" rel="tag"># Scaler Field</a>
+          
+            <a href="/tags/Phi-4-Theory/" rel="tag"># Phi-4 Theory</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/03/19/SusskindsParticlePhysicsI/" rel="next" title="Susskind's Particle Pyhsics Note">
+                <i class="fa fa-chevron-left"></i> Susskind's Particle Pyhsics Note
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc69c7e6"><span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org4f9dcdb"><span class="nav-text">Symmetry Factor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org777cf4d"><span class="nav-text">Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgb70c07f"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
