@@ -294,7 +294,7 @@ quasi-particle 的激发是 gapless 的, 但是现在有了一个 $\Delta$ 的 g
 
 还会发现  $\Delta \to 0$ 的时候
 \begin{align}
-  |BCS\rangle \to |FS\rangle \quad , \quad |k| < k_{\mathrm{F}}
+  |BCS\rangle \to |FS\rangle \quad , \quad |k| < k_{\mathrm{F}} \\
   |BCS\rangle \to |0\rangle, \quad |k| > k_{\mathrm{F}}
 \end{align}
 也就是费米海下面是全占的, 费米海上面是全空的.
@@ -394,7 +394,7 @@ number equation
 \end{align}
 也就是
 \begin{align}
-  \frac{k_{\mathrm{F}}^3}{6\pi} = \frac{1}{V}\sum_{\vec{k}}\frac{1}{2}\left( 
+  \frac{k_{\mathrm{F}}^3}{6\pi^2} = \frac{1}{V}\sum_{\vec{k}}\frac{1}{2}\left( 
       \frac{\epsilon_k - \mu}{\sqrt{(\epsilon_k - \mu)^2 + \Delta^2}} \right)
 \end{align}
 之前已经看到, $v_k$ 在费米面以下是趋于 $1$ 的, 在费米面以上是趋于 $0$ 的. 把它求
