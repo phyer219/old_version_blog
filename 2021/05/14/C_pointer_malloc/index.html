@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="C,array,malloc,memory leak">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C 中的指针与动态内存分配">
+<meta property="og:url" content="https://zqw.ink/2021/05/14/C_pointer_malloc/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2021/05/14/C_pointer_malloc/memory_leak_res.png">
+<meta property="og:updated_time" content="2021-05-14T10:16:34.779Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C 中的指针与动态内存分配">
+<meta name="twitter:image" content="https://zqw.ink/2021/05/14/C_pointer_malloc/memory_leak_res.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2021/05/14/C_pointer_malloc/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>C 中的指针与动态内存分配 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-rfp-docs">
+    <a href="/rfp/_build/html" rel="section">rfp docs</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/05/14/C_pointer_malloc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C 中的指针与动态内存分配
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-05-14 00:00:00" itemprop="dateCreated datePublished" datetime="2021-05-14T00:00:00+08:00">2021-05-14</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件使用/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/05/14/C_pointer_malloc/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/05/14/C_pointer_malloc/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<p>
+&#x4E3B;&#x8981;&#x662F;&#x4E3A; Reference &#x5B58;&#x4E2A;&#x4E66;&#x7B7E;.
+</p>
+
+<div id="outline-container-orge5d1c1a" class="outline-2">
+<h2 id="orge5d1c1a">Pointers</h2>
+<div class="outline-text-2" id="text-orge5d1c1a">
+<p>
+&#x5728;&#x5199;&#x7A0B;&#x5E8F;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;, array &#x662F;&#x76F8;&#x5F53;&#x6709;&#x7528;&#x7684;. &#x4F46;&#x662F; array &#x662F;&#x9759;&#x6001;&#x7684;, &#x4E5F;&#x5C31;&#x662F;&#x5B83;&#x7684;&#x5927;&#x5C0F;&#x4E0D;&#x80FD;&#x6539;
+&#x53D8;. &#x6B64;&#x65F6;&#x6307;&#x9488;&#x5C31;&#x6D3E;&#x4E0A;&#x7528;&#x573A;.
+</p>
+
+<p>
+&#x5728; C &#x4E2D;, pointer &#x8868;&#x793A;&#x4E00;&#x4E2A; data &#x7684;&#x5185;&#x5B58;&#x5730;&#x5740;. &#x5982;&#x679C;&#x4E00;&#x4E2A; pointer &#x4E3A; 0, &#x90A3;&#x5B83;&#x53EB;&#x505A; null
+pointer, &#x4E5F;&#x53EB; NULL , &quot;nil&quot; .
+</p>
+</div>
+</div>
+
+<div id="outline-container-org597f73a" class="outline-2">
+<h2 id="org597f73a">Declarations</h2>
+<div class="outline-text-2" id="text-org597f73a">
+<p>
+&#x6307;&#x9488;&#x58F0;&#x660E;&#x7684;&#x65B9;&#x5F0F;&#x662F;, &#x5728;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x524D;&#x52A0;&#x4E00;&#x4E2A; <code>*</code>. &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *ip;</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x58F0;&#x660E;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <code>ip</code> &#x7684; pointer &#x6307;&#x5411;&#x4E00;&#x4E2A;&#x6574;&#x6570;.
+</p>
+
+<p>
+&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x7528;&#x7B97;&#x7B26; <code>&amp;</code> (address-of) . &#x987E;&#x540D;&#x601D;&#x4E49;, &#x5B83;&#x4F5C;&#x7528;&#x5230;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x540E;, &#x5F97;&#x5230;&#x5B83;
+&#x7684;&#x5730;&#x5740;. &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *ip;</span><br><span class="line"><span class="keyword">int</span> x;</span><br><span class="line">x = <span class="number">42</span>;</span><br><span class="line">ip = &amp;x;</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x5C06; <code>42</code> &#x8D4B;&#x503C;&#x7ED9; <code>x</code>, &#x5C06; <code>x</code> &#x7684;&#x5730;&#x5740;&#x8D4B;&#x503C;&#x7ED9; <code>ip</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org15ef605" class="outline-2">
+<h2 id="org15ef605">Using a pointer</h2>
+<div class="outline-text-2" id="text-org15ef605">
+<p>
+&#x4F7F;&#x7528; pointer &#x7684;&#x65B9;&#x6CD5;&#x662F;&#x4F7F;&#x7528;&#x7B97;&#x7B26; <code>*</code> , &#x5B83;&#x53EB;&#x505A; dereference operator. &#x5B83;&#x4F5C;&#x7528;&#x5728;&#x4E00;&#x4E2A;&#x6307;&#x9488;
+&#x4E0A;, &#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x5B83;&#x6307;&#x5411;&#x7684;&#x5185;&#x5B58;&#x5730;&#x5740;&#x4E2D;&#x7684;&#x503C;.
+</p>
+
+<div class="org-src-container">
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, x, *ip);</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x4F1A;&#x8F93;&#x51FA; <code>42 42</code> .
+</p>
+
+<p>
+&#x4E5F;&#x53EF;&#x4EE5;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">*ip = <span class="number">37</span>;</span><br></pre></td></tr></table></figure>
+</div>
+<p>
+&#x6B64;&#x65F6;, &#x8FD9;&#x5757;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x503C;&#x5C31;&#x53D8;&#x6210;&#x4E86; <code>37</code> .
+</p>
+</div>
+</div>
+
+<div id="outline-container-org669c4d8" class="outline-2">
+<h2 id="org669c4d8">Memory allocation and deallocation</h2>
+<div class="outline-text-2" id="text-org669c4d8">
+<p>
+&#x4E00;&#x822C;&#x6765;&#x8BB2;, &#x628A;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#x6307;&#x5411;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;, &#x6CA1;&#x4EC0;&#x4E48;&#x7528;. &#x771F;&#x6B63;&#x6709;&#x7528;&#x7684;&#x662F;&#x7528;&#x5B83;&#x6765;&#x5206;&#x914D;&#x4E00;&#x5757;
+&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x7684;&#x5185;&#x5B58;. &#x8FD9;&#x4F7F;&#x5F97;&#x7A0B;&#x5E8F;&#x80FD;&#x591F;&#x5904;&#x7406;&#x5927;&#x91CF;&#x7684;&#x5185;&#x5B58;.
+</p>
+
+<p>
+&#x57FA;&#x672C;&#x7684;&#x5185;&#x5B58;&#x5206;&#x914D;&#x51FD;&#x6570;&#x662F;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">void</span> *) <span class="built_in">malloc</span>(<span class="keyword">size_t</span> numbytes);</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x5B83;&#x7684;&#x610F;&#x601D;&#x662F;&#x5206;&#x51FA;&#x4E00;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x5185;&#x5B58;&#x7A7A;&#x95F4;, &#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x5B83;&#x7684;&#x6307;&#x9488;. &#x7531;&#x4E8E;  malloc &#x4E0D;&#x77E5;&#x9053;&#x4F60;
+&#x60F3;&#x8981;&#x4EC0;&#x4E48;&#x7C7B;&#x578B;&#x7684;&#x6307;&#x9488;, &#x5B83;&#x8FD4;&#x56DE;&#x7684;&#x662F; pointer to void, &#x4E5F;&#x5C31;&#x662F;&#x6307;&#x5411;&#x4E00;&#x5757;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x4E0D;&#x660E;&#x7684;&#x533A;&#x57DF;.
+</p>
+
+<p>
+&#x5E38;&#x7528;&#x7684;&#x662F;&#x628A;&#x5B83;&#x548C;&#x5185;&#x7F6E;&#x7B97;&#x7B26; <code>sizeof()</code> &#x653E;&#x5728;&#x4E00;&#x8D77;&#x7528;. <code>sizeof()</code> &#x8FD4;&#x56DE;&#x7279;&#x5B9A;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x6BD4;&#x7279;
+&#x6570;. &#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *ip;</span><br><span class="line">ip = (<span class="keyword">int</span> *) <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x8FD9;&#x5C06;&#x5206;&#x914D;&#x51FA; 1 &#x4E2A; <code>int</code> &#x5927;&#x5C0F;&#x7684;&#x5185;&#x5B58;, &#x5C06;&#x5176;&#x6307;&#x9488;&#x7ED9; <code>ip</code> .
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc629ba5" class="outline-2">
+<h2 id="orgc629ba5">Pointers and arrays</h2>
+<div class="outline-text-2" id="text-orgc629ba5">
+<p>
+&#x5206;&#x914D;&#x5355;&#x4E2A;&#x6574;&#x578B;&#x5927;&#x5C0F;&#x7684;&#x5185;&#x5B58;&#x6CA1;&#x4EC0;&#x4E48;&#x7528;, &#x6709;&#x7528;&#x7684;&#x662F; allocate arrays. &#x5B9E;&#x9645;&#x4E0A;, &#x6307;&#x9488;&#x53EF;&#x4EE5;&#x5F53;&#x4F5C;&#x4E00;
+&#x4E2A; array &#x7528;. &#x5982;
+</p>
+<div class="org-src-container">
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *ip;</span><br><span class="line">ip = (<span class="keyword">int</span> *) <span class="built_in">malloc</span>( <span class="keyword">sizeof</span>(<span class="keyword">int</span>)*<span class="number">10</span> ); <span class="comment">// allocate 10 ints</span></span><br><span class="line">ip[<span class="number">6</span>] = <span class="number">42</span>; <span class="comment">// set the 7th element to 42</span></span><br><span class="line">ip[<span class="number">10</span>] = <span class="number">99</span>; <span class="comment">// WRONG: array only has 10 elements</span></span><br><span class="line">(<span class="keyword">this</span> would corrupted memory!)</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge1bb485" class="outline-2">
+<h2 id="orge1bb485">Freeing memory, and memory leaks</h2>
+<div class="outline-text-2" id="text-orge1bb485">
+<p>
+&#x5982;&#x679C;&#x6709;&#x4EE5;&#x4E0B; code
+</p>
+
+<div class="org-src-container">
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *ip;</span><br><span class="line">ip = (<span class="keyword">int</span> *) <span class="built_in">malloc</span>( <span class="keyword">sizeof</span>(<span class="keyword">int</span>)*<span class="number">10</span> ); <span class="comment">// allocate 10 ints</span></span><br><span class="line">... (use the <span class="built_in">array</span>, etc.)</span><br><span class="line">ip = (<span class="keyword">int</span> *) <span class="built_in">malloc</span>( <span class="keyword">sizeof</span>(<span class="keyword">int</span>)*<span class="number">100</span> ); <span class="comment">// allocate 100 ints</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x5B83;&#x6CA1;&#x6709;&#x91D1;&#x9F13;&#x9F50;&#x9E23;. &#x53EF;&#x4EE5;&#x7ED9;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#x91CD;&#x65B0;&#x8D4B;&#x503C;. &#x4F46;&#x662F;&#x91CD;&#x65B0;&#x8D4B;&#x503C;&#x4E4B;&#x540E;, &#x4E4B;&#x524D;&#x5206;&#x51FA;&#x7684;&#x90A3; 10 ints
+&#x7684;&#x5185;&#x5B58;&#x5462;? &#x7B54;&#x6848;&#x662F;&#x5B83;&#x6C38;&#x8FDC;&#x5730;&#x6D88;&#x5931;&#x4E86;, &#x76F4;&#x5230;&#x7A0B;&#x5E8F;&#x7ED3;&#x675F;. &#x8FD9;&#x53EB;&#x5185;&#x5B58;(memory leak). &#x867D;&#x7136;&#x8FD9; 10
+ints &#x5185;&#x5B58;&#x662F;&#x88AB;&#x5206;&#x914D;&#x7684;, &#x4F46;&#x7A0B;&#x5E8F;&#x518D;&#x4E5F;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x5185;&#x5B58;&#x4E86;.
+</p>
+
+<p>
+&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x662F;, &#x5728; C &#x6216;&#x8005; C++ &#x4E2D;, &#x5F53;&#x88AB;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x7528;&#x5B8C;&#x540E;, &#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>free()</code> &#x6765;&#x91CA;&#x653E;&#x5185;&#x5B58;.
+&#x5982;
+</p>
+
+<div class="org-src-container">
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">ip = (<span class="keyword">int</span> *) <span class="built_in">malloc</span>( <span class="keyword">sizeof</span>(<span class="keyword">int</span>)*<span class="number">10</span> ); <span class="comment">// allocate 10 ints</span></span><br><span class="line">... (use the <span class="built_in">array</span>, etc.)</span><br><span class="line"><span class="built_in">free</span>(ip); <span class="comment">// de-allocate old array</span></span><br><span class="line">ip = (<span class="keyword">int</span> *) <span class="built_in">malloc</span>( <span class="keyword">sizeof</span>(<span class="keyword">int</span>)*<span class="number">100</span> ); <span class="comment">// allocate 100 ints</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x4E0A;&#x9762;&#x7684; code &#x5C31;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;. &#x6709;&#x4E00;&#x4E9B;&#x8BED;&#x8A00; (&#x5982; Java) &#x4F1A;&#x81EA;&#x52A8;&#x6E05;&#x7406;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;, &#x8FD9;&#x53EB;
+automatic garbage collection , &#x4F46;&#x662F; C &#x548C; C++ &#x6CA1;&#x6709;&#x8FD9;&#x79CD;&#x673A;&#x5236;. &#x6240;&#x4EE5;&#x4F60;&#x5728;&#x7528;&#x5B8C;&#x540E;, &#x5E94;&#x8BE5;
+&#x8D1F;&#x8D23;&#x91CA;&#x653E;&#x6389;&#x5B83;&#x4EEC;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org65c18fe" class="outline-2">
+<h2 id="org65c18fe">Pointers and arrays</h2>
+<div class="outline-text-2" id="text-org65c18fe">
+<p>
+pointers &#x53EF;&#x4EE5;&#x7528; array &#x7684;&#x6307;&#x6807;, &#x6216;&#x8005;&#x8BF4;, &#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x7684;&#x540D;&#x5B57;&#x672C;&#x8D28;&#x4E0A;&#x5C31;&#x662F;&#x4E00;&#x4E2A; constant
+pointer.
+</p>
+
+<div class="org-src-container">
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *p;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">10</span>];</span><br><span class="line">p = (<span class="keyword">int</span>*) <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*<span class="number">20</span>);</span><br><span class="line">p[<span class="number">2</span>] = <span class="number">100</span>; <span class="comment">// set 3rd element in alloc&apos;d array to 100</span></span><br><span class="line">*(p+<span class="number">2</span>) = <span class="number">100</span>; <span class="comment">// same thing</span></span><br><span class="line">a[<span class="number">2</span>] = <span class="number">200</span>; <span class="comment">// set 3rd element in regulary array to 200</span></span><br><span class="line">*(a+<span class="number">2</span>) = <span class="number">200</span>; <span class="comment">// same thing</span></span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x6307;&#x9488;&#x548C;&#x6570;&#x7EC4;&#x662F;&#x4E0D;&#x540C;&#x7684;, &#x4F46;&#x662F;&#x5F53;&#x6307;&#x9488;&#x88AB;&#x7528;&#x6765; access &#x4E00;&#x5757;&#x533A;&#x57DF;&#x65F6;, &#x7528;&#x6CD5;&#x662F;&#x4E00;&#x6837;&#x7684;. &#x4F46;&#x662F;
+</p>
+
+<blockquote>
+<ul class="org-ul">
+<li><p>
+the array declares a block of some datatype while a pointer only declares
+space for itself (the data area needs malloc&apos;d)
+</p>
+
+<p>
+&#x6570;&#x7EC4;&#x4F1A;&#x58F0;&#x660E;&#x4E00;&#x5757;&#x7279;&#x5B9A;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x533A;&#x57DF;, &#x800C;&#x6307;&#x9488;&#x53EA;&#x4F1A;&#x58F0;&#x660E;&#x8FD9;&#x5757;&#x7A7A;&#x95F4;&#x672C;&#x8EAB;.
+</p></li>
+
+<li><p>
+The address of the array (i.e., a pointer to it) is not stored anywhere; the
+compiler figures it out while it is compiling your program, so when you use
+the array name as a pointer, you are essentially using a constant number as
+an address.
+</p>
+
+<p>
+&#x6570;&#x7EC4;&#x7684;&#x5730;&#x5740;&#x6CA1;&#x6709;&#x5B58;&#x5728;&#x4EFB;&#x4F55;&#x5730;&#x65B9;, &#x7F16;&#x8BD1;&#x5668;&#x7F16;&#x8BD1;&#x7684;&#x65F6;&#x5019;&#x624D;&#x641E;&#x6E05;&#x5B83;. &#x6240;&#x4EE5;&#x5C06;&#x6570;&#x7EC4;&#x7684;&#x540D;&#x5B57;&#x5F53;&#x4F5C;&#x6307;&#x9488;
+&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;, &#x672C;&#x8D28;&#x4E0A;&#x662F;&#x5C06;&#x4E00;&#x4E2A;&#x5E38;&#x6570;&#x5F53;&#x4F5C;&#x5730;&#x5740;&#x4F7F;&#x7528;.
+</p></li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgbc37cf8" class="outline-2">
+<h2 id="orgbc37cf8">Pointers and arrays as arguments</h2>
+<div class="outline-text-2" id="text-orgbc37cf8">
+<p>
+&#x6709;&#x4E00;&#x4E2A;&#x5730;&#x65B9;,&#x6307;&#x9488;&#x548C;&#x6570;&#x7EC4;&#x51E0;&#x4E4E;&#x662F;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x7684;, &#x90A3;&#x5C31;&#x662F; &#x5F53;&#x5B83;&#x4EEC;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x7684;&#x65F6;&#x5019;. &#x8FD9;
+&#x662F;&#x56E0;&#x4E3A; agruments pass only the address of the array to the function. &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6570;
+&#x7EC4;&#x4F5C;&#x4E3A;&#x6307;&#x9488;&#x4F20;&#x9012;.
+</p>
+
+<p>
+&#x5728; C &#x4E2D;, &#x5927;&#x90E8;&#x5206;&#x503C;&#x7684;&#x4F20;&#x9012;&#x65B9;&#x6CD5;&#x662F; call-by-value, &#x51FD;&#x6570;&#x5F97;&#x5230;&#x7684;&#x662F;&#x503C;&#x7684;&#x4E00;&#x4E2A;&#x526F;&#x672C;, &#x51FD;&#x6570;&#x4E0D;&#x4F1A;
+&#x6539;&#x53D8;&#x539F;&#x6765;&#x7684;&#x503C;. &#x4F46;&#x6570;&#x7EC4;&#x7684;&#x4F20;&#x9012;&#x65B9;&#x6CD5;&#x662F; call-by-reference, &#x4F20;&#x9012;&#x7684;&#x662F;&#x6307;&#x9488;, &#x800C;&#x4E0D;&#x662F;&#x6570;&#x7EC4;&#x672C;
+&#x8EAB;.
+</p>
+
+<p>
+&#x5982;&#x679C;&#x4F20;&#x9012;&#x6570;&#x7EC4;&#x65F6;, &#x4F20;&#x9012;&#x4E00;&#x4E2A;&#x526F;&#x672C;&#x7684;&#x8BDD;, &#x5F53;&#x6570;&#x7EC4;&#x975E;&#x5E38;&#x5927;&#x65F6;, &#x90A3;&#x662F;&#x975E;&#x5E38;&#x6D6A;&#x8D39;&#x7684;. &#x6240;&#x4EE5;&#x6570;&#x503C;&#x7684;&#x4F20;&#x9012;
+&#x65B9;&#x6CD5;&#x662F; call-by-reference. &#x8FD9;&#x4E5F;&#x610F;&#x5473;&#x7740;&#x51FD;&#x6570;&#x4E2D;&#x5BF9;&#x6570;&#x7EC4;&#x7684;&#x4FEE;&#x6539;, &#x4F1A;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x539F;&#x6765;&#x7684;&#x6570;&#x7EC4;.
+</p>
+
+<p>
+&#x56E0;&#x6B64;, &#x4E0B;&#x9762;&#x7684;&#x58F0;&#x660E;&#x662F;&#x7B49;&#x4EF7;&#x7684;
+</p>
+<div class="org-src-container">
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> A[])</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> *A)</span></span>;</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb4d39d8" class="outline-2">
+<h2 id="orgb4d39d8">How to dynamically allocate a 2D array in C?</h2>
+<div class="outline-text-2" id="text-orgb4d39d8">
+<p>
+&#x6709;&#x56DB;&#x79CD;&#x65B9;&#x6CD5;&#x80FD;&#x591F;&#x52A8;&#x6001;&#x7684;&#x7ED9;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#x8D4B;&#x503C;. &#x6BD4;&#x5982;
+</p>
+<div class="org-src-container">
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span></span><br><span class="line"><span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span></span><br><span class="line"><span class="number">9</span>  <span class="number">10</span> <span class="number">11</span> <span class="number">12</span></span><br></pre></td></tr></table></figure>
+</div>
+</div>
+
+<div id="outline-container-org540a6d4" class="outline-3">
+<h3 id="org540a6d4">1. Using a single pointer</h3>
+<div class="outline-text-3" id="text-org540a6d4">
+<div class="org-src-container">
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> r = <span class="number">3</span>, c = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">int</span> *arr = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(r * c * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i, j, count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt;  r; i++)</span><br><span class="line">      <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; c; j++)</span><br><span class="line">	 *(arr + i*c + j) = ++count;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt;  r; i++)</span><br><span class="line">      <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; c; j++)</span><br><span class="line">	 <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, *(arr + i*c + j));</span><br><span class="line"></span><br><span class="line">   <span class="comment">/* Code for further processing and free the</span></span><br><span class="line"><span class="comment">      dynamically allocated memory */</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf9d78cf" class="outline-3">
+<h3 id="orgf9d78cf">2. Using an array of pointers</h3>
+<div class="outline-text-3" id="text-orgf9d78cf">
+<div class="org-src-container">
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">int</span> r = <span class="number">3</span>, c = <span class="number">4</span>, i, j, count;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> *arr[r];</span><br><span class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;r; i++)</span><br><span class="line">		arr[i] = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(c * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Note that arr[i][j] is same as *(*(arr+i)+j)</span></span><br><span class="line">	count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; r; i++)</span><br><span class="line">	<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; c; j++)</span><br><span class="line">		arr[i][j] = ++count; <span class="comment">// Or *(*(arr+i)+j) = ++count</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; r; i++)</span><br><span class="line">	<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; c; j++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, arr[i][j]);</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Code for further processing and free the</span></span><br><span class="line"><span class="comment">	dynamically allocated memory */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5793f14" class="outline-3">
+<h3 id="org5793f14">3. Using pointer to a pointer</h3>
+<div class="outline-text-3" id="text-org5793f14">
+<div class="org-src-container">
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">int</span> r = <span class="number">3</span>, c = <span class="number">4</span>, i, j, count;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> **arr = (<span class="keyword">int</span> **)<span class="built_in">malloc</span>(r * <span class="keyword">sizeof</span>(<span class="keyword">int</span> *));</span><br><span class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;r; i++)</span><br><span class="line">		arr[i] = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(c * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Note that arr[i][j] is same as *(*(arr+i)+j)</span></span><br><span class="line">	count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; r; i++)</span><br><span class="line">	<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; c; j++)</span><br><span class="line">		arr[i][j] = ++count; <span class="comment">// OR *(*(arr+i)+j) = ++count</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; r; i++)</span><br><span class="line">	<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; c; j++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, arr[i][j]);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Code for further processing and free the</span></span><br><span class="line"><span class="comment">	dynamically allocated memory */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd744ff1" class="outline-3">
+<h3 id="orgd744ff1">4. Using double pointer and one malloc call</h3>
+<div class="outline-text-3" id="text-orgd744ff1">
+<div class="org-src-container">
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">int</span> r=<span class="number">3</span>, c=<span class="number">4</span>, len=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> *ptr, **arr;</span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">0</span>,i,j;</span><br><span class="line"></span><br><span class="line">	len = <span class="keyword">sizeof</span>(<span class="keyword">int</span> *) * r + <span class="keyword">sizeof</span>(<span class="keyword">int</span>) * c * r;</span><br><span class="line">	arr = (<span class="keyword">int</span> **)<span class="built_in">malloc</span>(len);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// ptr is now pointing to the first element in of 2D array</span></span><br><span class="line">	ptr = (<span class="keyword">int</span> *)(arr + r);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// for loop to point rows pointer to appropriate location in 2D array</span></span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; r; i++)</span><br><span class="line">		arr[i] = (ptr + c * i);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; r; i++)</span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; c; j++)</span><br><span class="line">			arr[i][j] = ++count; <span class="comment">// OR *(*(arr+i)+j) = ++count</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; r; i++)</span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; c; j++)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, arr[i][j]);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org24baed5" class="outline-2">
+<h2 id="org24baed5">Memory leak</h2>
+<div class="outline-text-2" id="text-org24baed5">
+<p>
+&#x4E0B;&#x9762;&#x7684; code &#x53EF;&#x4EE5;&#x6F14;&#x793A;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;
+</p>
+<div class="org-src-container">
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">include &lt;stdio.h&gt;</span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"> </span>{</span><br><span class="line">     <span class="keyword">void</span>* s;</span><br><span class="line">     s = <span class="built_in">malloc</span>(<span class="number">50</span>); <span class="comment">/* &#x7533;&#x8BF7;&#x5185;&#x5B58;&#x7A7A;&#x95F4; */</span></span><br><span class="line">     <span class="keyword">return</span>;  <span class="comment">/* &#x5185;&#x5728;&#x6CC4;&#x6F0F; - &#x53C2;&#x89C1;&#x4EE5;&#x4E0B;&#x8D44;&#x6599; */</span></span><br><span class="line">     <span class="comment">/*</span></span><br><span class="line"><span class="comment">      * s &#x6307;&#x5411;&#x65B0;&#x5206;&#x914D;&#x7684;&#x5806;&#x7A7A;&#x95F4;&#x3002;</span></span><br><span class="line"><span class="comment">      * &#x5F53;&#x6B64;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#xFF0C;&#x79BB;&#x5F00;&#x5C40;&#x90E8;&#x53D8;&#x91CF;s&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x540E;&#x5C06;&#x65E0;&#x6CD5;&#x5F97;&#x77E5;s&#x7684;&#x503C;&#xFF0C;</span></span><br><span class="line"><span class="comment">      * &#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x4E0D;&#x80FD;&#x88AB;&#x91CA;&#x653E;&#x3002;</span></span><br><span class="line"><span class="comment">      *</span></span><br><span class="line"><span class="comment">      * &#x5982;&#x8981;&#x300C;&#x4FEE;&#x590D;&#x300D;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5FC5;&#x987B;&#x60F3;&#x529E;&#x6CD5;&#x91CA;&#x653E;&#x5206;&#x914D;&#x7684;&#x5806;&#x7A7A;&#x95F4;&#xFF0C;</span></span><br><span class="line"><span class="comment">      * &#x4E5F;&#x53EF;&#x4EE5;&#x7528;alloca(3)&#x4EE3;&#x66FF;malloc(3)&#x3002;</span></span><br><span class="line"><span class="comment">      * &#xFF08;&#x6CE8;&#x610F;&#xFF1A;alloca(3)&#x65E2;&#x4E0D;&#x662F;ANSI&#x51FD;&#x6570;&#x4E5F;&#x4E0D;&#x662F;POSIX&#x51FD;&#x6570;&#xFF09;</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line"> }</span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"> </span>{</span><br><span class="line">     <span class="comment">/* &#x8BE5;&#x51FD;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x6B7B;&#x5FAA;&#x73AF;&#x51FD;&#x6570; */</span></span><br><span class="line">     <span class="keyword">while</span> (<span class="number">1</span>) f(); <span class="comment">/* Malloc&#x51FD;&#x6570;&#x8FDF;&#x65E9;&#x4F1A;&#x7531;&#x4E8E;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x800C;&#x8FD4;&#x56DE;NULL*/</span></span><br><span class="line">     <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> }</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+&#x7ED3;&#x679C;&#x662F;&#x51E0;&#x79D2;&#x540E;&#x5185;&#x5B58;&#x5C31;&#x6EE1;&#x4E86;. &#x4F46;&#x662F;&#x7CFB;&#x7EDF;&#x4F1A;&#x6709;&#x4FDD;&#x62A4;&#x673A;&#x5236;? &#x76F4;&#x63A5;&#x6740;&#x6389;&#x4E86;&#x8FDB;&#x7A0B;(<a href="memory_leak.c">memory<sub>leak.c</sub></a> <a href="makefile">makefile</a>):
+</p>
+
+
+<div id="orgb0ccc6e" class="figure">
+<p><img src="/2021/05/14/C_pointer_malloc/memory_leak_res.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org450adc4" class="outline-2">
+<h2 id="org450adc4">Reference</h2>
+<div class="outline-text-2" id="text-org450adc4">
+<ul class="org-ul">
+<li><a href="https://www.cs.nmsu.edu/~rth/cs/cs271/notes/Pointers.html" target="_blank" rel="noopener">https://www.cs.nmsu.edu/~rth/cs/cs271/notes/Pointers.html</a></li>
+
+<li><a href="https://www.geeksforgeeks.org/dynamically-allocate-2d-array-c/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/dynamically-allocate-2d-array-c/</a></li>
+
+<li><a href="https://zh.wikipedia.org/zh-cn/%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F" target="_blank" rel="noopener">wikipedia: &#x5185;&#x5B58;&#x6CC4;&#x6F0F;</a></li>
+
+<li><a href="https://en.wikipedia.org/wiki/Dereference_operator" target="_blank" rel="noopener">wikipeida: Dereference operator</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C</a>
+          
+            <a href="/tags/array/" rel="tag"># array</a>
+          
+            <a href="/tags/malloc/" rel="tag"># malloc</a>
+          
+            <a href="/tags/memory-leak/" rel="tag"># memory leak</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/04/27/Symmetry_Factor_Scaler_Field/" rel="next" title="Symmetry Factor of φ-4 Scaler Field">
+                <i class="fa fa-chevron-left"></i> Symmetry Factor of φ-4 Scaler Field
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orge5d1c1a"><span class="nav-text">Pointers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org597f73a"><span class="nav-text">Declarations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org15ef605"><span class="nav-text">Using a pointer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org669c4d8"><span class="nav-text">Memory allocation and deallocation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc629ba5"><span class="nav-text">Pointers and arrays</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orge1bb485"><span class="nav-text">Freeing memory, and memory leaks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org65c18fe"><span class="nav-text">Pointers and arrays</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgbc37cf8"><span class="nav-text">Pointers and arrays as arguments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgb4d39d8"><span class="nav-text">How to dynamically allocate a 2D array in C?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org540a6d4"><span class="nav-text">1. Using a single pointer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgf9d78cf"><span class="nav-text">2. Using an array of pointers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org5793f14"><span class="nav-text">3. Using pointer to a pointer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd744ff1"><span class="nav-text">4. Using double pointer and one malloc call</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org24baed5"><span class="nav-text">Memory leak</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org450adc4"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
