@@ -110,24 +110,27 @@
 
 
 
-  <meta name="keywords" content="numerical stability,unstable method">
+  <meta name="keywords" content="mathematics,complex analysis,integral,residue theorem">
 <meta property="og:type" content="article">
-<meta property="og:title" content="unstable method 的例子">
-<meta property="og:url" content="https://zqw.ink/2021/05/15/unstable_method/index.html">
+<meta property="og:title" content="一个神奇的积分与一个有意思的积分">
+<meta property="og:url" content="https://zqw.ink/2021/05/25/Amazing_Integral/index.html">
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://zqw.ink/2021/05/15/unstable_method/unstable_method.png">
-<meta property="og:updated_time" content="2021-05-15T07:57:04.484Z">
+<meta property="og:image" content="https://zqw.ink/2021/05/25/Amazing_Integral/diverge.png">
+<meta property="og:image" content="https://zqw.ink/2021/05/25/Amazing_Integral/C10.png">
+<meta property="og:image" content="https://zqw.ink/2021/05/25/Amazing_Integral/C1.png">
+<meta property="og:image" content="https://zqw.ink/2021/05/25/Amazing_Integral/C2.png">
+<meta property="og:updated_time" content="2021-05-25T09:54:50.089Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="unstable method 的例子">
-<meta name="twitter:image" content="https://zqw.ink/2021/05/15/unstable_method/unstable_method.png">
+<meta name="twitter:title" content="一个神奇的积分与一个有意思的积分">
+<meta name="twitter:image" content="https://zqw.ink/2021/05/25/Amazing_Integral/diverge.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zqw.ink/2021/05/15/unstable_method/"/>
+  <link rel="canonical" href="https://zqw.ink/2021/05/25/Amazing_Integral/"/>
 
 
 
@@ -137,7 +140,7 @@
   };
 </script>
 
-  <title>unstable method 的例子 | 从冰上的水</title>
+  <title>一个神奇的积分与一个有意思的积分 | 从冰上的水</title>
   
 
 
@@ -324,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/05/15/unstable_method/">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/05/25/Amazing_Integral/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZQW">
@@ -341,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">unstable method 的例子
+          <h1 class="post-title" itemprop="name headline">一个神奇的积分与一个有意思的积分
               
             
           </h1>
@@ -366,7 +369,7 @@
                 
               
 
-              <time title="创建时间：2021-05-15 00:00:00" itemprop="dateCreated datePublished" datetime="2021-05-15T00:00:00+08:00">2021-05-15</time>
+              <time title="创建时间：2021-05-25 00:00:00" itemprop="dateCreated datePublished" datetime="2021-05-25T00:00:00+08:00">2021-05-25</time>
             
 
             
@@ -384,7 +387,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件使用/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
 
                 
                 
@@ -399,8 +402,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/05/15/unstable_method/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/05/15/unstable_method/" itemprop="commentCount"></span>
+                <a href="/2021/05/25/Amazing_Integral/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/05/25/Amazing_Integral/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -432,23 +435,200 @@
 <!-- toc -->
 <a id="more"></a>
 
-<div class="org-src-container">
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unstable</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; float:</span></span><br><span class="line">    p = []</span><br><span class="line">    p.append(<span class="number">1</span>)</span><br><span class="line">    p.append((np.sqrt(<span class="number">5</span>) - <span class="number">1</span>) / <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n-<span class="number">1</span>):</span><br><span class="line">	i += <span class="number">1</span></span><br><span class="line">	p.append(p[i-<span class="number">1</span>] - p[i])</span><br><span class="line">    <span class="keyword">return</span> p[-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">stable</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; float:</span></span><br><span class="line">    <span class="keyword">return</span> ((np.sqrt(<span class="number">5</span>) - <span class="number">1</span>) / <span class="number">2</span>)**n</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">n = <span class="number">80</span></span><br><span class="line">x = []</span><br><span class="line">y_unstable = []</span><br><span class="line">y_stable = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">    x.append(i)</span><br><span class="line">    y_unstable.append(unstable(i))</span><br><span class="line">    y_stable.append(stable(i))</span><br><span class="line"></span><br><span class="line">plt.plot(x, y_unstable, <span class="string">&apos;-x&apos;</span>, label=<span class="string">&quot;unstable&quot;</span>)</span><br><span class="line">plt.plot(x, y_stable, label=<span class="string">&quot;stable&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">r&apos;$n$&apos;</span>)</span><br><span class="line">plt.ylabel(<span class="string">r&apos;$\left(\frac{\sqrt{5} - 1}{2}\right)^n$&apos;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.savefig(<span class="string">&apos;unstable_method.png&apos;</span>)</span><br></pre></td></tr></table></figure>
-</div>
 
+<div id="outline-container-orga4ae6f5" class="outline-2">
+<h2 id="orga4ae6f5">&#x79EF;&#x5206;&#x4E4B;&#x4E00;: &#x795E;&#x5947;&#x7684;&#x79EF;&#x5206;</h2>
+<div class="outline-text-2" id="text-orga4ae6f5">
+\begin{align}
+  I_1(a) = \int_0 ^{\infty} \frac{1}{(x - a + \mathrm{i}0^+)^2} \mathrm{d}x, \quad, a &gt; 0
+\end{align}
 <p>
-<a href="unstable_method.py">unstable_method.py</a>
-<img src="/2021/05/15/unstable_method/unstable_method.png">
+&#x770B;&#x8D77;&#x6765;&#x4E00;&#x5B9A;&#x662F;&#x53D1;&#x6563;&#x7684;, &#x56E0;&#x4E3A;&#x88AB;&#x79EF;&#x51FD;&#x6570;&#x5728; \(x\to a\) &#x65F6;&#x662F; \(1/x^2\) &#x53D1;&#x6563;&#x7684;( &#x56FE;&#x89C1; appendix).
 </p>
 
-<div id="outline-container-org8e14a2b" class="outline-2">
-<h2 id="org8e14a2b">Reference</h2>
-<div class="outline-text-2" id="text-org8e14a2b">
-<ul class="org-ul">
-<li>Winkler, J. R. Numerical recipes in C: The art of scientific computing, second
-edition. Endeavour 17, 201 (1993). Chap 1.3</li>
+<p>
+&#x4F46;&#x771F;&#x6B63;&#x7684;&#x7ED3;&#x679C;&#x4E0D;&#x4F46;&#x4E0D;&#x53D1;&#x6563;, &#x8FD8;&#x662F;&#x5C0F;&#x4E8E;&#x96F6;&#x7684;! &#x5173;&#x952E;&#x5C31;&#x5728;&#x4E8E;&#x5206;&#x6BCD;&#x4E0A;&#x7684; \(\mathrm{i}0^+\)
+. \(\mathrm{i}0^+\) &#x7684;&#x5B58;&#x5728;&#x4F7F;&#x5F97;&#x79EF;&#x5206;&#x8DEF;&#x5F84;&#x4E0A;&#x6CA1;&#x6709;&#x4E86;&#x5947;&#x5F02;&#x6027;. &#x5982;&#x679C;&#x6211;&#x4EEC;&#x505A;&#x53D8;&#x91CF;&#x4EE3;&#x6362; \(z = x +
+\mathrm{i}0^+\) , &#x5E76;&#x628A;&#x4ECE; \((-\infty, 0)\) &#x7684;&#x79EF;&#x5206;&#x4E5F;&#x52A0;&#x8FDB;&#x6765;, &#x90A3;&#x4E48;&#x79EF;&#x5206;&#x5C31;&#x53D8;&#x4E3A;
+</p>
+\begin{align}
+  I_{1C} = I_1(a) + \int_{-\infty}^0 \frac{1}{(x - a + \mathrm{i}0^+)^2} \mathrm{d}x
+     = \int_{C_{10}} \frac{1}{(z - a)^2} \mathrm{d}z
+\end{align}
+<p>
+&#x5176;&#x4E2D;&#x79EF;&#x5206;&#x7684;&#x8DEF;&#x5F84; \(C_{10}\) &#x662F;&#x6CBF;&#x6574;&#x4E2A;&#x5B9E;&#x8F74;&#x4E0A;&#x65B9;&#x65E0;&#x7A77;&#x5C0F;&#x7684;&#x8DDD;&#x79BB;. &#x56FE;&#x89C1; appendix.
+</p>
 
-<li><a href="https://en.wikipedia.org/wiki/Numerical_stability" target="_blank" rel="noopener">wikipedia: Numerical stability</a></li>
+<p>
+&#x7531;&#x4E8E; \(I_{1C}\) &#x7684;&#x88AB;&#x79EF;&#x51FD;&#x6570;&#x5728;&#x65E0;&#x7A77;&#x8FDC;&#x5904;&#x662F; \(1/|z|^2\to 0\) &#x7684;, &#x8D21;&#x732E;&#x4E3A; \(0\) , &#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x628A;&#x4E0A;
+&#x534A;&#x5E73;&#x9762;&#x65E0;&#x7A77;&#x8FDC;&#x7684;&#x5927;&#x5706;&#x5F27;&#x4E5F;&#x52A0;&#x5230;&#x79EF;&#x5206;&#x8DEF;&#x5F84;&#x4E0A;&#x53BB;, &#x6B64;&#x65F6;&#x8DEF;&#x5F84;&#x53D8;&#x6210; \(C_1\) (&#x56FE;&#x89C1; appendix).
+</p>
+
+<p>
+&#x88AB;&#x79EF;&#x51FD;&#x6570;&#x5728;&#x6574;&#x4E2A;&#x590D;&#x5E73;&#x9762;&#x4E0A;&#x7684; singularity &#x53EA;&#x6709;&#x5728; \(z = a\) &#x5904;&#x6709;&#x4E00;&#x4E2A;&#x4E8C;&#x9636; pole, &#x5728;&#x95ED;&#x5408;&#x7684;
+&#x79EF;&#x5206;&#x8DEF;&#x5F84; \(C_{1}\) &#x5185;&#x662F;&#x5904;&#x5904;&#x89E3;&#x6790;&#x7684;, &#x6240;&#x4EE5;&#x79EF;&#x5206; \(I_{1C} = 0\) . &#x7531;&#x6B64;&#x5C31;&#x53EF;&#x4EE5;&#x6C42;&#x51FA;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x79EF;
+&#x5206; \(I_{1}(a)\) &#x5566;!
+</p>
+\begin{align}
+  I_1(a) =&amp; I_{1C} - \int_{-\infty}^0 \frac{1}{(x - a + \mathrm{i}0^+)^2} \mathrm{d}x
+       = - \int_{-\infty}^0 \frac{1}{(x - a + \mathrm{i}0^+)^2}\mathrm{d}x \\
+       =&amp; - \int_{-\infty}^0 \frac{1}{(x - a)^2}\mathrm{d}x
+       = - \left[ \frac{ - 1}{x-a} \right]_{-\infty}^0
+       = - \frac{1}{a}
+\end{align}
+
+<p>
+&#x9664;&#x4E86;&#x50CF;&#x4E0A;&#x9762;&#x8FD9;&#x6837;&#x7528;&#x7559;&#x6570;&#x5B9A;&#x7406;&#x8BA1;&#x7B97;&#x5916;, &#x8FD8;&#x53EF;&#x7528;&#x4E00;&#x4E2A;&#x6C42;&#x5BFC;&#x7684;&#x5C0F; trick &#x76F4;&#x63A5;&#x5229;&#x7528;
+Sokhotski&#x2013;Plemelj &#x516C;&#x5F0F;&#x8BA1;&#x7B97; (&#x79EF;&#x5206;&#x4E0E;&#x6C42;&#x5BFC;&#x7684;&#x4EA4;&#x6362;, &#x672C;&#x7740;&#x5982;&#x679C;&#x4EA4;&#x6362;&#x7ED9;&#x51FA;&#x6536;&#x655B;&#x7684;&#x7ED3;&#x679C;, &#x90A3;&#x5C31;&#x53EF;
+&#x4EE5;&#x4EA4;&#x6362;&#x7684;&#x539F;&#x5219; -_-!)
+</p>
+\begin{align}
+ I_{1a} =&amp; \frac{\partial}{\partial a} \int_0^{\infty} \frac{1}{x - a + \mathrm{i}0^+} \mathrm{d}x
+        = \frac{\partial}{\partial a} \left[ \mathcal{P}\int_0^{\infty} \frac{1}{x - a} \mathrm{d}x
+            - \mathrm{i}\pi \int_0^{\infty}\delta(x - a)\mathrm{d}x \right] \\
+        =&amp; \frac{\partial}{\partial a} \left[ \ln \left|x - a \right|_0^{\infty}
+            - \mathrm{i}\pi  \right]
+        = \frac{\partial}{\partial a} \left[ \ln \infty - \ln a\right] \\
+        =&amp; -\frac{1}{a}
+\end{align}
+<p>
+&#x8FD9;&#x4E5F;&#x662F;&#x6211;&#x5982;&#x4F55;&#x9047;&#x5230;&#x8FD9;&#x4E2A;&#x79EF;&#x5206;&#x7684;. &#x6211;&#x9047;&#x5230;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x65E0;&#x6CD5;&#x89E3;&#x6790;&#x7684;&#x79EF;&#x5206;, &#x4F46;&#x6C42;&#x5BFC;&#x53EF;&#x4EE5;&#x8BA1;&#x7B97;, &#x56E0;&#x6B64;&#x6211;
+&#x60F3;&#x628A;&#x6C42;&#x5BFC;&#x89E3;&#x6790;&#x5730;&#x6C42;&#x6389;, &#x7ED3;&#x679C;&#x672A;&#x5B8C;&#x5BFC;&#x53D1;&#x73B0;&#x79EF;&#x5206;&#x770B;&#x4F3C;&#x53D1;&#x6563;, &#x5B9E;&#x5219;&#x5E76;&#x4E0D;&#x53D1;&#x6563;, &#x4F46;&#x6570;&#x503C;&#x4E0A;&#x4E0D;&#x597D;&#x5904;&#x7406;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org99bc1a0" class="outline-2">
+<h2 id="org99bc1a0">&#x79EF;&#x5206;&#x4E4B;&#x4E8C;: &#x6709;&#x610F;&#x601D;&#x7684;&#x79EF;&#x5206;</h2>
+<div class="outline-text-2" id="text-org99bc1a0">
+\begin{align}
+  I_2(\mu) = \int_0^{\infty} \frac{k^2}{(k^2 - \mu)^2}\mathrm{d}k, \quad \mu &lt; 0
+\end{align}
+<p>
+&#x6B64;&#x79EF;&#x5206;&#x6211;&#x4E5F;&#x60F3;&#x5230;&#x4E86;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;.
+</p>
+</div>
+
+<div id="outline-container-org7704717" class="outline-3">
+<h3 id="org7704717">&#x6CD5;&#x4E00;: &#x7559;&#x6570;&#x5B9A;&#x7406;</h3>
+<div class="outline-text-3" id="text-org7704717">
+<p>
+&#x88AB;&#x79EF;&#x51FD;&#x6570;&#x6709;&#x4E24;&#x4E2A;&#x4E8C;&#x9636; pole, \(k = \pm \sqrt{\mu}\) .
+&#x88AB;&#x79EF;&#x51FD;&#x6570;&#x5728;&#x65E0;&#x7A77;&#x8FDC;&#x5904; \(1/|k|^2\to 0\) , &#x6240;&#x4EE5;&#x65E0;&#x7A77;&#x8FDC;&#x5904;&#x5BF9;&#x79EF;&#x5206;&#x8D21;&#x732E;&#x4E3A;&#x96F6;, &#x53EF;&#x4EE5;&#x628A;&#x65E0;&#x7A77;&#x8FDC;&#x7684;&#x5927;&#x5706;
+&#x5F27;&#x52A0;&#x4E0A;, &#x56E0;&#x6B64;&#x79EF;&#x5206;&#x8DEF;&#x5F84;&#x662F; \(C_{2}\) (&#x6CBF;&#x4E0A;&#x534A;&#x5E73;&#x9762;&#x7684;&#x65E0;&#x7A77;&#x5927;&#x534A;&#x5706;&#x9006;&#x65F6;&#x9488;, &#x56FE;&#x89C1; appendix)
+</p>
+\begin{align}
+  I_2(\mu) =&amp; \frac{1}{2} \int_{-\infty}^{+\infty} \frac{k^2}{(k^2 - \mu)^2}\mathrm{d}k \\
+        =&amp; \frac{1}{2}\oint_{C_2} \frac{k^2}{(k^2 - \mu)^2} \mathrm{d}k \\
+        =&amp; \frac{1}{2}\oint_{C_2} \frac{k^2}{(k - \sqrt{\mu})^2
+                           (k + \sqrt{\mu})^2} \mathrm{d}k \\
+\end{align}
+<p>
+&#x5305;&#x542B;&#x4E8C;&#x9636; pole &#x7684;&#x79EF;&#x5206;&#x53EF;&#x7528;&#x516C;&#x5F0F;(&#x53EF;&#x4EE5;&#x53EB;&#x505A;&#x9AD8;&#x9636; pole &#x7684;&#x7559;&#x6570;&#x5B9A;&#x7406;?)(&#x6B64;&#x5904;&#x53D6; \(n=1\) )
+</p>
+\begin{align}
+  f^{(n)}(z)
+    = \frac{1}{2\pi \mathrm{i}}\oint \frac{f(\xi)}{(\xi - z)^{n+1}} \mathrm{d}\xi
+\end{align}
+<p>
+&#x6240;&#x4EE5;
+</p>
+\begin{align}
+  I_2(\mu) =\frac{1}{2}\times 2\pi \mathrm{i} \frac{\mathrm{d}}{\mathrm{d}k}
+     \left.\left(\frac{k^2}{(k + \sqrt{\mu})^2} \right)
+          \right|_{k=\mathrm{i}\sqrt{|\mu|}} = \frac{\mathrm{i}\pi}{4\sqrt{\mu}}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgb500fea" class="outline-3">
+<h3 id="orgb500fea">&#x6CD5;&#x4E8C;: &#x76F4;&#x63A5;&#x7B97;</h3>
+<div class="outline-text-3" id="text-orgb500fea">
+<p>
+&#x5728;&#x5B9E;&#x6570;&#x8303;&#x56F4;&#x5185;&#x505A;&#x4E0D;&#x5B9A;&#x79EF;&#x5206;:
+</p>
+\begin{align}
+  \int \frac{k^2}{(k^2 - \mu)^2}\mathrm{d}k
+     =&amp; \frac{1}{2}\int\left[ \frac{k^2 + \mu}{(k^2 - \mu)^2}
+                      +\frac{k^2 - \mu}{(k^2 - \mu)^2}  \right]\mathrm{d}k \\
+     = &amp; \frac{1}{2}\left[ \int\frac{k^2 + \mu}{(k^2 - \mu)^2}
+            +\int \frac{1}{k^2 - \mu}\mathrm{d}k \right] \\
+     = &amp; \frac{1}{2}\left[\frac{-k}{k^2 - \mu}
+            - \frac{1}{\sqrt{\mu}} \mathrm{arctanh}
+           \left( \frac{k}{\sqrt{\mu}} \right)
+                     \right] + C \\
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(C\) &#x662F;&#x79EF;&#x5206;&#x5E38;&#x6570;.
+</p>
+
+<p>
+&#x7136;&#x540E;&#x4EE3;&#x5165;&#x4E0A;&#x9650;&#x548C;&#x4E0B;&#x9650;&#x7B97;&#x5F97;&#x5B9A;&#x79EF;&#x5206;
+</p>
+\begin{align}
+I_2(\mu) = \frac{1}{2}\left[ 0 - \frac{1}{\sqrt{\mu}}\left(-\mathrm{i}\frac{\pi}{2}
+                        - 0\right) \right]
+    = \frac{ \mathrm{i}\pi}{4\sqrt{\mu}}
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1dcd481" class="outline-2">
+<h2 id="org1dcd481">&#x603B;&#x7ED3;</h2>
+<div class="outline-text-2" id="text-org1dcd481">
+<p>
+&#x4E24;&#x4E2A;&#x79EF;&#x5206;&#x7684;&#x5171;&#x540C;&#x7279;&#x70B9;&#x662F;&#x90FD;&#x6709;&#x4E8C;&#x9636; pole.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgacf56e1" class="outline-2">
+<h2 id="orgacf56e1">Appendix</h2>
+<div class="outline-text-2" id="text-orgacf56e1">
+<p>
+\(I_{1(a)}\) &#x7684;&#x88AB;&#x79EF;&#x51FD;&#x6570;&#x5728; \(x\to a\) &#x65F6;&#x770B;&#x8D77;&#x6765;&#x662F; \(1/x^2\) &#x53D1;&#x6563;&#x7684;:
+<img src="/2021/05/25/Amazing_Integral/diverge.png">
+</p>
+
+
+<div id="org06394cd" class="figure">
+<p><img src="/2021/05/25/Amazing_Integral/C10.png">
+</p>
+</div>
+
+
+<div id="org874ae51" class="figure">
+<p><img src="/2021/05/25/Amazing_Integral/C1.png">
+</p>
+</div>
+
+
+<div id="org8c0431b" class="figure">
+<p><img src="/2021/05/25/Amazing_Integral/C2.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd84bc58" class="outline-2">
+<h2 id="orgd84bc58">Acknowledge</h2>
+<div class="outline-text-2" id="text-orgd84bc58">
+<ul class="org-ul">
+<li>Fan Yang &#x7684;&#x8BA8;&#x8BBA;</li>
+
+<li>Mathematica</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgddc3b67" class="outline-2">
+<h2 id="orgddc3b67">Reference</h2>
+<div class="outline-text-2" id="text-orgddc3b67">
+<ul class="org-ul">
+<li><a href="https://mathworld.wolfram.com/InverseHyperbolicTangent.html" target="_blank" rel="noopener">https://mathworld.wolfram.com/InverseHyperbolicTangent.html</a></li>
+
+<li><a href="https://dlmf.nist.gov/4.37" target="_blank" rel="noopener">https://dlmf.nist.gov/4.37</a></li>
 </ul>
 </div>
 </div>
@@ -473,9 +653,13 @@ edition. Endeavour 17, 201 (1993). Chap 1.3</li>
       
         <div class="post-tags">
           
-            <a href="/tags/numerical-stability/" rel="tag"># numerical stability</a>
+            <a href="/tags/mathematics/" rel="tag"># mathematics</a>
           
-            <a href="/tags/unstable-method/" rel="tag"># unstable method</a>
+            <a href="/tags/complex-analysis/" rel="tag"># complex analysis</a>
+          
+            <a href="/tags/integral/" rel="tag"># integral</a>
+          
+            <a href="/tags/residue-theorem/" rel="tag"># residue theorem</a>
           
         </div>
       
@@ -488,8 +672,8 @@ edition. Endeavour 17, 201 (1993). Chap 1.3</li>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/05/14/C_pointer_malloc/" rel="next" title="C 中的指针与动态内存分配">
-                <i class="fa fa-chevron-left"></i> C 中的指针与动态内存分配
+              <a href="/2021/05/15/unstable_method/" rel="next" title="unstable method 的例子">
+                <i class="fa fa-chevron-left"></i> unstable method 的例子
               </a>
             
           </div>
@@ -497,10 +681,6 @@ edition. Endeavour 17, 201 (1993). Chap 1.3</li>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/05/25/Amazing_Integral/" rel="prev" title="一个神奇的积分与一个有意思的积分">
-                一个神奇的积分与一个有意思的积分 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -610,7 +790,7 @@ edition. Endeavour 17, 201 (1993). Chap 1.3</li>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org8e14a2b"><span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orga4ae6f5"><span class="nav-text">积分之一: 神奇的积分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org99bc1a0"><span class="nav-text">积分之二: 有意思的积分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org7704717"><span class="nav-text">法一: 留数定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgb500fea"><span class="nav-text">法二: 直接算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org1dcd481"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgacf56e1"><span class="nav-text">Appendix</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd84bc58"><span class="nav-text">Acknowledge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgddc3b67"><span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
