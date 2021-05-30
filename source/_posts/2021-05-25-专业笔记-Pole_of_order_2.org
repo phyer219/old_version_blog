@@ -71,7 +71,7 @@ Sokhotski–Plemelj 公式计算 (积分与求导的交换, 本着如果交换�
 包含二阶 pole 的积分可用公式(可以叫做高阶 pole 的留数定理?)(此处取 $n=1$ )
 \begin{align}
   f^{(n)}(z)
-    = \frac{1}{2\pi \mathrm{i}}\oint \frac{f(\xi)}{(\xi - z)^{n+1}} \mathrm{d}\xi
+    = \frac{n!}{2\pi \mathrm{i}}\oint \frac{f(\xi)}{(\xi - z)^{n+1}} \mathrm{d}\xi
 \end{align}
 所以
 \begin{align}
