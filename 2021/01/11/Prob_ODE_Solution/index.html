@@ -112,13 +112,13 @@
 
   <meta name="keywords" content="问题,微分方程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于微分方程的解的问题">
+<meta property="og:title" content="关于微分方程的解的问题(update 07&#x2F;June&#x2F;2021)">
 <meta property="og:url" content="https://zqw.ink/2021/01/11/Prob_ODE_Solution/index.html">
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-01-11T02:41:58.043Z">
+<meta property="og:updated_time" content="2021-06-07T04:54:37.153Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于微分方程的解的问题">
+<meta name="twitter:title" content="关于微分方程的解的问题(update 07&#x2F;June&#x2F;2021)">
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>关于微分方程的解的问题 | 从冰上的水</title>
+  <title>关于微分方程的解的问题(update 07/June/2021) | 从冰上的水</title>
   
 
 
@@ -339,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">关于微分方程的解的问题
+          <h1 class="post-title" itemprop="name headline">关于微分方程的解的问题(update 07/June/2021)
               
             
           </h1>
@@ -430,8 +430,69 @@
 <!-- toc -->
 <a id="more"></a>
 
+<div id="outline-container-org9ba7403" class="outline-2">
+<h2 id="org9ba7403">&#x95EE;&#x9898;</h2>
+<div class="outline-text-2" id="text-org9ba7403">
 <p>
-&#x5C06;&#x5FAE;&#x5206;&#x65B9;&#x7A0B; 
+&#x5C06;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;
+</p>
+\begin{align}
+\label{eq:inhomo}
+  \mathcal{L} \psi(x) = k^2 \psi(x)
+\end{align}
+<p>
+&#x7684;&#x901A;&#x89E3; \(\phi(k, x)\) &#x5728; \(k = 0\) &#x5904;&#x7EA7;&#x6570;&#x5C55;&#x5F00;
+</p>
+\begin{align}
+\phi(k, x) = u_0 + k^2 u_1 + \mathcal{O}(k^4)
+\end{align}
+<p>
+&#x5C06;&#x5C55;&#x5F00;&#x7684;&#x7ED3;&#x679C;&#x4EE3;&#x56DE;&#x539F;&#x65B9;&#x7A0B;&#x53EF;&#x5F97;
+</p>
+\begin{align}
+\mathcal{L} u_0 =&amp; 0 \\
+\label{eq:step}
+\mathcal{L} u_1 =&amp; u_0
+\end{align}
+<p>
+&#x90A3;&#x4E48; \(u_{0}\) &#x662F;&#x5426;&#x662F;&#x65B9;&#x7A0B;
+</p>
+\begin{align}
+  \label{eq:homo}
+  \mathcal{L} \psi(x) = 0
+\end{align}
+<p>
+&#x7684;&#x901A;&#x89E3;?
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgef019f4" class="outline-2">
+<h2 id="orgef019f4">&#x770B;&#x8D77;&#x6765;&#x662F;</h2>
+<div class="outline-text-2" id="text-orgef019f4">
+<p>
+&#x89E3;&#x65B9;&#x7A0B; \((\ref{eq:homo})\) &#x5F97;&#x5230;&#x901A;&#x89E3;, &#x7136;&#x540E;&#x518D;&#x89E3; \((\ref{eq:step})\) , &#x9010;&#x9636;&#x6C42;&#x89E3;, &#x5C31;&#x5F97;&#x5230;
+&#x4E86; \((\ref{eq:inhomo})\) &#x7684;&#x901A;&#x89E3;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org74369f3" class="outline-2">
+<h2 id="org74369f3">Reference</h2>
+<div class="outline-text-2" id="text-org74369f3">
+<p>
+Yu, Z., Thywissen, J. H. &amp; Zhang, S. Supplementary Material: Universal Relations
+for a Fermi Gas Close to a p-wave Interaction Resonance.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org08544df" class="outline-2">
+<h2 id="org08544df">&#x65E7;</h2>
+<div class="outline-text-2" id="text-org08544df">
+<blockquote>
+<p>
+&#x5C06;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;
 </p>
 \begin{align}
   \mathcal{L} \psi(x) = k^2 \psi(x)
@@ -445,6 +506,9 @@
 <p>
 &#x7684;&#x5168;&#x90E8;&#x89E3;?
 </p>
+</blockquote>
+</div>
+</div>
 </div>
 
       
@@ -541,8 +605,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -584,6 +657,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org9ba7403"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgef019f4"><span class="nav-text">看起来是</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org74369f3"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org08544df"><span class="nav-text">旧</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
