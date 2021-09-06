@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="Susskind,physics,Quantum Field Theory,Particle Physics,Higgs,Goldstone,Running of Coupling Constant">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Susskind&#39;s Particle Pyhsics II: Standard Model Note">
+<meta property="og:url" content="https://zqw.ink/2021/09/06/SusskindsParticlePhysicsII/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2021/09/06/SusskindsParticlePhysicsII/dispersion.png">
+<meta property="og:image" content="https://zqw.ink/2021/09/06/SusskindsParticlePhysicsII/mexico.png">
+<meta property="og:updated_time" content="2021-09-06T13:53:40.340Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Susskind&#39;s Particle Pyhsics II: Standard Model Note">
+<meta name="twitter:image" content="https://zqw.ink/2021/09/06/SusskindsParticlePhysicsII/dispersion.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2021/09/06/SusskindsParticlePhysicsII/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Susskind's Particle Pyhsics II: Standard Model Note | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-rfp-docs">
+    <a href="/rfp/_build/html" rel="section">rfp docs</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/09/06/SusskindsParticlePhysicsII/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Susskind's Particle Pyhsics II: Standard Model Note
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-06T00:00:00+08:00">2021-09-06</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/09/06/SusskindsParticlePhysicsII/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/09/06/SusskindsParticlePhysicsII/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-orgaaeff8e" class="outline-2">
+<h2 id="orgaaeff8e">Information</h2>
+<div class="outline-text-2" id="text-orgaaeff8e">
+<ul class="org-ul">
+<li>&#x5B98;&#x65B9;&#x4ECB;&#x7ECD;:
+<a href="https://theoreticalminimum.com/courses/particle-physics-2-standard-model/2010/winter" target="_blank" rel="noopener">https://theoreticalminimum.com/courses/particle-physics-2-standard-model/2010/winter</a></li>
+
+<li>&#x89C6;&#x9891;&#x5217;&#x8868;&#x5730;&#x5740;: <a href="https://www.youtube.com/playlist?list=PL8BCB4981DD1A0108" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PL8BCB4981DD1A0108</a></li>
+
+<li><p>
+&#x628A;&#x4E3B;&#x8981;&#x5185;&#x5BB9;&#x6574;&#x7406;&#x4E00;&#x4E0B;.
+</p>
+
+<p>
+&#x5F00;&#x5B66;&#x5728;&#x5373;, &#x4E0D;&#x52A1;&#x6B63;&#x4E1A;, &#x706B;&#x7BAD;&#x5750;&#x4E00;&#x53D1;!
+</p></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcf5efad" class="outline-2">
+<h2 id="orgcf5efad">Lecture 1: Particles, Fields &amp; Forces</h2>
+<div class="outline-text-2" id="text-orgcf5efad">
+<p>
+Any particle can be exchanged in some context or another. So every kind of
+particle in one way or another produces a force.
+</p>
+
+<blockquote>
+<p>
+Example:
+</p>
+
+<p>
+Covalent bounds: sharing an electron
+</p>
+
+<p>
+Coulomb: exchange photons
+</p>
+</blockquote>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Name</td>
+<td class="org-left">Symbol</td>
+<td class="org-left">Type</td>
+<td class="org-left">Charge</td>
+<td class="org-left">B number</td>
+<td class="org-left">Mass</td>
+</tr>
+
+<tr>
+<td class="org-left">Photon</td>
+<td class="org-left">\(\gamma, A\)</td>
+<td class="org-left">Boson</td>
+<td class="org-left">\(0\)</td>
+<td class="org-left">\(0\)</td>
+<td class="org-left">\(0\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Electron</td>
+<td class="org-left">\(e^{\pm}, \psi_e\)</td>
+<td class="org-left">Fermion</td>
+<td class="org-left">\(-1\)</td>
+<td class="org-left">\(0\)</td>
+<td class="org-left">$.51$ MeV</td>
+</tr>
+
+<tr>
+<td class="org-left">Quark</td>
+<td class="org-left">\(q, \psi_q\)</td>
+<td class="org-left">F</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">\(\frac{1}{3}\)</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+
+<tr>
+<td class="org-left">down</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">\(-\frac{1}{3}\)</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">\(10\) MeV</td>
+</tr>
+
+<tr>
+<td class="org-left">up</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">\(\frac{2}{3}\)</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">\(5\) MeV</td>
+</tr>
+
+<tr>
+<td class="org-left">strange</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">\(-\frac{1}{3}\)</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">\(100\) MeV</td>
+</tr>
+
+<tr>
+<td class="org-left">charm</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">\(\frac{2}{3}\)</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">\(1\) GeV</td>
+</tr>
+
+<tr>
+<td class="org-left">bottom</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">\(-\frac{1}{3}\)</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">\(5\) GeV</td>
+</tr>
+
+<tr>
+<td class="org-left">top</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">\(\frac{2}{3}\)</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">\(170\) GeV</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org4a8896a" class="outline-2">
+<h2 id="org4a8896a">Lecture 2: Quantum Chromodynamics</h2>
+<div class="outline-text-2" id="text-org4a8896a">
+<p>
+Gluons interact with each other forces between gluons.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org27238fb" class="outline-2">
+<h2 id="org27238fb">Lecture 3: Group Theory - Part 1</h2>
+</div>
+
+<div id="outline-container-org945e877" class="outline-2">
+<h2 id="org945e877">Lecture 4: Group Theory - Part 2</h2>
+</div>
+
+<div id="outline-container-orgf114fed" class="outline-2">
+<h2 id="orgf114fed">Lecture 5: Gauge Fields and Symmetry</h2>
+<div class="outline-text-2" id="text-orgf114fed">
+<p>
+Anytime that has conserved quantity analogous to electric charge which functions
+as the source of photon like field, that called a gague theory. Gauge theories
+are always based on symmetries.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf049427" class="outline-2">
+<h2 id="orgf049427">Lecture 6: The Weak Interaction</h2>
+<div class="outline-text-2" id="text-orgf049427">
+<p>
+Why weak interactions give such slow decay rates?
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc8e958f" class="outline-2">
+<h2 id="orgc8e958f">Lecture 7: Spontaneous Symmetry Breaking &amp; Goldstone Bosons</h2>
+<div class="outline-text-2" id="text-orgc8e958f">
+<p>
+How a particle like the photon can get a mass from something called spontaneous
+symmetry breaking?
+</p>
+
+<p>
+How if the symmetry group associated with the photon were broken spontaneously
+how it would give the photon of mass.
+</p>
+
+<p>
+How gauge bosons like the photon get a mass when spontaneous symmetry breaking?
+</p>
+
+<p>
+what is the symmetry incidentally when I say you associated with photon? There&apos;s
+a conserved quantity which is the charge. Conserved quantities always go with
+symmetries. What&apos;s the symmetry that&apos;s connected with the conservation of
+electric charge? It&apos;s thing which multiplies the charged fields by a phase.
+</p>
+
+<blockquote>
+<p>
+Example of the Higgs phenomenon: Superconductor
+</p>
+
+<p>
+Photon get a mass and the \(U(1)\) symmetry is spontaneously broken.
+</p>
+</blockquote>
+
+<p>
+Not the same as photon in prism!
+</p>
+
+\begin{align}
+E = \hbar \omega \\
+p = \hbar k \\
+\omega = c k
+\end{align}
+
+<p>
+if \(\omega = 0\) , then \(k = 0\) , we call massless.
+</p>
+
+<p>
+\(E = \sqrt{p^{2} + m^2}\) , if \(p = 0\) , the energy is not zero, that&apos;s the mass.
+</p>
+
+<p>
+Oscillations of a field when it is homogeneous when is has infinite wavelength
+those are the things we call mass.
+</p>
+
+
+<div id="orga5e1977" class="figure">
+<p><img src="/2021/09/06/SusskindsParticlePhysicsII/dispersion.png">
+</p>
+</div>
+
+<p>
+The Goldstone boson got eaten by the gauge boson resulting in giving the Higgs
+boson a mass.
+</p>
+
+
+<div id="org9284613" class="figure">
+<p><img src="/2021/09/06/SusskindsParticlePhysicsII/mexico.png">
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org7d5bd57" class="outline-2">
+<h2 id="org7d5bd57">Lecture 8: The Higgs Field</h2>
+<div class="outline-text-2" id="text-org7d5bd57">
+<p>
+Gauge invariance is a symmetry which prohibits the photon from having a mass.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org92fe38a" class="outline-2">
+<h2 id="org92fe38a">Lecture 9: The Higgs Field &amp; Fermions</h2>
+<div class="outline-text-2" id="text-org92fe38a">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">massless photons</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">Higgs</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">massive photon</td>
+</tr>
+
+<tr>
+<td class="org-left">massless Goldstone bosons</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">\(\Longrightarrow\)</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">no Goldstone boson</td>
+</tr>
+
+<tr>
+<td class="org-left">massive Higgs bosons</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">phenomenon</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">massive Higgs bosons</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Mass stands for energy at rest, but it also stands for energy associated with
+uniform homogeneous shifts of fields.
+</p>
+
+<p>
+Moving the plus charges relative to the minus charges -&gt; plasma. Plamas have
+mass, phonons do not.
+</p>
+
+<p>
+\(\beta\) decay: mirror, discreate, not a symmetry of weak interaction.
+</p>
+
+<p>
+Mass term is a thing which turns left handed to right handed.
+</p>
+
+<p>
+Mass is always for fermions, it always left hand, trun into the right hand,
+right hand &#x2026;
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdfe5519" class="outline-2">
+<h2 id="orgdfe5519">Lecture 10: Running of Coupling Constant</h2>
+<div class="outline-text-2" id="text-orgdfe5519">
+<p>
+Condense: which means the field for this field of particle gets shifted.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org320d2db" class="outline-2">
+<h2 id="org320d2db">Self-Examination Questions</h2>
+<div class="outline-text-2" id="text-org320d2db">
+<ul class="org-ul">
+<li>How to describe weak interaction? Which particles?</li>
+
+<li>How to describe strong interaction? Which particles?</li>
+
+<li>What is a gague theory?</li>
+
+<li>How strong interaction different from others?</li>
+
+<li>Why weak interactions give such slow decay rates?</li>
+
+<li>How a particle like the photon can get a mass from something called
+spontaneous symmetry breaking?</li>
+
+<li>How fermions get their mass?</li>
+
+<li>How to understanding the meaning of mass?</li>
+
+<li>What is Majorana fermion?</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org706ec99" class="outline-2">
+<h2 id="org706ec99">Reference</h2>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Susskind/" rel="tag"># Susskind</a>
+          
+            <a href="/tags/physics/" rel="tag"># physics</a>
+          
+            <a href="/tags/Quantum-Field-Theory/" rel="tag"># Quantum Field Theory</a>
+          
+            <a href="/tags/Particle-Physics/" rel="tag"># Particle Physics</a>
+          
+            <a href="/tags/Higgs/" rel="tag"># Higgs</a>
+          
+            <a href="/tags/Goldstone/" rel="tag"># Goldstone</a>
+          
+            <a href="/tags/Running-of-Coupling-Constant/" rel="tag"># Running of Coupling Constant</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/08/31/tsingtao/" rel="next" title="青岛青年冷原子">
+                <i class="fa fa-chevron-left"></i> 青岛青年冷原子
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgaaeff8e"><span class="nav-text">Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgcf5efad"><span class="nav-text">Lecture 1: Particles, Fields &amp; Forces</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org4a8896a"><span class="nav-text">Lecture 2: Quantum Chromodynamics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org27238fb"><span class="nav-text">Lecture 3: Group Theory - Part 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org945e877"><span class="nav-text">Lecture 4: Group Theory - Part 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgf114fed"><span class="nav-text">Lecture 5: Gauge Fields and Symmetry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgf049427"><span class="nav-text">Lecture 6: The Weak Interaction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc8e958f"><span class="nav-text">Lecture 7: Spontaneous Symmetry Breaking &amp; Goldstone Bosons</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org7d5bd57"><span class="nav-text">Lecture 8: The Higgs Field</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org92fe38a"><span class="nav-text">Lecture 9: The Higgs Field &amp; Fermions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgdfe5519"><span class="nav-text">Lecture 10: Running of Coupling Constant</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org320d2db"><span class="nav-text">Self-Examination Questions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org706ec99"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
