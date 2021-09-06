@@ -1,4 +1,4 @@
-#+TITLE: Susskind's Particle Pyhsics Note
+#+TITLE: Susskind's Particle Pyhsics I: Basic Concepts Note
 #+DATE: <2021-03-19>
 #+CATEGORIES: 专业笔记
 #+TAGS: physics, Particle Physics, Susskind, Quantum Field Theory, Stimulated Emission, Group Velocity, Phase Velocity
