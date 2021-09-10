@@ -110,22 +110,22 @@
 
 
 
-  <meta name="keywords" content="Principal value">
+  <meta name="keywords" content="Resonance">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tan 的 Lambda function 中的积分">
-<meta property="og:url" content="https://zqw.ink/2021/09/08/tan_lambda_function/index.html">
+<meta property="og:title" content="Atomic and Optical Physics I, 01 Resonance Note">
+<meta property="og:url" content="https://zqw.ink/2021/09/09/MITAMO01/index.html">
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-09-08T07:05:16.177Z">
+<meta property="og:updated_time" content="2021-09-08T11:49:06.324Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tan 的 Lambda function 中的积分">
+<meta name="twitter:title" content="Atomic and Optical Physics I, 01 Resonance Note">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zqw.ink/2021/09/08/tan_lambda_function/"/>
+  <link rel="canonical" href="https://zqw.ink/2021/09/09/MITAMO01/"/>
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>Tan 的 Lambda function 中的积分 | 从冰上的水</title>
+  <title>Atomic and Optical Physics I, 01 Resonance Note | 从冰上的水</title>
   
 
 
@@ -322,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/09/08/tan_lambda_function/">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/09/09/MITAMO01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZQW">
@@ -339,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Tan 的 Lambda function 中的积分
+          <h1 class="post-title" itemprop="name headline">Atomic and Optical Physics I, 01 Resonance Note
               
             
           </h1>
@@ -364,7 +364,7 @@
                 
               
 
-              <time title="创建时间：2021-09-08 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-08T00:00:00+08:00">2021-09-08</time>
+              <time title="创建时间：2021-09-09 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-09T00:00:00+08:00">2021-09-09</time>
             
 
             
@@ -397,8 +397,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/09/08/tan_lambda_function/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/09/08/tan_lambda_function/" itemprop="commentCount"></span>
+                <a href="/2021/09/09/MITAMO01/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/09/09/MITAMO01/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -430,30 +430,120 @@
 <!-- toc -->
 <a id="more"></a>
 
+<div id="outline-container-org65c6979" class="outline-2">
+<h2 id="org65c6979">Information</h2>
+<div class="outline-text-2" id="text-org65c6979">
+<ul class="org-ul">
+<li>&#x5B98;&#x65B9;&#x4ECB;&#x7ECD;:
+<a href="https://ocw.mit.edu/courses/physics/8-421-atomic-and-optical-physics-i-spring-2014/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/physics/8-421-atomic-and-optical-physics-i-spring-2014/</a></li>
+
+<li>&#x89C6;&#x9891;&#x5217;&#x8868;&#x5730;&#x5740;: <a href="https://www.youtube.com/playlist?list=PLUl4u3cNGP62FPGcyFJkzhqq9c5cHCK32" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PLUl4u3cNGP62FPGcyFJkzhqq9c5cHCK32</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org20dec91" class="outline-2">
+<h2 id="org20dec91">&#x6574;&#x4E2A;&#x8BFE;&#x7A0B;&#x7684;&#x4ECB;&#x7ECD;</h2>
+<div class="outline-text-2" id="text-org20dec91">
+<p>
+AMO continu redefine itself
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0159281" class="outline-2">
+<h2 id="org0159281">Resonance</h2>
+<div class="outline-text-2" id="text-org0159281">
+<p>
+The phenomenon of resonance is that you have something which can periodically
+vary, and when you drive it, you see peaked response.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org237ffa4" class="outline-2">
+<h2 id="org237ffa4">Quality factor</h2>
+<div class="outline-text-2" id="text-org237ffa4">
 \begin{align}
-  I = \int \mathrm{d}^3k \left[ \frac{1}{(\vec{k} - \vec{k}_0)^{2}}
-    + \frac{1}{(\vec{k} + \vec{k}_0)^{2}}
-    - \frac{2}{k^2} \right]
-   = 0
+  Q = \frac{f_0}{\Delta f}
 \end{align}
 
 <p>
-Mahtematica &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F97;&#x5230;
-</p>
-<div class="org-src-container">
-<figure class="highlight mathematica"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Integrate</span><span class="punctuation">[</span><span class="variable">k</span><span class="operator">^</span><span class="number">2</span> <span class="punctuation">(</span><span class="number">1</span><span class="operator">/</span><span class="punctuation">(</span><span class="variable">k</span><span class="operator">^</span><span class="number">2</span><span class="operator">+</span><span class="variable">k0</span><span class="operator">^</span><span class="number">2</span><span class="operator">-</span> <span class="number">2</span> <span class="variable">k</span> <span class="variable">k0</span> <span class="variable">x</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">2</span><span class="operator">/</span><span class="variable">k</span><span class="operator">^</span><span class="number">2</span><span class="operator">+</span><span class="number">1</span><span class="operator">/</span><span class="punctuation">(</span><span class="variable">k</span><span class="operator">^</span><span class="number">2</span><span class="operator">+</span><span class="variable">k0</span><span class="operator">^</span><span class="number">2</span><span class="operator">+</span><span class="number">2</span> <span class="variable">k</span> <span class="variable">k0</span> <span class="variable">x</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">,</span><span class="punctuation">{</span><span class="variable">x</span><span class="operator">,-</span><span class="number">1</span><span class="operator">,</span><span class="number">1</span><span class="punctuation">}</span><span class="operator">,</span><span class="punctuation">{</span><span class="variable">k</span><span class="operator">,</span><span class="number">0</span><span class="operator">,</span> <span class="variable">\[Infinity]</span><span class="punctuation">}</span><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
-</div>
-<p>
-&#x592A;&#x5931;&#x8D25;&#x4E86;, &#x662F;&#x4E00;&#x5F00;&#x59CB;&#x60F3;&#x590D;&#x6742;, &#x6839;&#x672C;&#x6CA1;&#x6709;&#x5947;&#x5F02;&#x6027;&#x2026;
+&#x539F;&#x5B50;&#x7269;&#x7406;&#x4E2D;, \(Q\) &#x4E00;&#x822C;&#x975E;&#x5E38;&#x5927;.
 </p>
 
-<div id="outline-container-orge2c9369" class="outline-2">
-<h2 id="orge2c9369">Reference</h2>
-<div class="outline-text-2" id="text-orge2c9369">
-<ul class="org-ul">
-<li>Tan, S. Energetics of a strongly correlated Fermi gas. Annals of Physics 323, 2952&#x2013;2970 (2008).</li>
-</ul>
+<p>
+High quality Oscillator is the tool for discovery.
+</p>
 </div>
+</div>
+
+<div id="outline-container-org6cd93b4" class="outline-2">
+<h2 id="org6cd93b4">Whispering-gallery modes</h2>
+</div>
+
+<div id="outline-container-org747add1" class="outline-2">
+<h2 id="org747add1">Lorentzian shape</h2>
+<div class="outline-text-2" id="text-org747add1">
+\begin{align}
+  \propto \mathrm{Im} \frac{1}{\omega_0 - \omega - \mathrm{i}\frac{\gamma}{2}}
+\end{align}
+\begin{align}
+  \gamma = \Delta\omega , \quad Q = \frac{\omega_0}{\gamma}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgac57a82" class="outline-2">
+<h2 id="orgac57a82">Unit</h2>
+<div class="outline-text-2" id="text-orgac57a82">
+<p>
+angular frequency \(\omega\) units: rad/s or \(\mathrm{s}^{-1}\)
+</p>
+
+\begin{align}
+  f = \frac{\omega_0}{2\pi}
+\end{align}
+
+<blockquote>
+<p>
+Exp:
+</p>
+
+\begin{align}
+\omega_0 = 2\pi \cdot 1 \mathrm{MHz} = 6.28 \times 10^6 \mathrm{s}^{-1}
+\end{align}
+</blockquote>
+
+<p>
+\(\gamma\) units: \(\mathrm{s}^{-1}\), \(e^{-\mathrm{i}\omega t - \gamma t}\)
+</p>
+<blockquote>
+\begin{align}
+\gamma = 10^4 \mathrm{s}^{-1}
+\end{align}
+<p>
+not
+</p>
+\begin{align}
+\gamma = 10^4 \mathrm{Hz} \\
+\gamma = 2\pi\times 1.66 \mathrm{Hz}
+\end{align}
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org6a2b722" class="outline-2">
+<h2 id="org6a2b722">Q</h2>
+<div class="outline-text-2" id="text-org6a2b722">
+<p>
+Fourier trans of Lorentzian shpe?
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb375ced" class="outline-2">
+<h2 id="orgb375ced">Reference</h2>
 </div>
 </div>
 
@@ -476,7 +566,7 @@ Mahtematica &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F97;&#x5230;
       
         <div class="post-tags">
           
-            <a href="/tags/Principal-value/" rel="tag"># Principal value</a>
+            <a href="/tags/Resonance/" rel="tag"># Resonance</a>
           
         </div>
       
@@ -489,8 +579,8 @@ Mahtematica &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F97;&#x5230;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/09/07/summary_grade_4_2/" rel="next" title="研四下学期总结">
-                <i class="fa fa-chevron-left"></i> 研四下学期总结
+              <a href="/2021/09/08/tan_lambda_function/" rel="next" title="Tan 的 Lambda function 中的积分">
+                <i class="fa fa-chevron-left"></i> Tan 的 Lambda function 中的积分
               </a>
             
           </div>
@@ -499,8 +589,8 @@ Mahtematica &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F97;&#x5230;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2021/09/09/MITAMO01/" rel="prev" title="Atomic and Optical Physics I, 01 Resonance Note">
-                Atomic and Optical Physics I, 01 Resonance Note <i class="fa fa-chevron-right"></i>
+              <a href="/2021/09/10/LorentzModel/" rel="prev" title="Lorentz Model for an Atom">
+                Lorentz Model for an Atom <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -611,7 +701,7 @@ Mahtematica &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F97;&#x5230;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orge2c9369"><span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org65c6979"><span class="nav-text">Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org20dec91"><span class="nav-text">整个课程的介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org0159281"><span class="nav-text">Resonance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org237ffa4"><span class="nav-text">Quality factor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6cd93b4"><span class="nav-text">Whispering-gallery modes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org747add1"><span class="nav-text">Lorentzian shape</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgac57a82"><span class="nav-text">Unit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6a2b722"><span class="nav-text">Q</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgb375ced"><span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

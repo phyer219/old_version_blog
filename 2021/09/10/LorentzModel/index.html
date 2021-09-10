@@ -110,22 +110,22 @@
 
 
 
-  <meta name="keywords" content="Principal value">
+  <meta name="keywords" content="Lorentz">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tan 的 Lambda function 中的积分">
-<meta property="og:url" content="https://zqw.ink/2021/09/08/tan_lambda_function/index.html">
+<meta property="og:title" content="Lorentz Model for an Atom">
+<meta property="og:url" content="https://zqw.ink/2021/09/10/LorentzModel/index.html">
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-09-08T07:05:16.177Z">
+<meta property="og:updated_time" content="2021-09-09T08:03:20.433Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tan 的 Lambda function 中的积分">
+<meta name="twitter:title" content="Lorentz Model for an Atom">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zqw.ink/2021/09/08/tan_lambda_function/"/>
+  <link rel="canonical" href="https://zqw.ink/2021/09/10/LorentzModel/"/>
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>Tan 的 Lambda function 中的积分 | 从冰上的水</title>
+  <title>Lorentz Model for an Atom | 从冰上的水</title>
   
 
 
@@ -322,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/09/08/tan_lambda_function/">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/09/10/LorentzModel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZQW">
@@ -339,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Tan 的 Lambda function 中的积分
+          <h1 class="post-title" itemprop="name headline">Lorentz Model for an Atom
               
             
           </h1>
@@ -364,7 +364,7 @@
                 
               
 
-              <time title="创建时间：2021-09-08 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-08T00:00:00+08:00">2021-09-08</time>
+              <time title="创建时间：2021-09-10 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-10T00:00:00+08:00">2021-09-10</time>
             
 
             
@@ -397,8 +397,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/09/08/tan_lambda_function/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/09/08/tan_lambda_function/" itemprop="commentCount"></span>
+                <a href="/2021/09/10/LorentzModel/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/09/10/LorentzModel/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -430,28 +430,100 @@
 <!-- toc -->
 <a id="more"></a>
 
-\begin{align}
-  I = \int \mathrm{d}^3k \left[ \frac{1}{(\vec{k} - \vec{k}_0)^{2}}
-    + \frac{1}{(\vec{k} + \vec{k}_0)^{2}}
-    - \frac{2}{k^2} \right]
-   = 0
-\end{align}
-
+<div id="outline-container-org3ff2116" class="outline-2">
+<h2 id="org3ff2116">Information</h2>
+<div class="outline-text-2" id="text-org3ff2116">
 <p>
-Mahtematica &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F97;&#x5230;
+&#x6765;&#x81EA; Wolfgang Kettler &#x7684; AMO &#x8BFE;&#x4E2D;&#x63D0;&#x5230;
 </p>
-<div class="org-src-container">
-<figure class="highlight mathematica"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Integrate</span><span class="punctuation">[</span><span class="variable">k</span><span class="operator">^</span><span class="number">2</span> <span class="punctuation">(</span><span class="number">1</span><span class="operator">/</span><span class="punctuation">(</span><span class="variable">k</span><span class="operator">^</span><span class="number">2</span><span class="operator">+</span><span class="variable">k0</span><span class="operator">^</span><span class="number">2</span><span class="operator">-</span> <span class="number">2</span> <span class="variable">k</span> <span class="variable">k0</span> <span class="variable">x</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">2</span><span class="operator">/</span><span class="variable">k</span><span class="operator">^</span><span class="number">2</span><span class="operator">+</span><span class="number">1</span><span class="operator">/</span><span class="punctuation">(</span><span class="variable">k</span><span class="operator">^</span><span class="number">2</span><span class="operator">+</span><span class="variable">k0</span><span class="operator">^</span><span class="number">2</span><span class="operator">+</span><span class="number">2</span> <span class="variable">k</span> <span class="variable">k0</span> <span class="variable">x</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">,</span><span class="punctuation">{</span><span class="variable">x</span><span class="operator">,-</span><span class="number">1</span><span class="operator">,</span><span class="number">1</span><span class="punctuation">}</span><span class="operator">,</span><span class="punctuation">{</span><span class="variable">k</span><span class="operator">,</span><span class="number">0</span><span class="operator">,</span> <span class="variable">\[Infinity]</span><span class="punctuation">}</span><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
 </div>
-<p>
-&#x592A;&#x5931;&#x8D25;&#x4E86;, &#x662F;&#x4E00;&#x5F00;&#x59CB;&#x60F3;&#x590D;&#x6742;, &#x6839;&#x672C;&#x6CA1;&#x6709;&#x5947;&#x5F02;&#x6027;&#x2026;
-</p>
+</div>
 
-<div id="outline-container-orge2c9369" class="outline-2">
-<h2 id="orge2c9369">Reference</h2>
-<div class="outline-text-2" id="text-orge2c9369">
+<div id="outline-container-org301ead2" class="outline-2">
+<h2 id="org301ead2">Model</h2>
+<div class="outline-text-2" id="text-org301ead2">
+<p>
+&#x539F;&#x5B50;&#x7531;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x4E0D;&#x52A8;&#x6B63;&#x7535;&#x8377;, &#x548C;&#x4E00;&#x4E2A;&#x8D28;&#x91CF;&#x4E3A; \(m\) , &#x5E26;&#x7535;&#x4E3A; \(q\) &#x7684;&#x8D1F;&#x7535;&#x8377;&#x7EC4;&#x6210;, &#x4E8C;&#x8005;&#x7531;&#x4E00;&#x4E2A;&#x52B2;&#x5EA6;&#x7CFB;&#x6570; \(C\)
+&#x7684;&#x5F39;&#x7C27;&#x8FDE;&#x63A5;. &#x539F;&#x5B50;&#x5904;&#x4E8E;&#x5916;&#x52A0;&#x9A71;&#x52A8;&#x7535;&#x573A; \(E(t) = e^{-\mathrm{i}\omega t}\) &#x4E2D;, &#x8FD0;&#x52A8;&#x65F6;&#x53D7;&#x5230;&#x4E0E;&#x901F;&#x5EA6;&#x6210;&#x6B63;&#x6BD4;&#x7684;&#x963B;&#x5C3C;
+\(m\gamma \dot{x}\), &#x53EF;&#x5217;&#x51FA;&#x725B;&#x987F;&#x7B2C;&#x4E8C;&#x5B9A;&#x5F8B;&#x7684;&#x8FD0;&#x52A8;&#x65B9;&#x7A0B;
+</p>
+\begin{align}
+  qE(t) - Cx(t) - m\gamma \dot{x}(t) = m \ddot{x}(t)
+\end{align}
+<p>
+&#x8BB0;
+</p>
+\begin{align}
+  \omega_0 = \sqrt{\frac{C}{m}}
+\end{align}
+<p>
+&#x4E0A;&#x5F0F;&#x89E3;&#x5F97;
+</p>
+\begin{align}
+  x(t) = \frac{q E(t)}{m} \frac{1}{\omega_0^2 - \omega^2 - \mathrm{i}\omega\gamma}
+\end{align}
+<p>
+&#x662F;&#x4E00;&#x4E2A; Lorentz shape &#x7684;&#x5F62;&#x5F0F;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge469010" class="outline-2">
+<h2 id="orge469010">Dipole moment</h2>
+<div class="outline-text-2" id="text-orge469010">
+\begin{align}
+  p = q x = \frac{q^{2} E(t)}{m} \frac{1}{\omega_0^2 - \omega^2 - \mathrm{i}\omega\gamma}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgdfec3bf" class="outline-2">
+<h2 id="orgdfec3bf">Polarization</h2>
+<div class="outline-text-2" id="text-orgdfec3bf">
+<p>
+n is the electrons per volume
+</p>
+\begin{align}
+  P = np = \frac{n q^{2} E(t)}{m} \frac{1}{\omega_0^2 - \omega^2 - \mathrm{i}\omega\gamma}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orge397e35" class="outline-2">
+<h2 id="orge397e35">Susceptibility</h2>
+<div class="outline-text-2" id="text-orge397e35">
+\begin{align}
+  \chi = \frac{P}{\epsilon_0E} = \frac{n q^{2} E}{\epsilon_0 m} \frac{1}{\omega_0^2 - \omega^2 - \mathrm{i}\omega\gamma}
+\end{align}
+<p>
+define plasma frequency
+</p>
+\begin{align}
+\omega_p = \sqrt{\frac{n q^2}{m\epsilon_0}}
+\end{align}
+<p>
+so
+</p>
+\begin{align}
+  \chi = \frac{\omega_p^2}{\omega_0^2 - \omega^2 - \mathrm{i}\omega\gamma}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgbeca34b" class="outline-2">
+<h2 id="orgbeca34b">Permittivity</h2>
+<div class="outline-text-2" id="text-orgbeca34b">
+\begin{align}
+\epsilon_r = 1 + \chi = 1 + \frac{\omega_p^2}{\omega_0^2 - \omega^2 - \mathrm{i}\omega\gamma}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgf4d1336" class="outline-2">
+<h2 id="orgf4d1336">Reference</h2>
+<div class="outline-text-2" id="text-orgf4d1336">
 <ul class="org-ul">
-<li>Tan, S. Energetics of a strongly correlated Fermi gas. Annals of Physics 323, 2952&#x2013;2970 (2008).</li>
+<li><a href="https://physics.byu.edu/faculty/colton/docs/phy442-winter20/lecture-11-Lorentz-oscillator-model.pdf" target="_blank" rel="noopener">https://physics.byu.edu/faculty/colton/docs/phy442-winter20/lecture-11-Lorentz-oscillator-model.pdf</a></li>
 </ul>
 </div>
 </div>
@@ -476,7 +548,7 @@ Mahtematica &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F97;&#x5230;
       
         <div class="post-tags">
           
-            <a href="/tags/Principal-value/" rel="tag"># Principal value</a>
+            <a href="/tags/Lorentz/" rel="tag"># Lorentz</a>
           
         </div>
       
@@ -489,8 +561,8 @@ Mahtematica &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F97;&#x5230;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/09/07/summary_grade_4_2/" rel="next" title="研四下学期总结">
-                <i class="fa fa-chevron-left"></i> 研四下学期总结
+              <a href="/2021/09/09/MITAMO01/" rel="next" title="Atomic and Optical Physics I, 01 Resonance Note">
+                <i class="fa fa-chevron-left"></i> Atomic and Optical Physics I, 01 Resonance Note
               </a>
             
           </div>
@@ -498,10 +570,6 @@ Mahtematica &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F97;&#x5230;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/09/09/MITAMO01/" rel="prev" title="Atomic and Optical Physics I, 01 Resonance Note">
-                Atomic and Optical Physics I, 01 Resonance Note <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -611,7 +679,7 @@ Mahtematica &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F97;&#x5230;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orge2c9369"><span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org3ff2116"><span class="nav-text">Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org301ead2"><span class="nav-text">Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orge469010"><span class="nav-text">Dipole moment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgdfec3bf"><span class="nav-text">Polarization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orge397e35"><span class="nav-text">Susceptibility</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgbeca34b"><span class="nav-text">Permittivity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgf4d1336"><span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

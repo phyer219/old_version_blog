@@ -110,22 +110,21 @@
 
 
 
-  <meta name="keywords" content="Principal value">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Tan 的 Lambda function 中的积分">
-<meta property="og:url" content="https://zqw.ink/2021/09/08/tan_lambda_function/index.html">
+  <meta name="keywords" content="Email:zeqing6688@126.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="从冰上的水">
+<meta property="og:url" content="https://zqw.ink/tags/Lorentz/index.html">
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-09-08T07:05:16.177Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tan 的 Lambda function 中的积分">
+<meta name="twitter:title" content="从冰上的水">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zqw.ink/2021/09/08/tan_lambda_function/"/>
+  <link rel="canonical" href="https://zqw.ink/tags/Lorentz/"/>
 
 
 
@@ -135,7 +134,7 @@
   };
 </script>
 
-  <title>Tan 的 Lambda function 中的积分 | 从冰上的水</title>
+  <title>标签: Lorentz | 从冰上的水</title>
   
 
 
@@ -198,7 +197,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -302,233 +301,87 @@
           
             
 
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
           
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block tag">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>Lorentz<small>标签</small>
+        </h1>
+      </div>
 
-  
-  
-  
-
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/09/08/tan_lambda_function/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZQW">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="从冰上的水">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2021/09/10/LorentzModel/" itemprop="url">
+              
+                <span itemprop="name">Lorentz Model for an Atom</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">Tan 的 Lambda function 中的积分
-              
-            
-          </h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2021-09-10T00:00:00+08:00"
+              content="2021-09-10" >
+          09-10
+        </time>
+      </div>
 
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2021-09-08 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-08T00:00:00+08:00">2021-09-08</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2021/09/08/tan_lambda_function/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/09/08/tan_lambda_function/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <div id="content">
-<!-- toc -->
-<a id="more"></a>
-
-\begin{align}
-  I = \int \mathrm{d}^3k \left[ \frac{1}{(\vec{k} - \vec{k}_0)^{2}}
-    + \frac{1}{(\vec{k} + \vec{k}_0)^{2}}
-    - \frac{2}{k^2} \right]
-   = 0
-\end{align}
-
-<p>
-Mahtematica &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F97;&#x5230;
-</p>
-<div class="org-src-container">
-<figure class="highlight mathematica"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Integrate</span><span class="punctuation">[</span><span class="variable">k</span><span class="operator">^</span><span class="number">2</span> <span class="punctuation">(</span><span class="number">1</span><span class="operator">/</span><span class="punctuation">(</span><span class="variable">k</span><span class="operator">^</span><span class="number">2</span><span class="operator">+</span><span class="variable">k0</span><span class="operator">^</span><span class="number">2</span><span class="operator">-</span> <span class="number">2</span> <span class="variable">k</span> <span class="variable">k0</span> <span class="variable">x</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">2</span><span class="operator">/</span><span class="variable">k</span><span class="operator">^</span><span class="number">2</span><span class="operator">+</span><span class="number">1</span><span class="operator">/</span><span class="punctuation">(</span><span class="variable">k</span><span class="operator">^</span><span class="number">2</span><span class="operator">+</span><span class="variable">k0</span><span class="operator">^</span><span class="number">2</span><span class="operator">+</span><span class="number">2</span> <span class="variable">k</span> <span class="variable">k0</span> <span class="variable">x</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">,</span><span class="punctuation">{</span><span class="variable">x</span><span class="operator">,-</span><span class="number">1</span><span class="operator">,</span><span class="number">1</span><span class="punctuation">}</span><span class="operator">,</span><span class="punctuation">{</span><span class="variable">k</span><span class="operator">,</span><span class="number">0</span><span class="operator">,</span> <span class="variable">\[Infinity]</span><span class="punctuation">}</span><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
-</div>
-<p>
-&#x592A;&#x5931;&#x8D25;&#x4E86;, &#x662F;&#x4E00;&#x5F00;&#x59CB;&#x60F3;&#x590D;&#x6742;, &#x6839;&#x672C;&#x6CA1;&#x6709;&#x5947;&#x5F02;&#x6027;&#x2026;
-</p>
-
-<div id="outline-container-orge2c9369" class="outline-2">
-<h2 id="orge2c9369">Reference</h2>
-<div class="outline-text-2" id="text-orge2c9369">
-<ul class="org-ul">
-<li>Tan, S. Energetics of a strongly correlated Fermi gas. Annals of Physics 323, 2952&#x2013;2970 (2008).</li>
-</ul>
-</div>
-</div>
-</div>
-
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Principal-value/" rel="tag"># Principal value</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2021/09/07/summary_grade_4_2/" rel="next" title="研四下学期总结">
-                <i class="fa fa-chevron-left"></i> 研四下学期总结
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/09/09/MITAMO01/" rel="prev" title="Atomic and Optical Physics I, 01 Resonance Note">
-                Atomic and Optical Physics I, 01 Resonance Note <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
+      
+    </div>
+
   </div>
+  
+  
+  
+
+  
 
 
           </div>
           
-
-  
-    <div class="comments" id="comments">
-    </div>
-  
-
-
 
         </div>
         
@@ -549,17 +402,8 @@ Mahtematica &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F97;&#x5230;
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -601,22 +445,6 @@ Mahtematica &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F97;&#x5230;
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orge2c9369"><span class="nav-text">Reference</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -748,10 +576,6 @@ Mahtematica &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F97;&#x5230;
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
-
-
 
   
 
