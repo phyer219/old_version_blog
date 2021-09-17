@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zqw.ink/2021/09/17/numerical_Jacobian_center_of_mass/</loc>
+    
+    <lastmod>2021-09-17T03:05:10.607Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zqw.ink/2021/09/16/2021-09-16-scipy-integrate/</loc>
     
     <lastmod>2021-09-16T06:10:15.325Z</lastmod>

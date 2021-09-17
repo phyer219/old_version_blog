@@ -110,24 +110,25 @@
 
 
 
-  <meta name="keywords" content="python,quadrature">
+  <meta name="keywords" content="scipy,center of mass">
 <meta property="og:type" content="article">
-<meta property="og:title" content="scipy.integrate.quad 是如何取点的">
-<meta property="og:url" content="https://zqw.ink/2021/09/16/2021-09-16-scipy-integrate/index.html">
+<meta property="og:title" content="多变量数值定积分换元(质心系)">
+<meta property="og:url" content="https://zqw.ink/2021/09/17/numerical_Jacobian_center_of_mass/index.html">
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://zqw.ink/2021/09/16/2021-09-16-scipy-integrate/fig.png">
-<meta property="og:updated_time" content="2021-09-16T06:10:15.325Z">
+<meta property="og:image" content="https://zqw.ink/2021/09/17/numerical_Jacobian_center_of_mass/nquad.png">
+<meta property="og:image" content="https://zqw.ink/2021/09/17/numerical_Jacobian_center_of_mass/center_of_mass.png">
+<meta property="og:updated_time" content="2021-09-17T03:05:10.607Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="scipy.integrate.quad 是如何取点的">
-<meta name="twitter:image" content="https://zqw.ink/2021/09/16/2021-09-16-scipy-integrate/fig.png">
+<meta name="twitter:title" content="多变量数值定积分换元(质心系)">
+<meta name="twitter:image" content="https://zqw.ink/2021/09/17/numerical_Jacobian_center_of_mass/nquad.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zqw.ink/2021/09/16/2021-09-16-scipy-integrate/"/>
+  <link rel="canonical" href="https://zqw.ink/2021/09/17/numerical_Jacobian_center_of_mass/"/>
 
 
 
@@ -137,7 +138,7 @@
   };
 </script>
 
-  <title>scipy.integrate.quad 是如何取点的 | 从冰上的水</title>
+  <title>多变量数值定积分换元(质心系) | 从冰上的水</title>
   
 
 
@@ -324,7 +325,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/09/16/2021-09-16-scipy-integrate/">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/09/17/numerical_Jacobian_center_of_mass/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZQW">
@@ -341,7 +342,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">scipy.integrate.quad 是如何取点的
+          <h1 class="post-title" itemprop="name headline">多变量数值定积分换元(质心系)
               
             
           </h1>
@@ -366,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2021-09-16 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-16T00:00:00+08:00">2021-09-16</time>
+              <time title="创建时间：2021-09-17 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-17T00:00:00+08:00">2021-09-17</time>
             
 
             
@@ -384,7 +385,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件使用/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
 
                 
                 
@@ -399,8 +400,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/09/16/2021-09-16-scipy-integrate/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/09/16/2021-09-16-scipy-integrate/" itemprop="commentCount"></span>
+                <a href="/2021/09/17/numerical_Jacobian_center_of_mass/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/09/17/numerical_Jacobian_center_of_mass/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -432,33 +433,76 @@
 <!-- toc -->
 <a id="more"></a>
 
-<p>
-&#x63A2;&#x7A76; <code>scipy.integrate.quad</code> &#x53D6;&#x70B9;&#x7684;&#x65B9;&#x5F0F;
+<div id="outline-container-org9503015" class="outline-2">
+<h2 id="org9503015"><code>nuqad</code> &#x7684;&#x7528;&#x6CD5;</h2>
+<div class="outline-text-2" id="text-org9503015">
+\begin{align}
+\int_0^1\mathrm{d}y \int_y^1 \mathrm{d}x \cdot(x^2 + y) = \frac{5}{12}
+\end{align}
+
+
+<div id="org4277189" class="figure">
+<p><img src="/2021/09/17/numerical_Jacobian_center_of_mass/nquad.png">
 </p>
+</div>
 
 <div class="org-src-container">
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> integrate</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">nodes = []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span>(<span class="params">x</span>):</span></span><br><span class="line">    nodes.append(x)</span><br><span class="line">    <span class="keyword">return</span> np.exp(x) + np.sin(<span class="number">10</span>*x)**<span class="number">2</span> + np.exp(x)**<span class="number">100</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">result = integrate.quad(foo, -<span class="number">1</span>, <span class="number">1</span>, epsrel=<span class="number">1e-125</span>, limit=<span class="number">2</span>)</span><br><span class="line">n = np.linspace(<span class="number">1</span>, <span class="built_in">len</span>(nodes), <span class="built_in">len</span>(nodes))</span><br><span class="line">print(<span class="built_in">len</span>(nodes))</span><br><span class="line">print(<span class="built_in">len</span>(nodes)/<span class="number">21</span>)</span><br><span class="line">plt.plot(n, nodes, <span class="string">&apos;*&apos;</span>)</span><br><span class="line">plt.grid()</span><br><span class="line">plt.title(<span class="string">&apos;limit = 2&apos;</span>)</span><br><span class="line">plt.xlabel(<span class="string">r&quot;$i$&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;position of $i$th node&quot;</span>)</span><br><span class="line">plt.savefig(<span class="string">&apos;fig.png&apos;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> nquad</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x**<span class="number">2</span> + y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">range_x</span>(<span class="params">y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> [<span class="number">0</span>, y]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x5148;&#x79EF; x (y, 1), &#x518D;&#x79EF; y(0, 1)</span></span><br><span class="line">res = nquad(func, [range_x, [<span class="number">0</span>, <span class="number">1</span>]])</span><br><span class="line">print(res)</span><br><span class="line">print(<span class="number">5</span>/<span class="number">12</span>)</span><br></pre></td></tr></table></figure>
 </div>
 
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">(0.41666666666666663, 1.473075555508962e-14)</span><br><span class="line">0.4166666666666667</span><br></pre></td></tr></table></figure>
+</div>
 <p>
-<a href="code.py">code</a>
+<a href="nquad.py">code</a>
 </p>
+</div>
+</div>
+
+<div id="outline-container-org285b911" class="outline-2">
+<h2 id="org285b911">&#x5B9A;&#x79EF;&#x5206;&#x6362;&#x5143;&#x5230;&#x8D28;&#x5FC3;&#x7CFB;</h2>
+<div class="outline-text-2" id="text-org285b911">
+\begin{align}
+\int_0^{2\pi} \mathrm{d}\phi_k \int_0^{2\pi}\mathrm{d}\phi_q \cdot f(\phi_k - \phi_q)
+= \frac{1}{2}\int_{-2\pi}^{2\pi} \mathrm{d}\phi_- \cdot l(\phi_-) f(\phi_-)
+\end{align}
+<p>
+where
+</p>
+\begin{align}
+\phi_+ =&amp; \phi_k + \phi_q \\
+\phi_- =&amp; \phi_k - \phi_q \\
+l(\phi_-) =&amp; \left\{\matrix{4\pi - 2\phi_-, \quad \phi_-&gt;0\\
+                      4\pi + 2\phi_-, \quad \phi_-&gt;0}\right.
+\end{align}
 
 
-<div id="orgada14fd" class="figure">
-<p><img src="/2021/09/16/2021-09-16-scipy-integrate/fig.png">
+<div id="org0e3272f" class="figure">
+<p><img src="/2021/09/17/numerical_Jacobian_center_of_mass/center_of_mass.png">
 </p>
 </div>
 
-<div id="outline-container-org170e4bc" class="outline-2">
-<h2 id="org170e4bc">Reference</h2>
-<div class="outline-text-2" id="text-org170e4bc">
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> quad</span><br><span class="line"><span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> nquad</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">l_bound</span>(<span class="params">phi_minus</span>):</span></span><br><span class="line">    <span class="keyword">if</span> phi_minus &gt; <span class="number">0</span>:</span><br><span class="line">	l_bound = <span class="number">4</span>*np.pi - <span class="number">2</span>*phi_minus</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">	l_bound = <span class="number">4</span>*np.pi + <span class="number">2</span>*phi_minus</span><br><span class="line">    <span class="keyword">return</span> l_bound</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">phi_minus</span>):</span></span><br><span class="line">    res = phi_minus + <span class="number">2</span>*phi_minus**<span class="number">2</span> + <span class="number">3</span>*phi_minus**<span class="number">3</span> - <span class="number">3</span>**phi_minus</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">center = quad(<span class="keyword">lambda</span> phi_minus: l_bound(phi_minus)*f(phi_minus)/<span class="number">2</span>, -<span class="number">2</span>*np.pi,</span><br><span class="line">	      <span class="number">2</span>*np.pi)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">normal = nquad(<span class="keyword">lambda</span> phi_k, phi_q: f(phi_k-phi_q), [[<span class="number">0</span>, <span class="number">2</span>*np.pi],</span><br><span class="line">						     [<span class="number">0</span>, <span class="number">2</span>*np.pi]])</span><br><span class="line">print(center)</span><br><span class="line">print(normal)</span><br></pre></td></tr></table></figure>
+</div>
+
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">(-303.255886295168, 2.462030579408747e-11)</span><br><span class="line">(-303.2558862951685, 2.2693158156346615e-11)</span><br></pre></td></tr></table></figure>
+</div>
+<p>
+<a href="center_of_mass.py">code</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6b90090" class="outline-2">
+<h2 id="org6b90090">Reference</h2>
+<div class="outline-text-2" id="text-org6b90090">
 <ul class="org-ul">
-<li><a href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.integrate.quad.html#scipy.integrate.quad" target="_blank" rel="noopener">scipy.integrate.quad</a></li>
+<li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.nquad.html" target="_blank" rel="noopener">https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.nquad.html</a></li>
 
-<li><a href="https://en.wikipedia.org/wiki/QUADPACK" target="_blank" rel="noopener">wikipedia: QUADPACK</a></li>
-
-<li><a href="https://en.wikipedia.org/wiki/Adaptive_quadrature" target="_blank" rel="noopener">wikipedia: Adaptive quadrature</a></li>
+<li>Stewart, J. Calculus. (Cengage Learning, 2016). Chap 15.9, Change of
+Variables in Multiple Integrals</li>
 </ul>
 </div>
 </div>
@@ -483,9 +527,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/scipy/" rel="tag"># scipy</a>
           
-            <a href="/tags/quadrature/" rel="tag"># quadrature</a>
+            <a href="/tags/center-of-mass/" rel="tag"># center of mass</a>
           
         </div>
       
@@ -498,8 +542,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/09/11/MITAMO02/" rel="next" title="Atomic and Optical Physics I, 02 ResonanceII: Larmor Procession Note">
-                <i class="fa fa-chevron-left"></i> Atomic and Optical Physics I, 02 ResonanceII: Larmor Procession Note
+              <a href="/2021/09/16/2021-09-16-scipy-integrate/" rel="next" title="scipy.integrate.quad 是如何取点的">
+                <i class="fa fa-chevron-left"></i> scipy.integrate.quad 是如何取点的
               </a>
             
           </div>
@@ -507,10 +551,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/09/17/numerical_Jacobian_center_of_mass/" rel="prev" title="多变量数值定积分换元(质心系)">
-                多变量数值定积分换元(质心系) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -620,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org170e4bc"><span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org9503015"><span class="nav-text">nuqad 的用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org285b911"><span class="nav-text">定积分换元到质心系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6b90090"><span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
