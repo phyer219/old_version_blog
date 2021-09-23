@@ -117,7 +117,7 @@
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://zqw.ink/2021/09/16/2021-09-16-scipy-integrate/fig.png">
-<meta property="og:updated_time" content="2021-09-16T06:10:15.325Z">
+<meta property="og:updated_time" content="2021-09-23T07:25:52.107Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="scipy.integrate.quad 是如何取点的">
 <meta name="twitter:image" content="https://zqw.ink/2021/09/16/2021-09-16-scipy-integrate/fig.png">
@@ -437,7 +437,7 @@
 </p>
 
 <div class="org-src-container">
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> integrate</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">nodes = []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span>(<span class="params">x</span>):</span></span><br><span class="line">    nodes.append(x)</span><br><span class="line">    <span class="keyword">return</span> np.exp(x) + np.sin(<span class="number">10</span>*x)**<span class="number">2</span> + np.exp(x)**<span class="number">100</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">result = integrate.quad(foo, -<span class="number">1</span>, <span class="number">1</span>, epsrel=<span class="number">1e-125</span>, limit=<span class="number">2</span>)</span><br><span class="line">n = np.linspace(<span class="number">1</span>, <span class="built_in">len</span>(nodes), <span class="built_in">len</span>(nodes))</span><br><span class="line">print(<span class="built_in">len</span>(nodes))</span><br><span class="line">print(<span class="built_in">len</span>(nodes)/<span class="number">21</span>)</span><br><span class="line">plt.plot(n, nodes, <span class="string">&apos;*&apos;</span>)</span><br><span class="line">plt.grid()</span><br><span class="line">plt.title(<span class="string">&apos;limit = 2&apos;</span>)</span><br><span class="line">plt.xlabel(<span class="string">r&quot;$i$&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;position of $i$th node&quot;</span>)</span><br><span class="line">plt.savefig(<span class="string">&apos;fig.png&apos;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> integrate</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">nodes = []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span>(<span class="params">x</span>):</span></span><br><span class="line">    nodes.append(x)</span><br><span class="line">    <span class="keyword">return</span> np.exp(x) + np.sin(<span class="number">10</span>*x)**<span class="number">2</span> + np.exp(x)**<span class="number">100</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">result = integrate.quad(foo, -<span class="number">1</span>, <span class="number">1</span>, epsrel=<span class="number">1e-125</span>, limit=<span class="number">2</span>, full_output=<span class="number">1</span>)</span><br><span class="line">n = np.linspace(<span class="number">1</span>, <span class="built_in">len</span>(nodes), <span class="built_in">len</span>(nodes))</span><br><span class="line">print(<span class="built_in">len</span>(nodes))</span><br><span class="line">print(<span class="built_in">len</span>(nodes)/<span class="number">21</span>)</span><br><span class="line">print(result[<span class="number">2</span>][<span class="string">&apos;neval&apos;</span>])</span><br><span class="line">plt.plot(n, nodes, <span class="string">&apos;*&apos;</span>)</span><br><span class="line">plt.grid()</span><br><span class="line">plt.title(<span class="string">&apos;limit = 2&apos;</span>)</span><br><span class="line">plt.xlabel(<span class="string">r&quot;$i$&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;position of $i$th node&quot;</span>)</span><br><span class="line">plt.savefig(<span class="string">&apos;fig.png&apos;</span>)</span><br></pre></td></tr></table></figure>
 </div>
 
 <p>
@@ -445,14 +445,14 @@
 </p>
 
 
-<div id="orgada14fd" class="figure">
+<div id="org1c9e4e7" class="figure">
 <p><img src="/2021/09/16/2021-09-16-scipy-integrate/fig.png">
 </p>
 </div>
 
-<div id="outline-container-org170e4bc" class="outline-2">
-<h2 id="org170e4bc">Reference</h2>
-<div class="outline-text-2" id="text-org170e4bc">
+<div id="outline-container-orgca21f69" class="outline-2">
+<h2 id="orgca21f69">Reference</h2>
+<div class="outline-text-2" id="text-orgca21f69">
 <ul class="org-ul">
 <li><a href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.integrate.quad.html#scipy.integrate.quad" target="_blank" rel="noopener">scipy.integrate.quad</a></li>
 
@@ -620,7 +620,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org170e4bc"><span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgca21f69"><span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
