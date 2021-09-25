@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <name>my_media</name>
+    <table>
+        <database></database>
+        <name>ANIME</name>
+        <ddl>CREATE TABLE ANIME
+                    (MY_ID INT PRIMARY KEY     NOT NULL,
+                     NAME           TEXT    NOT NULL,
+                     MY_RANK        INT     NOT NULL,
+                     NAME_JP        TEXT,
+                     MY_COMMENT     TEXT,
+                     BGM_ID         INT,
+                     IMDB_ID        INT,
+                     FINISH_TIME    TEXT,
+                     WATCHT_TIME_START TEXT,
+                     WATCHT_TIME_END   TEXT
+                    )</ddl>
+        <columns>
+            <column>
+                <name>MY_ID</name>
+                <type>INT</type>
+                <constraints>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY     </definition>
+                    </constraint>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>NAME</name>
+                <type>TEXT</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>MY_RANK</name>
+                <type>INT</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>NAME_JP</name>
+                <type>TEXT</type>
+            </column>
+            <column>
+                <name>MY_COMMENT</name>
+                <type>TEXT</type>
+            </column>
+            <column>
+                <name>BGM_ID</name>
+                <type>INT</type>
+            </column>
+            <column>
+                <name>IMDB_ID</name>
+                <type>INT</type>
+            </column>
+            <column>
+                <name>FINISH_TIME</name>
+                <type>TEXT</type>
+            </column>
+            <column>
+                <name>WATCHT_TIME_START</name>
+                <type>TEXT</type>
+            </column>
+            <column>
+                <name>WATCHT_TIME_END</name>
+                <type>TEXT</type>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">200001</value>
+                <value column="1">Just Because!</value>
+                <value column="2">4</value>
+                <value column="3" null="true"/>
+                <value column="4" null="true"/>
+                <value column="5" null="true"/>
+                <value column="6" null="true"/>
+                <value column="7" null="true"/>
+                <value column="8" null="true"/>
+                <value column="9" null="true"/>
+            </row>
+            <row>
+                <value column="0">100002</value>
+                <value column="1">昨日之歌</value>
+                <value column="2">5</value>
+                <value column="3"> イエスタデイをうたって</value>
+                <value column="4" null="true"/>
+                <value column="5">280516</value>
+                <value column="6" null="true"/>
+                <value column="7">2021-06-21</value>
+                <value column="8" null="true"/>
+                <value column="9">2021-06-21</value>
+            </row>
+            <row>
+                <value column="0">100000</value>
+                <value column="1">某科学的超电磁炮</value>
+                <value column="2">5</value>
+                <value column="3" null="true"/>
+                <value column="4">炮姐不解释</value>
+                <value column="5" null="true"/>
+                <value column="6" null="true"/>
+                <value column="7" null="true"/>
+                <value column="8" null="true"/>
+                <value column="9" null="true"/>
+            </row>
+        </rows>
+    </table>
+</database>
