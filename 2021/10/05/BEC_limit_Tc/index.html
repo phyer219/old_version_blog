@@ -110,25 +110,22 @@
 
 
 
-  <meta name="keywords" content="scipy,center of mass">
+  <meta name="keywords" content="BEC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多变量数值定积分换元(质心系)">
-<meta property="og:url" content="https://zqw.ink/2021/09/17/numerical_Jacobian_center_of_mass/index.html">
+<meta property="og:title" content="BEC 极限下的 Tc 的估计">
+<meta property="og:url" content="https://zqw.ink/2021/10/05/BEC_limit_Tc/index.html">
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://zqw.ink/2021/09/17/numerical_Jacobian_center_of_mass/nquad.png">
-<meta property="og:image" content="https://zqw.ink/2021/09/17/numerical_Jacobian_center_of_mass/center_of_mass.png">
-<meta property="og:updated_time" content="2021-09-17T03:05:10.607Z">
+<meta property="og:updated_time" content="2021-10-08T07:50:29.482Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多变量数值定积分换元(质心系)">
-<meta name="twitter:image" content="https://zqw.ink/2021/09/17/numerical_Jacobian_center_of_mass/nquad.png">
+<meta name="twitter:title" content="BEC 极限下的 Tc 的估计">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zqw.ink/2021/09/17/numerical_Jacobian_center_of_mass/"/>
+  <link rel="canonical" href="https://zqw.ink/2021/10/05/BEC_limit_Tc/"/>
 
 
 
@@ -138,7 +135,7 @@
   };
 </script>
 
-  <title>多变量数值定积分换元(质心系) | 从冰上的水</title>
+  <title>BEC 极限下的 Tc 的估计 | 从冰上的水</title>
   
 
 
@@ -332,7 +329,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/09/17/numerical_Jacobian_center_of_mass/">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/10/05/BEC_limit_Tc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZQW">
@@ -349,7 +346,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">多变量数值定积分换元(质心系)
+          <h1 class="post-title" itemprop="name headline">BEC 极限下的 Tc 的估计
               
             
           </h1>
@@ -374,7 +371,7 @@
                 
               
 
-              <time title="创建时间：2021-09-17 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-17T00:00:00+08:00">2021-09-17</time>
+              <time title="创建时间：2021-10-05 00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-05T00:00:00+08:00">2021-10-05</time>
             
 
             
@@ -407,8 +404,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/09/17/numerical_Jacobian_center_of_mass/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/09/17/numerical_Jacobian_center_of_mass/" itemprop="commentCount"></span>
+                <a href="/2021/10/05/BEC_limit_Tc/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/10/05/BEC_limit_Tc/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -440,77 +437,75 @@
 <!-- toc -->
 <a id="more"></a>
 
-<div id="outline-container-org9503015" class="outline-2">
-<h2 id="org9503015"><code>nuqad</code> &#x7684;&#x7528;&#x6CD5;</h2>
-<div class="outline-text-2" id="text-org9503015">
-\begin{align}
-\int_0^1\mathrm{d}y \int_y^1 \mathrm{d}x \cdot(x^2 + y) = \frac{5}{12}
-\end{align}
-
-
-<div id="org4277189" class="figure">
-<p><img src="/2021/09/17/numerical_Jacobian_center_of_mass/nquad.png">
-</p>
-</div>
-
-<div class="org-src-container">
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> nquad</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x**<span class="number">2</span> + y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">range_x</span>(<span class="params">y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> [<span class="number">0</span>, y]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x5148;&#x79EF; x (y, 1), &#x518D;&#x79EF; y(0, 1)</span></span><br><span class="line">res = nquad(func, [range_x, [<span class="number">0</span>, <span class="number">1</span>]])</span><br><span class="line">print(res)</span><br><span class="line">print(<span class="number">5</span>/<span class="number">12</span>)</span><br></pre></td></tr></table></figure>
-</div>
-
-<div class="org-src-container">
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">(0.41666666666666663, 1.473075555508962e-14)</span><br><span class="line">0.4166666666666667</span><br></pre></td></tr></table></figure>
-</div>
+<div id="outline-container-org1879532" class="outline-2">
+<h2 id="org1879532">Theory</h2>
+<div class="outline-text-2" id="text-org1879532">
 <p>
-<a href="nquad.py">code</a>
+&#x53D6;&#x5355;&#x4F4D; \(\hbar = M = 1\) .
 </p>
-</div>
-</div>
 
-<div id="outline-container-org285b911" class="outline-2">
-<h2 id="org285b911">&#x5B9A;&#x79EF;&#x5206;&#x6362;&#x5143;&#x5230;&#x8D28;&#x5FC3;&#x7CFB;</h2>
-<div class="outline-text-2" id="text-org285b911">
-\begin{align}
-\int_0^{2\pi} \mathrm{d}\phi_k \int_0^{2\pi}\mathrm{d}\phi_q \cdot f(\phi_k - \phi_q)
-= \frac{1}{2}\int_{-2\pi}^{2\pi} \mathrm{d}\phi_- \cdot l(\phi_-) f(\phi_-)
-\end{align}
 <p>
-where
+&#x5728; BEC&#x6781;&#x9650;&#x4E0B;, &#x539F;&#x5B50;&#x4E24;&#x4E24;&#x914D;&#x5BF9;, &#x5F62;&#x6210;&#x7684; dimmer &#x7684;&#x7C92;&#x5B50;&#x6570;&#x5BC6;&#x5EA6;&#x4E3A;
 </p>
 \begin{align}
-\phi_+ =&amp; \phi_k + \phi_q \\
-\phi_- =&amp; \phi_k - \phi_q \\
-l(\phi_-) =&amp; \left\{\matrix{4\pi - 2\phi_-, \quad \phi_-&gt;0\\
-                      4\pi + 2\phi_-, \quad \phi_-&gt;0}\right.
+n_{\mathrm{dimmer}} = \frac{N}{V} \sum_{\vec{k}} n_B(\xi_q + E_b)
+  = \frac{1}{2\pi^2}\int_0^{\infty} \mathrm{d}q \frac{q^2}{e^{\beta(q^2/4 - 2\mu + E_b)} - 1}
+\end{align}
+<p>
+&#x56E0;&#x6B64;, &#x5FFD;&#x7565;&#x6781;&#x5C11;&#x6570;&#x6CA1;&#x6709;&#x914D;&#x5BF9;&#x7684;&#x539F;&#x5B50;, &#x603B;&#x7684;&#x539F;&#x5B50;&#x7684;&#x7C92;&#x5B50;&#x6570;&#x5BC6;&#x5EA6;&#x5C31;&#x662F;
+</p>
+\begin{align}
+n_{\mathrm{total}} = 2n_{\mathrm{dimmer}}
 \end{align}
 
-
-<div id="org0e3272f" class="figure">
-<p><img src="/2021/09/17/numerical_Jacobian_center_of_mass/center_of_mass.png">
+<p>
+&#x5982;&#x679C;&#x539F;&#x5B50;&#x662F;&#x4E24;&#x5206;&#x91CF;&#x7684;, &#x6BD4;&#x5982; Bose &#x539F;&#x5B50;&#x901A;&#x8FC7; p &#x6CE2;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x914D;&#x5BF9;, &#x6216;&#x8005;&#x8D39;&#x7C73;&#x5B50;&#x901A;&#x8FC7; s &#x6CE2;&#x76F8;&#x4E92;
+&#x4F5C;&#x7528;&#x914D;&#x5BF9;, &#x90A3;&#x4E48;&#x80FD;&#x91CF;&#x5355;&#x4F4D;&#x53EF;&#x4EE5;&#x53D6;&#x4E3A;
+\(E_{n, p} = \frac{k_{n, p}^2}{2} = \frac{(3 \pi^2 n_{\mathrm{total}})^{2/3}}{2}\)
 </p>
+
+<p>
+&#x5982;&#x679C;&#x539F;&#x5B50;&#x662F;&#x5355;&#x5206;&#x91CF;&#x7684;, &#x6BD4;&#x5982; Bose &#x539F;&#x5B50;&#x901A;&#x8FC7; d &#x6CE2;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x914D;&#x5BF9;, &#x90A3;&#x4E48;&#x80FD;&#x91CF;&#x5355;&#x4F4D;&#x53EF;&#x4EE5;&#x53D6;&#x4E3A;
+\(E_{n, d} = \frac{k_{n, d}^2}{2} = \frac{(6 \pi^2 n_{\mathrm{total}})^{2/3}}{2}\)
+</p>
+
+<p>
+&#x5728; BEC &#x6781;&#x9650;&#x4E0B;, &#x7ED9;&#x5B9A;&#x5BC6;&#x5EA6;&#x7684;&#x60C5;&#x51B5;&#x4E0B;, &#x5F53; \(2\mu\) &#x521A;&#x597D;&#x80FD;&#x591F;&#x5F62;&#x6210;&#x675F;&#x7F1A;&#x6001;, &#x4E5F;&#x5C31;&#x662F; \(2\mu = E_b\)
+&#x65F6;, &#x5904;&#x4E8E;&#x4E34;&#x754C;&#x72B6;&#x6001;. &#x5982;&#x679C; fix &#x7C92;&#x5B50;&#x6570;&#x5BC6;&#x5EA6; \(n_{\mathrm{total}}\) , &#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x7B97;&#x51FA;
+\(n_{\mathrm{total}} /T_{BEC}\) , &#x4E5F;&#x5C31;&#x662F;&#x53D6;&#x80FD;&#x91CF;&#x5355;&#x4F4D; \(E_n\) &#x65F6;&#x7684;&#x4E34;&#x754C;&#x6E29;&#x5EA6;.
+</p>
+
+<p>
+&#x4E24;&#x5206;&#x91CF;&#x8D39;&#x7C73;&#x5B50; s &#x6CE2;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x5728; BEC &#x6781;&#x9650;&#x4E0B;&#x7684; BEC &#x4E34;&#x754C;&#x6E29;&#x5EA6;&#x4E3A;
+</p>
+\begin{align}
+T_{\mathrm{BEC}} \approx 0.218 E_F
+\end{align}
+</div>
 </div>
 
+<div id="outline-container-orgc3f42e1" class="outline-2">
+<h2 id="orgc3f42e1">Numerical</h2>
+<div class="outline-text-2" id="text-orgc3f42e1">
 <div class="org-src-container">
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> quad</span><br><span class="line"><span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> nquad</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">l_bound</span>(<span class="params">phi_minus</span>):</span></span><br><span class="line">    <span class="keyword">if</span> phi_minus &gt; <span class="number">0</span>:</span><br><span class="line">	l_bound = <span class="number">4</span>*np.pi - <span class="number">2</span>*phi_minus</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">	l_bound = <span class="number">4</span>*np.pi + <span class="number">2</span>*phi_minus</span><br><span class="line">    <span class="keyword">return</span> l_bound</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">phi_minus</span>):</span></span><br><span class="line">    res = phi_minus + <span class="number">2</span>*phi_minus**<span class="number">2</span> + <span class="number">3</span>*phi_minus**<span class="number">3</span> - <span class="number">3</span>**phi_minus</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">center = quad(<span class="keyword">lambda</span> phi_minus: l_bound(phi_minus)*f(phi_minus)/<span class="number">2</span>, -<span class="number">2</span>*np.pi,</span><br><span class="line">	      <span class="number">2</span>*np.pi)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">normal = nquad(<span class="keyword">lambda</span> phi_k, phi_q: f(phi_k-phi_q), [[<span class="number">0</span>, <span class="number">2</span>*np.pi],</span><br><span class="line">						     [<span class="number">0</span>, <span class="number">2</span>*np.pi]])</span><br><span class="line">print(center)</span><br><span class="line">print(normal)</span><br></pre></td></tr></table></figure>
-</div>
-
-<div class="org-src-container">
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">(-303.255886295168, 2.462030579408747e-11)</span><br><span class="line">(-303.2558862951685, 2.2693158156346615e-11)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> quad</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mu = -<span class="number">1</span></span><br><span class="line">E_b = <span class="number">2</span>*mu</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">density</span>(<span class="params">q</span>):</span></span><br><span class="line">    volume = q**<span class="number">2</span> / (np.pi**<span class="number">2</span>)</span><br><span class="line">    a = q**<span class="number">2</span>/<span class="number">4</span> - <span class="number">2</span>*mu + E_b</span><br><span class="line">    <span class="keyword">return</span> volume / (np.exp(a) - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">n = quad(density, <span class="number">0</span>, <span class="number">100</span>, points=[<span class="number">0</span>])[<span class="number">0</span>]</span><br><span class="line">ef_p = (<span class="number">3</span>*np.pi**<span class="number">2</span> * n)**(<span class="number">2</span>/<span class="number">3</span>) / <span class="number">2</span></span><br><span class="line">ef_d = (<span class="number">6</span>*np.pi**<span class="number">2</span> * n)**(<span class="number">2</span>/<span class="number">3</span>) / <span class="number">2</span></span><br><span class="line">tcef_p = <span class="number">1</span> / ef_p</span><br><span class="line">tcef_d = <span class="number">1</span> / ef_d</span><br><span class="line"></span><br><span class="line">print(n)</span><br><span class="line">print(tcef_p, tcef_d)</span><br></pre></td></tr></table></figure>
 </div>
 <p>
-<a href="center_of_mass.py">code</a>
+<a href="code.py">code</a>
 </p>
+
+<div class="org-src-container">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">0.9382979415622876</span><br><span class="line">0.2180329612206701 0.13735215870641743</span><br></pre></td></tr></table></figure>
+</div>
 </div>
 </div>
 
-<div id="outline-container-org6b90090" class="outline-2">
-<h2 id="org6b90090">Reference</h2>
-<div class="outline-text-2" id="text-org6b90090">
-<ul class="org-ul">
-<li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.nquad.html" target="_blank" rel="noopener">https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.nquad.html</a></li>
-
-<li>Stewart, J. Calculus. (Cengage Learning, 2016). Chap 15.9, Change of
-Variables in Multiple Integrals</li>
-</ul>
+<div id="outline-container-org91ce40a" class="outline-2">
+<h2 id="org91ce40a">Reference</h2>
+<div class="outline-text-2" id="text-org91ce40a">
+<p>
+Zhai, H. Ultracold atomic physics. (Cambridge University Press, 2020).
+</p>
 </div>
 </div>
 </div>
@@ -534,9 +529,7 @@ Variables in Multiple Integrals</li>
       
         <div class="post-tags">
           
-            <a href="/tags/scipy/" rel="tag"># scipy</a>
-          
-            <a href="/tags/center-of-mass/" rel="tag"># center of mass</a>
+            <a href="/tags/BEC/" rel="tag"># BEC</a>
           
         </div>
       
@@ -549,8 +542,8 @@ Variables in Multiple Integrals</li>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/09/16/2021-09-16-scipy-integrate/" rel="next" title="scipy.integrate.quad 是如何取点的">
-                <i class="fa fa-chevron-left"></i> scipy.integrate.quad 是如何取点的
+              <a href="/2021/09/17/numerical_Jacobian_center_of_mass/" rel="next" title="多变量数值定积分换元(质心系)">
+                <i class="fa fa-chevron-left"></i> 多变量数值定积分换元(质心系)
               </a>
             
           </div>
@@ -558,10 +551,6 @@ Variables in Multiple Integrals</li>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/10/05/BEC_limit_Tc/" rel="prev" title="BEC 极限下的 Tc 的估计">
-                BEC 极限下的 Tc 的估计 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -671,7 +660,7 @@ Variables in Multiple Integrals</li>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org9503015"><span class="nav-text">nuqad 的用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org285b911"><span class="nav-text">定积分换元到质心系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6b90090"><span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org1879532"><span class="nav-text">Theory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc3f42e1"><span class="nav-text">Numerical</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org91ce40a"><span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
