@@ -110,25 +110,26 @@
 
 
 
-  <meta name="keywords" content="python,matplotlib,marker,dashed">
+  <meta name="keywords" content="pi pulse,Rabi frequency,Lamor frequency">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python matplotlib 画图小技巧: 虚线的圆与虚线的五角星">
-<meta property="og:url" content="https://zqw.ink/2021/10/21/dash_circle/index.html">
+<meta property="og:title" content="Atomic and Optical Physics I, 03 ResonanceIII: Rapid adiabatic passage">
+<meta property="og:url" content="https://zqw.ink/2021/11/04/MITAMO03/index.html">
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://zqw.ink/2021/10/21/dash_circle/fig1.png">
-<meta property="og:image" content="https://zqw.ink/2021/10/21/dash_circle/fig2.png">
-<meta property="og:updated_time" content="2021-10-21T09:20:24.441Z">
+<meta property="og:image" content="https://zqw.ink/2021/11/04/MITAMO03/pi-pulse.png">
+<meta property="og:image" content="https://zqw.ink/2021/11/04/MITAMO03/rabi-freq.png">
+<meta property="og:image" content="https://zqw.ink/2021/11/04/MITAMO03/RAP.png">
+<meta property="og:updated_time" content="2021-11-04T14:46:25.519Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python matplotlib 画图小技巧: 虚线的圆与虚线的五角星">
-<meta name="twitter:image" content="https://zqw.ink/2021/10/21/dash_circle/fig1.png">
+<meta name="twitter:title" content="Atomic and Optical Physics I, 03 ResonanceIII: Rapid adiabatic passage">
+<meta name="twitter:image" content="https://zqw.ink/2021/11/04/MITAMO03/pi-pulse.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zqw.ink/2021/10/21/dash_circle/"/>
+  <link rel="canonical" href="https://zqw.ink/2021/11/04/MITAMO03/"/>
 
 
 
@@ -138,7 +139,7 @@
   };
 </script>
 
-  <title>python matplotlib 画图小技巧: 虚线的圆与虚线的五角星 | 从冰上的水</title>
+  <title>Atomic and Optical Physics I, 03 ResonanceIII: Rapid adiabatic passage | 从冰上的水</title>
   
 
 
@@ -332,7 +333,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/10/21/dash_circle/">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/11/04/MITAMO03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZQW">
@@ -349,7 +350,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python matplotlib 画图小技巧: 虚线的圆与虚线的五角星
+          <h1 class="post-title" itemprop="name headline">Atomic and Optical Physics I, 03 ResonanceIII: Rapid adiabatic passage
               
             
           </h1>
@@ -374,7 +375,7 @@
                 
               
 
-              <time title="创建时间：2021-10-21 00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-21T00:00:00+08:00">2021-10-21</time>
+              <time title="创建时间：2021-11-04 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-04T00:00:00+08:00">2021-11-04</time>
             
 
             
@@ -392,7 +393,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件使用/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
 
                 
                 
@@ -407,8 +408,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/10/21/dash_circle/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/10/21/dash_circle/" itemprop="commentCount"></span>
+                <a href="/2021/11/04/MITAMO03/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/11/04/MITAMO03/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -440,63 +441,211 @@
 <!-- toc -->
 <a id="more"></a>
 
-<div id="outline-container-org4fea9fa" class="outline-2">
-<h2 id="org4fea9fa">&#x95EE;&#x9898;&#x4E00;:</h2>
-<div class="outline-text-2" id="text-org4fea9fa">
-<p>
-&#x5728;&#x6563;&#x70B9;&#x56FE;&#x4E0A;, &#x7528;&#x4E00;&#x4E2A;&#x865A;&#x7EBF;&#x7684;&#x5706;&#x5708;&#x6807;&#x51FA;&#x67D0;&#x4E2A;&#x6570;&#x636E;&#x70B9;
-</p>
-
-<div class="org-src-container">
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.path <span class="keyword">as</span> mpath</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">6</span>, <span class="number">20</span>)</span><br><span class="line">y = np.sin(x)</span><br><span class="line">plt.plot(x, y, ls=<span class="string">&apos;none&apos;</span>, marker=<span class="string">&apos;o&apos;</span>, mfc=<span class="string">&apos;none&apos;</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(x[<span class="number">10</span>], y[<span class="number">10</span>], marker=<span class="string">&apos;o&apos;</span>, mfc=<span class="string">&apos;none&apos;</span>, ms=<span class="number">20</span>)</span><br><span class="line">plt.plot(x[<span class="number">10</span>], y[<span class="number">10</span>], marker=mpath.Path.unit_regular_star(<span class="number">20</span>),</span><br><span class="line">	 ms=<span class="number">25</span>, mfc=<span class="string">&apos;none&apos;</span>, mec=<span class="string">&apos;white&apos;</span>)</span><br><span class="line">plt.savefig(<span class="string">&apos;./fig1.png&apos;</span>)</span><br></pre></td></tr></table></figure>
-</div>
-
-<p>
-<a href="code1.py">code</a>
-</p>
-
-
-<div id="org3b7ba44" class="figure">
-<p><img src="/2021/10/21/dash_circle/fig1.png">
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org84148f2" class="outline-2">
-<h2 id="org84148f2">&#x95EE;&#x9898;&#x4E8C;:</h2>
-<div class="outline-text-2" id="text-org84148f2">
-<p>
-&#x753B;&#x4E00;&#x4E2A;&#x91D1;&#x8272;&#x7684;&#x7684;&#x865A;&#x7EBF;&#x8FB9;&#x6846;&#x7684;&#x4E94;&#x89D2;&#x661F;
-</p>
-
-<div class="org-src-container">
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.plot([<span class="number">1</span>], [<span class="number">1</span>], marker=(<span class="number">5</span>, <span class="number">1</span>, <span class="number">0</span>), markersize=<span class="number">30</span>, mfc=<span class="string">&apos;none&apos;</span>, mec=<span class="string">&apos;k&apos;</span>, mew=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">    plt.plot([<span class="number">1</span>], [<span class="number">1</span>], marker=<span class="string">&apos;o&apos;</span>, markersize=<span class="number">30</span>-<span class="number">5</span>*i,</span><br><span class="line">	     mfc=<span class="string">&apos;none&apos;</span>, mec=<span class="string">&apos;w&apos;</span>, mew=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">plt.plot([<span class="number">1</span>], [<span class="number">1</span>], marker=(<span class="number">5</span>, <span class="number">1</span>, <span class="number">0</span>), markersize=<span class="number">30</span>, mfc=<span class="string">&apos;gold&apos;</span>, mec=<span class="string">&apos;k&apos;</span>, mew=<span class="number">0</span>)</span><br><span class="line">plt.savefig(<span class="string">&apos;fig2.png&apos;</span>)</span><br></pre></td></tr></table></figure>
-</div>
-
-<p>
-<a href="code2.py">code</a>
-</p>
-
-
-<div id="org8350ed1" class="figure">
-<p><img src="/2021/10/21/dash_circle/fig2.png">
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org289d1a8" class="outline-2">
-<h2 id="org289d1a8">Reference</h2>
-<div class="outline-text-2" id="text-org289d1a8">
+<div id="outline-container-org60401e7" class="outline-2">
+<h2 id="org60401e7">Information</h2>
+<div class="outline-text-2" id="text-org60401e7">
 <ul class="org-ul">
-<li>YK Yang &#x7684;&#x8BA8;&#x8BBA;</li>
+<li>&#x5B98;&#x65B9;&#x4ECB;&#x7ECD;:
+<a href="https://ocw.mit.edu/courses/physics/8-421-atomic-and-optical-physics-i-spring-2014/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/physics/8-421-atomic-and-optical-physics-i-spring-2014/</a></li>
 
-<li><a href="https://stackoverflow.com/questions/38316746/how-to-draw-a-marker-with-dashed-dotted-edge-in-matplotlib/69658923#69658923" target="_blank" rel="noopener">https://stackoverflow.com/questions/38316746/how-to-draw-a-marker-with-dashed-dotted-edge-in-matplotlib/69658923#69658923</a></li>
-
-<li><a href="https://matplotlib.org/stable/gallery/shapes_and_collections/marker_path.html" target="_blank" rel="noopener">Marker Path</a></li>
+<li>&#x89C6;&#x9891;&#x5217;&#x8868;&#x5730;&#x5740;: <a href="https://www.youtube.com/playlist?list=PLUl4u3cNGP62FPGcyFJkzhqq9c5cHCK32" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PLUl4u3cNGP62FPGcyFJkzhqq9c5cHCK32</a></li>
 </ul>
 </div>
+</div>
+
+<div id="outline-container-org0069743" class="outline-2">
+<h2 id="org0069743">Atomic clocks</h2>
+</div>
+
+<div id="outline-container-orge98cd79" class="outline-2">
+<h2 id="orge98cd79">Motion in a rotating magnetic field, Resonance, \(\pi\) pulse</h2>
+<div class="outline-text-2" id="text-orge98cd79">
+<p>
+&#x8003;&#x8651; classical &#x7684;&#x60C5;&#x51B5;.
+</p>
+
+<p>
+&#x5047;&#x8BBE;&#x78C1;&#x77E9; \(\vec{\mu}\) &#x5904;&#x4E8E;&#x78C1;&#x573A;&#x4E2D;&#x78C1;&#x573A;&#x4E3A;
+</p>
+\begin{align}
+  \vec{B}(t) = B_0 \hat{e}_z + B_1(\hat{e}_x \cos \Omega_Lt - \hat{e}_y \sin\Omega_Lt)
+\end{align}
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5728; \(z\) &#x65B9;&#x5411;&#x6709;&#x4E00;&#x4E2A; static field, &#x5728; \(xoy\) &#x5E73;&#x9762;&#x5185;&#x6709;&#x4E00;&#x4E2A;&#x4EE5; Lamor &#x9891;&#x7387; \(\Omega_L
+= -\gamma B_0\) &#x65CB;&#x8F6C;&#x7684; rotating field.
+&#x5728; rotating frame ( \(x&apos;, y&apos;, z\) ) &#x4E2D;, &#x6839;&#x636E;&#x4E0A;&#x4E00;&#x8282;&#x7684;&#x77E5;&#x8BC6;, &#x7B49;&#x6548;&#x7684;&#x78C1;&#x573A;&#x4E3A;
+</p>
+\begin{align}
+B_{\mathrm{eff}} = (B_0 + \frac{\Omega_L}{\gamma})\hat{e}_z + B_1\hat{e}_x = B_1\hat{e}_{x&apos;}
+\end{align}
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4; \(z\) &#x65B9;&#x5411;&#x7684; static field &#x88AB;&#x62B5;&#x6D88;, &#x53EA;&#x5269;&#x4E0B; \(x&apos;\) &#x65B9;&#x5411;&#x7684;&#x4E00;&#x4E2A; static field. &#x56E0;
+&#x6B64;, \(\vec{\mu}\) &#x4F1A;&#x7ED5; \(x&apos;\) &#x8F74;&#x4EE5; Rabi &#x9891;&#x7387; \(\omega_R = - \gamma B_{1}\) &#x8FDB;&#x52A8;. &#x56E0;&#x6B64;&#x603B;&#x7684;&#x6548;&#x679C;&#x662F;&#x4F1A;
+&#x5C06; spin flip &#x4E00;&#x4E0B;. &#x6BD4;&#x5982;
+</p>
+\begin{align}
+  t =&amp; 0, \quad\vec{\mu} = \mu \hat{e}_z \\
+  t =&amp; \frac{\pi}{\omega_R}, \quad\vec{\mu} = \mu \hat{e}_z
+\end{align}
+<p>
+&#x4E5F;&#x53EB; \(\pi\) pulse.
+</p>
+
+
+<div id="org8089990" class="figure">
+<p><img src="/2021/11/04/MITAMO03/pi-pulse.png">
+</p>
+</div>
+
+<p>
+&#x5982;&#x679C;&#x78C1;&#x573A;&#x4E0D;&#x662F; rotating &#x7684;, &#x6BD4;&#x5982;&#x662F;&#x6CBF;&#x67D0;&#x4E2A;&#x65B9;&#x5411;&#x7EBF;&#x504F;&#x632F;&#x7684;, &#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x5206;&#x89E3;&#x6210;&#x4E24;&#x4E2A;&#x65B9;&#x5411;&#x76F8;&#x53CD;&#x7684;
+rotating &#x7684;&#x53E0;&#x52A0;. &#x5728; rotating frame &#x4E2D;, &#x4E00;&#x4E2A;&#x65B9;&#x5411;&#x7684; rotating &#x4F1A;&#x53D8;&#x6210; static, &#x800C;&#x53E6;&#x4E00;
+&#x4E2A;&#x65B9;&#x5411;&#x4E0A;&#x7684; rotating &#x4F1A;&#x53D8;&#x6210;&#x539F;&#x6765;&#x9891;&#x7387;&#x7684; 2 &#x500D; rotating, &#x8FD9;&#x4E2A;&#x9AD8;&#x9891;&#x7684; rotating &#x901A;&#x5E38;&#x4E0D;&#x4F1A;
+&#x6709;&#x7269;&#x7406;&#x6548;&#x679C;, &#x6240;&#x4EE5;&#x88AB;&#x5FFD;&#x7565;, &#x8FD9;&#x5C31;&#x662F; rotating wave approximation!
+</p>
+</div>
+</div>
+
+<div id="outline-container-org501a80a" class="outline-2">
+<h2 id="org501a80a">Generalized Rabi Frequency</h2>
+<div class="outline-text-2" id="text-org501a80a">
+<p>
+&#x5982;&#x679C; \(B_{1}\) rotating &#x7684; frequency \(\omega \neq \Omega_L\) , &#x90A3;&#x4E48;&#x7B49;&#x6548;&#x7684;&#x78C1;&#x573A;&#x5C31;&#x4E0D;&#x4F1A;&#x5B8C;&#x5168;&#x62B5;&#x6D88;
+\(B_0\) , &#x90A3;&#x4E48;
+</p>
+\begin{align}
+  \vec{B}_{\mathrm{eff}} = B_1 \hat{e}_{x&apos;}
+           + \left(B_0 - \frac{\omega}{\gamma} \right) \hat{e}_z
+\end{align}
+<p>
+&#x5176;&#x5927;&#x5C0F;&#x4E3A;
+</p>
+\begin{align}
+|B_{\mathrm{eff}}| = \sqrt{B_1^2 + (B_0 - \frac{\omega}{\gamma})^2}
+\end{align}
+<p>
+&#x53EF;&#x4EE5;&#x5B9A;&#x4E49; generalized Rabi frequency (&#x4E4B;&#x540E;&#x90FD;&#x53D6; \(\gamma = |\gamma|\) ?)
+</p>
+\begin{align}
+\Omega_{R} = \gamma B_{\mathrm{eff}} = \sqrt{(\omega_L - \omega)^2 + \omega_R^2}
+  = \sqrt{\omega_R^2 + \delta^2}
+\end{align}
+<p>
+&#x5176;&#x4E2D; detuning \(\delta = \omega_L - \omega\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfe4c61e" class="outline-2">
+<h2 id="orgfe4c61e">Compare with quantum result</h2>
+<div class="outline-text-2" id="text-orgfe4c61e">
+<p>
+&#x5982;&#x56FE;, &#x5BF9;&#x4E24;&#x4E2A;&#x4E09;&#x89D2;&#x5F62;&#x7528;&#x4F59;&#x5F26;&#x5B9A;&#x7406;
+</p>
+\begin{align}
+A^2 =&amp; 2 \mu^2 (1 - \cos\alpha) \\
+A^2 =&amp; 2 \mu^{2} \sin^2\theta (1 - \cos\phi)
+\end{align}
+<p>
+&#x5E76;&#x5229;&#x7528;
+</p>
+\begin{align}
+ \sin \theta =&amp; \frac{B_1}{B_{\mathrm{eff}}} = \frac{\omega_R}{\Omega_R} \\
+  \phi(t) =&amp; \Omega_R t
+\end{align}
+<p>
+&#x53EF;&#x4EE5;&#x4E25;&#x683C;&#x5730;&#x6C42;&#x5F97; \(\mu\) &#x5728; \(z\) &#x65B9;&#x5411;&#x4E0A;&#x7684;&#x6295;&#x5F71;
+</p>
+\begin{align}
+  \mu_z(t) = \mu\sin\cos\alpha = \mu \left[ 1 -
+   2 \frac{\omega_R^2}{\Omega_{R}^2}\sin^{2} \left( \frac{\Omega_R}{2}t \right) \right]
+\end{align}
+
+
+<div id="org2263bf0" class="figure">
+<p><img src="/2021/11/04/MITAMO03/rabi-freq.png">
+</p>
+</div>
+
+<p>
+&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;
+</p>
+\begin{align}
+P_{\uparrow \to \downarrow} \equiv \frac{\mu_z(0) - \mu_z(t)}{2 \mu_z(0)}
+\end{align}
+<p>
+&#x90A3;&#x4E48;
+</p>
+\begin{align}
+P_{\uparrow \to \downarrow} = \frac{\omega_R^2}{\Omega_{R}^2}\sin^{2} \left( \frac{\Omega_R}{2}t \right)
+\end{align}
+<p>
+&#x8FD9;&#x6B63;&#x662F;&#x91CF;&#x5B50;&#x7684;&#x7ED3;&#x679C;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb286949" class="outline-2">
+<h2 id="orgb286949">Rapid adiabatic passage (RAP) (classical counterpart of Landau-Zener transition)</h2>
+<div class="outline-text-2" id="text-orgb286949">
+<p>
+&#x73B0;&#x5728; change the frequency of the rotating field. Sweeping the frequency <b>thtrough
+the resoance</b>, we can invert the spin, we can tun over the magnetic moment in a
+very robust way.
+</p>
+
+<ul class="org-ul">
+<li><b>slow</b>: compare to the Larmor frequency</li>
+
+<li><b>rapid</b>: compare to all the things mentioned here(decoherence and relaxition
+processes).</li>
+</ul>
+
+<p>
+&#x8FD9;&#x91CC;&#x4E0D;&#x505A;&#x4E25;&#x683C;&#x8BA1;&#x7B97;, &#x53EA;&#x7ED9;&#x4E00;&#x4E2A; intuitive picture
+</p>
+
+<p>
+\(\vec{\mu}\) , static field \(\vec{B}_0\) , \(\vec{B}_1\) rotating at \(\omega\) , \(|B_{1}|
+\ll |B_0|\) , start with \(\omega &lt;&lt; \gamma B_{0}\)
+</p>
+
+
+<div id="org5ac7283" class="figure">
+<p><img src="/2021/11/04/MITAMO03/RAP.png">
+</p>
+</div>
+
+<p>
+In adiabatic limit, the spin processes tightly ( \(\theta\) is small) around
+\(\vec{B}_{\mathrm{eff}}\) , follows the direction of the effective magnetic
+field.
+</p>
+
+<p>
+&#x6240;&#x4EE5;&#x5F53;&#x626B;&#x5230; detuning \(\delta = 0\) &#x65F6;, \(\vec{\mu}\) &#x8F6C;&#x5230;&#x4E86; \(x&apos;\) &#x65B9;&#x5411;, &#x5F53;&#x7EE7;&#x7EED;&#x626B;&#x5230; \(\omega
+\gg \gamma B_0\) &#x65F6;, spin &#x88AB; flip.
+</p>
+
+<p>
+&#x65E0;&#x8BBA;&#x662F;&#x4ECE;&#x9AD8;&#x9891;&#x5411;&#x4F4E;&#x9891;&#x626B;, &#x8FD8;&#x662F;&#x4ECE;&#x4F4E;&#x9891;&#x5411;&#x9AD8;&#x9891;&#x626B;, &#x53EA;&#x8981;&#x626B;&#x8FC7;&#x5171;&#x632F;&#x9891;&#x7387;, the rapid adiabatic
+passage always swaps the spin state.
+</p>
+
+<p>
+&#x8FD9;&#x5728;&#x5B9E;&#x9A8C;&#x4E0A;&#x5F88;&#x6709;&#x7528;, &#x56E0;&#x4E3A;&#x50CF;&#x4E4B;&#x524D;&#x90A3;&#x6837;&#x76F4;&#x63A5;&#x52A0;&#x5230;&#x5171;&#x632F;&#x9891;&#x7387;&#x4E0A;, &#x5982;&#x679C;&#x9891;&#x7387;&#x7A0D;&#x6709;&#x504F;&#x5DEE;, spin &#x5C31;&#x4E0D;
+&#x4F1A;&#x5B8C;&#x5168;&#x88AB; flip. &#x4F46;&#x662F; RAP &#x7684;&#x8BDD;, &#x53EA;&#x8981;&#x626B;&#x8FC7;&#x5171;&#x632F;&#x9891;&#x7387;, spin &#x5C31;&#x4F1A;&#x88AB;&#x5B8C;&#x7F8E;&#x5730; flip!
+</p>
+
+<p>
+&#x540C;&#x6837;&#x7684;&#x7269;&#x7406;&#x673A;&#x5236;, &#x4F46;&#x662F;&#x64CD;&#x4F5C;&#x5B8C;&#x5168;&#x4E0D;&#x4E00;&#x6837;, &#x5C31;&#x662F;&#x8BA9; spin &#x5728; quadrapolar fields magnetic
+trap &#x4E2D;&#x540C;&#x79FB;&#x52A8;, &#x78C1;&#x573A;&#x4E5F;&#x80FD;&#x4ECE;&#x4E00;&#x4E2A;&#x65B9;&#x5411;&#x626B;&#x5230;&#x76F8;&#x53CD;&#x7684;&#x65B9;&#x5411;. &#x5728;&#x4E2D;&#x95F4;&#x53EF;&#x80FD;&#x53D1;&#x751F; Majorana losses.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3da4f7e" class="outline-2">
+<h2 id="org3da4f7e">Reference</h2>
 </div>
 </div>
 
@@ -519,13 +668,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/pi-pulse/" rel="tag"># pi pulse</a>
           
-            <a href="/tags/matplotlib/" rel="tag"># matplotlib</a>
+            <a href="/tags/Rabi-frequency/" rel="tag"># Rabi frequency</a>
           
-            <a href="/tags/marker/" rel="tag"># marker</a>
-          
-            <a href="/tags/dashed/" rel="tag"># dashed</a>
+            <a href="/tags/Lamor-frequency/" rel="tag"># Lamor frequency</a>
           
         </div>
       
@@ -538,8 +685,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/10/05/BEC_limit_Tc/" rel="next" title="BEC 极限下的 Tc 的估计">
-                <i class="fa fa-chevron-left"></i> BEC 极限下的 Tc 的估计
+              <a href="/2021/10/21/dash_circle/" rel="next" title="python matplotlib 画图小技巧: 虚线的圆与虚线的五角星">
+                <i class="fa fa-chevron-left"></i> python matplotlib 画图小技巧: 虚线的圆与虚线的五角星
               </a>
             
           </div>
@@ -547,10 +694,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/11/04/MITAMO03/" rel="prev" title="Atomic and Optical Physics I, 03 ResonanceIII: Rapid adiabatic passage">
-                Atomic and Optical Physics I, 03 ResonanceIII: Rapid adiabatic passage <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -660,7 +803,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org4fea9fa"><span class="nav-text">问题一:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org84148f2"><span class="nav-text">问题二:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org289d1a8"><span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org60401e7"><span class="nav-text">Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org0069743"><span class="nav-text">Atomic clocks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orge98cd79"><span class="nav-text">Motion in a rotating magnetic field, Resonance, \(\pi\) pulse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org501a80a"><span class="nav-text">Generalized Rabi Frequency</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgfe4c61e"><span class="nav-text">Compare with quantum result</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgb286949"><span class="nav-text">Rapid adiabatic passage (RAP) (classical counterpart of Landau-Zener transition)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org3da4f7e"><span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
