@@ -110,22 +110,24 @@
 
 
 
-  <meta name="keywords" content="Rabi frequency,adiabatic">
+  <meta name="keywords" content="python,matplotlib,font_manager,mathtext">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Atomic and Optical Physics I, 04 ResonanceV: Quantum Theory">
-<meta property="og:url" content="https://zqw.ink/2021/11/07/MITAMO04/index.html">
+<meta property="og:title" content="python matplotlib 画图小技巧: 自定义字体">
+<meta property="og:url" content="https://zqw.ink/2021/11/10/matplot_fonts/index.html">
 <meta property="og:site_name" content="从冰上的水">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-11-07T13:46:08.140Z">
+<meta property="og:image" content="https://zqw.ink/2021/11/10/matplot_fonts/method1.png">
+<meta property="og:updated_time" content="2021-11-10T13:15:39.834Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Atomic and Optical Physics I, 04 ResonanceV: Quantum Theory">
+<meta name="twitter:title" content="python matplotlib 画图小技巧: 自定义字体">
+<meta name="twitter:image" content="https://zqw.ink/2021/11/10/matplot_fonts/method1.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zqw.ink/2021/11/07/MITAMO04/"/>
+  <link rel="canonical" href="https://zqw.ink/2021/11/10/matplot_fonts/"/>
 
 
 
@@ -135,7 +137,7 @@
   };
 </script>
 
-  <title>Atomic and Optical Physics I, 04 ResonanceV: Quantum Theory | 从冰上的水</title>
+  <title>python matplotlib 画图小技巧: 自定义字体 | 从冰上的水</title>
   
 
 
@@ -329,7 +331,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/11/07/MITAMO04/">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/11/10/matplot_fonts/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZQW">
@@ -346,7 +348,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Atomic and Optical Physics I, 04 ResonanceV: Quantum Theory
+          <h1 class="post-title" itemprop="name headline">python matplotlib 画图小技巧: 自定义字体
               
             
           </h1>
@@ -371,7 +373,7 @@
                 
               
 
-              <time title="创建时间：2021-11-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-07T00:00:00+08:00">2021-11-07</time>
+              <time title="创建时间：2021-11-10 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-10T00:00:00+08:00">2021-11-10</time>
             
 
             
@@ -389,7 +391,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件使用/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a></span>
 
                 
                 
@@ -404,8 +406,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/11/07/MITAMO04/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/11/07/MITAMO04/" itemprop="commentCount"></span>
+                <a href="/2021/11/10/matplot_fonts/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/11/10/matplot_fonts/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -437,261 +439,65 @@
 <!-- toc -->
 <a id="more"></a>
 
-<div id="outline-container-org7d6e298" class="outline-2">
-<h2 id="org7d6e298">Information</h2>
-<div class="outline-text-2" id="text-org7d6e298">
-<ul class="org-ul">
-<li>&#x5B98;&#x65B9;&#x4ECB;&#x7ECD;:
-<a href="https://ocw.mit.edu/courses/physics/8-421-atomic-and-optical-physics-i-spring-2014/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/physics/8-421-atomic-and-optical-physics-i-spring-2014/</a></li>
+<div id="outline-container-orgd9be588" class="outline-2">
+<h2 id="orgd9be588">&#x95EE;&#x9898;</h2>
+<div class="outline-text-2" id="text-orgd9be588">
+<p>
+&#x5728;&#x7528; <code>matplotlib</code> &#x753B;&#x56FE;&#x65F6;, &#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x5B57;&#x4F53;. &#x6BD4;&#x5982;&#x4ECE;&#x4E00;&#x4E2A;&#x4E0B;&#x8F7D;&#x597D;&#x7684; <code>.ttf</code> &#x5B57;&#x4F53;&#x6587;&#x4EF6;&#x52A0;&#x8F7D;,
+&#x6216;&#x8005;&#x5728;&#x7A0B;&#x5E8F;&#x65E0;&#x6CD5;&#x627E;&#x5230;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x5B57;&#x4F53;&#x65F6;, &#x6307;&#x5B9A;&#x5B57;&#x4F53;&#x6587;&#x4EF6;&#x7684;&#x4F4D;&#x7F6E;.
+</p>
+</div>
+</div>
 
-<li>&#x89C6;&#x9891;&#x5217;&#x8868;&#x5730;&#x5740;: <a href="https://www.youtube.com/playlist?list=PLUl4u3cNGP62FPGcyFJkzhqq9c5cHCK32" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PLUl4u3cNGP62FPGcyFJkzhqq9c5cHCK32</a></li>
+<div id="outline-container-orgdf7cf29" class="outline-2">
+<h2 id="orgdf7cf29">Method 1</h2>
+<div class="outline-text-2" id="text-orgdf7cf29">
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> font_manager</span><br><span class="line"></span><br><span class="line">fe = font_manager.FontEntry(fname=<span class="string">&apos;/usr/share/fonts/TTF/Times.TTF&apos;</span>, name=<span class="string">&apos;tnr&apos;</span>)</span><br><span class="line">font_manager.fontManager.ttflist.append(fe)</span><br><span class="line"></span><br><span class="line">plt.rcParams[<span class="string">&apos;font.family&apos;</span>] = fe.name</span><br><span class="line">plt.rcParams[<span class="string">&apos;mathtext.fontset&apos;</span>] = <span class="string">&apos;cm&apos;</span></span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">6</span>, <span class="number">51</span>)</span><br><span class="line">plt.plot(x, np.sin(x))</span><br><span class="line">plt.title(<span class="string">r&apos;Sin Function - Method 1&apos;</span>)</span><br><span class="line">plt.xlabel(<span class="string">r&apos;$\theta$&apos;</span>)</span><br><span class="line">plt.ylabel(<span class="string">r&apos;$\sin\theta$&apos;</span>)</span><br><span class="line">plt.savefig(<span class="string">&apos;method1.png&apos;</span>)</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+<a href="method1.py">method1.py</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2ae526a" class="outline-2">
+<h2 id="org2ae526a">Method 2</h2>
+<div class="outline-text-2" id="text-org2ae526a">
+<div class="org-src-container">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> font_manager</span><br><span class="line"></span><br><span class="line">font_path = <span class="string">&apos;/usr/share/fonts/TTF/Times.TTF&apos;</span>  <span class="comment"># Your font path goes here</span></span><br><span class="line">font_manager.fontManager.addfont(font_path)</span><br><span class="line">prop = font_manager.FontProperties(fname=font_path)</span><br><span class="line"></span><br><span class="line">plt.rcParams[<span class="string">&apos;font.family&apos;</span>] = prop.get_name()</span><br><span class="line">plt.rcParams[<span class="string">&apos;mathtext.fontset&apos;</span>] = <span class="string">&apos;cm&apos;</span>  <span class="comment"># &apos;cm&apos; (Computer Modern)</span></span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">6</span>, <span class="number">51</span>)</span><br><span class="line">plt.plot(x, np.sin(x))</span><br><span class="line">plt.title(<span class="string">r&apos;Sin Function - Method 2&apos;</span>)</span><br><span class="line">plt.xlabel(<span class="string">r&apos;$\theta$&apos;</span>)</span><br><span class="line">plt.ylabel(<span class="string">r&apos;$\sin\theta$&apos;</span>)</span><br><span class="line">plt.savefig(<span class="string">&apos;method2.png&apos;</span>)</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>
+<a href="method2.py">method2.py</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org818039a" class="outline-2">
+<h2 id="org818039a">Result</h2>
+<div class="outline-text-2" id="text-org818039a">
+
+<div id="orga8abd4a" class="figure">
+<p><img src="/2021/11/10/matplot_fonts/method1.png">
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgd1d6463" class="outline-2">
+<h2 id="orgd1d6463">Reference</h2>
+<div class="outline-text-2" id="text-orgd1d6463">
+<ul class="org-ul">
+<li><a href="https://stackoverflow.com/questions/35668219/how-to-set-up-a-custom-font-with-custom-path-to-matplotlib-global-font" target="_blank" rel="noopener">https://stackoverflow.com/questions/35668219/how-to-set-up-a-custom-font-with-custom-path-to-matplotlib-global-font</a></li>
+
+<li><a href="https://matplotlib.org/stable/tutorials/introductory/customizing.html#customizing-with-matplotlibrc-files" target="_blank" rel="noopener">Matplotlib Documentation: A sample matplotlibrc file</a></li>
+
+<li><a href="https://matplotlib.org/stable/users/dflt_style_changes.html?highlight=math%20font#math-text" target="_blank" rel="noopener">Matplotlib Documentation: Math text</a></li>
 </ul>
 </div>
-</div>
-
-<div id="outline-container-orgc895465" class="outline-2">
-<h2 id="orgc895465">Adiabatic condition</h2>
-<div class="outline-text-2" id="text-orgc895465">
-<p>
-&#x4E0B;&#x9762;&#x63A8;&#x5BFC;&#x7EDD;&#x70ED;&#x6761;&#x4EF6; (Rapid adiabatic passage &#x4E2D;&#x7684; adiabatic) &#x7684;&#x5177;&#x4F53;&#x8868;&#x8FBE;&#x5F0F;.
-</p>
-
-<p>
-Larmor frequency \(\Omega_L = \gamma B_{\mathrm{eff}} \gg \dot{\theta}\) . \(\theta\) &#x662F;
-\(B_{\mathrm{eff}}\) &#x4E0E; \(z\) &#x8F74;&#x7684;&#x5939;&#x89D2;.
-</p>
-
-<p>
-&#x76F8;&#x540C;&#x7684;&#x78C1;&#x573A;&#x53D8;&#x5316;&#x901F;&#x5EA6;, &#x5728; \(\theta = 2\pi\) &#x9644;&#x8FD1;&#x65F6;, \(\theta\) &#x53D8;&#x5316;&#x6700;&#x660E;&#x663E;. &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x78C1;&#x573A;&#x5300;&#x901F;&#x53D8;&#x5316;
-&#x65F6;, &#x5728; \(\theta = \pi/2\) &#x65F6;, \(\dot{\theta}\) &#x8FBE;&#x5230;&#x6700;&#x5927;&#x503C;, &#x800C; \(B_{\mathrm{eff}}\) &#x8FBE;&#x5230;&#x6700;&#x5C0F;&#x503C;,
-&#x56E0;&#x6B64;&#x53EA;&#x8981;&#x8003;&#x8651;&#x5728; \(\theta = \pi/2\) &#x9644;&#x8FD1;&#x7684;&#x60C5;&#x51B5;&#x5373;&#x53EF;.
-</p>
-
-<p>
-&#x6B64;&#x65F6;
-</p>
-\begin{align}
-  B_{z, \mathrm{eff}} = B_0 - \frac{\omega(t)}{\gamma}
-\end{align}
-\begin{align}
-\theta \approx \frac{\pi}{2} - \frac{B_{z, \mathrm{eff}}}{B_1}
-\end{align}
-\begin{align}
-\dot{\theta} = \frac{\dot{\omega}}{\gamma B_1} = \frac{\dot{\omega}}{\omega_R} \ll \omega_R
-\end{align}
-<p>
-&#x4E5F;&#x5C31;&#x662F;&#x8BF4;, the change \(\Delta\omega\) in one Rabi period has to be samaller than Rabi
-frequency.
-</p>
-\begin{align}
-  |\dot{\omega}| \ll \omega_R^2
-\end{align}
-</div>
-</div>
-
-<div id="outline-container-orgf2e4dc7" class="outline-2">
-<h2 id="orgf2e4dc7">Quantized spin in a magnetic field</h2>
-<div class="outline-text-2" id="text-orgf2e4dc7">
-<p>
-Hamiltonia
-</p>
-\begin{align}
-H = - \vec{\mu}\cdot \vec{B}_0 = - \gamma \hat{L}_z B_0
-\end{align}
-<p>
-&#x7531; Heisenberg eq of motion &#x53EF;&#x5F97;
-</p>
-\begin{align}
- \frac{\mathrm{d}}{\mathrm{d}t} \vec{\hat{\mu}}
-     = \frac{i}{\hbar}[\hat{H}, \vec{\hat{\mu}}]
-     = \frac{i}{\hbar}\gamma[\hat{H}, \vec{\hat{L}}]
-     = \gamma \vec{\hat{\mu}} \times \vec{\hat{B}}
-\end{align}
-<p>
-&#x8FD9;&#x4E2A;&#x7ED3;&#x679C;&#x662F;&#x4E25;&#x683C;&#x7684;! &#x4E0E;&#x7ECF;&#x5178;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x4E00;&#x81F4;&#x7684;.
-</p>
-
-<p>
-&#x5199;&#x6210;&#x671F;&#x671B;
-</p>
-\begin{align}
- \frac{\mathrm{d}}{\mathrm{d}t} \langle\vec{\hat{\mu}}\rangle
-     = \gamma \langle\vec{\hat{\mu}}\rangle \times \vec{\hat{B}}
-\end{align}
-
-<ul class="org-ul">
-<li>valid for any spin</li>
-
-<li>valid for spin \(1/2\) \(\Rightarrow\) any two level system</li>
-
-<li>composite angular momentum (&#x6BD4;&#x5982;&#x539F;&#x5B50;&#x7684;&#x603B;&#x89D2;&#x52A8;&#x91CF;) (unless \(B\) field is so strong
-that it breaks up the coupling of the angular momentum)</li>
-
-<li>valid for a system of \(N\) two-level systems (e.g. Dicke superradiance).</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org41765d5" class="outline-2">
-<h2 id="org41765d5">Two level system spin \(1/2\)</h2>
-<div class="outline-text-2" id="text-org41765d5">
-<p>
-What is the level structure of the electron in magnetic field?
-</p>
-
-<p>
-Spin down is lowest state for the electron!
-</p>
-
-<p>
-The magnetic moment has to point in the pulse direction( \(\vec{B}\) ), which up,
-but the electron has negtive charge, the \(\gamma\) factor is <b>negtive</b> and that&apos;s why
-for electron, the vector of spin and the vector of the magnetic momentum are
-oppsite. (&#x5DEE;&#x4E00;&#x8D1F;&#x53F7;)
-</p>
-\begin{align}
-  \langle \mu_z \rangle = \frac{\gamma\hbar}{2}(P_{\downarrow} - P_{\uparrow}) = - \frac{\gamma\hbar}{2}(2P_e - 1)
-\end{align}
-\begin{align}
-P_e(t) = \frac{1}{2} - \frac{1}{\hbar\gamma} \langle\mu_z\rangle
-    = \frac{1}{2} - \frac{1}{2}
-     \left( 1 - 2 \frac{\omega_R^2}{\Omega_R^2}\sin^2 \frac{\Omega_Rt}{2} \right)
-\end{align}
-<p>
-&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x7B49;&#x53F7;&#x5229;&#x7528;&#x4E86;&#x7ECF;&#x5178;&#x56FE;&#x50CF;&#x7ED9;&#x51FA;&#x7684;&#x7ED3;&#x679C;. \(P_e\) for \(P\) excited.
-</p>
-
-<p>
-&#x5982;&#x679C;&#x53D6; \(P_g(t = 0) = 1\) , &#x90A3;&#x4E48; Rabi transition probability
-</p>
-\begin{align}
-P_e(t) = \frac{\omega_R^2}{\Omega_R^2} \sin^2 \frac{\Omega_Rt}{2}
-\end{align}
-</div>
-</div>
-
-<div id="outline-container-org0606c02" class="outline-2">
-<h2 id="org0606c02">Spin \(\frac{1}{2}\) Hamiltonian</h2>
-<div class="outline-text-2" id="text-org0606c02">
-\begin{align}
-H = \frac{\hbar}{2} \begin{pmatrix}
-         \omega_0  &amp;  \omega_Re^{-\mathrm{i}\omega t}\\
-         \omega_Re^{\mathrm{i}\omega t} &amp; -\omega_0
-    \end{pmatrix}
-\end{align}
-<p>
-Question: Can be exactly realized in nature? Or it is an approximation?
-</p>
-
-<p>
-Can be exactly realized in nature!
-</p>
-
-\begin{align}
-  H_0 =&amp; - \vec{\mu}\cdot \vec{B}_0 = - \gamma \hat{S}_z B_0 \\
-      =&amp;\frac{\hbar}{2}\omega_0 \begin{pmatrix}
-            1 &amp; 0\\
-            0 &amp; -1
-         \end{pmatrix}
-      = \frac{\hbar\omega_0}{2}\sigma_z
-\end{align}
-<p>
-\(|e\rangle, |g\rangle\) eigenstates with eigenvalues \(\pm \frac{\hbar\omega_0}{2}\)
-</p>
-
-<p>
-Now add rotating fields
-</p>
-\begin{align}
-H_1 =&amp; -\vec{\mu} \cdot\vec{B}_1(t)
-   = -\vec{\mu}\cdot \frac{\omega_R}{\gamma}(-\hat{e}_{x}\cos\omega t - \hat{e}_y\sin\omega t) \\
-  =&amp; \omega_R (\hat{S}_x\cos\omega t + \hat{S}_y \sin\omega t)\\
-  =&amp; \frac{\hbar\omega_R}{2}\begin{pmatrix}
-             0   &amp; e^{-\mathrm{i}\omega t} \\
-            e^{\mathrm{i}\omega t} &amp; 0
-          \end{pmatrix}
-\end{align}
-<p>
-So \(H = H_0 + H_1\) .
-</p>
-
-<p>
-We go complex in our Hamiltonian, not because we have approximated a real field
-\(\cos \omega t\) by \(e^{\mathrm{i}\omega t}\) , but because when we have a rotating field
-and we write down it in Pauli spin matrix, we get imaginary units for the \(\sigma_y\)
-spin matrix.
-</p>
-
-<p>
-Famous dressed atom Hamiltonian describes two-level system <b>+</b> one mode of the
-EM field (with arbitrary amplitudes). (8.422 &#x8BFE;&#x7A0B;&#x4F1A;&#x7EC6;&#x8BB2;)
-</p>
-
-<p>
-Since dressed atom picture in the standard way assumes that the photon number
-\(N\) is large. There is a correspondance that in the limit of \(N\) being large,
-the Fock state descriptin and the coherent state description fully agree.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org3daa6ad" class="outline-2">
-<h2 id="org3daa6ad">Solution of the Hamiltonian</h2>
-<div class="outline-text-2" id="text-org3daa6ad">
-<p>
-Transform to rotating frame. Unitary transofrmation (Rotation operation around
-\(\hat{e}_z\) )
-</p>
-\begin{align}
-U = \left.e^{\mathrm{i}\frac{S_z}{\hbar}\theta}\right|_{\theta = \omega t} =
-\begin{pmatrix}
-e^{\mathrm{i} \omega t/2} &amp; 0\\
-0 &amp; e^{-\mathrm{i}\omega t/2}
-\end{pmatrix}
-\end{align}
-<p>
-Then
-</p>
-\begin{align}
-H&apos; = \frac{\hbar}{2}
-\begin{pmatrix}
-\delta  &amp; \omega_R \\
-\omega_R &amp; -\delta
-\end{pmatrix}
-\end{align}
-<p>
-is time independent, where \(\delta = \omega - \omega_0\) . Care about \(U \mathrm{i}\hbar\partial_t
-U^{\dagger}\) result a term \(\sim \omega \sigma_z\) .
-</p>
-
-<p>
-Solve it (homework # 1). A special case amplitudes
-</p>
-\begin{align}
-a_{g} (0) =&amp; 1 \\
-|a_e(t)|^2 = \frac{\omega_R^2}{\Omega_R^2}\sin^2 \frac{\Omega_Rt}{2}
-\end{align}
-<p>
-as derived before.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org2e9b2a5" class="outline-2">
-<h2 id="org2e9b2a5">Rapid adiabatic passage &#x2014; Quantum treatment</h2>
-<div class="outline-text-2" id="text-org2e9b2a5">
-\begin{align}
-H_0 = \frac{\hbar}{2}
-\begin{pmatrix}
-\delta  &amp; 0 \\
-0  &amp; -\delta
-\end{pmatrix}
-\end{align}
-</div>
-</div>
-
-<div id="outline-container-orga249415" class="outline-2">
-<h2 id="orga249415">Reference</h2>
 </div>
 </div>
 
@@ -714,9 +520,13 @@ H_0 = \frac{\hbar}{2}
       
         <div class="post-tags">
           
-            <a href="/tags/Rabi-frequency/" rel="tag"># Rabi frequency</a>
+            <a href="/tags/python/" rel="tag"># python</a>
           
-            <a href="/tags/adiabatic/" rel="tag"># adiabatic</a>
+            <a href="/tags/matplotlib/" rel="tag"># matplotlib</a>
+          
+            <a href="/tags/font-manager/" rel="tag"># font_manager</a>
+          
+            <a href="/tags/mathtext/" rel="tag"># mathtext</a>
           
         </div>
       
@@ -729,8 +539,8 @@ H_0 = \frac{\hbar}{2}
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/11/04/MITAMO03/" rel="next" title="Atomic and Optical Physics I, 03 ResonanceIII: Rapid adiabatic passage">
-                <i class="fa fa-chevron-left"></i> Atomic and Optical Physics I, 03 ResonanceIII: Rapid adiabatic passage
+              <a href="/2021/11/07/MITAMO04/" rel="next" title="Atomic and Optical Physics I, 04 ResonanceV: Quantum Theory">
+                <i class="fa fa-chevron-left"></i> Atomic and Optical Physics I, 04 ResonanceV: Quantum Theory
               </a>
             
           </div>
@@ -738,10 +548,6 @@ H_0 = \frac{\hbar}{2}
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/11/10/matplot_fonts/" rel="prev" title="python matplotlib 画图小技巧: 自定义字体">
-                python matplotlib 画图小技巧: 自定义字体 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -851,7 +657,7 @@ H_0 = \frac{\hbar}{2}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org7d6e298"><span class="nav-text">Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc895465"><span class="nav-text">Adiabatic condition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgf2e4dc7"><span class="nav-text">Quantized spin in a magnetic field</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org41765d5"><span class="nav-text">Two level system spin \(1/2\)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org0606c02"><span class="nav-text">Spin \(\frac{1}{2}\) Hamiltonian</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org3daa6ad"><span class="nav-text">Solution of the Hamiltonian</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2e9b2a5"><span class="nav-text">Rapid adiabatic passage — Quantum treatment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orga249415"><span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd9be588"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgdf7cf29"><span class="nav-text">Method 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2ae526a"><span class="nav-text">Method 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org818039a"><span class="nav-text">Result</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd1d6463"><span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
