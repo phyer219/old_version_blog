@@ -164,18 +164,89 @@ U^{\dagger}$ result a term $\sim \omega \sigma_z$ .
 Solve it (homework # 1). A special case amplitudes
 \begin{align}
 a_{g} (0) =& 1 \\
-|a_e(t)|^2 = \frac{\omega_R^2}{\Omega_R^2}\sin^2 \frac{\Omega_Rt}{2}
+|a_e(t)|^2 =& \frac{\omega_R^2}{\Omega_R^2}\sin^2 \frac{\Omega_Rt}{2}
 \end{align}
 as derived before.
 
 * Rapid adiabatic passage --- Quantum treatment
 
+无旋转的磁场时
 \begin{align}
 H_0 = \frac{\hbar}{2}
 \begin{pmatrix}
 \delta  & 0 \\
 0  & -\delta
 \end{pmatrix}
+\end{align}
+本征能量如图中虚线
+
+[[file:2021-11-07-专业笔记-MITAMO04/energy-level.png]]
+
+当加入旋转的磁场时
+\begin{align}
+H_0 = \frac{\hbar}{2}
+\begin{pmatrix}
+\delta  & \omega_R \\
+\omega_R  & -\delta
+\end{pmatrix}
+\end{align}
+本征能量为 $\pm\sqrt{\omega_R^2 + \delta^2}$ , 为图中蓝线, avoid the crossing. 所以当我们慢
+慢扫过 $\delta = 0$ 时,
+会保持在蓝线上, spin 被翻转. Landau Zener problem, sweep the system through the
+avoided crossing.
+
+但在 $\delta = 0$ 时会有一定概率从一条蓝线跃迁到另外一条蓝线, 我们不加证明地给出
+probability to jump from one level to the another one
+\begin{align}
+P_{\mathrm{na}} = e^{- 2\pi \Gamma}
+\end{align}
+where $\mathrm{na}$ means non-adiabatic, $\Gamma$ is landau-Zener parameter given as
+\begin{align}
+\Gamma = \left(\frac{\omega_R}{2}\right)^2 \left[ \frac{\mathrm{d}\omega}{\mathrm{d}t} \right]^{-1}
+ = \frac{1}{4}\frac{\omega_R^2}{\dot{\omega}}
+\end{align}
+因此在之前的 adiabatic 的条件下 $\omega_{R}^2/\dot{\omega} \gg 1$ , 使得 $P_{\mathrm{na}}$
+很小.
+
+* Fast Sweep (没有完全理解)
+
+另一种极限, if you go much faster than the Rabi frequency, the spin has no
+opportunity to change its orientation.
+
+Let's estimate the result in perturbation. Should we calculate that transition
+probability by using perturbation theory for an incoherent transition or for
+coherent transition?
+
+Coherent!
+
+区别在于
+
+- Coherent: population $\dot{a}_2 = -\mathrm{i}\frac{H_{12}}{\hbar}$ with $H_{12} =
+  \frac{\hbar}{2}\omega_R$ , 那么短时的演化为 $a_2 = \frac{1}{2}\omega_R t$ , so $P_2\sim |a_2|^2
+  =\omega_R^2 t_{\mathrm{eff}}^2$ , effective time $t_{\mathrm{eff}}$ (when wave
+  function really changes) of driving the
+  system. Coherent process are always quadratic in time.
+
+- Incoherent: Fermi's Golden Rule $P \sim \frac{\omega_R^2
+  t_{\mathrm{eff}}}{\mathrm{density\, of\, states}}$
+
+Q: What is $t_{\mathrm{eff}}$ in LZ?
+
+- A. $t_{\mathrm{eff}} \sim \frac{\omega_R}{\dot{\omega}}$
+
+- B. $t_{\mathrm{eff}} \sim \sqrt{\frac{1}{\dot{\omega}}}$
+
+- C. $t_{\mathrm{eff}} \sim \frac{1}{\omega_R}$
+
+the answer is B. $t_{\mathrm{eff}}$ is the "dephasing" time $\Delta t$ , the time
+during which everything is coherent
+\begin{align}
+\Delta\omega \cdot \Delta t = \dot{\omega} \Delta t \cdot\Delta t \sim \pi \Rightarrow \Delta t \sim \sqrt{\frac{1}{\dot{\omega}}}
+\end{align}
+
+Expand $e^{- 2\pi \Gamma}$ (small $\Gamma$ )
+\begin{align}
+1 - P_{\mathrm{na}} = 2\pi\Gamma \propto \frac{\omega_R^2}{\dot{\omega}}
 \end{align}
 
 * Reference
