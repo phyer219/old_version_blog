@@ -1,7 +1,7 @@
 #+TITLE: Atomic and Optical Physics I, 02 ResonanceII: Larmor Procession Note
 #+DATE: <2021-09-11>
 #+CATEGORIES: 专业笔记
-#+TAGS: Resonance
+#+TAGS: Resonance, Atomic and Optical Physics
 #+HTML: <!-- toc -->
 #+HTML: <!-- more -->
 

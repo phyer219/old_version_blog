@@ -1,7 +1,7 @@
 #+TITLE: Atomic and Optical Physics I, 04 ResonanceV: Quantum Theory
 #+DATE: <2021-11-07>
 #+CATEGORIES: 专业笔记
-#+TAGS: Rabi frequency, adiabatic
+#+TAGS: Rabi frequency, adiabatic, Atomic and Optical Physics
 #+HTML: <!-- toc -->
 #+HTML: <!-- more -->
 

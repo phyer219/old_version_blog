@@ -1,7 +1,7 @@
 #+TITLE: Atomic and Optical Physics I, 03 ResonanceIII: Rapid adiabatic passage
 #+DATE: <2021-11-04>
 #+CATEGORIES: 专业笔记
-#+TAGS: pi pulse, Rabi frequency, Lamor frequency
+#+TAGS: pi pulse, Rabi frequency, Lamor frequency, Atomic and Optical Physics
 #+HTML: <!-- toc -->
 #+HTML: <!-- more -->
 
