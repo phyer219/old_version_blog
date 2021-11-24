@@ -437,9 +437,9 @@
 <!-- toc -->
 <a id="more"></a>
 
-<div id="outline-container-org1879532" class="outline-2">
-<h2 id="org1879532">Theory</h2>
-<div class="outline-text-2" id="text-org1879532">
+<div id="outline-container-orgfdfd737" class="outline-2">
+<h2 id="orgfdfd737">Theory</h2>
+<div class="outline-text-2" id="text-orgfdfd737">
 <p>
 &#x53D6;&#x5355;&#x4F4D; \(\hbar = M = 1\) .
 </p>
@@ -484,9 +484,9 @@ T_{\mathrm{BEC}} \approx 0.218 E_F
 </div>
 </div>
 
-<div id="outline-container-orgc3f42e1" class="outline-2">
-<h2 id="orgc3f42e1">Numerical</h2>
-<div class="outline-text-2" id="text-orgc3f42e1">
+<div id="outline-container-org7a32240" class="outline-2">
+<h2 id="org7a32240">Numerical</h2>
+<div class="outline-text-2" id="text-org7a32240">
 <div class="org-src-container">
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> quad</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mu = -<span class="number">1</span></span><br><span class="line">E_b = <span class="number">2</span>*mu</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">density</span>(<span class="params">q</span>):</span></span><br><span class="line">    volume = q**<span class="number">2</span> / (np.pi**<span class="number">2</span>)</span><br><span class="line">    a = q**<span class="number">2</span>/<span class="number">4</span> - <span class="number">2</span>*mu + E_b</span><br><span class="line">    <span class="keyword">return</span> volume / (np.exp(a) - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">n = quad(density, <span class="number">0</span>, <span class="number">100</span>, points=[<span class="number">0</span>])[<span class="number">0</span>]</span><br><span class="line">ef_p = (<span class="number">3</span>*np.pi**<span class="number">2</span> * n)**(<span class="number">2</span>/<span class="number">3</span>) / <span class="number">2</span></span><br><span class="line">ef_d = (<span class="number">6</span>*np.pi**<span class="number">2</span> * n)**(<span class="number">2</span>/<span class="number">3</span>) / <span class="number">2</span></span><br><span class="line">tcef_p = <span class="number">1</span> / ef_p</span><br><span class="line">tcef_d = <span class="number">1</span> / ef_d</span><br><span class="line"></span><br><span class="line">print(n)</span><br><span class="line">print(tcef_p, tcef_d)</span><br></pre></td></tr></table></figure>
 </div>
@@ -500,9 +500,9 @@ T_{\mathrm{BEC}} \approx 0.218 E_F
 </div>
 </div>
 
-<div id="outline-container-org91ce40a" class="outline-2">
-<h2 id="org91ce40a">Reference</h2>
-<div class="outline-text-2" id="text-org91ce40a">
+<div id="outline-container-orgb83c524" class="outline-2">
+<h2 id="orgb83c524">Reference</h2>
+<div class="outline-text-2" id="text-orgb83c524">
 <p>
 Zhai, H. Ultracold atomic physics. (Cambridge University Press, 2020).
 </p>
@@ -664,7 +664,7 @@ Zhai, H. Ultracold atomic physics. (Cambridge University Press, 2020).
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org1879532"><span class="nav-text">Theory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc3f42e1"><span class="nav-text">Numerical</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org91ce40a"><span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgfdfd737"><span class="nav-text">Theory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org7a32240"><span class="nav-text">Numerical</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgb83c524"><span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

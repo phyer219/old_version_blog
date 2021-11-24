@@ -439,9 +439,9 @@
 <!-- toc -->
 <a id="more"></a>
 
-<div id="outline-container-orgd9be588" class="outline-2">
-<h2 id="orgd9be588">&#x95EE;&#x9898;</h2>
-<div class="outline-text-2" id="text-orgd9be588">
+<div id="outline-container-orgb6b652b" class="outline-2">
+<h2 id="orgb6b652b">&#x95EE;&#x9898;</h2>
+<div class="outline-text-2" id="text-orgb6b652b">
 <p>
 &#x5728;&#x7528; <code>matplotlib</code> &#x753B;&#x56FE;&#x65F6;, &#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x5B57;&#x4F53;. &#x6BD4;&#x5982;&#x4ECE;&#x4E00;&#x4E2A;&#x4E0B;&#x8F7D;&#x597D;&#x7684; <code>.ttf</code> &#x5B57;&#x4F53;&#x6587;&#x4EF6;&#x52A0;&#x8F7D;,
 &#x6216;&#x8005;&#x5728;&#x7A0B;&#x5E8F;&#x65E0;&#x6CD5;&#x627E;&#x5230;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x5B57;&#x4F53;&#x65F6;, &#x6307;&#x5B9A;&#x5B57;&#x4F53;&#x6587;&#x4EF6;&#x7684;&#x4F4D;&#x7F6E;.
@@ -449,9 +449,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgdf7cf29" class="outline-2">
-<h2 id="orgdf7cf29">Method 1</h2>
-<div class="outline-text-2" id="text-orgdf7cf29">
+<div id="outline-container-org62eed24" class="outline-2">
+<h2 id="org62eed24">Method 1</h2>
+<div class="outline-text-2" id="text-org62eed24">
 <div class="org-src-container">
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> font_manager</span><br><span class="line"></span><br><span class="line">fe = font_manager.FontEntry(fname=<span class="string">&apos;/usr/share/fonts/TTF/Times.TTF&apos;</span>, name=<span class="string">&apos;tnr&apos;</span>)</span><br><span class="line">font_manager.fontManager.ttflist.append(fe)</span><br><span class="line"></span><br><span class="line">plt.rcParams[<span class="string">&apos;font.family&apos;</span>] = fe.name</span><br><span class="line">plt.rcParams[<span class="string">&apos;mathtext.fontset&apos;</span>] = <span class="string">&apos;cm&apos;</span></span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">6</span>, <span class="number">51</span>)</span><br><span class="line">plt.plot(x, np.sin(x))</span><br><span class="line">plt.title(<span class="string">r&apos;Sin Function - Method 1&apos;</span>)</span><br><span class="line">plt.xlabel(<span class="string">r&apos;$\theta$&apos;</span>)</span><br><span class="line">plt.ylabel(<span class="string">r&apos;$\sin\theta$&apos;</span>)</span><br><span class="line">plt.savefig(<span class="string">&apos;method1.png&apos;</span>)</span><br></pre></td></tr></table></figure>
 </div>
@@ -462,9 +462,9 @@
 </div>
 </div>
 
-<div id="outline-container-org2ae526a" class="outline-2">
-<h2 id="org2ae526a">Method 2</h2>
-<div class="outline-text-2" id="text-org2ae526a">
+<div id="outline-container-org6723f36" class="outline-2">
+<h2 id="org6723f36">Method 2</h2>
+<div class="outline-text-2" id="text-org6723f36">
 <div class="org-src-container">
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> font_manager</span><br><span class="line"></span><br><span class="line">font_path = <span class="string">&apos;/usr/share/fonts/TTF/Times.TTF&apos;</span>  <span class="comment"># Your font path goes here</span></span><br><span class="line">font_manager.fontManager.addfont(font_path)</span><br><span class="line">prop = font_manager.FontProperties(fname=font_path)</span><br><span class="line"></span><br><span class="line">plt.rcParams[<span class="string">&apos;font.family&apos;</span>] = prop.get_name()</span><br><span class="line">plt.rcParams[<span class="string">&apos;mathtext.fontset&apos;</span>] = <span class="string">&apos;cm&apos;</span>  <span class="comment"># &apos;cm&apos; (Computer Modern)</span></span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">6</span>, <span class="number">51</span>)</span><br><span class="line">plt.plot(x, np.sin(x))</span><br><span class="line">plt.title(<span class="string">r&apos;Sin Function - Method 2&apos;</span>)</span><br><span class="line">plt.xlabel(<span class="string">r&apos;$\theta$&apos;</span>)</span><br><span class="line">plt.ylabel(<span class="string">r&apos;$\sin\theta$&apos;</span>)</span><br><span class="line">plt.savefig(<span class="string">&apos;method2.png&apos;</span>)</span><br></pre></td></tr></table></figure>
 </div>
@@ -475,11 +475,11 @@
 </div>
 </div>
 
-<div id="outline-container-org818039a" class="outline-2">
-<h2 id="org818039a">Result</h2>
-<div class="outline-text-2" id="text-org818039a">
+<div id="outline-container-orgb90764f" class="outline-2">
+<h2 id="orgb90764f">Result</h2>
+<div class="outline-text-2" id="text-orgb90764f">
 
-<div id="orga8abd4a" class="figure">
+<div id="orgac0adb8" class="figure">
 <p><img src="/2021/11/10/matplot_fonts/method1.png">
 </p>
 </div>
@@ -487,9 +487,9 @@
 </div>
 
 
-<div id="outline-container-orgd1d6463" class="outline-2">
-<h2 id="orgd1d6463">Reference</h2>
-<div class="outline-text-2" id="text-orgd1d6463">
+<div id="outline-container-org79757c8" class="outline-2">
+<h2 id="org79757c8">Reference</h2>
+<div class="outline-text-2" id="text-org79757c8">
 <ul class="org-ul">
 <li><a href="https://stackoverflow.com/questions/35668219/how-to-set-up-a-custom-font-with-custom-path-to-matplotlib-global-font" target="_blank" rel="noopener">https://stackoverflow.com/questions/35668219/how-to-set-up-a-custom-font-with-custom-path-to-matplotlib-global-font</a></li>
 
@@ -539,8 +539,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/11/07/MITAMO04/" rel="next" title="Atomic and Optical Physics I, 04 ResonanceV: Quantum Theory">
-                <i class="fa fa-chevron-left"></i> Atomic and Optical Physics I, 04 ResonanceV: Quantum Theory
+              <a href="/2021/11/07/MITAMO04/" rel="next" title="Atomic and Optical Physics I, 04 Resonance IV: Quantum Theory">
+                <i class="fa fa-chevron-left"></i> Atomic and Optical Physics I, 04 Resonance IV: Quantum Theory
               </a>
             
           </div>
@@ -548,6 +548,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/11/24/MITAMO05/" rel="prev" title="Atomic and Optical Physics I, 05 Resonance V and Atoms I">
+                Atomic and Optical Physics I, 05 Resonance V and Atoms I <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -657,7 +661,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd9be588"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgdf7cf29"><span class="nav-text">Method 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2ae526a"><span class="nav-text">Method 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org818039a"><span class="nav-text">Result</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd1d6463"><span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgb6b652b"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org62eed24"><span class="nav-text">Method 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6723f36"><span class="nav-text">Method 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgb90764f"><span class="nav-text">Result</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org79757c8"><span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

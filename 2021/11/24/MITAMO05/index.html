@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="density matrix,Atomic and Optical Physics,Rabi frequency,adiabatic,density operator,quantum defect">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Atomic and Optical Physics I, 05 Resonance V and Atoms I">
+<meta property="og:url" content="https://zqw.ink/2021/11/24/MITAMO05/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2021/11/24/MITAMO05/loss.png">
+<meta property="og:image" content="https://zqw.ink/2021/11/24/MITAMO05/spontaneous.png">
+<meta property="og:updated_time" content="2021-11-24T09:32:25.652Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Atomic and Optical Physics I, 05 Resonance V and Atoms I">
+<meta name="twitter:image" content="https://zqw.ink/2021/11/24/MITAMO05/loss.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2021/11/24/MITAMO05/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Atomic and Optical Physics I, 05 Resonance V and Atoms I | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-rfp-docs">
+    <a href="/rfp/_build/html" rel="section">rfp docs</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-动漫">
+    <a href="/anime/" rel="section">动漫</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/11/24/MITAMO05/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Atomic and Optical Physics I, 05 Resonance V and Atoms I
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-11-24 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-24T00:00:00+08:00">2021-11-24</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/11/24/MITAMO05/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/11/24/MITAMO05/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-org8468140" class="outline-2">
+<h2 id="org8468140">Information</h2>
+<div class="outline-text-2" id="text-org8468140">
+<ul class="org-ul">
+<li>&#x5B98;&#x65B9;&#x4ECB;&#x7ECD;:
+<a href="https://ocw.mit.edu/courses/physics/8-421-atomic-and-optical-physics-i-spring-2014/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/physics/8-421-atomic-and-optical-physics-i-spring-2014/</a></li>
+
+<li>&#x89C6;&#x9891;&#x5217;&#x8868;&#x5730;&#x5740;: <a href="https://www.youtube.com/playlist?list=PLUl4u3cNGP62FPGcyFJkzhqq9c5cHCK32" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PLUl4u3cNGP62FPGcyFJkzhqq9c5cHCK32</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge9551ea" class="outline-2">
+<h2 id="orge9551ea">Need for Density Operator</h2>
+<div class="outline-text-2" id="text-orge9551ea">
+<p>
+Schrodinger Equations deals only with pure states, can not describe loss and
+coherence.
+</p>
+
+<p>
+Exception:
+<img src="/2021/11/24/MITAMO05/loss.png">
+</p>
+
+<p>
+can be still use a Hamiltonian with complex eigenvalues. &#x56E0;&#x4E3A;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;&#x53EA;&#x5173;
+&#x5FC3; \(|e\rangle, |g\rangle\) &#x4E24;&#x4E2A;&#x6001;, &#x4E0D;&#x5173;&#x5FC3; decay &#x5230;&#x7684;&#x6001;
+</p>
+\begin{align}
+  E_g \rightarrow E_g + \frac{\mathrm{i}\Gamma_{gl}}{2}
+\end{align}
+
+<p>
+However, many other proceesses require density matrix, such as spontaneous
+emission
+<img src="/2021/11/24/MITAMO05/spontaneous.png">
+&#x56E0;&#x4E3A;&#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x5BF9;&#x4E24;&#x4E2A;&#x6001;&#x90FD;&#x5173;&#x5FC3;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc030302" class="outline-2">
+<h2 id="orgc030302">Density Operator</h2>
+<div class="outline-text-2" id="text-orgc030302">
+<p>
+&#x628A;&#x6001; \(|\psi\rangle\) &#x5728;&#x57FA;&#x5E95;&#x4E0B;&#x5C55;&#x5F00;
+</p>
+\begin{align}
+|\psi(t)\rangle = \sum_n c_n(t) |\psi_n\rangle
+\end{align}
+<p>
+Operator \(A\) &#x7684;&#x671F;&#x671B;&#x4E3A;
+</p>
+\begin{align}
+\langle A\rangle_t =&amp; \langle \psi(t) | A | \psi(t)\rangle = \sum_{m, n} c_m(t) c_n^{*}(t)A_{nm} \\
+  =&amp; \sum_{m, n} \rho_{mn}(t) A_{nm} = \mathrm{Tr}(\rho(t) A)
+\end{align}
+<p>
+where
+</p>
+\begin{align}
+A_{nm} =&amp; \langle \psi_n |A|\psi_m\rangle \\
+\rho_{mn} =&amp; c_m(t) c_n^{*}(t) \\
+\rho(t) =&amp; |\psi(t)\rangle \langle\psi(t)|
+\end{align}
+<p>
+\(\rho_{mn}\) : populations, \(\rho_{mm}\) : coherence.
+</p>
+
+<p>
+Now, &#x8003;&#x8651;&#x4E00;&#x4E2A;&#x6DF7;&#x5408;&#x6001; \(\sum_i P_i|\psi_i(t)\rangle = \sum_i\sum_n P_ic_n^i(t)|\psi_n\rangle\) , &#x76F8;&#x5E94;&#x7684;
+</p>
+\begin{align}
+\rho(t) = \sum_i P_i |\psi_i(t)\rangle \langle\psi_i(t)|
+\end{align}
+<p>
+&#x6B64;&#x65F6; \(A\) &#x7684;&#x671F;&#x671B;&#x4E3A;&#x8FD8;&#x53EF;&#x4EE5;&#x5199;&#x4E3A;
+</p>
+\begin{align}
+\langle A\rangle_t = \mathrm{Tr}(\rho(t) A)
+\end{align}
+<p>
+&#x4E0D;&#x8FC7;&#x6B64;&#x65F6; \(\langle A\rangle\) &#x6709; two averages: quantum average, ensemble average with \(P_i\)
+. The advantage of the density matrix formalism is that two kinds of averages
+can be done simultaneously in a very compact formalism!
+</p>
+
+<p>
+Apply Schrodinger equation to each \(\psi_i\) , we get
+</p>
+\begin{align}
+\mathrm{i}\hbar \dot{\rho} = [H, \rho]
+\end{align}
+
+<p>
+Properties
+</p>
+\begin{align}
+\mathrm{Tr} \rho =&amp; \sum_iP_i = 1 \\
+\mathrm{Tr} \rho^2 =&amp; \sum_i P_i^2 \le 1 \\
+               =&amp; 1 \quad \mathrm{for\,pure\,state}
+\end{align}
+
+<p>
+So far, I&apos;ve presented you the density matrix just as an elgent way of
+integrating the two averages into one formalism. And in essence, this is what it
+is. But you can now also use the density if the wholes system undergoes a time
+evolution, which is no longer unitary, no longer described by Hermition
+operator. Because you&apos;re interested in the time evolution or a small system,
+which is a part of a bigger system. The bigger system is always described by
+unitary time evolution, but smaller system is usually not described by unitary
+time evolution. And that&apos;s when the density matrix becomes crucial.
+</p>
+
+<p>
+Next: use \(\rho\) for no-unitary time evolution. Often open systems (small system,
+but open to a bigger system. Like we are interested to describe an atom, but
+the atom can spontaneously emit photons into other parts of Hilbert space, and
+we&apos;re not interested in thoses other parts.) Where we limit our description to a
+small part of larger system. An atom interacting with all the modes of the
+electromagnetic field, but we are simply want to describe the atom. And then, we
+cannot use a wave function anymore. We have to use the density matrix.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga96db70" class="outline-2">
+<h2 id="orga96db70">Density Matrix for Arbitrary Two-level System</h2>
+<div class="outline-text-2" id="text-orga96db70">
+<p>
+General Hamiltonian for two-level System
+</p>
+\begin{align}
+H = \frac{\hbar}{2}\left(\bar{\omega} I + \omega_{1}\sigma_{x} + \omega_2\sigma_y + \omega_3\sigma_z \right)
+\end{align}
+<p>
+By appropriately shifting what is the zero point of energy, we can set \(\bar{\omega}
+= 0\)
+</p>
+\begin{align}
+H = \frac{\hbar}{2}\left(\omega_{1}\sigma_{x} + \omega_2\sigma_y + \omega_3\sigma_z \right) = \frac{\hbar}{2} \vec{\omega} \cdot\vec{\sigma}
+\end{align}
+<p>
+General density matrix
+</p>
+\begin{align}
+\rho = \frac{1}{2} \left( r_0 I + r_1\sigma_x + r_2\sigma_y +r_3\sigma_z \right)
+\end{align}
+<p>
+Of course, this time we cannot throw away the unity matrix, because otherwise
+the density matrix would have no trace. &#x4F46;&#x662F; \(\mathrm{Tr}\rho = 1\) , &#x6240;&#x4EE5; \(r_0 =
+1\)
+</p>
+\begin{align}
+\rho = \frac{1}{2} \left( I + \vec{r}\cdot\vec{\sigma} \right)
+\end{align}
+<p>
+\(\vec{r}\) is called <b>Bloch Vector</b> . Use equation of motion \(\mathrm{i}\hbar\dot{\rho}
+= [H, \rho]\) we get (checked! Exercise)
+</p>
+\begin{align}
+\dot{\vec{r}} = \vec{\omega}\times \vec{r}
+\end{align}
+<p>
+We see, the length of \(\vec{r}\) is a constant. It is a precession! We
+generalizes our previous result \(\dot{\vec{S}} = \vec{\omega} \times \vec{S}\) .
+</p>
+
+<blockquote>
+<p>
+Feynman, R. P., Vernon, F. L. &amp; Hellwarth, R. W. Geometrical Representation of
+the Schr&#xF6;dinger Equation for Solving Maser Problems. Journal of Applied Physics
+28, 49&#x2013;52 (1957).
+</p>
+
+<p>
+Theory by Feymman, Vernon and Hellwarth:
+</p>
+
+<p>
+The time evolution of the density matrix for the most general two-level system
+is isomorphic to the behavior of classical moment in a suitable time dependent
+magnetic field.
+</p>
+</blockquote>
+
+<p>
+Note: Pure state will stay pure forever. Because
+</p>
+\begin{align}
+\mathrm{Tr}\rho^2 = \frac{1}{2}(r_0^2 + |\vec{r}|^2) = \mathrm{const.}
+\end{align}
+<p>
+Does not describe loss of coherence.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaa0b81f" class="outline-2">
+<h2 id="orgaa0b81f">Bloch Equation (1946), Relaxation</h2>
+<div class="outline-text-2" id="text-orgaa0b81f">
+<p>
+Everything has to come to thermal equilibrium.
+</p>
+
+<p>
+The density matrix of thermal equilibrium, which has only diagonal matrix
+elements, the populations follow the Boltzmann factor
+</p>
+\begin{align}
+\rho^T = \frac{1}{z} e^{-\frac{H}{k_B T}}
+\end{align}
+<p>
+Relaxation will restore \(\rho\) to \(\rho^T\) .
+</p>
+
+<p>
+Phenomenological treatment of damping:
+</p>
+\begin{align}
+ \dot{\rho} = \frac{1}{\mathrm{i}\hbar} [H, \rho] - \frac{\rho - \rho^T}{T_e}
+\end{align}
+<p>
+where \(T_e\) is equilibrium time. The second term will damp the density matrix to
+the thermal equilibrium density.
+</p>
+
+<p>
+In many cases, there are two relation times
+</p>
+
+<ul class="org-ul">
+<li>\(T_1\) : population different energy decay time, \(\dot{r}_z = (\vec{\omega}\times
+  \vec{r})_z - (r_z - r_z^T)/T_1\) .</li>
+
+<li>\(T_2\) : coherence, dephasing time, \(r_1, r_2\) .</li>
+</ul>
+
+<p>
+whem quantum system lose its memory of phase, the \(r_1, r_2\) components of the
+Bloch vector goes to \(0\) . \(r_1, r_2\) only nonzero if you have two states populated with a
+well-defined relative phase.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8a9217e" class="outline-2">
+<h2 id="org8a9217e">Atoms Sayllabus</h2>
+<div class="outline-text-2" id="text-org8a9217e">
+<blockquote>
+<p>
+Kleppner, D. The Yin and Yang of Hydrogen. Physics Today 52, 11&#x2013;13 (1999).
+</p>
+</blockquote>
+
+<p>
+First: electronic structure:
+</p>
+
+<ul class="org-ul">
+<li>1 e, H</li>
+
+<li>2 e, He</li>
+</ul>
+
+<p>
+Then:
+</p>
+
+<ul class="org-ul">
+<li>Fine structure</li>
+
+<li>Lamb shift</li>
+
+<li>HFS: nucleus</li>
+
+<li>External field, B, E, EM field.</li>
+</ul>
+
+<p>
+Import physics system
+</p>
+
+<ul class="org-ul">
+<li>Harmonic oscillator</li>
+
+<li>Two-level system</li>
+
+<li>Hydrogen</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6704e76" class="outline-2">
+<h2 id="org6704e76">Hydrogen atoms</h2>
+<div class="outline-text-2" id="text-org6704e76">
+<p>
+Rydberg formula follows from the simple Bohr model, also from Schrodinger
+equation
+</p>
+
+\begin{align}
+E_n = - \left(\frac{1}{2}\frac{me^4}{\hbar^2}\frac{M}{M+m} \right)\frac{1}{n^2}
+\end{align}
+
+<p>
+where Rydberg constant \(R_{\infty} = \frac{1}{2}\frac{me^4}{\hbar^2}\) which describes the
+spectrum of a hydrogen atom where the nucleus has infinite mass, reduced mass factor
+\(\frac{M}{M + m}\) . Rydberg constant with reduced mass factor call \(R_{H}\)
+, which determines the spectrum of hydrogen.
+</p>
+
+<blockquote>
+<p>
+&#x5C0F;&#x7ED3;:
+</p>
+
+\begin{align}
+  E_n = - \frac{R}{n^2}
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(R = \frac{\mu e^4}{2\hbar^2}\) &#x6709;&#x65F6;&#x4E5F;&#x8BB0;&#x4F5C; \(R_H = \frac{\mu e^4}{2\hbar^2}\), &#x5176;&#x4E2D; \(\mu\) &#x662F;
+reduced mass \(\mu = \frac{m M}{m + M}\) . &#x5982;&#x679C; \(M\to \infty\) &#x90A3;&#x4E48; \(R_{\infty} =
+\frac{me^4}{2\hbar^2}\)
+</p>
+</blockquote>
+
+<p>
+Solution of Schrodinger Equation
+</p>
+\begin{align}
+\psi_{nlm} = R_nl(r)Y_{lm}(\theta, \phi)
+\end{align}
+
+<p>
+There are a number of noteworthy results.
+</p>
+\begin{align}
+E_n = - \frac{R_H}{n^2}
+\end{align}
+<p>
+Intuition for the size of the hydrogen atom, the size of hydrogen-like
+atoms. The radius or the expectation value of the position of the electron
+</p>
+\begin{align}
+\langle r_{nl}\rangle = n^2 a_0 \left\{1 + \frac{1}{2}
+            \left[ 1 - \frac{l(l + 1)}{n^{2}} \right] \right\}
+\end{align}
+<p>
+It&apos;s important to distinguish between the expectation value for the radius and
+the inverse radius
+</p>
+\begin{align}
+\langle \frac{1}{r_{nl}} \rangle = \frac{1}{n^2 a_0}
+\end{align}
+<p>
+where \(a_0 = \frac{\hbar^2}{\mu e^2}\)
+</p>
+<blockquote>
+<p>
+Virial Theorem
+</p>
+
+\begin{align}
+\langle T \rangle = \frac{1}{2} \langle \vec{r} \cdot \nabla V(\vec{r}) \rangle
+\end{align}
+<p>
+for \(V = r^n\) , \(2\langle T \rangle = n\langle V\rangle\)
+</p>
+</blockquote>
+<p>
+\(\langle \frac{1}{r_{nl}} \rangle\) &#x7684;&#x5F62;&#x5F0F;&#x8FD9;&#x6837;&#x7B80;&#x5355;, &#x53EF;&#x4EE5;&#x4ECE; virial theorem &#x6765;&#x7406;&#x89E3;. &#x603B;&#x7684;&#x80FD;&#x91CF;&#x7684;
+&#x5F62;&#x5F0F; \(E_n\sim \frac{1}{n^2}\) , &#x5E93;&#x4ED1;&#x52BF;&#x80FD; \(\langle V\rangle \sim \langle \frac{1}{r}\rangle\) , &#x800C;&#x6839;&#x636E; virial
+theorm &#x6709; \(\langle T\rangle = -\frac{1}{2}\langle V\rangle\) ,
+&#x56E0;&#x6B64; \(\langle \frac{1}{r}\rangle \sim \frac{1}{n^2}\) . &#x7CBE;&#x786E;&#x6765;&#x8BB2;
+</p>
+\begin{align}
+&amp; -\frac{R_H}{n^2} = E_n = \langle T\rangle + \langle V\rangle
+ = \frac{1}{2}\langle V\rangle = - \frac{1}{2}e^2\langle \frac{1}{r}\rangle \\
+\Rightarrow&amp; \langle \frac{1}{r_{nl}} \rangle = \frac{1}{n^2 a_0}
+\end{align}
+<p>
+In CGS units
+</p>
+\begin{align}
+R_H = \frac{1}{2} \frac{e^2}{a_0}
+\end{align}
+<p>
+is one half of the Coulomb energy at the Bohr radius, which is called <b>one
+Hartree</b> \(\frac{\mu e^4}{\hbar^2} = \frac{e^2}{a_0}\)
+</p>
+
+<p>
+The fundamental energy of the hydrogen atom, the fundamental unit of energy is
+whatever energy you can construct using the electron mass, the electron charge
+and \(\hbar\) , and what you get is \(1\) Hartree. If you ever wondered why the Rydberg
+is \(1/2\) Hartree, what happens is in the ground state of hydrogen, you have \(1\)
+Hartree worth of Coulomb energy. But then because of the Virial theorem, you
+have \(-1/2\) of it as kinetic energy, and therefore, the binding energy in the
+\(n=1\) ground state, which is \(1\) Rydberg, is \(1/2\) Hartree. So this factor of
+\(1/2\) of the Virial theorem is responsible for this factor of \(2\) for those two
+energies.
+</p>
+
+<p>
+In SI units: \(e^2 \to \frac{e^2}{4\pi\epsilon_0}\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcd4a8a7" class="outline-2">
+<h2 id="orgcd4a8a7">Hydrogen-like atoms</h2>
+<div class="outline-text-2" id="text-orgcd4a8a7">
+<p>
+How do things depend on the nuclear charge \(Z\) ? Because of the stronger Coulomb
+attraction, all the length scales are divided by \(Z\) . So everything is smaller
+by factor of \(Z\) . So what does that now imply for the energy? Well, you have a
+Coulomb field which is \(Z\) times stronger, but you probe it now at a \(Z\) times
+smaller radius. So therefore, the energies scale with \(Z^2\)
+</p>
+\begin{align}
+E_n = - \frac{R_H Z^2}{n^2}
+\end{align}
+
+<p>
+If you have a hydrogen-like atom, and the electron is in a state with principal
+quantum number, no angular momentum. The probability for the electron to be at
+the nucleus
+</p>
+\begin{align}
+|\psi_{n00}(0)|^2
+\end{align}
+<p>
+This will be very important later on, when we discuss hyperfine structure
+because what is responsible is the fact that the electron can overlap with
+nucleus. So this factor will appear in our discussion of hyperfine structure,
+and what I want to ask you is how does this quantity depend on the principal
+quantum number \(n\) and on \(Z\) ?
+</p>
+
+<ul class="org-ul">
+<li>A. \(\frac{Z^3}{a_0^3 n^6}\)</li>
+
+<li>B. \(\frac{Z}{a_0^3 n^2}\)</li>
+
+<li>C. \(\frac{Z^3}{a_0^3 n^3}\)</li>
+
+<li>D. \(\frac{Z^2}{a_0 n ^2}\)</li>
+</ul>
+
+<p>
+The exact answer is \(|\psi_{n00}(0)|^2 = \frac{Z^3}{\pi a_0^3 n^3}\)
+</p>
+
+<p>
+Z scaling: \(e^2 \to Ze^2\) , \(a_0 = \frac{\hbar^2}{m e^2}\to \frac{a_0}{Z}\) .
+So if all length scales go as \(\frac{1}{Z}\) . So the density goes \(Z^3\)
+</p>
+
+<p>
+When we talk about the wave functions with principal quantum number \(n\) , there
+are two length scale. \(\langle \frac{1}{r_{nl}}\rangle = \frac{Z}{a_0 n^2}\) scales with \(n^2\)
+BUT, the characteristic length in the exponential decay of wave function is
+\(\frac{n a_0}{Z}\) scales with \(n\) .
+</p>
+
+<p>
+That is important for quantum defect and hyperfine structure.
+</p>
+
+<p>
+For \(l\neq 0\) , \(\psi\propto r^l\) , \(|\psi|\propto r^{2l}\) . For large \(n\) , \(|\psi|\propto
+r^{2l}\frac{1}{n^3}\) .
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc2eac35" class="outline-2">
+<h2 id="orgc2eac35">Reference</h2>
+<div class="outline-text-2" id="text-orgc2eac35">
+<ul class="org-ul">
+<li>Feynman, R. P., Vernon, F. L. &amp; Hellwarth, R. W. Geometrical Representation of the Schr&#xF6;dinger Equation for Solving Maser Problems. Journal of Applied Physics 28, 49&#x2013;52 (1957).</li>
+
+<li>Kleppner, D. The Yin and Yang of Hydrogen. Physics Today 52, 11&#x2013;13 (1999).</li>
+
+<li>Friedrich, H. Theoretical Atomic Physics. (Springer International Publishing,
+2017). Chap 2.1.1 The Hydrogen Atom</li>
+
+<li><a href="https://en.wikipedia.org/wiki/Virial_theorem" target="_blank" rel="noopener">wikipedia: Virial theorem</a></li>
+
+<li><a href="https://en.wikipedia.org/wiki/Hartree" target="_blank" rel="noopener">wikipedia: Hartree</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/density-matrix/" rel="tag"># density matrix</a>
+          
+            <a href="/tags/Atomic-and-Optical-Physics/" rel="tag"># Atomic and Optical Physics</a>
+          
+            <a href="/tags/Rabi-frequency/" rel="tag"># Rabi frequency</a>
+          
+            <a href="/tags/adiabatic/" rel="tag"># adiabatic</a>
+          
+            <a href="/tags/density-operator/" rel="tag"># density operator</a>
+          
+            <a href="/tags/quantum-defect/" rel="tag"># quantum defect</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/11/10/matplot_fonts/" rel="next" title="python matplotlib 画图小技巧: 自定义字体">
+                <i class="fa fa-chevron-left"></i> python matplotlib 画图小技巧: 自定义字体
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org8468140"><span class="nav-text">Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orge9551ea"><span class="nav-text">Need for Density Operator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc030302"><span class="nav-text">Density Operator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orga96db70"><span class="nav-text">Density Matrix for Arbitrary Two-level System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgaa0b81f"><span class="nav-text">Bloch Equation (1946), Relaxation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org8a9217e"><span class="nav-text">Atoms Sayllabus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6704e76"><span class="nav-text">Hydrogen atoms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgcd4a8a7"><span class="nav-text">Hydrogen-like atoms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc2eac35"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
