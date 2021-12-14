@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="Atomic and Optical Physics,quantum defect,helium,fine structure constant,effective ferromagnetic spin-spin interaction">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Atomic and Optical Physics I, 06 Atoms II: Hydrogen">
+<meta property="og:url" content="https://zqw.ink/2021/12/14/MITAMO06/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2021/12/14/MITAMO06/alkali.png">
+<meta property="og:image" content="https://zqw.ink/2021/12/14/MITAMO06/helium.png">
+<meta property="og:image" content="https://zqw.ink/2021/12/14/MITAMO06/intercombination.png">
+<meta property="og:updated_time" content="2021-12-14T14:22:15.970Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Atomic and Optical Physics I, 06 Atoms II: Hydrogen">
+<meta name="twitter:image" content="https://zqw.ink/2021/12/14/MITAMO06/alkali.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2021/12/14/MITAMO06/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Atomic and Optical Physics I, 06 Atoms II: Hydrogen | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-rfp-docs">
+    <a href="/rfp/_build/html" rel="section">rfp docs</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-动漫">
+    <a href="/anime/" rel="section">动漫</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2021/12/14/MITAMO06/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Atomic and Optical Physics I, 06 Atoms II: Hydrogen
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-12-14 00:00:00" itemprop="dateCreated datePublished" datetime="2021-12-14T00:00:00+08:00">2021-12-14</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/12/14/MITAMO06/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/12/14/MITAMO06/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-orgdda296a" class="outline-2">
+<h2 id="orgdda296a">Information</h2>
+<div class="outline-text-2" id="text-orgdda296a">
+<ul class="org-ul">
+<li>&#x5B98;&#x65B9;&#x4ECB;&#x7ECD;:
+<a href="https://ocw.mit.edu/courses/physics/8-421-atomic-and-optical-physics-i-spring-2014/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/physics/8-421-atomic-and-optical-physics-i-spring-2014/</a></li>
+
+<li>&#x89C6;&#x9891;&#x5217;&#x8868;&#x5730;&#x5740;: <a href="https://www.youtube.com/playlist?list=PLUl4u3cNGP62FPGcyFJkzhqq9c5cHCK32" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PLUl4u3cNGP62FPGcyFJkzhqq9c5cHCK32</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org615b66f" class="outline-2">
+<h2 id="org615b66f">Atomic units</h2>
+<div class="outline-text-2" id="text-org615b66f">
+<p>
+Natural units, atomic units.
+</p>
+
+<p>
+In atomic units, <b>no speed of light \(c\)</b> , because there is no speed of light in
+Schrodinger Equation. So, atomic units
+</p>
+<blockquote>
+<ul class="org-ul">
+<li>charge of electron: \(e\)</li>
+<li>mass of electron: \(m\)</li>
+<li>\(h\)</li>
+</ul>
+</blockquote>
+
+<p>
+Length (Bohr radius): \(a_0 = \frac{\hbar^2}{m e^2}\)
+</p>
+
+<p>
+Energy (One Hartree 27.2 eV):
+\(\frac{e^4m}{\hbar^2} = \left( \frac{e^2}{\hbar c} \right)^2m^2c^2 = \alpha^2m c^2\) , where \(\alpha =
+1/137\) .
+</p>
+
+<p>
+Velocity: \(mv^2 = \frac{e^4m}{\hbar^2}\) , \(v = \frac{e^2}{\hbar} = \alpha c\)
+</p>
+
+<p>
+Electric field: \(\frac{e}{a_0^2} = 5.1\times 10^9 \mathrm{V/cm}\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaa5ede7" class="outline-2">
+<h2 id="orgaa5ede7">Fine-structure constant: \(\alpha\)</h2>
+<div class="outline-text-2" id="text-orgaa5ede7">
+<p>
+The fundamental constant which should ultimately be predicted by a complete
+theory.
+</p>
+
+<p>
+\(\alpha \ll 1\) means: electromagnetic interactions are weak.
+</p>
+
+<p>
+If energy uncertainties become \(\Delta E = mc^2\) , then the concept of single
+particles breaks down. \(\Delta E = mc^2 \Rightarrow \Delta p \sim m c, \Delta x \sim \frac{\hbar}{mc} =
+\lambda_{\mathrm{Compton}}\) .
+</p>
+
+<p>
+Coulomb interaction at \(\lambda_{\mathrm{Compton}}\) :
+\(E_{\mathrm{Compton}} = \frac{e^2}{\lambda_{\mathrm{Compton}}} = \frac{e^2mc}{\hbar}\)
+</p>
+
+<p>
+So, &quot;strongest&quot; Coulomb interaction
+</p>
+\begin{align}
+\frac{E_{\mathrm{Compton}}}{mc^2} = \frac{\frac{e^2mc}{\hbar}}{mc^2}
+  = \frac{e^2}{\hbar c} = \alpha
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgd1fd9af" class="outline-2">
+<h2 id="orgd1fd9af">One electron atoms with cores</h2>
+<div class="outline-text-2" id="text-orgd1fd9af">
+
+<div id="org9048044" class="figure">
+<p><img src="/2021/12/14/MITAMO06/alkali.png">
+</p>
+</div>
+
+\begin{align}
+E_n \sim \frac{R}{n^2}
+\end{align}
+
+<p>
+What is the leading correction to the properties of this atom due to the fact
+that we have an ionic core instead of a proton?
+</p>
+
+<p>
+receives correction
+</p>
+
+<blockquote>
+<ul class="org-ul">
+<li>A. \(\frac{R}{n^2} + \delta\)</li>
+<li>B. \(\frac{R}{n^2} + \frac{\delta}{n^2}\)</li>
+<li>C. \(\frac{R}{n^2} + \frac{\delta}{n^3}\)</li>
+<li>D. \(\frac{R}{(n - \delta)^2}\)</li>
+</ul>
+</blockquote>
+<p>
+C, D are both right.
+</p>
+
+<p>
+Derivation:
+</p>
+
+<p>
+Perturbation theory
+</p>
+\begin{align}
+\psi_{nl}(r) \overset{r \to 0}{\rightarrow} r^l \frac{1}{n^{3/2}}
+\end{align}
+
+\begin{align}
+H = H_0 + H&apos;
+\end{align}
+<p>
+\(H&apos;\) is localizes around origin, so
+</p>
+\begin{align}
+\Delta E_n = \langle \psi_{nl} | H&apos; | \psi_{nl} \rangle\propto \frac{1}{n^3}
+\end{align}
+<p>
+exact \(\frac{\delta_l2R}{n^3}\) . this means
+</p>
+\begin{align}
+- E_n = \frac{R}{n^2} + \frac{2 R\delta_l}{n^3}
+  = \frac{R}{(n - \delta_l)^2}
+\end{align}
+<p>
+\(\delta_l\) : quantum defect.
+</p>
+
+<p>
+Other derivations: JWKB , model \(H&apos; \propto \frac{1}{r^2}\) .
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgffef71b" class="outline-2">
+<h2 id="orgffef71b">Spectroscopic notation</h2>
+<div class="outline-text-2" id="text-orgffef71b">
+<p>
+Isolated atom. We have (good) quantum number \(J, M_{J}\) , we call
+</p>
+
+<blockquote>
+<p>
+one level has \(2J + 1\) sublevels(or states)
+</p>
+</blockquote>
+
+<p>
+\(\vec{J}\) can have contributions from several \(e^-\) , from spin \(\vec{S}\)
+and orbital angular momentum \(\vec{L}\)
+</p>
+
+<p>
+Often(light atoms), the different electrons umndergo LS coupling.
+</p>
+\begin{align}
+\vec{L} = \sum \vec{l}_i , \quad \vec{S} = \sum \vec{s}_i
+\end{align}
+<p>
+So let&apos;s assume we have an atom which has total angular momentum \(J\) , which is
+the sum of  orbital angular momentum and spin
+</p>
+\begin{align}
+\vec{J} = \vec{L} + \vec{S}
+\end{align}
+<p>
+in this case a level is designated by
+</p>
+\begin{align}
+^{2S + 1}L_{J}, \quad L = S, P, D, \cdots
+\end{align}
+
+<p>
+Hydrogenic atom: preceed term by the principal quantum number n.
+</p>
+<blockquote>
+<p>
+Example:
+</p>
+
+<p>
+Na( \(n = 3\) )
+</p>
+\begin{align}
+3^2S_{1/2}
+\end{align}
+<p>
+first excited states
+</p>
+\begin{align}
+3^2P_{1/2, 3/2}
+\end{align}
+</blockquote>
+<p>
+sometimes one specifies the configuration
+</p>
+\begin{align}
+1s^2, 2s^2, 2p\cdots
+\end{align}
+<p>
+products of symbols \(nl^m\) .
+</p>
+
+<p>
+Na: \(1s^22s^22p^63s\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1a97670" class="outline-2">
+<h2 id="org1a97670">The helium atom: effects of two electrons</h2>
+<div class="outline-text-2" id="text-org1a97670">
+<p>
+Ref: Sec1 Conhen-Tannoudji QM, Gasiorowicz
+</p>
+</div>
+
+<div id="outline-container-orgd30b6a0" class="outline-3">
+<h3 id="orgd30b6a0">Ground states</h3>
+<div class="outline-text-3" id="text-orgd30b6a0">
+<p>
+If we regard it as a hydrogen problem, and we put two electrons into the \(1s\)
+state ( \((1s)^2\) ), we would expect that, based on the hydrogenic model, the
+binding energy of that is, per electron, \(13.6Z^2 = 54.4 \mathrm{eV}\) . So that
+would mean that the binding energy of the ground states is \(-108 \mathrm{eV}\)
+. However, the experimental result is \(- 79 \mathrm{eV}\) . So we find that there
+is a big discrepancy of \(29 \mathrm{eV}\)
+</p>
+\begin{align}
+-108 &amp; \mathrm{eV} \\
+-79  &amp; \mathrm{eV} \\
+---------&amp;---- \\
+29   &amp; \mathrm{eV}
+\end{align}
+<p>
+We neglected \(e^--e^{-}\) interactions! Perturbation operator
+</p>
+\begin{align}
+V&apos; = \frac{e^2}{r_{12}}
+\end{align}
+\begin{align}
+\psi_G = \psi_{100}(1)\psi_{100}(2)
+\end{align}
+\begin{align}
+\Delta E = \langle \psi_G | V&apos; | \psi_G\rangle = 34 \mathrm{eV}
+\end{align}
+<p>
+removes most of the discrepancy!
+</p>
+
+<p>
+Improve by variations wavefunction \(Z \to Z^{*}\) .
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaf41298" class="outline-3">
+<h3 id="orgaf41298">First excited states</h3>
+<div class="outline-text-3" id="text-orgaf41298">
+<p>
+Starting again with the hydrogenic model. In hydrogen, the 2s and 2p state are
+degenerate, so we have two configurations contributing to the same energy, 1s2s
+and 1s2p . The binding energy in the hydrogen model is a quarter of a Rydberg
+\(3.4 \mathrm{eV}\) . We have to scale it by \(Z^2\) , and we find \(13.6 \mathrm{eV}\)
+.
+</p>
+
+<p>
+But now what happens is that we have to introduce the Coulomb energy between
+the electrons. And if you do that, it shifts up the levels in different ways. So
+why it is different?
+</p>
+
+<p>
+You have two electrons, and you have the helium nucleus. First you put in the 1s
+electron, and now the second electron, when it is in a 2p state, it&apos;s further
+out. And it pretty much experiences the charge of the helium nucleus shielded by
+the 1s electron, and therefore, it sees in effect a smaller nuclear
+charge. Whereas, the 2s electron penetrates deeper, gets closer to the nucleus
+and will still realize that the nucleus has a charge of 2, and not a shielded
+charge. So, therefore, you would expect that the shielding effect due to the
+innermost electron is more important, has a bigger effect for 2p electron than
+for the 2s electron. And therefore, <b>the 2p electron has a smaller binding
+energy</b> . It&apos;s actually comparable to the binding energy of the 2p state in
+hydrogen (4eV). And this effect is smaller for 2s state.
+</p>
+
+<p>
+But now, each level under goes further splitting. We will have two different
+terms for (1s2s), one is singlet \(^1S_0\) , and one is triplet \(^3S_1\) . And this
+splitting is \(0.8 \mathrm{eV}\) . The same for 1s2p \(^3P_{2, 1, 0}\) , \(^1P_1\) . the
+splitting is also on the order of an eV (0.25 eV).
+</p>
+
+<p>
+How can the spin cause a splitting? Because the spin so far has not appeared in
+our Hamiltonian. We really have a Hamiltonian which has only the Coulomb energy,
+and the spin is not part of it. We don&apos;t have a magnetic field, to which the
+magnetic momentum of the spin would couple. And also we have not yet introduced
+spin orbit coupling. But if this is on you mind, take it off you mind. Spin
+orbit coupling is a much, much smaller effect. Energies on the order of 1
+electron volt, you just cannot get from spin orbit coupling. Spin orbit coupling
+is smaller that electronic energies. It is smaller by the fine structure
+constant. So the typical scale for spin orbit coupling is much smaller.
+</p>
+
+<p>
+So, we are focusing now on the splitting.
+</p>
+
+<p>
+Wave function \(\psi_{S, A}\times \mathrm{SPIN}\)
+</p>
+\begin{align}
+\psi_{S, A} = \frac{1}{\sqrt{2}}
+  \left[ \psi_{100}(r_1)\psi_{200}(r_2) \pm \psi_{100}(r_2)\psi_{200}(r_1) \right]
+\end{align}
+<p>
+\(S\) : symmetry spatial WF, \(S = 0\) , \(^1S_0\) . \(A\) : antisymmetry spatial WF, \(S
+= 1\) , \(^3S_1\) .
+</p>
+
+<p>
+As long as we have non-interacting electron, the two wave functions are
+degenerate. But now we want to bring in the Coulomb energy between the two
+electrons \(\frac{e^2}{r_{12}}\)
+</p>
+\begin{align}
+\Delta E =&amp; \frac{1}{2}\int \int \frac{e^2}{r_{12}}
+    \left[|\psi_{100}(r_1)|^2|\psi_{200}(r_2)|^2 + (r_1\leftrightarrow r_{2})\right]
+   \pm \frac{1}{2}\int \int \frac{e^2}{r_{12}}
+   \left[\psi_{100}^{*}(r_1)\psi_{200}^{*}(r_2) \psi_{100}(r_2)\psi_{200}(r_1)+ (r_1\leftrightarrow r_{2})\right] \\
+ =&amp; \Delta E^{\mathrm{Coul}} \pm \Delta E^{\mathrm{exch}}
+\end{align}
+<p>
+\(\Delta E^{\mathrm{exch}}\) DEPENDS on spin. Triplet state has lower energy, because
+antisymetirc spatal WF reduces the \(e^--e^-\) repulsive interaction. This can be
+written as ( \(S = 0, 1\) )
+</p>
+\begin{align}
+\Delta E = \alpha + \beta \vec{S}_1\cdot \vec{S}_2
+\end{align}
+<p>
+use
+</p>
+\begin{align}
+2\vec{S}_1\cdot \vec{S}_2 = - \vec{S}_1^{2} - \vec{S}_2^{2} + \vec{S}^2
+\end{align}
+<p>
+we get
+</p>
+\begin{align}
+\Delta E = (\alpha - \frac{1}{4}\beta) \pm (-\frac{\beta}{2})
+\end{align}
+<p>
+where \(\alpha - \frac{1}{4}\beta = \Delta E^{\mathrm{Coul}}, -\frac{\beta}{2} = \Delta
+E^{\mathrm{exch}}\) . *It looks like a ferromagnetic spin-spin interaction. * And
+well, it looks like it, it is actually an effective ferromagnetic spin-spin
+interaction. However, the coupling is purely electrostatic, not magnetic.
+</p>
+
+
+<div id="org37ceb9d" class="figure">
+<p><img src="/2021/12/14/MITAMO06/helium.png">
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6d808f5" class="outline-2">
+<h2 id="org6d808f5">New feature of two electrons</h2>
+<div class="outline-text-2" id="text-org6d808f5">
+<p>
+What about possible transitions between triplet and singlet?
+</p>
+
+<p>
+Question: What Fields(couplings) drive singlet-triplet transition?
+</p>
+
+<ul class="org-ul">
+<li>A. optical fields (dipole operator)</li>
+<li>B. rotating magnetic fields</li>
+<li>C. boths</li>
+<li>D. none</li>
+</ul>
+
+
+<div id="orgbc255ef" class="figure">
+<p><img src="/2021/12/14/MITAMO06/intercombination.png">
+</p>
+</div>
+
+<p>
+ANSWER: \(\Delta S = 0\) , selection rule.  Dipole operator acts only on spatial WF,
+NOT in spin part. Transverse B fields: \(S_x, S_y, S_{x, y} = (S^+ \pm S^-)/\sqrt{2}\)
+, so \(|S| = \mathrm{const}\) .
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgd34fbda" class="outline-2">
+<h2 id="orgd34fbda">Reference</h2>
+<div class="outline-text-2" id="text-orgd34fbda">
+<ul class="org-ul">
+<li><a href="https://en.wikipedia.org/wiki/WKB_approximation" target="_blank" rel="noopener">wikipedia: WKB approximation</a></li>
+
+<li><a href="https://en.wikipedia.org/wiki/Stephen_Gasiorowicz" target="_blank" rel="noopener">wikipedia: Gasiorowicz</a></li>
+
+<li><a href="https://physics.stackexchange.com/questions/312312/why-is-helium-ground-state-a-singlet" target="_blank" rel="noopener">StackExchange: Why is Helium ground state a singlet?</a></li>
+
+<li><a href="http://hyperphysics.phy-astr.gsu.edu/hbase/quantum/helium.html" target="_blank" rel="noopener">Helium Energy Levels</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Atomic-and-Optical-Physics/" rel="tag"># Atomic and Optical Physics</a>
+          
+            <a href="/tags/quantum-defect/" rel="tag"># quantum defect</a>
+          
+            <a href="/tags/helium/" rel="tag"># helium</a>
+          
+            <a href="/tags/fine-structure-constant/" rel="tag"># fine structure constant</a>
+          
+            <a href="/tags/effective-ferromagnetic-spin-spin-interaction/" rel="tag"># effective ferromagnetic spin-spin interaction</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/12/09/py_ode/" rel="next" title="scipy 数值求解微分方程, 方程组, 复微分方程组">
+                <i class="fa fa-chevron-left"></i> scipy 数值求解微分方程, 方程组, 复微分方程组
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgdda296a"><span class="nav-text">Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org615b66f"><span class="nav-text">Atomic units</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgaa5ede7"><span class="nav-text">Fine-structure constant: \(\alpha\)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd1fd9af"><span class="nav-text">One electron atoms with cores</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgffef71b"><span class="nav-text">Spectroscopic notation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org1a97670"><span class="nav-text">The helium atom: effects of two electrons</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd30b6a0"><span class="nav-text">Ground states</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgaf41298"><span class="nav-text">First excited states</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org6d808f5"><span class="nav-text">New feature of two electrons</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd34fbda"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
