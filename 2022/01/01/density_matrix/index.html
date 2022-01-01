@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="density matrix,reduced dnesity matrix">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多体系统的密度算符, 密度矩阵, 多体系统的单体密度算符, 密度矩阵小结">
+<meta property="og:url" content="https://zqw.ink/2022/01/01/density_matrix/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-01-01T15:01:42.672Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多体系统的密度算符, 密度矩阵, 多体系统的单体密度算符, 密度矩阵小结">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2022/01/01/density_matrix/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>多体系统的密度算符, 密度矩阵, 多体系统的单体密度算符, 密度矩阵小结 | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-rfp-docs">
+    <a href="/rfp/_build/html" rel="section">rfp docs</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-动漫">
+    <a href="/anime/" rel="section">动漫</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2022/01/01/density_matrix/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">多体系统的密度算符, 密度矩阵, 多体系统的单体密度算符, 密度矩阵小结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2022-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2022-01-01T00:00:00+08:00">2022-01-01</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2022/01/01/density_matrix/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2022/01/01/density_matrix/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<p>
+&#x65B0;&#x5E74;&#x5FEB;&#x4E50;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+</p>
+
+<div id="outline-container-org1361d30" class="outline-2">
+<h2 id="org1361d30">Signle particle</h2>
+<div class="outline-text-2" id="text-org1361d30">
+<p>
+&#x5355;&#x7C92;&#x5B50;&#x7684;&#x60C5;&#x51B5;, &#x53C2;&#x8003; Sakurai &amp; Napolitano &#x4E2D;&#x7684;&#x8BA8;&#x8BBA;, &#x4EE5;&#x53CA; Wolfgang Ketterle &#x7684; AMO
+&#x516C;&#x5F00;&#x8BFE;&#x7B2C;&#x4E94;&#x8BB2;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5359d18" class="outline-2">
+<h2 id="org5359d18">Many body system Density operator \(\hat{\rho}_N\), Density matrix \(\rho_N\)</h2>
+<div class="outline-text-2" id="text-org5359d18">
+<p>
+&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A; \(N\) &#x7C92;&#x5B50;&#x7684;&#x591A;&#x4F53;&#x7EAF;&#x6001; \(|\Psi_{\mathrm{N-particles}}\rangle\) , &#x5176; density operator &#x5B9A;
+&#x4E49;&#x4E3A;
+</p>
+\begin{align}
+\hat{\rho}_N \equiv |\Psi_{\mathrm{N-particles}}\rangle\langle\Psi_{\mathrm{N-particles}}|
+\end{align}
+<p>
+&#x9009;&#x53D6;&#x4E00;&#x7EC4;&#x57FA;&#x5E95;, &#x5199;&#x51FA; density opertor &#x5728;&#x6B64;&#x57FA;&#x5E95;&#x4E0B;&#x7684;&#x8868;&#x793A;&#x77E9;&#x9635;, &#x5373;&#x4E3A; density
+operator. &#x4F8B;&#x5982;&#x6709;&#x4E00;&#x7EC4;&#x6B63;&#x4EA4;&#x5F52;&#x4E00;&#x7684;&#x5355;&#x7C92;&#x5B50;&#x672C;&#x5F81;&#x6001; \(\{| \alpha\rangle\}\) , &#x7CFB;&#x7EDF;&#x7684;&#x57FA;&#x5E95;&#x9009;&#x53D6;&#x4E3A; \(N\) &#x4E2A;&#x5355;
+&#x7C92;&#x5B50;&#x6001;&#x7684;&#x76F4;&#x79EF; (Negele &amp; Orland Eq.(1.27))
+</p>
+\begin{align}
+|\alpha_1 , \alpha_2, \cdots, \alpha_N) \equiv |\alpha_1\rangle \otimes |\alpha_2\rangle \otimes \cdots\otimes |\alpha_N\rangle
+\end{align}
+<p>
+&#x9700;&#x8981;&#x6CE8;&#x610F;:
+</p>
+<ul class="org-ul">
+<li>1. &#x8FD9;&#x91CC;&#x7B49;&#x5F0F;&#x5DE6;&#x8FB9;&#x4E0D;&#x662F; \(|\rangle\) , &#x800C;&#x662F; \(|)\) . &#x533A;&#x522B;&#x5728;&#x4E8E;&#x540E;&#x8005;&#x6CA1;&#x6709;&#x5BF9;&#x8D39;&#x7C73;&#x5B50;&#x6216;&#x662F;&#x73BB;&#x8272;&#x5B50;&#x505A;&#x53CD;
+&#x5BF9;</li>
+<li>2. \(N\) &#x662F;&#x591A;&#x4F53;&#x7CFB;&#x7EDF;&#x603B;&#x7684;&#x7C92;&#x5B50;&#x6570;, &#x800C;&#x4E0D;&#x662F;&#x5355;&#x7C92;&#x5B50;&#x672C;&#x5F81;&#x6001; \(\{| \alpha\rangle\}\) &#x7684;&#x4E2A;&#x6570;.</li>
+</ul>
+<p>
+&#x79F0;&#x6216;&#x8005;&#x662F;&#x5BF9;&#x79F0;&#x5316;&#x5904;&#x7406;. &#x5B83;&#x7684;&#x5B8C;&#x5907;&#x6027;&#x53EF;&#x4EE5;&#x5199;&#x4E3A;
+</p>
+\begin{align}
+\sum_{\alpha_1, \cdots,\alpha_N}|\alpha_1 , \alpha_2, \cdots, \alpha_N) (\alpha_1 , \alpha_2, \cdots, \alpha_N| = 1
+\end{align}
+<p>
+&#x56E0;&#x6B64;&#x5728;&#x8FD9;&#x6837;&#x4E00;&#x7EC4;&#x57FA;&#x5E95;&#x4E0B;, density opertor &#x7684;&#x77E9;&#x9635;&#x8868;&#x793A;, &#x4E5F;&#x5C31;&#x662F; density matrix &#x53EF;&#x4EE5;&#x5199;&#x4E3A;
+</p>
+\begin{align}
+&amp;\rho_N(\alpha_1 , \alpha_2, \cdots, \alpha_N ;\alpha_1&apos; , \alpha_2&apos;, \cdots, \alpha_N&apos;)\\
+=&amp; (\alpha_1 , \alpha_2, \cdots, \alpha_N| \hat{\rho}_N |\alpha_1&apos; , \alpha_2&apos;, \cdots, \alpha_N&apos;) \\
+    =&amp; (\alpha_1 , \alpha_2, \cdots, \alpha_N| \Psi_{\mathrm{N-particles}}\rangle\langle\Psi_{\mathrm{N-particles}}
+                      |\alpha_1&apos; , \alpha_2&apos;, \cdots, \alpha_N&apos;)
+\end{align}
+<p>
+&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x60C5;&#x51B5;&#x662F;&#x5C06;&#x57FA;&#x5E95;&#x9009;&#x4E3A;&#x7A7A;&#x95F4;&#x5750;&#x6807;, &#x5C31;&#x53EF;&#x4EE5;&#x5199;&#x6210;&#x591A;&#x4F53;&#x6CE2;&#x51FD;&#x6570;&#x7684;&#x5F62;&#x5F0F;
+</p>
+\begin{align}
+ \rho_N(r_1 , r_2, \cdots, r_N ;r_1&apos; , r_2&apos;, \cdots, r_N&apos;)
+= \Psi_{\mathrm{N-particles}}(r_1 , r_2, \cdots, r_N)
+   \Psi^{*}_{\mathrm{N-particles}}(r_1&apos; , r_2&apos;, \cdots, r_N&apos;)
+\end{align}
+<p>
+&#x5176;&#x4E2D;&#x6CE2;&#x51FD;&#x6570;&#x4E3A; (Negele &amp; Orland Eq.(1.49))
+</p>
+\begin{align}
+\Psi_{\mathrm{N-particles}}(r_1 , r_2, \cdots, r_N)
+ = (r_1 , r_2, \cdots, r_N| \Psi_{\mathrm{N-particles}}\rangle
+\end{align}
+<p>
+&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5BF9; \(\rho_N\) &#x6C42; trace, &#x4E5F;&#x5C31;&#x662F;&#x5BF9;&#x53D6; \(r_1&apos; = r_1, r_2&apos; = r_2, \cdots, r_N&apos; = r_N\) , &#x518D;
+&#x5BF9;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x6307;&#x6807;&#x6C42;&#x548C;, &#x4F1A;&#x53D1;&#x73B0;&#x7ED3;&#x679C;&#x662F; \(1\) , &#x4ECE;&#x591A;&#x4F53;&#x6CE2;&#x51FD;&#x6570;
+\(\Psi_{\mathrm{N-particles}}(r_1 , r_2, \cdots, r_N)\) &#x7684;&#x5F52;&#x4E00;&#x5316;&#x4E5F;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x8FD9;&#x4E00;&#x70B9;.
+</p>
+
+<blockquote>
+<p>
+Example: 2 Fermions
+</p>
+
+<p>
+\(2\) spin \(1/2\) Fermions, &#x4E00;&#x4E2A;&#x5728; spin up, &#x4E00;&#x4E2A;&#x5728; spin down, &#x5E76;&#x4E14;&#x7A7A;&#x95F4;&#x6CE2;&#x51FD;&#x6570;&#x662F;&#x4EA4;&#x6362;
+&#x5BF9;&#x79F0;&#x7684;. &#x8003;&#x8651;&#x5176;&#x81EA;&#x65CB;&#x90E8;&#x5206;&#x7684; density opertor.
+</p>
+
+<p>
+&#x56E0;&#x4E3A; Fermion &#x603B;&#x7684;&#x6CE2;&#x51FD;&#x6570;&#x662F;&#x4EA4;&#x6362;&#x53CD;&#x5BF9;&#x79F0;&#x7684;, &#x800C;&#x8FD9;&#x91CC;&#x5DF2;&#x7ECF;&#x5047;&#x8BBE;&#x7A7A;&#x95F4;&#x6CE2;&#x51FD;&#x6570;&#x662F;&#x4EA4;&#x6362;&#x5BF9;&#x79F0;&#x7684;, &#x6240;
+&#x4EE5;&#x81EA;&#x65CB;&#x90E8;&#x5206;&#x53EA;&#x80FD;&#x662F;&#x4EA4;&#x6362;&#x53CD;&#x5BF9;&#x79F0;&#x7684;. &#x53CD;&#x5BF9;&#x79F0;&#x5316;(&#x53EA;&#x6709;&#x5355;&#x4E2A;&#x7C92;&#x5B50;&#x5904;&#x4E8E;&#x7684;&#x6001;&#x6B63;&#x4EA4;&#x65F6;&#x624D;&#x80FD;&#x591F;&#x8FD9;&#x6837;&#x53CD;&#x5BF9;
+&#x79F0;&#x5316;, &#x8BE6;&#x89C1; Negele, J. W. &amp; Orland)&#x540E;&#x7684; \(2\) &#x7C92;&#x5B50;&#x6001;&#x7684;&#x81EA;&#x65CB;&#x90E8;&#x5206;&#x4E3A;(&#x4E5F;&#x5C31;&#x662F;&#x81EA;&#x65CB;&#x5355;&#x6001;)
+</p>
+\begin{align}
+|\Psi_{\mathrm{2-particles}} \rangle
+  = \frac{1}{\sqrt{2}}(|\uparrow\rangle \otimes |\downarrow\rangle - |\downarrow\rangle\otimes|\uparrow\rangle)
+\end{align}
+<p>
+&#x9009;&#x53D6;&#x5355;&#x7C92;&#x5B50;&#x6001;&#x57FA;&#x5E95;&#x4E3A; \(\{|\uparrow\rangle, |\downarrow\rangle\}\) . &#x5728;&#x6B64;&#x57FA;&#x5E95;&#x4E0B;, spin up &#x548C; spin down &#x8868;&#x793A;&#x4E3A;
+</p>
+\begin{align}
+|\uparrow\rangle \sim&amp; \begin{pmatrix} \langle\uparrow|\uparrow\rangle \\\langle\downarrow|\uparrow\rangle  \end{pmatrix}
+  = \begin{pmatrix} 1 \\0  \end{pmatrix} \\
+|\downarrow\rangle \sim&amp; \begin{pmatrix} \langle\downarrow|\uparrow\rangle \\\langle\downarrow|\uparrow\rangle  \end{pmatrix}
+  = \begin{pmatrix} 0 \\1  \end{pmatrix}
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(\sim\) &#x8868;&#x793A; &apos;represented by&apos; (&#x53C2;&#x89C1; Sakurai &amp; Napolitano).
+</p>
+
+<p>
+&#x76F4;&#x79EF;
+</p>
+\begin{align}
+|\uparrow \downarrow ) = |\uparrow\rangle \otimes |\downarrow\rangle &amp;\sim \begin{pmatrix} 1 \\0  \end{pmatrix}\otimes
+        \begin{pmatrix} 0 \\1  \end{pmatrix}
+  = \begin{pmatrix} 1\times 0 \\1\times 1\\ 0\times 0\\0\times 1  \end{pmatrix}
+  = \begin{pmatrix} 0 \\1\\  0\\0 \end{pmatrix} \\
+|\downarrow \uparrow) = |\downarrow\rangle\otimes|\uparrow\rangle&amp; \sim\begin{pmatrix} 0 \\0\\  1\\0 \end{pmatrix}
+\end{align}
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;
+</p>
+\begin{align}
+|\Psi_{\mathrm{2-particles}} \rangle
+  \sim\begin{pmatrix} (\uparrow \uparrow |\Psi_{\mathrm{2-particles}} \rangle\\
+                   (\uparrow \downarrow |\Psi_{\mathrm{2-particles}} \rangle\\
+                   (\downarrow \uparrow |\Psi_{\mathrm{2-particles}} \rangle\\
+                   (\downarrow \downarrow |\Psi_{\mathrm{2-particles}} \rangle
+    \end{pmatrix}
+=\frac{1}{\sqrt{2}}\left(\begin{pmatrix} 0 \\1\\ 0\\0 \end{pmatrix}
+             - \begin{pmatrix} 0 \\ 0 \\ 1\\0  \end{pmatrix}\right)
+= \frac{1}{\sqrt{2}}\begin{pmatrix} 0 \\1\\ -1\\0 \end{pmatrix}
+\end{align}
+<p>
+&#x4E5F;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x7B97;, &#x6BD4;&#x5982;
+</p>
+\begin{align}
+(\uparrow \uparrow |\Psi_{\mathrm{2-particles}} \rangle = \langle \uparrow |\otimes \langle\uparrow|\Psi_{\mathrm{2-particles}} \rangle
+= \frac{1}{\sqrt{2}} (\langle \uparrow |\otimes \langle\uparrow|)\cdot(|\uparrow\rangle \otimes |\downarrow\rangle - |\downarrow\rangle\otimes|\uparrow\rangle)
+\end{align}
+<p>
+&#x5176;&#x4E2D;
+</p>
+\begin{align}
+\langle \uparrow |\otimes \langle\uparrow|\cdot|\uparrow\rangle \otimes |\downarrow\rangle = \langle\uparrow|\uparrow \rangle\langle\uparrow|\downarrow\rangle = 0
+\end{align}
+<p>
+&#x5982;&#x6B64;&#x8FD9;&#x822C;, &#x6240;&#x6709;&#x7684;&#x9879;&#x90FD;&#x53EF;&#x4EE5;&#x7B97;&#x51FA;&#x6765;.
+</p>
+
+<p>
+Density operator and density matrix
+</p>
+\begin{align}
+\hat{\rho}_N =&amp; |\Psi_{\mathrm{2-particles}} \rangle\langle\Psi_{\mathrm{2-particles}} |\sim
+\rho \\
+=&amp;
+\frac{1}{2} \begin{pmatrix} 0 \\1\\ -1\\0 \end{pmatrix}
+\begin{pmatrix} 0 &amp;1 &amp; -1 &amp;0 \end{pmatrix}
+= \frac{1}{2} \begin{pmatrix} 0 &amp; 0 &amp; 0 &amp; 0 \\
+                       0&amp; 1 &amp; -1 &amp; 0\\
+                       0&amp; -1 &amp; 1 &amp; 0\\
+                       0&amp; 0 &amp; 0 &amp; 0 \end{pmatrix}
+\end{align}
+<p>
+&#x5F88;&#x660E;&#x663E;, &#x5B83;&#x7684;&#x8FF9;&#x662F; \(1\) .
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org1cbbacd" class="outline-2">
+<h2 id="org1cbbacd">Reduced density matrix</h2>
+<div class="outline-text-2" id="text-org1cbbacd">
+<p>
+&#x6309;&#x7167; C. N. Yang 1962 &#x4E2D;&#x5355;&#x4F53;&#x5BC6;&#x5EA6;&#x7B97;&#x7B26;&#x7684;&#x5B9A;&#x4E49;
+</p>
+\begin{align}
+\langle j | \rho_1 | i\rangle \equiv \mathrm{Sp} \, a_j \rho a_i^{\dagger}
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(i, j\) &#x8868;&#x793A;&#x5355;&#x7C92;&#x5B50;&#x6001;.
+</p>
+
+<p>
+&#x7528;&#x8FD9;&#x7BC7;&#x535A;&#x5BA2;&#x91CC;&#x7684;&#x7B26;&#x53F7;&#x6765;&#x8868;&#x8FBE;&#x5C31;&#x662F;
+</p>
+\begin{align}
+\rho_1(\alpha; \alpha&apos;) \equiv \sum_{\alpha_2, \alpha_3,\cdots \alpha_N} (\alpha_2, \alpha_3, \cdots \alpha_N |\hat{a}_{\alpha}
+                  \hat{\rho}_N \hat{a}_{\alpha&apos;}^{\dagger}| \alpha_2, \alpha_3, \cdots, \alpha_N)
+\end{align}
+<p>
+&#x4E5F;&#x5C31;&#x662F;
+</p>
+\begin{align}
+\rho_1(\alpha, \alpha&apos;)=&amp; \sum_{\alpha_2, \alpha_3,\cdots \alpha_N}
+           (\alpha_2, \alpha_3, \cdots \alpha_N |\hat{a}_{\alpha} |\Psi_{\mathrm{N-particles}}\rangle
+           \langle\Psi_{\mathrm{N-particles}}|\hat{a}_{\alpha&apos;}^{\dagger}| \alpha_2, \alpha_3, \cdots, \alpha_N) \\
+     =&amp; \langle \Psi_{\mathrm{N-particles}} |\hat{a}_{\alpha&apos;}^{\dagger} \hat{a}_{\alpha}
+           | \Psi_{\mathrm{N-particles}}\rangle
+\end{align}
+<p>
+&#x73B0;&#x5728;, &#x6709;&#x4E00;&#x4E2A;&#x95EE;&#x9898;, &#x6211;&#x4EEC;&#x60F3;&#x77E5;&#x9053; \(\rho_1(\alpha; \alpha&apos;)\) &#x4E0E; \(\rho_N(\alpha_1, \alpha_2,\cdots, \alpha_N; \alpha_1&apos;,
+\alpha_{2}&apos;,\cdots \alpha_N&apos;)\) &#x7684;&#x5173;&#x7CFB;. &#x6CE8;&#x610F;
+</p>
+\begin{align}
+\langle\Psi_{\mathrm{N-particles}}|\hat{a}_{\alpha&apos;}^{\dagger}| \alpha_2, \alpha_3, \cdots, \alpha_N)
+\neq \langle\Psi_{\mathrm{N-particles}}|\sqrt{n_{\alpha&apos;} +1}| \alpha&apos;, \alpha_2, \alpha_3, \cdots, \alpha_N)
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(n_{\alpha&apos;}\) &#x8868;&#x793A; \(\alpha_2, \alpha_3, \cdots, \alpha_N\) &#x4E2D;&#x6709;&#x591A;&#x5C11;&#x4E2A;&#x4E0E; \(\alpha&apos;\) &#x76F8;&#x540C;&#x7684;&#x6001;. &#x4EA7;&#x751F;&#x7B97;&#x7B26;&#x5E94;
+&#x8BE5;&#x4F5C;&#x7528;&#x5728;&#x5BF9;&#x79F0;&#x5316;&#x8FC7;&#x7684;&#x6001;&#x4E0A;, &#x5373;
+</p>
+\begin{align}
+\hat{a}_{\alpha&apos;}^{\dagger}| \alpha_2, \alpha_3, \cdots, \alpha_N\rangle = \sqrt{n_{\alpha&apos;} +1}| \alpha&apos;, \alpha_2, \alpha_3, \cdots, \alpha_N\rangle
+\end{align}
+<p>
+&#x4E8C;&#x8005;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x4E3A; (Negele &amp; Orland Eq.(1.46))
+</p>
+\begin{align}
+|\alpha_1, \alpha_2, \alpha_3, \cdots, \alpha_N\rangle = \frac{1}{\sqrt{N! \prod_\alpha n_{\alpha}!}}
+  \sum_P\zeta^P |\alpha_{P1} , \alpha_{P2}, \alpha_{P3}, \cdots , \alpha_{PN} )
+\end{align}
+<p>
+&#x5176;&#x4E2D; \(P\) &#x8868;&#x793A;&#x7F6E;&#x6362;, \(\zeta = \pm 1\) (Boson \(+1\) , Fermion \(-1\) ) . &#x56E0;&#x6B64;&#x6709;
+</p>
+\begin{align}
+   &amp;\langle\Psi_{\mathrm{N-particles}}| \alpha_1, \alpha_2, \alpha_3, \cdots, \alpha_N\rangle \\
+  =&amp; \frac{1}{\sqrt{N! \prod_\alpha n_{\alpha}!}}
+  \sum_P\zeta^P\langle\Psi_{\mathrm{N-particles}}|\alpha_{P1} , \alpha_{P2}, \alpha_{P3}, \cdots , \alpha_{PN}) \\
+=&amp; \frac{1}{\sqrt{N! \prod_\alpha n_{\alpha}!}}
+  \sum_P\zeta^P\cdot \zeta^P\langle\Psi_{\mathrm{N-particles}}|\alpha_{1} , \alpha_{2}, \alpha_{3}, \cdots , \alpha_{N}) \\
+=&amp; \frac{1}{\sqrt{N! \prod_\alpha n_{\alpha}!}}
+  N! \langle\Psi_{\mathrm{N-particles}}|\alpha_{1} , \alpha_{2}, \alpha_{3}, \cdots , \alpha_{N}) \\
+=&amp; \sqrt{\frac{N!}{ \prod_\alpha n_{\alpha}!}}
+  \langle\Psi_{\mathrm{N-particles}}|\alpha_{1} , \alpha_{2}, \alpha_{3}, \cdots , \alpha_{N})
+\end{align}
+<p>
+&#x540C;&#x7406;
+</p>
+\begin{align}
+   &amp;\langle\Psi_{\mathrm{N-particles}}| \alpha_1, \alpha_2, \alpha_3, \cdots, \alpha_N\rangle \\
+=&amp;\langle\Psi_{\mathrm{N-particles}}|\frac{1}{\sqrt{n_{\alpha_1}}}\hat{a}^{\dagger}_{\alpha_1} |\alpha_2, \alpha_3, \cdots, \alpha_N\rangle \\
+=&amp; \frac{1}{\sqrt{n_{\alpha_1}}}\sqrt{\frac{(N - 1)!}{\frac{1}{n_{\alpha_1}} \prod_\alpha n_{\alpha}!}}
+  \langle\Psi_{\mathrm{N-particles}}|\hat{a}^{\dagger}_{\alpha_1}|\alpha_{2}, \alpha_{3}, \cdots , \alpha_{N}) \\
+=&amp; \sqrt{\frac{(N - 1)!}{ \prod_\alpha n_{\alpha}!}}
+   \langle\Psi_{\mathrm{N-particles}}|\hat{a}^{\dagger}_{\alpha_1}|\alpha_{2}, \alpha_{3}, \cdots , \alpha_{N})
+\end{align}
+<p>
+&#x8FD9;&#x6837;&#x5C31;&#x5F97;&#x5230;
+</p>
+\begin{align}
+\sqrt{N}\langle\Psi_{\mathrm{N-particles}}|\alpha_{1} , \alpha_{2}, \alpha_{3}, \cdots , \alpha_{N})
+= \langle\Psi_{\mathrm{N-particles}}|\hat{a}^{\dagger}_{\alpha_1}|\alpha_{2}, \alpha_{3}, \cdots , \alpha_{N})
+\end{align}
+
+<p>
+&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x5C31;&#x77E5;&#x9053;&#x4E86;  \(\rho_1(\alpha, \alpha&apos;)\) &#x4E0E; \(\rho_N(\alpha_1, \alpha_2,\cdots, \alpha_N; \alpha_1&apos;,
+\alpha_{2}&apos;,\cdots \alpha_N&apos;)\) &#x7684;&#x5173;&#x7CFB;, &#x5373;
+</p>
+\begin{align}
+\rho_1(\alpha; \alpha&apos;) =&amp; \sum_{\alpha_2, \alpha_3,\cdots \alpha_N}
+           (\alpha_2, \alpha_3, \cdots \alpha_N |\hat{a}_{\alpha} |\Psi_{\mathrm{N-particles}}\rangle
+           \langle\Psi_{\mathrm{N-particles}}|\hat{a}_{\alpha&apos;}^{\dagger}| \alpha_2, \alpha_3, \cdots, \alpha_N) \\
+  = &amp; N \sum_{\alpha_2, \alpha_3,\cdots \alpha_N}
+           (\alpha, \alpha_2, \alpha_3, \cdots \alpha_N |\Psi_{\mathrm{N-particles}}\rangle
+           \langle\Psi_{\mathrm{N-particles}}|\alpha&apos;, \alpha_2, \alpha_3, \cdots, \alpha_N) \\
+  = &amp; N \sum_{\alpha_2, \alpha_3,\cdots \alpha_N} \rho_N(\alpha, \alpha_2,\cdots, \alpha_N; \alpha&apos;, \alpha_{2},\cdots \alpha_N)
+\end{align}
+<p>
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;, &#x591A;&#x4F53;&#x7CFB;&#x7EDF;&#x7684;&#x5355;&#x4F53;&#x5BC6;&#x5EA6;&#x77E9;, &#x5C31;&#x662F;&#x5C06;&#x591A;&#x4F53;&#x7CFB;&#x7EDF;&#x7684;&#x5BC6;&#x5EA6;&#x77E9;&#x9635;&#x6C42;&#x504F;&#x8FF9; (Partial trace),
+&#x53EA;&#x7559;&#x4E0B;&#x4E00;&#x5BF9;&#x6307;&#x6807;. &#x5982;&#x679C;&#x6211;&#x4EEC;&#x5BF9; \(\rho_1(\alpha, \alpha&apos;)\) &#x6C42; trace, &#x4F1A;&#x53D1;&#x73B0;
+</p>
+\begin{align}
+\sum_{\alpha} \rho_1(\alpha; \alpha) = N
+\end{align}
+<p>
+&#x6B64;&#x5373; C. N. Yang 1962 &#x4E2D;&#x7684; Eq.(4) .
+</p>
+
+<p>
+&#x6211;&#x4EEC;&#x53EF;&#x4EE5; inductive &#x5730;&#x5B9A;&#x4E49;&#x591A;&#x4F53;&#x7CFB;&#x7EDF;&#x7684;&#x4E24;&#x4F53;&#x7B97;&#x7B26;, &#x4E09;&#x4F53;&#x7B97;&#x7B26;&#x7B49;&#x7B49;.
+</p>
+
+<blockquote>
+<p>
+Example 1: 3 Bosons
+</p>
+
+<p>
+\(2\) &#x4E2A;&#x672C;&#x5F81;&#x6001;, \(\{|\alpha\rangle , |\beta\rangle\}\) , 3 &#x4E2A; Boson, &#x5168;&#x90FD;&#x5904;&#x4E8E; \(|\alpha\rangle\) &#x6001;. &#x5728; \(\{|\alpha\rangle
+, |\beta\rangle\}\) &#x57FA;&#x5E95;&#x4E0B;
+</p>
+\begin{align}
+|\Psi_{\mathrm{3-particles}} \rangle &amp;= \frac{1}{\sqrt{3! 3!}} \cdot 3! |\alpha, \alpha, \alpha) \\
+  &amp;\sim (1, 0, 0, 0, 0, 0, 0, 0)^T
+\end{align}
+<p>
+density opertor and density matrix
+</p>
+\begin{align}
+\hat{\rho}_3 \sim \begin{pmatrix}
+            1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
+           \end{pmatrix}
+\end{align}
+
+\begin{align}
+\hat{\rho}_1 \sim 3  \begin{pmatrix}
+            1 &amp; 0\\
+            0 &amp; 0\\
+         \end{pmatrix}
+\end{align}
+<p>
+&#x53EF;&#x4EE5;&#x53D1;&#x73B0; \(\rho_1\) &#x7684;&#x5BF9;&#x89D2;&#x5143;&#x8868;&#x793A;&#x6BCF;&#x4E2A;&#x672C;&#x5F81;&#x6001;&#x4E0A;&#x7684;&#x7C92;&#x5B50;&#x6570;
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+Example 2: 3 Bosons
+</p>
+
+<p>
+\(2\) &#x4E2A;&#x672C;&#x5F81;&#x6001;, \(\{|\alpha\rangle , |\beta\rangle\}\) , 3 &#x4E2A; Boson (&#x8BB0;&#x4E3A; \(A, B, C\) ), &#x4E24;&#x4E2A;&#x5904;&#x4E8E; \(|\alpha\rangle\) &#x6001;,
+&#x4E00;&#x4E2A;&#x5904;&#x4E8E; \(|\beta\rangle\) &#x5728; \(\{|\alpha\rangle , |\beta\rangle\}\) &#x57FA;&#x5E95;&#x4E0B;(&#x5982;&#x679C;&#x6211;&#x6CA1;&#x7B97;&#x9519;&#x7684;&#x8BDD;)
+</p>
+\begin{align}
+\hat{\rho}_3 \sim\rho_3=  \frac{2!}{3!}\begin{pmatrix}
+            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
+           \end{pmatrix}
+\end{align}
+<p>
+&#x4E24;&#x4F53;&#x5BC6;&#x5EA6;&#x77E9;&#x9635;
+</p>
+\begin{align}
+\hat{\rho}_2 \sim\rho_2 = 3(3-1)\mathrm{Tr}_C\rho_{3}
+          = 3(3-1)\frac{2!}{3!}\begin{pmatrix}
+            1 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 1 &amp; 1 &amp; 0 \\
+            0 &amp; 1 &amp; 1 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 \\
+           \end{pmatrix}
+\end{align}
+<p>
+&#x5355;&#x4F53;&#x5BC6;&#x5EA6;&#x77E9;&#x9635;
+</p>
+\begin{align}
+\hat{\rho}_1 \sim\rho_1 = 3\mathrm{Tr}_{BC}\rho_{3}
+          = 3\frac{2!}{3!}\begin{pmatrix}
+            2 &amp; 0 \\
+            0 &amp; 1 \\
+           \end{pmatrix}
+\end{align}
+</blockquote>
+<p>
+&#x518D;&#x6B21;&#x9A8C;&#x8BC1;&#x4E86; \(\rho_1\) &#x7684;&#x5BF9;&#x89D2;&#x5143;&#x8868;&#x793A;&#x6BCF;&#x4E2A;&#x672C;&#x5F81;&#x6001;&#x4E0A;&#x7684;&#x7C92;&#x5B50;&#x6570;. &#x6B64;&#x5373; Hui Zhai &#x4E66;&#x4E0A;&#x7684; Eq.(3.7)
+</p>
+\begin{align}
+\rho(\vec{r}, \vec{r}&apos;) = \sum_i N_i \psi_i^{*} (\vec{r}) \psi_i(\vec{r}&apos;)
+\end{align}
+</div>
+</div>
+
+
+<div id="outline-container-orge6939ce" class="outline-2">
+<h2 id="orge6939ce">Mixed state</h2>
+<div class="outline-text-2" id="text-orge6939ce">
+<p>
+&#x4E0A;&#x8FF0;&#x5185;&#x5BB9;&#x5747;&#x5728;&#x7EAF;&#x6001;&#x4E2D;&#x8BA8;&#x8BBA;, &#x53EF;&#x4EE5;&#x5BB9;&#x6613;&#x5730;&#x63A8;&#x5E7F;&#x5230;&#x6DF7;&#x5408;&#x6001;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgec35b20" class="outline-2">
+<h2 id="orgec35b20">Reference</h2>
+<div class="outline-text-2" id="text-orgec35b20">
+<ul class="org-ul">
+<li>J. J. Sakurai &amp; Jim Napolitano, Modern Quantum Mechanics, second edition. Chap
+3.4, dneisyt operators and pure versus mixed ensembles</li>
+
+<li>MIT Open Courses: <a href="https://ocw.mit.edu/courses/physics/8-421-atomic-and-optical-physics-i-spring-2014/" target="_blank" rel="noopener">Atomic and Optical Physics I</a></li>
+
+<li>Negele, J. W. &amp; Orland, H. Quantum many-particle systems. (Perseus Books,
+1998). Chapter 1</li>
+
+<li>\(|\rangle\langle|\) &#x5BF9;&#x5E94; <a href="https://en.wikipedia.org/wiki/Outer_product" target="_blank" rel="noopener">Outer product</a> , \(\otimes\) &#x5BF9;&#x5E94; <a href="https://en.wikipedia.org/wiki/Tensor_product" target="_blank" rel="noopener">Tensor product of linear maps</a></li>
+
+<li>Yang, C. N. Concept of Off-Diagonal Long-Range Order and the Quantum Phases of
+Liquid He and of Superconductors. Rev. Mod. Phys. 34, 694&#x2013;704 (1962). &#x6587;&#x7AE0;&#x4E2D;
+\(\mathrm{Sp}\) &#x5373;&#x4E3A;&#x8FF9; \(\mathrm{Tr}\) , &#x53C2;&#x89C1; <a href="https://de.wikipedia.org/wiki/Spur_(Mathematik)" target="_blank" rel="noopener">Spur</a> .</li>
+
+<li><a href="https://en.wikipedia.org/wiki/Partial_trace" target="_blank" rel="noopener">Partial trace</a></li>
+
+<li>Zhai, H. Ultracold atomic physics. (Cambridge University Press, 2020).</li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/density-matrix/" rel="tag"># density matrix</a>
+          
+            <a href="/tags/reduced-dnesity-matrix/" rel="tag"># reduced dnesity matrix</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/12/14/MITAMO06/" rel="next" title="Atomic and Optical Physics I, 06 Atoms II: Hydrogen">
+                <i class="fa fa-chevron-left"></i> Atomic and Optical Physics I, 06 Atoms II: Hydrogen
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org1361d30"><span class="nav-text">Signle particle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org5359d18"><span class="nav-text">Many body system Density operator \(\hat{\rho}_N\), Density matrix \(\rho_N\)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org1cbbacd"><span class="nav-text">Reduced density matrix</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orge6939ce"><span class="nav-text">Mixed state</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgec35b20"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
