@@ -249,7 +249,7 @@ we get
 \Delta E = (\alpha - \frac{1}{4}\beta) \pm (-\frac{\beta}{2})
 \end{align}
 where $\alpha - \frac{1}{4}\beta = \Delta E^{\mathrm{Coul}}, -\frac{\beta}{2} = \Delta
-E^{\mathrm{exch}}$ . *It looks like a ferromagnetic spin-spin interaction. * And
+E^{\mathrm{exch}}$ . *It looks like a ferromagnetic spin-spin interaction.* And
 well, it looks like it, it is actually an effective ferromagnetic spin-spin
 interaction. However, the coupling is purely electrostatic, not magnetic.
 
