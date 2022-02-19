@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZO2NvBun7x4uY6Z8FMaPRo4e9hxg3FiK-DTpOgL617M" />
+
+
+
+  <meta name="msvalidate.01" content="88CA92897B3650FB7187B3430D8C625D" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="Atomic and Optical Physics,fine structure">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Atomic and Optical Physics I, 07 Atoms III: Fine Structure">
+<meta property="og:url" content="https://zqw.ink/2022/02/19/MITAMO07/index.html">
+<meta property="og:site_name" content="从冰上的水">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zqw.ink/2022/02/19/MITAMO07/FS_Hydrogen.png">
+<meta property="og:image" content="https://zqw.ink/2022/02/19/MITAMO07/RoadMap.png">
+<meta property="og:updated_time" content="2022-02-19T14:54:42.049Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Atomic and Optical Physics I, 07 Atoms III: Fine Structure">
+<meta name="twitter:image" content="https://zqw.ink/2022/02/19/MITAMO07/FS_Hydrogen.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zqw.ink/2022/02/19/MITAMO07/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Atomic and Optical Physics I, 07 Atoms III: Fine Structure | 从冰上的水</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129332554-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129332554-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "zqw.ink";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从冰上的水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-bingo!">
+    <a href="/zqw/" rel="section">Bingo!</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-rfp-docs">
+    <a href="/rfp/_build/html" rel="section">rfp docs</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-动漫">
+    <a href="/anime/" rel="section">动漫</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-网站收藏夹">
+    <a href="/websites" rel="section">网站收藏夹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zqw.ink/2022/02/19/MITAMO07/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZQW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从冰上的水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Atomic and Optical Physics I, 07 Atoms III: Fine Structure
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2022-02-19 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-19T00:00:00+08:00">2022-02-19</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/专业笔记/" itemprop="url" rel="index"><span itemprop="name">专业笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2022/02/19/MITAMO07/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2022/02/19/MITAMO07/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<!-- toc -->
+<a id="more"></a>
+
+<div id="outline-container-orgc44b756" class="outline-2">
+<h2 id="orgc44b756">Information</h2>
+<div class="outline-text-2" id="text-orgc44b756">
+<ul class="org-ul">
+<li>&#x5B98;&#x65B9;&#x4ECB;&#x7ECD;:
+<a href="https://ocw.mit.edu/courses/physics/8-421-atomic-and-optical-physics-i-spring-2014/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/physics/8-421-atomic-and-optical-physics-i-spring-2014/</a></li>
+
+<li>&#x89C6;&#x9891;&#x5217;&#x8868;&#x5730;&#x5740;: <a href="https://www.youtube.com/playlist?list=PLUl4u3cNGP62FPGcyFJkzhqq9c5cHCK32" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PLUl4u3cNGP62FPGcyFJkzhqq9c5cHCK32</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org82d58c3" class="outline-2">
+<h2 id="org82d58c3">Helium (last lecture)</h2>
+<div class="outline-text-2" id="text-org82d58c3">
+\begin{align}
+\vec{S} = \vec{S}(1) + \vec{S}(2)
+\end{align}
+
+<p>
+All spin operators are symmetric against particle exchange. In other words, if
+you couple to the spin through a magnetic field, you couple to the two electrons
+symmetrically. And therefore, you have the selection rule only symmetric and
+symmetric ( \(S \leftrightarrow S\) ) &amp; anti-symmetric and anti-symmetric ( \(A \leftrightarrow A\) ) states
+couple. &#x4E5F;&#x5C31;&#x662F;&#x8BF4; Hamiltonian &#x4E2D;&#x7684;&#x81EA;&#x65CB;&#x7B97;&#x7B26;&#x4E0D;&#x6539;&#x53D8;&#x81EA;&#x65CB;&#x7684;&#x7EC4;&#x6001;.
+</p>
+
+<p>
+Spatial and spin symmetry (S. A) are both good quantum numbers. Formally, all
+observables \(\hat{O}\) commute with particle exchange operator (&#x81EA;&#x65CB;&#x548C;&#x7A7A;&#x95F4;&#x6CA1;&#x6709;&#x8026;
+&#x5408;)
+</p>
+\begin{align}
+[P_{ij}, \hat{O}] = 0
+\end{align}
+
+<p>
+As long as wavefunctions and operators separate into spin-dependent and
+space-dependent parts
+</p>
+\begin{align}
+P_{12} = P_{12}^{\mathrm{space}} P_{12}^{\mathrm{spin}}
+\end{align}
+<p>
+and both \(P_{12}\) &apos;s are conserved.
+</p>
+
+<p>
+Singlets \(\leftrightarrow\) Triplets transition requires violation of above assumption.
+</p>
+
+<blockquote>
+<p>
+Mixing of spin and spatial WF by spin orbit coupling.
+</p>
+
+<p>
+Spin-orbital coupling \(\propto Z^4\) . Weak for Helium, \(2^{3}s\) is VERY long lived
+8000s (It&apos;s one of the most longest-lived metastable states you can imagine and
+which you find in atomic physics)
+</p>
+
+<p>
+Ne, Ar, Kr, Xe 40s.(longer, because of stronger nuclear charge)
+</p>
+
+<p>
+Mg, Ca, Sr have inter-combination lines, are candidate for atomic clocks (kHz
+line width). If the line width is kilohertz, the lifetime is millisecond &#x2026;
+</p>
+</blockquote>
+
+<p>
+Decay path: 1 photon M1(we discuss it later in the course), and not 2-photons as
+believed earlier). The decay path requires higher order terms using the Dirac
+equation with coupling to the electromagnetic field.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3cdf835" class="outline-2">
+<h2 id="org3cdf835">Fine Structure</h2>
+<div class="outline-text-2" id="text-org3cdf835">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Electronic energy</td>
+<td class="org-left">Ryd, \(\alpha^2 mc^2\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Fine structure</td>
+<td class="org-left">\(\alpha^4 mc^2\) , \(\alpha^2\) Ryd</td>
+</tr>
+
+<tr>
+<td class="org-left">Lamb shifts</td>
+<td class="org-left">\(\alpha^5 mc^2\) , GHz</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Fine structure: \(\alpha^4 mc^2\) .
+Exact picture: Dirac equation. The solution of the Dirac equation for the
+hydrogen atom gives us the electronic structure, the same as comes out of the
+Bohr model, but now including the fine structure.
+</p>
+</div>
+
+<div id="outline-container-org8632eb5" class="outline-3">
+<h3 id="org8632eb5">Fine Structure: 3 contributions</h3>
+<div class="outline-text-3" id="text-org8632eb5">
+<ul class="org-ul">
+<li>kinetic</li>
+
+<li>spin-orbit</li>
+
+<li>Darwin term</li>
+</ul>
+
+<p>
+Pauli approximation to the Dirac equation (expand Dirac equation in power of
+\(v/c\) , lowest order):
+</p>
+\begin{align}
+H =&amp; mc^{2} + \frac{p^2}{2m} - \frac{e^2}{r} \\
+   &amp; - \frac{p^4}{8m^3c^2}\quad \mathrm{kinetic} \\
+   &amp; + \frac{\hbar^2e^2}{2m^2 c^2}\frac{1}{r^3} \vec{L}\cdot \vec{S} \quad \mathrm{spin-orbit}\\
+   &amp; - \frac{\hbar^2}{8 m^2c^2}\nabla^2 \frac{e^2}{r} \quad \mathrm{Darwin}
+\end{align}
+</div>
+
+<div id="outline-container-orgc622be5" class="outline-4">
+<h4 id="orgc622be5">Kinetic energy</h4>
+<div class="outline-text-4" id="text-orgc622be5">
+\begin{align}
+E = \sqrt{(mc^2)^2 + (pc)^2}
+\end{align}
+\begin{align}
+T = E - mc^2 \approx \frac{p^2}{2m} - \frac{1}{8}\frac{p^4}{m^3c^2}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org7b8fd12" class="outline-4">
+<h4 id="org7b8fd12">Spin-orbit interaction</h4>
+<div class="outline-text-4" id="text-org7b8fd12">
+<p>
+insightful: what do we have to add to the Schrodinger
+equation to get it? Spin!
+</p>
+
+<p>
+\(e^-\)
+</p>
+<ul class="org-ul">
+<li>intrinsic angular moment \(\hbar \vec{S}\)</li>
+<li>magnetic moment \(\mu = g\mu_0 \vec{S}\) ( \(g = 2\) , \(\mu_0\) Bohr magneton)</li>
+</ul>
+
+<p>
+moving electron &quot;sees&quot; motional magnetic field.
+</p>
+\begin{align}
+B_{\mathrm{mot}} = - \frac{\vec{v}}{c}\times \vec{E}
+    = - \frac{\vec{v}}{c}\times \frac{e}{r^3}\vec{r} = \frac{e\hbar}{mc} \frac{1}{r^3}\vec{L}
+\end{align}
+\begin{align}
+H_{\mathrm{S.O.}} = - \vec{\mu}\cdot \vec{B}
+ = \frac{e^2 \hbar^2}{m^2 c^2}\frac{1}{r^3}\vec{S}\cdot \vec{L}
+\end{align}
+
+<blockquote>
+<p>
+relativistic transformations
+</p>
+\begin{align}
+\vec{\Omega}_{\mathrm{T}} = \frac{1}{2}\frac{\vec{a}\times \vec{v}}{c^2}
+\quad
+\begin{pmatrix}
+= 0, \quad \vec{a} // \vec{v} \\
+\mathrm{Thomas}\, \mathrm{procession}
+\end{pmatrix}
+\end{align}
+<p>
+according to Lecture 2
+</p>
+\begin{align}
+\vec{B}_{\mathrm{T}} = \frac{1}{\gamma_e}\vec{\Omega}_{\mathrm{T}},
+ \gamma_e = \frac{e}{mc}, \vec{a} = \frac{e^2}{mr^3}\vec{r}
+\end{align}
+\begin{align}
+\Rightarrow B_{\mathrm{T}} = \frac{1}{2}B_{\mathrm{mot}}
+\end{align}
+
+<p>
+&#x6768;&#x798F;&#x5BB6;&#x78B1;&#x91D1;&#x5C5E;&#x53CC;&#x7EBF;&#x4E00;&#x8282;, &#x53CA; Griffiths QM 6.3 &#x8282;&#x6709;&#x5173;&#x4E8E;&#x5750;&#x6807;&#x7CFB;&#x53D8;&#x6362;&#x7684;&#x8BA8;&#x8BBA;.
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgc65b125" class="outline-4">
+<h4 id="orgc65b125">Darwin term</h4>
+<div class="outline-text-4" id="text-orgc65b125">
+<p>
+electron is &quot;smeared(not localized) out&quot; over Compton wavelength \(\frac{\hbar}{mc}\)
+</p>
+
+<p>
+German word: Zitterbewegung (trembling motion)
+</p>
+
+<p>
+fells averaged Coulomb potential \(\bar{V(r)}\)
+</p>
+
+<p>
+small displacement \(\vec{s}\)
+</p>
+\begin{align}
+V(\vec{r} + \vec{s}) = v(\vec{r}) + \vec{\nabla} V\cdot \vec{s}
+ + \frac{1}{2} \sum_{ij} s_{xi}s_{xj} \frac{\partial^2 V}{\partial x_i \partial x_j}
+\end{align}
+<p>
+the correction:
+</p>
+\begin{align}
+\Delta V = \frac{1}{2}\frac{1}{3}\left(\frac{\hbar}{mc}\right)^2 \nabla^2V
+    = - \frac{1}{6} \frac{e^2\hbar^2}{m^2c^2}\nabla^2 \frac{1}{r}
+\end{align}
+<p>
+\(\nabla^2\frac{1}{r} \Rightarrow\) only s electrons which have a non-vanishing probability to
+feel the origin of the Coulomb potential.
+Exact coefficition is \(\frac{1}{8}\) .
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgecd076b" class="outline-4">
+<h4 id="orgecd076b">summary</h4>
+<div class="outline-text-4" id="text-orgecd076b">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">s electrons</td>
+<td class="org-left">\(l\neq 0\)</td>
+<td class="org-left">sign</td>
+</tr>
+
+<tr>
+<td class="org-left">rel KE</td>
+<td class="org-left">Yes</td>
+<td class="org-left">Yes</td>
+<td class="org-left">\(-\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\vec{L}\cdot \vec{S}\)</td>
+<td class="org-left">No</td>
+<td class="org-left">Yes</td>
+<td class="org-left">\(+/-\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Darwin</td>
+<td class="org-left">Yes</td>
+<td class="org-left">No</td>
+<td class="org-left">\(+\)</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+the Darwin term reduces the binding energy, because it sort of takes a cusp (a
+point of transition between two different states) away from the Coulomb
+interaction.
+</p>
+
+<p>
+Spin-orbit is not diagonal in \(\vec{L}, \vec{S}\) . So what we have to do is we
+have to introduce now:
+</p>
+\begin{align}
+(\vec{L} + \vec{S})^2 = \vec{J}^{2}
+\end{align}
+\begin{align}
+\vec{L}\cdot \vec{S} = \frac{1}{2}(\vec{J}^2 - \vec{L}^2 - \vec{S}^2)
+\end{align}
+<p>
+So, therefore, the LS interaction is diagonal in the J basis.
+</p>
+
+<p>
+&#x52A0;&#x4E0A; Kinetic &#x548C; Darwin &#x9879;&#x4E4B;&#x540E;, \(^2S_{1/2}, ^2P_{1/2}\) &#x53C8;&#x91CD;&#x65B0;&#x7B80;&#x5E76;. If we would use
+a non-relativistic approach, and derive the Darwin term, the spin orbit term,
+and the relativistic correction separately, there would be no reason. It would
+just look like a freak(a thing, person, animal, or event that is extremely
+unusual or unlikely, and not like any other&#x2026;) accident in nature that those two
+levels come out equal. However, it&apos;s not a freak accident. <b>It&apos;s a symmetry of
+the Dirac equation.</b> So all those corrections have a deep connection in
+relativistic physics. And <b>relativistic physics preserves the degeneracy in \(J\)</b>
+.
+</p>
+
+<p>
+Fine structure does not lift the degeneracy between \(^2S_{1/2}\) and \(^2P_{1/2}\)
+. When we use the Dirac equation, we can get an exact expression for the fine
+structure:
+</p>
+\begin{align}
+E_{\mathrm{F.S.}} = \alpha^2 mc^2 \left(-\frac{\alpha^2}{2n^4}\right)
+     \left(\frac{n}{j+\frac{1}{2}} - \frac{3}{4} \right)
+\end{align}
+<p>
+and then the <b>fine structure only depends on \(J\) , and not on \(L, S\) separately</b>
+. So that tells us that eventually the spin of the electron and the fine
+structure really have deep origins in the relativistic nature of the underlying
+physics.
+</p>
+
+
+<div id="orgaa41b16" class="figure">
+<p><img src="/2022/02/19/MITAMO07/FS_Hydrogen.png">
+</p>
+</div>
+
+<p>
+So that means at the level of \(10^{-4}\) eV, we understand atomic structure. But
+we want to go further. And the next thing we want to discuss is that &#x2014; what is
+the exact degeneracy between \(^2S_{1/2}\) and \(^2P_{1/2}\) which is actually lifted
+when we introduce photons when we allow the electrons to couple to the
+electromagnetic field, that&apos;s QED. And that introduces the Lamb shift (the
+nucleus is a point charge, has no structure).
+</p>
+
+<p>
+When we bring in the proton. So far we have said there is a point charge, but
+the proton is a particle which has finite size. But also, it has finite angular
+momentum. And then we have HFS.
+</p>
+
+
+<div id="orged59664" class="figure">
+<p><img src="/2022/02/19/MITAMO07/RoadMap.png">
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd99c569" class="outline-2">
+<h2 id="orgd99c569">Lamb Shift (QED)</h2>
+<div class="outline-text-2" id="text-orgd99c569">
+<p>
+The discovery of this lifting of the degeneracy actually opened up the field for
+the development of quantum electrodynamics.
+</p>
+
+<p>
+If you fully quantize the electromagnetic field, you have a vector potential
+which describes the vacuum mode. And you have a vector potential, which is the
+operator of the fully-quantized field. And if you now carry out second-order
+perturbation theory in this operator \(A\) of the quantized electromagnetic
+field. In other words, you allow the atom or the electron in the atom to couple
+to all the empty modes of the vacuum. Then you obtain the Lamb shift in its full beauty.
+</p>
+
+
+<p>
+The nature of the Lamb shift is the coupling to the vacuum modes. But I want to
+capture that now in a semi-classical picture.
+</p>
+</div>
+
+<div id="outline-container-orgd79d83e" class="outline-3">
+<h3 id="orgd79d83e">Simple picture due to <a href="https://en.wikipedia.org/wiki/Theodore_A._Welton" target="_blank" rel="noopener">Welton</a> &amp; <a href="https://en.wikipedia.org/wiki/Victor_Weisskopf" target="_blank" rel="noopener">Weisskopf</a></h3>
+<div class="outline-text-3" id="text-orgd79d83e">
+<p>
+the vacuum is filled with a zero point energy of the electromagnetic field.
+</p>
+
+<p>
+EM modes  have zero point energy \(\frac{1}{2}\hbar\omega\) density of modes (per volume
+and frequency interval)
+</p>
+
+<blockquote>
+<p>
+Now in addition to its own trembling motion, the electron is now shaken by the
+electric field of vacuum. And this leads to an additional smear out. This is the
+Lamb shift.
+</p>
+</blockquote>
+\begin{align}
+\rho(\nu) \mathrm{d}\nu = 8\pi \frac{\nu^2}{c^3}\mathrm{d}\nu
+\end{align}
+<p>
+zero point density
+</p>
+\begin{align}
+W_0 = \frac{1}{2}h\nu \rho(\nu) = 4\pi\frac{h\nu^3}{c^3} = \frac{1}{8\pi} E_{\nu^2}
+\end{align}
+<p>
+So therefore, what we derive from this picture, that the vacuum is filled with
+an oscillating electric field. And this oscillating electric field is
+characterized by a value, by a spectral density
+</p>
+\begin{align}
+E_{\nu}^2 = \frac{32\pi^2 h\nu^3}{c^3}
+\end{align}
+
+<p>
+What is the effect of such a field on a free electron? And we will later discuss
+that for very high-frequencies, an electron can be regarded as free.
+</p>
+\begin{align}
+m \ddot{s_{\nu}} =&amp; e E_{\nu} \cos (2\pi\nu t) \\
+\Rightarrow s_{\nu} =&amp; \frac{e E_{\nu}}{2\pi \nu^2 m}(- \cos(2\pi\nu t))
+\end{align}
+<p>
+where \(s\) is coordinate of electron.
+</p>
+
+<p>
+Of course, the phase is random, so we&apos;re not interested in the amplitude . We
+are interested in sort of an average amplitude square or an RMS amplitude.
+</p>
+\begin{align}
+\bar{S_{\nu}^2} = \frac{e^2}{32\pi^4m^2\nu^4}E_{\nu}^2 = \frac{c^2h}{\pi^2 m^2 e^3}\frac{1}{\nu}
+\end{align}
+<p>
+like Darwin term
+</p>
+\begin{align}
+\Delta V = \frac{s_{\nu}^2}{6} \nabla^2 V(r) = \frac{s_{\nu}^2}{6} \cdot 4\pi z\delta(r)
+\end{align}
+<p>
+These smear out ( \(s_{\nu}^2\) ) of the electron leads to a change of the average Coulomb
+potential. And that means now that we get a change of the binding energy of the
+electron, which is nothing else in perturbation theory than the matrix element
+of the perturbation operator
+</p>
+\begin{align}
+\delta W_{\nu} = \frac{2\pi}{3} e^2 s_{\nu}^2 \langle \psi | \delta(r) | \psi\rangle
+\end{align}
+<p>
+\(\langle \psi | \delta(r) | \psi\rangle\) only affects s electron \(\frac{Z^3}{\pi n^3a_0^3}\)
+</p>
+
+<p>
+integrate over \(\nu\)
+</p>
+\begin{align}
+\delta W = \frac{4}{3\pi}\alpha^3 \frac{Z^4}{n^e}
+    \mathrm{ln} \left[ \frac{\nu_{\mathrm{max}}}{\nu_{\mathrm{min}}} \right]
+\end{align}
+<p>
+we have divergences at both ends. So we need a cutoff at a minimum and at a
+maximum frequency. \(\nu_{\mathrm{max}} \approx mc^2\) , \(\nu_{\mathrm{min}} =\) frequency
+of the orbital electron
+</p>
+\begin{align}
+\frac{Z^2}{n^3} 2 \mathrm{Ryd.}
+\end{align}
+<p>
+so
+</p>
+\begin{align}
+\frac{\nu_{\mathrm{max}}}{\nu_{\mathrm{min}}}
+\approx \frac{n^3}{Z^2\alpha^{2}}
+\end{align}
+<p>
+if we apply it to 2s state which is most important because there is the
+degeneracy between \(^2S_{1/2}\) and \(^2P_{1/2}\) to be lifted, we get a result that
+the energy splitting is now
+</p>
+\begin{align}
+\delta W = \frac{1}{6\pi}\alpha^3 \mathrm{ln}\frac{8}{\alpha^2}\approx 1600 \mathrm{MHz}
+\end{align}
+<p>
+exact value is 1058 MHz.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd997398" class="outline-2">
+<h2 id="orgd997398">Reference</h2>
+<div class="outline-text-2" id="text-orgd997398">
+<ul class="org-ul">
+<li><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.103.053002" target="_blank" rel="noopener">S. S. Hodgman, R. G. Dall, L. J. Byron, K. G. H. Baldwin, S. J. Buckman, and
+A. G. Truscott Phys. Rev. Lett. 103, 053002 &#x2013; Published 30 July 2009</a></li>
+
+<li><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.100.023001" target="_blank" rel="noopener">Phys. Rev. Lett. 100, 023001 &#x2013; Published 15 January 2008, Experimental
+Determination of the Helium \(2^3P_1&#x2013;1^1S_0\) Transition Rate</a></li>
+
+<li><a href="https://en.wikipedia.org/wiki/Zitterbewegung" target="_blank" rel="noopener">Wikipedia: Zitterbewegung</a></li>
+
+<li><a href="https://en.wikipedia.org/wiki/Theodore_A._Welton" target="_blank" rel="noopener">Wikipedia: Welton</a></li>
+
+<li><a href="https://en.wikipedia.org/wiki/Victor_Weisskopf" target="_blank" rel="noopener">Wikipedia: Weisskopf</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Atomic-and-Optical-Physics/" rel="tag"># Atomic and Optical Physics</a>
+          
+            <a href="/tags/fine-structure/" rel="tag"># fine structure</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/02/18/summary_grade_5_1/" rel="next" title="研五上学期总结">
+                <i class="fa fa-chevron-left"></i> 研五上学期总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZQW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/phyer219" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zeqing6688@126.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc44b756"><span class="nav-text">Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org82d58c3"><span class="nav-text">Helium (last lecture)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org3cdf835"><span class="nav-text">Fine Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org8632eb5"><span class="nav-text">Fine Structure: 3 contributions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orgc622be5"><span class="nav-text">Kinetic energy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org7b8fd12"><span class="nav-text">Spin-orbit interaction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgc65b125"><span class="nav-text">Darwin term</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgecd076b"><span class="nav-text">summary</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd99c569"><span class="nav-text">Lamb Shift (QED)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd79d83e"><span class="nav-text">Simple picture due to Welton &amp; Weisskopf</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd997398"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZQW</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'HxcUg2XNBWPi9lDuoyHrlC1Y-gzGzoHsz',
+        appKey: 'xOIbh9F1fupdsCevG0asqN0W',
+        placeholder: '.',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
