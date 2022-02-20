@@ -198,6 +198,11 @@ and then the *fine structure only depends on $J$ , and not on $L, S$ separately*
 structure really have deep origins in the relativistic nature of the underlying
 physics.
 
+但这个简并只对单电子的系统有效. 见 Demtröder, W. Atoms, Molecules and Photons:
+An Introduction to Atomic-, Molecular- and Quantum Physics. (Springer Berlin
+Heidelberg, 2018)  第 167, 168 页 5.5.4
+Spin-Orbit Coupling and Fine Structure.
+
 [[file:2022-02-19-专业笔记-MITAMO07/FS_Hydrogen.png]]
 
 So that means at the level of $10^{-4}$ eV, we understand atomic structure. But
@@ -318,3 +323,8 @@ exact value is 1058 MHz.
 - [[https://en.wikipedia.org/wiki/Theodore_A._Welton][Wikipedia: Welton]]
 
 - [[https://en.wikipedia.org/wiki/Victor_Weisskopf][Wikipedia: Weisskopf]]
+
+- Demtröder, W. Atoms, Molecules and Photons: An Introduction to Atomic-,
+  Molecular- and Quantum Physics. (Springer Berlin Heidelberg, 2018)
+
+- [[https://en.wikipedia.org/wiki/Fine_structure][wikipedia: Fine structure]]
